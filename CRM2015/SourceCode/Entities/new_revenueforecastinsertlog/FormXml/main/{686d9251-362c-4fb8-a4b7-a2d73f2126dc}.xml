@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{686d9251-362c-4fb8-a4b7-a2d73f2126dc}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab verticallayout="true" id="{f9baf5db-4851-4f0d-8d0c-3e1285747e6c}" IsUserDefined="1" name="{f9baf5db-4851-4f0d-8d0c-3e1285747e6c}" locklevel="0" expanded="true" showlabel="true">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{9cd4aac6-fb4b-49fc-baaa-d9f67017abf2}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{bcc30ce2-8840-4fe4-af05-57153e33972c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_name" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{61d82042-54a4-4e73-850a-41fa88be6e1a}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b652b01c-8069-255e-c2b9-b452a799a2b6}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Created On" languagecode="1033" />
+                        <label description="Fecha de creación" languagecode="3082" />
+                      </labels>
+                      <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c309999d-96a1-c003-2710-2ebed702c4a3}" showlabel="true" locklevel="0" rowspan="3">
+                      <labels>
+                        <label description="Summary" languagecode="1033" />
+                      </labels>
+                      <control id="new_summary" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_summary" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{7b216050-a4ba-3b28-9871-26638b37ac82}" showlabel="true" locklevel="0" rowspan="6">
+                      <labels>
+                        <label description="Error Log" languagecode="1033" />
+                      </labels>
+                      <control id="new_errolog" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_errolog" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{3b08940a-7133-45e4-bd2d-99e63c7aa672}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab verticallayout="true" id="{161d12c8-340b-4ebc-94d8-1e47aa943289}" IsUserDefined="1">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{275043e4-c323-4f2d-a0d0-f047ce5cef26}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{596fa778-10ef-4fd1-9d14-b8fbcdf8025d}" colspan="2">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_name" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ce299bc2-4237-4e7e-329a-89edc5bbe5c9}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status Reason" languagecode="1033" />
+                        <label description="Razón para el estado" languagecode="3082" />
+                      </labels>
+                      <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
+                    </cell>
+                    <cell id="{661e8143-4e8d-57b8-e789-2b95d6c03083}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Doc Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_doctype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_doctype" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c7ac4736-962d-859d-bd04-0ad3a792b1e7}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Total Amount" languagecode="1033" />
+                      </labels>
+                      <control id="new_totalamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_totalamount" disabled="false" />
+                    </cell>
+                    <cell id="{369cb9a9-2038-d39e-db74-4c00ae762137}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Physical Delivery Date" languagecode="1033" />
+                      </labels>
+                      <control id="new_physicaldeliverydate1" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="new_physicaldeliverydate1" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab id="{5247c0c9-08c0-4074-b04b-dfded3ce0b5a}" IsUserDefined="0" expanded="false">
+        <labels>
+          <label description="Notes" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" id="{24ac6cd0-c3fa-4488-be2f-690b677d403f}" IsUserDefined="0" height="auto">
+                <labels>
+                  <label description="Notes" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell colspan="2" showlabel="false" rowspan="5" auto="true" id="{b0de1c18-94b7-4be5-a9f9-f97be7dda841}">
+                      <labels>
+                        <label description="Note Text" languagecode="1033" />
+                      </labels>
+                      <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row height="auto"></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <header id="{af12f5d0-27ba-416f-8491-44e20a0615d5}" columns="111">
+      <rows>
+        <row>
+          <cell id="{351802d0-ed96-bca3-b6b5-db275b84573d}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Created By" languagecode="1033" />
+              <label description="Autor" languagecode="3082" />
+            </labels>
+            <control id="header_createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="true" />
+          </cell>
+          <cell id="{2c3de569-2ce0-4c0d-ab81-f8c342f1f0b3}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+          <cell id="{0c9c4118-2210-3235-e372-b49645cc1889}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Created On" languagecode="1033" />
+              <label description="Fecha de creación" languagecode="3082" />
+            </labels>
+            <control id="header_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" />
+          </cell>
+        </row>
+      </rows>
+    </header>
+    <footer id="{313dd508-0312-4496-ad1c-1975b3c177a7}">
+      <rows>
+        <row>
+          <cell id="{4204782f-310e-43e9-9634-c98bc58b99ea}">
+            <labels>
+              <label description="Status" languagecode="1033" />
+              <label description="Estado" languagecode="3082" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <Navigation>
+      <NavBar>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navDocument" Id="navDocument" Area="Info" Sequence="8501">
+          <Titles>
+            <Title LCID="1033" Text="Documents" />
+          </Titles>
+        </NavBarByRelationshipItem>
+      </NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

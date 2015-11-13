@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{e51fc73a-a05f-46e7-8c38-121f33f5b667}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form showImage="true" shownavigationbar="true" maxWidth="1900">
+    <ancestor id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+    <hiddencontrols>
+      <data id="fullname" datafieldname="fullname" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      <data id="address1_addressid" datafieldname="address1_addressid" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      <data id="address2_addressid" datafieldname="address2_addressid" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+    </hiddencontrols>
+    <tabs>
+      <tab name="SUMMARY_TAB" id="{15bb2d4b-71da-74ea-3c5b-e497d78a55a2}" IsUserDefined="0" showlabel="true" expanded="true" labelid="{ce686da1-27e9-40a0-987c-590f03bbbbbd}" locklevel="0">
+        <labels>
+          <label description="Summary" languagecode="1033" />
+          <label description="Resumen" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="MapSection" showlabel="false" showbar="false" id="{e0109668-cb5b-4b6c-8ca6-9d0c4b24f385}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="250" celllabelposition="Left" locklevel="0" celllabelalignment="Left" labelid="{c8a0d523-5ab3-4036-b912-83c72b2f17f1}">
+                <labels>
+                  <label description="Test" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{c0b2b88a-4e9e-6a05-daa1-84c10931839b}" showlabel="true" locklevel="0" labelid="{8d6df26b-ac3f-4d5b-9fdf-03bb3a5c673a}">
+                      <labels>
+                        <label description="Softtek Market (Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekmarketcontact1" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekmarketcontact1" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{d5dac566-cd5d-2436-a5cd-6b5b7e060858}" showlabel="true" locklevel="0" labelid="{17677ae3-97d4-483b-aac9-242486b68bb3}">
+                      <labels>
+                        <label description="Market Scope (Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="new_marketscopecontact" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_marketscopecontact" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ab1c9167-8ae7-74ed-245c-5ea8a9048c9e}" showlabel="true" locklevel="0" labelid="{7f211238-e2fe-4423-bf16-d91774cf5608}">
+                      <labels>
+                        <label description="Softtek Vertical" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekvertical" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekvertical" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="CONTACT_INFORMATION" showlabel="true" showbar="false" id="{9d943649-0387-1882-caa1-36de40d5a86c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" labelid="{9c23c44f-5299-4a90-9cf2-f9eb1e38f0df}">
+                <labels>
+                  <label description="CONTACT INFORMATION" languagecode="1033" />
+                  <label description="INFORMACIÓN DE CONTACTO" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{542e581d-cca1-5e40-e6d9-d67a9d1468b4}" showlabel="true" locklevel="0" labelid="{242f7158-ed8a-4543-8302-df7c3b6a065d}">
+                      <labels>
+                        <label description="Full Name" languagecode="1033" />
+                        <label description="Nombre completo" languagecode="3082" />
+                      </labels>
+                      <control id="fullname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="fullname" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{07326cde-7529-ddc0-e421-c0bcddd07b8a}" showlabel="true" labelid="{41bbf7c3-7dd7-4f36-8373-d626979a9ec5}">
+                      <labels>
+                        <label description="Job Title" languagecode="1033" />
+                        <label description="Puesto" languagecode="3082" />
+                      </labels>
+                      <control id="jobtitle" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="jobtitle" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{a54c19c9-4722-ce25-60c5-2bb9452680d2}" showlabel="true" locklevel="0" labelid="{293f9f10-507d-420f-936d-5b4239a8cced}">
+                      <labels>
+                        <label description="Account Name" languagecode="1033" />
+                        <label description="Nombre de cuenta" languagecode="3082" />
+                      </labels>
+                      <control id="parentcustomerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentcustomerid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7d538a97-98eb-b438-72de-57a808b9a308}" showlabel="true" labelid="{115f3305-0dff-4fe4-945b-80447f5a5cd4}">
+                      <labels>
+                        <label description="Email" languagecode="1033" />
+                        <label description="Correo electrónico" languagecode="3082" />
+                      </labels>
+                      <control id="emailaddress1" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="emailaddress1" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <header id="{3ff9aa06-4e43-41ce-afa9-22a038af5c19}" celllabelposition="Top" columns="1" labelwidth="115">
+      <rows>
+        <row>
+          <cell id="{24be01cc-16a6-8eea-8916-42d20a1097ae}" showlabel="true" locklevel="1" labelid="{d0b1b0b2-8b8d-489b-b39b-d233743f1ccb}">
+            <labels>
+              <label description="Owner" languagecode="1033" />
+              <label description="Propietario" languagecode="3082" />
+            </labels>
+            <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+          </cell>
+        </row>
+      </rows>
+    </header>
+    <clientresources>
+      <internalresources>
+        <clientincludes>
+          <internaljscriptfile src="$webresource:Contact_main_system_library.js" />
+        </clientincludes>
+      </internalresources>
+    </clientresources>
+    <events>
+      <event name="onload" application="true" active="true">
+        <InternalHandlers>
+          <Handler functionName="Mscrm.ContactMainSystemLibraryWebResource.form_onload" libraryName="Contact_main_system_library.js" handlerUniqueId="4ea24ebd-795d-434e-af94-6812c3867b54" enabled="true" />
+        </InternalHandlers>
+        <Handlers>
+          <Handler handlerUniqueId="{87baa983-ce19-2ed3-c401-9bb475247bed}" functionName="SDK.DependentOptionSet.init" libraryName="new_SampleOptionsSet.Js" enabled="true" passExecutionContext="false" parameters="&quot;new_CategoryOptionSetConfig.xml&quot; " />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_softtekmarketcontact1">
+        <Handlers>
+          <Handler handlerUniqueId="{8c9d3ee4-7353-4b5c-2d79-51cc502d19a5}" functionName="SDK.DependentOptionSet.filterDependentField" libraryName="new_SampleOptionsSet.Js" enabled="true" passExecutionContext="false" parameters="&quot;new_softtekmarketcontact1&quot;,&quot;new_softtekvertical&quot; " />
+        </Handlers>
+      </event>
+    </events>
+    <Navigation>
+      <NavBar>
+        <NavBarByRelationshipItem RelationshipName="invoice_customer_contacts" Id="navInvoices" Sequence="10" Area="Info" Show="false">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Invoice" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="quote_customer_contacts" Id="navQuotes" Sequence="10" Area="Info" Show="false">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Quote" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="contract_customer_contacts" Id="navContracts" Sequence="10" Area="Info" Show="false">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Contract" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="contact_customer_relationship_customer" Id="navRelationships" Sequence="10" Area="Info" Show="false">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="CustomerRelationship" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="Contact_CustomerAddress" Id="navAddresses" Sequence="10" Area="Info" Show="false">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Addresses" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="order_customer_contacts" Id="navOrders" Sequence="10" Area="Info" Show="false">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="SalesOrder" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="contact_customer_contacts" Id="navSubConts" Sequence="10" Area="Info" Show="false">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Contacts" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="listcontact_association" Id="navListsInSFA" Sequence="10" Area="Info" Show="false">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="List" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navCampaignsInSFA" Sequence="20" Area="Marketing" Id="navCampaignsInSFA" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Campaigns" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navAsyncOperations" Sequence="9500" Area="ProcessCenter" Id="navAsyncOperations" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Workflows" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navProcessSessions" Sequence="9700" Area="ProcessCenter" Id="navProcessSessions" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Dialog Sessions" />
+          </Titles>
+        </NavBarByRelationshipItem>
+      </NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <formLibraries>
+      <Library name="new_SampleOptionsSet.Js" libraryUniqueId="{7add64c7-8382-67a7-5311-72b3e26738ac}" />
+    </formLibraries>
+    <DisplayConditions Order="3" FallbackForm="true">
+      <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+      <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="New Form" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

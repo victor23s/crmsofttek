@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.AddToQueue.Hide" Location="Mscrm.Form.new_revenueplanning.AddToQueue" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.Assign.Hide" Location="Mscrm.Form.new_revenueplanning.Assign" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.Close.Hide" Location="Mscrm.Form.new_revenueplanning.Close" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.Convert.Case.Hide" Location="Mscrm.Form.new_revenueplanning.Convert.Case" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.Convert.Opportunity.Hide" Location="Mscrm.Form.new_revenueplanning.Convert.Opportunity" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.Deactivate.Hide" Location="Mscrm.Form.new_revenueplanning.Deactivate" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.Delete.Hide" Location="Mscrm.Form.new_revenueplanning.Delete" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.NewRecord.Hide" Location="Mscrm.Form.new_revenueplanning.NewRecord" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.Permissions.Sharing.Hide" Location="Mscrm.Form.new_revenueplanning.Permissions.Sharing" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.PromoteToResponse.Hide" Location="Mscrm.Form.new_revenueplanning.PromoteToResponse" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.QueueItemDetail.Hide" Location="Mscrm.Form.new_revenueplanning.QueueItemDetail" />
+    <CustomAction Id="new.Mscrm.Form.new_revenueplanning.Save.CustomAction" Location="Mscrm.Form.new_revenueplanning.MainTab.Save.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.Form.MainTab.Save.Save" Command="Mscrm.SavePrimary" Id="Mscrm.Form.new_revenueplanning.Save" Image32by32="/_imgs/ribbon/Save_32.png" Image16by16="/_imgs/ribbon/Save_16.png" LabelText="$Resources:Ribbon.Form.MainTab.Save.Save" Sequence="10" TemplateAlias="o1" ToolTipTitle="$Resources:Mscrm_Form_Other_MainTab_Save_Save_ToolTipTitle" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.Save" ModernImage="Save" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.Form.new_revenueplanning.SaveAndClose.CustomAction" Location="Mscrm.Form.new_revenueplanning.MainTab.Save.Controls._children" Sequence="30">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.Form.MainTab.Save.SaveAndClose" Command="Mscrm.SaveAndClosePrimary" Id="Mscrm.Form.new_revenueplanning.SaveAndClose" Image32by32="/_imgs/ribbon/SaveAndClose_32.png" Image16by16="/_imgs/FormEditorRibbon/SaveAndClose_16.png" LabelText="$Resources:Ribbon.Form.MainTab.Save.SaveAndClose" Sequence="30" TemplateAlias="o1" ToolTipTitle="$Resources:Mscrm_Form_Other_MainTab_Save_SaveAndClose_ToolTipTitle" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.SaveAndClose" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueplanning.SaveAsComplete.Hide" Location="Mscrm.Form.new_revenueplanning.SaveAsComplete" />
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.new_revenueplanning.Activate.Hide" Location="Mscrm.HomepageGrid.new_revenueplanning.Activate" />
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.new_revenueplanning.Deactivate.Hide" Location="Mscrm.HomepageGrid.new_revenueplanning.Deactivate" />
+    <CustomAction Id="new.Mscrm.HomepageGrid.new_revenueplanning.DeleteMenu.CustomAction" Location="Mscrm.HomepageGrid.new_revenueplanning.MainTab.Management.Controls._children" Sequence="50">
+      <CommandUIDefinition>
+        <SplitButton Alt="$Resources:Ribbon.HomepageGrid.MainTab.Management.Delete" Command="Mscrm.HomepageGrid.DeleteSplitButtonCommand" Id="Mscrm.HomepageGrid.new_revenueplanning.DeleteMenu" Image32by32="/_imgs/Workplace/remove_32.png" Image16by16="/_imgs/ribbon/Delete_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Management.Delete" Sequence="50" TemplateAlias="o2" ToolTipTitle="$Resources:Mscrm_HomepageGrid_Other_MainTab_Management_Delete_ToolTipTitle" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.HomepageGrid.Tooltip.Delete" ModernImage="Remove">
+          <Menu Id="Mscrm.HomepageGrid.new_revenueplanning.DeleteMenu.Menu">
+            <MenuSection Id="Mscrm.HomepageGrid.new_revenueplanning.DeleteMenu.MenuSection" Sequence="10" DisplayMode="Menu16">
+              <Controls Id="Mscrm.HomepageGrid.new_revenueplanning.DeleteMenu.Controls">
+                <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.Management.Delete" Command="Mscrm.DeleteSelectedRecord" Id="Mscrm.HomepageGrid.new_revenueplanning.Delete" Image32by32="/_imgs/Workplace/remove_32.png" Image16by16="/_imgs/ribbon/Delete_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Management.Delete" Sequence="50" ToolTipTitle="$Resources:Mscrm_HomepageGrid_Other_MainTab_Management_Delete_ToolTipTitle" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.HomepageGrid.Tooltip.Delete" />
+                <Button Command="Mscrm.HomepageGrid.BulkDelete" Id="Mscrm.HomepageGrid.new_revenueplanning.BulkDelete" Image32by32="/_imgs/ribbon/BulkDeleteWizard_32.png" Image16by16="/_imgs/ribbon/BulkDelete_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Management.BulkDelete" Sequence="100" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.Management.BulkDelete" ToolTipDescription="$Resources:Ribbon.HomepageGrid.MainTab.Management.BulkDelete.TooltipDescription" />
+              </Controls>
+            </MenuSection>
+          </Menu>
+        </SplitButton>
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.HomepageGrid.new_revenueplanning.Edit.CustomAction" Location="Mscrm.HomepageGrid.new_revenueplanning.MainTab.Management.Controls._children" Sequence="20">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.Management.Edit" Command="Mscrm.EditSelectedRecord" Id="Mscrm.HomepageGrid.new_revenueplanning.Edit" Image32by32="/_imgs/ribbon/edit32.png" Image16by16="/_imgs/ribbon/Edit_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Management.Edit" Sequence="20" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.Management.Edit" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.Edit" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.HomepageGrid.new_revenueplanning.NewRecord.CustomAction" Location="Mscrm.HomepageGrid.new_revenueplanning.MainTab.Management.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:Mscrm.HomepageGrid.new_revenueplanning.NewRecord.Alt" Command="Mscrm.NewRecordFromGrid" Description="Add" Id="Mscrm.HomepageGrid.new_revenueplanning.NewRecord" Image32by32="/_imgs/ribbon/newrecord32.png" Image16by16="/_imgs/ribbon/New_16.png" LabelText="$LocLabels:Mscrm.HomepageGrid.new_revenueplanning.NewRecord.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.HomepageGrid.new_revenueplanning.NewRecord.ToolTipTitle" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.New" ModernImage="New" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.Activate.Hide" Location="Mscrm.SubGrid.new_revenueplanning.Activate" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.AddEmail.Hide" Location="Mscrm.SubGrid.new_revenueplanning.AddEmail" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.new_revenueplanning.AddExistingAssoc" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.AddToQueue.Hide" Location="Mscrm.SubGrid.new_revenueplanning.AddToQueue" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.Assign.Hide" Location="Mscrm.SubGrid.new_revenueplanning.Assign" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.Charts.Hide" Location="Mscrm.SubGrid.new_revenueplanning.Charts" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.CopySelected.Hide" Location="Mscrm.SubGrid.new_revenueplanning.CopySelected" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.Deactivate.Hide" Location="Mscrm.SubGrid.new_revenueplanning.Deactivate" />
+    <CustomAction Id="new.Mscrm.SubGrid.new_revenueplanning.Delete.CustomAction" Location="Mscrm.SubGrid.new_revenueplanning.MainTab.Management.Controls._children" Sequence="80">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.Management.Delete" Command="Mscrm.DeleteSelectedRecord" Id="Mscrm.SubGrid.new_revenueplanning.Delete" Image32by32="/_imgs/Workplace/remove_32.png" Image16by16="/_imgs/ribbon/Delete_16.png" LabelText="$Resources(EntityDisplayName):Ribbon.SubGrid.MainTab.Management.Delete" Sequence="80" TemplateAlias="o2" ToolTipTitle="$Resources(EntityDisplayName):Mscrm_SubGrid_EntityLogicalName_MainTab_Management_Delete_ToolTipTitle" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.HomepageGrid.Tooltip.Delete" ModernImage="Remove" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.Detect.Hide" Location="Mscrm.SubGrid.new_revenueplanning.Detect" />
+    <CustomAction Id="new.Mscrm.SubGrid.new_revenueplanning.Edit.CustomAction" Location="Mscrm.SubGrid.new_revenueplanning.MainTab.Management.Controls._children" Sequence="50">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.Management.Edit" Command="Mscrm.EditSelectedRecord" Id="Mscrm.SubGrid.new_revenueplanning.Edit" Image32by32="/_imgs/ribbon/edit32.png" Image16by16="/_imgs/ribbon/Edit_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Management.Edit" Sequence="50" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.Management.Edit" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.Edit" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.FollowButton.Hide" Location="Mscrm.SubGrid.new_revenueplanning.FollowButton" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.NewRecord.Hide" Location="Mscrm.SubGrid.new_revenueplanning.NewRecord" />
+    <CustomAction Id="new.Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.CustomAction" Location="Mscrm.SubGrid.new_revenueplanning.MainTab.Workflow.Controls._children" Sequence="3">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.Alt" Command="Mscrm.OpenAssociatedGridViewOnLiteGridStandard" Description="" Id="Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard" Image32by32="/_imgs/ribbon/OpenAssociatedGridView32.png" Image16by16="/_imgs/ribbon/OpenAssociatedGridView16.png" LabelText="$LocLabels:Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.LabelText" Sequence="3" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.ToolTipDescription" ModernImage="" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.Hide" Location="Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.Remove.Hide" Location="Mscrm.SubGrid.new_revenueplanning.Remove" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.SendSelected.Hide" Location="Mscrm.SubGrid.new_revenueplanning.SendSelected" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.Sharing.Hide" Location="Mscrm.SubGrid.new_revenueplanning.Sharing" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_revenueplanning.UnfollowButton.Hide" Location="Mscrm.SubGrid.new_revenueplanning.UnfollowButton" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.AddEmailToSelectedRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.WriteActivityPermission" />
+        <DisplayRule Id="Mscrm.SelectedEntityIsListedForSendDirectEmailOrEmailable" />
+        <DisplayRule Id="Mscrm.HideOnModern" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridRibbonActions.sendBulkEmail" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemIds" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+          <CrmParameter Value="SelectedControlAllItemCount" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AddExistingRecordFromSubGridStandard">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AppendToPrimary" />
+        <EnableRule Id="Mscrm.EntityFormIsEnabled" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AddExisting" />
+        <DisplayRule Id="Mscrm.ShowForOneToManyGrids" />
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.AppendSelected" />
+        <DisplayRule Id="Mscrm.CanWriteSelected" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridRibbonActions.addExistingFromSubGridStandard" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedEntityTypeCode" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AddNewRecordFromSubGridStandard">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AppendToPrimary" />
+        <EnableRule Id="Mscrm.EntityFormIsEnabled" />
+        <EnableRule Id="new.new_revenueplanning.IsSysAdmin.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.ShowForOneToManyGrids" />
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.CreateSelectedEntityPermission" />
+        <DisplayRule Id="Mscrm.AppendSelected" />
+        <DisplayRule Id="Mscrm.HideAddNewForChildEntities" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridRibbonActions.addNewFromSubGridStandard" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedEntityTypeCode" />
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.DeleteSelectedRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="new.new_revenueplanning.IsSysAdmin.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.NotShowForManyToManyGrids" />
+        <DisplayRule Id="Mscrm.DeleteSelectedEntityPermission" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridCommandActions.deleteRecords" Library="/_static/_common/scripts/CommandBarActions.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.EditSelectedRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CheckBulkEditSupportForEntity" />
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="new.new_revenueplanning.IsSysAdmin.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.BulkEditPrivilege" />
+        <DisplayRule Id="Mscrm.WriteSelectedEntityPermission" />
+        <DisplayRule Id="Mscrm.HideOnModern" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridRibbonActions.bulkEdit" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.HomepageGrid.DeleteSplitButtonCommand">
+      <EnableRules>
+        <EnableRule Id="Mscrm.DeleteSplitButtonEnableRule" />
+        <EnableRule Id="Mscrm.AnySelection" />
+        <EnableRule Id="new.new_revenueplanning.IsSysAdmin.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.DeleteSplitButtonDisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridCommandActions.deleteRecords" Library="/_static/_common/scripts/CommandBarActions.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.NewRecordFromGrid">
+      <EnableRules>
+        <EnableRule Id="new.new_revenueplanning.IsSysAdmin.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CreateSelectedEntityPermission" />
+        <DisplayRule Id="Mscrm.ShowForNonRelationshipBoundGrids" />
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+        <DisplayRule Id="Mscrm.HideNewForChildEntities" />
+        <DisplayRule Id="Mscrm.HideAddressEntities" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.RibbonActions.openNewRecord" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.SaveAndClosePrimary">
+      <EnableRules>
+        <EnableRule Id="Mscrm.IsAutoSaveDisable" />
+        <EnableRule Id="Mscrm.AvailableOnForm" />
+        <EnableRule Id="Mscrm.CanSavePrimary" />
+        <EnableRule Id="new.new_revenueplanning.IsSysAdmin.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanSaveAndClosePrimaryEntityType" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.RibbonActions.saveAndCloseForm" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.SavePrimary">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AvailableOnForm" />
+        <EnableRule Id="Mscrm.CanSavePrimary" />
+        <EnableRule Id="Mscrm.ReadPrimaryPermission" />
+        <EnableRule Id="Mscrm.IsAutoSaveDisable" />
+        <EnableRule Id="new.new_revenueplanning.IsSysAdmin.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanSavePrimaryEntityType" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.RibbonActions.saveForm" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.AddExisting">
+        <ReferencingAttributeRequiredRule Default="false" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendSelected">
+        <EntityPrivilegeRule PrivilegeType="Append" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendToPrimary">
+        <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.BulkEditPrivilege">
+        <MiscellaneousPrivilegeRule PrivilegeName="BulkEdit" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanSaveAndClosePrimaryEntityType">
+        <OrRule>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanSavePrimaryEntityType">
+        <OrRule>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+        </OrRule>
+        <EntityPrivilegeRule PrivilegeType="Read" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWriteSelected">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CreatePrimaryEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CreateSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.DeleteSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Delete" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.DeleteSplitButtonDisplayRule">
+        <OrRule>
+          <Or>
+            <RelationshipTypeRule AppliesTo="SelectedEntity" RelationshipType="ManyToMany" InvertResult="true" />
+            <EntityPrivilegeRule PrivilegeType="Delete" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+          </Or>
+          <Or>
+            <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="GridFiltersEnabled" PropertyValue="true" />
+            <MiscellaneousPrivilegeRule PrivilegeName="BulkDelete" />
+            <EntityPrivilegeRule PrivilegeType="Delete" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideAddNewForChildEntities">
+        <OrRule>
+          <Or>
+            <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsChildEntity" PropertyValue="false" />
+          </Or>
+          <Or>
+            <RelationshipTypeRule AppliesTo="SelectedEntity" AllowCustomRelationship="false" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideAddressEntities">
+        <EntityRule EntityName="customeraddress" AppliesTo="SelectedEntity" Default="false" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideInLegacyRibbon">
+        <CommandClientTypeRule Type="Legacy" InvertResult="true" />
+        <PageRule Address="/userdefined/edit.aspx" InvertResult="true" />
+        <PageRule Address="/advancedfind/advfind.aspx" InvertResult="true" />
+        <PageRule Address="/advancedfind/fetchData.aspx" InvertResult="true" />
+        <PageRule Address="/tools/formeditor/formeditor.aspx" InvertResult="true" />
+        <PageRule Address="/tools/visualizationdesigner/visualizationdesigner.aspx" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideNewForChildEntities">
+        <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsChildEntity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideOnModern">
+        <CommandClientTypeRule Type="Modern" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.NotShowForManyToManyGrids">
+        <RelationshipTypeRule AppliesTo="SelectedEntity" RelationshipType="ManyToMany" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsNotActivity">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SelectedEntityIsListedForSendDirectEmailOrEmailable">
+        <OrRule>
+          <Or>
+            <EntityRule EntityName="lead" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="opportunity" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="account" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="contact" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="socialprofile" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="incident" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="contract" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="quote" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="salesorder" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="invoice" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityRule EntityName="systemuser" AppliesTo="SelectedEntity" Default="false" />
+          </Or>
+          <Or>
+            <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsActivityParty" PropertyValue="true" />
+            <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="HasEmailAddresses" PropertyValue="true" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ShowForNonRelationshipBoundGrids">
+        <RelationshipTypeRule AppliesTo="SelectedEntity" RelationshipType="NoRelationship" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ShowForOneToManyGrids">
+        <RelationshipTypeRule AppliesTo="SelectedEntity" RelationshipType="OneToMany" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.WriteActivityPermission">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" EntityName="activitypointer" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.WriteSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.AnySelection">
+        <SelectionCountRule AppliesTo="SelectedEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AppendToPrimary">
+        <RecordPrivilegeRule PrivilegeType="AppendTo" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AvailableOnForm">
+        <EntityRule AppliesTo="PrimaryEntity" Context="Form" Default="false" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.CanSavePrimary">
+        <OrRule>
+          <Or>
+            <RecordPrivilegeRule PrivilegeType="Create" AppliesTo="PrimaryEntity" />
+            <FormStateRule State="Create" />
+          </Or>
+          <Or>
+            <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+            <FormStateRule State="Existing" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.CheckBulkEditSupportForEntity">
+        <OrRule>
+          <Or>
+            <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" Maximum="1" />
+          </Or>
+          <Or>
+            <SelectionCountRule AppliesTo="SelectedEntity" Minimum="2" />
+            <CustomRule FunctionName="Mscrm.RibbonActions.isBulkEditEnabledForEntity" Library="/_static/_common/scripts/RibbonActions.js">
+              <CrmParameter Value="SelectedEntityTypeCode" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.DeleteSplitButtonEnableRule">
+        <OrRule>
+          <Or>
+            <CustomRule FunctionName="Mscrm.RibbonActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/RibbonActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.EntityFormIsEnabled">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsAutoSaveDisable">
+        <OrRule>
+          <Or>
+            <FormStateRule State="Create" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.RibbonActions.isAutoSaveEnabled" Library="/_static/_common/scripts/RibbonActions.js" InvertResult="true" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.RibbonActions.isRefreshForm" Library="/_static/_common/scripts/RibbonActions.js" InvertResult="true" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.ReadPrimaryPermission">
+        <RecordPrivilegeRule PrivilegeType="Read" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.SelectionCountAtLeastOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.RibbonActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/RibbonActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="new.new_revenueplanning.IsSysAdmin.EnableRule">
+        <CustomRule FunctionName="UserRevenuePlanningAllowed" Library="$webresource:new_Opp_Ribbon_Functions_2" Default="false" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="Mscrm.HomepageGrid.new_revenueplanning.NewRecord.Alt">
+      <Titles>
+        <Title description="Add" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.new_revenueplanning.NewRecord.LabelText">
+      <Titles>
+        <Title description="Add" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.new_revenueplanning.NewRecord.ToolTipTitle">
+      <Titles>
+        <Title description="Add" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.Alt">
+      <Titles>
+        <Title description="Open Associated Grid View for {0}" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.LabelText">
+      <Titles>
+        <Title description="Open Associated Grid View for {0}" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.ToolTipDescription">
+      <Titles>
+        <Title description="Open Associated Grid View for {0}" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.SubGrid.new_revenueplanning.OpenAssociatedGridViewStandard.ToolTipTitle">
+      <Titles>
+        <Title description="Open Associated Grid View for {0}" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

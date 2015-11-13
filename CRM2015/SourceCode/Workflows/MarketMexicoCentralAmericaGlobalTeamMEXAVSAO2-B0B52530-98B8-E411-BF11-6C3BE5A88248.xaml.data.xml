@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{b0b52530-98b8-e411-bf11-6c3be5a88248}" Name="Market Mexico &amp; Central America Global Team MEX A&amp;V SAO2" Description="Click to add description">
+  <XamlFileName>/Workflows/MarketMexicoCentralAmericaGlobalTeamMEXAVSAO2-B0B52530-98B8-E411-BF11-6C3BE5A88248.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>Quote</PrimaryEntity>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{4905f7a1-fb41-e511-80e3-c4346bac0260}">
+      <controltype>1</controltype>
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekmarketquote</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{4a05f7a1-fb41-e511-80e3-c4346bac0260}">
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{4b05f7a1-fb41-e511-80e3-c4346bac0260}">
+      <controltype>1</controltype>
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekverticalquote</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{4c05f7a1-fb41-e511-80e3-c4346bac0260}">
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{4d05f7a1-fb41-e511-80e3-c4346bac0260}">
+      <controltype>1</controltype>
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <controlname>new_marketscopequote</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{4e05f7a1-fb41-e511-80e3-c4346bac0260}">
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

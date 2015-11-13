@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{6138f3f8-976c-e211-8b77-78e3b511b603}</WebResourceId>
+  <Name>new_testEditVisualStudio</Name>
+  <DisplayName>testEditVisualStudio</DisplayName>
+  <Description>testEditVisualStudio</Description>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_testEditVisualStudio6138F3F8-976C-E211-8B77-78E3B511B603</FileName>
+</WebResource>

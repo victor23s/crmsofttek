@@ -1,0 +1,18 @@
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../SofttekCrm.js" />
+/// <reference path="../Utility/SofttekCrm.Utility.js" />
+SofttekCrm.Forms.TmpOptionSet = {
+    OnLoad: function () {
+        SofttekCrm.Utility.OptionSet.Filter("new_pais", "new_tmpcountries", "new_ciudad", "new_tmpcities");
+        SofttekCrm.Utility.OptionSet.Filter("new_ciudad", "new_tmpcities", "new_gerente", "new_tmpmanagers");
+
+        SofttekCrm.Utility.OptionSet.RemoveDeprecatedValues("new_pais", "new_tmpcountries");
+    },
+    OnCountryChange: function () {
+        SofttekCrm.Utility.OptionSet.Filter("new_pais", "new_tmpcountries", "new_ciudad", "new_tmpcities");
+    },
+    OnCityChange: function () {
+        SofttekCrm.Utility.OptionSet.Filter("new_ciudad", "new_tmpcities", "new_gerente", "new_tmpmanagers");
+    },
+    __namespace: true
+};

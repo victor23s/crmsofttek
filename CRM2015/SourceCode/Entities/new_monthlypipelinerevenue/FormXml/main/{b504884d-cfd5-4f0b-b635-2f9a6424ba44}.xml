@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{b504884d-cfd5-4f0b-b635-2f9a6424ba44}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form shownavigationbar="true" showImage="false" maxWidth="1900">
+    <tabs>
+      <tab verticallayout="true" id="{095db0fa-23d9-42d4-856c-d0b1f2cda7a2}" IsUserDefined="1">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{5b3e9de4-e519-4528-a9f0-eb839ee8767d}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{ae605097-8148-4745-bc5d-266d0705e2b9}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_name" disabled="false" />
+                    </cell>
+                    <cell id="{ba443266-fa9e-4efd-8920-09556953f0dd}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4573221a-3955-58b4-8cc4-20eaca745153}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Monthly Close Date" languagecode="1033" />
+                      </labels>
+                      <control id="new_monthlyclosedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="new_monthlyclosedate" disabled="false" />
+                    </cell>
+                    <cell id="{28966e2e-e053-c90d-769b-65729429cd99}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Market" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekmarket" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekmarket" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{83cb5c24-4d84-08b4-1e54-1d4eec08bb2b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Estimated Revenue" languagecode="1033" />
+                      </labels>
+                      <control id="new_estimatedrevenue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_estimatedrevenue" disabled="false" />
+                    </cell>
+                    <cell id="{13ce186d-7d99-1116-8708-9358e213d63b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Currency" languagecode="1033" />
+                        <label description="Divisa" languagecode="3082" />
+                      </labels>
+                      <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{CD5625B0-DDA8-4EE2-B13F-B9331E027C8A}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{1110bcee-7096-84cc-5711-c72522c06349}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{abc7be85-ea43-d394-d63a-4ac7a68516b9}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <footer id="{33d7ad61-2c0d-401f-a467-354e99e33f28}">
+      <rows>
+        <row>
+          <cell id="{a0740e66-2142-41d6-a748-75c9cfde4a25}">
+            <labels>
+              <label description="Status" languagecode="1033" />
+              <label description="Estado" languagecode="3082" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <formLibraries>
+      <Library name="new_XrmServiceToolkit" libraryUniqueId="{cd114842-b12a-c440-8a8b-5d59027681e4}" />
+      <Library name="new_MPR_main_library" libraryUniqueId="{9675ed2b-ac13-da22-7391-e164b31018a1}" />
+      <Library name="new_fetchUtil.js" libraryUniqueId="{4950b9ae-4375-1943-82cc-57ee93d9c530}" />
+      <Library name="new_CRM.Utils" libraryUniqueId="{43c2a567-75bd-d875-b1b8-b7d05a180bbd}" />
+    </formLibraries>
+    <events>
+      <event name="onload" application="false" active="false">
+        <Handlers>
+          <Handler functionName="Form_onload" libraryName="new_MPR_main_library" handlerUniqueId="{ebc2aed3-7bbb-be2c-c063-0d158a819435}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+    </events>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Opportunity Relationship" OriginalName="Opportunity Relationship">CustomerOpportunityRole</Name>
+  <ObjectTypeCode>4503</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

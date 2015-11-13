@@ -1,0 +1,646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="User" OriginalName="User">SystemUser</Name>
+  <ObjectTypeCode>8</ObjectTypeCode>
+  <EntityInfo>
+    <entity Name="SystemUser">
+      <LocalizedNames>
+        <LocalizedName description="User" languagecode="1033" />
+        <LocalizedName description="Usuario" languagecode="3082" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Users" languagecode="1033" />
+        <LocalizedCollectionName description="Usuarios" languagecode="3082" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="Person with access to the Microsoft CRM system and who owns objects in the Microsoft CRM database." languagecode="1033" />
+        <Description description="Persona con acceso al sistema de Microsoft CRM y propietaria de objetos de la base de datos de Microsoft CRM." languagecode="3082" />
+      </Descriptions>
+      <attributes>
+        <attribute PhysicalName="Address1_Fax">
+          <Type>nvarchar</Type>
+          <Name>address1_fax</Name>
+          <LogicalName>address1_fax</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>inactive</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsLogical>1</IsLogical>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>64</MaxLength>
+          <Length>128</Length>
+          <displaynames>
+            <displayname description="Address 1: Fax" languagecode="1033" />
+            <displayname description="Dirección 1: fax" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Fax number for address 1." languagecode="1033" />
+            <Description description="Número de fax de la dirección 1." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="InternalEMailAddress">
+          <Type>nvarchar</Type>
+          <Name>internalemailaddress</Name>
+          <LogicalName>internalemailaddress</LogicalName>
+          <RequiredLevel>systemrequired</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>inactive</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <Format>email</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Primary Email" languagecode="1033" />
+            <displayname description="Correo electrónico principal" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Internal email address for the user." languagecode="1033" />
+            <Description description="Dirección de correo electrónico interna del usuario." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_CompanyCode">
+          <Type>nvarchar</Type>
+          <Name>new_companycode</Name>
+          <LogicalName>new_companycode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Company Code" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_CostCenter">
+          <Type>nvarchar</Type>
+          <Name>new_costcenter</Name>
+          <LogicalName>new_costcenter</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Cost Center" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_Department">
+          <Type>picklist</Type>
+          <Name>new_department</Name>
+          <LogicalName>new_department</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_systemuser_new_department">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Department" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="100000000">
+                <labels>
+                  <label description="Sales" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="Admin &amp; Finance" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="Operations" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000003">
+                <labels>
+                  <label description="Sales Support" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000004">
+                <labels>
+                  <label description="Legal" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000005">
+                <labels>
+                  <label description="Marketing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000006">
+                <labels>
+                  <label description="Corporate" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000007">
+                <labels>
+                  <label description="PIC" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000008">
+                <labels>
+                  <label description="Corp Support" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000009">
+                <labels>
+                  <label description="Other" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Department" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_IS">
+          <Type>nvarchar</Type>
+          <Name>new_is</Name>
+          <LogicalName>new_is</LogicalName>
+          <RequiredLevel>recommended</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="IS" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_MarkerScopeusers">
+          <Type>picklist</Type>
+          <Name>new_markerscopeusers</Name>
+          <LogicalName>new_markerscopeusers</LogicalName>
+          <RequiredLevel>recommended</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_marketscope</OptionSetName>
+          <displaynames>
+            <displayname description="Marker Scope (users)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_SofttekCountry">
+          <Type>picklist</Type>
+          <Name>new_softtekcountry</Name>
+          <LogicalName>new_softtekcountry</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_softtekcountry</OptionSetName>
+          <displaynames>
+            <displayname description="Softtek Country (User) (Remove)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_SofttekCountryUser">
+          <Type>picklist</Type>
+          <Name>new_softtekcountryuser</Name>
+          <LogicalName>new_softtekcountryuser</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_softtekcountry</OptionSetName>
+          <displaynames>
+            <displayname description="Softtek Country (User)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_SofttekGlobal">
+          <Type>picklist</Type>
+          <Name>new_softtekglobal</Name>
+          <LogicalName>new_softtekglobal</LogicalName>
+          <RequiredLevel>recommended</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_softtekglobal</OptionSetName>
+          <displaynames>
+            <displayname description="Market Scope (User)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_SofttekMarket">
+          <Type>picklist</Type>
+          <Name>new_softtekmarket</Name>
+          <LogicalName>new_softtekmarket</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_softtekmarket</OptionSetName>
+          <displaynames>
+            <displayname description="Softtek Market (User) (Remove)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_SofttekMarketUser">
+          <Type>picklist</Type>
+          <Name>new_softtekmarketuser</Name>
+          <LogicalName>new_softtekmarketuser</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_softtekmarket</OptionSetName>
+          <displaynames>
+            <displayname description="Softtek Market (User)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_UserRole">
+          <Type>picklist</Type>
+          <Name>new_userrole</Name>
+          <LogicalName>new_userrole</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_systemuser_new_userrole">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="User Role" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="100000030">
+                <labels>
+                  <label description="Legal Support Approver" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000029">
+                <labels>
+                  <label description="DM" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="Delivery Manager" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="100000000">
+                <labels>
+                  <label description="BRM" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="BDM" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="BRM with BRML Tasks" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000003">
+                <labels>
+                  <label description="BDML" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000004">
+                <labels>
+                  <label description="BRML" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000005">
+                <labels>
+                  <label description="Sales Admin / Sales Mgmt Office" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000006">
+                <labels>
+                  <label description="Sales Assistant" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000007">
+                <labels>
+                  <label description="CRM Help Desk" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000008">
+                <labels>
+                  <label description="Admin &amp; Finance Team Member" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000009">
+                <labels>
+                  <label description="Admin &amp; Finance Leader" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000010">
+                <labels>
+                  <label description="Admin &amp; Finance Director" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000011">
+                <labels>
+                  <label description="ADM" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000012">
+                <labels>
+                  <label description="PxMgr" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000013">
+                <labels>
+                  <label description="PMO" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000014">
+                <labels>
+                  <label description="VPO" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000015">
+                <labels>
+                  <label description="Sales Support Team Member" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000016">
+                <labels>
+                  <label description="Sales Support Leader" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000017">
+                <labels>
+                  <label description="Legal Team Member" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000018">
+                <labels>
+                  <label description="Legal Leader" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000019">
+                <labels>
+                  <label description="Marketing Assistant" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000020">
+                <labels>
+                  <label description="Marketing Team Member" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000021">
+                <labels>
+                  <label description="Marketing Leader" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000022">
+                <labels>
+                  <label description="Marketing Director" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000023">
+                <labels>
+                  <label description="Market CEO" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000024">
+                <labels>
+                  <label description="Global CSO" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000025">
+                <labels>
+                  <label description="Auditor" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000026">
+                <labels>
+                  <label description="Guest" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000027">
+                <labels>
+                  <label description="Business Analyst / Black Belt" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000028">
+                <labels>
+                  <label description="Sys Admin" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="User Role" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="OrganizationId">
+          <Type>uniqueidentifier</Type>
+          <Name>organizationid</Name>
+          <LogicalName>organizationid</LogicalName>
+          <RequiredLevel>systemrequired</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForReadApi>1</ValidForReadApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <displaynames>
+            <displayname description="Organization " languagecode="1033" />
+            <displayname description="Organización " languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Unique identifier of the organization associated with the user." languagecode="1033" />
+            <Description description="Identificador único de la organización asociada con el usuario." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+      </attributes>
+      <IsDuplicateCheckSupported>0</IsDuplicateCheckSupported>
+      <IsBusinessProcessEnabled>1</IsBusinessProcessEnabled>
+      <IsRequiredOffline>1</IsRequiredOffline>
+      <IsCollaboration>0</IsCollaboration>
+      <AutoRouteToOwnerQueue>0</AutoRouteToOwnerQueue>
+      <IsConnectionsEnabled>1</IsConnectionsEnabled>
+      <IsDocumentManagementEnabled>0</IsDocumentManagementEnabled>
+      <IsOneNoteIntegrationEnabled>0</IsOneNoteIntegrationEnabled>
+      <IsKnowledgeManagementEnabled>0</IsKnowledgeManagementEnabled>
+      <OwnershipTypeMask>BusinessOwned</OwnershipTypeMask>
+      <EntityMask>ResourcePointer</EntityMask>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <IsActivity>0</IsActivity>
+      <ActivityTypeMask></ActivityTypeMask>
+      <IsActivityParty>1</IsActivityParty>
+      <IsReplicated>1</IsReplicated>
+      <IsReplicationUserFiltered>0</IsReplicationUserFiltered>
+      <IsMailMergeEnabled>0</IsMailMergeEnabled>
+      <IsVisibleInMobile>1</IsVisibleInMobile>
+      <IsVisibleInMobileClient>1</IsVisibleInMobileClient>
+      <IsReadOnlyInMobileClient>1</IsReadOnlyInMobileClient>
+      <IsMapiGridEnabled>1</IsMapiGridEnabled>
+      <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
+      <IsQuickCreateEnabled>0</IsQuickCreateEnabled>
+      <IntroducedVersion>5.0.0.0</IntroducedVersion>
+      <EnforceStateTransitions>0</EnforceStateTransitions>
+      <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
+      <ChangeTrackingEnabled>0</ChangeTrackingEnabled>
+    </entity>
+  </EntityInfo>
+  <FormXml />
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

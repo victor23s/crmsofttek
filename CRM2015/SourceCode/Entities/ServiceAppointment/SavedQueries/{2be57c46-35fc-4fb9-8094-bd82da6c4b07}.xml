@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4214</returnedtypecode>
+  <savedqueryid>{2be57c46-35fc-4fb9-8094-bd82da6c4b07}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4214" jump="subject" select="1" preview="0" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="scheduledend" width="100" />
+        <cell name="statecode" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>64</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="serviceappointment">
+        <attribute name="subject" />
+        <attribute name="scheduledend" />
+        <attribute name="statecode" />
+        <attribute name="activityid" />
+        <order attribute="subject" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Service Activity Lookup View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda de actividades de servicio" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4</returnedtypecode>
+  <savedqueryid>{e76ac89f-97c3-42da-a8bc-2b201429eba5}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4" jump="fullname" select="1" icon="1" preview="1">
+      <row name="result" id="leadid">
+        <cell name="fullname" width="300" />
+        <cell name="telephone1" width="100" />
+        <cell name="address1_city" width="100" />
+        <cell name="companyname" ishidden="1" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>32</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="lead">
+        <attribute name="fullname" />
+        <attribute name="address1_city" />
+        <order attribute="fullname" descending="false" />
+        <attribute name="telephone1" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="fullname" operator="like" value="{0}" />
+        </filter>
+        <attribute name="leadid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find Marketing List Members" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de integrantes de la lista de marketing" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{7e45f5ba-8c66-e311-baa6-6c3be5a8b1d8}</WebResourceId>
+  <Name>new_json2</Name>
+  <DisplayName>json2</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_json27E45F5BA-8C66-E311-BAA6-6C3BE5A8B1D8</FileName>
+</WebResource>

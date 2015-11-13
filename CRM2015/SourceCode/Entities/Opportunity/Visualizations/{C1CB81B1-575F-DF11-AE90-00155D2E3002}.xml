@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualization>
+  <savedqueryvisualizationid>{C1CB81B1-575F-DF11-AE90-00155D2E3002}</savedqueryvisualizationid>
+  <datadescription>
+    <datadefinition>
+      <fetchcollection>
+        <fetch mapping="logical" aggregate="true">
+          <entity name="opportunity">
+            <link-entity name="opportunity" from="opportunityid" to="opportunityid" link-type="outer">
+              <attribute alias="sum_lost" name="estimatedvalue" aggregate="sum"></attribute>
+              <filter>
+                <condition attribute="statecode" operator="eq" value="2" />
+              </filter>
+            </link-entity>
+            <link-entity name="opportunity" from="opportunityid" to="opportunityid" link-type="outer">
+              <attribute alias="sum_won" name="actualvalue" aggregate="sum"></attribute>
+              <filter>
+                <condition attribute="statecode" operator="eq" value="1" />
+              </filter>
+            </link-entity>
+            <attribute groupby="true" alias="groupby_column" name="ownerid"></attribute>
+          </entity>
+        </fetch>
+      </fetchcollection>
+      <categorycollection>
+        <category>
+          <measurecollection>
+            <measure alias="sum_won" />
+          </measurecollection>
+          <measurecollection>
+            <measure alias="sum_lost" />
+          </measurecollection>
+        </category>
+      </categorycollection>
+    </datadefinition>
+  </datadescription>
+  <presentationdescription>
+    <Chart Palette="None" PaletteCustomColors="91,151,213; 237,125,49; 160,116,166; 255,192,0; 68,114,196; 112,173,71; 37,94,145; 158,72,14; 117,55,125; 153,115,0; 38,68,120; 67,104,43; 124,175,221; 241,151,90; 186,144,192; 255,205,51; 105,142,208; 140,193,104; 50,125,194; 210,96,18; 150,83,159; 204,154,0; 51,90,161; 90,138,57;">
+      <Series>
+        <Series Name="o:opportunity_statecode,1" Color="91, 151, 213" IsValueShownAsLabel="False" BackSecondaryColor="112, 142, 50" Font="{0}, 9.5px" LabelForeColor="59, 59, 59">
+          <SmartLabelStyle Enabled="True" />
+        </Series>
+        <Series Name="o:opportunity_statecode,2" Color="237, 125, 49" IsValueShownAsLabel="False" BackSecondaryColor="235,98,0" Font="{0}, 9.5px" LabelForeColor="59, 59, 59">
+          <SmartLabelStyle Enabled="True" />
+        </Series>
+      </Series>
+      <ChartAreas>
+        <ChartArea BorderColor="White" BorderDashStyle="Solid">
+          <AxisY LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid LineColor="239, 242, 246" />
+            <MajorTickMark LineColor="165, 172, 181" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisY>
+          <AxisX LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid Enabled="False" />
+            <MajorTickMark Enabled="False" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisX>
+        </ChartArea>
+      </ChartAreas>
+      <Titles>
+        <Title Alignment="TopLeft" DockingOffset="-3" Font="{0}, 13px" ForeColor="0, 0, 0"></Title>
+      </Titles>
+      <Legends>
+        <Legend Alignment="Center" LegendStyle="Table" Docking="Bottom" Font="{0}, 11px" ForeColor="59, 59, 59"></Legend>
+      </Legends>
+    </Chart>
+  </presentationdescription>
+  <isdefault>0</isdefault>
+  <LocalizedNames>
+    <LocalizedName description="Deals Won vs. Deals Lost By Owner" languagecode="1033" />
+    <LocalizedName description="Negocios ganados y negocios perdidos por propietario" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the amount of revenue for won deals versus lost deals." languagecode="1033" />
+    <Description description="Muestra la cantidad de ingresos de los negocios ganados en comparación con los negocios perdidos." languagecode="3082" />
+  </Descriptions>
+  <IntroducedVersion>5.0.0.0</IntroducedVersion>
+</visualization>

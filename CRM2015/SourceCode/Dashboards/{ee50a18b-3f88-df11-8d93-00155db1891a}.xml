@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard unmodified="1">
+  <LocalizedNames>
+    <LocalizedName description="Microsoft Dynamics CRM Overview" languagecode="1033" />
+    <LocalizedName description="Información general de Microsoft Dynamics CRM" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows an overview of your data in Microsoft Dynamics CRM." languagecode="1033" />
+    <Description description="Muestra información general de sus datos en Microsoft Dynamics CRM." languagecode="3082" />
+  </Descriptions>
+  <FormId>{ee50a18b-3f88-df11-8d93-00155db1891a}</FormId>
+</Dashboard>

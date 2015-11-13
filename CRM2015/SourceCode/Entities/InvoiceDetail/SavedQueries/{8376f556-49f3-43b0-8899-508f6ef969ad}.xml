@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1091</returnedtypecode>
+  <savedqueryid>{8376f556-49f3-43b0-8899-508f6ef969ad}</savedqueryid>
+  <queryapi>CRMInvoiceDetail.RetrieveByObject</queryapi>
+  <layoutxml>
+    <grid name="invoicedetails" object="1091" jump="" select="1" icon="1" preview="1">
+      <row name="invoicedetail" id="invoicedetailid">
+        <cell name="productdescription" width="300" />
+        <cell name="priceperunit" width="100" />
+        <cell name="quantity" width="100" />
+        <cell name="extendedamount" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <columnsetxml>
+    <columnset version="3.0">
+      <filter type="and">
+        <condition column="isproductoverridden" value="1" operator="eq" />
+      </filter>
+      <column>productdescription</column>
+      <column>priceperunit</column>
+      <column>quantity</column>
+      <column>extendedamount</column>
+      <column>invoicedetailid</column>
+      <ascend>productdescription</ascend>
+    </columnset>
+  </columnsetxml>
+  <querytype>2</querytype>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Invoice Product Associated View - Write In Products" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about the products included in an invoice in the detail form of the associated invoice record. This view is in the Products side tab." languagecode="1033" />
+  </Descriptions>
+</savedquery>

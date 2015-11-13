@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10004</returnedtypecode>
+  <savedqueryid>{e99bcc84-1ed9-4f1e-945f-c6bde06a6720}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10004" jump="msa_name" select="1" icon="1" preview="1">
+      <row name="result" id="msa_goalid">
+        <cell name="msa_name" width="200" />
+        <cell name="msa_parentgoalid" width="125" />
+        <cell name="ownerid" width="100" />
+        <cell name="msa_timeperiod" width="75" />
+        <cell name="msa_startdate" width="75" />
+        <cell name="msa_minimumlevel" width="100" />
+        <cell name="msa_meetlevel" width="100" />
+        <cell name="msa_exceedlevel" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="msa_goal">
+        <attribute name="msa_name" />
+        <attribute name="msa_timeperiod" />
+        <attribute name="msa_startdate" />
+        <attribute name="msa_parentgoalid" />
+        <attribute name="ownerid" />
+        <attribute name="msa_minimumlevel" />
+        <attribute name="msa_meetlevel" />
+        <attribute name="msa_exceedlevel" />
+        <order attribute="msa_startdate" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+          <filter type="or">
+            <condition attribute="ownerid" operator="eq-userid" />
+            <condition attribute="createdby" operator="eq-userid" />
+          </filter>
+        </filter>
+        <attribute name="msa_goalid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Active Goals" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

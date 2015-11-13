@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{faad988d-c664-e211-bc65-78e7d162ce29}</WebResourceId>
+  <Name>new_check16</Name>
+  <DisplayName>check16.png</DisplayName>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_check16FAAD988D-C664-E211-BC65-78E7D162CE29</FileName>
+</WebResource>

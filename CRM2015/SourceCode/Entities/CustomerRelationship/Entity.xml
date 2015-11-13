@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Customer Relationship" OriginalName="Customer Relationship">CustomerRelationship</Name>
+  <ObjectTypeCode>4502</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

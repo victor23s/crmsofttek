@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Internal Address" OriginalName="Internal Address">InternalAddress</Name>
+  <ObjectTypeCode>1003</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

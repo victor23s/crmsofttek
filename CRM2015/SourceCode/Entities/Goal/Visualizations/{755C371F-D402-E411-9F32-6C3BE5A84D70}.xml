@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualization>
+  <savedqueryvisualizationid>{755C371F-D402-E411-9F32-6C3BE5A84D70}</savedqueryvisualizationid>
+  <datadescription>
+    <datadefinition>
+      <fetchcollection>
+        <fetch mapping="logical" aggregate="true">
+          <entity name="goal">
+            <attribute groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" name="title" />
+            <attribute alias="_CRMAutoGen_aggregate_column_Num_0" name="actualmoney" aggregate="sum" />
+            <attribute alias="_CRMAutoGen_aggregate_column_Num_14" name="targetmoney" aggregate="sum" />
+          </entity>
+        </fetch>
+      </fetchcollection>
+      <categorycollection>
+        <category alias="_CRMAutoGen_groupby_column_Num_0">
+          <measurecollection>
+            <measure alias="_CRMAutoGen_aggregate_column_Num_0" />
+          </measurecollection>
+          <measurecollection>
+            <measure alias="_CRMAutoGen_aggregate_column_Num_14" />
+          </measurecollection>
+        </category>
+      </categorycollection>
+    </datadefinition>
+  </datadescription>
+  <presentationdescription>
+    <Chart Palette="None">
+      <Series>
+        <Series Color="91, 151, 213" IsValueShownAsLabel="True" BackSecondaryColor="112, 142, 50" Font="{0}, 9.5px" CustomProperties="StackedGroupName=Records,MaxPixelPointWidth=30, MinPixelPointWidth=10" LabelForeColor="59, 59, 59" ChartType="Column">
+          <SmartLabelStyle Enabled="False" />
+        </Series>
+        <Series ChartType="Point" IsValueShownAsLabel="True" MarkerStyle="Circle" Name="Target" MarkerBorderWidth="4" MarkerBorderColor="230, 95, 0" MarkerColor="255,255,255" MarkerSize="8">
+          <SmartLabelStyle Enabled="True" />
+        </Series>
+      </Series>
+      <ChartAreas>
+        <ChartArea BorderColor="White" BorderDashStyle="Solid">
+          <AxisY LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid LineColor="239, 242, 246" />
+            <MajorTickMark LineColor="165, 172, 181" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisY>
+          <AxisX LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid Enabled="False" />
+            <MajorTickMark Enabled="False" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisX>
+        </ChartArea>
+      </ChartAreas>
+      <Titles>
+        <Title Alignment="TopLeft" DockingOffset="-3" Font="{0}, 13px" ForeColor="0, 0, 0"></Title>
+      </Titles>
+      <Legends>
+        <Legend Alignment="Center" LegendStyle="Table" Docking="Bottom" Font="{0}, 11px" ForeColor="59, 59, 59" />
+      </Legends>
+    </Chart>
+  </presentationdescription>
+  <isdefault>0</isdefault>
+  <LocalizedNames>
+    <LocalizedName description="Goal Actual Vs. Target by Goal Name" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the Actual Vs. Target as of Today by Goal Owner" languagecode="1033" />
+  </Descriptions>
+  <IsCustomizable>1</IsCustomizable>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CanBeDeleted>1</CanBeDeleted>
+</visualization>

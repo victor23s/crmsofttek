@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4400</returnedtypecode>
+  <savedqueryid>{244af698-f753-48fd-9803-c1939dcf02d1}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="campaigns" object="4400" jump="name" select="1" icon="1" preview="1">
+      <row name="campaign" id="campaignid">
+        <cell name="codename" width="100" />
+        <cell name="name" width="300" />
+        <cell name="statuscode" width="100" />
+        <cell name="createdon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="campaign">
+        <attribute name="name" />
+        <attribute name="codename" />
+        <attribute name="statuscode" />
+        <attribute name="createdon" />
+        <attribute name="campaignid" />
+        <order attribute="name" descending="true" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Campaign Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de campa?as" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

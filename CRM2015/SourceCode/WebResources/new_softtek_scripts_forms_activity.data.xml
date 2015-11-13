@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{f1f55276-f204-e311-bcfe-78e7d162ce29}</WebResourceId>
+  <Name>new_softtek_scripts_forms_activity</Name>
+  <DisplayName>Softtek Scripts [Activity]</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_softtek_scripts_forms_activityF1F55276-F204-E311-BCFE-78E7D162CE29</FileName>
+</WebResource>

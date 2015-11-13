@@ -1,0 +1,180 @@
+/// <reference path="XrmPageTemplate.js" />
+/// <reference path="new_softtek_scripts_util_dynamicform.js" />
+/// <reference path="new_CRM.Utils.js" />
+function __initializeForm() {
+    if (Xrm.Page.ui.getFormType() != 4 && Xrm.Page.ui.getFormType() != 3) {
+        Xrm.Page.Validations.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo(null).Or("new_marketscope_opp").EqualsTo(null).Do().Disabled();
+        Xrm.Page.Validations.AddTo("new_softtekvertical1").When("new_softtekmarket").DifferentTo(null).And("new_marketscope_opp").DifferentTo(null).Do().Enabled();
+    }
+
+    /* Cascade SofttekMarket = Cloud SAP Industry Solutions, any MarketScope, SofttekVertical = 
+                            JIT Automotive Solutions, Pharmalab, ChemQ, eMetal, pCare, SAP Serivces*/
+
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000006").Do().PutOptions(["200000019", "200000020", "200000021", "200000022", "200000023", "200000024"]);
+
+    /* Cascade SofttekMarket = USA & Canada & MarketScope = Global, SofttekVertical =
+                               GE Capital,  GE Corporate, GE Energy, GE Manufacturing, ABInveb, Citi, Walmart, HP */
+
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000000").And("new_marketscope_opp").EqualsTo("100000000").Do().PutOptions(["100000026", "100000027", "100000028", "100000029", "100000030", "100000031", "100000033", "100000032"]);
+
+    /* Cascade SofttekMarket =  USA & Canada & MarketScope = Non Global, SofttekVertical = 
+                           Conglomerates, Healthcare, Financial Svcs & Ins, Middle Market, Retail&CPG, Strategic Accounts,
+                           Comm, Media & Tech, General, Other, Unknown */
+
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000000").And("new_marketscope_opp").EqualsTo("100000001").Do().PutOptions(["100000043", "100000044", "100000000", "100000003", "100000040", "100000004", "100000010", "100000005", "100000007", "100000008"]);
+
+    /* Cascade SofttekMarket = Mexico & Central America & MarketScope = Global, SofttekVertical = 
+                            01 Banamex, 02 HP, 03 Walmart, 04 GE, 05 ABInveb */
+
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000001").And("new_marketscope_opp").EqualsTo("100000000").Do().PutOptions(["200000001", "200000002", "200000003", "200000000", "100000011"]);
+
+    /* Cascade SofttekMarket = Mexico & Central America & MarketScope = Non Global, SofttekVertical =
+                             06 EST Bancomer, 
+                             08 HGM Bimbo, 
+                             09 BC Retail y Servicios, 
+                             11 BD Financiero,
+                             12 BD Honeywell ,
+                             13 ZN Named Occidente, 
+                             14 Manufactura, 
+                             15 SAP, 
+                             16 SP, 
+                             18 Bajío
+                             19 Consultoría Servicio
+                              20 Energía y Telcos*/
+
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000001").And("new_marketscope_opp").EqualsTo("100000001").Do().PutOptions(["100000012", "100000014", "100000045", "100000017", "100000019", "100000041", "100000042", "100000016", "100000018", "100000053", "100000054", "100000055"]);
+
+    //***********************************************************
+    /* Cascade SofttekMarket = HSA & MarketScope = Global, SofttekVertical =
+                            GE Capital,  GE Corporate */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000003").And("new_marketscope_opp").EqualsTo("100000000").Do().PutOptions(["100000026", "100000027", "100000028", "100000029", "100000030", "100000031", "100000032", "100000033"]);
+    /* Cascade SofttekMarket = HSA & MarketScope = Global, SofttekVertical = Communications, Networks & Peripherals, USA & Canada & MarketScope = Non Global, SofttekVertical = 
+                            Financial Services & Insurance, Manufacturing and Consumer Product, Middle Market, Retail, Strategic Accounts,
+                            Technology & Media, General, Other, Unknown */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000003").And("new_marketscope_opp").EqualsTo("100000001").Do().PutOptions(["100000046", "100000047", "100000048", "100000049", "100000050", "100000051", "100000052"]);
+
+    /* Cascade SofttekMarket != Mexico & Central America, USA & Canada, Cloud SAP Industry Solutions, Softtek Vertical =
+                            General */
+
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").DifferentTo("100000006").And("new_softtekmarket").DifferentTo("100000000").And("new_softtekmarket").DifferentTo("100000001").And("new_softtekmarket").DifferentTo("100000003").Do().PutOptions(["100000005"]);
+    //************************************************************
+    /* Cascade SofttekMarket = Europe,  MarketScope = Global, SofttekVertical = 
+        GE Capital, GE Corporate, GE Energy, GE Infrastructure, ABInveb, Citi, Walmart, HP */
+
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000005").And("new_marketscope_opp").EqualsTo("100000000").Do().PutOptions(["100000026", "100000027", "100000028", "100000029", "100000030", "100000031", "100000032", "100000033"]);
+
+    /* Cascade SofttekMarket = Europe,  MarketScope = Non Global, SofttekVertical = 
+                            Internacional,	Nacional NovaGaliciaBanco,	Nacional Madrid,	Nacional Galicia,	Nacional Otros,	SAP */
+
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000005").And("new_marketscope_opp").EqualsTo("100000001").Do().PutOptions(["100000034", "100000035", "100000036", "100000037", "100000038", "100000039"]);
+
+    /*Cascade SofttekMarket = Brazil and Market Scope = Global, Softtek Vertical = 
+    GE Capital
+    GE Corporate
+    GE Energy
+    GE Manufacturing
+    ABInveb
+    Citi
+    Walmart
+    HP
+    */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000002").And("new_marketscope_opp").EqualsTo("100000000").Do().PutOptions(["100000026","100000027","100000028","100000029","100000030","100000031","100000032","100000033"]);
+
+    /*Cascade SofttekMarket = China and Market Scope = Global, Softtek Vertical = 
+    GE Capital
+    GE Corporate
+    GE Energy
+    GE Manufacturing
+    ABInveb
+    Citi
+    Walmart
+    HP
+    */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket").EqualsTo("100000004").And("new_marketscope_opp").EqualsTo("100000000").Do().PutOptions(["100000026","100000027","100000028","100000029","100000030","100000031","100000032","100000033"]);
+
+    /* Deprecate from Softtek Vertical :
+                            05 EST-Bancomer [Deprecado], 06 EST-IBM Metlife [Deprecado], 07 HGM-Bimbo [Deprecado], 08 HGM-Named [Deprecado], 09 BD-Named [Deprecado],
+                            10 BD-Financiero [Deprecado], 11 BD-Honeywell [Deprecado], 13 ZN-Urbi [Deprecado], 14 SAP [Deprecado], 15 SP [Deprecado] */
+
+    Xrm.Page.Cascades.Deprecate("new_softtekvertical1", ["200000004", "200000005", "200000006", "200000011", "200000018", "200000014", "200000017", "200000016", "200000012", "200000015"]);
+
+    if (Xrm.Page.getAttribute("new_softtekvertical1").getOptions()[0].text == "") {
+        Xrm.Page.getAttribute("new_softtekvertical1").getOptions().shift();
+    }
+	//Service Offering QA- QualityAssurance
+    Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000012").Do().PutOptions(["100000045", "100000036", "100000037"]);
+	////Service Offering BPO
+    Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000013").Do().PutOptions(["100000045", "100000038", "100000039"]);
+	//Service Offering IS
+    Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000011").Do().PutOptions(["100000045", "100000014", "100000015", "100000016", "100000030"]);
+	//Service Offering DEV
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000000").Do().PutOptions(["100000045", "100000040", "100000000", "100000001", "100000002", "100000003", "100000004"]);
+	//Service Offering AMS
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000001").Do().PutOptions(["100000045", "100000006"]);
+	//Service Offering SAS
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000003").Do().PutOptions(["100000045", "100000017", "100000018"]);
+	//Service Offering ITIS
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000004").Do().PutOptions(["100000045", "100000019", "100000020", "100000021"]);
+	//Service Offering SWP
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000005").Do().PutOptions(["100000045", "100000022", "100000023", "100000024", "100000025", "100000026", "100000027", "100000028"]);
+	//Service Offering ERP
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000006").Do().PutOptions(["100000045", "100000005", "100000007", "100000008", "100000009", "100000010", "100000041", "100000042", "100000035"]);
+	//Service Offering IM
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000007").Do().PutOptions(["100000045", "100000013", "100000011", "100000043", "100000012"]);
+	//Service Offering General
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000002").Do().PutOptions(["100000045", "100000033"]);
+	//Service Offering Other
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000010").Do().PutOptions(["100000045", "100000034"]);
+	//Service Offering Unknown
+	Xrm.Page.Cascades.AddTo("new_serviceofferingtype").When("new_serviceoffering").EqualsTo("100000009").Do().PutOptions(["100000032"]);
+	Xrm.Page.Cascades.Deprecate("new_serviceoffering", ["100000008"]);
+    Xrm.Page.Cascades.Deprecate("new_serviceofferingtype", ["100000031", "100000029"]);
+}
+
+function onLoad() {
+    //debugger;
+    this.__initializeForm();
+    this.onChangeForecast();
+    this.onChangeSalesStep();
+    Xrm.Page.getAttribute("isrevenuesystemcalculated").setValue(0);
+    Xrm.Page.getAttribute("isrevenuesystemcalculated").setSubmitMode("always");
+    Xrm.Page.Validations.Validate("new_softtekvertical1");
+    Xrm.Page.Cascades.Filter("new_softtekvertical1");
+    Xrm.Page.Cascades.Filter("new_serviceoffering");
+    Xrm.Page.Cascades.Filter("new_serviceofferingtype");
+    if (typeof(quoteIsInSW) != "undefined") Xrm.Page.getControl("new_softtekvertical1").setDisabled(quoteIsInSW);
+
+    if (Xrm.Page.ui.getFormType() == STK.Forms.FormType.Disabled || Xrm.Page.ui.getFormType() == STK.Forms.FormType.ReadOnly) {
+        Xrm.Page.getControl("new_softtekvertical1").setDisabled(true);
+    }
+}
+
+function onChangeSofttekMarket() {
+    Xrm.Page.getAttribute("new_softtekvertical1").setValue(null);
+    Xrm.Page.Validations.Validate("new_softtekvertical1");
+    Xrm.Page.Cascades.Filter("new_softtekvertical1");
+}
+
+function onChangeMarketScope() {
+    Xrm.Page.getAttribute("new_softtekvertical1").setValue(null);
+    Xrm.Page.Validations.Validate("new_softtekvertical1");
+    Xrm.Page.Cascades.Filter("new_softtekvertical1");
+}
+function onChangeServiceOffering() {
+    Xrm.Page.getAttribute("new_serviceofferingtype").setValue(null);
+    Xrm.Page.Cascades.Filter("new_serviceofferingtype");
+}
+function onChangeSalesStep() {
+    var optStep = Xrm.Page.getAttribute("salesstagecode").getValue();
+    if (optStep == "1") Xrm.Page.getAttribute("new_salesstageopp").setValue("100000000");
+    if (optStep == "2") Xrm.Page.getAttribute("new_salesstageopp").setValue("100000001");
+    if (optStep == "3") Xrm.Page.getAttribute("new_salesstageopp").setValue("100000002");
+    if (optStep == "4") Xrm.Page.getAttribute("new_salesstageopp").setValue("100000003");
+}
+
+function onChangeForecast() {
+    var optForecast = Xrm.Page.getAttribute("new_forecaststatus").getValue();
+    if (optForecast == "100000000") Xrm.Page.getAttribute("closeprobability").setValue(40);
+    if (optForecast == "100000001") Xrm.Page.getAttribute("closeprobability").setValue(80);
+    if (optForecast == "100000002") Xrm.Page.getAttribute("closeprobability").setValue(100);
+}

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Mail Merge Template" OriginalName="">MailMergeTemplate</Name>
+  <ObjectTypeCode>9106</ObjectTypeCode>
+  <FormXml />
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

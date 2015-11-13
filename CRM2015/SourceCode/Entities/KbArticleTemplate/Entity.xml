@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Article Template" OriginalName="Article Template">KbArticleTemplate</Name>
+  <ObjectTypeCode>1016</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>2029</returnedtypecode>
+  <savedqueryid>{b1754405-0f63-e111-ac45-1cc1dee8ea69}</savedqueryid>
+  <layoutxml>
+    <grid name="queueitems" object="2029" jump="title" select="1" icon="1" preview="1">
+      <row name="queueitem" id="objectid" multiobjectidfield="objecttypecode">
+        <cell name="title" width="200" />
+        <cell name="enteredon" width="140" />
+        <cell name="queueid" width="150" />
+        <cell name="statecode" width="100" />
+        <cell name="objecttypecode" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="workeridmodifiedon" width="100" />
+        <cell name="workerid" width="100" />
+        <cell name="queueitemid" ishidden="1" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="queueitem">
+        <attribute name="title" />
+        <attribute name="enteredon" />
+        <attribute name="objecttypecode" />
+        <attribute name="queueid" />
+        <attribute name="workerid" />
+        <attribute name="workerid" />
+        <attribute name="statecode" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="queueitemid" />
+        <attribute name="workeridmodifiedon" />
+        <order attribute="enteredon" descending="true" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+          <condition attribute="workerid" operator="null" />
+          <condition attribute="objecttypecode" operator="eq" value="112" />
+          <condition attribute="queueid" operator="in">
+            <value uiname="MX - AMS - SE" uitype="queue">{B53F16CC-2A42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - AMS - TS" uitype="queue">{B309E2EA-2A42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - BAG" uitype="queue">{71EDF2E8-7148-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - BI - SE" uitype="queue">{1F1357FD-2A42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - BI - TS" uitype="queue">{F4F08F15-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - DEV - SE" uitype="queue">{3CE68F2B-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - DEV - TS" uitype="queue">{71228145-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - ERP - SE" uitype="queue">{E5648A5D-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - ERP - TS" uitype="queue">{5FDC4172-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - General - SE" uitype="queue">{D47CFB88-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - General - TS" uitype="queue">{3170BE96-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - ITIS - SE" uitype="queue">{7800E6A9-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - ITIS - TS" uitype="queue">{124266CD-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - QA - SE" uitype="queue">{0091B2F7-2B42-E111-8D1F-1CC1DE780841}</value>
+            <value uiname="MX - QA - TS" uitype="queue">{93949B10-2C42-E111-8D1F-1CC1DE780841}</value>
+          </condition>
+        </filter>
+        <attribute name="objectid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Items available to work on - MX - BAG / SE / TS Queues" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

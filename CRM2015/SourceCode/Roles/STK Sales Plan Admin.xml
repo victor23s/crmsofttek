@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{952a97bb-0f37-e511-80d8-3863bb2ef238}" name="STK Sales Plan Admin">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppendnew_salesplan" level="Global" />
+    <RolePrivilege name="prvAppendnew_salesplaninsertlog" level="Global" />
+    <RolePrivilege name="prvAppendTonew_salesplan" level="Global" />
+    <RolePrivilege name="prvAppendTonew_salesplaninsertlog" level="Global" />
+    <RolePrivilege name="prvAssignnew_salesplan" level="Global" />
+    <RolePrivilege name="prvAssignnew_salesplaninsertlog" level="Global" />
+    <RolePrivilege name="prvAssignUserQuery" level="Basic" />
+    <RolePrivilege name="prvCreatenew_salesplan" level="Global" />
+    <RolePrivilege name="prvCreatenew_salesplaninsertlog" level="Global" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvCreateUserQuery" level="Basic" />
+    <RolePrivilege name="prvDeletenew_salesplan" level="Global" />
+    <RolePrivilege name="prvDeletenew_salesplaninsertlog" level="Global" />
+    <RolePrivilege name="prvDeleteUserQuery" level="Basic" />
+    <RolePrivilege name="prvReadnew_salesplan" level="Global" />
+    <RolePrivilege name="prvReadnew_salesplaninsertlog" level="Global" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvReadUserQuery" level="Basic" />
+    <RolePrivilege name="prvSharenew_salesplan" level="Global" />
+    <RolePrivilege name="prvSharenew_salesplaninsertlog" level="Global" />
+    <RolePrivilege name="prvShareUserQuery" level="Basic" />
+    <RolePrivilege name="prvWritenew_salesplan" level="Global" />
+    <RolePrivilege name="prvWritenew_salesplaninsertlog" level="Global" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+    <RolePrivilege name="prvWriteUserQuery" level="Basic" />
+  </RolePrivileges>
+</Role>

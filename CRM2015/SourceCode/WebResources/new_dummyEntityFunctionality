@@ -1,0 +1,6 @@
+/// <reference path="../Namespaces/SofttekCrm.DummyEntity.js" />
+function Form_onload() {
+    var dictionaryFields = new Object();
+    dictionaryFields["test"] = "test text";
+    SofttekCrm.DummyEntity.load(dictionaryFields);
+}

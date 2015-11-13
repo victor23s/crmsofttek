@@ -1,0 +1,3289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Lead" OriginalName="Lead">Lead</Name>
+  <ObjectTypeCode>4</ObjectTypeCode>
+  <EntityInfo>
+    <entity Name="Lead">
+      <LocalizedNames>
+        <LocalizedName description="Lead" languagecode="1033" />
+        <LocalizedName description="Cliente potencial" languagecode="3082" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Leads" languagecode="1033" />
+        <LocalizedCollectionName description="Clientes potenciales" languagecode="3082" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="Prospect or potential sales opportunity. Leads are converted into accounts, contacts, or opportunities when they are qualified. Otherwise, they are deleted or archived." languagecode="1033" />
+        <Description description="Oportunidad de cliente o venta potencial. Los clientes potenciales se convierten en cuentas, contactos u oportunidades cuando están calificados. De lo contrario, se eliminan o archivan." languagecode="3082" />
+      </Descriptions>
+      <attributes>
+        <attribute PhysicalName="Address1_Line1">
+          <Type>nvarchar</Type>
+          <Name>address1_line1</Name>
+          <LogicalName>address1_line1</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>active</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsLogical>1</IsLogical>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>250</MaxLength>
+          <Length>500</Length>
+          <displaynames>
+            <displayname description="Street 1" languagecode="1033" />
+            <displayname description="Calle 1" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Type the first line of the primary address." languagecode="1033" />
+            <Description description="Escriba la primera línea de la dirección principal." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="CompanyName">
+          <Type>nvarchar</Type>
+          <Name>companyname</Name>
+          <LogicalName>companyname</LogicalName>
+          <RequiredLevel>recommended</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>active</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>214</Length>
+          <displaynames>
+            <displayname description="Account (Lead)" languagecode="1033" />
+            <displayname description="Nombre de la compa?ía" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Type the name of the company associated with the lead. This becomes the account name when the lead is qualified and converted to a customer account." languagecode="1033" />
+            <Description description="Nombre de la compa?ía con la que está asociado el cliente potencial." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="FirstName">
+          <Type>nvarchar</Type>
+          <Name>firstname</Name>
+          <LogicalName>firstname</LogicalName>
+          <RequiredLevel>recommended</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>active</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>65</MaxLength>
+          <Length>130</Length>
+          <displaynames>
+            <displayname description="First Name" languagecode="1033" />
+            <displayname description="Nombre de pila" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Type the first name of the primary contact for the lead to make sure the prospect is addressed correctly in sales calls, email, and marketing campaigns." languagecode="1033" />
+            <Description description="Escriba el nombre de pila del contacto principal del cliente potencial para asegurarse de que se dirige correctamente al posible interesado en llamadas de ventas, correo electrónico y campañas de marketing." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="IndustryCode">
+          <Type>picklist</Type>
+          <Name>industrycode</Name>
+          <LogicalName>industrycode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="lead_industrycode">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Industry" languagecode="1033" />
+              <displayname description="Sector" languagecode="3082" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Type of industry with which the company or organization of the lead is associated." languagecode="1033" />
+              <Description description="Tipo de sector con el que está asociada la compa?ía u organización del cliente potencial." languagecode="3082" />
+            </Descriptions>
+            <options>
+              <option value="1">
+                <labels>
+                  <label description="Accounting" languagecode="1033" />
+                  <label description="Contabilidad" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="Aerospace" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000003">
+                <labels>
+                  <label description="Agriculture" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000004">
+                <labels>
+                  <label description="Agriculture &amp; Mining" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="2">
+                <labels>
+                  <label description="Agriculture and Non-petrol Natural Resource Extraction" languagecode="1033" />
+                  <label description="Agricultura y extracción de recursos naturales excepto petróleo" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000005">
+                <labels>
+                  <label description="Automotive" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000006">
+                <labels>
+                  <label description="Banking" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000007">
+                <labels>
+                  <label description="Beverages" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000008">
+                <labels>
+                  <label description="Broadcasting" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="3">
+                <labels>
+                  <label description="Broadcasting Printing and Publishing" languagecode="1033" />
+                  <label description="Emisión, impresión y publicación" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="4">
+                <labels>
+                  <label description="Brokers" languagecode="1033" />
+                  <label description="Agentes de bolsa" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="5">
+                <labels>
+                  <label description="Building Supply Retail" languagecode="1033" />
+                  <label description="Almacén de materiales de construcción" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="6">
+                <labels>
+                  <label description="Business Services" languagecode="1033" />
+                  <label description="Servicios empresariales" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000009">
+                <labels>
+                  <label description="Charitable Organizations" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000010">
+                <labels>
+                  <label description="Chemicals" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000011">
+                <labels>
+                  <label description="Commercial Software Development" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000012">
+                <labels>
+                  <label description="Computer Hardware" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000013">
+                <labels>
+                  <label description="Computer Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000000">
+                <labels>
+                  <label description="Computers &amp; Electronics" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000014">
+                <labels>
+                  <label description="Computers &amp; Electronics" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000015">
+                <labels>
+                  <label description="Construction" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="7">
+                <labels>
+                  <label description="Consulting" languagecode="1033" />
+                  <label description="Consultoría" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000016">
+                <labels>
+                  <label description="Consumer Products/ Manufacturers" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="8">
+                <labels>
+                  <label description="Consumer Services" languagecode="1033" />
+                  <label description="Servicios al consumidor" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000017">
+                <labels>
+                  <label description="Cultural Institutions" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="9">
+                <labels>
+                  <label description="Design, Direction and Creative Management" languagecode="1033" />
+                  <label description="Dise?o, dirección y administración creativa" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="10">
+                <labels>
+                  <label description="Distributors, Dispatchers and Processors" languagecode="1033" />
+                  <label description="Distribuidores y procesadores" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="11">
+                <labels>
+                  <label description="Doctor's Offices and Clinics" languagecode="1033" />
+                  <label description="Consultas médicas y clínicas" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="12">
+                <labels>
+                  <label description="Durable Manufacturing" languagecode="1033" />
+                  <label description="Fabricación de artículos no perecederos" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="13">
+                <labels>
+                  <label description="Eating and Drinking Places" languagecode="1033" />
+                  <label description="Establecimientos de comida y bebida" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000018">
+                <labels>
+                  <label description="Education" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000019">
+                <labels>
+                  <label description="Electronics" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000020">
+                <labels>
+                  <label description="Energy and Utilities" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="14">
+                <labels>
+                  <label description="Entertainment Retail" languagecode="1033" />
+                  <label description="Establecimientos de entretenimiento" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000021">
+                <labels>
+                  <label description="Environmental Services &amp; Equipment" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="15">
+                <labels>
+                  <label description="Equipment Rental and Leasing" languagecode="1033" />
+                  <label description="Alquiler y leasing de equipo" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="16">
+                <labels>
+                  <label description="Financial Services" languagecode="1033" />
+                  <label description="Actividades financieras" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000022">
+                <labels>
+                  <label description="Food" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="17">
+                <labels>
+                  <label description="Food and Tobacco Processing" languagecode="1033" />
+                  <label description="Procesamiento de comida y tabaco" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000023">
+                <labels>
+                  <label description="Foundations" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000024">
+                <labels>
+                  <label description="Government" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000025">
+                <labels>
+                  <label description="Healthcare" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000026">
+                <labels>
+                  <label description="Healthcare and Pharmaceuticals" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000027">
+                <labels>
+                  <label description="High-Tech Manufacturing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="18">
+                <labels>
+                  <label description="Inbound Capital Intensive Processing" languagecode="1033" />
+                  <label description="Procesamiento intensivo de capital entrante" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="19">
+                <labels>
+                  <label description="Inbound Repair and Services" languagecode="1033" />
+                  <label description="Servicios y reparación entrante" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000028">
+                <labels>
+                  <label description="Industrial Manufacturing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="20">
+                <labels>
+                  <label description="Insurance" languagecode="1033" />
+                  <label description="Compa?ías aseguradores" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="21">
+                <labels>
+                  <label description="Legal Services" languagecode="1033" />
+                  <label description="Servicios legales" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000029">
+                <labels>
+                  <label description="Leisure" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000030">
+                <labels>
+                  <label description="Manufacturing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000031">
+                <labels>
+                  <label description="Media" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000032">
+                <labels>
+                  <label description="Media &amp; Entertainment" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000033">
+                <labels>
+                  <label description="Membership Organizations" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000034">
+                <labels>
+                  <label description="Metals &amp; Mining" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="22">
+                <labels>
+                  <label description="Non-Durable Merchandise Retail" languagecode="1033" />
+                  <label description="Venta al por menor de mercancías perecederas" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000035">
+                <labels>
+                  <label description="Non-Profit" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="23">
+                <labels>
+                  <label description="Outbound Consumer Service" languagecode="1033" />
+                  <label description="Servicios al consumidor de origen" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="24">
+                <labels>
+                  <label description="Petrochemical Extraction and Distribution" languagecode="1033" />
+                  <label description="Extracción y distribución petroquímica" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000036">
+                <labels>
+                  <label description="Pharmaceuticals" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000037">
+                <labels>
+                  <label description="Real Estate" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000038">
+                <labels>
+                  <label description="Real Estate &amp; Construction" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000039">
+                <labels>
+                  <label description="Retail" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000040">
+                <labels>
+                  <label description="Retail &amp; Wholesale" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000041">
+                <labels>
+                  <label description="Security Products &amp; Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="25">
+                <labels>
+                  <label description="Service Retail" languagecode="1033" />
+                  <label description="Servicios al por menor" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="26">
+                <labels>
+                  <label description="SIG Affiliations" languagecode="1033" />
+                  <label description="Grupo de industrias estratégicas" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="27">
+                <labels>
+                  <label description="Social Services" languagecode="1033" />
+                  <label description="Servicios sociales" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="Software &amp; Internet" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000042">
+                <labels>
+                  <label description="Software &amp; Internet" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="28">
+                <labels>
+                  <label description="Special Outbound Trade Contractors" languagecode="1033" />
+                  <label description="Contratistas de comercio exterior especial" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="29">
+                <labels>
+                  <label description="Specialty Realty" languagecode="1033" />
+                  <label description="Agencias inmobiliarias" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000043">
+                <labels>
+                  <label description="Telecommunications" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="30">
+                <labels>
+                  <label description="Transportation" languagecode="1033" />
+                  <label description="Transporte" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000044">
+                <labels>
+                  <label description="Transportation &amp; Storage" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000045">
+                <labels>
+                  <label description="Travel &amp; Accommodation" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000046">
+                <labels>
+                  <label description="Travel &amp; Entertainment" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="31">
+                <labels>
+                  <label description="Utility Creation and Distribution" languagecode="1033" />
+                  <label description="Creación y distribución de herramientas" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="32">
+                <labels>
+                  <label description="Vehicle Retail" languagecode="1033" />
+                  <label description="Concesionario de vehículos" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="33">
+                <labels>
+                  <label description="Wholesale" languagecode="1033" />
+                  <label description="Comercio al por mayor" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000047">
+                <labels>
+                  <label description="Healthcare &amp; Pharmaceuticals" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Industry SFTK" languagecode="1033" />
+            <displayname description="Sector" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Select the primary industry in which the lead's business is focused, for use in marketing segmentation and demographic analysis." languagecode="1033" />
+            <Description description="Tipo de sector con el que está asociada la compa?ía u organización del cliente potencial." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="JobTitle">
+          <Type>nvarchar</Type>
+          <Name>jobtitle</Name>
+          <LogicalName>jobtitle</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>164</MaxLength>
+          <Length>328</Length>
+          <displaynames>
+            <displayname description="Job Title" languagecode="1033" />
+            <displayname description="Puesto" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Type the job title of the primary contact for this lead to make sure the prospect is addressed correctly in sales calls, email, and marketing campaigns." languagecode="1033" />
+            <Description description="Escriba el puesto del contacto principal de este cliente potencial para asegurarse de que se dirige correctamente al posible interesado en llamadas de ventas, correo electrónico y campañas de marketing." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="LastName">
+          <Type>nvarchar</Type>
+          <Name>lastname</Name>
+          <LogicalName>lastname</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>active</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>50</MaxLength>
+          <Length>100</Length>
+          <displaynames>
+            <displayname description="Last Name" languagecode="1033" />
+            <displayname description="Apellidos" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Type the last name of the primary contact for the lead to make sure the prospect is addressed correctly in sales calls, email, and marketing campaigns." languagecode="1033" />
+            <Description description="Escriba los apellidos del contacto principal del cliente potencial para asegurarse de que se dirige correctamente al posible interesado en llamadas de ventas, correo electrónico y campañas de marketing." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="LeadQualityCode">
+          <Type>picklist</Type>
+          <Name>leadqualitycode</Name>
+          <LogicalName>leadqualitycode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="lead_leadqualitycode">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Rating" languagecode="1033" />
+              <displayname description="Nivel de interés" languagecode="3082" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Quality of the lead, such as hot, warm, or cold." languagecode="1033" />
+              <Description description="Calidad del cliente potencial (por ejemplo, &quot;muy interesado&quot;, &quot;algo interesado&quot; o &quot;no interesado&quot;)." languagecode="3082" />
+            </Descriptions>
+            <options>
+              <option value="1">
+                <labels>
+                  <label description="Hot" languagecode="1033" />
+                  <label description="Muy interesado" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="2">
+                <labels>
+                  <label description="Warm" languagecode="1033" />
+                  <label description="Algo interesado" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="3">
+                <labels>
+                  <label description="Cold" languagecode="1033" />
+                  <label description="No interesado" languagecode="3082" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Rating" languagecode="1033" />
+            <displayname description="Nivel de interés" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Select a rating value to indicate the lead's potential to become a customer." languagecode="1033" />
+            <Description description="Seleccione un valor de clasificación para indicar el potencial del cliente potencial para convertirse en cliente." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="LeadSourceCode">
+          <Type>picklist</Type>
+          <Name>leadsourcecode</Name>
+          <LogicalName>leadsourcecode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="lead_leadsourcecode">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Lead Source" languagecode="1033" />
+              <displayname description="Origen del cliente potencial" languagecode="3082" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Source of the lead." languagecode="1033" />
+              <Description description="Origen del cliente potencial." languagecode="3082" />
+            </Descriptions>
+            <options>
+              <option value="1">
+                <labels>
+                  <label description="Advertisement" languagecode="1033" />
+                  <label description="Anuncio" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="2">
+                <labels>
+                  <label description="Employee Referral" languagecode="1033" />
+                  <label description="Referencia de empleado" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="3">
+                <labels>
+                  <label description="External Referral" languagecode="1033" />
+                  <label description="Referencia externa" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="4">
+                <labels>
+                  <label description="Partner" languagecode="1033" />
+                  <label description="Asociado" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="5">
+                <labels>
+                  <label description="Public Relations" languagecode="1033" />
+                  <label description="Relaciones públicas" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="6">
+                <labels>
+                  <label description="Seminar" languagecode="1033" />
+                  <label description="Seminario" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="7">
+                <labels>
+                  <label description="Trade Show" languagecode="1033" />
+                  <label description="Feria comercial" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="8">
+                <labels>
+                  <label description="Web" languagecode="1033" />
+                  <label description="Web" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="9">
+                <labels>
+                  <label description="Word of Mouth" languagecode="1033" />
+                  <label description="Comentarios de otras personas" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="10">
+                <labels>
+                  <label description="Other" languagecode="1033" />
+                  <label description="Otros" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="100000000">
+                <labels>
+                  <label description="Website Form" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="Inbound Email" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="Inbound Call" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000003">
+                <labels>
+                  <label description="Event / Webinar" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000004">
+                <labels>
+                  <label description="Directory" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000005">
+                <labels>
+                  <label description="Partner Leads" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000006">
+                <labels>
+                  <label description="Softtek Internal" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000007">
+                <labels>
+                  <label description="Other" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Lead Source (Remove)" languagecode="1033" />
+            <displayname description="Origen del cliente potencial" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Select the primary marketing source that prompted the lead to contact you." languagecode="1033" />
+            <Description description="Seleccione el origen de marketing principal que llevó al cliente potencial a ponerse en contacto con usted." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_Annualrevenuerange">
+          <Type>picklist</Type>
+          <Name>new_annualrevenuerange</Name>
+          <LogicalName>new_annualrevenuerange</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_annualrevenuerange</OptionSetName>
+          <displaynames>
+            <displayname description="Annual revenue range" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_AudienceType">
+          <Type>picklist</Type>
+          <Name>new_audiencetype</Name>
+          <LogicalName>new_audiencetype</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_lead_new_audiencetype">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Audience Type" languagecode="1033" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Field to specify what kind of Audience is the Lead" languagecode="1033" />
+            </Descriptions>
+            <options>
+              <option value="100000000">
+                <labels>
+                  <label description="Business" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="IT" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="Vendor Management" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000003">
+                <labels>
+                  <label description="Sourcing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000004">
+                <labels>
+                  <label description="Other" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Audience Type" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Field to specify what kind of Audience is the Lead" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_Birthday">
+          <Type>datetime</Type>
+          <Name>new_birthday</Name>
+          <LogicalName>new_birthday</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>date</Format>
+          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <Behavior>1</Behavior>
+          <displaynames>
+            <displayname description="Birthday" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Birthday" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_ClosedDate">
+          <Type>datetime</Type>
+          <Name>new_closeddate</Name>
+          <LogicalName>new_closeddate</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>date</Format>
+          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <Behavior>1</Behavior>
+          <displaynames>
+            <displayname description="Date Closed" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_ContactLevel">
+          <Type>picklist</Type>
+          <Name>new_contactlevel</Name>
+          <LogicalName>new_contactlevel</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_contactlevel_lead">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Contact Level" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="1">
+                <labels>
+                  <label description="C-Level" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="2">
+                <labels>
+                  <label description="Director-Level" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="3">
+                <labels>
+                  <label description="Manager-Level" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="4">
+                <labels>
+                  <label description="VP-Level" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000000">
+                <labels>
+                  <label description="Other" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="Manager" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="VP Level" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Contact Level" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_DateClosed">
+          <Type>nvarchar</Type>
+          <Name>new_dateclosed</Name>
+          <LogicalName>new_dateclosed</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Date Closed" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_DateMQL">
+          <Type>nvarchar</Type>
+          <Name>new_datemql</Name>
+          <LogicalName>new_datemql</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Date MQL" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_DateSQL">
+          <Type>nvarchar</Type>
+          <Name>new_datesql</Name>
+          <LogicalName>new_datesql</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Date SQL" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_Department">
+          <Type>nvarchar</Type>
+          <Name>new_department</Name>
+          <LogicalName>new_department</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Department" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="New_FollowUpDate">
+          <Type>datetime</Type>
+          <Name>new_followupdate</Name>
+          <LogicalName>new_followupdate</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>date</Format>
+          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <Behavior>1</Behavior>
+          <displaynames>
+            <displayname description="Follow Up" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_HubspotURL">
+          <Type>nvarchar</Type>
+          <Name>new_hubspoturl</Name>
+          <LogicalName>new_hubspoturl</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>url</Format>
+          <MaxLength>4000</MaxLength>
+          <Length>8000</Length>
+          <displaynames>
+            <displayname description="Hubspot URL" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Hubspot URL" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_Industry">
+          <Type>picklist</Type>
+          <Name>new_industry</Name>
+          <LogicalName>new_industry</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_industry_lead">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Industry" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="100000047">
+                <labels>
+                  <label description="Agriculture and Non-petrol Natural Resource Extraction" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000056">
+                <labels>
+                  <label description="Entertaiment" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000058">
+                <labels>
+                  <label description="Entertainment" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000069">
+                <labels>
+                  <label description="Healthcare" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000070">
+                <labels>
+                  <label description="High Tech &amp; Electronic" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000071">
+                <labels>
+                  <label description="Minning" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000072">
+                <labels>
+                  <label description="Oil&amp;Gas" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000073">
+                <labels>
+                  <label description="Service Retail" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000074">
+                <labels>
+                  <label description="Transportation" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000075">
+                <labels>
+                  <label description="Vehicle Retail" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000076">
+                <labels>
+                  <label description="Wholesale" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000000">
+                <labels>
+                  <label description="Accounting" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="Aerospace" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="Automotive" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000003">
+                <labels>
+                  <label description="Agriculture" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000004">
+                <labels>
+                  <label description="Banking" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000005">
+                <labels>
+                  <label description="Beverages" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000006">
+                <labels>
+                  <label description="Broadcasting" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000007">
+                <labels>
+                  <label description="Building Supply Retail" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000008">
+                <labels>
+                  <label description="Business Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000009">
+                <labels>
+                  <label description="Charitable Organizations" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000010">
+                <labels>
+                  <label description="Chemicals" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000011">
+                <labels>
+                  <label description="Commercial Software Development" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000012">
+                <labels>
+                  <label description="Computer Hardware" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000013">
+                <labels>
+                  <label description="Computer Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000014">
+                <labels>
+                  <label description="Construction" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000015">
+                <labels>
+                  <label description="Consulting" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000016">
+                <labels>
+                  <label description="Consumer Products/ Manufacturers" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000017">
+                <labels>
+                  <label description="Consumer Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000018">
+                <labels>
+                  <label description="Cultural Institutions" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000019">
+                <labels>
+                  <label description="Design, Direction and Creative Management" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000020">
+                <labels>
+                  <label description="Distributors, Dispatchers and Processors" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000021">
+                <labels>
+                  <label description="Doctor's Offices and Clinics" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000022">
+                <labels>
+                  <label description="Durable Manufacturing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000023">
+                <labels>
+                  <label description="Eating and Drinking Places" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000024">
+                <labels>
+                  <label description="Education" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000025">
+                <labels>
+                  <label description="Electronics" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000026">
+                <labels>
+                  <label description="Energy and Utilities" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000027">
+                <labels>
+                  <label description="Entertainment Retail" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000028">
+                <labels>
+                  <label description="Environmental Services &amp; Equipment" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000029">
+                <labels>
+                  <label description="Equipment Rental and Leasing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000030">
+                <labels>
+                  <label description="Financial Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000031">
+                <labels>
+                  <label description="Food" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000032">
+                <labels>
+                  <label description="Foundations" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000033">
+                <labels>
+                  <label description="Government" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000034">
+                <labels>
+                  <label description="Health Care" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000035">
+                <labels>
+                  <label description="High-Tech Manufacturing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000036">
+                <labels>
+                  <label description="Inbound Capital Intensive Processing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000037">
+                <labels>
+                  <label description="Inbound Repair and Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000038">
+                <labels>
+                  <label description="Industrial Manufacturing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000039">
+                <labels>
+                  <label description="Insurance" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000040">
+                <labels>
+                  <label description="Legal Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000041">
+                <labels>
+                  <label description="Leisure" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000042">
+                <labels>
+                  <label description="Media" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000043">
+                <labels>
+                  <label description="Membership Organizations" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000044">
+                <labels>
+                  <label description="Non-Durable Merchandise Retail" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000046">
+                <labels>
+                  <label description="Outbound Consumer Service" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000048">
+                <labels>
+                  <label description="Petrochemical Extraction and Distribution" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000049">
+                <labels>
+                  <label description="Pharmaceuticals" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000050">
+                <labels>
+                  <label description="Real Estate" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000051">
+                <labels>
+                  <label description="Retail" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000052">
+                <labels>
+                  <label description="Security Products &amp; Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000045">
+                <labels>
+                  <label description="Metals &amp; Mining" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000053">
+                <labels>
+                  <label description="Software &amp; Internet" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000054">
+                <labels>
+                  <label description="Computers &amp; Electronics" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000055">
+                <labels>
+                  <label description="Energy &amp; Utilities" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000057">
+                <labels>
+                  <label description="Healthcare &amp; Pharmaceuticals" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000059">
+                <labels>
+                  <label description="Media &amp; Entertainment" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000060">
+                <labels>
+                  <label description="Real Estate &amp; Construction" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000061">
+                <labels>
+                  <label description="Telecommunications" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000062">
+                <labels>
+                  <label description="Transportation &amp; Storage" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000063">
+                <labels>
+                  <label description="Travel &amp; Accommodation" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000064">
+                <labels>
+                  <label description="Travel &amp; Entertainment" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000065">
+                <labels>
+                  <label description="Manufacturing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000066">
+                <labels>
+                  <label description="Retail &amp; Wholesale" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000067">
+                <labels>
+                  <label description="Agriculture &amp; Mining" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000068">
+                <labels>
+                  <label description="Non-Profit" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Industry SFTK" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_Industrysofttek">
+          <Type>picklist</Type>
+          <Name>new_industrysofttek</Name>
+          <LogicalName>new_industrysofttek</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_industrysofttek</OptionSetName>
+          <displaynames>
+            <displayname description="Industry softtek" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_InfluenceLevel">
+          <Type>picklist</Type>
+          <Name>new_influencelevel</Name>
+          <LogicalName>new_influencelevel</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_influencelevel_lead">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Influence Level" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="100000004">
+                <labels>
+                  <label description="Executive Sponsor" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000000">
+                <labels>
+                  <label description="Decision Maker" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="Influencer" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000005">
+                <labels>
+                  <label description="Champion/Coach" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000006">
+                <labels>
+                  <label description="Unknown" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Influence Level" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_InterestGroups">
+          <Type>ntext</Type>
+          <Name>new_interestgroups</Name>
+          <LogicalName>new_interestgroups</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format></Format>
+          <MaxLength>2000</MaxLength>
+          <displaynames>
+            <displayname description="Interest Groups" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Field to specify what are the Interest Groups of the Lead" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_Keywords">
+          <Type>ntext</Type>
+          <Name>new_keywords</Name>
+          <LogicalName>new_keywords</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format></Format>
+          <MaxLength>2000</MaxLength>
+          <displaynames>
+            <displayname description="Keywords" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Keywords to classify Lead" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_lead_contopp">
+          <Type>bit</Type>
+          <Name>new_lead_contopp</Name>
+          <LogicalName>new_lead_contopp</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>0</AppDefaultValue>
+          <optionset Name="new_lead_contopp_lead">
+            <OptionSetType>bit</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="lead_cont&amp;opp" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="0">
+                <labels>
+                  <label description="None" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1">
+                <labels>
+                  <label description="Contact &amp; Opportunity" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="lead_cont&amp;opp" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_LeadChannel">
+          <Type>picklist</Type>
+          <Name>new_leadchannel</Name>
+          <LogicalName>new_leadchannel</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_leadchannel_lead">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Lead Channel" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="100000003">
+                <labels>
+                  <label description="Cold/Warm Calling" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000008">
+                <labels>
+                  <label description="Events (Booth, Sessions, etc.)" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000011">
+                <labels>
+                  <label description="Softtek Web Site Traffic" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000000">
+                <labels>
+                  <label description="Referal by Advisors &amp; Consultants" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="Referal by Partner" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000009">
+                <labels>
+                  <label description="Referral by Current Customer" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000010">
+                <labels>
+                  <label description="Referral by STK employee" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000013">
+                <labels>
+                  <label description="To be specified" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Lead Channel" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_LeadSource">
+          <Type>picklist</Type>
+          <Name>new_leadsource</Name>
+          <LogicalName>new_leadsource</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_leadsource</OptionSetName>
+          <displaynames>
+            <displayname description="Lead Source" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_LeadType">
+          <Type>bit</Type>
+          <Name>new_leadtype</Name>
+          <LogicalName>new_leadtype</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>0</AppDefaultValue>
+          <optionset Name="new_leadtype_lead">
+            <OptionSetType>bit</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Lead Type" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="0">
+                <labels>
+                  <label description="Prospect" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1">
+                <labels>
+                  <label description="Potential Customer" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Lead Type" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_LeadTypePicklist">
+          <Type>picklist</Type>
+          <Name>new_leadtypepicklist</Name>
+          <LogicalName>new_leadtypepicklist</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_leadtype</OptionSetName>
+          <displaynames>
+            <displayname description="Lead Type(Picklist)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_LinkedIN">
+          <Type>nvarchar</Type>
+          <Name>new_linkedin</Name>
+          <LogicalName>new_linkedin</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>url</Format>
+          <MaxLength>4000</MaxLength>
+          <Length>8000</Length>
+          <displaynames>
+            <displayname description="LinkedIN" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="URL Connection to LinkedIn" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_MarketScopeLead">
+          <Type>picklist</Type>
+          <Name>new_marketscopelead</Name>
+          <LogicalName>new_marketscopelead</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_marketscope</OptionSetName>
+          <displaynames>
+            <displayname description="Market Scope(Lead)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_MQLDate">
+          <Type>datetime</Type>
+          <Name>new_mqldate</Name>
+          <LogicalName>new_mqldate</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>date</Format>
+          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <Behavior>1</Behavior>
+          <displaynames>
+            <displayname description="Date MQL" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_NewCustomerinYear">
+          <Type>picklist</Type>
+          <Name>new_newcustomerinyear</Name>
+          <LogicalName>new_newcustomerinyear</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_lead_new_newcustomerinyear">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="New Customer in Year" languagecode="1033" />
+            </displaynames>
+            <Descriptions>
+              <Description description="" languagecode="1033" />
+            </Descriptions>
+            <options>
+              <option value="100000003">
+                <labels>
+                  <label description="Older" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000000">
+                <labels>
+                  <label description="2010" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="2011" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="2012" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000004">
+                <labels>
+                  <label description="2013" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000005">
+                <labels>
+                  <label description="2014" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000006">
+                <labels>
+                  <label description="2015" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="New Customer in Year" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_neworextacct">
+          <Type>bit</Type>
+          <Name>new_neworextacct</Name>
+          <LogicalName>new_neworextacct</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>0</AppDefaultValue>
+          <optionset Name="new_neworextacct_lead">
+            <OptionSetType>bit</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="New or Existing account" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="0">
+                <labels>
+                  <label description="Unqualified Account" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1">
+                <labels>
+                  <label description="Qualified Account" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="New or Existing account" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_NewProcessAlignment">
+          <Type>bit</Type>
+          <Name>new_newprocessalignment</Name>
+          <LogicalName>new_newprocessalignment</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>1</AppDefaultValue>
+          <optionset Name="new_newprocessalignment_lead">
+            <OptionSetType>bit</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="NewProcessAlignment" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="0">
+                <labels>
+                  <label description="No" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1">
+                <labels>
+                  <label description="Yes" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="NewProcessAlignment" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_Noofemployeerange">
+          <Type>picklist</Type>
+          <Name>new_noofemployeerange</Name>
+          <LogicalName>new_noofemployeerange</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_noofemployeerange</OptionSetName>
+          <displaynames>
+            <displayname description="No.of employee range" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_Products">
+          <Type>ntext</Type>
+          <Name>new_products</Name>
+          <LogicalName>new_products</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format></Format>
+          <MaxLength>4000</MaxLength>
+          <displaynames>
+            <displayname description="Existing Products" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_SendSalesMaterials">
+          <Type>picklist</Type>
+          <Name>new_sendsalesmaterials</Name>
+          <LogicalName>new_sendsalesmaterials</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_sendsalesmaterials</OptionSetName>
+          <displaynames>
+            <displayname description="Send Sales Materials" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_ServiceOffering">
+          <Type>picklist</Type>
+          <Name>new_serviceoffering</Name>
+          <LogicalName>new_serviceoffering</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_serviceoffering_lead">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Service Offering" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="100000000">
+                <labels>
+                  <label description="None" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="DEV - Application Development" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="QA -QA &amp; Testing" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000003">
+                <labels>
+                  <label description="AMS -Application Maintenance &amp; Support" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000004">
+                <labels>
+                  <label description="IT IS - IT Infrastructure Support" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000005">
+                <labels>
+                  <label description="ERP -Enterprise Resource Planning" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000006">
+                <labels>
+                  <label description="BPO -Business Process Outsourcing" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Service Offering(removed)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_serviceoffering1">
+          <Type>picklist</Type>
+          <Name>new_serviceoffering1</Name>
+          <LogicalName>new_serviceoffering1</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_serviceoffering</OptionSetName>
+          <displaynames>
+            <displayname description="Service Offering" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_SofttekCountry">
+          <Type>picklist</Type>
+          <Name>new_softtekcountry</Name>
+          <LogicalName>new_softtekcountry</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_softtekcountry</OptionSetName>
+          <displaynames>
+            <displayname description="Softtek Country (Lead)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_SofttekMarketLead">
+          <Type>picklist</Type>
+          <Name>new_softtekmarketlead</Name>
+          <LogicalName>new_softtekmarketlead</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_softtekmarket</OptionSetName>
+          <displaynames>
+            <displayname description="Softtek Market (Lead)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_SofttekVertical">
+          <Type>picklist</Type>
+          <Name>new_softtekvertical</Name>
+          <LogicalName>new_softtekvertical</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="new_softtekvertical_lead">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Softtek Vertical" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="100000005">
+                <labels>
+                  <label description="None" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000000">
+                <labels>
+                  <label description="Financial Services &amp; Insurance" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000001">
+                <labels>
+                  <label description="Software &amp; High Tech" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="Manufacturing and Consumer Product Goods" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000003">
+                <labels>
+                  <label description="Middle Market" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000004">
+                <labels>
+                  <label description="Strategic Accounts" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000006">
+                <labels>
+                  <label description="Business Services - Consulting - Non-profit" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000007">
+                <labels>
+                  <label description="Computer Manufacturer (Hardware, Peripherals, etc)" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000008">
+                <labels>
+                  <label description="Computer Services (Web Hosting, VAR, Integrator)" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000009">
+                <labels>
+                  <label description="Computer Software - SaaS" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000010">
+                <labels>
+                  <label description="Education" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000011">
+                <labels>
+                  <label description="Financial Services - Banking - Insurance" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000012">
+                <labels>
+                  <label description="Government" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000013">
+                <labels>
+                  <label description="Healthcare - Pharmaceuticals - Biotech" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000014">
+                <labels>
+                  <label description="Manufacturing - Utilities - Communications (Non-computer)" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000015">
+                <labels>
+                  <label description="Manufacturing and Consumer Product" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000016">
+                <labels>
+                  <label description="Media - Marketing - Advertising" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000017">
+                <labels>
+                  <label description="Other" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000018">
+                <labels>
+                  <label description="Transportation - Logistics - Aerospace" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000019">
+                <labels>
+                  <label description="Travel - Hospitality - Recreation - Entertainment" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000020">
+                <labels>
+                  <label description="Unknown" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000021">
+                <labels>
+                  <label description="Wholesale Trade - Distribution - Retail (Non-computer)" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000022">
+                <labels>
+                  <label description="01 Banamex" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000023">
+                <labels>
+                  <label description="02 HP" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000024">
+                <labels>
+                  <label description="03 Walmart" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000025">
+                <labels>
+                  <label description="04 GE" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000026">
+                <labels>
+                  <label description="05 EST-Bancomer" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000027">
+                <labels>
+                  <label description="06 EST Bancomer" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000028">
+                <labels>
+                  <label description="06 EST-IBM Metlife" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000029">
+                <labels>
+                  <label description="08 HGM-Named" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000030">
+                <labels>
+                  <label description="09 BC Retail y Servicios" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000031">
+                <labels>
+                  <label description="09 BD-Named" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000032">
+                <labels>
+                  <label description="09 HGM Named" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000033">
+                <labels>
+                  <label description="10 BD Named" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000034">
+                <labels>
+                  <label description="10 BD-Financiero" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000035">
+                <labels>
+                  <label description="11 BD Financiero" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000036">
+                <labels>
+                  <label description="12 ZN-Named" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000037">
+                <labels>
+                  <label description="13 ZN Named" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000038">
+                <labels>
+                  <label description="13 ZN Named Occidente" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000039">
+                <labels>
+                  <label description="14 Cloud TS" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000040">
+                <labels>
+                  <label description="14 SAP" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000041">
+                <labels>
+                  <label description="15 SAP" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000042">
+                <labels>
+                  <label description="15 SP" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000043">
+                <labels>
+                  <label description="16 SP" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000044">
+                <labels>
+                  <label description="18 Costa Rica" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000045">
+                <labels>
+                  <label description="19 PayRoll As a Service" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000046">
+                <labels>
+                  <label description="Business Development" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000047">
+                <labels>
+                  <label description="ChemQ" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000048">
+                <labels>
+                  <label description="eMetal" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000049">
+                <labels>
+                  <label description="GE Capital" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000050">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000051">
+                <labels>
+                  <label description="Global Account" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000052">
+                <labels>
+                  <label description="HP" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000053">
+                <labels>
+                  <label description="Internacional" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000054">
+                <labels>
+                  <label description="JIT Automotive Solutions" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000055">
+                <labels>
+                  <label description="pCare" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000056">
+                <labels>
+                  <label description="Pharmalab" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000057">
+                <labels>
+                  <label description="Resto del Mercado" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000058">
+                <labels>
+                  <label description="Retail &amp; CPG" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000059">
+                <labels>
+                  <label description="SAP" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000060">
+                <labels>
+                  <label description="SAP Services" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000061">
+                <labels>
+                  <label description="Technology &amp; Media" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000062">
+                <labels>
+                  <label description="Telecomm" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Softtek Vertical (Remove)" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_SofttekVertical1">
+          <Type>picklist</Type>
+          <Name>new_softtekvertical1</Name>
+          <LogicalName>new_softtekvertical1</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>new_softtekvertical</OptionSetName>
+          <displaynames>
+            <displayname description="Softtek Vertical" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_SQLDate">
+          <Type>datetime</Type>
+          <Name>new_sqldate</Name>
+          <LogicalName>new_sqldate</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>date</Format>
+          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <Behavior>1</Behavior>
+          <displaynames>
+            <displayname description="Date SQL" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_SystechLead">
+          <Type>bit</Type>
+          <Name>new_systechlead</Name>
+          <LogicalName>new_systechlead</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>0</AppDefaultValue>
+          <optionset Name="new_lead_new_systechlead">
+            <OptionSetType>bit</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="SystechLead" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="0">
+                <labels>
+                  <label description="No" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1">
+                <labels>
+                  <label description="Yes" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="SystechLead" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_Test">
+          <Type>picklist</Type>
+          <Name>new_test</Name>
+          <LogicalName>new_test</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>connectionrole_category</OptionSetName>
+          <displaynames>
+            <displayname description="Test" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="new_TopXTarget">
+          <Type>bit</Type>
+          <Name>new_topxtarget</Name>
+          <LogicalName>new_topxtarget</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>0</AppDefaultValue>
+          <optionset Name="new_topxtarget_lead">
+            <OptionSetType>bit</OptionSetType>
+            <IntroducedVersion>1.0</IntroducedVersion>
+            <IsCustomizable>1</IsCustomizable>
+            <displaynames>
+              <displayname description="Top X Target" languagecode="1033" />
+            </displaynames>
+            <options>
+              <option value="0">
+                <labels>
+                  <label description="No" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="1">
+                <labels>
+                  <label description="Yes" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Top X Target" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="PriorityCode">
+          <Type>picklist</Type>
+          <Name>prioritycode</Name>
+          <LogicalName>prioritycode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="lead_prioritycode">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Priority" languagecode="1033" />
+              <displayname description="Prioridad" languagecode="3082" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Priority of the lead." languagecode="1033" />
+              <Description description="Prioridad del cliente potencial." languagecode="3082" />
+            </Descriptions>
+            <options>
+              <option value="100000001">
+                <labels>
+                  <label description="High" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000002">
+                <labels>
+                  <label description="Medium" languagecode="1033" />
+                </labels>
+              </option>
+              <option value="100000003">
+                <labels>
+                  <label description="Low" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Priority" languagecode="1033" />
+            <displayname description="Prioridad" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Select the priority so that preferred customers or critical issues are handled quickly." languagecode="1033" />
+            <Description description="Seleccione la prioridad de modo que se administren con rapidez las cuestiones críticas o preferidas por el cliente." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="StateCode">
+          <Type>state</Type>
+          <Name>statecode</Name>
+          <LogicalName>statecode</LogicalName>
+          <RequiredLevel>systemrequired</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <optionset Name="lead_statecode">
+            <OptionSetType>state</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Status" languagecode="1033" />
+              <displayname description="Estado" languagecode="3082" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Status of the lead." languagecode="1033" />
+              <Description description="Estado del cliente potencial." languagecode="3082" />
+            </Descriptions>
+            <states>
+              <state value="0" defaultstatus="100000011" invariantname="Open">
+                <labels>
+                  <label description="Open" languagecode="1033" />
+                  <label description="Abierto" languagecode="3082" />
+                </labels>
+              </state>
+              <state value="1" defaultstatus="100000007" invariantname="Qualified">
+                <labels>
+                  <label description="Qualified" languagecode="1033" />
+                  <label description="Calificado" languagecode="3082" />
+                </labels>
+              </state>
+              <state value="2" defaultstatus="100000000" invariantname="Disqualified">
+                <labels>
+                  <label description="Disqualified" languagecode="1033" />
+                  <label description="Descalificado" languagecode="3082" />
+                </labels>
+              </state>
+            </states>
+          </optionset>
+          <displaynames>
+            <displayname description="Status" languagecode="1033" />
+            <displayname description="Estado" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Shows whether the lead is open, qualified, or disqualified. Qualified and disqualified leads are read-only and can't be edited unless they are reactivated." languagecode="1033" />
+            <Description description="Muestra si el cliente potencial está abierto, calificado o sin calificar. Los clientes potencial calificados y sin calificar son de solo lectura y no se pueden editar si no se reactivan." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="StatusCode">
+          <Type>status</Type>
+          <Name>statuscode</Name>
+          <LogicalName>statuscode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <optionset Name="lead_statuscode">
+            <OptionSetType>status</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Status Reason" languagecode="1033" />
+              <displayname description="Razón para el estado" languagecode="3082" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Reason for the status of the lead." languagecode="1033" />
+              <Description description="Razón para el estado del cliente potencial." languagecode="3082" />
+            </Descriptions>
+            <statuses>
+              <status value="100000011" state="0">
+                <labels>
+                  <label description="UQL - Unqualified" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="100000010" state="0">
+                <labels>
+                  <label description="MQL - Marketing Qualified" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="100000012" state="0">
+                <labels>
+                  <label description="SQL - Sales Qualified" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="100000007" state="1">
+                <labels>
+                  <label description="OPP - Turned to Opportunity" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="5" state="2">
+                <labels>
+                  <label description="Cannot Contact" languagecode="1033" />
+                  <label description="No se puede contactar" languagecode="3082" />
+                </labels>
+              </status>
+              <status value="6" state="2">
+                <labels>
+                  <label description="No Longer Interested" languagecode="1033" />
+                  <label description="Sin interés" languagecode="3082" />
+                </labels>
+              </status>
+              <status value="7" state="2">
+                <labels>
+                  <label description="Canceled" languagecode="1033" />
+                  <label description="Cancelado" languagecode="3082" />
+                </labels>
+              </status>
+              <status value="100000000" state="2">
+                <labels>
+                  <label description="Contact Opted Out" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="100000005" state="2">
+                <labels>
+                  <label description="Company Does Not meet Criteria" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="100000006" state="2">
+                <labels>
+                  <label description="Contact Does Not meet Criteria" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="4" state="2">
+                <labels>
+                  <label description="Other Reason" languagecode="1033" />
+                  <label description="Perdido" languagecode="3082" />
+                </labels>
+              </status>
+            </statuses>
+          </optionset>
+          <displaynames>
+            <displayname description="Status Reason" languagecode="1033" />
+            <displayname description="Razón para el estado" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Select the lead's status." languagecode="1033" />
+            <Description description="Seleccione el estado del cliente potencial." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="Telephone3">
+          <Type>nvarchar</Type>
+          <Name>telephone3</Name>
+          <LogicalName>telephone3</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>inactive</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <Format>phone</Format>
+          <MaxLength>79</MaxLength>
+          <Length>158</Length>
+          <displaynames>
+            <displayname description="Other Phone" languagecode="1033" />
+            <displayname description="Otro teléfono" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Type an alternate phone number for the primary contact for the lead." languagecode="1033" />
+            <Description description="Escriba un número de teléfono alternativo para el contacto principal del cliente potencial." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+      </attributes>
+      <IsDuplicateCheckSupported>1</IsDuplicateCheckSupported>
+      <IsBusinessProcessEnabled>1</IsBusinessProcessEnabled>
+      <IsRequiredOffline>0</IsRequiredOffline>
+      <IsCollaboration>0</IsCollaboration>
+      <AutoRouteToOwnerQueue>0</AutoRouteToOwnerQueue>
+      <IsConnectionsEnabled>1</IsConnectionsEnabled>
+      <EntityColor>#0071C5</EntityColor>
+      <IsDocumentManagementEnabled>1</IsDocumentManagementEnabled>
+      <IsOneNoteIntegrationEnabled>1</IsOneNoteIntegrationEnabled>
+      <IsKnowledgeManagementEnabled>0</IsKnowledgeManagementEnabled>
+      <OwnershipTypeMask>UserOwned</OwnershipTypeMask>
+      <EntityMask>ActivityPointer</EntityMask>
+      <IsAuditEnabled>0</IsAuditEnabled>
+      <IsActivity>0</IsActivity>
+      <ActivityTypeMask></ActivityTypeMask>
+      <IsActivityParty>1</IsActivityParty>
+      <IsReplicated>1</IsReplicated>
+      <IsReplicationUserFiltered>1</IsReplicationUserFiltered>
+      <IsMailMergeEnabled>1</IsMailMergeEnabled>
+      <IsVisibleInMobile>1</IsVisibleInMobile>
+      <IsVisibleInMobileClient>1</IsVisibleInMobileClient>
+      <IsReadOnlyInMobileClient>0</IsReadOnlyInMobileClient>
+      <IsMapiGridEnabled>1</IsMapiGridEnabled>
+      <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
+      <IsQuickCreateEnabled>0</IsQuickCreateEnabled>
+      <IntroducedVersion>5.0.0.0</IntroducedVersion>
+      <EnforceStateTransitions>0</EnforceStateTransitions>
+      <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
+      <ChangeTrackingEnabled>0</ChangeTrackingEnabled>
+      <HasRelatedNotes>True</HasRelatedNotes>
+      <HasRelatedActivities>True</HasRelatedActivities>
+    </entity>
+  </EntityInfo>
+  <FormXml />
+  <SavedQueries />
+  <Visualizations />
+  <RibbonDiffXml />
+</Entity>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="LinkedIn.Crm.Plugins.ValidateSingleConfigRecordPlugin: Create of li_configuration" SdkMessageProcessingStepId="{2f9cf211-054d-e111-82cb-5c260afc36d8}" unmodified="1">
+  <PluginTypeName>LinkedIn.Crm.Plugins.ValidateSingleConfigRecordPlugin, LinkedIn.Crm.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ddcf8120f80e8af</PluginTypeName>
+  <PrimaryEntity>li_configuration</PrimaryEntity>
+</SdkMessageProcessingStep>

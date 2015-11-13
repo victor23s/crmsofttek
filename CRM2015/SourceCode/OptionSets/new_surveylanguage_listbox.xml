@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="new_surveylanguage_listbox" localizedName="Survey Language">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Survey Language" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="100000000">
+      <labels>
+        <label description="English" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="English" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000001">
+      <labels>
+        <label description="Spanish" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Spanish" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000002">
+      <labels>
+        <label description="Portuguese" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Portuguese" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000003">
+      <labels>
+        <label description="Chinese" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Chinese" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{ee536b9c-7425-e511-80dc-c4346bacdbe8}" Name="RejectionReason" Description="Click to add description">
+  <XamlFileName>/Workflows/RejectionReason-EE536B9C-7425-E511-80DC-C4346BACDBE8.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>SalesOrder</PrimaryEntity>
+  <labels>
+    <steplabels id="{9cc5b088-9388-5688-6294-12556e816c1a}">
+      <label languagecode="1033" description="Rejection Reason is missing" />
+    </steplabels>
+  </labels>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{14483624-2c62-e511-80e4-3863bb366078}">
+      <controltype>1</controltype>
+      <scope>1</scope>
+      <controlname>new_statusreason</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>SalesOrder</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{15483624-2c62-e511-80e4-3863bb366078}">
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>SalesOrder</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{16483624-2c62-e511-80e4-3863bb366078}">
+      <controltype>1</controltype>
+      <scope>1</scope>
+      <controlname>new_rejectionreasonorder</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>SalesOrder</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{17483624-2c62-e511-80e4-3863bb366078}">
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>SalesOrder</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

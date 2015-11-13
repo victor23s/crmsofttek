@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4214</returnedtypecode>
+  <savedqueryid>{e81f6fa5-09e9-4415-926c-99114e2bd223}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4214" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="regardingobjectid" width="100" />
+        <cell name="customers" width="150" disableSorting="1" />
+        <cell name="resources" width="150" disableSorting="1" />
+        <cell name="serviceid" width="100" />
+        <cell name="siteid" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledstart" width="100" />
+        <cell name="scheduledend" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="serviceappointment">
+        <order attribute="scheduledstart" descending="false" />
+        <attribute name="customers" />
+        <attribute name="resources" />
+        <attribute name="serviceid" />
+        <attribute name="siteid" />
+        <attribute name="regardingobjectid" />
+        <attribute name="prioritycode" />
+        <attribute name="scheduledstart" />
+        <attribute name="scheduledend" />
+        <attribute name="activityid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="not-null" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Service Activities" languagecode="1033" />
+    <LocalizedName description="Todas las actividades de servicio" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="All Service Activities (to be used asynchronously)." languagecode="1033" />
+    <Description description="Todas las actividades de servicio (para usarlas asincrónicamente)." languagecode="3082" />
+  </Descriptions>
+</savedquery>

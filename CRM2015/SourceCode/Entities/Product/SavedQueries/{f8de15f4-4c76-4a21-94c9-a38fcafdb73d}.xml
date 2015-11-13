@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1024</returnedtypecode>
+  <savedqueryid>{f8de15f4-4c76-4a21-94c9-a38fcafdb73d}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="products" object="1024" jump="name" select="1" icon="1" preview="1">
+      <row name="product" id="productid">
+        <cell name="name" width="300" />
+        <cell name="productnumber" width="100" />
+        <cell name="description" width="100" />
+        <cell name="statecode" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="product">
+        <attribute name="name" />
+        <attribute name="productnumber" />
+        <attribute name="subjectid" />
+        <attribute name="statecode" />
+        <attribute name="productid" />
+        <order attribute="productnumber" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Product Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de productos" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about products in the detail form of any associated competitor or sales literature record." languagecode="1033" />
+    <Description description="Muestra información de productos en el formulario detallado de un registro de competidor o documentación de ventas asociado." languagecode="3082" />
+  </Descriptions>
+</savedquery>

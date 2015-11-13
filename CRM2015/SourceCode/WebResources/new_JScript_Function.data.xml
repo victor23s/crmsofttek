@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{4809b12e-3112-e211-bba9-78e7d162ce29}</WebResourceId>
+  <Name>new_JScript_Function</Name>
+  <DisplayName>Shared CRM JScript Functions</DisplayName>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_JScript_Function4809B12E-3112-E211-BBA9-78E7D162CE29</FileName>
+</WebResource>

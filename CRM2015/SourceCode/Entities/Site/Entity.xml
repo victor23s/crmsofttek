@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Site" OriginalName="Site">Site</Name>
+  <ObjectTypeCode>4009</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

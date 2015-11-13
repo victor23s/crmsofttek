@@ -1,0 +1,37 @@
+/// <reference path="JQuery.js" />
+/// <reference path="Json2.js" />
+/// <reference path="XrmServiceToolkit.js" />
+function userCanMarkAsWon2(opportunityId) {
+    var $canMarkAsWon = true;
+    var $softtekMarketId = null;
+    // var $outputColumns = [new CRMField('new_softtekmarket')];
+    // var $filters = [new FilterBy('opportunityid', LogicalOperator.Equal, opportunityId)];
+    var $entityName = 'opportunity';
+    var $items = null; // RetrieveRecords($entityName, $outputColumns, $filters);
+    XrmServiceToolkit.Rest.RetrieveMultiple("OpportunitySet", "$filter= OpportunityId/Id eq guid'" + opportunityId + "'", function (results) {
+        $items = results;
+    },
+    // ReSharper disable once UnusedParameter
+    function (error) {},
+    function onComplete() {
+
+},
+    false);
+
+    // if ($items.length > 0) {
+    //   $softtekMarketId = $items.Rows[0].GetValue('new_softtekmarket');
+    //}
+
+    // Role
+    if ($softtekMarketId != null) {
+        if ($softtekMarketId == "100000000" || $softtekMarketId == "100000005") {
+            $canMarkAsWon = false;
+            if (UserHasRoleUnique("System Administrator") || UserHasRoleUnique("SFTK CRM HELP DESK") || UserHasRoleUnique("SFTK PIC")) {
+                $canMarkAsWon = true;
+            }
+
+        }
+    }
+
+    return true; //$canMarkAsWon;
+}

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard unmodified="1">
+  <LocalizedNames>
+    <LocalizedName description="Sales Activity Dashboard" languagecode="1033" />
+    <LocalizedName description="Panel de actividad de ventas" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the day-to-day work related data in sales. It consolidates the important data to make the day productive for salespersons." languagecode="1033" />
+    <Description description="Muestra la información de ventas relacionada con el trabajo cotidiano. Consolida la información importante para hacer que el día sea productivo para los comerciales." languagecode="3082" />
+  </Descriptions>
+  <FormId>{45f88f83-0e67-443b-bd05-81d49719f6b1}</FormId>
+</Dashboard>

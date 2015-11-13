@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.AutoCreatePostConfigRows: RetrieveMultiple of msdyn_postruleconfig" SdkMessageProcessingStepId="{9658a99c-2c1d-e111-9bff-00155db19b12}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.AutoCreatePostConfigRows, ActivityFeeds.Filtering.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_postruleconfig</PrimaryEntity>
+</SdkMessageProcessingStep>

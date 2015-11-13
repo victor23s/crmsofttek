@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000010001001}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="accountid">
+        <cell name="name" width="300" />
+        <cell name="telephone1" width="100" />
+        <cell name="primarycontactid" width="150" />
+        <cell name="a_219153737ff749b390e03d7fea85495d.emailaddress1" width="150" disableSorting="1" />
+        <cell name="transactioncurrencyid" width="100" />
+        <cell name="ownershipcode" width="100" />
+        <cell name="customertypecode" width="100" />
+        <cell name="new_marketscopeaccount" width="100" />
+        <cell name="new_softtekmarket1" width="100" />
+        <cell name="new_softtekcountry1" width="100" />
+        <cell name="new_softtekvertical1" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="new_validationstatus" width="100" />
+        <cell name="new_validatedon" width="100" />
+        <cell name="lastusedincampaign" width="100" />
+        <cell name="new_lastdateaccountstrategy" width="100" />
+        <cell name="new_lastdateofopportunity" width="100" />
+        <cell name="new_lastdatefulfilledorder" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="account">
+        <attribute name="name" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="ownerid" operator="eq-userid" />
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="primarycontactid" />
+        <attribute name="telephone1" />
+        <link-entity alias="a_219153737ff749b390e03d7fea85495d" name="contact" from="contactid" to="primarycontactid" link-type="outer" visible="false">
+          <attribute name="emailaddress1" />
+        </link-entity>
+        <attribute name="new_validationstatus" />
+        <attribute name="new_validatedon" />
+        <attribute name="statuscode" />
+        <attribute name="statecode" />
+        <attribute name="new_softtekvertical1" />
+        <attribute name="new_softtekmarket1" />
+        <attribute name="new_softtekcountry1" />
+        <attribute name="customertypecode" />
+        <attribute name="ownershipcode" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="new_marketscopeaccount" />
+        <attribute name="new_lastdateofopportunity" />
+        <attribute name="lastusedincampaign" />
+        <attribute name="new_lastdatefulfilledorder" />
+        <attribute name="new_lastdateaccountstrategy" />
+        <attribute name="transactioncurrencyid" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="accountid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Active Accounts" languagecode="1033" />
+    <LocalizedName description="Mis cuentas activas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

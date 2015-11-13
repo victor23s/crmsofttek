@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1024</returnedtypecode>
+  <savedqueryid>{31cd2353-06e7-e111-af44-78e7d1622fed}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="1024" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="productid">
+        <cell name="name" width="150" />
+        <cell name="createdby" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="productnumber" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="product">
+        <order attribute="name" descending="false" />
+        <attribute name="productnumber" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="name" />
+        <attribute name="productid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="personas" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

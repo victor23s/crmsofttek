@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{7402d431-5a43-e011-ad66-00155dba3817}</WebResourceId>
+  <Name>sample_/MetaDataBrowser/Scripts/OneToManyRelationshipProperties.js</Name>
+  <DisplayName>OneToManyRelationshipProperties.js</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>2.0.0.1</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <FileName>/WebResources/sample_MetaDataBrowserScriptsOneToManyRelationship7402D431-5A43-E011-AD66-00155DBA3817</FileName>
+</WebResource>

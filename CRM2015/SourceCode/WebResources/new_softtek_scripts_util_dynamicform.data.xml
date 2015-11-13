@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{dd8185b8-729d-e211-be35-78e7d1622fed}</WebResourceId>
+  <Name>new_softtek_scripts_util_dynamicform</Name>
+  <DisplayName>Softtek Scripts [Dynamic Form]</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <FileName>/WebResources/new_softtek_scripts_util_dynamicformDD8185B8-729D-E211-BE35-78E7D1622FED</FileName>
+</WebResource>

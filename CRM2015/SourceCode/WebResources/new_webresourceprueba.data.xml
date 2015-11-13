@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{edb53569-5fc1-e211-afc7-78e7d1622fed}</WebResourceId>
+  <Name>new_webresourceprueba</Name>
+  <DisplayName>Web Resource de Prueba</DisplayName>
+  <Description>Web Resource de Prueba</Description>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_webresourcepruebaEDB53569-5FC1-E211-AFC7-78E7D1622FED</FileName>
+</WebResource>

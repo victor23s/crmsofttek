@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard unmodified="1">
+  <LocalizedNames>
+    <LocalizedName description="Sales Dashboard" languagecode="1033" />
+    <LocalizedName description="Panel de ventas" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the dashboard used by a mobile sales team." languagecode="1033" />
+    <Description description="Muestra el panel que usa un equipo de ventas móvil." languagecode="3082" />
+  </Descriptions>
+  <FormId>{d1f511a8-1ead-e211-bb72-00155da9a201}</FormId>
+</Dashboard>

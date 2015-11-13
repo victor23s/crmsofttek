@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{b0b86c9c-16ff-e211-bba6-78e7d162ce29}</WebResourceId>
+  <Name>new_Competitors_Html</Name>
+  <DisplayName>Competitors_Html</DisplayName>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_Competitors_HtmlB0B86C9C-16FF-E211-BBA6-78E7D162CE29</FileName>
+</WebResource>

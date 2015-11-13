@@ -1,0 +1,50 @@
+/// <reference path="JavaScript1.js" />
+var $utilityLibrary = "../WebResources/new_CRM.Utils";
+var $xmlHttp = new XMLHttpRequest();
+$xmlHttp.open("GET", $utilityLibrary, false);
+$xmlHttp.send();
+eval($xmlHttp.responseText);
+
+var argumentDictionary = {
+    attribute: "name",
+    name: "id",
+    onchange: "onchange"
+};
+
+if (typeof($DynamicDialog) == "undefined") {
+    $DynamicDialog = {
+        __namespace: true
+    };
+}
+
+$DynamicDialog = {
+    __currentEntity: null,
+    SetCurrentEntity: function (entityName) {
+        this.__currentEntity = entityName;
+    },
+    TextBox: function (arguments) {
+        new XrmTextBox(arguments).write();
+    },
+    FormType: {
+        New: 0,
+        Update: 1,
+        ReadoNly: 2
+    }
+};
+
+var XrmTextBox = function (arguments) {
+    this.arguments = arguments;
+    this.write = function () {
+        var $html = "<input type='text' ";
+        alert("");
+        for (var arg in arguments) {
+            alert(arg);
+            for (var argD in argumentDictionary) {
+                alert(arg + " " + argD);
+                if (arg == argD) $html += argumentDictionary[arg] + "='" + arguments[arg] + "' ";
+            }
+        }
+        $html += " />";
+        document.write($html);
+    };
+};

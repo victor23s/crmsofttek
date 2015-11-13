@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4200</returnedtypecode>
+  <savedqueryid>{2aeee36c-aefd-44f5-b3b5-367b69bdc371}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4200" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid" multiobjectidfield="activitytypecode">
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="activitytypecode" width="110" />
+        <cell name="statecode" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="scheduledstart" width="140" />
+        <cell name="scheduledend" width="140" />
+        <cell name="prioritycode" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="instancetypecode" width="100" ishidden="1" />
+        <cell name="community" width="100" ishidden="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="activitypointer">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="activitytypecode" />
+        <attribute name="statecode" />
+        <attribute name="scheduledend" />
+        <attribute name="ownerid" />
+        <attribute name="createdby" />
+        <attribute name="regardingobjectid" />
+        <attribute name="prioritycode" />
+        <attribute name="instancetypecode" />
+        <filter type="and">
+          <condition attribute="isregularactivity" operator="eq" value="1" />
+        </filter>
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="subject" operator="like" value="{0}" />
+          <condition attribute="activitytypecode" operator="like" value="{0}" />
+          <condition attribute="statecode" operator="like" value="{0}" />
+        </filter>
+        <attribute name="scheduledstart" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All Activities" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de todas las actividades" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

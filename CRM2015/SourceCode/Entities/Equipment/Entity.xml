@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Facility/Equipment" OriginalName="Facility/Equipment">Equipment</Name>
+  <ObjectTypeCode>4000</ObjectTypeCode>
+  <FormXml />
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

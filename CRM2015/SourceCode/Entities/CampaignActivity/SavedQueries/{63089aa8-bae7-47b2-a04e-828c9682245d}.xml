@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4402</returnedtypecode>
+  <savedqueryid>{63089aa8-bae7-47b2-a04e-828c9682245d}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4402" jump="subject" select="1" icon="1" preview="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="150" />
+        <cell name="prioritycode" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="campaignactivity">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="activityid" />
+        <attribute name="prioritycode" />
+        <attribute name="regardingobjectid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Campaign Activities" languagecode="1033" />
+    <LocalizedName description="Todas las actividades de la campa?a" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

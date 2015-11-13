@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1083</returnedtypecode>
+  <savedqueryid>{c458211c-563c-e511-80d9-3863bb366078}</savedqueryid>
+  <layoutxml>
+    <grid name="opportunityproducts" object="1083" jump="" select="1" icon="1" preview="1">
+      <row name="opportunityproduct" id="opportunityproductid" layoutstyle="ProductSubGrid">
+        <cell name="productname" disableMetaDataBinding="1" LabelId="query.product.cell.productname.label" width="300" disableSorting="1" label="Product Name" />
+        <cell name="productid" ishidden="1" disableSorting="1" />
+        <cell name="producttypecode" ishidden="1" disableSorting="1" />
+        <cell name="parentbundleid" ishidden="1" disableSorting="1" />
+        <cell name="productdescription" ishidden="1" disableSorting="1" />
+        <cell name="uomid" width="0" ishidden="1" />
+        <cell name="primaryunit" width="85" disableSorting="1" disableMetaDataBinding="1" LabelId="query.product.cell.unit.label" cellType="Crm.DisplayPrimaryUnit" label="Unit" />
+        <cell name="priceperunit" width="150" disableSorting="1" />
+        <cell name="quantity" width="70" disableSorting="1" />
+        <cell name="manualdiscountamount" LabelId="query.product.cell.discount.label" width="65" disableSorting="1" label="Discount" />
+        <cell name="extendedamount" width="180" disableSorting="1" />
+        <cell name="isproductoverridden" ishidden="1" />
+        <cell name="sequencenumber" ishidden="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch distinct="false" mapping="logical">
+      <entity name="opportunityproduct">
+        <attribute name="productid" />
+        <attribute name="productdescription" />
+        <attribute name="priceperunit" />
+        <attribute name="quantity" />
+        <attribute name="uomid" />
+        <attribute name="extendedamount" />
+        <attribute name="manualdiscountamount" />
+        <attribute name="sequencenumber" />
+        <attribute name="producttypecode" />
+        <attribute name="parentbundleid" />
+        <attribute name="isproductoverridden" />
+        <order attribute="sequencenumber" descending="true" />
+        <attribute name="opportunityproductid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Opportunity Product Inline Edit View - Customized" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about products included in an opportunity in the detail form of the associated opportunity record. This view is in the Products side tab." languagecode="1033" />
+  </Descriptions>
+</savedquery>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.EntityConfiguratorForViews: Create of msdyn_postconfig in Stage 20" SdkMessageProcessingStepId="{f29c358c-23c2-e011-a244-00155d8a2749}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.EntityConfiguratorForViews, ActivityFeeds.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_postconfig</PrimaryEntity>
+</SdkMessageProcessingStep>

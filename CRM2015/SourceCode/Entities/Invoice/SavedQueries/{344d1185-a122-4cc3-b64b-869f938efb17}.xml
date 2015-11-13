@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1090</returnedtypecode>
+  <savedqueryid>{344d1185-a122-4cc3-b64b-869f938efb17}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1090" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="invoiceid">
+        <cell name="name" width="300" />
+        <cell name="statuscode" width="100" />
+        <cell name="totalamount" width="100" />
+        <cell name="customerid" width="150" />
+        <cell name="a_5384319758bf49468142af15b997e047.emailaddress1" width="150" disableSorting="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="invoice">
+        <attribute name="name" />
+        <order attribute="name" descending="false" />
+        <attribute name="totalamount" />
+        <attribute name="customerid" />
+        <attribute name="statuscode" />
+        <link-entity alias="a_5384319758bf49468142af15b997e047" name="contact" from="contactid" to="customerid" link-type="outer" visible="false">
+          <attribute name="emailaddress1" />
+        </link-entity>
+        <attribute name="invoiceid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Invoices" languagecode="1033" />
+    <LocalizedName description="Todas las facturas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

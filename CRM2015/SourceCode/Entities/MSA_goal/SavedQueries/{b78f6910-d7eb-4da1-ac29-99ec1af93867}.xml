@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10004</returnedtypecode>
+  <savedqueryid>{b78f6910-d7eb-4da1-ac29-99ec1af93867}</savedqueryid>
+  <layoutxml>
+    <grid name="msa_goals" object="10004" jump="msa_name" select="1" icon="1" preview="0">
+      <row name="msa_goal" id="msa_goalid">
+        <cell name="msa_name" width="300" />
+        <cell name="msa_parentgoalid" width="200" />
+        <cell name="msa_startdate" width="100" />
+        <cell name="msa_meetlevel" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>64</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="msa_goal">
+        <attribute name="msa_goalid" />
+        <attribute name="msa_name" />
+        <order attribute="msa_startdate" descending="false" />
+        <attribute name="msa_startdate" />
+        <attribute name="msa_parentgoalid" />
+        <attribute name="msa_meetlevel" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Goal Lookup View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

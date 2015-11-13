@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{d36f6525-b2ab-48af-8f59-dabf35bb2866}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab verticallayout="true" id="{764a5d1d-0ee3-42a9-b9ee-5e874a6f504d}" IsUserDefined="1">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{f26aa0e9-879e-4f1b-9299-213ebbd69f9f}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{582c4517-2126-4bbb-9285-69a310798bd9}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_name" />
+                    </cell>
+                    <cell id="{d8bd28e4-3e60-05ce-6e7b-eacb38d6a2e3}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Currency" languagecode="1033" />
+                        <label description="Divisa" languagecode="3082" />
+                      </labels>
+                      <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{932005e5-8df3-4331-b663-837ea011c466}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                    <cell id="{355d531a-89b4-3843-e4d6-ed3ac65c6b26}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{48b5bd2a-4526-06de-b0d5-91debc82e17b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Fiscal Year" languagecode="1033" />
+                      </labels>
+                      <control id="new_fiscalyear" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_fiscalyear" disabled="false" />
+                    </cell>
+                    <cell id="{008716e9-de33-20b5-ac1c-26e7ccee443c}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7e7003ee-ade8-a804-2e25-41910746a937}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Pipeline" languagecode="1033" />
+                      </labels>
+                      <control id="new_pipeline" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_pipeline" disabled="false" />
+                    </cell>
+                    <cell id="{2baa75b2-02ad-4d33-3acc-776a384a4b51}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{25e65a6a-b954-6c19-238c-47db1b77632b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Sales" languagecode="1033" />
+                      </labels>
+                      <control id="new_sales" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_sales" disabled="false" />
+                    </cell>
+                    <cell id="{6669ec52-cb25-e40c-a846-9ca8766628ce}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bb1e18d7-7ad0-4d89-23e2-49795c089c56}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Renovations" languagecode="1033" />
+                      </labels>
+                      <control id="new_renovations" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_renovations" disabled="false" />
+                    </cell>
+                    <cell id="{67572183-7e84-e374-88a4-0ea67c884d35}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{9e798364-01c4-756b-5366-e47a7416eeca}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Backlog" languagecode="1033" />
+                      </labels>
+                      <control id="new_backlog" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_backlog" disabled="false" />
+                    </cell>
+                    <cell id="{ee268a6d-8013-86b7-50c4-e9ad35612094}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5da5d949-bb61-6bcd-5d04-a75432c80aad}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Revenue" languagecode="1033" />
+                      </labels>
+                      <control id="new_revenue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_revenue" disabled="false" />
+                    </cell>
+                    <cell id="{496c293b-0a20-2014-93eb-a0058a3dcdba}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <footer id="{232b5375-4d82-4af8-8f76-8c9c9e3a7e40}">
+      <rows>
+        <row>
+          <cell id="{eab872a1-15dc-45e1-8703-10cae7601070}">
+            <labels>
+              <label description="Status" languagecode="1033" />
+              <label description="Estado" languagecode="3082" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

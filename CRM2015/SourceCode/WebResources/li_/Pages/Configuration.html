@@ -1,0 +1,109 @@
+﻿<html>
+    <head>
+        <title>LinkedIn Configuration</title>
+        <link href="../CSS/SP.Core.css" rel="stylesheet" type="text/css" />
+        <link href="Configuration.css" rel="stylesheet" type="text/css" />
+        
+        <script type="text/javascript" src="../../ClientGlobalContext.js.aspx"></script>
+        <script src="../Scripts/Libraries/jquery.js" type="text/javascript"></script>
+        <script src="../Scripts/Libraries/SP.Core.js" type="text/javascript"></script>
+        <script src="../Scripts/Libraries/SP.OrgService.js" type="text/javascript"></script>
+        <script src="Configuration.html.js" type="text/javascript"></script>
+      </head>
+    <body >
+    <table class='xrm-dialog-container' cellpadding='0' cellspacing='0' >
+    <tr>
+        <td class='xrm-dialog-formHeader'>                    
+            LinkedIn Configuration
+        </td>
+    </tr>
+    <tr>
+        <td  class='xrm-dialog-formContainer'>
+            <div class='xrm-dialog-formContent'>
+            <div class='xrm-dialog-formBody'>
+             <h3>Sign Up For A LinkedIn API Key</h3>
+                <table  style='width:100%'>
+                    <colgroup>
+                        <col  />
+                        <col  />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td colspan='2'>
+                                <label>Use this link to <a class="link" href="https://www.linkedin.com/secure/developer?newapp=" target="_blank">sign up for your API key</a>.  You will be asked to enter the following information.   Click "Add Application" and you will find your API key and Secret Key on the final page. Copy and paste the keys into the fields below.</label>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td>
+                                <table style='font-family:Segoe UI, Tahoma, Arial;font-size:11px; margin:5px 0px 5px 0px' cellspacing='6px' >
+                                    <tr>
+                                        <td class='xrm-rowLabel'>Application Name:</td><td>LinkedIn for MS Dynamics</td>
+                                    </tr>
+                                    <tr>  
+                                        <td class='xrm-rowLabel'>Description:</td><td>LinkedIn for MS Dynamics Integration for (Company Name)</td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='xrm-rowLabel'>Integration URL:</td><td>(Example URL where the integration will go live)</td>
+                                    </tr>
+                                    <tr> 
+                                        <td class='xrm-rowLabel'>JavaScript API Domain:</td><td>(Fully-qualified domain name of all pages in the integration)</td>
+                                    </tr>
+                                    <tr>  
+                                        <td class='xrm-rowLabel'>Application Use:</td><td>Sales (CRM), Marketing</td>
+                                    </tr>
+                                    <tr>  
+                                        <td class='xrm-rowLabel'>Live Status:</td><td>Live</td>
+                                    </tr>
+                                    <tr>  
+                                        <td class='xrm-rowLabel'>Developer Contact Email:</td><td><span id='adminEmail'>(Admin's e-mail)</span></td>
+                                    </tr>
+                                    <tr>  
+                                        <td class='xrm-rowLabel'>Phone: </td><td><span id='adminPhone'>(Admin's phone)</span></td>
+                                    </tr>
+                                    
+                                </table>
+                            </td>
+                            <td >
+                                <div style='width:100%; text-align:left;'>
+                                    <img src="../Images/linkedin_api.png" alt='howTo' />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Enter Your LinkedIn API Key</h3>
+                <table width='100%'>
+                    <colgroup>
+                        <col width="130" style="padding-left: 0px;" />
+                        <col />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><label>API Key</label></td>
+                            <td><input type="text" id="apiKey" style='width:100%;' /></td>
+                        </tr>
+                        <tr>
+                            <td><label>Secret  Key</label></td>
+                            <td><input type="text" id="secretKey" style='width:100%;' /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class='xrm-dialog-formLoading' style='text-align:center;top:50%;width:100%;height:100%;margin-top:20px;'>
+                <img src="../Images/progress.gif" alt='loading' />
+                <div id='progressInfo'>Validating API key</div>
+            </div>
+            </div>
+        </td>
+    </tr>
+        <tr>
+        <td class="xrm-dialog-formFooter">
+            <div >
+                <button id='saveButton'>Save</button>
+            </div>
+        </td>
+        </tr>
+    </table>         
+       
+    </body>
+</html>

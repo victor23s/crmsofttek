@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4214</returnedtypecode>
+  <savedqueryid>{67be10ba-1dd4-40f8-b940-e9e01ef00534}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4214" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="customers" width="150" disableSorting="1" />
+        <cell name="resources" width="150" disableSorting="1" />
+        <cell name="serviceid" width="100" />
+        <cell name="siteid" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledstart" width="100" />
+        <cell name="scheduledend" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+      <entity name="serviceappointment">
+        <attribute name="subject" />
+        <attribute name="customers" />
+        <attribute name="serviceid" />
+        <attribute name="siteid" />
+        <attribute name="prioritycode" />
+        <attribute name="scheduledstart" />
+        <attribute name="scheduledend" />
+        <attribute name="activityid" />
+        <attribute name="regardingobjectid" />
+        <order attribute="scheduledstart" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="in">
+            <value>0</value>
+            <value>3</value>
+          </condition>
+        </filter>
+        <link-entity name="activityparty" from="activityid" to="activityid" alias="a_876aae36fad34b74a453625c84631336">
+          <filter type="and">
+            <condition attribute="partyid" operator="eq-userid" />
+            <condition attribute="participationtypemask" operator="in">
+              <value>10</value>
+              <value>9</value>
+            </condition>
+          </filter>
+        </link-entity>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Service Activities" languagecode="1033" />
+    <LocalizedName description="Mis actividades de servicio" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays Service Activities the current user owns." languagecode="1033" />
+    <Description description="Muestra las actividades de servicio que posee el usuario actual." languagecode="3082" />
+  </Descriptions>
+</savedquery>

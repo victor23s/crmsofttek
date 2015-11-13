@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4201</returnedtypecode>
+  <savedqueryid>{2aeb5a3e-cb75-4734-8d0c-6873fa8d5126}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4201" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="requiredattendees" disableSorting="1" width="150" />
+        <cell name="scheduledstart" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="location" width="100" />
+        <cell name="instancetypecode" width="100" ishidden="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="appointment">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="requiredattendees" />
+        <attribute name="scheduledstart" />
+        <attribute name="scheduledend" />
+        <attribute name="location" />
+        <attribute name="activityid" />
+        <attribute name="instancetypecode" />
+        <filter type="and">
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="subject" operator="like" value="{0}" />
+          </filter>
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All Appointments" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de todas las citas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

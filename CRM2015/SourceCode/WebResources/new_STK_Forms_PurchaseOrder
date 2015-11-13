@@ -1,0 +1,512 @@
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../STK.Namespaces.js" />
+/// <reference path="../Utility/STK.Util.Array.js" />
+/// <reference path="../Utility/STK.Util.Localization.js" />
+/// <reference path="../Utility/STK.Util.OptionSet.js" />
+/// <reference path="../Utility/STK.Util.Controls.js" />
+/* Este objeto se crea en memoria y contiene funcionalidad 
+para manejar reglas de negocio de la forma para la entidad PurchaseOrder
+*/
+STK.Forms.PurchaseOrder = {
+    sotOptions: null,
+    svOptions: null,
+    BCOptions: null,
+    onLoad: function () {
+
+        STK.Util.Controls.detectDependecyAttribute("new_accountpo", "Purchase Order cannot be created without a valid Account. Please create it from a Account, so that the Account field is populated automatically. ");
+
+        if (Xrm.Page.getAttribute("new_submitpo").getValue() == false) {}
+
+        if (Xrm.Page.getAttribute("new_discountpercentagepo").getValue() == null) {
+            Xrm.Page.getAttribute("new_discountpercentagepo").setValue(0.00);
+            Xrm.Page.getAttribute("new_discountpercentagepo").setSubmitMode("always");
+        }
+        this.BCOptions = Xrm.Page.getAttribute("new_benefitscenterpo").getOptions();
+        this.sotOptions = Xrm.Page.getAttribute("new_serviceofferingtypepo").getOptions();
+        this.svOptions = Xrm.Page.getAttribute("new_softtekverticalpo").getOptions();
+        if (this.svOptions[0].text == "") {
+            this.svOptions.shift();
+        }
+        this.statusReason();
+        this.filter_SofttekVertical();
+        this.calculateRevenue();
+        this.filter_ServiceOfferingType();
+        this.projecID_requirementlvl();
+        this.singleWindowPhaseOne();
+        this.Filter_BenefitsCenter();
+        this.isNewClientOnChange();
+    },
+    onSave: function () {
+
+        var $assignedTo = Xrm.Page.getAttribute("new_assgnedtopo").getValue();
+        var $optApprovalStatus = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+
+        this.assignTeam();
+        this.setActualDate();
+
+        if ($assignedTo != null) {
+            setSimpleLookupValue("new_assignedtohiddenpo", "systemuser", Xrm.Page.getAttribute("new_assgnedtopo").getValue()[0].id, Xrm.Page.getAttribute("new_assgnedtopo").getValue()[0].name);
+        }
+
+        if ($optApprovalStatus.text == "Rejected") {
+            var rejections = Xrm.Page.getAttribute("new_ftrcounterpo").getValue();
+            if (rejections != null) {
+                Xrm.Page.getAttribute("new_ftrcounterpo").setValue(rejections + 1);
+            }
+            else {
+                Xrm.Page.getAttribute("new_ftrcounterpo").setValue(1);
+            }
+            Xrm.Page.getAttribute("new_ftrcounterpo").setSubmitMode("always");
+        }
+
+        this.approvalStatus_onsave();
+
+    },
+    statusReason: function () {
+        var $options = Xrm.Page.getAttribute("statuscode").getOptions();
+        var $statusReason = Xrm.Page.getControl("statuscode");
+        var $status = Xrm.Page.getAttribute("new_statuspo").getSelectedOption();
+        var $srSelected = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+        if ($status.text == "Active") {
+            $statusReason.clearOptions();
+            $statusReason.addOption($options[1]);
+            Xrm.Page.getAttribute("statuscode").setValue($options[1].value);
+            if ($srSelected != null) {
+                Xrm.Page.getAttribute("statuscode").setValue($srSelected.value);
+            }
+        }
+        if ($status.text == "Submitted") {
+            $statusReason.clearOptions();
+            $statusReason.addOption($options[0]);
+            $statusReason.addOption($options[1]);
+            $statusReason.addOption($options[2]);
+            $statusReason.addOption($options[3]);
+            $statusReason.addOption($options[4]);
+            if ($srSelected != null) {
+                Xrm.Page.getAttribute("statuscode").setValue($srSelected.value);
+            }
+        }
+    },
+    assignTeam: function () {
+        var $objAssignedTeam = Xrm.Page.getAttribute("new_assignedteampo").getValue();
+        var $objMarket = Xrm.Page.getAttribute("new_softtekmarketpo").getValue();
+        if ($objMarket != null) {
+            var $entityName = 'team';
+            var $outputColumns = [new CRMField('teamid'), new CRMField('name')];
+            var $filters = [new FilterBy('new_softtekmarketteam', LogicalOperator.Equal, $objMarket), new FilterBy('new_areateam', LogicalOperator.Equal, 100000001)];
+
+            var $items = RetrieveRecords($entityName, $outputColumns, $filters);
+
+            if ($items.Rows.length > 0) {
+                var $teamID = $items.Rows[0].GetValue("teamid");
+                var $teamName = $items.Rows[0].GetValue("name");
+                if ($teamID != null) {
+                    setSimpleLookupValue("new_assignedteampo", "team", $teamID, $teamName);
+                }
+            }
+            else {
+                Xrm.Page.getAttribute("new_assignedteampo").setValue(null);
+                Xrm.Page.getAttribute("new_assignedteampo").setSubmitMode("always");
+            }
+        }
+    },
+    approvalStatus_onsave: function () {
+        var $optApprovalStatus = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+        if ($optApprovalStatus.text == "Rejected") {
+            Xrm.Page.getControl("new_submitpo").setDisabled(false);
+            Xrm.Page.getAttribute("new_submitpo").setValue(false);
+            Xrm.Page.getAttribute("new_assgnedtopo").setValue(null);
+            //Xrm.Page.getAttribute("statuscode").setValue(1);
+            STK.Util.Controls.setOptionSetByOptionText("new_statuspo", "Active");
+        }
+    },
+    approvalStatus_onchange: function () {
+        var $optApprovalStatus = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+        if ($optApprovalStatus.text == "In Progress") {
+            Xrm.Page.getAttribute("new_eststartdatepo").setRequiredLevel("required");
+            Xrm.Page.getAttribute("new_estenddatepo").setRequiredLevel("required");
+            Xrm.Page.getAttribute("new_esteffortpo").setRequiredLevel("required");
+        }
+        else {
+            Xrm.Page.getAttribute("new_eststartdatepo").setRequiredLevel("none");
+            Xrm.Page.getAttribute("new_estenddatepo").setRequiredLevel("none");
+            Xrm.Page.getAttribute("new_esteffortpo").setRequiredLevel("none");
+        }
+        if ($optApprovalStatus.text == "Complete") {
+            Xrm.Page.getAttribute("new_acteffortpo").setRequiredLevel("required");
+        }
+        else {
+            Xrm.Page.getAttribute("new_acteffortpo").setRequiredLevel("none");
+        }
+        if ($optApprovalStatus.text == "Rejected") {
+            Xrm.Page.getControl("new_rejectionreasonpo").setDisabled(false);
+            Xrm.Page.getAttribute("new_rejectionreasonpo").setRequiredLevel("required");
+        }
+        else {
+            Xrm.Page.getControl("new_rejectionreasonpo").setDisabled(true);
+            Xrm.Page.getAttribute("new_rejectionreasonpo").setRequiredLevel("none");
+        }
+    },
+    setActualDate: function () {
+        var $optStatusReason = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+        var $objActStartDate = Xrm.Page.getAttribute("new_actstartdatepo");
+        var $objActEndDate = Xrm.Page.getAttribute("new_actenddatepo");
+        var $objActEffort = Xrm.Page.getAttribute("new_acteffortpo");
+        var $status = Xrm.Page.getAttribute("new_statuspo").getSelectedOption();
+        if ($optStatusReason != null) {
+            if ($optStatusReason.text == "In Progress" && $objActStartDate.getValue() == null && $status.text != "Active") {
+                var $today = new Date();
+                $objActStartDate.setValue($today);
+                $objActStartDate.setSubmitMode("always");
+            }
+
+            if ($optStatusReason.text == "Complete" && $objActEndDate.getValue() == null) {
+                var $today = new Date();
+                $objActEndDate.setValue($today);
+                $objActEndDate.setSubmitMode("always");
+            }
+        }
+    },
+    filter_SofttekVertical: function () {
+        var $optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarketpo").getSelectedOption();
+        var $optMarketScope = Xrm.Page.getAttribute("new_marketscopepo").getSelectedOption();
+        var $optSofttekVertical = Xrm.Page.getAttribute("new_softtekverticalpo").getSelectedOption();
+        var $oSofttekVertical = Xrm.Page.getControl("new_softtekverticalpo");
+        for (i = 0; i < this.svOptions.length; i++) {
+            if (this.svOptions[i].text == "JIT Automotive Solutions") {
+                var JIT = i;
+            }
+            if (this.svOptions[i].text == "Pharmalab") {
+                var Pha = i;
+            }
+            if (this.svOptions[i].text == "ChemQ") {
+                var Che = i;
+            }
+            if (this.svOptions[i].text == "eMetal") {
+                var eMe = i;
+            }
+            if (this.svOptions[i].text == "pCare") {
+                var pCa = i;
+            }
+            if (this.svOptions[i].text == "SAP Services") {
+                var SAP = i;
+            }
+        }
+        if ($optSofttekMarket != null) {
+            switch ($optSofttekMarket.text) {
+            case "Cloud SAP Industry Solutions":
+                //$oSofttekVertical.setDisabled(false);
+                $oSofttekVertical.clearOptions();
+                $oSofttekVertical.addOption(this.svOptions[JIT]); // JIT Automotive Solutions
+                $oSofttekVertical.addOption(this.svOptions[Pha]); // Pharmalab
+                $oSofttekVertical.addOption(this.svOptions[Che]); // ChemQ
+                $oSofttekVertical.addOption(this.svOptions[eMe]); // eMetal
+                $oSofttekVertical.addOption(this.svOptions[pCa]); // pCare
+                $oSofttekVertical.addOption(this.svOptions[SAP]); // SAP Services    	
+                if ($optSofttekVertical != null) {
+                    Xrm.Page.getAttribute("new_softtekverticalpo").setValue($optSofttekVertical.value);
+                }
+                break;
+            default:
+                if ($optMarketScope != null) {
+                    if (($optSofttekVertical == null) || ($optSofttekVertical != null && $optSofttekVertical.text != "Manufactura y BC" && $optSofttekVertical.text != "Telcos" && $optSofttekVertical.text != "Business Development" && $optSofttekVertical.text != "Resto del Mercado" && $optSofttekVertical.text != "Software & High Tech")) {
+                        //Manufactura y BC, Telcos, Business Development, Resto del Mercado, Software & High Tech are removed
+                        //$oSofttekVertical.setDisabled(false);
+                        var $strSofttekMarket = $optSofttekMarket.text;
+                        var $strMarketScope = $optMarketScope.text;
+                        $oSofttekVertical.clearOptions();
+                        if ($strSofttekMarket == "USA & Canada") {
+                            if ($strMarketScope == "Global") {
+                                $oSofttekVertical.addOption(this.svOptions[0]);
+                                $oSofttekVertical.addOption(this.svOptions[6]);
+                            }
+                            else {
+                                for (var i = 0; i <= 4; i++) {
+                                    $oSofttekVertical.addOption(this.svOptions[i]);
+                                }
+                                $oSofttekVertical.addOption(this.svOptions[9]);
+                                $oSofttekVertical.addOption(this.svOptions[10]);
+                                $oSofttekVertical.addOption(this.svOptions[5]);
+                                $oSofttekVertical.addOption(this.svOptions[7]);
+                                $oSofttekVertical.addOption(this.svOptions[8]);
+                                $oSofttekVertical.removeOption(this.svOptions[1].value);
+                            }
+                        }
+                        else if ($strSofttekMarket == "Mexico & Central America") {
+                            if ($strMarketScope == "Global") {
+                                $oSofttekVertical.addOption(this.svOptions[12]); //01 Banamex
+                                $oSofttekVertical.addOption(this.svOptions[13]); //02 HP14
+                                $oSofttekVertical.addOption(this.svOptions[14]); //03 Walmart15
+                                $oSofttekVertical.addOption(this.svOptions[11]); //04 GE
+                            }
+                            else {
+                                $oSofttekVertical.addOption(this.svOptions[15]); //Local	05 EST-Bancomer16
+                                $oSofttekVertical.addOption(this.svOptions[16]); //Local	06 EST-IBM Metlife17
+                                $oSofttekVertical.addOption(this.svOptions[17]); //Local	07 HGM-Bimbo18
+                                $oSofttekVertical.addOption(this.svOptions[22]); //Local	08 HGM-Named23
+                                $oSofttekVertical.addOption(this.svOptions[29]); //Local	09 BD-Named30
+                                $oSofttekVertical.addOption(this.svOptions[25]); //Local	10 BD-Financiero26
+                                $oSofttekVertical.addOption(this.svOptions[28]); //Local	11 BD-Honeywell29
+                                $oSofttekVertical.addOption(this.svOptions[21]); //Local	12 ZN-Named22
+                                $oSofttekVertical.addOption(this.svOptions[27]); //Local	13 ZN-Urbi28
+                                $oSofttekVertical.addOption(this.svOptions[23]); //Local	14 SAP24
+                                $oSofttekVertical.addOption(this.svOptions[26]); //Local	15 SP27
+                                $oSofttekVertical.addOption(this.svOptions[8]); //unknown
+                            }
+                        }
+                        else {
+                            $oSofttekVertical.addOption(this.svOptions[5]);
+                        }
+                        if ($optSofttekVertical != null) {
+                            Xrm.Page.getAttribute("new_softtekverticalpo").setValue($optSofttekVertical.value);
+                        }
+                    }
+
+                }
+                else {
+                    Xrm.Page.getAttribute("new_softtekverticalpo").setValue(null);
+                    $oSofttekVertical.setDisabled(true);
+                }
+                break;
+            }
+
+        }
+        else {
+            Xrm.Page.getAttribute("new_softtekverticalpo").setValue(null);
+            $oSofttekVertical.setDisabled(true);
+        }
+    },
+    calculateRevenue: function () {
+        // Discount Amount = Est. Revenue * (Discount (%) /100)
+        // Total Revenue = Est. Revenue - Discount Amount
+        var $discount = Xrm.Page.getAttribute("new_discountpercentagepo").getValue();
+        var $poAmount = Xrm.Page.getAttribute("new_poamountpo").getValue();
+        if ($discount != null && $poAmount != null) {
+            var $discountAmount = $poAmount * $discount / 100;
+            Xrm.Page.getAttribute("new_discountamountpo").setValue($discountAmount);
+            Xrm.Page.getAttribute("new_totalamountpo").setValue($poAmount - $discountAmount);
+        }
+        else {
+            Xrm.Page.getAttribute("new_discountamountpo").setValue(null);
+            Xrm.Page.getAttribute("new_totalamountpo").setValue(null);
+        }
+    },
+    filter_ServiceOfferingType: function () {
+        var $optServiceOffering = Xrm.Page.getAttribute("new_serviceofferingpo").getSelectedOption();
+        var $optServiceOfferingType = Xrm.Page.getAttribute("new_serviceofferingtypepo").getSelectedOption();
+        var $oServiceOfferingType = Xrm.Page.getControl("new_serviceofferingtypepo");
+        if ($optServiceOffering != null) {
+            $oServiceOfferingType.setDisabled(false);
+            var $strServiceOffering = $optServiceOffering.text;
+            //alert(strCategory);
+            var $code = $strServiceOffering.substr(0, $strServiceOffering.indexOf("-"));
+            $oServiceOfferingType.clearOptions();
+            for (var $j = 0; $j < this.sotOptions.length; $j++) {
+                //alert(oSubCategory.Options.length);
+                if ($code != "") {
+                    if (this.sotOptions[$j].text.substr(0, this.sotOptions[$j].text.indexOf("-")) == $code) {
+                        $oServiceOfferingType.addOption(this.sotOptions[$j]);
+                        //alert(j);
+                    }
+                }
+                else if (this.sotOptions[$j].text == $strServiceOffering) {
+                    $oServiceOfferingType.addOption(this.sotOptions[$j]);
+                }
+            }
+            if ($optServiceOfferingType != null) {
+                Xrm.Page.getAttribute("new_serviceofferingtypepo").setValue($optServiceOfferingType.value);
+            }
+        }
+        else {
+            Xrm.Page.getAttribute("new_serviceofferingtypepo").setValue(null);
+            $oServiceOfferingType.setDisabled(true);
+        }
+    },
+    projecID_requirementlvl: function () {
+        var $objMarket = Xrm.Page.getAttribute("new_softtekmarketpo").getValue();
+        if ($objMarket != null) {
+            var $optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarketpo").getSelectedOption();
+            if ($optSofttekMarket != null) {
+                var $strSofttekMarket = $optSofttekMarket.text;
+                if (($strSofttekMarket == "USA & Canada") || ($strSofttekMarket == "Mexico & Central America")) {
+                    Xrm.Page.getAttribute("new_projectidpo").setRequiredLevel("required");
+                }
+                else {
+                    Xrm.Page.getAttribute("new_projectidpo").setRequiredLevel("none");
+                }
+            }
+        }
+    },
+    validateProjectID: function () {
+        var $projectID = Xrm.Page.getAttribute("new_projectidpo").getValue();
+        if ($projectID.match(/\b[1-2]-\d{10}\b/g) == null) {
+            var $message = "The Format of Project ID is not correct! Valid Format: 1-0000000000";
+            alert($message);
+            Xrm.Page.getAttribute("new_projectidpo").setValue(null);
+        }
+    },
+    invoicesDeliveryMode_onchange: function () {
+        var $optInvoicesDeliveryMode = Xrm.Page.getAttribute("new_invoicesdeliverymodepo").getSelectedOption();
+        if ($optInvoicesDeliveryMode != null && ($optInvoicesDeliveryMode.text == "Email" || $optInvoicesDeliveryMode.text == "Both")) {
+            Xrm.Page.getAttribute("new_contactemailpo").setRequiredLevel("required");
+        }
+        else {
+            Xrm.Page.getAttribute("new_contactemailpo").setRequiredLevel("none");
+        }
+    },
+    softtekMarket_onchange: function () {
+        Xrm.Page.getAttribute("new_softtekverticalpo").setValue(null);
+        this.filter_SofttekVertical();
+        this.projecID_requirementlvl();
+    },
+    marketScope_onchange: function () {
+        Xrm.Page.getAttribute("new_softtekverticalpo").setValue(null);
+        this.filter_SofttekVertical();
+    },
+    /// this method provides the functionality for workflow single window
+    singleWindowPhaseOne: function () {
+        /// if the form type is "create"
+        if (Xrm.Page.ui.getFormType() == 1) {
+            /// disabled  all "assignment" section
+            STK.Util.Controls.setDisabledTabs([{
+                tabIndex: 3,
+                isDisabled: true
+            }]);
+        }
+        else {
+            /// get the current user id
+            var $userID = Xrm.Page.context.getUserId();
+            /// if the purchase order was not sent to single window
+            if (Xrm.Page.getAttribute("new_submitpo").getValue() == false) {
+                /// disabled all controls in "assignment tab"
+                STK.Util.Controls.setDisabledTabs([{
+                    tabIndex: 3,
+                    isDisabled: true
+                }]);
+                /// enabled "submit to single window" option
+                Xrm.Page.getControl("new_submitpo").setDisabled(false);
+            }
+            else {
+                /// if the purchase order has an assigned team
+                if (Xrm.Page.getAttribute("new_assignedteampo").getValue() != null) {
+                    /// if the purchase order does not have an assigned user
+                    if (Xrm.Page.getAttribute("new_assgnedtopo").getValue() == null) {
+                        /// disabled all tabs in the form
+                        STK.Util.Controls.setDisabledTabs([{
+                            tabIndex: 0,
+                            isDisabled: true
+                        },
+                        {
+                            tabIndex: 1,
+                            isDisabled: true
+                        },
+                        {
+                            tabIndex: 2,
+                            isDisabled: true
+                        },
+                        {
+                            tabIndex: 3,
+                            isDisabled: true
+                        },
+                        {
+                            tabIndex: 4,
+                            isDisabled: true
+                        }]);
+                        ///  check whether the current user is assigned the same computer as the purchase order to enable the "assigned to" option
+                        var $outputColumns = [new CRMField("fullname")];
+                        var $linkedEntities = [new LinkedEntity("teammembership", "team", "systemuserid", "teamid", "and")];
+                        $linkedEntities[0].AddFilterCondition("teamid", LogicalOperator.Eq, Xrm.Page.getAttribute("new_assignedteampo").getValue()[0].id);
+                        var $results = RetrieveRecordsByFetch("systemuser", $outputColumns, null, $linkedEntities);
+                        for (var $i = 0; $i < $results.Rows.length; $i++) {
+                            if ($results.Rows[$i].GetValue("systemuserid") == $userID) {
+                                Xrm.Page.getControl("new_assgnedtopo").setDisabled(false);
+                            };
+                        }
+                    }
+                    else {
+                        Xrm.Page.getControl("new_submitpo").setDisabled(true);
+                        /// if the current user is not the assigned user
+                        if (Xrm.Page.getAttribute("new_assgnedtopo").getValue()[0].id != $userID) {
+                            /// disabled all tabs in the form
+                            STK.Util.Controls.setDisabledTabs([{
+                                tabIndex: 0,
+                                isDisabled: true
+                            },
+                            {
+                                tabIndex: 1,
+                                isDisabled: true
+                            },
+                            {
+                                tabIndex: 2,
+                                isDisabled: true
+                            },
+                            {
+                                tabIndex: 3,
+                                isDisabled: true
+                            },
+                            {
+                                tabIndex: 4,
+                                isDisabled: true
+                            }]);
+                        }
+                    }
+
+                }
+                else {
+                    STK.Util.Controls.setDisabledTabs([{
+                        tabIndex: 3,
+                        isDisabled: true
+                    }]);
+                }
+            }
+        }
+
+    },
+    Filter_BenefitsCenter: function () {
+        var $oBenefitsCenter = Xrm.Page.getControl("new_benefitscenterpo");
+        var $optBenefitsCenter = Xrm.Page.getAttribute("new_benefitscenterpo").getSelectedOption();
+        var $optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarketpo").getSelectedOption();
+        this.BCOptions = Xrm.Page.getAttribute("new_benefitscenterpo").getOptions();
+        if ($optSofttekMarket != null) {
+            var $strSofttekMarket = $optSofttekMarket.text;
+            $oBenefitsCenter.clearOptions();
+            if ($strSofttekMarket == "Mexico & Central America") {
+                for (var j = 0; j < this.BCOptions.length; j++) {
+                    if (this.BCOptions[j].text != null && this.BCOptions[j].text.charAt(0) == "2") {
+                        $oBenefitsCenter.addOption(this.BCOptions[j]);
+                    }
+                }
+            }
+            else if ($strSofttekMarket == "USA & Canada") {
+                for (var j = 0; j < this.BCOptions.length; j++) {
+                    if (this.BCOptions[j].text != null && this.BCOptions[j].text.charAt(0) == "3") {
+                        $oBenefitsCenter.addOption(this.BCOptions[j]);
+                        if (this.BCOptions[j].text == "3030202-GE Energy & Infra-Global") {
+                            $oBenefitsCenter.removeOption(this.BCOptions[j].value);
+                        }
+                    }
+                }
+            }
+            else {
+                $oBenefitsCenter.addOption(this.BCOptions[this.BCOptions.length - 1]);
+            }
+            if ($optBenefitsCenter != null) {
+                Xrm.Page.getAttribute("new_benefitscenterpo").setValue($optBenefitsCenter.value);
+            }
+        }
+    },
+    isNewClientOnChange: function () {
+        $field = Xrm.Page.getAttribute("new_newclientpo");
+        $taxPayerIDControl = Xrm.Page.getAttribute("new_taxpayeridpo");
+        if ($field != null) {
+            if ($field.getValue() == true) {
+                $taxPayerIDControl.setRequiredLevel("required");
+            }
+            else {
+                $taxPayerIDControl.setRequiredLevel("none");
+            }
+        }
+
+    },
+    __namespace: true
+};

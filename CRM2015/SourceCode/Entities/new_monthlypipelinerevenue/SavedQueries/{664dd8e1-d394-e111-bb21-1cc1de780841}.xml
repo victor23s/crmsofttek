@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10010</returnedtypecode>
+  <savedqueryid>{664dd8e1-d394-e111-bb21-1cc1de780841}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10010" jump="new_name" select="1" preview="1" icon="1">
+      <row name="result" id="new_monthlypipelinerevenueid">
+        <cell name="new_name" width="300" />
+        <cell name="new_softtekmarket" width="300" />
+        <cell name="new_monthlyclosedate" width="100" />
+        <cell name="new_estimatedrevenue" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="new_monthlypipelinerevenue">
+        <order attribute="new_name" descending="false" />
+        <attribute name="new_monthlyclosedate" />
+        <attribute name="new_estimatedrevenue" />
+        <attribute name="new_name" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_monthlypipelinerevenueid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Monthly Revenue - Pipeline" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

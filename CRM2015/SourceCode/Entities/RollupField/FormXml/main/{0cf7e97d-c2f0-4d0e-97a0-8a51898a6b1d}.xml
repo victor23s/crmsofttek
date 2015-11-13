@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{0cf7e97d-c2f0-4d0e-97a0-8a51898a6b1d}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{33395ade-002c-4235-ba8d-c2bd3862fc41}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="true" showbar="true" id="{41a22d3a-56ec-4317-812a-ac5c92764cd5}" IsUserDefined="0" columns="11" locklevel="0" labelwidth="118" celllabelalignment="Left" celllabelposition="Left" name="{41a22d3a-56ec-4317-812a-ac5c92764cd5}">
+                <labels>
+                  <label description="Step 1: Specify the rollup field to track against goals" languagecode="1033" />
+                  <label description="Paso 1: especifique el campo consolidado para hacer un seguimiento con los objetivos" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{a831a016-518c-d3d7-6ebe-558535c5367c}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Rollup Field" languagecode="1033" />
+                        <label description="Campo Informe" languagecode="3082" />
+                      </labels>
+                      <control id="goalattribute" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" disabled="false" />
+                    </cell>
+                    <cell id="{dc62a0ce-da0a-49d1-3c0e-e3d6e5691408}" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{70add329-a931-7a58-d842-a8d5734c6a87}" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c14e48d2-1e96-6d36-c947-ecbdb51c8745}" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section showlabel="true" showbar="true" locklevel="0" id="{27578c24-6dcb-7649-ba95-913c229c39eb}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="118" celllabelalignment="Left" celllabelposition="Left" name="{27578c24-6dcb-7649-ba95-913c229c39eb}">
+                <labels>
+                  <label description="Step 2: Specify the details about the source data that rolls up" languagecode="1033" />
+                  <label description="Paso 2: especifique los detalles sobre los datos de origen que se resumen" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{9493d600-9d92-d3b5-e514-8ca4a4688ea0}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Source Record Type" languagecode="1033" />
+                        <label description="Tipo de registro de origen" languagecode="3082" />
+                      </labels>
+                      <control id="sourceentity" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sourceentity" disabled="false" />
+                    </cell>
+                    <cell id="{5bc305ce-9372-cb94-184d-aeb0de50633e}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Source Field" languagecode="1033" />
+                        <label description="Campo Origen" languagecode="3082" />
+                      </labels>
+                      <control id="sourceattribute" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section showlabel="false" showbar="false" locklevel="0" id="{6ad1c698-2e2e-8a08-b43a-b66815b9eb06}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="118" name="{6ad1c698-2e2e-8a08-b43a-b66815b9eb06}">
+                <labels>
+                  <label description="Section4" languagecode="1033" />
+                  <label description="Sección 4" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{B61AC327-38C9-4e65-8B4B-69747FC1AE67}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Source Record Type State" languagecode="1033" />
+                        <label description="Estado del tipo de registro de origen" languagecode="3082" />
+                      </labels>
+                      <control id="sourcestate" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" disabled="false" />
+                    </cell>
+                    <cell id="{DB2D4B76-9FC8-4e53-9F91-2B2CB455290E}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Source Record Type Status" languagecode="1033" />
+                        <label description="Estado del tipo de registro de origen" languagecode="3082" />
+                      </labels>
+                      <control id="sourcestatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{90e5706e-7e27-d766-48db-900bc7323981}" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{2d85d2ad-382b-431d-4d76-999b78d3d6bc}" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section showlabel="true" showbar="true" locklevel="0" id="{d65a4472-a959-3b9c-c416-d79c56e4a44b}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="118" celllabelalignment="Left" celllabelposition="Left" name="{d65a4472-a959-3b9c-c416-d79c56e4a44b}">
+                <labels>
+                  <label description="Step 3: Specify the date field that determines the goal period that the records will roll up into" languagecode="1033" />
+                  <label description="Paso 3: especifique el campo de fecha que determina el período del objetivo en el que se resumirán los registros" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{25872F7F-51DB-49B4-96B9-FCDAA937D27F}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Record Type" languagecode="1033" />
+                        <label description="Tipo de registro" languagecode="3082" />
+                      </labels>
+                      <control id="entityfordateattribute" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" disabled="false" />
+                    </cell>
+                    <cell id="{b5a451e1-89e0-d220-e942-7c70e1d8c6c0}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Date Field" languagecode="1033" />
+                        <label description="Campo de fecha" languagecode="3082" />
+                      </labels>
+                      <control id="dateattribute" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+    <Description description="Formulario para esta entidad." languagecode="3082" />
+  </Descriptions>
+</systemform>

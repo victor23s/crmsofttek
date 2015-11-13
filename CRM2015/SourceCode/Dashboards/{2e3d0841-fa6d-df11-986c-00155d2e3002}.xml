@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard unmodified="1">
+  <LocalizedNames>
+    <LocalizedName description="Customer Service Performance Dashboard (original version)" languagecode="1033" />
+    <LocalizedName description="Panel del rendimiento del servicio al cliente (versión original)" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the key performance indicators for the customer service team." languagecode="1033" />
+    <Description description="Muestra los indicadores clave de rendimiento para el equipo de servicio al cliente." languagecode="3082" />
+  </Descriptions>
+  <FormId>{2e3d0841-fa6d-df11-986c-00155d2e3002}</FormId>
+</Dashboard>

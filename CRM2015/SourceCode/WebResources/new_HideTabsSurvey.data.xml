@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{c9ba18b1-7102-e211-b4b9-78e7d1622fed}</WebResourceId>
+  <Name>new_HideTabsSurvey</Name>
+  <DisplayName>Hide Tabs Survey</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_HideTabsSurveyC9BA18B1-7102-E211-B4B9-78E7D1622FED</FileName>
+</WebResource>

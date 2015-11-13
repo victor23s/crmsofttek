@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4</returnedtypecode>
+  <savedqueryid>{2ed4a79b-1db9-454d-96ea-5718ffb98fd6}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4" jump="fullname" select="1" icon="1" preview="1">
+      <row name="result" id="leadid">
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="subject" width="150" />
+        <cell name="fullname" width="125" />
+        <cell name="telephone1" width="100" />
+        <cell name="emailaddress1" width="100" />
+        <cell name="new_contactlevel" width="100" />
+        <cell name="new_influencelevel" width="100" />
+        <cell name="new_neworextacct" width="100" />
+        <cell name="companyname" width="100" />
+        <cell name="new_existingaccount" width="100" />
+        <cell name="campaignid" width="100" />
+        <cell name="new_leadsource" width="100" />
+        <cell name="new_leadchannel" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+      <entity name="lead">
+        <attribute name="fullname" />
+        <attribute name="createdon" />
+        <attribute name="statuscode" />
+        <attribute name="subject" />
+        <order attribute="createdon" descending="true" />
+        <order attribute="fullname" descending="false" />
+        <link-entity name="connection" from="record2id" to="leadid" alias="DealInfluencer">
+          <filter type="and">
+            <condition attribute="record2roleid" operator="eq" value="A061872D-07CF-4de7-8ED0-EF79A55F1A94" uiname="Influencer" uitype="connectionrole" />
+          </filter>
+          <link-entity name="opportunity" from="opportunityid" to="record1id" alias="DealInfluenced">
+            <filter type="and">
+              <condition attribute="statecode" operator="eq" value="1" />
+              <condition attribute="actualclosedate" operator="last-x-months" value="12" />
+            </filter>
+          </link-entity>
+        </link-entity>
+        <attribute name="campaignid" />
+        <attribute name="ownerid" />
+        <attribute name="new_neworextacct" />
+        <attribute name="new_influencelevel" />
+        <attribute name="new_existingaccount" />
+        <attribute name="emailaddress1" />
+        <attribute name="new_contactlevel" />
+        <attribute name="telephone1" />
+        <attribute name="companyname" />
+        <attribute name="statecode" />
+        <attribute name="new_leadsource" />
+        <attribute name="new_leadchannel" />
+        <attribute name="leadid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Leads: Influenced Deals That We Won" languagecode="1033" />
+    <LocalizedName description="Clientes potenciales: clientes potenciales ganados con influencia" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Key leads who influenced deals that have been won in the last 12 months." languagecode="1033" />
+    <Description description="Principales clientes potenciales que influyeron en clientes potenciales ganados en los últimos 12 meses." languagecode="3082" />
+  </Descriptions>
+</savedquery>

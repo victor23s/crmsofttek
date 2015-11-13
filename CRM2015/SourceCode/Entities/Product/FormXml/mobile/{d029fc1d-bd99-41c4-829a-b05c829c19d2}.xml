@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{d029fc1d-bd99-41c4-829a-b05c829c19d2}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{ca25f96c-4f24-473a-9166-1f2026c1d51b}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{7e1a998e-f48b-4223-abe4-b0201d3783d9}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{e26b23c6-8495-4dc0-81df-bad989c9fcb8}">
+                      <labels>
+                        <label description="Product ID" languagecode="1033" />
+                        <label description="Id. de producto" languagecode="3082" />
+                      </labels>
+                      <control id="productnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="productnumber" disabled="false" />
+                    </cell>
+                    <cell id="{307d7dd1-06d7-45d0-b1f9-e1b40e9df65e}">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{d2b26257-01d0-40d7-997b-d583f269f38d}">
+                      <labels>
+                        <label description="Decimals Supported" languagecode="1033" />
+                        <label description="Decimales admitidos" languagecode="3082" />
+                      </labels>
+                      <control id="quantitydecimal" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="quantitydecimal" disabled="false" />
+                    </cell>
+                    <cell id="{d95d6220-05fa-4ff0-89c0-ead17c5f7d66}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                        <label description="Nombre" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" disabled="false" />
+                    </cell>
+                    <cell id="{29ec22af-0e8e-45b4-803b-ad4e9db3ff6f}">
+                      <labels>
+                        <label description="Default Unit" languagecode="1033" />
+                        <label description="Unidad predeterminada" languagecode="3082" />
+                      </labels>
+                      <control id="defaultuomid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defaultuomid" disabled="false" />
+                    </cell>
+                    <cell id="{6e50e373-a5d1-4919-bf03-6d52a764f72d}">
+                      <labels>
+                        <label description="Unit Group" languagecode="1033" />
+                        <label description="Unidad de venta" languagecode="3082" />
+                      </labels>
+                      <control id="defaultuomscheduleid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defaultuomscheduleid" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

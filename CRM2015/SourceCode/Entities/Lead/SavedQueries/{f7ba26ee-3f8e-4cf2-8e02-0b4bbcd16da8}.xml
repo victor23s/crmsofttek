@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4</returnedtypecode>
+  <savedqueryid>{f7ba26ee-3f8e-4cf2-8e02-0b4bbcd16da8}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4" jump="fullname" select="1" icon="1" preview="1">
+      <row name="result" id="leadid">
+        <cell name="fullname" width="300" />
+        <cell name="subject" width="200" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="lead">
+        <attribute name="fullname" />
+        <attribute name="createdon" />
+        <attribute name="statuscode" />
+        <attribute name="subject" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <order attribute="createdon" descending="false" />
+        <attribute name="statecode" />
+        <attribute name="leadid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Lead Associated View" languagecode="1033" />
+    <LocalizedName description="Vista del cliente potencial asociado" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about related leads in the detail form of any associated lead record." languagecode="1033" />
+    <Description description="Muestra información sobre los clientes potenciales relacionados en el formulario detallado de todos los registros de clientes potenciales asociados." languagecode="3082" />
+  </Descriptions>
+</savedquery>

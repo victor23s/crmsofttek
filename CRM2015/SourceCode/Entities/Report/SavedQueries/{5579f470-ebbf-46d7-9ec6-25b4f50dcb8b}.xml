@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>9100</returnedtypecode>
+  <savedqueryid>{5579f470-ebbf-46d7-9ec6-25b4f50dcb8b}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="9100" jump="name" select="0" preview="1" icon="1">
+      <row name="result" id="reportid" layoutstyle="ReportList">
+        <cell name="name" width="300" />
+        <cell name="reporttypecode" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="description" width="200" />
+        <cell name="filename" width="200" ishidden="1" />
+        <cell name="bodyurl" width="200" ishidden="1" />
+        <cell name="iscustomreport" width="200" ishidden="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="report">
+        <attribute name="name" />
+        <attribute name="reporttypecode" />
+        <attribute name="filename" />
+        <attribute name="bodyurl" />
+        <attribute name="modifiedon" />
+        <attribute name="description" />
+        <attribute name="reportid" />
+        <attribute name="iscustomreport" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="languagecode" operator="eq-userlanguage" />
+        </filter>
+        <link-entity name="reportvisibility" from="reportid" to="reportid" alias="a_665a5aa6570449d59afa6456f468d75d">
+          <filter type="and">
+            <condition attribute="visibilitycode" operator="eq" value="1" />
+          </filter>
+        </link-entity>
+        <link-entity name="reportcategory" from="reportid" to="reportid" alias="a_0330cd38a96349b5b70114d58943f4d7">
+          <filter type="and">
+            <condition attribute="categorycode" operator="eq" value="4" />
+          </filter>
+        </link-entity>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Administrative Reports" languagecode="1033" />
+    <LocalizedName description="Informes del administrador" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

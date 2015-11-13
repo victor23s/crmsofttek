@@ -1,0 +1,169 @@
+var DependentOptionSetConfig = [{
+    "parent": "new_softtekmarket",
+    "dependent": "new_softtekcountry",
+    "options": [{
+        "value": "100000000",
+        "label": "USA & Canada",
+        "showOptions": ["100000000", "100000001"]
+    },
+    {
+        "value": "100000001",
+        "label": "Mexico & Central America",
+        "showOptions": ["100000003", "100000004", "100000017"]
+    },
+    {
+        "value": "100000003",
+        "label": "Hispanic South America",
+        "showOptions": ["100000005", "100000006", "100000007", "100000008", "100000009", "100000010", "100000011", "100000013", "100000014"]
+    },
+    {
+        "value": "100000002",
+        "label": "Brazil",
+        "showOptions": ["100000002"]
+    },
+    {
+        "value": "100000004",
+        "label": "China",
+        "showOptions": ["100000016"]
+    },
+    {
+        "value": "100000005",
+        "label": "Europe",
+        "showOptions": ["100000015", "100000012"]
+    },
+    {
+        "value": "100000006",
+        "label": "Cloud SAP Industry Solutions",
+        "showOptions": ["100000000", "100000001", "100000003", "100000004", "100000017", "100000002", "100000005", "100000006", "100000007", "100000008", "100000009", "100000010", "100000011", "100000013", "100000014", "100000016", "100000015", "100000012"]
+    },
+    {
+        "value": "100000007",
+        "label": "---------------",
+        "showOptions": ["100000000", "100000001", "100000003", "100000004", "100000017", "100000002", "100000005", "100000006", "100000007", "100000008", "100000009", "100000010", "100000011", "100000013", "100000014", "100000016", "100000015", "100000012", "100000018"]
+    }
+
+    ]
+}];
+
+function initDependentOptionSet() {
+    // Make sure that DependentOptionSetConfig was defined as expected
+    if (typeof(DependentOptionSetConfig) == "undefined") {
+        alert("DependentOptionSetConfig is not defined.");
+        return;
+    }
+
+    //Fire the onchange event for the mapped optionset fields
+    // so that the dependent fields are filtered for the current values.
+    for (var depOptionSet in DependentOptionSetConfig) {
+        var parent = DependentOptionSetConfig[depOptionSet].parent;
+        Xrm.Page.data.entity.attributes.get(parent).fireOnChange();
+    }
+}
+
+// This is the function set on the onchange event for
+// parent fields
+function filterDependentField(parentField, childField) {
+    // Make sure that DependentOptionSetConfig was defined as expected
+    if (typeof(DependentOptionSetConfig) == "undefined") {
+        alert("DependentOptionSetConfig is not defined.");
+        return;
+    }
+
+    for (var depOptionSet in DependentOptionSetConfig) {
+        var DependentOptionSet = DependentOptionSetConfig[depOptionSet];
+
+        /* Match the parameters to the correct dependent optionset mapping*/
+        if ((DependentOptionSet.parent == parentField) && (DependentOptionSet.dependent == childField)) {
+            /* Get references to the related fields*/
+            var ParentField = Xrm.Page.data.entity.attributes.get(parentField);
+            var ChildField = Xrm.Page.data.entity.attributes.get(childField);
+
+            /* Capture the current value of the child field*/
+            var CurrentChildFieldValue = ChildField.getValue();
+
+            /* If the parent field is null the Child field can be set to null */
+            if (ParentField.getValue() == null) {
+                ChildField.setValue(null);
+                ChildField.setSubmitMode("always");
+                ChildField.fireOnChange();
+
+                // Any attribute may have any number of controls
+                // So disable each instance
+                var controls = ChildField.controls.get()
+
+                for (var ctrl in controls) {
+                    controls[ctrl].setDisabled(true);
+                }
+
+                return;
+            }
+
+            for (var os in DependentOptionSet.options) {
+                var Options = DependentOptionSet.options[os];
+                var optionsToShow = Options.showOptions;
+
+                /* Find the Options that corresponds to the value of the parent field. */
+                if (ParentField.getValue() == Options.value) {
+                    var controls = ChildField.controls.get();
+
+                    /*Enable the field and set the options*/
+                    for (var ctrl in controls) {
+                        controls[ctrl].setDisabled(false);
+                        controls[ctrl].clearOptions();
+
+                        var existingOptions = controls[ctrl].getAttribute().getOptions();
+
+                        for (var option in optionsToShow) {
+                            for (eo = 0; eo < existingOptions.length; eo++) {
+                                if (existingOptions[eo].value == optionsToShow[option]) {
+                                    controls[ctrl].addOption(existingOptions[eo]);
+                                }
+                            }
+                        }
+
+                    }
+
+                    /*Check whether the current value is valid*/
+                    var bCurrentValueIsValid = false;
+                    var ChildFieldOptions = optionsToShow;
+
+                    for (var validOptionIndex in ChildFieldOptions) {
+                        var OptionDataValue = ChildFieldOptions[validOptionIndex];
+
+                        if (CurrentChildFieldValue == OptionDataValue) {
+                            bCurrentValueIsValid = true;
+                            break;
+                        }
+                    }
+
+                    /* If the value is valid, set it. If not, set the child field to null */
+                    if (bCurrentValueIsValid) {
+                        ChildField.setValue(CurrentChildFieldValue);
+                    }
+                    else {
+                        ChildField.setValue(null);
+                    }
+
+                    ChildField.setSubmitMode("always");
+                    ChildField.fireOnChange();
+                    break;
+                }
+                /* No values were specified for this parent field value */
+                else {
+                    var controls = ChildField.controls.get();
+
+                    /*Enable the field and set the options*/
+                    for (var ctrl in controls) {
+                        controls[ctrl].setDisabled(true);
+                        controls[ctrl].clearOptions();
+
+                        ChildField.setValue(null);
+                        ChildField.setSubmitMode("always");
+                        ChildField.fireOnChange();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}

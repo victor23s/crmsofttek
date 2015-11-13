@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{a36e2c6e-6fdf-e311-b47a-6c3be5a8517c}</WebResourceId>
+  <Name>new_LeadsCustomQualify</Name>
+  <DisplayName>Leads Custom Qualify</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0.0.2</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_LeadsCustomQualifyA36E2C6E-6FDF-E311-B47A-6C3BE5A8517C</FileName>
+</WebResource>

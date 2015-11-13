@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>10020</returnedtypecode>
+  <savedqueryid>{18dd034c-4b64-e311-8b2c-78e3b511b603}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10020" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_legalsupportrequestid">
+        <cell name="new_requestid" width="100" />
+        <cell name="new_account" width="100" />
+        <cell name="new_name" width="200" />
+        <cell name="new_requesttype" width="100" />
+        <cell name="createdon" width="125" />
+        <cell name="new_duedate" width="100" />
+        <cell name="new_urgency" width="100" />
+        <cell name="new_priority" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_status" width="100" />
+        <cell name="new_statusreason" width="100" />
+        <cell name="a_fd64a739d162e3118c0078e3b5115627.new_opportunityid" width="100" disableSorting="1" />
+        <cell name="a_fd64a739d162e3118c0078e3b5115627.statecode" width="100" disableSorting="1" />
+        <cell name="a_c1abb54fd162e3118c0078e3b5115627.quotenumber" width="100" disableSorting="1" />
+        <cell name="a_c1abb54fd162e3118c0078e3b5115627.statecode" width="100" disableSorting="1" />
+        <cell name="a_c1abb54fd162e3118c0078e3b5115627.statuscode" width="100" disableSorting="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="new_legalsupportrequest">
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <attribute name="new_requestid" />
+        <attribute name="new_statusreason" />
+        <attribute name="new_status" />
+        <attribute name="new_requesttype" />
+        <attribute name="ownerid" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_account" />
+        <attribute name="new_duedate" />
+        <attribute name="new_urgency" />
+        <attribute name="new_priority" />
+        <order attribute="new_requestid" descending="false" />
+        <filter type="and">
+          <condition attribute="new_statusreason" operator="in">
+            <value>100000014</value>
+            <value>100000015</value>
+            <value>100000013</value>
+            <value>100000016</value>
+          </condition>
+          <condition attribute="new_softtekmarket" operator="eq" value="100000005" />
+          <condition attribute="new_status" operator="eq" value="100000000" />
+        </filter>
+        <link-entity name="opportunity" from="opportunityid" to="new_opportunity" visible="false" link-type="outer" alias="a_fd64a739d162e3118c0078e3b5115627">
+          <attribute name="statecode" />
+          <attribute name="new_opportunityid" />
+        </link-entity>
+        <link-entity name="quote" from="quoteid" to="new_quote" visible="false" link-type="outer" alias="a_c1abb54fd162e3118c0078e3b5115627">
+          <attribute name="statuscode" />
+          <attribute name="statecode" />
+          <attribute name="quotenumber" />
+        </link-entity>
+        <attribute name="new_legalsupportrequestid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="On Hold - Legal Support Requests - Europe" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

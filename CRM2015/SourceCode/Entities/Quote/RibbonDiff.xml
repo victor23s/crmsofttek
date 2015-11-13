@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="new.Mscrm.Form.quote.ActivateQuote.CustomAction" Location="Mscrm.Form.quote.MainTab.Actions.Controls._children" Sequence="4">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.Form.quote.MainTab.Actions.ActivateQuote" Command="Mscrm.Form.quote.ActivateQuote" Id="Mscrm.Form.quote.ActivateQuote" Image32by32="/_imgs/SFA/ActivateQuote_32.png" Image16by16="/_imgs/SFA/ActivateQuote_16.png" LabelText="$Resources:Ribbon.Form.quote.MainTab.Actions.ActivateQuote" Sequence="4" TemplateAlias="o1" ToolTipTitle="$Resources:Mscrm_Form_quote_MainTab_Actions_ActivateQuote_ToolTipTitle" ToolTipDescription="$Resources:Mscrm_Form_quote_MainTab_Actions_ActivateQuote_ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.Form.quote.NewRecord.Hide" Location="Mscrm.Form.quote.NewRecord" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.quote.PrintQuote.Hide" Location="Mscrm.Form.quote.PrintQuote" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.quote.Save.Hide" Location="Mscrm.Form.quote.Save" />
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.quote.AdvancedFind.Hide" Location="Mscrm.HomepageGrid.quote.AdvancedFind" />
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.quote.ExportToExcel.Hide" Location="Mscrm.HomepageGrid.quote.ExportToExcel" />
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.quote.NewRecord.Hide" Location="Mscrm.HomepageGrid.quote.NewRecord" />
+    <CustomAction Id="new.quote.Button2.Button.CustomAction" Location="Mscrm.HomepageGrid.quote.MainTab.Collaborate.Controls._children" Sequence="2">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.Find.AdvancedFind" Command="Mscrm.OpenGridAdvancedFind" Id="new.quote.Button2.Button" Image32by32="/_imgs/ribbon/advancedfind32.png" Image16by16="/_imgs/ribbon/AdvancedFind_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Find.AdvancedFind" Sequence="2" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.Find.AdvancedFind" ToolTipDescription="$Resources:Ribbon.HomepageGrid.AdvancedFind.TooltipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.quote.Button3.Button.CustomAction" Location="Mscrm.HomepageGrid.quote.MainTab.Collaborate.Controls._children" Sequence="5">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.Data.Export.ExportToExcel" Command="Mscrm.ExportToExcel" Id="new.quote.Button3.Button" Image32by32="/_imgs/ribbon/exporttoexcel32.png" Image16by16="/_imgs/ribbon/exporttoexcel16.png" LabelText="$Resources:Ribbon.HomepageGrid.Data.Export.ExportToExcel" Sequence="5" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.Data.Export.ExportToExcel" ToolTipDescription="$Resources:Ribbon.Tooltip.ExportToExcel" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.quote.Button4.Button.CustomAction" Location="Mscrm.Form.quote.MainTab.Actions.Controls._children" Sequence="2">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.quote.Button4.Button.Alt" Command="new.quote.SubmitSW.Command" Description="This button sends the Quote to Single Window for Approvement" Id="new.quote.Button4.Button" Image32by32="$webresource:new_check32" Image16by16="$webresource:new_check16" LabelText="$LocLabels:new.quote.Button4.Button.LabelText" Sequence="2" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.quote.Button4.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.quote.Button4.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.quote.Button5.Button.CustomAction" Location="Mscrm.Form.quote.MainTab.Actions.Controls._children" Sequence="2">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.quote.Button5.Button.Alt" Command="new.quote.SubmitApprovals.Command" Description="This button sends the Quote to Single Window for Approvement" Id="new.quote.Button5.Button" Image32by32="$webresource:new_check32" Image16by16="$webresource:new_check16" LabelText="$LocLabels:new.quote.Button5.Button.LabelText" Sequence="2" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.quote.Button5.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.quote.Button5.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.quote.RevenuePlanning.Button.CustomAction" Location="Mscrm.Form.quote.MainTab.Actions.Controls._children" Sequence="3">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.quote.RevenuePlanning.Button.Alt" Command="new.quote.RevenuePlanning.Command" Description="Revenue Planning" Id="new.quote.RevenuePlanning.Button" Image32by32="$webresource:new_invoiceplan_32px" Image16by16="$webresource:new_invoiceplan_16px" LabelText="$LocLabels:new.quote.RevenuePlanning.Button.LabelText" Sequence="3" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.quote.RevenuePlanning.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.quote.RevenuePlanning.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.quote.SaveQuote.Button.CustomAction" Location="Mscrm.Form.quote.MainTab.Save.Controls._children" Sequence="5">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.quote.SaveQuote.Button.Alt" Command="new.quote.SaveQuote.Command" Description="Save" Id="new.quote.SaveQuote.Button" Image32by32="$webresource:new_Save32x" Image16by16="$webresource:new_Save16x" LabelText="$LocLabels:new.quote.SaveQuote.Button.LabelText" Sequence="5" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.quote.SaveQuote.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.quote.SaveQuote.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="Ventan.Mscrm.Form.quote.GetProducts.HideAction" Location="Mscrm.Form.quote.GetProducts" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.Form.quote.LookupAddress.HideAction" Location="Mscrm.Form.quote.LookupAddress" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.Form.quote.Recalculate.HideAction" Location="Mscrm.Form.quote.Recalculate" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.ExportToExcel">
+      <EnableRules>
+        <EnableRule Id="Mscrm.ExportToExcel" />
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.IsNotIos" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.HideForTabletExperience" />
+        <DisplayRule Id="Mscrm.ExportToExcelPrivilege" />
+        <DisplayRule Id="Mscrm.HideOnModern" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridRibbonActions.exportToExcel" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.quote.ActivateQuote">
+      <EnableRules>
+        <EnableRule Id="new.quote.usrCanActivate.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="new.quote.EnableRecord.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="ActivateQuoteSTK" Library="$webresource:new_Quote_Ribbon_Functions">
+          <CrmParameter Value="PrimaryItemIds" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.OpenGridAdvancedFind">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.HideOnModern" />
+        <DisplayRule Id="Mscrm.HideForTabletExperience" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.RibbonActions.openAdvancedFind" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.quote.RevenuePlanning.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openDialogInvoice" Library="$webresource:new_InvoicePlanningJS">
+          <CrmParameter Value="PrimaryItemIds" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.quote.SaveQuote.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="new.quote.EnableRecord.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SaveRefreshQuote" Library="$webresource:new_QuoteSave" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.quote.SubmitApprovals.Command">
+      <EnableRules>
+        <EnableRule Id="new.quote.SubmitToApprove.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="new.quote.DisplaySubmitSWButton.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SendToApprove" Library="$webresource:new_QuoteSave" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.quote.SubmitSW.Command">
+      <EnableRules>
+        <EnableRule Id="new.quote.SubmitSW.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="new.quote.DisplaySubmitSWButton.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SubmitSW" Library="$webresource:new_QuoteSave" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.ExportToExcelPrivilege">
+        <MiscellaneousPrivilegeRule PrivilegeName="ExportToExcel" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideForTabletExperience">
+        <HideForTabletExperienceRule />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideOnModern">
+        <CommandClientTypeRule Type="Modern" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="new.quote.DisplaySubmitSWButton.DisplayRule">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Global" AppliesTo="PrimaryEntity" EntityName="quote" />
+      </DisplayRule>
+      <DisplayRule Id="new.quote.EnableRecord.DisplayRule">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.ExportToExcel">
+        <CustomRule FunctionName="Mscrm.RibbonActions.enableExportToExcel" Library="/_static/_common/scripts/RibbonActions.js" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsNotIos">
+        <CustomRule FunctionName="Mscrm.IsIos_0" Library="$Webresource:Ribbon_main_system_library.js" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.RibbonActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/RibbonActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="new.quote.SubmitSW.EnableRule">
+        <CustomRule FunctionName="IsInProgress" Library="$webresource:new_QuoteSave" Default="true" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="new.quote.SubmitToApprove.EnableRule">
+        <CustomRule FunctionName="IsSubmitted" Library="$webresource:new_QuoteSave" Default="true" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="new.quote.usrCanActivate.EnableRule">
+        <CustomRule FunctionName="userCanActivate" Library="$webresource:new_Quote_Ribbon_Functions">
+          <CrmParameter Value="PrimaryItemIds" />
+        </CustomRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="new.quote.Button4.Button.Alt">
+      <Titles>
+        <Title description="Submit to SW" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.Button4.Button.LabelText">
+      <Titles>
+        <Title description="Submit to SW" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.Button4.Button.ToolTipDescription">
+      <Titles>
+        <Title description="This button sends the Quote to Single Window for Approvement" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.Button4.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Submit to SW" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.Button5.Button.Alt">
+      <Titles>
+        <Title description="Submit for Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.Button5.Button.LabelText">
+      <Titles>
+        <Title description="Submit for Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.Button5.Button.ToolTipDescription">
+      <Titles>
+        <Title description="This button sends the Quote to Single Window for Approvement" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.Button5.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Submit for Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.RevenuePlanning.Button.Alt">
+      <Titles>
+        <Title description="Revenue Planning" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.RevenuePlanning.Button.LabelText">
+      <Titles>
+        <Title description="Revenue Planning" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.RevenuePlanning.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Revenue Planning" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.RevenuePlanning.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Revenue Planning" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.SaveQuote.Button.Alt">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.SaveQuote.Button.LabelText">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.SaveQuote.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.quote.SaveQuote.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

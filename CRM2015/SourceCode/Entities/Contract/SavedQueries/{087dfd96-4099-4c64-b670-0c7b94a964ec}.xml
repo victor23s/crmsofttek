@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1010</returnedtypecode>
+  <savedqueryid>{087dfd96-4099-4c64-b670-0c7b94a964ec}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1010" jump="title" select="1" icon="1" preview="1">
+      <row name="result" id="contractid">
+        <cell name="title" width="300" />
+        <cell name="contractnumber" width="150" />
+        <cell name="customerid" width="150" />
+        <cell name="contracttemplateid" width="170" />
+        <cell name="statecode" width="140" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="contract">
+        <attribute name="title" />
+        <order attribute="title" descending="false" />
+        <attribute name="customerid" />
+        <attribute name="contractnumber" />
+        <attribute name="statecode" />
+        <attribute name="contracttemplateid" />
+        <attribute name="contractid" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="title" operator="like" value="{0}" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All Contracts" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de todos los contratos" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

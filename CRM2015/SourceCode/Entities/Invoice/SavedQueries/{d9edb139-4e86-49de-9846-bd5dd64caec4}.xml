@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1090</returnedtypecode>
+  <savedqueryid>{d9edb139-4e86-49de-9846-bd5dd64caec4}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1090" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="invoiceid">
+        <cell name="name" width="300" />
+        <cell name="customerid" width="150" />
+        <cell name="statuscode" width="100" />
+        <cell name="totalamount" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="invoice">
+        <attribute name="name" />
+        <order attribute="name" descending="false" />
+        <attribute name="totalamount" />
+        <attribute name="customerid" />
+        <attribute name="statuscode" />
+        <attribute name="invoiceid" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="name" operator="like" value="{0}" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All Invoices" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de todas las facturas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4207</returnedtypecode>
+  <savedqueryid>{ed36abd8-7f54-4077-8b46-d6f9bf8e71df}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4207" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="from" disableSorting="1" width="150" />
+        <cell name="to" disableSorting="1" width="150" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="createdon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+      <entity name="letter">
+        <attribute name="subject" />
+        <attribute name="from" />
+        <attribute name="to" />
+        <attribute name="regardingobjectid" />
+        <attribute name="statecode" />
+        <attribute name="activityid" />
+        <attribute name="createdon" />
+        <order attribute="createdon" descending="true" />
+        <link-entity name="activityparty" from="activityid" to="activityid" alias="a_2a7d66c64fba45e29d64855d83079964">
+          <filter type="and">
+            <condition attribute="participationtypemask" operator="in">
+              <value>2</value>
+              <value>1</value>
+              <value>9</value>
+            </condition>
+            <condition attribute="partyid" operator="eq-userid" />
+          </filter>
+        </link-entity>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Letters" languagecode="1033" />
+    <LocalizedName description="Mis cartas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

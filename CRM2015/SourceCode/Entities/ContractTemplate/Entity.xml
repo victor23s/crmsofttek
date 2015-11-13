@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Contract Template" OriginalName="Contract Template">ContractTemplate</Name>
+  <ObjectTypeCode>2011</ObjectTypeCode>
+  <FormXml />
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

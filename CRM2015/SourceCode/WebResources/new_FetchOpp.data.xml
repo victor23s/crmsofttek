@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{666154a3-fdc0-e311-8c79-6c3be5a8b454}</WebResourceId>
+  <Name>new_FetchOpp</Name>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_FetchOpp666154A3-FDC0-E311-8C79-6C3BE5A8B454</FileName>
+</WebResource>

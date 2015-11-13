@@ -1,0 +1,1542 @@
+/// <reference path="JQuery.js" />
+/// <reference path="Json2.js" />
+/// <reference path="XrmServiceToolkit.js" />
+if (typeof XrmSolutions == 'undefined') {
+    XrmSolutions = {};
+}
+if (typeof XrmSolutions.CloseAccount == 'undefined') {
+    XrmSolutions.CloseAccount = {};
+}
+if (typeof XrmSolutions.Account == 'undefined') {
+    XrmSolutions.Account = {};
+}
+ 
+var entityId;
+var editable;
+var result = null;
+var rev1 = 0.00;
+var rev2 = 0.00;
+var rev3 = 0.00;
+var rev4 = 0.00;
+var rev5 = 0.00;
+var rev6 = 0.00;
+var rev7 = 0.00;
+var rev8 = 0.00;
+var rev9 = 0.00;
+var rev10 = 0.00;
+var rev11 = 0.00;
+var rev12 = 0.00;
+var revTotal = 0.00;
+var interacciones = 0; //number total of month for all years
+var varyear = 0;
+var movmonth = 1; //number from 1 to 12
+var actualmonth = 0;
+var summation = 0; //per record
+var v = 0;
+var limitvalue = 0; //Variable for get values from the textbox
+var oldDuration = 0;
+var oldyear;
+var OppEntityId = null;
+var stringEntity;
+var _Enabled = null;
+var isOrder = null;
+var isQuote = null;
+var OpportunityId;
+var limit = null;
+var revenuePlanningId = null;
+var oppOwner = null;
+var userId = null;
+var CurrencyId = null;
+ 
+function _getServerUrl() {
+    ///<summary>
+    /// Returns the URL for the SOAP endpoint using the context information available in the form
+    /// or HTML Web resource.
+    ///</summary>
+    var OrgServicePath = "/XRMServices/2011/Organization.svc/web";
+    var serverUrl = "";
+    if (typeof GetGlobalContext == "function") {
+        var context = GetGlobalContext();
+        serverUrl = context.getClientUrl();
+    }
+    else {
+        if (typeof Xrm.Page.context == "object") {
+            serverUrl = Xrm.Page.context.getClientUrl();
+        }
+        else {
+            throw new Error("Unable to access the server URL");
+        }
+    }
+    if (serverUrl.match(/\/$/)) {
+        serverUrl = serverUrl.substring(0, serverUrl.length - 1);
+    }
+    return serverUrl + OrgServicePath;
+}
+ 
+function _getError(faultXml) {
+    ///<summary>
+    /// Parses the WCF fault returned in the event of an error.
+    ///</summary>
+    ///<param name="faultXml" Type="XML">
+    /// The responseXML property of the XMLHttpRequest response.
+    ///</param>
+    var errorMessage = "Unknown Error (Unable to parse the fault)";
+    if (typeof faultXml == "object") {
+        try {
+            var bodyNode = faultXml.firstChild.firstChild;
+            //Retrieve the fault node
+            for (var i = 0; i < bodyNode.childNodes.length; i++) {
+                var node = bodyNode.childNodes[i];
+                //NOTE: This comparison does not handle the case where the XML namespace changes
+                if ("s:Fault" == node.nodeName) {
+                    for (var j = 0; j < node.childNodes.length; j++) {
+                        var faultStringNode = node.childNodes[j];
+                        if ("faultstring" == faultStringNode.nodeName) {
+                            errorMessage = faultStringNode.text;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        catch (e) { };
+    }
+    return new Error(errorMessage);
+}
+ 
+function AssignResponse(req, successCallback, errorCallback) {
+    ///<summary>
+    /// Recieves the assign response
+    ///</summary>
+    ///<param name="req" Type="XMLHttpRequest">
+    /// The XMLHttpRequest response
+    ///</param>
+    ///<param name="successCallback" Type="Function">
+    /// The function to perform when an successfult response is returned.
+    /// For this message no data is returned so a success callback is not really necessary.
+    ///</param>
+    ///<param name="errorCallback" Type="Function">
+    /// The function to perform when an error is returned.
+    /// This function accepts a JScript error returned by the _getError function
+    ///</param>
+    if (req.readyState == 4) {
+        if (req.status == 200) {
+            if (successCallback != null) {
+                successCallback();
+            }
+        }
+        else {
+            errorCallback(_getError(req.responseXML));
+        }
+    }
+}
+ 
+function assignRequest(revenuePlanningId, ownerId) {
+    var requestMain = ""
+    requestMain += "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">";
+    requestMain += "  <s:Body>";
+    requestMain += "    <Execute xmlns=\"http://schemas.microsoft.com/xrm/2011/Contracts/Services\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\">";
+    requestMain += "      <request i:type=\"b:AssignRequest\" xmlns:a=\"http://schemas.microsoft.com/xrm/2011/Contracts\" xmlns:b=\"http://schemas.microsoft.com/crm/2011/Contracts\">";
+    requestMain += "        <a:Parameters xmlns:c=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">";
+    requestMain += "          <a:KeyValuePairOfstringanyType>";
+    requestMain += "            <c:key>Target</c:key>";
+    requestMain += "            <c:value i:type=\"a:EntityReference\">";
+    requestMain += "              <a:Id>" + revenuePlanningId + "</a:Id>";
+    requestMain += "              <a:LogicalName>new_revenueplanning</a:LogicalName>";
+    requestMain += "              <a:Name i:nil=\"true\" />";
+    requestMain += "            </c:value>";
+    requestMain += "          </a:KeyValuePairOfstringanyType>";
+    requestMain += "          <a:KeyValuePairOfstringanyType>";
+    requestMain += "            <c:key>Assignee</c:key>";
+    requestMain += "            <c:value i:type=\"a:EntityReference\">";
+    requestMain += "              <a:Id> " + ownerId + "</a:Id>";
+    requestMain += "              <a:LogicalName>systemuser</a:LogicalName>";
+    requestMain += "              <a:Name i:nil=\"true\" />";
+    requestMain += "            </c:value>";
+    requestMain += "          </a:KeyValuePairOfstringanyType>";
+    requestMain += "        </a:Parameters>";
+    requestMain += "        <a:RequestId i:nil=\"true\" />";
+    requestMain += "        <a:RequestName>Assign</a:RequestName>";
+    requestMain += "      </request>";
+    requestMain += "    </Execute>";
+    requestMain += "  </s:Body>";
+    requestMain += "</s:Envelope>";
+    var req = new XMLHttpRequest();
+    req.open("POST", _getServerUrl(), true)
+    // Responses will return XML. It isn't possible to return JSON.
+    req.setRequestHeader("Accept", "application/xml, text/xml, */*");
+    req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
+    var successCallback = null;
+    var errorCallback = null;
+    req.onreadystatechange = function () {
+        AssignResponse(req, successCallback, errorCallback);
+    };
+    req.send(requestMain);
+}
+ 
+function updateOwner(OpportunityId, oppOwner) {
+ 
+    OpportunityId = OpportunityId.toUpperCase();
+    oppOwner = oppOwner.toUpperCase();
+ 
+    var sFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="new_revenueplanning"><attribute name="new_revenueplanningid"/><attribute name="new_rev_12"/><attribute name="new_rev_11"/><attribute name="new_rev_10"/><attribute name="new_rev_09"/><attribute name="new_rev_08"/><attribute name="new_rev_07"/><attribute name="new_rev_06"/><attribute name="new_rev_05"/><attribute name="new_rev_04"/><attribute name="new_rev_03"/><attribute name="new_rev_02"/><attribute name="new_rev_01"/><attribute name="new_oppid"/><order descending="false" attribute="new_oppid"/>-<filter type="and"><condition attribute="new_oppid" value="' + OpportunityId + '" uitype="opportunity"  operator="eq"/></filter></entity></fetch>';
+    var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+    var _rows = detail.length;
+    for (var d = 0; d < _rows; d++) {
+        var revenuePlanningId = detail[d].attributes.new_revenueplanningid.value;
+        assignRequest(revenuePlanningId, oppOwner);
+    }
+}
+ 
+function getUser() {
+    var userId = Xrm.Page.context.getUserId();
+    userId = userId.replace("{", "");
+    userId = userId.replace("}", "");
+    return userId;
+}
+ 
+XrmSolutions.InvoicePlanning = function () {
+ 
+    var $linkOpportunity = window.dialogArguments;
+    //We use the method of Slice to get the ID of this entity
+    var entityId = $linkOpportunity.slice($linkOpportunity.indexOf("{") + 1, $linkOpportunity.indexOf("}"));
+ 
+    var item = null; //Opportunity
+    var detail = null; //Revenue Planning
+    _Enabled = canBeEditable(entityId);
+	if (OpportunityId != null && Opportunity != "") {
+ 
+        OpportunityId = OpportunityId.toUpperCase();
+        XrmServiceToolkit.Rest.RetrieveMultiple("OpportunitySet", "$filter= OpportunityId eq guid'" + OpportunityId + "'", //entityId
+        function (results) {
+            item = results;
+        },
+        // ReSharper disable once UnuentityIdsedParameter
+        function (error) {
+            alert("Error = " + error);
+        },
+        function onComplete() { },
+        false);
+        CurrencyId = item[0].TransactionCurrencyId.Id;
+        var detailDescription = item[0]["new_OpportunityID"];
+        var duration = item[0]["New_estimatedprojectduration"];
+        var startDate = item[0]["New_EstimatedProjectStartDate"];
+        var endDate = item[0]["New_EstimatedProjectEndDate"];
+        var revenue = item[0]["EstimatedValue"].Value;
+        var divrevenue = null;
+        var _rows = 0;
+        if (duration != null && revenue != null) {
+            //******************************** Get "Invoice Planning Detail" Information ****************************////
+            revenue = Math.round(revenue * 100) / 100;
+            revenue = parseFloat(revenue).toFixed(2);
+            $("#p_totalrevenue").val("$ " + numberWithCommas(revenue));
+            $("#p_totalrevenue").attr("disabled", true);
+ 
+            //var sFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="new_invoiceplaningdetail"><attribute name="new_name"/><attribute name="createdon"/><attribute name="new_opportunity"/><attribute name="new_month"/><attribute name="modifiedon"/><attribute name="modifiedby"/><attribute name="transactioncurrencyid"/><attribute name="createdby"/><attribute name="new_amounttoinvoice"/><attribute name="new_invoiceplaningdetailid"/><order descending="false" attribute="new_name"/>-<filter type="and"><condition attribute="new_opportunity" value="' + entityId + '" uitype="opportunity" operator="eq"/></filter></entity></fetch>';
+            //        var sFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="new_revenueplanning"><attribute name="new_revenueplanningid"/><attribute name="new_rev_12"/><attribute name="new_rev_11"/><attribute name="new_rev_10"/><attribute name="new_rev_09"/><attribute name="new_rev_08"/><attribute name="new_rev_07"/><attribute name="new_rev_06"/><attribute name="new_rev_05"/><attribute name="new_rev_04"/><attribute name="new_rev_03"/><attribute name="new_rev_02"/><attribute name="new_rev_01"/><attribute name="new_oppid"/><order descending="false" attribute="new_oppid"/>-<filter type="and"><condition attribute="new_oppid" value="' + entityId + '" uitype="opportunity" operator="eq"/></filter></entity></fetch>';
+            var sFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="new_revenueplanning"><attribute name="new_revenueplanningid"/><attribute name="new_year"/><attribute name="new_tot_year"/><attribute name="new_revenue"/><attribute name="new_rev_12"/><attribute name="new_rev_11"/><attribute name="new_rev_10"/><attribute name="new_rev_09"/><attribute name="new_rev_08"/><attribute name="new_rev_07"/><attribute name="new_rev_06"/><attribute name="new_rev_05"/><attribute name="new_rev_04"/><attribute name="new_rev_03"/><attribute name="new_rev_02"/><attribute name="new_rev_01"/><attribute name="new_oppid"/><attribute name="new_duration"/><order descending="false" attribute="new_year"/>-<filter type="and"><condition attribute="new_oppid" value="' + OpportunityId + '" uitype="opportunity"  operator="eq"/></filter></entity></fetch>';
+            var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+            //******************************************************************************************************////
+            ///------------------ Get Dates for Inputs
+            if (detail != null && detail.length > 0 || _Enabled == true) {
+                var y = startDate.getFullYear();
+                varyear = endDate.getFullYear();
+                var m = startDate.getMonth();
+                actualmonth = startDate.getMonth() + 1;
+                var oldYear = endDate.getFullYear();
+                var n = 0;
+                limitvalue = duration + actualmonth;
+                var month = new Array();
+                month[0] = "Jan";
+                month[1] = "Feb";
+                month[2] = "Mar";
+                month[3] = "Apr";
+                month[4] = "May";
+                month[5] = "Jun";
+                month[6] = "Jul";
+                month[7] = "Aug";
+                month[8] = "Sept";
+                month[9] = "Oct";
+                month[10] = "Nov";
+                month[11] = "Dec";
+                //--------------------------
+                _rows = detail.length;
+                limit = duration;
+                interacciones = varyear - y;
+                interacciones = (interacciones + 1) * 12;
+                //*****Variables from html
+                var addDiv1 = $('#row1');
+                var addDiv2 = $('#row2');
+                var addDiv3 = $('#Tr1');
+                var addDiv4 = $('#Tr2');
+                var addDiv5 = $('#Tr3');
+                var addDiv6 = $('#Tr4');
+                var addDiv7 = $('#Tr5');
+                var addDiv8 = $('#Tr6');
+                var addDiv9 = $('#Tr7');
+                var addDiv10 = $('#Tr8');
+                var addDiv11 = $('#Tr9');
+                var addDiv12 = $('#Tr10');
+                var counter = 0;
+                var i = $('#addinput p').size() + 1;
+                var _row = 0;
+                if (_rows > 0) oldDuration = detail[0].attributes.new_duration.value;
+ 
+                var rDetail = actualmonth; //var rDetail =0;
+                //*********************************************************************************************
+                if (_rows > 0 && oldDuration > 0) { //&& oldDuration == 0
+                    if (oldDuration != duration) { // && oldDuration!=0
+                        result = confirm("The Duration has been modified, Do you want to continue ?");
+                    }
+                    else result = true;
+                    if (result) {
+                        //advance all rows one by one until to the total of years
+                        while (counter < duration) {
+                            if (_row < _rows) {
+                                if (rDetail > 12) {
+                                    _row++;
+ 
+                                    rDetail = 1;
+                                }
+                                else {
+                                    switch (rDetail) {
+                                        case 1:
+                                            divrevenue = detail[_row].attributes.new_rev_01.value;
+                                            break;
+                                        case 2:
+                                            divrevenue = detail[_row].attributes.new_rev_02.value;
+                                            break;
+                                        case 3:
+                                            divrevenue = detail[_row].attributes.new_rev_03.value;
+                                            break;
+                                        case 4:
+                                            divrevenue = detail[_row].attributes.new_rev_04.value;
+                                            break;
+                                        case 5:
+                                            divrevenue = detail[_row].attributes.new_rev_05.value;
+                                            break;
+                                        case 6:
+                                            divrevenue = detail[_row].attributes.new_rev_06.value;
+                                            break;
+                                        case 7:
+                                            divrevenue = detail[_row].attributes.new_rev_07.value;
+                                            break;
+                                        case 8:
+                                            divrevenue = detail[_row].attributes.new_rev_08.value;
+                                            break;
+                                        case 9:
+                                            divrevenue = detail[_row].attributes.new_rev_09.value;
+                                            break;
+                                        case 10:
+                                            divrevenue = detail[_row].attributes.new_rev_10.value;
+                                            break;
+                                        case 11:
+                                            divrevenue = detail[_row].attributes.new_rev_11.value;
+                                            break;
+                                        case 12:
+                                            divrevenue = detail[_row].attributes.new_rev_12.value;
+                                            break;
+                                    }
+                                    if (divrevenue == null || divrevenue == "") divrevenue = 0.00;
+                                    else {
+                                        divrevenue = Math.round(divrevenue * 100) / 100;
+                                        //divrevenue = parseFloat(divrevenue);//  monto = parseFloat(monto);
+                                    }
+                                    divrevenue = Math.round(divrevenue * 100) / 100;
+                                    if (m > 11) {
+                                        m = 0;
+                                        y = y + 1;
+                                    }
+                                    n = month[m];
+                                    if (counter < 12) {
+                                        $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv1);
+                                        $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')"  size="8"class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv2);
+                                    } else if (counter >= 12 && counter < 24) {
+                                        $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv3);
+                                        $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv4);
+                                    } else if (counter >= 24 && counter < 36) {
+                                        $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv5);
+                                        $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv6);
+                                    } else if (counter >= 36 && counter < 48) {
+                                        $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv7);
+                                        $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv8);
+                                    } else if (counter >= 48 && counter < 60) {
+                                        $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv9);
+                                        $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv10);
+                                    } else if (counter >= 60 && counter < 72) {
+                                        $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv11);
+                                        $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv12);
+                                    }
+                                    counter++;
+                                    rDetail++;
+                                    m = m + 1;
+                                    i++;
+                                }
+                            }
+                            else {
+ 
+                                switch (rDetail) {
+                                    case 1:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 2:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 3:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 4:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 5:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 6:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 7:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 8:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 9:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 10:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 11:
+                                        divrevenue = 0.00;
+                                        break;
+                                    case 12:
+                                        divrevenue = 0.00;
+                                        break;
+                                }
+                                if (divrevenue == null || divrevenue == "") divrevenue = 0.00;
+                                else {
+                                    divrevenue = Math.round(divrevenue * 100) / 100;
+                                    //divrevenue = parseFloat(divrevenue.replace('$', ''));
+                                    //divrevenue = divrevenue.toFixed(2);
+                                }
+                                divrevenue = Math.round(divrevenue * 100) / 100;
+                                if (m > 11) {
+                                    m = 0;
+                                    y = y + 1;
+                                }
+                                n = month[m];
+                                if (counter < 12) {
+                                    $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv1);
+                                    $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8"class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv2);
+                                } else if (counter >= 12 && counter < 24) {
+                                    $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv3);
+                                    $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv4);
+                                } else if (counter >= 24 && counter < 36) {
+                                    $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv5);
+                                    $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv6);
+                                } else if (counter >= 36 && counter < 48) {
+                                    $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv7);
+                                    $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv8);
+                                } else if (counter >= 48 && counter < 60) {
+                                    $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv9);
+                                    $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv10);
+                                } else if (counter >= 60 && counter < 72) {
+                                    $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv11);
+                                    $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv12);
+                                }
+                                counter++;
+                                rDetail++;
+                                m = m + 1;
+                                i++;
+                            }
+                        }
+ 
+                    } else {
+                        window.close();
+                    }
+                }
+                else {
+ 
+                    while (counter < duration) {
+                        divrevenue = revenue / limit;
+                        divrevenue = Math.round(divrevenue * 100) / 100;
+                        //divrevenue = parseFloat(divrevenue).toFixed(2);
+                        if (m > 11) {
+                            m = 0;
+                            y = y + 1;
+                        }
+                        n = month[m];
+                        if (counter < 12) {
+                            $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv1);
+                            $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')"  size="8"class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv2);
+                        } else if (counter >= 12 && counter < 24) {
+                            $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv3);
+                            $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')"   size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv4);
+                        } else if (counter >= 24 && counter < 36) {
+                            $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv5);
+                            $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv6);
+                        } else if (counter >= 36 && counter < 48) {
+                            $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv7);
+                            $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')"  onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv8);
+                        } else if (counter >= 48 && counter < 60) {
+                            $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv9);
+                            $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv10);
+                        } else if (counter >= 60 && counter < 72) {
+                            $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv11);
+                            $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv12);
+                        }
+                        counter++;
+                        rDetail++;
+ 
+                        n = month[m];
+                        m = m + 1;
+                        i++;
+                    }
+                }
+                sumRevenue(limit);
+                floatVal(limit);
+                if (_Enabled == false) {
+                    disableComponents(limit);
+                }
+            }
+            else {
+                alert("There is no Revenue Planning.");
+                window.close();
+            }
+ 
+        }
+        else {
+            alert("Please enter the Duration and Est Revenue values to Opportunity. ");
+            window.close();
+        }
+    }
+ 
+    //**************** button Save ***********************************
+    $("#BUTTON1").click(function () {
+        actualmonth = startDate.getMonth() + 1;
+        movmonth = 1;
+        v = 0;
+        var total = 0;
+        var monto = 0;
+        summation = 0;
+        var _error = false;
+        for (i = 1; i <= limit; i++) {
+            monto = $('#p_new' + i).val();
+            monto = monto.replace(/\,/g, '');
+            monto = monto.replace('$', '');
+            total = parseFloat(total, 10) + parseFloat(monto, 10);
+        }
+        total = Math.round(total * 100) / 100;
+        monto = parseFloat(monto).toFixed(2);
+        $('#p_new' + i).val("$ " + monto);
+        var dif = revenue - total;
+        dif = parseFloat(dif).toFixed(2);
+        total = parseFloat(total).toFixed(2);
+        $("#p_sumrevenue").val("$ " + numberWithCommas(total));
+        $("#p_sumrevenue").attr("disabled", true);
+ 
+        if (dif == 0) {
+            var opp = {};
+            opp.new_TotRevPlanning = {
+                Value: total
+            };
+            XrmServiceToolkit.Rest.Update(
+            OpportunityId, opp, "OpportunitySet", function () { },
+            function (error) {
+                alert("Error = " + error);
+            },
+            false);
+            var sFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="new_revenueplanning"><attribute name="new_revenueplanningid"/><attribute name="new_rev_12"/><attribute name="new_rev_11"/><attribute name="new_rev_10"/><attribute name="new_rev_09"/><attribute name="new_rev_08"/><attribute name="new_rev_07"/><attribute name="new_rev_06"/><attribute name="new_rev_05"/><attribute name="new_rev_04"/><attribute name="new_rev_03"/><attribute name="new_rev_02"/><attribute name="new_rev_01"/><attribute name="new_oppid"/><order descending="false" attribute="new_oppid"/>-<filter type="and"><condition attribute="new_oppid" value="' + OpportunityId + '" uitype="opportunity"  operator="eq"/></filter></entity></fetch>';
+            var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+            for (var d = 0; d < detail.length; d++) {
+                var revenuePlanningId = detail[d].attributes.new_revenueplanningid.value; //detail[d]["new_invoiceplaningdetailId"];
+                XrmServiceToolkit.Rest.Delete(
+                revenuePlanningId, "new_revenueplanningSet", function () { },
+                function (error) {
+                    // alert("Error Save " + error);
+                    _error = true;
+                },
+                false);
+            }
+            if (!_error) {
+ 
+                userId = getUser();
+                //*******************************************************
+                varyear = startDate.getFullYear();
+                for (i = 1; i < interacciones + 1; i++) {
+                    if (i < limitvalue) {
+ 
+                        if (movmonth < actualmonth) {
+                            switch (movmonth) {
+                                case 1:
+                                    rev1 = 0.00;
+                                    break;
+                                case 2:
+                                    rev2 = 0.00;
+                                    break;
+                                case 3:
+                                    rev3 = 0.00;
+                                    break;
+                                case 4:
+                                    rev4 = 0.00;
+                                    break;
+                                case 5:
+                                    rev5 = 0.00;
+                                    break;
+                                case 6:
+                                    rev6 = 0.00;
+                                    break;
+                                case 7:
+                                    rev7 = 0.00;
+                                    break;
+                                case 8:
+                                    rev8 = 0.00;
+                                    break;
+                                case 9:
+                                    rev9 = 0.00;
+                                    break;
+                                case 10:
+                                    rev10 = 0.00;
+                                    break;
+                                case 11:
+                                    rev11 = 0.00;
+                                    break;
+                                case 12:
+                                    rev12 = 0.00;
+                                    break;
+                            }
+                        }
+                        else {
+                            v++;
+                            monto = $('#p_new' + v).val();
+                            if (monto != null) {
+                                monto = monto.replace(/\,/g, '');
+                                monto = parseFloat(monto.replace('$', ''));
+                            }
+                            switch (movmonth) {
+                                case 1:
+                                    rev1 = monto;
+                                    break;
+                                case 2:
+                                    rev2 = monto;
+                                    break;
+                                case 3:
+                                    rev3 = monto;
+                                    break;
+                                case 4:
+                                    rev4 = monto;
+                                    break;
+                                case 5:
+                                    rev5 = monto;
+                                    break;
+                                case 6:
+                                    rev6 = monto;
+                                    break;
+                                case 7:
+                                    rev7 = monto;
+                                    break;
+                                case 8:
+                                    rev8 = monto;
+                                    break;
+                                case 9:
+                                    rev9 = monto;
+                                    break;
+                                case 10:
+                                    rev10 = monto;
+                                    break;
+                                case 11:
+                                    rev11 = monto;
+                                    break;
+                                case 12:
+                                    rev12 = monto;
+                                    break;
+                            }
+                            summation = summation + monto;
+                            if (movmonth == 12) {
+                                var createRevenueplaningdetail = {};
+                                rev1 = parseFloat(rev1).toFixed(2);
+                                rev2 = parseFloat(rev2).toFixed(2);
+                                rev3 = parseFloat(rev3).toFixed(2);
+                                rev4 = parseFloat(rev4).toFixed(2);
+                                rev5 = parseFloat(rev5).toFixed(2);
+                                rev6 = parseFloat(rev6).toFixed(2);
+                                rev7 = parseFloat(rev7).toFixed(2);
+                                rev8 = parseFloat(rev8).toFixed(2);
+                                rev9 = parseFloat(rev9).toFixed(2);
+                                rev10 = parseFloat(rev10).toFixed(2);
+                                rev11 = parseFloat(rev11).toFixed(2);
+                                rev12 = parseFloat(rev12).toFixed(2);
+                                varyear = varyear.toString();
+                                summation = parseFloat(summation).toFixed(2);
+                                // alert("rev1 " + rev1 + " rev2 " + rev2 + " rev3 " + rev3 + " rev4 " + rev4 + " rev5 " + rev5 + " rev6 " + rev6 + " rev7 " + rev7 + " rev8 " + rev8 + " rev9 " + rev9 + " rev10 " + rev10 + " rev11 " + rev11 + " rev12 " + rev12 + " varyear " + varyear + " summation " + summation);
+                                createRevenueplaningdetail.new_Rev_01 = {
+                                    Value: rev1
+                                }; // Deliberate special characters to ensure that the toolkit can handle special characters correctly.
+                                createRevenueplaningdetail.new_Rev_02 = {
+                                    Value: rev2
+                                };
+                                createRevenueplaningdetail.new_Rev_03 = {
+                                    Value: rev3
+                                };
+                                createRevenueplaningdetail.new_Rev_04 = {
+                                    Value: rev4
+                                };
+                                createRevenueplaningdetail.new_Rev_05 = {
+                                    Value: rev5
+                                };
+                                createRevenueplaningdetail.new_Rev_06 = {
+                                    Value: rev6
+                                };
+                                createRevenueplaningdetail.new_Rev_07 = {
+                                    Value: rev7
+                                };
+                                createRevenueplaningdetail.new_Rev_08 = {
+                                    Value: rev8
+                                };
+                                createRevenueplaningdetail.new_Rev_09 = {
+                                    Value: rev9
+                                };
+                                createRevenueplaningdetail.new_Rev_10 = {
+                                    Value: rev10
+                                };
+                                createRevenueplaningdetail.new_Rev_11 = {
+                                    Value: rev11
+                                };
+                                createRevenueplaningdetail.new_Rev_12 = {
+                                    Value: rev12
+                                };
+                                createRevenueplaningdetail.new_Year = varyear;
+                                createRevenueplaningdetail.new_duration = duration;
+                                createRevenueplaningdetail.new_Tot_Year = {
+                                    Value: summation
+                                };
+                                createRevenueplaningdetail.new_OppId = {
+                                    Id: OpportunityId,
+                                    LogicalName: "opportunity"
+                                };
+                                createRevenueplaningdetail.TransactionCurrencyId = {
+                                    Id: CurrencyId,
+                                    LogicalName: "transactioncurrency"
+                                };
+                                createRevenueplaningdetail.CreatedBy = {
+                                    Id: userId,
+                                    LogicalName: "systemuser"
+                                };
+                                createRevenueplaningdetail.ModifiedBy = {
+                                    Id: userId,
+                                    LogicalName: "systemuser"
+                                };
+ 
+                                XrmServiceToolkit.Rest.Create(
+                                createRevenueplaningdetail, "new_revenueplanningSet", function (result) { },
+                                function (error) {
+                                    alert("Error " + error);
+                                },
+                                false);
+ 
+                                updateOwner(item[0]["OpportunityId"], item[0]["OwnerId"].Id);
+ 
+                                movmonth = 0;
+                                actualmonth = 1;
+                                varyear++;
+                                summation = 0
+                            }
+                        }
+                    }
+ 
+                    else {
+                        switch (movmonth) {
+                            case 1:
+                                rev1 = 0.0;
+                                break;
+                            case 2:
+                                rev2 = 0.0;
+                                break;
+                            case 3:
+                                rev3 = 0.0;
+                                break;
+                            case 4:
+                                rev4 = 0.0;
+                                break;
+                            case 5:
+                                rev5 = 0.0;
+                                break;
+                            case 6:
+                                rev6 = 0.0;
+                                break;
+                            case 7:
+                                rev7 = 0.0;
+                                break;
+                            case 8:
+                                rev8 = 0.0;
+                                break;
+                            case 9:
+                                rev9 = 0.0;
+                                break;
+                            case 10:
+                                rev10 = 0.0;
+                                break;
+                            case 11:
+                                rev11 = 0.0;
+                                break;
+                            case 12:
+                                rev12 = 0.0;
+                                break;
+                        }
+                        if (movmonth == 12) {
+                            var createRevenueplaningdetail = {};
+                            rev1 = parseFloat(rev1).toFixed(2);
+                            rev2 = parseFloat(rev2).toFixed(2);
+                            rev3 = parseFloat(rev3).toFixed(2);
+                            rev4 = parseFloat(rev4).toFixed(2);
+                            rev5 = parseFloat(rev5).toFixed(2);
+                            rev6 = parseFloat(rev6).toFixed(2);
+                            rev7 = parseFloat(rev7).toFixed(2);
+                            rev8 = parseFloat(rev8).toFixed(2);
+                            rev9 = parseFloat(rev9).toFixed(2);
+                            rev10 = parseFloat(rev10).toFixed(2);
+                            rev11 = parseFloat(rev11).toFixed(2);
+                            rev12 = parseFloat(rev12).toFixed(2);
+                            varyear = varyear.toString();
+                            summation = parseFloat(summation).toFixed(2);
+                            // alert("rev1 " + rev1 + " rev2 " + rev2 + " rev3 " + rev3 + " rev4 " + rev4 + " rev5 " + rev5 + " rev6 " + rev6 + " rev7 " + rev7 + " rev8 " + rev8 + " rev9 " + rev9 + " rev10 " + rev10 + " rev11 " + rev11 + " rev12 " + rev12 + " varyear " + varyear + " summation " + summation);
+                            createRevenueplaningdetail.new_Rev_01 = {
+                                Value: rev1
+                            }; // Deliberate special characters to ensure that the toolkit can handle special characters correctly.
+                            createRevenueplaningdetail.new_Rev_02 = {
+                                Value: rev2
+                            };
+                            createRevenueplaningdetail.new_Rev_03 = {
+                                Value: rev3
+                            };
+                            createRevenueplaningdetail.new_Rev_04 = {
+                                Value: rev4
+                            };
+                            createRevenueplaningdetail.new_Rev_05 = {
+                                Value: rev5
+                            };
+                            createRevenueplaningdetail.new_Rev_06 = {
+                                Value: rev6
+                            };
+                            createRevenueplaningdetail.new_Rev_07 = {
+                                Value: rev7
+                            };
+                            createRevenueplaningdetail.new_Rev_08 = {
+                                Value: rev8
+                            };
+                            createRevenueplaningdetail.new_Rev_09 = {
+                                Value: rev9
+                            };
+                            createRevenueplaningdetail.new_Rev_10 = {
+                                Value: rev10
+                            };
+                            createRevenueplaningdetail.new_Rev_11 = {
+                                Value: rev11
+                            };
+                            createRevenueplaningdetail.new_Rev_12 = {
+                                Value: rev12
+                            };
+                            createRevenueplaningdetail.new_Year = varyear;
+                            createRevenueplaningdetail.new_duration = duration;
+                            createRevenueplaningdetail.new_Tot_Year = {
+                                Value: summation
+                            };
+                            createRevenueplaningdetail.new_OppId = {
+                                Id: OpportunityId,
+                                LogicalName: "opportunity"
+                            };
+                            createRevenueplaningdetail.TransactionCurrencyId = {
+                                Id: CurrencyId,
+                                LogicalName: "transactioncurrency"
+                            };
+                            createRevenueplaningdetail.CreatedBy = {
+                                Id: userId,
+                                LogicalName: "systemuser"
+                            };
+                            createRevenueplaningdetail.ModifiedBy = {
+                                Id: userId,
+                                LogicalName: "systemuser"
+                            };
+ 
+                            XrmServiceToolkit.Rest.Create(
+                            createRevenueplaningdetail, "new_revenueplanningSet", function (result) { },
+                            function (error) {
+                                alert("Error " + error);
+                            },
+                            false);
+ 
+                            updateOwner(item[0]["OpportunityId"], item[0]["OwnerId"].Id);
+ 
+                        }
+                    }
+                    movmonth = movmonth + 1;
+                }
+                alert("The record was saved.");
+                //**********************************************************
+            } else {
+                alert("The record(s) cannot be created, please contact your System Administrator");
+            }
+        }
+        else alert("Please verify the entered values, the diference is $ " + dif);
+    });
+ 
+    //**************** button Save and Close ***********************************
+    $("#BUTTON2").click(function () {
+		debugger;
+        actualmonth = startDate.getMonth() + 1;
+        movmonth = 1;
+        v = 0;
+        var total = 0;
+        summation = 0;
+        var monto = 0;
+        var _error = false;
+        for (i = 1; i <= limit; i++) {
+            monto = $('#p_new' + i).val();
+            monto = monto.replace(/\,/g, '');
+            monto = monto.replace('$', '');
+            total = parseFloat(total, 10) + parseFloat(monto, 10);
+        }
+        total = Math.round(total * 100) / 100;
+        monto = parseFloat(monto).toFixed(2);
+        $('#p_new' + i).val("$ " + monto);
+        var dif = revenue - total;
+        dif = parseFloat(dif).toFixed(2);
+        total = parseFloat(total).toFixed(2);
+        $("#p_sumrevenue").val("$ " + numberWithCommas(total));
+        $("#p_sumrevenue").attr("disabled", true);
+ 
+        if (dif == 0) {
+            var opp = {};
+ 
+            opp.new_TotRevPlanning = {
+                Value: total
+            };
+            XrmServiceToolkit.Rest.Update(
+            OpportunityId, opp, "OpportunitySet", function () { },
+            function (error) {
+                alert("Error = " + error);
+            },
+            false);
+            //var sFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="new_invoiceplaningdetail"><attribute name="new_name"/><attribute name="createdon"/><attribute name="new_opportunity"/><attribute name="new_month"/><attribute name="modifiedon"/><attribute name="modifiedby"/><attribute name="transactioncurrencyid"/><attribute name="createdby"/><attribute name="new_amounttoinvoice"/><attribute name="new_invoiceplaningdetailid"/><order descending="false" attribute="new_name"/>-<filter type="and"><condition attribute="new_opportunity" value="' + entityId + '" uitype="opportunity" operator="eq"/></filter></entity></fetch>';
+            var sFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="new_revenueplanning"><attribute name="new_revenueplanningid"/><attribute name="new_rev_12"/><attribute name="new_rev_11"/><attribute name="new_rev_10"/><attribute name="new_rev_09"/><attribute name="new_rev_08"/><attribute name="new_rev_07"/><attribute name="new_rev_06"/><attribute name="new_rev_05"/><attribute name="new_rev_04"/><attribute name="new_rev_03"/><attribute name="new_rev_02"/><attribute name="new_rev_01"/><attribute name="new_oppid"/><order descending="false" attribute="new_oppid"/>-<filter type="and"><condition attribute="new_oppid" value="' + OpportunityId + '" uitype="opportunity"  operator="eq"/></filter></entity></fetch>';
+            var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+            for (var d = 0; d < detail.length; d++) {
+                var revenuePlanningId = detail[d].attributes.new_revenueplanningid.value; //detail[d]["new_invoiceplaningdetailId"];
+                XrmServiceToolkit.Rest.Delete(
+                revenuePlanningId, "new_revenueplanningSet", function () { },
+                function (error) {
+                    // alert("Error " + error);
+                    _error = true;
+                },
+                false);
+            }
+            if (!_error) {
+                userId = getUser();
+                //*******************************************************
+                varyear = startDate.getFullYear();
+                for (i = 1; i < interacciones + 1; i++) {
+                    if (i < limitvalue) {
+ 
+                        if (movmonth < actualmonth) {
+                            switch (movmonth) {
+                                case 1:
+                                    rev1 = 0.0;
+                                    break;
+                                case 2:
+                                    rev2 = 0.0;
+                                    break;
+                                case 3:
+                                    rev3 = 0.0;
+                                    break;
+                                case 4:
+                                    rev4 = 0.0;
+                                    break;
+                                case 5:
+                                    rev5 = 0.0;
+                                    break;
+                                case 6:
+                                    rev6 = 0.0;
+                                    break;
+                                case 7:
+                                    rev7 = 0.0;
+                                    break;
+                                case 8:
+                                    rev8 = 0.0;
+                                    break;
+                                case 9:
+                                    rev9 = 0.0;
+                                    break;
+                                case 10:
+                                    rev10 = 0.0;
+                                    break;
+                                case 11:
+                                    rev11 = 0.0;
+                                    break;
+                                case 12:
+                                    rev12 = 0.0;
+                                    break;
+                            }
+ 
+                        }
+                        else {
+                            v++;
+                            monto = $('#p_new' + v).val();
+                            if (monto != null) {
+                                monto = monto.replace(/\,/g, '');
+                                monto = parseFloat(monto.replace('$', ''));
+                            }
+                            switch (movmonth) {
+                                case 1:
+                                    rev1 = monto;
+                                    break;
+                                case 2:
+                                    rev2 = monto;
+                                    break;
+                                case 3:
+                                    rev3 = monto;
+                                    break;
+                                case 4:
+                                    rev4 = monto;
+                                    break;
+                                case 5:
+                                    rev5 = monto;
+                                    break;
+                                case 6:
+                                    rev6 = monto;
+                                    break;
+                                case 7:
+                                    rev7 = monto;
+                                    break;
+                                case 8:
+                                    rev8 = monto;
+                                    break;
+                                case 9:
+                                    rev9 = monto;
+                                    break;
+                                case 10:
+                                    rev10 = monto;
+                                    break;
+                                case 11:
+                                    rev11 = monto;
+                                    break;
+                                case 12:
+                                    rev12 = monto;
+                                    break;
+                            }
+                            summation = summation + monto;
+                            if (movmonth == 12) {
+                                var createRevenueplaningdetail = {};
+                                var rev01 = -1000;
+                                rev1 = parseFloat(rev1).toFixed(2);
+                                rev2 = parseFloat(rev2).toFixed(2);
+                                rev3 = parseFloat(rev3).toFixed(2);
+                               rev4 = parseFloat(rev4).toFixed(2);
+                                rev5 = parseFloat(rev5).toFixed(2);
+                                rev6 = parseFloat(rev6).toFixed(2);
+                                rev7 = parseFloat(rev7).toFixed(2);
+                                rev8 = parseFloat(rev8).toFixed(2);
+                                rev9 = parseFloat(rev9).toFixed(2);
+                                rev10 = parseFloat(rev10).toFixed(2);
+                                rev11 = parseFloat(rev11).toFixed(2);
+                                rev12 = parseFloat(rev12).toFixed(2);
+                                rev01 = parseFloat(rev01).toFixed(2);
+                                varyear = varyear.toString();
+                                summation = parseFloat(summation).toFixed(2);
+                                // alert("rev01 " + rev01 + "rev1 " + rev1 + " rev2 " + rev2 + " rev3 " + rev3 + " rev4 " + rev4 + " rev5 " + rev5 + " rev6 " + rev6 + " rev7 " + rev7 + " rev8 " + rev8 + " rev9 " + rev9 + " rev10 " + rev10 + " rev11 " + rev11 + " rev12 " + rev12 + " varyear " + varyear + " summation " + summation);
+                                createRevenueplaningdetail.new_Rev_01 = {
+                                    Value: rev1
+                                }; // Deliberate special characters to ensure that the toolkit can handle special characters correctly.
+                                createRevenueplaningdetail.new_Rev_02 = {
+                                    Value: rev2
+                                };
+                                createRevenueplaningdetail.new_Rev_03 = {
+                                    Value: rev3
+                                };
+                                createRevenueplaningdetail.new_Rev_04 = {
+                                    Value: rev4
+                                };
+                                createRevenueplaningdetail.new_Rev_05 = {
+                                    Value: rev5
+                                };
+                                createRevenueplaningdetail.new_Rev_06 = {
+                                    Value: rev6
+                                };
+                                createRevenueplaningdetail.new_Rev_07 = {
+                                    Value: rev7
+                                };
+                                createRevenueplaningdetail.new_Rev_08 = {
+                                    Value: rev8
+                                };
+                                createRevenueplaningdetail.new_Rev_09 = {
+                                    Value: rev9
+                                };
+                                createRevenueplaningdetail.new_Rev_10 = {
+                                    Value: rev10
+                                };
+                                createRevenueplaningdetail.new_Rev_11 = {
+                                    Value: rev11
+                                };
+                                createRevenueplaningdetail.new_Rev_12 = {
+                                    Value: rev12
+                                };
+                                // createRevenueplaningdetail.new_Rev_001 = { Value: rev01 };
+                                createRevenueplaningdetail.new_Year = varyear;
+                                createRevenueplaningdetail.new_duration = duration;
+                                createRevenueplaningdetail.new_Tot_Year = {
+                                    Value: summation
+                                };
+                                createRevenueplaningdetail.new_OppId = {
+                                    Id: OpportunityId,
+                                    LogicalName: "opportunity"
+                                };
+                                createRevenueplaningdetail.TransactionCurrencyId = {
+                                    Id: CurrencyId,
+                                    LogicalName: "transactioncurrency"
+                                };
+                                createRevenueplaningdetail.CreatedBy = {
+                                    Id: userId,
+                                    LogicalName: "systemuser"
+                                };
+                                createRevenueplaningdetail.ModifiedBy = {
+                                    Id: userId,
+                                    LogicalName: "systemuser"
+                                };
+ 
+                                XrmServiceToolkit.Rest.Create(
+                                createRevenueplaningdetail, "new_revenueplanningSet", function (result) { },
+                                function (error) {
+                                    alert("Error " + error);
+                               },
+                                false);
+ 
+                                updateOwner(item[0]["OpportunityId"], item[0]["OwnerId"].Id);
+ 
+                                movmonth = 0;
+                                actualmonth = 1;
+                                varyear++;
+                                summation = 0
+                            }
+                        }
+                    }
+ 
+                    else {
+                        switch (movmonth) {
+                            case 1:
+                                rev1 = 0.0;
+                                break;
+                            case 2:
+                                rev2 = 0.0;
+                                break;
+                            case 3:
+                                rev3 = 0.0;
+                                break;
+                            case 4:
+                                rev4 = 0.0;
+                                break;
+                            case 5:
+                                rev5 = 0.0;
+                                break;
+                            case 6:
+                                rev6 = 0.0;
+                                break;
+                            case 7:
+                                rev7 = 0.0;
+                                break;
+                            case 8:
+                                rev8 = 0.0;
+                                break;
+                            case 9:
+                                rev9 = 0.0;
+                                break;
+                            case 10:
+                                rev10 = 0.0;
+                                break;
+                            case 11:
+                                rev11 = 0.0;
+                                break;
+                            case 12:
+                                rev12 = 0.0;
+                                break;
+                        }
+ 
+                        if (movmonth == 12) {
+                            var createRevenueplaningdetail = {};
+                            rev1 = parseFloat(rev1).toFixed(2);
+                            rev2 = parseFloat(rev2).toFixed(2);
+                            rev3 = parseFloat(rev3).toFixed(2);
+                            rev4 = parseFloat(rev4).toFixed(2);
+                            rev5 = parseFloat(rev5).toFixed(2);
+                            rev6 = parseFloat(rev6).toFixed(2);
+                            rev7 = parseFloat(rev7).toFixed(2);
+                            rev8 = parseFloat(rev8).toFixed(2);
+                            rev9 = parseFloat(rev9).toFixed(2);
+                            rev10 = parseFloat(rev10).toFixed(2);
+                            rev11 = parseFloat(rev11).toFixed(2);
+                            rev12 = parseFloat(rev12).toFixed(2);
+                            varyear = varyear.toString();
+                            summation = parseFloat(summation).toFixed(2);
+                            //alert("rev1 " + rev1 + " rev2 " + rev2 + " rev3 " + rev3 + " rev4 " + rev4 + " rev5 " + rev5 + " rev6 " + rev6 + " rev7 " + rev7 + " rev8 " + rev8 + " rev9 " + rev9 + " rev10 " + rev10 + " rev11 " + rev11 + " rev12 " + rev12 + " varyear " + varyear + " summation " + summation);
+                            createRevenueplaningdetail.new_Rev_01 = {
+                                Value: rev1
+                            }; // Deliberate special characters to ensure that the toolkit can handle special characters correctly.
+                            createRevenueplaningdetail.new_Rev_02 = {
+                                Value: rev2
+                            };
+                            createRevenueplaningdetail.new_Rev_03 = {
+                                Value: rev3
+                            };
+                            createRevenueplaningdetail.new_Rev_04 = {
+                                Value: rev4
+                            };
+                            createRevenueplaningdetail.new_Rev_05 = {
+                                Value: rev5
+                            };
+                            createRevenueplaningdetail.new_Rev_06 = {
+                                Value: rev6
+                            };
+                            createRevenueplaningdetail.new_Rev_07 = {
+                                Value: rev7
+                            };
+                            createRevenueplaningdetail.new_Rev_08 = {
+                                Value: rev8
+                            };
+                            createRevenueplaningdetail.new_Rev_09 = {
+                                Value: rev9
+                            };
+                            createRevenueplaningdetail.new_Rev_10 = {
+                                Value: rev10
+                            };
+                            createRevenueplaningdetail.new_Rev_11 = {
+                                Value: rev11
+                            };
+                            createRevenueplaningdetail.new_Rev_12 = {
+                                Value: rev12
+                            };
+                            createRevenueplaningdetail.new_Rev_12 = {
+                                Value: rev12
+                            };
+                            createRevenueplaningdetail.new_Year = varyear;
+                            createRevenueplaningdetail.new_duration = duration;
+                            createRevenueplaningdetail.new_Tot_Year = {
+                                Value: summation
+                            };
+                            createRevenueplaningdetail.new_OppId = {
+                                Id: OpportunityId,
+                                LogicalName: "opportunity"
+                            };
+                            createRevenueplaningdetail.TransactionCurrencyId = {
+                                Id: CurrencyId,
+                                LogicalName: "transactioncurrency"
+                            };
+                            createRevenueplaningdetail.CreatedBy = {
+                                Id: userId,
+                                LogicalName: "systemuser"
+                            };
+                            createRevenueplaningdetail.ModifiedBy = {
+                                Id: userId,
+                                LogicalName: "systemuser"
+                            };
+ 
+                            XrmServiceToolkit.Rest.Create(
+                            createRevenueplaningdetail, "new_revenueplanningSet", function (result) { },
+                            function (error) {
+                                alert("Error " + error);
+                            },
+                            false);
+ 
+                            updateOwner(item[0]["OpportunityId"], item[0]["OwnerId"].Id);
+ 
+                        }
+                    }
+                    movmonth = movmonth + 1;
+                }
+                alert("The record was saved.");
+               window.close();
+                //**********************************************************
+            }
+            else {
+                alert("The record(s) cannot be created, please contact your System Administrator");
+            }
+ 
+        }
+        else alert("Please verify the entered values, the diference is $ " + dif);
+ 
+    });
+ 
+    //********************************* button Reset ***********************************
+    $("#BUTTON4").click(function () {
+        $(".txt").remove();
+        y = startDate.getFullYear();
+        m = startDate.getMonth();
+        n = 0;
+        counter = 0;
+        i = 1;
+        divrevenue = revenue / limit;
+        divrevenue = Math.round(divrevenue * 100) / 100;
+ 
+        for (counter; counter < limit; counter++) {
+            if (m > 11) {
+                m = 0;
+                y = y + 1;
+            }
+            n = month[m];
+ 
+            if (counter < 12) {
+                $('<td class ="txt"><a id="date"class ="txt" >' + n + '-' + y + '</a></td>').appendTo(addDiv1);
+                $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="7" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv2);
+            } else if (counter >= 12 && counter < 24) {
+                $('<td class ="txt"><a id="date"class ="txt" >' + n + '-' + y + '</a></td>').appendTo(addDiv3);
+                $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv4);
+            } else if (counter >= 24 && counter < 36) {
+                $('<td class ="txt"><a id="date"class ="txt" >' + n + '-' + y + '</a></td>').appendTo(addDiv5);
+                $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(limit)" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv6);
+            } else if (counter >= 36 && counter < 48) {
+                $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv7);
+                $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv8);
+            } else if (counter >= 48 && counter < 60) {
+                $('<td class ="txt"><a id="date" class ="txt" >' + n + '-' + y + '</a></td>').appendTo(addDiv9);
+                $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv10);
+            } else if (counter >= 60 && counter < 72) {
+                $('<td class ="txt"><a id="date" class ="txt">' + n + '-' + y + '</a></td>').appendTo(addDiv11);
+                $('<td class ="txt"><input type="textbox" id="p_new' + i + '" onfocus="focustxt(' + i + ')" onblur="floatVal(' + limit + ')" onkeyup="sumRevenue(' + limit + ')" size="8" class ="txt" name="p_new_' + i + '" value="' + "$ " + divrevenue + '" /></td>').appendTo(addDiv12);
+            }
+ 
+            m = m + 1;
+            i++;
+        }
+        sumRevenue(limit);
+        floatVal(limit);
+    });
+ 
+};
+ 
+function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+ 
+function sumRevenue(_limit) {
+    var total = 0.00;
+    var monto = 0.00;
+    var limit = _limit;
+    for (i = 1; i <= limit; i++) {
+        monto = $('#p_new' + i).val();
+        // alert("monto " + monto);
+        //  console.log("monto " + monto+" i "+i);
+        if (monto != undefined) {
+            monto = monto.replace(/\,/g, '');
+            monto = parseFloat(monto.replace('$', ''));
+        }
+        // console.log("monto despues 1 if " + monto);
+        if (monto == null || monto == "" || monto == undefined || isNaN(monto)) {
+            // alert("monto1 "+monto);
+            monto = 0.00;
+            monto = parseFloat(monto).toFixed(2);
+            // alert("monto2 "+monto);
+            // $('#p_new' + i).val("$ " + monto);
+        }
+        else {
+            monto = parseFloat(monto);
+        }
+ 
+        // console.log("monto para sumar "+monto);
+        total = parseFloat(total, 10) + parseFloat(monto, 10);
+    }
+    total = Math.round(total * 100) / 100;
+    total = parseFloat(total);
+    total = parseFloat(total).toFixed(2);
+    $("#p_sumrevenue").val("$ " + numberWithCommas(total));
+    $("#p_sumrevenue").attr("disabled", true);
+}
+ 
+function floatVal(_limit) {
+    var total = 0.00;
+    var monto = 0.00;
+    var limit = _limit;
+    //alert("monto " + monto);
+    for (i = 1; i <= limit; i++) {
+        monto = $('#p_new' + i).val();
+        if (monto != undefined) {
+            monto = monto.replace(/\,/g, '');
+            monto = parseFloat(monto.replace('$', ''));
+        }
+        if (monto == null || monto == "" || isNaN(monto)) {
+            monto = 0.00;
+            monto = parseFloat(monto).toFixed(2);
+        }
+        else {
+            // monto = monto.replace(/\,/g, '');
+            //  monto = parseFloat(monto.replace('$', ''));
+            monto = parseFloat(monto).toFixed(2);
+        }
+        // alert("monto before  " + monto);
+        monto = numberWithCommas(monto);
+        //alert("monto after "+monto);
+        $('#p_new' + i).val("$ " + monto);
+    }
+}
+ 
+// cambios realizados por omar soto
+// funcion que verifica si una ventana popup se ha cerrado para hacer un refresh
+window.onunload = refreshParent = function refreshParent() {
+    /*var nAgt = navigator.userAgent;
+    if (nAgt.indexOf('Safari') != -1) {
+        window.opener.location.reload(true);
+    }*/
+ 
+}
+ 
+function openDialogInvoice(opportunityId) {
+ 
+    //var dialog = "https://onesofttekdev.crm.dynamics.com//WebResources/new_InvoicePlanning";
+    var dialog2 = "/WebResources/new_InvoicePlanning";
+    var url = Xrm.Page.context.getClientUrl() + dialog2;
+    var nAgt = navigator.userAgent;
+ 
+    if (nAgt.indexOf('Safari') != -1 || nAgt.indexOf('Firefox') != -1) {
+        var windowsOpen = window.open(url, "", "dialogWidth: 1400px; dialogHeight: 450px; resizable: 1; status: 1; scroll: 1;");
+        windowsOpen.dialogArguments = opportunityId.toString();
+    }
+  
+    else {
+        pi = window.showModalDialog(url, opportunityId.toString(), "dialogWidth: 1400px; dialogHeight: 450px; resizable: 1; status: 1; scroll: 1;");
+        window.location.reload(true);
+    }
+  
+}
+function disableComponents(_limit) {
+    var limit = _limit + 1;
+    for (i = 1; i <= limit; i++) {
+        $("#p_new1").attr("disabled", true);
+        $('#p_new' + i).attr("disabled", "disabled");
+        //document.getElementById('#p_new1').disabled = true;
+    }
+    $('#BUTTON1').attr("disabled", true);
+    $('#BUTTON2').attr("disabled", true);
+    $('#BUTTON4').attr("disabled", true);
+ 
+}
+ 
+function canBeEditable(_entityId) {
+    var entity = _entityId;
+    // alert("EntityId " + entity);
+    var itemOPP = null;
+    var itemORD = null;
+    var itemQUO = null;
+    var _quoteId;
+    var _stateCode;
+    var _statusCode;
+    if (entity != null && entity != "") {
+        XrmServiceToolkit.Rest.RetrieveMultiple("SalesOrderSet", "$filter= SalesOrderId eq guid'" + entity + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+        function (results) {
+            itemORD = results;
+        },
+        // ReSharper disable once UnuentityIdsedParameter
+        function (error) {
+            alert("Error = " + error);
+        },
+        function onComplete() { },
+        false);
+        // alert("OrderTable " + itemORD);
+        if (itemORD != null && itemORD.length > 0) {
+            OpportunityId = itemORD[0]["OpportunityId"].Id;
+            return false;
+        }
+        else {
+            //var quoteId = "{9A011D0A-9B45-E411-B472-6C3BE5A8517C}";
+            XrmServiceToolkit.Rest.RetrieveMultiple("QuoteSet", "$filter= QuoteId eq guid'" + entity + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+            function (results) {
+                itemQUO = results;
+            },
+            // ReSharper disable once UnuentityIdsedParameter
+            function (error) {
+                alert("Error = " + error);
+            },
+            function onComplete() { },
+            false);
+        }
+	    
+        if (itemQUO != null && itemQUO.length > 0) {
+            OpportunityId = itemQUO[0]["OpportunityId"].Id;
+            _stateCode = itemQUO[0]["StateCode"].Value;
+            _statusCode = itemQUO[0]["StatusCode"].Value;
+            if ((_stateCode == 0 && _statusCode == 1) || (_stateCode == 0 && _statusCode == 100000001) || (_stateCode == 1 && _statusCode == 2) || (_stateCode == 0 && _statusCode == 100000000))
+                return true;
+            else return false;
+        }
+	    
+        else {
+            XrmServiceToolkit.Rest.RetrieveMultiple("OpportunitySet", "$filter= OpportunityId eq guid'" + entity + "'", function (results) {
+                itemOPP = results;
+            },
+            // ReSharper disable once UnuentityIdsedParameter
+            function (error) { alert("Error = " + error); },
+            function onComplete() { },
+            false);
+ 
+            //alert("OpportunityTable " + itemOPP);
+            if (itemOPP != null && itemOPP.length > 0) {
+ 
+                OpportunityId = entity;
+                if (itemOPP[0]["StateCode"].Value == 0) {
+                    XrmServiceToolkit.Rest.RetrieveMultiple("QuoteSet", "$filter= OpportunityId/Id eq guid'" + OpportunityId + "'",
+ 
+                    function (results) {
+                        itemQUO = results;
+                    },
+                    // ReSharper disable once UnusedParameter
+                    function (error) {
+                        alert("Error = " + error);
+                    },
+                    function onComplete() { },
+                    false);
+ 
+                    /*_quoteId = itemOPP[0]["new_QuoteVentanillaUnica"].Id;
+                    alert("Quote " + _quoteId);
+                    if (_quoteId != null) {
+ 
+                        XrmServiceToolkit.Rest.RetrieveMultiple(
+                       "QuoteSet",
+                          "$filter= QuoteId eq guid'" + _quoteId + "'", function (results) { itemQUO = results; },
+                          // ReSharper disable once UnuentityIdsedParameter
+                          function (error) { alert("Error = " + error); }, function onComplete() { }, false);*/
+                    if (itemQUO != null && itemQUO.length > 0) {
+ 
+                        // OpportunityId = itemQUO[0]["OpportunityId"].Id;
+                        _stateCode = itemQUO[0]["StateCode"].Value;
+                        _statusCode = itemQUO[0]["StatusCode"].Value;
+                        // alert("State " + _stateCode + " Status " + _statusCode);
+                        if ((_stateCode == 0 && _statusCode == 1) || (_stateCode == 0 && _statusCode == 100000001) || (_stateCode == 1 && _statusCode == 2) || (_stateCode == 0 && _statusCode == 100000000) ) {
+                            return true;
+                        }
+                        else return false;
+                        //}
+                    }
+ 
+                    else return true;
+                }
+                else return false;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+    else {
+        alert("There is no Revenue Planning.");
+        window.close();
+    }
+ 
+}
+function focustxt(i) {
+    var _i = i;
+    var noSign = $('#p_new' + _i).val()
+ 
+    noSign = noSign.replace('$', '');
+    noSign = noSign.replace(' ', '');
+    $('#p_new' + _i).val(noSign);
+    $('#p_new' + _i).select();
+}

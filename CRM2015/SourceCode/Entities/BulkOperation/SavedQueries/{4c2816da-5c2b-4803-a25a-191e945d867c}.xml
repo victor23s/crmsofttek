@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4406</returnedtypecode>
+  <savedqueryid>{4c2816da-5c2b-4803-a25a-191e945d867c}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="bulkoperations" object="4406" jump="bulkoperationnumber" select="1" icon="1" preview="0">
+      <row name="bulkoperation" id="activityid">
+        <cell name="bulkoperationnumber" width="150" />
+        <cell name="operationtypecode" width="100" />
+        <cell name="regardingobjectid" width="200" />
+        <cell name="statuscode" width="100" />
+        <cell name="successcount" width="100" />
+        <cell name="failurecount" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="bulkoperation">
+        <attribute name="bulkoperationnumber" />
+        <attribute name="operationtypecode" />
+        <attribute name="regardingobjectid" />
+        <attribute name="statuscode" />
+        <attribute name="successcount" />
+        <attribute name="failurecount" />
+        <order attribute="bulkoperationnumber" descending="true" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="BulkOperations Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de operaciones masivas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

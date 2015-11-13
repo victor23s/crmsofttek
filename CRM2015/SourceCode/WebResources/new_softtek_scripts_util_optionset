@@ -1,0 +1,83 @@
+/// <reference path="../jquery-1.9.1.js" />
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../STK.Namespaces.js" />
+/// <reference path="STK.Util.Array.js" />
+/// <reference path="STK.Util.Strings.js" />
+STK.Util.OptionSet = {
+    __lookupsMatrix: function () {
+        return [{
+            parent: "",
+            child: "",
+            combinations: [{
+                filters: [],
+                values: []
+            }]
+        },
+        {
+            parent: "",
+            child: "",
+            combinations: [{
+                filters: [],
+                values: []
+            }]
+        },
+        {
+            parent: "",
+            child: "",
+            combinations: [{
+                filters: [],
+                values: []
+            }]
+        }];
+    },
+    __deprecatedMatrix: function () {
+        return [{
+            optionSet: "new_casetype",
+            values: ["100000016", "100000017"]
+        }];
+    },
+    filter: function (parentOptionSet, childOptionSet, parentControl, childControl, defaultValue) {
+        var $query = this.__lookupsMatrix.where(function (i) {
+            return i.parent == parentOptionSet && i.child == childOptionSet;
+        });
+
+        if ($query.length > 0) {
+            var $relationShip = $query.first();
+            var $filter = Xrm.Page.getControl(parentControl).getValue();
+            var $optionSet = Xrm.Page.getAttribute(childControl).getOptions();
+            var $targetControl = Xrm.Page.getControl(childControl);
+            var $combination = $relationShip.combinations.where(function (i) {
+                return i.filters.containts($filter);
+            });
+
+            if ($allowedValues.length > 0) {
+                var $allowedValues = $combination.first().values;
+                $targetControl.clearOptions();
+                $optionSet.forEach(function (i) {
+                    if ($allowedValues.containts(i.value)) $targetControl.addOption(i);
+                });
+            }
+
+        }
+    },
+    removeDeprecated: function (optionSetName, controlName) {
+        var $query = this.__deprecatedMatrix().where(function (i) {
+            return i.optionSet == optionSetName;
+        });
+
+        if ($query.length > 0) {
+            var $deprecatedValues = $query.first().values;
+            var $targetControl = Xrm.Page.getControl(controlName);
+            var $currentOptionSet = Xrm.Page.getAttribute(controlName).getOptions();
+
+            $currentOptionSet.forEach(function (i) {
+                if ($deprecatedValues.containts(i.value)) {
+                    $targetControl.removeOption(i.value);
+                }
+            });
+
+        }
+
+    },
+    __namespace: true
+};

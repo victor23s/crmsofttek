@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>112</returnedtypecode>
+  <savedqueryid>{907494e5-d15b-e111-b330-1cc1de780841}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="112" jump="title" select="1" icon="1" preview="1">
+      <row name="result" id="incidentid">
+        <cell name="ticketnumber" width="150" />
+        <cell name="title" width="200" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_serviceofferingcase" width="100" />
+        <cell name="new_casetypecase" width="100" />
+        <cell name="new_assignedqueue" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_duedatecase" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="customerid" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="new_leadcase" width="100" />
+        <cell name="new_opportunitycase" width="100" />
+        <cell name="new_quotecase" width="100" />
+        <cell name="new_ordercase" width="100" />
+        <cell name="new_softtekcountrycase" width="100" />
+        <cell name="new_softtekverticalcase" width="100" />
+        <cell name="new_technologygroupcase" width="100" />
+        <cell name="createdon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="incident">
+        <attribute name="prioritycode" />
+        <attribute name="ticketnumber" />
+        <attribute name="title" />
+        <attribute name="createdon" />
+        <attribute name="new_technologygroupcase" />
+        <attribute name="statuscode" />
+        <attribute name="statecode" />
+        <attribute name="new_softtekverticalcase" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountrycase" />
+        <attribute name="new_serviceofferingcase" />
+        <attribute name="new_quotecase" />
+        <attribute name="ownerid" />
+        <attribute name="new_ordercase" />
+        <attribute name="new_opportunitycase" />
+        <attribute name="new_leadcase" />
+        <attribute name="new_duedatecase" />
+        <attribute name="customerid" />
+        <attribute name="new_casetypecase" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedqueue" />
+        <order attribute="title" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <link-entity name="queue" from="queueid" to="new_assignedqueue" alias="aa">
+          <filter type="and">
+            <condition attribute="ownerid" operator="eq-userid" />
+          </filter>
+        </link-entity>
+        <attribute name="incidentid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Active Cases - Assigned Queue" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

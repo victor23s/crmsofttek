@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10006</returnedtypecode>
+  <savedqueryid>{e8abfa05-132d-43fc-910d-f9980d87b244}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10006" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_opportunityverticalid">
+        <cell name="new_name" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <columnsetxml>
+    <columnset>
+      <column>new_name</column>
+      <column>createdon</column>
+      <ascend>new_name</ascend>
+    </columnset>
+  </columnsetxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_opportunityvertical">
+        <attribute name="new_opportunityverticalid" />
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <order attribute="new_name" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="new_name" operator="like" value="{0}" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find Active Vertical" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

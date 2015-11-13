@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard unmodified="1">
+  <LocalizedNames>
+    <LocalizedName description="Marketing Social Dashboard" languagecode="1033" />
+    <LocalizedName description="Panel social de marketing" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the day-to-day work related data in marketing. It consolidates the important data to make the day productive for marketing managers." languagecode="1033" />
+    <Description description="Muestra los datos relacionados con el trabajo cotidiano en marketing. Consolida los datos importantes para hacer productivo el para los directores de marketing." languagecode="3082" />
+  </Descriptions>
+  <FormId>{b46aeb74-bf0c-44fb-8158-9575588d1b57}</FormId>
+</Dashboard>

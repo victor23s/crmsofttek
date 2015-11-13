@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{18a1cfa3-bec2-e411-bb8d-6c3be5a82fe8}</WebResourceId>
+  <Name>new_jqueryBlockUI</Name>
+  <DisplayName>Jquery Block UI</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_jqueryBlockUI18A1CFA3-BEC2-E411-BB8D-6C3BE5A82FE8</FileName>
+</WebResource>

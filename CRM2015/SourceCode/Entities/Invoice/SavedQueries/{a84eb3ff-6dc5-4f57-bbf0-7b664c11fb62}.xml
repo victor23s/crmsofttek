@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1090</returnedtypecode>
+  <savedqueryid>{a84eb3ff-6dc5-4f57-bbf0-7b664c11fb62}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="invoices" object="1090" jump="name" select="1" icon="1" preview="1">
+      <row name="invoice" id="invoiceid">
+        <cell name="name" width="300" />
+        <cell name="statecode" width="100" />
+        <cell name="totalamount" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="invoice">
+        <attribute name="name" />
+        <attribute name="statecode" />
+        <attribute name="totalamount" />
+        <attribute name="invoiceid" />
+        <order attribute="name" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Invoice Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de facturas" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about invoices in the detail form of any associated account, opportunity, contact, or product record. This view is in the Sales side tab." languagecode="1033" />
+    <Description description="Muestra información de facturas en el formulario detallado de un registro de cuenta, oportunidad, contacto o producto asociado. Esta vista está en la ficha lateral Ventas." languagecode="3082" />
+  </Descriptions>
+</savedquery>

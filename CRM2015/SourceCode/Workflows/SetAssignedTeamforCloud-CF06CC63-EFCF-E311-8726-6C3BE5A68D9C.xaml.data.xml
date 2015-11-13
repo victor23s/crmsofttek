@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{cf06cc63-efcf-e311-8726-6c3be5a68d9c}" Name="Set Assigned Team for Cloud" Description="Set MEX A&amp;V in Assigned Team when STK Market = Cloud">
+  <XamlFileName>/Workflows/SetAssignedTeamforCloud-CF06CC63-EFCF-E311-8726-6C3BE5A68D9C.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>Quote</PrimaryEntity>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{4036d04a-dbc1-e411-8aeb-6c3be5a84d70}">
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{4136d04a-dbc1-e411-8aeb-6c3be5a84d70}">
+      <controltype>1</controltype>
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekmarketquote</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

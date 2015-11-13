@@ -1,0 +1,90 @@
+ reference path=..XrmPageTemplate.js 
+ reference path=new_softtek_scripts_util_dynamicform.js 
+function loadLogic() {
+
+    var $dynamicFormWRUrl = ..WebResourcesnew_softtek_scripts_util_dynamicform;
+    var $xmlHttp = new ActiveXObject(Microsoft.XMLHTTP); codigo original
+     Cambios Omar Soto
+	LoadScript();
+        __initialize();
+        onLoad();
+    
+}
+function LoadScript() {
+    var src = 'httpsonesofttekdev.crm.dynamics.comWebResourcesnew_softtek_scripts_util_dynamicform';
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'textjavascript';
+    script.src = src;
+    head.appendChild(script);
+}
+STK.Forms.User = {
+function __initialize() {
+
+    
+                
+            
+    Xrm.Page.Validations.AddTo(new_userrole).When(new_department).EqualsTo(null).Do().Disabled();
+    Xrm.Page.Validations.AddTo(new_userrole).When(new_department).DifferentTo(null).Do().Enabled();
+
+     Cascade Department = Sales, 
+                          Rol = BRM, BDM, BRM with BRML Tasks, BDML, BRML, Sales Admin  Sales Mgmt Office 
+Sales Assistant
+CRM Help Desk
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000000).Do().PutOptions([100000000, 100000001, 100000002, 100000003, 100000004, 100000005, 100000006, 100000007]);
+     Cascade Department = Admin & Finance
+                                    Rol = Admin & Finance Team Member, Admin & Finance Leader, Admin & Finance Director  
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000001).Do().PutOptions([100000008, 100000009, 100000010]);
+
+     Cascade Department = Operations 
+                                    Rol = ADM, PxMgr, PMO, VPO 
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000002).Do().PutOptions([100000011, 100000012, 100000013, 100000014]);
+
+     Cascade Department = Sales Support
+                                 Rol = Sales Support Team Member,  Sales Support Leader 
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000003).Do().PutOptions([100000015, 100000016]);
+
+     Cascade Department = Legal
+                                 Rol = Legal Team Member,  Legal Leader 
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000004).Do().PutOptions([100000017, 100000018]);
+
+     Cascade Department = Marketing
+                                 Financial Services & Insurance,  Global Account 
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000005).Do().PutOptions([100000019, 100000020, 100000021, 100000022]);
+
+     Cascade Department = Corporate
+                                 Rol = Market CEO,  Global CSO 
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000006).Do().PutOptions([100000023, 100000024]);
+
+     Cascade Department = PIC
+                                 Rol = Auditor,  Business Analyst  Black Belt 
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000007).Do().PutOptions([100000025, 100000027]);
+
+     Cascade Department = Any
+                                 Rol = Guest 
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000009).Do().PutOptions([100000026]);
+
+     Cascade Department = Corp Support
+                                 Rol = FSys Admin 
+    Xrm.Page.Cascades.AddTo(new_userrole).When(new_department).EqualsTo(100000008).Do().PutOptions([100000028]);
+
+}
+
+function onChangeUserRole() {
+    Xrm.Page.getAttribute(new_userrole).setValue(null);
+    Xrm.Page.Validations.Validate(new_userrole);
+    Xrm.Page.Cascades.Filter(new_userrole);
+}
+
+function onLoad() {
+    __initialize();
+    var selectedDepartment = Xrm.Page.getAttribute(new_userrole).getSelectedOption();
+    Xrm.Page.Validations.Validate(new_userrole);
+    Xrm.Page.Cascades.Filter(new_userrole);
+    if (selectedDepartment != null) Xrm.Page.getAttribute(new_userrole).setValue(selectedDepartment.value);
+}
+
+}
+
+   STK.Forms.User.onLoad();
+}

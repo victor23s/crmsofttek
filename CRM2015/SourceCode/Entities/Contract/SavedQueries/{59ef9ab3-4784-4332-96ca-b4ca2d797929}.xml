@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1010</returnedtypecode>
+  <savedqueryid>{59ef9ab3-4784-4332-96ca-b4ca2d797929}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="contracts" object="1010" jump="title" select="1" icon="1" preview="1">
+      <row name="contract" id="contractid">
+        <cell name="title" width="300" />
+        <cell name="statecode" width="140" />
+        <cell name="activeon" width="100" />
+        <cell name="expireson" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="contract">
+        <attribute name="title" />
+        <attribute name="statecode" />
+        <attribute name="activeon" />
+        <attribute name="expireson" />
+        <attribute name="contractid" />
+        <order attribute="title" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Contract Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de contratos" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about contracts in the detail form of any associated account or contact record." languagecode="1033" />
+    <Description description="Muestra información de contratos en el formulario detallado de un registro de contacto o cuenta asociado." languagecode="3082" />
+  </Descriptions>
+</savedquery>

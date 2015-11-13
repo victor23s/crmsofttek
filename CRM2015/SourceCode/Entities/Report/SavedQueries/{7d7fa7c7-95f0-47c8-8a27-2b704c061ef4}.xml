@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>9100</returnedtypecode>
+  <savedqueryid>{7d7fa7c7-95f0-47c8-8a27-2b704c061ef4}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="9100" jump="name" select="0" preview="1" icon="1">
+      <row name="result" id="reportid" layoutstyle="ReportList">
+        <cell name="name" width="300" />
+        <cell name="reporttypecode" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="languagecode" width="100" />
+        <cell name="description" width="200" />
+        <cell name="filename" width="200" ishidden="1" />
+        <cell name="bodyurl" width="200" ishidden="1" />
+        <cell name="iscustomreport" width="200" ishidden="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="report">
+        <attribute name="name" />
+        <attribute name="reporttypecode" />
+        <attribute name="filename" />
+        <attribute name="bodyurl" />
+        <attribute name="modifiedon" />
+        <attribute name="languagecode" />
+        <attribute name="description" />
+        <attribute name="reportid" />
+        <attribute name="iscustomreport" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="ownerid" operator="eq-userid" />
+        </filter>
+        <link-entity name="reportvisibility" from="reportid" to="reportid" alias="a_fac21cf4bd6545f3aa2df07e64be8f1d">
+          <filter type="and">
+            <condition attribute="visibilitycode" operator="eq" value="1" />
+          </filter>
+        </link-entity>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Reports" languagecode="1033" />
+    <LocalizedName description="Mis informes" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

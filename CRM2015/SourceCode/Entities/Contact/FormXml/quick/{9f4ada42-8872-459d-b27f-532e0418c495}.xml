@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{9f4ada42-8872-459d-b27f-532e0418c495}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab id="{912be777-a5b4-4c10-979f-28c1bd1401ed}" name="tab_1" showlabel="false">
+        <labels>
+          <label description="Tab" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section id="{7138c88e-d97b-49f0-9130-e5bb0312fd7c}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                <labels>
+                  <label description="section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{99c5311a-6abe-5071-1732-5a083d9e1650}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Company Name" languagecode="1033" />
+                        <label description="Nombre de la compañía" languagecode="3082" />
+                      </labels>
+                      <control id="parentcustomerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentcustomerid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7290c66b-528a-1908-6288-15818c76d1a1}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Market (Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekmarketcontact1" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekmarketcontact1" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{0a217a59-200c-659b-071d-0ad6571020ea}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Country (Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekcountry" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekcountry" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{e88b82ab-5d42-a9bd-4ac0-763b2677e707}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Market Scope (Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="new_marketscopecontact" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_marketscopecontact" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5223b20c-c3a8-5197-e6d6-4707336e2629}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Vertical" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekvertical" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekvertical" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{3360eb23-56cb-8251-70e7-a17e27e014be}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b7e1c8b2-c099-b8b4-78ab-2433533d4942}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Survey Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_surveytype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_surveytype" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5832d0b8-31c6-5885-a525-32590c1c7da1}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="NPS Score" languagecode="1033" />
+                      </labels>
+                      <control id="new_npsscore" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="new_npsscore" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <DisplayConditions Order="1">
+      <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+      <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="New Form" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

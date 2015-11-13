@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{dae17357-3db2-e411-9639-6c3be5a84d70}" Name="Set Assigned Team For MEX" Description="Click to add description">
+  <XamlFileName>/Workflows/SetAssignedTeamForMEX-DAE17357-3DB2-E411-9639-6C3BE5A84D70.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>SalesOrder</PrimaryEntity>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{3e2b98e4-a446-e511-80df-c4346bac4b64}">
+      <controltype>1</controltype>
+      <formid>{22a3f7f7-2709-4bb4-bbca-754475938d68}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekmarketorders</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>SalesOrder</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{3f2b98e4-a446-e511-80df-c4346bac4b64}">
+      <formid>{22a3f7f7-2709-4bb4-bbca-754475938d68}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>SalesOrder</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

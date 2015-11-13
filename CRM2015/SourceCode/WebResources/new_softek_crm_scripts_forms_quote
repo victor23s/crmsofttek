@@ -1,0 +1,34 @@
+/// <reference path="../../XrmPageTemplate.js" />
+/// <reference path="../../Utility/DynamicForm.js" />
+/// <reference path="../../Utility/CRMUtils.js" />
+if (typeof(STK.Forms.Quote) == "undefined") {
+    STK.Forms.Quote = {
+        __namespace: true
+    };
+}
+STK.Forms.Quote = {
+    onSave: function () {
+        var originatingLead = Xrm.Page.getAttribute("new_originlead");
+        var sourceCampaign = Xrm.Page.getAttribute("campaignid");
+        var isSystech = Xrm.Page.getAttribute("new_systech");
+        var opportunity = Xrm.Page.getAttribute("opportunityid");
+        var oppFields = new Array();
+        var performUpdate = false;
+
+        if (originatingLead.getIsDirty()) {
+            oppFields.push(new CRMField("originatingleadid", originatingLead.getValue() != null ? originatingLead.getValue()[0].id : ""));
+            performUpdate = true;
+        }
+        if (sourceCampaign.getIsDirty()) {
+            oppFields.push(new CRMField("campaignid", sourceCampaign.getValue() != null ? sourceCampaign.getValue()[0].id : ""));
+            performUpdate = true;
+        }
+        if (isSystech.getIsDirty()) {
+            oppFields.push(new CRMField("new_systechopportunity", isSystech.getValue()));
+            performUpdate = true;
+        }
+
+        //if (performUpdate)
+        // UpdateRecord("opportunity", opportunity.getValue()[0].id, oppFields);
+    }
+};

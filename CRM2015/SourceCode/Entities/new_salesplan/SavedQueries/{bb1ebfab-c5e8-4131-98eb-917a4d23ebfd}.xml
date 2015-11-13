@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10039</returnedtypecode>
+  <savedqueryid>{bb1ebfab-c5e8-4131-98eb-917a4d23ebfd}</savedqueryid>
+  <layoutxml>
+    <grid name="" object="10039" jump="new_name" select="1" icon="1" preview="1">
+      <row name="new_salesplan" id="new_salesplanid">
+        <cell name="new_name" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_salesplan">
+        <attribute name="new_salesplanid" />
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <order attribute="new_name" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Sales Plan Associated View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

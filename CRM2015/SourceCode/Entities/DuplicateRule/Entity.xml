@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Duplicate Detection Rule" OriginalName="">DuplicateRule</Name>
+  <ObjectTypeCode>4414</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

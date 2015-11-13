@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Routing Rule Set" OriginalName="">RoutingRule</Name>
+  <ObjectTypeCode>8181</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

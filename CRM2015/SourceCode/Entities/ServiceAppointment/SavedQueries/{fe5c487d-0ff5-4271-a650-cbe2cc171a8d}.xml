@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4214</returnedtypecode>
+  <savedqueryid>{fe5c487d-0ff5-4271-a650-cbe2cc171a8d}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4214" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="customers" width="150" disableSorting="1" />
+        <cell name="resources" width="150" disableSorting="1" />
+        <cell name="serviceid" width="100" />
+        <cell name="siteid" width="100" />
+        <cell name="scheduledstart" width="100" />
+        <cell name="scheduledend" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="serviceappointment">
+        <attribute name="subject" />
+        <order attribute="scheduledstart" descending="false" />
+        <attribute name="customers" />
+        <attribute name="resources" />
+        <attribute name="serviceid" />
+        <attribute name="siteid" />
+        <attribute name="scheduledstart" />
+        <attribute name="scheduledend" />
+        <attribute name="activityid" />
+        <filter type="and">
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="subject" operator="like" value="{0}" />
+            <condition attribute="serviceid" operator="like" value="{0}" />
+            <condition attribute="siteid" operator="like" value="{0}" />
+          </filter>
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All Service Activities" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de todas las actividades de servicio" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

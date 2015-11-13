@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{87c1f582-4dfd-e211-8b7d-78e3b5115627}</WebResourceId>
+  <Name>new_softtek_crm_scripts_forms_quote</Name>
+  <DisplayName>Softtek [Scripts] Quote</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_softtek_crm_scripts_forms_quote87C1F582-4DFD-E211-8B7D-78E3B5115627</FileName>
+</WebResource>

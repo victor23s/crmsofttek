@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KBArticleTemplates>
+  <kbarticletemplate id="{8d8e6b7f-1924-45e0-8120-bad79c95df5f}" name="Procedure" description="Use this template to create a procedure that defines the steps for resolving a specific problem." unmodified="1" />
+  <kbarticletemplate id="{49331898-0752-4670-ba0a-3ce95c6c88cd}" name="Question &amp; Answer" description="Use this template to create a question and answer pair for a specific problem or situation." unmodified="1" />
+  <kbarticletemplate id="{51a42583-f90f-416a-8abc-a10ac83fa6fa}" name="Solution to a Problem" description="Use this template to provide a solution to a specific problem." unmodified="1" />
+  <kbarticletemplate id="{c3f93721-91b6-475a-acd0-0a68aa1cb842}" name="Standard KB Article" description="Use this template to provide general information about a subject." unmodified="1" />
+</KBArticleTemplates>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>2020</returnedtypecode>
+  <savedqueryid>{3a8191c3-d94e-4fd4-af8b-5bf29568a563}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="2020" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="queueid">
+        <cell name="name" width="300" />
+        <cell name="emailaddress" width="200" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="queue">
+        <attribute name="name" />
+        <attribute name="emailaddress" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="ownerid" operator="eq-userid" />
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="ownerid" />
+        <attribute name="queueid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Active Queues" languagecode="1033" />
+    <LocalizedName description="Mis colas activas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

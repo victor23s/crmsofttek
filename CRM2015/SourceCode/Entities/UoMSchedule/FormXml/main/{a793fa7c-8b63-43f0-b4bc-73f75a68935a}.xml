@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{a793fa7c-8b63-43f0-b4bc-73f75a68935a}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{e5420355-eb73-427a-a5bc-6d4c45b0f88e}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="uom schedule information" showlabel="false" showbar="false" id="{545e98c3-c05b-4794-8239-08a2f43f9164}" IsUserDefined="0" height="auto">
+                <labels>
+                  <label description="UOM Schedule Information" languagecode="1033" />
+                  <label description="Información de la programación de unidad de medida" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell colspan="2" id="{7a401926-968c-418e-9383-a7c00e92fd93}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                        <label description="Nombre" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell colspan="2" showlabel="false" rowspan="5" auto="true" id="{f02eaa01-0dd3-44a5-bc80-45ac958e7fc4}">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" />
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row height="auto" />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+    <Description description="Formulario para esta entidad." languagecode="3082" />
+  </Descriptions>
+</systemform>

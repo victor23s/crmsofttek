@@ -1,0 +1,13 @@
+function form_onload() {
+    neworexisting();
+}
+function neworexisting() {
+    if (Xrm.Page.data.entity.attributes.get("new_neworexistingaccountcampaignresponse").getValue() == false) {
+        Xrm.Page.getControl('companyname').getParent().setVisible(true);
+        Xrm.Page.getControl('new_existingaccount').getParent().setVisible(false);
+    }
+    else {
+        Xrm.Page.getControl('companyname').getParent().setVisible(false);
+        Xrm.Page.getControl('new_existingaccount').getParent().setVisible(true);
+    }
+}

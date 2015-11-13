@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{f66dc8d8-bec2-e411-bb8d-6c3be5a82fe8}</WebResourceId>
+  <Name>new_jqueryUI_min</Name>
+  <DisplayName>JQuery UI (min)</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_jqueryUI_minF66DC8D8-BEC2-E411-BB8D-6C3BE5A82FE8</FileName>
+</WebResource>

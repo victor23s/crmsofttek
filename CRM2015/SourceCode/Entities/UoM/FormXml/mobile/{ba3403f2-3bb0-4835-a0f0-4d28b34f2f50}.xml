@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{ba3403f2-3bb0-4835-a0f0-4d28b34f2f50}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{4098ab0b-8402-4a26-87c0-2c80e8060294}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{3eb47335-d3dd-454c-8951-74d6ae989e49}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{f298e22b-e8cb-4365-a73f-12aadfc992df}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                        <label description="Nombre" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
+                    </cell>
+                    <cell id="{11e103db-cb9e-4a08-b851-ffed8ffa30c4}">
+                      <labels>
+                        <label description="Quantity" languagecode="1033" />
+                        <label description="Cantidad" languagecode="3082" />
+                      </labels>
+                      <control id="quantity" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="quantity" />
+                    </cell>
+                    <cell id="{956c76e5-8347-49eb-b77b-33b6cf5ae30f}">
+                      <labels>
+                        <label description="Base Unit" languagecode="1033" />
+                        <label description="Unidad base" languagecode="3082" />
+                      </labels>
+                      <control id="baseuom" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="baseuom" />
+                    </cell>
+                    <cell id="{207139ab-891f-4dad-a061-9eda333b0e5b}">
+                      <labels>
+                        <label description="Unit Schedule" languagecode="1033" />
+                        <label description="Programación de unidad" languagecode="3082" />
+                      </labels>
+                      <control id="uomscheduleid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="uomscheduleid" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

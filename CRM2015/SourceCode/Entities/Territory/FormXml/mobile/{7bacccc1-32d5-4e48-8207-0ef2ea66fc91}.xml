@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{7bacccc1-32d5-4e48-8207-0ef2ea66fc91}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{20f13987-c8d2-4d35-bb02-caa66e5c6506}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{1937123f-8593-4c20-a320-a0dc91192007}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{ad455560-d65c-4507-9f93-f6de6dacc21a}">
+                      <labels>
+                        <label description="Organization" languagecode="1033" />
+                        <label description="Organización" languagecode="3082" />
+                      </labels>
+                      <control id="organizationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="organizationid" disabled="false" />
+                    </cell>
+                    <cell id="{dc339b56-7a32-4b53-8ac1-ef5c8438fbdf}">
+                      <labels>
+                        <label description="Territory Name" languagecode="1033" />
+                        <label description="Nombre de zona de ventas" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

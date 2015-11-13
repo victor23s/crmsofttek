@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4406</returnedtypecode>
+  <savedqueryid>{83dc2389-0a4c-4249-a5d3-ba1ab401ff1c}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="bulkoperations" object="4406" jump="bulkoperationnumber" select="1" icon="1" preview="0" iconrenderer="Crm.MiniCampaignsIcon">
+      <row name="bulkoperation" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="createdrecordtypecode" width="150" />
+        <cell name="successcount" width="100" />
+        <cell name="failurecount" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="bulkoperation">
+        <attribute name="subject" />
+        <attribute name="createdrecordtypecode" />
+        <attribute name="successcount" />
+        <attribute name="failurecount" />
+        <attribute name="statuscode" />
+        <attribute name="createdon" />
+        <attribute name="ownerid" />
+        <order attribute="createdon" descending="true" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Campaigns Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de campa?as exprés" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

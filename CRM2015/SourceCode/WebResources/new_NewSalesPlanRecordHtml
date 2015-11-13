@@ -1,0 +1,76 @@
+<html><head><title>Create Sales Plan Record</title>
+<meta http-equiv="Content-Type" content="text/html; CHARSET=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8"><link href="new_closeAsLostCSS" rel="stylesheet" type="text/css">
+<script src="new_jquery" type="text/javascript"></script>
+<script src="new_json2" type="text/javascript"></script>
+<script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+<link href="/_common/styles/global.css.aspx" rel="stylesheet" type="text/css">
+<script src="new_jqueryBlockUI" type="text/javascript"></script>
+<script src="new_jqueryUI_min" type="text/javascript"></script>
+<script src="new_SalesPlanJS" type="text/javascript"></script>
+<script src="new_XrmServiceToolkit" type="text/javascript"></script>
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> -->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link href="/resources/demos/style.css" rel="stylesheet">
+<script src="new_autonumeric" type="text/javascript"></script>
+<script id="/_static/_forms/datetime.js?ver=266908479" src="/_static/_forms/datetime.js?ver=266908479" type="text/javascript"></script>
+<link href="https://softtek.crm.dynamics.com//WebResources/new_jquery_ui_custom" rel="stylesheet" type="text/css">
+<style type="text/css">
+        .ui-datepicker {
+            font-size: 7pt !important;
+        }
+    </style>
+
+<script>
+        window.onload = function () {
+           XrmSolutions.NewSalesPlan.OnLoad();
+        };
+
+        var x = jQuery(this).find("img");
+		
+		function onchange_selectMarket(value) {
+			XrmSolutions.FillDateSalesPlanDropDown.OnChange();
+		};
+    </script>
+
+<meta><meta><meta></head>
+<body style="-ms-word-wrap: break-word;" hola-ext-player="1">
+  <h2>Create Sales Plan Record</h2>
+  <div style="padding: 0px; width: 200px;">
+  <table>
+  <tbody>
+  <tr><!--<td id="td1" style="margin-bottom: 15px;">
+    <div class="ms-crm-RefreshDialog-Header-Title formTitle">Details</div>
+    <div class="ms-crm-Dialog-Header-Desc" style="width: 370px; color: rgb(115, 115, 115); margin-bottom: 15px;"></div>
+  </td>--></tr>
+  <tr>
+  <td>
+    <table>
+      <tbody>
+        <tr>
+          <td class="txt" style="width: 150px;"></td>
+		</tr>
+        <tr id="Tr1">
+          <td style="width: 150px;"><label>Softtek Market </label><label class="required">*</label></td>
+          <td style="width: 250px;"><select name="Softtek Market" class="ms-crm-SelectBox" id="selMarket" onchange="onchange_selectMarket(this.value)"></select></td>
+		</tr>
+        <tr id="Tr2"><td><a id="space1"></a></td></tr>
+        <tr id="Tr3">
+          <td style="width: 150px;"><label>Date </label><label class="required">*</label></td>
+          <td style="width: 250px;"><select name="Date" class="ms-crm-SelectBox" id="selDate"></select> </td>
+        </tr>
+        <tr id="Tr4"><td><a id="space3"></a></td></tr>
+        <tr>
+          <td><button class="ms-crm-Button" id="btnCreate" onclick="NewSalesPlan()" type="submit">Create</button> </td>
+          <td><button class="ms-crm-Button" id="btnCancel" onclick="window.close()" type="submit">Cancel</button> </td>
+		</tr>
+      </tbody>
+	</table>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+
+</body></html>

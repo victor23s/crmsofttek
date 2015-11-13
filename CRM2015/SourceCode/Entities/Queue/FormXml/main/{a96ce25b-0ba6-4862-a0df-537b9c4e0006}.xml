@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{a96ce25b-0ba6-4862-a0df-537b9c4e0006}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <hiddencontrols>
+      <data id="emailrouteraccessapproval" datafieldname="emailrouteraccessapproval" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      <data id="outgoingemaildeliverymethod" datafieldname="outgoingemaildeliverymethod" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      <data id="incomingemaildeliverymethod" datafieldname="incomingemaildeliverymethod" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+    </hiddencontrols>
+    <tabs>
+      <tab name="tab_recordwall" id="{e94e6ac4-12db-bc8c-ec81-8b20c5987655}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false" labelid="{64bf382f-7798-45fe-8021-2f5cd44d7df3}">
+        <labels>
+          <label description="What's New" languagecode="1033" />
+          <label description="What's New" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_recordwall_section_1" showlabel="false" showbar="false" locklevel="0" id="{ac0addcc-a626-6c98-40ee-b11edac36204}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{0a136542-9f9d-4072-bdb9-8afca5a0bddc}">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{be13b312-b6ac-83d7-34e1-e90dc1ecbec7}" showlabel="false" colspan="1" auto="false" rowspan="15" labelid="{44799da7-497d-49cb-a62f-44106a0ee6df}">
+                      <labels>
+                        <label description="RecordWall" languagecode="1033" />
+                      </labels>
+                      <control id="WebResource_RecordWall" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                        <parameters>
+                          <Url>msdyn_/RecordWall.htm</Url>
+                          <PassParameters>true</PassParameters>
+                          <Security>false</Security>
+                          <Scrolling>auto</Scrolling>
+                          <Border>true</Border>
+                        </parameters>
+                      </control>
+                      <events>
+                        <event name="onload" application="0">
+                          <dependencies />
+                        </event>
+                      </events>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler functionName="ActivityFeeds.Form.CustomizationUtils.updateRecordWallRenderingState" libraryName="msdyn_/ActivityFeeds.Form.js" handlerUniqueId="{9beb6ce6-2666-8033-a406-3d68d44b9592}" enabled="true" parameters="" passExecutionContext="true" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+      <tab name="general" verticallayout="true" id="{6db25522-e754-4585-a071-3c151552131f}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="queue information" showlabel="false" showbar="false" id="{a6b7da11-e32c-4759-b349-af7b46c1cb9f}" IsUserDefined="0">
+                <labels>
+                  <label description="Queue Information" languagecode="1033" />
+                  <label description="Información de la cola" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell colspan="2" id="{255991d3-3d7c-488d-ab5f-59459ecd6c29}">
+                      <labels>
+                        <label description="Queue Name" languagecode="1033" />
+                        <label description="Nombre" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{9687b1b4-f340-42d9-a315-bd2929839614}">
+                      <labels>
+                        <label description="Incoming Email" languagecode="1033" />
+                        <label description="Correo electrónico entrante" languagecode="3082" />
+                      </labels>
+                      <control id="emailaddress" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="emailaddress" />
+                    </cell>
+                    <cell id="{a66f8b6d-aed2-4449-9eaf-6debbf4b78be}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell colspan="2" showlabel="true" rowspan="5" id="{1611dcc3-67fe-4db9-8799-d1f582d7caac}">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" />
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="incoming email" showlabel="true" showbar="true" locklevel="0" id="{65cea1b0-5dfa-4e0b-8b01-e6f89d7abdc8}" IsUserDefined="0">
+                <labels>
+                  <label description="Incoming Email" languagecode="1033" />
+                  <label description="Correo electrónico entrante" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{ab457702-b8d1-458e-9c85-dfd80b7dd74f}">
+                      <labels>
+                        <label description="Convert to email activities:" languagecode="1033" />
+                        <label description="Convertir correo electrónico entrante en actividades" languagecode="3082" />
+                      </labels>
+                      <control id="incomingemailfilteringmethod" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="incomingemailfilteringmethod" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="email configuration" showlabel="true" showbar="true" locklevel="0" id="{9DE88AB0-DF45-463c-A91D-E4F9AF70B79D}" IsUserDefined="0">
+                <labels>
+                  <label description="Email Configuration" languagecode="1033" />
+                  <label description="Configuración de correo electrónico" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{e582170e-3060-a166-a6ce-b00d8a7e06b5}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Mailbox" languagecode="1033" />
+                        <label description="Buzón" languagecode="3082" />
+                      </labels>
+                      <control id="defaultmailbox" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defaultmailbox" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <formLibraries>
+      <Library name="msdyn_/ActivityFeeds.Form.js" libraryUniqueId="{4181da4c-6d13-ba3c-c859-be404e4ee2e3}" />
+    </formLibraries>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+    <Description description="Formulario para esta entidad." languagecode="3082" />
+  </Descriptions>
+</systemform>

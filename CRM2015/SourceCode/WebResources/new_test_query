@@ -1,0 +1,5 @@
+/// <reference path="../../Utility/JavaScript1.js" />
+function getTeams() {
+    var outputColumns = [new CRMField('teamid'), new CRMField('name')];
+    var items = RetrieveAllRecords("team", outputColumns);
+}

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{903a259d-f824-e511-80f9-c4346bac2908}" Name="Market Cloud SAP Team MEX A&amp;V SAO 1" Description="Click to add description">
+  <XamlFileName>/Workflows/MarketCloudSAPTeamMEXAVSAO1-903A259D-F824-E511-80F9-C4346BAC2908.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>Quote</PrimaryEntity>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{8875f6bb-f824-e511-80f9-c4346bac2908}">
+      <controltype>1</controltype>
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekmarketquote</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{8975f6bb-f824-e511-80f9-c4346bac2908}">
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{8a75f6bb-f824-e511-80f9-c4346bac2908}">
+      <controltype>1</controltype>
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekverticalquote</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{8b75f6bb-f824-e511-80f9-c4346bac2908}">
+      <formid>{a7152a8b-afbf-44f0-99c7-fa9e44dd73f5}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Quote</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

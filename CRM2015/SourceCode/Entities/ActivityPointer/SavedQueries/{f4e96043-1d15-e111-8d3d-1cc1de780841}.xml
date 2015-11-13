@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4200</returnedtypecode>
+  <savedqueryid>{f4e96043-1d15-e111-8d3d-1cc1de780841}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="4200" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid" multiobjectidfield="activitytypecode">
+        <cell name="activitytypecode" width="150" />
+        <cell name="subject" width="150" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="actualstart" width="100" />
+        <cell name="actualend" width="100" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="activitypointer">
+        <attribute name="activitytypecode" />
+        <attribute name="regardingobjectid" />
+        <attribute name="ownerid" />
+        <attribute name="scheduledend" />
+        <attribute name="actualstart" />
+        <attribute name="actualend" />
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <filter type="and">
+          <condition attribute="actualend" operator="last-month" />
+          <condition attribute="statecode" operator="eq" value="1" />
+        </filter>
+        <link-entity name="systemuser" from="systemuserid" to="owninguser" alias="af">
+          <filter type="and">
+            <condition attribute="new_softtekmarketuser" operator="eq" value="100000000" />
+          </filter>
+        </link-entity>
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Completed Activities - USA &amp; Canada - Last Month" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships>
+  <EntityRelationship Name="organization_li_configuration">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>1.0.0.5</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>li_configuration</ReferencingEntityName>
+    <ReferencedEntityName>Organization</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>NoCascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OrganizationId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier for the organization" languagecode="1033" />
+        <Description description="Identificador único de la organización." languagecode="3082" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="organizationid" requiredlevel="none" imemode="auto" lookupstyle="single" lookupbrowse="0" format="">
+      <IsCustomizable>1</IsCustomizable>
+      <IsRenameable>1</IsRenameable>
+      <CanModifySearchSettings>1</CanModifySearchSettings>
+      <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+      <IsSecured>0</IsSecured>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Organization Id" languagecode="1033" />
+        <displayname description="Id. de la organización" languagecode="3082" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+  <EntityRelationship Name="organization_msdyn_postconfig">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>msdyn_PostConfig</ReferencingEntityName>
+    <ReferencedEntityName>Organization</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>NoCascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OrganizationId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier for the organization" languagecode="1033" />
+        <Description description="Identificador único de la organización" languagecode="3082" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="organizationid" requiredlevel="none" imemode="auto" lookupstyle="single" lookupbrowse="0" format="">
+      <IsCustomizable>1</IsCustomizable>
+      <IsRenameable>1</IsRenameable>
+      <CanModifySearchSettings>1</CanModifySearchSettings>
+      <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+      <IsSecured>0</IsSecured>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Organization Id" languagecode="1033" />
+        <displayname description="Id. de la organización" languagecode="3082" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+  <EntityRelationship Name="organization_msdyn_postruleconfig">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>msdyn_PostRuleConfig</ReferencingEntityName>
+    <ReferencedEntityName>Organization</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>NoCascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OrganizationId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier for the organization" languagecode="1033" />
+        <Description description="Identificador único de la organización" languagecode="3082" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="organizationid" requiredlevel="none" imemode="auto" lookupstyle="single" lookupbrowse="0" format="">
+      <IsCustomizable>1</IsCustomizable>
+      <IsRenameable>1</IsRenameable>
+      <CanModifySearchSettings>1</CanModifySearchSettings>
+      <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+      <IsSecured>0</IsSecured>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Organization Id" languagecode="1033" />
+        <displayname description="Id. de la organización" languagecode="3082" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+  <EntityRelationship Name="organization_msdyn_wallsavedquery">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>msdyn_wallsavedquery</ReferencingEntityName>
+    <ReferencedEntityName>Organization</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>NoCascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OrganizationId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier for the organization" languagecode="1033" />
+        <Description description="Identificador único de la organización" languagecode="3082" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="organizationid" requiredlevel="none" imemode="auto" lookupstyle="single" lookupbrowse="0" format="">
+      <IsCustomizable>1</IsCustomizable>
+      <IsRenameable>1</IsRenameable>
+      <CanModifySearchSettings>1</CanModifySearchSettings>
+      <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+      <IsSecured>0</IsSecured>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Organization Id" languagecode="1033" />
+        <displayname description="Id. de la organización" languagecode="3082" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+  <EntityRelationship Name="organization_new_document">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>new_document</ReferencingEntityName>
+    <ReferencedEntityName>Organization</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>NoCascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OrganizationId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier for the organization" languagecode="1033" />
+        <Description description="Identificador único de la organización." languagecode="3082" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="organizationid" requiredlevel="none" imemode="auto" lookupstyle="single" lookupbrowse="0" format="">
+      <IsCustomizable>1</IsCustomizable>
+      <IsRenameable>1</IsRenameable>
+      <CanModifySearchSettings>1</CanModifySearchSettings>
+      <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+      <IsSecured>0</IsSecured>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Organization Id" languagecode="1033" />
+        <displayname description="Id. de la organización" languagecode="3082" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+  <EntityRelationship Name="organization_new_opportunityvertical">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>New_opportunityvertical</ReferencingEntityName>
+    <ReferencedEntityName>Organization</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>NoCascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OrganizationId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier for the organization" languagecode="1033" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="organizationid" requiredlevel="none" imemode="auto" format="">
+      <IsCustomizable>1</IsCustomizable>
+      <IsRenameable>1</IsRenameable>
+      <CanModifySearchSettings>1</CanModifySearchSettings>
+      <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+      <IsSecured>0</IsSecured>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Organization Id" languagecode="1033" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+  <EntityRelationship Name="organization_new_salesgoals">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>new_salesgoals</ReferencingEntityName>
+    <ReferencedEntityName>Organization</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>NoCascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OrganizationId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier for the organization" languagecode="1033" />
+        <Description description="Identificador único de la organización." languagecode="3082" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="organizationid" requiredlevel="none" imemode="auto" format="">
+      <IsCustomizable>1</IsCustomizable>
+      <IsRenameable>1</IsRenameable>
+      <CanModifySearchSettings>1</CanModifySearchSettings>
+      <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+      <IsSecured>0</IsSecured>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Organization Id" languagecode="1033" />
+        <displayname description="Id. de la organización" languagecode="3082" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+  <EntityRelationship Name="organization_new_surveyinfo">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IsCustomizable>1</IsCustomizable>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>new_surveyinfo</ReferencingEntityName>
+    <ReferencedEntityName>Organization</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>NoCascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OrganizationId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier for the organization" languagecode="1033" />
+        <Description description="Identificador único de la organización." languagecode="3082" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="organizationid" requiredlevel="none" imemode="auto" format="">
+      <IsCustomizable>1</IsCustomizable>
+      <IsRenameable>1</IsRenameable>
+      <CanModifySearchSettings>1</CanModifySearchSettings>
+      <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+      <IsSecured>0</IsSecured>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Organization Id" languagecode="1033" />
+        <displayname description="Id. de la organización" languagecode="3082" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+</EntityRelationships>

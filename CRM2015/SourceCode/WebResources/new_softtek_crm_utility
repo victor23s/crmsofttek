@@ -1,0 +1,87 @@
+/// <reference path="../XrmPageTemplate.js" />
+if (typeof(SofttekCrm) == "undefined") {
+    SofttekCrm = {
+        __namespace: true
+    };
+}
+
+/// this object provides common functionality for use in the various forms of crm
+SofttekCrm.Utility = {
+    disabledSection: function ($_sectionName) {
+        Xrm.Page.ui.controls.forEach(function ($control, $index) {
+            var $controlType = $control.getControlType();
+            if ($controlType != SofttekCrm.Utility.Enumeration.ControlTypes.iframe && $controlType != SofttekCrm.Utility.Enumeration.ControlTypes.webResource && $controlType != SofttekCrm.Utility.Enumeration.ControlTypes.subGrid) {
+                var $label = $control.getParent().getParent().getLabel();
+                if ($label == $_sectionName) {
+                    $control.setDisabled(bool);
+                }
+            }
+        });
+    },
+    setDisabledTab: function ($_tabIndex, $_disabled) {
+        if (Xrm.Page.ui.tabs.get()[$_tabIndex].sections != null) {
+            Xrm.Page.ui.tabs.get()[$_tabIndex].sections.forEach(function ($section, $index) {
+                if ($section.controls != null) {
+                    $section.controls.forEach(function ($control, $index) {
+                        var $controlType = $control.getControlType();
+                        if ($controlType != SofttekCrm.Utility.Enumeration.ControlTypes.iframe && $controlType != SofttekCrm.Utility.Enumeration.ControlTypes.webResource && $controlType != SofttekCrm.Utility.Enumeration.ControlTypes.subGrid) {
+                            $control.setDisabled($_disabled);
+                        }
+                    });
+                }
+            });
+        }
+
+    },
+    setDisabledTabs: function ($_options) {
+        for (var $i = 0; $i < $_options.length; $i++) {
+            this.setDisabledTab($_options[$i].tabIndex, $_options[$i].isDisabled);
+        }
+    },
+    setOptionSetByOptionText: function (optionSetAttribute, optionText) {
+        var options = Xrm.Page.getAttribute(optionSetAttribute).getOptions();
+        for (i = 0; i < options.length; i++) {
+            if (options[i].text == optionText) Xrm.Page.getAttribute(optionSetAttribute).setValue(options[i].value);
+        }
+    },
+    detectDependecyAttribute: function (attribute, message) {
+        if (Xrm.Page.getAttribute(attribute).getValue() == null) {
+            alert(message);
+            Xrm.Page.ui.close();
+        }
+    },
+    __namespace: true
+};
+
+/// this object provide acces to different enumerations
+SofttekCrm.Utility.Enumeration = {
+    controlTypes: function () {
+        return SofttekCrm.Utility.Enumeration.ControlTypes;
+    },
+    entityTypes: function () {
+        return SofttekCrm.Utility.Enumeration.EntityTypes;
+    },
+    __namespace: true
+};
+
+/// this object provide an enumeration for control types
+SofttekCrm.Utility.Enumeration.ControlTypes = {
+    iframe: function () {
+        return "iframe";
+    },
+    webResource: function () {
+        return "webresource";
+    },
+    subGrid: function () {
+        return "subgrid";
+    },
+    __namespace: true
+};
+
+/// this objcet provide an enumeration for entity types
+SofttekCrm.Utility.Enumeration.EntityTypes = {
+    systemUser: function () {
+        return "systemuser";
+    },
+    __namespace: true
+};

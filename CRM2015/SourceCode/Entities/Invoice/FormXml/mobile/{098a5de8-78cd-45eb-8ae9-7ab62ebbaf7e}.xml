@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{098a5de8-78cd-45eb-8ae9-7ab62ebbaf7e}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{34aa6a14-af73-4988-a9ee-cbf7522df8ed}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{c4a5e866-c785-49db-b6b6-e4d792d7e72d}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{69d1bd51-ad09-49cc-ae9f-1b45ee61242c}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                        <label description="Nombre" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" disabled="false" />
+                    </cell>
+                    <cell id="{516e5ab7-591a-4774-a4f7-97ecd0485561}">
+                      <labels>
+                        <label description="Prices Locked" languagecode="1033" />
+                        <label description="Precios bloqueados" languagecode="3082" />
+                      </labels>
+                      <control id="ispricelocked" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="ispricelocked" disabled="false" />
+                    </cell>
+                    <cell id="{6210e070-5dd2-4f43-8dd0-d43bbd40ce5a}">
+                      <labels>
+                        <label description="Invoice ID" languagecode="1033" />
+                        <label description="Id. de factura" languagecode="3082" />
+                      </labels>
+                      <control id="invoicenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="invoicenumber" disabled="false" />
+                    </cell>
+                    <cell id="{f081c63c-d83b-4bcc-a785-5b36614bec78}">
+                      <labels>
+                        <label description="Currency" languagecode="1033" />
+                        <label description="Divisa" languagecode="3082" />
+                      </labels>
+                      <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false" />
+                    </cell>
+                    <cell id="{236f1266-9a32-4e67-bc94-4b732a04ace8}">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{e20c33ac-5a37-4a12-aeb1-7bcac8da6334}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                    <cell id="{321dc52c-15cd-48b1-99d5-1ad9b2e0fcee}">
+                      <labels>
+                        <label description="Price List" languagecode="1033" />
+                        <label description="Lista de precios" languagecode="3082" />
+                      </labels>
+                      <control id="pricelevelid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="pricelevelid" disabled="false" />
+                    </cell>
+                    <cell id="{1e051945-3053-4481-bfce-5fb60480564f}">
+                      <labels>
+                        <label description="Customer" languagecode="1033" />
+                        <label description="Cliente" languagecode="3082" />
+                      </labels>
+                      <control id="customerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="customerid" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{a8e4f4a1-40bf-e211-b70b-78e7d162ce29}</WebResourceId>
+  <Name>new_availabilityEdit</Name>
+  <DisplayName>availabilityEdit</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_availabilityEditA8E4F4A1-40BF-E211-B70B-78E7D162CE29</FileName>
+</WebResource>

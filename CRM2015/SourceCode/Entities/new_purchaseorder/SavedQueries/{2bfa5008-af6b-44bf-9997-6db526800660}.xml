@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10018</returnedtypecode>
+  <savedqueryid>{2bfa5008-af6b-44bf-9997-6db526800660}</savedqueryid>
+  <layoutxml>
+    <grid name="" object="10018" jump="new_name" select="1" icon="1" preview="1">
+      <row name="new_purchaseorder" id="new_purchaseorderid">
+        <cell name="new_id" width="100" />
+        <cell name="new_name" width="300" />
+        <cell name="createdon" width="125" />
+        <cell name="new_statuspo" width="100" />
+        <cell name="statuscode" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="new_purchaseorder">
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <attribute name="statuscode" />
+        <attribute name="new_statuspo" />
+        <attribute name="new_id" />
+        <order attribute="new_name" descending="false" />
+        <attribute name="new_purchaseorderid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Purchase Order Associated View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

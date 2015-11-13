@@ -1,0 +1,11 @@
+Release Notes:
+
+- Ticket 982963
+Description:   Crear nueva Entidad de Sales Plan para el Proceso de Planeación Anual
+
+- Archivos incluidos en la solucion:
+	- new_SalesPlanJS
+	- new_SalesPlan_Main_Library
+
+- Flujo de migración:
+	QA -> PROD

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>2010</returnedtypecode>
+  <savedqueryid>{b8d2fa25-b779-4f60-bbc9-89a02f81c3cc}</savedqueryid>
+  <queryapi>CRMEmailTemplate.RetrieveByObject</queryapi>
+  <layoutxml>
+    <grid name="resultset" object="2010" jump="title" select="1" icon="1" preview="1">
+      <row name="result" id="templateid">
+        <cell name="title" width="300" />
+        <cell name="createdby" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="description" width="300" />
+      </row>
+    </grid>
+  </layoutxml>
+  <columnsetxml>
+    <columnset version="3.0">
+      <column>title</column>
+      <column>createdby</column>
+      <column>createdon</column>
+      <column>description</column>
+      <ascend>title</ascend>
+    </columnset>
+  </columnsetxml>
+  <querytype>0</querytype>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="View used by workflow sendemailwithtemplate" languagecode="1033" />
+    <LocalizedName description="Vista usada por el flujo de trabajo EnviarCorreoConPlantilla" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4200</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000010001902}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4200" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid" multiobjectidfield="activitytypecode">
+        <cell name="subject" width="180" />
+        <cell name="regardingobjectid" width="110" />
+        <cell name="activitytypecode" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="ownerid" width="120" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledstart" width="140" />
+        <cell name="scheduledend" width="140" />
+        <cell name="a_9728cd24d8254d769b4ac133f1d947e5.internalemailaddress" width="10" disableSorting="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="activitypointer">
+        <attribute name="subject" />
+        <order attribute="scheduledend" descending="false" />
+        <attribute name="ownerid" />
+        <attribute name="prioritycode" />
+        <attribute name="regardingobjectid" />
+        <attribute name="activitytypecode" />
+        <attribute name="statecode" />
+        <attribute name="scheduledstart" />
+        <attribute name="scheduledend" />
+        <attribute name="activityid" />
+        <filter type="and">
+          <filter type="or">
+            <condition attribute="activitytypecode" operator="eq" value="4212" />
+            <condition attribute="activitytypecode" operator="eq" value="4202" />
+            <condition attribute="activitytypecode" operator="eq" value="4210" />
+            <condition attribute="activitytypecode" operator="eq" value="4204" />
+            <condition attribute="activitytypecode" operator="eq" value="4207" />
+            <condition attribute="activitytypecode" operator="eq" value="4201" />
+            <condition attribute="activitytypecode" operator="eq" value="4214" />
+            <condition attribute="activitytypecode" operator="eq" value="4401" />
+            <condition attribute="activitytypecode" operator="eq" value="4402" />
+          </filter>
+        </filter>
+        <link-entity alias="a_9728cd24d8254d769b4ac133f1d947e5" name="systemuser" from="systemuserid" to="owninguser" link-type="outer" visible="false">
+          <attribute name="internalemailaddress" />
+        </link-entity>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Activities" languagecode="1033" />
+    <LocalizedName description="Todas las actividades" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

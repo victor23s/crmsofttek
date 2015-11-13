@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>2011</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000010016101}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="2011" jump="" select="1" icon="1" preview="0">
+      <row name="result" id="contracttemplateid">
+        <cell name="name" width="300" />
+        <cell name="abbreviation" width="140" />
+        <cell name="allotmenttypecode" width="140" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="contracttemplate">
+        <attribute name="name" />
+        <attribute name="abbreviation" />
+        <order attribute="name" descending="false" />
+        <attribute name="allotmenttypecode" />
+        <attribute name="contracttemplateid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Contract Templates" languagecode="1033" />
+    <LocalizedName description="Plantillas de contrato" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

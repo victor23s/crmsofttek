@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{1de312f4-c648-e011-8655-78e7d162fefc}</WebResourceId>
+  <Name>CampaignResponse_main_library.js</Name>
+  <DisplayName>CampaignResponse_main</DisplayName>
+  <Description>Default Form User Library</Description>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/CampaignResponse_main_libraryjs1DE312F4-C648-E011-8655-78E7D162FEFC</FileName>
+</WebResource>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1011</returnedtypecode>
+  <savedqueryid>{629f5d9e-55d8-4929-bd24-35f13e74b985}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1011" jump="title" select="1" icon="1" preview="1">
+      <row name="result" id="contractdetailid">
+        <cell name="title" width="300" />
+        <cell name="productid" width="100" />
+        <cell name="allotmentsremaining" width="150" />
+        <cell name="net" width="75" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="contractdetail">
+        <attribute name="title" />
+        <attribute name="productid" />
+        <attribute name="allotmentsremaining" />
+        <attribute name="contractdetailid" />
+        <attribute name="net" />
+        <order attribute="title" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Contract Line Advanced Find View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda avanzada de líneas de contrato" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Default Advanced find view for Contract lines." languagecode="1033" />
+    <Description description="Vista de búsqueda avanzada predeterminada para líneas de contrato." languagecode="3082" />
+  </Descriptions>
+</savedquery>

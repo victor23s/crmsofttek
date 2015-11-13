@@ -1,0 +1,31 @@
+<HTML><HEAD><TITLE>Competitors</TITLE>
+<META content="text/html; CHARSET=utf-8" http-equiv=Content-Type>
+<META content=IE=8 http-equiv=X-UA-Compatible><LINK rel=stylesheet type=text/css href="new_Close_Opp_Css.css">
+<SCRIPT type=text/javascript src="ClientGlobalContext.js.aspx"></SCRIPT>
+
+<SCRIPT type=text/javascript src="new_Close_Opp_Js"></SCRIPT>
+<LINK rel=stylesheet href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<SCRIPT src="http://code.jquery.com/jquery-1.9.1.js"></SCRIPT>
+<LINK rel=stylesheet href="/resources/demos/style.css">
+<SCRIPT src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></SCRIPT>
+<LINK rel=stylesheet href="/resources/demos/style.css">
+<SCRIPT type=text/javascript>
+
+function AsignarValor(objId)
+{
+	parent.document.getElementById("selCompetitor").value=objId;
+	window.close();
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<P>&nbsp;Close Opportunity </P>
+<DIR></DIR>
+<P>&nbsp;Provide the following information about why this Opportunity is being Closed. </P>
+<DIR></DIR>
+<TABLE style="WIDTH: 100%; HEIGHT: 100%" cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD width="100%"></TD>
+<TD width=200><BUTTON id=btnCancel class=ms-crm-Button onclick="AsignarValor('1')" type=submit>Ok</BUTTON> </TD></TR></TBODY></TABLE></BODY></HTML>

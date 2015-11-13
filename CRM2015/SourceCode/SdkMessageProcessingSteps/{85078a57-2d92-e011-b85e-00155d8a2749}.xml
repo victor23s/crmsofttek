@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.FollowingRecordsCount: RetrieveMultiple of postfollow" SdkMessageProcessingStepId="{85078a57-2d92-e011-b85e-00155d8a2749}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.FollowingRecordsCount, ActivityFeeds.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>postfollow</PrimaryEntity>
+</SdkMessageProcessingStep>

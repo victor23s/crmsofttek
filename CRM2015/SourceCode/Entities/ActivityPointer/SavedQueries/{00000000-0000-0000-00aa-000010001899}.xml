@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4200</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000010001899}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4200" jump="subject" select="1" icon="1" preview="1">
+      <row name="result" id="activityid" multiobjectidfield="activitytypecode">
+        <cell name="subject" width="300" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="activitytypecode" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="scheduledstart" width="140" />
+        <cell name="scheduledend" width="140" />
+        <cell name="actualstart" width="100" />
+        <cell name="actualend" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="instancetypecode" width="100" ishidden="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="activitypointer">
+        <attribute name="subject" />
+        <attribute name="scheduledstart" />
+        <attribute name="regardingobjectid" />
+        <attribute name="scheduledend" />
+        <attribute name="activitytypecode" />
+        <order attribute="scheduledend" descending="false" />
+        <filter type="and">
+          <condition attribute="ownerid" operator="eq-userid" />
+        </filter>
+        <attribute name="createdon" />
+        <attribute name="actualstart" />
+        <attribute name="actualend" />
+        <attribute name="statecode" />
+        <attribute name="instancetypecode" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Activities" languagecode="1033" />
+    <LocalizedName description="Mis actividades" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

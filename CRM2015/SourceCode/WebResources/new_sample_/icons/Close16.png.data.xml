@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{4bdd10c8-5e99-e211-8a9c-78e3b511b603}</WebResourceId>
+  <Name>new_sample_/icons/Close16.png</Name>
+  <DisplayName>sample_/icons/Close16.png</DisplayName>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_sample_iconsClose16png4BDD10C8-5E99-E211-8A9C-78E3B511B603</FileName>
+</WebResource>

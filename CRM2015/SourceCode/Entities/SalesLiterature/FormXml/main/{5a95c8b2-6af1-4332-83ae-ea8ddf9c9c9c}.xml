@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{5a95c8b2-6af1-4332-83ae-ea8ddf9c9c9c}</formid>
+  <IntroducedVersion>6.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>0</FormActivationState>
+  <form>
+    <ancestor id="{5a95c8b2-6af1-4332-83ae-ea8ddf9c9c9c}" />
+    <tabs>
+      <tab name="general_information" verticallayout="true" id="{E0A1BF99-9E82-4C18-9E90-AB358BE82EC5}" IsUserDefined="0" locklevel="0" expanded="true" showlabel="false">
+        <labels>
+          <label description="" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="28%">
+            <sections>
+              <section name="sales literature information" showlabel="true" showbar="false" id="{68B23139-D348-4CE5-A021-815C8A6B5C73}" IsUserDefined="0" columns="1" locklevel="0" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="INFORMATION" languagecode="1033" />
+                  <label description="INFORMACIÓN" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{56789ac8-a7f1-4f17-b064-c1e67fb9b629}">
+                      <labels>
+                        <label description="Title" languagecode="1033" />
+                        <label description="Título" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{a3eafa48-ffdd-4523-97f1-04886f5b1a15}" locklevel="0">
+                      <labels>
+                        <label description="Subject" languagecode="1033" />
+                        <label description="Asunto" languagecode="3082" />
+                      </labels>
+                      <control id="subjectid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="subjectid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5de25907-f749-4b18-b7b5-7fbbd459fc35}" locklevel="0">
+                      <labels>
+                        <label description="Type" languagecode="1033" />
+                        <label description="Tipo" languagecode="3082" />
+                      </labels>
+                      <control id="literaturetypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="literaturetypecode" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{9bd48593-2e39-e16a-9092-7d954b083d52}" showlabel="true" locklevel="0" rowspan="5">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" />
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="44%">
+            <sections>
+              <section name="sales_attachments" showlabel="false" showbar="false" locklevel="0" id="{e8ce11a6-d02b-3bee-72dc-c8decd96a064}" IsUserDefined="0" celllabelalignment="Left" celllabelposition="Top">
+                <labels>
+                  <label description="" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{5c8b8de5-9d0c-33a4-da1b-31943b031b70}" showlabel="true" auto="false" rowspan="11" colspan="1">
+                      <labels>
+                        <label description="SALES ATTACHMENTS" languagecode="1033" />
+                        <label description="Datos adjuntos de ventas" languagecode="3082" />
+                      </labels>
+                      <control id="SalesAttachments" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                        <parameters>
+                          <ViewId>{9E92B0B3-1585-E211-B227-00155D882402}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>sales_literature_items</RelationshipName>
+                          <TargetEntityType>salesliteratureitem</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>All</ChartGridMode>
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>true</EnableChartPicker>
+                          <RecordsPerPage>5</RecordsPerPage>
+                          <RelationshipRoleOrdinal>1</RelationshipRoleOrdinal>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="28%">
+            <sections>
+              <section name="related" showlabel="false" showbar="false" locklevel="0" id="{0283ea68-a674-e1bd-3d6b-2a83609bcde9}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top">
+                <labels>
+                  <label description="" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{a204bcc3-521b-3515-e530-9146d29a9ed9}" showlabel="true" auto="false" rowspan="7" colspan="1">
+                      <labels>
+                        <label description="PRODUCTS" languagecode="1033" />
+                        <label description="PRODUCTOS" languagecode="3082" />
+                      </labels>
+                      <control id="Products" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                        <parameters>
+                          <ViewId>{8BA625B2-6A2A-4735-BAB2-0C74AE8442A4}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>productsalesliterature_association</RelationshipName>
+                          <TargetEntityType>product</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>All</ChartGridMode>
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>true</EnableChartPicker>
+                          <RecordsPerPage>5</RecordsPerPage>
+                          <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row>
+                    <cell id="{eda50845-e21d-5343-5499-d34041a44e58}" showlabel="true" auto="false" rowspan="7" colspan="1">
+                      <labels>
+                        <label description="COMPETITORS" languagecode="1033" />
+                        <label description="COMPETIDORES" languagecode="3082" />
+                      </labels>
+                      <control id="Competitors" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                        <parameters>
+                          <ViewId>{57BCA9AC-87A0-4C28-ADC8-2D0A4645F29E}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>competitorsalesliterature_association</RelationshipName>
+                          <TargetEntityType>competitor</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>All</ChartGridMode>
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>true</EnableChartPicker>
+                          <RecordsPerPage>5</RecordsPerPage>
+                          <RelationshipRoleOrdinal>1</RelationshipRoleOrdinal>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <header id="{e06b6fdd-5cdd-4506-b79b-2401bd9a16d6}">
+      <rows>
+        <row>
+          <cell id="{49829e37-61d1-a3e7-043b-24a595b902c8}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Expiration Date" languagecode="1033" />
+              <label description="Fecha de expiración" languagecode="3082" />
+            </labels>
+            <control id="header_expirationdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="expirationdate" disabled="false" />
+          </cell>
+          <cell id="{3980a272-60dd-b77d-303d-94324c2d6b49}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Employee Contact" languagecode="1033" />
+              <label description="Contacto del empleado" languagecode="3082" />
+            </labels>
+            <control id="header_employeecontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="employeecontactid" disabled="false" />
+          </cell>
+        </row>
+      </rows>
+    </header>
+    <clientresources>
+      <internalresources>
+        <clientincludes>
+          <internaljscriptfile src="$webresource:SalesLiterature_main_system_library.js" />
+        </clientincludes>
+      </internalresources>
+    </clientresources>
+    <Navigation>
+      <NavBar>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navDoc" Sequence="0" Area="Info" Id="navDoc" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Sales Attachments" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navComp" Sequence="0" Area="Sales" Id="navComp" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Competitors" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navProducts" Sequence="0" Area="Info" Id="navProducts" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Products" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navDocument" Sequence="0" Area="Info" Id="navDocument" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Documents" />
+          </Titles>
+        </NavBarByRelationshipItem>
+      </NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <DisplayConditions FallbackForm="true" Order="3">
+      <Everyone />
+    </DisplayConditions>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Sales Literature" languagecode="1033" />
+    <LocalizedName description="Documentación de ventas" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Updated default Sales Literature form" languagecode="1033" />
+    <Description description="Formulario de documentación de ventas predeterminado actualizado" languagecode="3082" />
+  </Descriptions>
+</systemform>

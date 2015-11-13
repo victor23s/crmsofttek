@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.RuleDisableOnCreate: Create of msdyn_postruleconfig" SdkMessageProcessingStepId="{d4563902-06ca-e011-b0de-00155db23261}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.RuleDisableOnCreate, ActivityFeeds.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_postruleconfig</PrimaryEntity>
+</SdkMessageProcessingStep>

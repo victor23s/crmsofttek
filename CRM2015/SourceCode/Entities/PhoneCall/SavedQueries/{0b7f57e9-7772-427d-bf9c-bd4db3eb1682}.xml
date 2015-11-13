@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4210</returnedtypecode>
+  <savedqueryid>{0b7f57e9-7772-427d-bf9c-bd4db3eb1682}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4210" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="to" width="100" disableSorting="1" />
+        <cell name="phonenumber" width="100" />
+        <cell name="directioncode" width="100" />
+        <cell name="new_calltype" width="100" />
+        <cell name="leftvoicemail" width="100" />
+        <cell name="description" width="100" disableSorting="1" />
+        <cell name="ownerid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledstart" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="phonecall">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="statecode" />
+        <attribute name="prioritycode" />
+        <attribute name="scheduledend" />
+        <attribute name="createdby" />
+        <attribute name="regardingobjectid" />
+        <attribute name="new_calltype" />
+        <attribute name="to" />
+        <attribute name="phonenumber" />
+        <attribute name="directioncode" />
+        <attribute name="description" />
+        <attribute name="leftvoicemail" />
+        <attribute name="ownerid" />
+        <attribute name="scheduledstart" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="createdon" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="subject" operator="like" value="{0}" />
+          <condition attribute="regardingobjectid" operator="like" value="{0}" />
+          <condition attribute="phonenumber" operator="like" value="{0}" />
+          <condition attribute="ownerid" operator="like" value="{0}" />
+          <condition attribute="description" operator="like" value="{0}" />
+          <condition attribute="new_calltype" operator="like" value="{0}" />
+        </filter>
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All Phone Calls" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de todas las llamadas de teléfono" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

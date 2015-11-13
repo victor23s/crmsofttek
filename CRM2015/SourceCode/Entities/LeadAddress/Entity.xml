@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Lead Address" OriginalName="Lead Address">LeadAddress</Name>
+  <ObjectTypeCode>1017</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

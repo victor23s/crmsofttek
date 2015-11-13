@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard unmodified="1">
+  <LocalizedNames>
+    <LocalizedName description="Customer Service Operations Dashboard" languagecode="1033" />
+    <LocalizedName description="Panel del operaciones del servicio al cliente" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the key performance indicators for customer service operations." languagecode="1033" />
+    <Description description="Muestra los indicadores clave de rendimiento para las operaciones de servicio al cliente." languagecode="3082" />
+  </Descriptions>
+  <FormId>{4e76815a-1f63-df11-ae90-00155d2e3002}</FormId>
+</Dashboard>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report>
+  <name>SMS Report</name>
+  <defaultfilter>
+    <ReportFilter>
+      <ReportEntity paramname="CRM_FilteredOpportunity" donotconvert="1">
+        <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+          <entity name="opportunity">
+            <all-attributes />
+          </entity>
+        </fetch>
+      </ReportEntity>
+    </ReportFilter>
+  </defaultfilter>
+  <iscustomreport>1</iscustomreport>
+  <description></description>
+  <filename>SMS Report.rdl</filename>
+  <languagecode>1033</languagecode>
+  <reportid>{1bbab6d4-dcb5-dd11-a33e-001e0b4616f4}</reportid>
+  <reporttypecode>1</reporttypecode>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <iscustomizable>1</iscustomizable>
+  <ExportedFileName>/Reports/SMSReportrdl1bbab6d4-dcb5-dd11-a33e-001e0b4616f4.wdl</ExportedFileName>
+  <ReportCategories />
+  <ReportVisibilities>
+    <ReportVisbility>2</ReportVisbility>
+    <ReportVisbility>3</ReportVisbility>
+    <ReportVisbility>1</ReportVisbility>
+  </ReportVisibilities>
+  <ReportEntities>
+    <ReportEntity>opportunity</ReportEntity>
+  </ReportEntities>
+</Report>

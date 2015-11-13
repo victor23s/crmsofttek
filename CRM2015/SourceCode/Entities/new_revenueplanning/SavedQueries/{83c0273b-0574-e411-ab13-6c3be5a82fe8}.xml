@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>10029</returnedtypecode>
+  <savedqueryid>{83c0273b-0574-e411-ab13-6c3be5a82fe8}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10029" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_revenueplanningid">
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.customerid" width="100" disableSorting="1" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_opportunityid" width="100" disableSorting="1" />
+        <cell name="new_oppid" width="150" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_year" width="100" />
+        <cell name="new_rev_01" width="100" />
+        <cell name="new_rev_02" width="100" />
+        <cell name="new_rev_03" width="100" />
+        <cell name="new_rev_04" width="100" />
+        <cell name="new_rev_05" width="100" />
+        <cell name="new_rev_06" width="100" />
+        <cell name="new_rev_07" width="100" />
+        <cell name="new_rev_08" width="100" />
+        <cell name="new_rev_09" width="100" />
+        <cell name="new_rev_10" width="100" />
+        <cell name="new_rev_11" width="100" />
+        <cell name="new_rev_12" width="100" />
+        <cell name="new_tot_year" width="100" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_salespracticeownerid" width="100" disableSorting="1" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_opportunitytypeopp" width="100" disableSorting="1" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_projectid" width="100" disableSorting="1" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_marketscope_opp" width="100" disableSorting="1" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_softtekmarket" width="100" disableSorting="1" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_softtekcountryopp" width="100" disableSorting="1" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_serviceoffering" width="100" disableSorting="1" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_softtekvertical1" width="100" disableSorting="1" />
+        <cell name="a_0f43f12d4139e411abab6c3be5a8c0e8.new_deliverymodelopp" width="100" disableSorting="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="new_revenueplanning">
+        <attribute name="new_oppid" />
+        <attribute name="new_year" />
+        <attribute name="new_tot_year" />
+        <attribute name="new_rev_12" />
+        <attribute name="new_rev_11" />
+        <attribute name="new_rev_10" />
+        <attribute name="new_rev_09" />
+        <attribute name="new_rev_08" />
+        <attribute name="new_rev_07" />
+        <attribute name="new_rev_06" />
+        <attribute name="new_rev_05" />
+        <attribute name="new_rev_04" />
+        <attribute name="new_rev_03" />
+        <attribute name="new_rev_02" />
+        <attribute name="new_rev_01" />
+        <attribute name="ownerid" />
+        <order attribute="new_oppid" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <link-entity name="opportunity" from="opportunityid" to="new_oppid" alias="a_0f43f12d4139e411abab6c3be5a8c0e8">
+          <attribute name="new_opportunityid" />
+          <attribute name="new_softtekvertical1" />
+          <attribute name="new_softtekmarket" />
+          <attribute name="new_softtekcountryopp" />
+          <attribute name="new_serviceoffering" />
+          <attribute name="new_projectid" />
+          <attribute name="new_opportunitytypeopp" />
+          <attribute name="new_marketscope_opp" />
+          <attribute name="new_deliverymodelopp" />
+          <attribute name="new_salespracticeownerid" />
+          <attribute name="customerid" />
+          <filter type="and">
+            <condition attribute="new_softtekvertical1" operator="eq" value="100000044" />
+          </filter>
+        </link-entity>
+        <attribute name="new_revenueplanningid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Revenue Plannings - Healthcare" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

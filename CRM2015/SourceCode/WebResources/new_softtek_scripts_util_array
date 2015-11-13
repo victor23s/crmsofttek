@@ -1,0 +1,51 @@
+﻿Array.prototype.where = function (delegate) {
+    var $results = new Array();
+    for (var $index in this) {
+        if (delegate(this[$index])) $results.push(this[$index]);
+    }
+    return $results;
+};
+
+Array.prototype.single = function (delegate) {
+    var $result = new Object();
+    for (var $index in this) {
+        if (delegate(this[$index])) return this[$index];
+    }
+    return $result;
+};
+
+Array.prototype.forEach = function (delegate) {
+    for (var $index in this) {
+        delegate(this[$index]);
+    }
+};
+
+Array.prototype.first = function () {
+    return this[0];
+};
+
+Array.prototype.containts = function (value) {
+    for (var $index in this) {
+        if (this[$index] == value) return true;
+    }
+    return false;
+};
+
+Array.prototype.remove = function (item) {
+    var $index = this.indexOf(item, 0);
+    this.splice($index, 1);
+};
+
+Array.prototype.removeDuplicates = function () {
+    var $singleValues = new Array();
+    for (var $index in this) {
+        if (!$singleValues.containts(this[$index])) $singleValues.push(this[$index]);
+    }
+    return $singleValues;
+};
+
+Array.prototype.addRange = function (array) {
+    for (var $index in array) {
+        this.push(array[$index]);
+    }
+};

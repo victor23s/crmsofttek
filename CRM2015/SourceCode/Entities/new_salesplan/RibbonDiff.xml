@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_salesplan.NewRecord.Hide" Location="Mscrm.Form.new_salesplan.NewRecord" />
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.new_salesplan.NewRecord.Hide" Location="Mscrm.HomepageGrid.new_salesplan.NewRecord" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_salesplan.AddNewStandard.Hide" Location="Mscrm.SubGrid.new_salesplan.AddNewStandard" />
+    <HideCustomAction HideActionId="new.Mscrm.SubGrid.new_salesplan.NewRecord.Hide" Location="Mscrm.SubGrid.new_salesplan.NewRecord" />
+    <CustomAction Id="new.new_salesplan.Button1.Button.CustomAction" Location="Mscrm.HomepageGrid.new_salesplan.MainTab.Management.Controls._children" Sequence="60">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_salesplan.Button1.Button.Alt" Command="new.new_salesplan.CreateReport.Command" Description="Create Report" Id="new.new_salesplan.Button1.Button" Image32by32="$webresource:new_SalesPlanReport32" Image16by16="$webresource:new_SalesPlanReport16" LabelText="$LocLabels:new.new_salesplan.Button1.Button.LabelText" Sequence="60" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_salesplan.Button1.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_salesplan.Button1.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_salesplan.Button2.Button.CustomAction" Location="Mscrm.HomepageGrid.new_salesplan.MainTab.Management.Controls._children" Sequence="70">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_salesplan.Button2.Button.Alt" Command="new.new_salesplan.CloseReport.Command" Description="Close Report" Id="new.new_salesplan.Button2.Button" Image32by32="$webresource:new_SalesPlanReport32" Image16by16="$webresource:new_SalesPlanReport16" LabelText="$LocLabels:new.new_salesplan.Button2.Button.LabelText" Sequence="70" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_salesplan.Button2.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_salesplan.Button2.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_salesplan.Button3.Button.CustomAction" Location="Mscrm.Form.new_salesplan.MainTab.Save.Controls._children" Sequence="55">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_salesplan.Button3.Button.Alt" Command="new.new_salesplan.CopyForm.Command" Description="Copy Sales Plan" Id="new.new_salesplan.Button3.Button" Image32by32="$webresource:new_copyOpp32" Image16by16="$webresource:new_copyOpp16" LabelText="$LocLabels:new.new_salesplan.Button3.Button.LabelText" Sequence="55" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_salesplan.Button3.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_salesplan.Button3.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_salesplan.Button4.Button.CustomAction" Location="Mscrm.HomepageGrid.new_salesplan.MainTab.Management.Controls._children" Sequence="35">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_salesplan.Button4.Button.Alt" Command="new.new_salesplan.CopyGrid.Command" Description="Copy Sales Plan" Id="new.new_salesplan.Button4.Button" Image32by32="$webresource:new_copyOpp32" Image16by16="$webresource:new_copyOpp16" LabelText="$LocLabels:new.new_salesplan.Button4.Button.LabelText" Sequence="35" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_salesplan.Button4.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_salesplan.Button4.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_salesplan.newRecord.Button.CustomAction" Location="Mscrm.HomepageGrid.new_salesplan.MainTab.Management.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_salesplan.newRecord.Button.Alt" Command="new.new_salesplan.NewSP.Command" Description="New " Id="new.new_salesplan.newRecord.Button" Image32by32="/_imgs/ribbon/newrecord32.png" Image16by16="/_imgs/ribbon/New_16.png" LabelText="$LocLabels:new.new_salesplan.newRecord.Button.LabelText" Sequence="15" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.new_salesplan.newRecord.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_salesplan.newRecord.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="new.new_salesplan.CloseReport.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_salesplan.IsSalesPlanAdmin.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openDialogCloseReport" Library="$webresource:new_SalesPlanJS" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_salesplan.CopyForm.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_salesplan.New.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="CreateCopySalesPlan" Library="$webresource:new_SalesPlanJS" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_salesplan.CopyGrid.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_salesplan.New.EnableRule" />
+        <EnableRule Id="new.new_salesplanOnlyOneRecord..EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="CreateCopySalesPlanFromGrid" Library="$webresource:new_SalesPlanJS">
+          <CrmParameter Value="FirstSelectedItemId" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_salesplan.CreateReport.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_salesplan.IsSalesPlanAdmin.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openDialogTest" Library="$webresource:new_SalesPlanJS" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_salesplan.NewSP.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_salesplan.New.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openDialogNewRecord" Library="$webresource:new_SalesPlanJS" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules>
+      <EnableRule Id="new.new_salesplan.EnableRule3.EnableRule">
+        <SelectionCountRule AppliesTo="SelectedEntity" Maximum="1" />
+      </EnableRule>
+      <EnableRule Id="new.new_salesplan.IsLeader.EnableRule">
+        <CustomRule FunctionName="userIsForecastLead" Library="$webresource:new_Opp_Ribbon_Functions_2" Default="false" />
+      </EnableRule>
+      <EnableRule Id="new.new_salesplan.IsSalesPlanAdmin.EnableRule">
+        <CustomRule FunctionName="userIsSalesPlanAdmin" Library="$webresource:new_Opp_Ribbon_Functions_2" Default="false" />
+      </EnableRule>
+      <EnableRule Id="new.new_salesplan.New.EnableRule">
+        <CustomRule FunctionName="userIsDiftoGuestSP" Library="$webresource:new_Opp_Ribbon_Functions_2" Default="false" />
+      </EnableRule>
+      <EnableRule Id="new.new_salesplanOnlyOneRecord..EnableRule">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" Maximum="1" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="new.new_salesplan.Button1.Button.Alt">
+      <Titles>
+        <Title description="Create Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button1.Button.LabelText">
+      <Titles>
+        <Title description="Create Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button1.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Create Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button1.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Create Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button2.Button.Alt">
+      <Titles>
+        <Title description="Close Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button2.Button.LabelText">
+      <Titles>
+        <Title description="Close Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button2.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Close Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button2.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Close Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button3.Button.Alt">
+      <Titles>
+        <Title description="Copy Sales Plan" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button3.Button.LabelText">
+      <Titles>
+        <Title description="Copy Sales Plan" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button3.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Copy Sales Plan" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button3.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Copy Sales Plan" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button4.Button.Alt">
+      <Titles>
+        <Title description="Copy Sales Plan" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button4.Button.LabelText">
+      <Titles>
+        <Title description="Copy Sales Plan" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button4.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Copy Sales Plan" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.Button4.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Copy Sales Plan" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.newRecord.Button.Alt">
+      <Titles>
+        <Title description="New " languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.newRecord.Button.LabelText">
+      <Titles>
+        <Title description="New " languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.newRecord.Button.ToolTipDescription">
+      <Titles>
+        <Title description="New " languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_salesplan.newRecord.Button.ToolTipTitle">
+      <Titles>
+        <Title description="New " languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

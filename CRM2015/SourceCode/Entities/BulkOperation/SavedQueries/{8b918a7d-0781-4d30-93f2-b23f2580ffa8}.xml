@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4406</returnedtypecode>
+  <savedqueryid>{8b918a7d-0781-4d30-93f2-b23f2580ffa8}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4406" jump="bulkoperationnumber" select="1" icon="1" preview="0">
+      <row name="result" id="activityid">
+        <cell name="bulkoperationnumber" width="100" />
+        <cell name="operationtypecode" width="100" />
+        <cell name="regardingobjectid" width="200" />
+        <cell name="statuscode" width="100" />
+        <cell name="successcount" width="100" />
+        <cell name="failurecount" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="bulkoperation">
+        <attribute name="activityid" />
+        <attribute name="bulkoperationnumber" />
+        <order attribute="bulkoperationnumber" descending="true" />
+        <attribute name="operationtypecode" />
+        <attribute name="regardingobjectid" />
+        <attribute name="successcount" />
+        <attribute name="statuscode" />
+        <attribute name="failurecount" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Bulk Operations" languagecode="1033" />
+    <LocalizedName description="Todas las operaciones masivas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

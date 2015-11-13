@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{b62ce022-cc0f-4c8c-bb29-21948f70dc74}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form shownavigationbar="true" showImage="false" maxWidth="1900">
+    <tabs>
+      <tab name="tab_recordwall" id="{e94e6ac4-12db-bc8c-ec81-8b20c5987655}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false" labelid="{ae941ae0-bfa9-4857-98fb-7021a09ed84f}">
+        <labels>
+          <label description="What's New" languagecode="1033" />
+          <label description="Novedades" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_recordwall_section_1" showlabel="false" showbar="false" locklevel="0" id="{ac0addcc-a626-6c98-40ee-b11edac36204}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{9e404039-31d0-4f91-95d1-e3dd3047f296}">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{be13b312-b6ac-83d7-34e1-e90dc1ecbec7}" showlabel="false" colspan="1" auto="false" rowspan="15" labelid="{6c4686b1-dd08-4960-b75f-ac542ac3bdd2}">
+                      <labels>
+                        <label description="RecordWall" languagecode="1033" />
+                      </labels>
+                      <control id="WebResource_RecordWall" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                        <parameters>
+                          <Url>msdyn_/RecordWall.htm</Url>
+                          <PassParameters>true</PassParameters>
+                          <Security>false</Security>
+                          <Scrolling>auto</Scrolling>
+                          <Border>true</Border>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler functionName="ActivityFeeds.Form.CustomizationUtils.updateRecordWallRenderingState" libraryName="msdyn_/ActivityFeeds.Form.js" handlerUniqueId="{9beb6ce6-2666-8033-a406-3d68d44b9592}" enabled="true" parameters="" passExecutionContext="true" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+      <tab verticallayout="true" id="{e92df784-47af-48cf-a9cb-ee4811b87d10}" IsUserDefined="0">
+        <labels>
+          <label description="Task" languagecode="1033" />
+          <label description="Tarea" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" locklevel="0" id="{ea054020-22ab-4178-aeb7-3d664d96f88c}" IsUserDefined="0" layout="varwidth" columns="11" height="auto">
+                <labels>
+                  <label description="Task Description" languagecode="1033" />
+                  <label description="Descripción de la tarea" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="2" id="{7bd07330-cc88-4056-acd1-dede64bcf1ca}">
+                      <labels>
+                        <label description="Subject" languagecode="1033" />
+                        <label description="Asunto" languagecode="3082" />
+                      </labels>
+                      <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell colspan="2" showlabel="false" rowspan="5" auto="true" id="{0fde8ba1-0edc-4953-b03d-51aca06cf83c}">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row height="auto"></row>
+                </rows>
+              </section>
+              <section showlabel="false" showbar="false" locklevel="0" id="{E8A0A1AE-3F40-471e-B06E-B221779CA511}" IsUserDefined="0" layout="varwidth" columns="11">
+                <labels>
+                  <label description="Task Details" languagecode="1033" />
+                  <label description="Detalles de tarea" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="2" id="{af141e99-5e42-4650-8e41-851d2128c4bf}">
+                      <labels>
+                        <label description="Regarding" languagecode="1033" />
+                        <label description="Referente a" languagecode="3082" />
+                      </labels>
+                      <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false">
+                        <parameters>
+                          <AutoResolve>false</AutoResolve>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="2" id="{19816b9b-a8fc-4f92-818e-0a8c599f4107}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b1648dcb-0c07-0649-dd5c-b872d1c5495d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Category SFTK" languagecode="1033" />
+                      </labels>
+                      <control id="new_categorysftk" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_categorysftk" disabled="false" />
+                    </cell>
+                    <cell id="{852c7614-979b-7023-ce7b-e526662a568c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Sub-Category SFTK" languagecode="1033" />
+                      </labels>
+                      <control id="new_subcategorysftk" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_subcategorysftk" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{965a7107-a8eb-4762-a96e-d7ba99de7719}">
+                      <labels>
+                        <label description="Status Reason" languagecode="1033" />
+                        <label description="Razón para el estado" languagecode="3082" />
+                      </labels>
+                      <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{f18e4e57-ceff-4874-9312-b8de266cfd29}">
+                      <labels>
+                        <label description="Percent Complete" languagecode="1033" />
+                        <label description="Porcentaje completado" languagecode="3082" />
+                      </labels>
+                      <control id="percentcomplete" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="percentcomplete" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{61909cc1-1c52-41d7-d05d-3c9db7798951}" showlabel="false" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Category" languagecode="1033" />
+                        <label description="Categoría" languagecode="3082" />
+                      </labels>
+                      <control id="category" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="category" disabled="false" />
+                    </cell>
+                    <cell id="{a22913e6-585d-6755-ca0d-db3e015e826c}" showlabel="false" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Sub-Category" languagecode="1033" />
+                        <label description="Subcategoría" languagecode="3082" />
+                      </labels>
+                      <control id="subcategory" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subcategory" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="false" locklevel="1" rowspan="1" colspan="1" id="{5f411b06-cf54-4cea-937e-a20ef7475310}" visible="false">
+                      <labels>
+                        <label description="Activity Status" languagecode="1033" />
+                        <label description="Estado de la actividad" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{32e733a3-4a79-8c2c-7e13-8a86db977504}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="{e92df784-47af-48cf-a9cb-ee4811b87d10}_section_4" showlabel="true" showbar="true" locklevel="0" id="{b39dce98-1e8d-89be-83db-636ac3c50034}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Scheduling Information" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{4762b058-db23-7320-765b-4e82ea977d1c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Start Time" languagecode="1033" />
+                        <label description="Fecha de inicio" languagecode="3082" />
+                      </labels>
+                      <control id="scheduledstart" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledstart" disabled="false" />
+                    </cell>
+                    <cell id="{c55a658b-d1d9-7d76-38b3-212bbba038e6}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Duration" languagecode="1033" />
+                        <label description="Duración" languagecode="3082" />
+                      </labels>
+                      <control id="actualdurationminutes" classid="{AA987274-CE4E-4271-A803-66164311A958}" datafieldname="actualdurationminutes" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{88d6dc08-941d-c931-9d59-2d9549da32a1}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="End Time" languagecode="1033" />
+                        <label description="Fecha de vencimiento" languagecode="3082" />
+                      </labels>
+                      <control id="scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{05145c34-364e-4cb6-ac01-de4abbec3949}">
+                      <labels>
+                        <label description="Priority" languagecode="1033" />
+                        <label description="Prioridad" languagecode="3082" />
+                      </labels>
+                      <control id="prioritycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="prioritycode" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8e9b368d-947a-ead9-902d-b202d1544d51}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="All Day Event" languagecode="1033" />
+                      </labels>
+                      <control id="new_isalldayevent" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="new_isalldayevent" disabled="false" />
+                    </cell>
+                    <cell id="{346ce7c7-3795-0b41-e30e-bed367b1a1aa}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Effort" languagecode="1033" />
+                      </labels>
+                      <control id="new_actual_effort" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_actual_effort" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{db3a0081-7323-a249-3118-026eacdba388}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="IsAllDayEventTask" languagecode="1033" />
+                      </labels>
+                      <control id="new_isalldayeventtask" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="new_isalldayeventtask" disabled="false" />
+                    </cell>
+                    <cell id="{9330b10d-7016-8be0-2484-3583ca9d6add}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="{e92df784-47af-48cf-a9cb-ee4811b87d10}_section_3" showlabel="true" showbar="true" locklevel="0" id="{db5cb82c-752a-e6a8-5a47-924d4145719d}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Financials" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{12e25911-48b3-8b1e-60b6-92d8510dba2e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Expenses Amount" languagecode="1033" />
+                      </labels>
+                      <control id="new_expensesamounttask" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_expensesamounttask" disabled="false" />
+                    </cell>
+                    <cell id="{8ad84c43-b58b-4c58-e5e7-cde18243220b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Currency" languagecode="1033" />
+                        <label description="Divisa" languagecode="3082" />
+                      </labels>
+                      <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab id="{D87E07A3-11DA-4b8e-A8CC-F069EBC43FD4}" IsUserDefined="0" expanded="false">
+        <labels>
+          <label description="Notes" languagecode="1033" />
+          <label description="Notas" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" id="{81A8A668-2716-4129-846D-E663546EC4FE}" IsUserDefined="0" height="auto">
+                <labels>
+                  <label description="Notes" languagecode="1033" />
+                  <label description="Notas" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell colspan="2" showlabel="false" rowspan="5" auto="true" id="{169ed329-a2f4-43b6-8149-17df52f49381}">
+                      <labels>
+                        <label description="Note Text" languagecode="1033" />
+                        <label description="Texto de la nota" languagecode="3082" />
+                      </labels>
+                      <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row height="auto"></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <events>
+      <event name="onload" application="true" active="true">
+        <InternalHandlers>
+          <Handler functionName="Mscrm.Form_onload" libraryName="Task_main_system_library.js" handlerUniqueId="516bea27-d455-43f4-968f-1e372977fc93" enabled="true" />
+        </InternalHandlers>
+        <Handlers>
+          <Handler handlerUniqueId="{44054657-8120-c0e7-18aa-cc4985b12200}" functionName="load" libraryName="Task_main_library.js" enabled="true" passExecutionContext="false" parameters="" />
+          <Handler handlerUniqueId="{80d77558-51d1-05d3-407d-c098dede456b}" functionName="onLoad" libraryName="new_softtek_scripts_forms_activity" enabled="true" passExecutionContext="false" parameters="" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_categorysftk">
+        <Handlers>
+          <Handler handlerUniqueId="{9d550d12-ed1b-393e-e184-cb9b5991e9a0}" functionName="onCategoryChange" libraryName="new_softtek_scripts_forms_activity" enabled="true" passExecutionContext="false" parameters="" />
+        </Handlers>
+      </event>
+      <event name="onsave" application="false" active="false">
+        <Handlers>
+          <Handler functionName="Form_onsave" libraryName="Task_main_library.js" handlerUniqueId="{093e1a18-0d8a-624c-536c-440488dea77c}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="scheduledstart">
+        <Handlers>
+          <Handler functionName="Start_onchange" libraryName="Task_main_library.js" handlerUniqueId="{46112959-0749-db54-7315-c263530ce904}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="actualdurationminutes">
+        <Handlers>
+          <Handler functionName="Duration_onchange" libraryName="Task_main_library.js" handlerUniqueId="{01036466-ca70-e979-657b-208558edb3be}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="scheduledend">
+        <Handlers>
+          <Handler functionName="End_onchange" libraryName="Task_main_library.js" handlerUniqueId="{0c5508ac-dec9-4e95-34d2-62c2bc384acc}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+    </events>
+    <clientresources>
+      <internalresources>
+        <clientincludes>
+          <internaljscriptfile src="$webresource:Task_main_system_library.js" />
+        </clientincludes>
+      </internalresources>
+    </clientresources>
+    <header id="{70a653c4-4fff-40ef-9509-cc3bb4e240b7}" columns="111">
+      <rows>
+        <row>
+          <cell id="{b5be940d-0180-6b91-1ecc-a029a954dce4}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Regarding" languagecode="1033" />
+              <label description="Referente a" languagecode="3082" />
+            </labels>
+            <control id="header_regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false" />
+          </cell>
+          <cell id="{e15040a7-1369-bc4d-183b-17a49c9d0403}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Owner" languagecode="1033" />
+              <label description="Propietario" languagecode="3082" />
+            </labels>
+            <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+          </cell>
+          <cell id="{d7acc607-de24-b2da-3c38-a4e41983a50c}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Activity Status" languagecode="1033" />
+              <label description="Estado de la actividad" languagecode="3082" />
+            </labels>
+            <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+          </cell>
+        </row>
+      </rows>
+    </header>
+    <footer id="{ce00d211-65b7-4042-a330-c9f078a06b34}" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+      <rows>
+        <row>
+          <cell id="{2924ec7a-2cbd-4301-055e-e4a22e745080}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Activity Status" languagecode="1033" />
+              <label description="Estado de la actividad" languagecode="3082" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" />
+          </cell>
+          <cell id="{9d6bd919-c60b-0ed4-5993-8967e788396e}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Status Reason" languagecode="1033" />
+              <label description="Razón para el estado" languagecode="3082" />
+            </labels>
+            <control id="footer_statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="true" />
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <formLibraries>
+      <Library name="msdyn_/ActivityFeeds.Form.js" libraryUniqueId="{4181da4c-6d13-ba3c-c859-be404e4ee2e3}" />
+      <Library name="Task_main_library.js" libraryUniqueId="{3fe0ce3f-8bc2-45e4-affa-e9a745a4fafb}" />
+      <Library name="new_CRM.Utils" libraryUniqueId="{3616e1b6-e858-0929-b4db-a6a57d107618}" />
+      <Library name="new_softtek_scripts_util_dynamicform" libraryUniqueId="{2ad4e9c5-a6d5-b4e3-6e5a-1b06916c6dab}" />
+      <Library name="new_softtek_scripts_forms_activity" libraryUniqueId="{d7c19a51-3885-4b37-2db6-043ce3c30720}" />
+    </formLibraries>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+    <Description description="Formulario para esta entidad." languagecode="3082" />
+  </Descriptions>
+</systemform>

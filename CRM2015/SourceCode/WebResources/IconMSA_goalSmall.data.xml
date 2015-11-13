@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{9068c959-c748-e011-8655-78e7d162fefc}</WebResourceId>
+  <Name>IconMSA_goalSmall</Name>
+  <DisplayName>UpgradedIconMSA_goalSmall</DisplayName>
+  <Description>This Web Resource was imported as part of the upgrade process from CRM 4.</Description>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>7</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>0</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/IconMSA_goalSmall9068C959-C748-E011-8655-78E7D162FEFC</FileName>
+</WebResource>

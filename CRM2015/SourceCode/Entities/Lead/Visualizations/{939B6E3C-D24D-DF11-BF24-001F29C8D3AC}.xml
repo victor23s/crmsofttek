@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualization>
+  <savedqueryvisualizationid>{939B6E3C-D24D-DF11-BF24-001F29C8D3AC}</savedqueryvisualizationid>
+  <datadescription>
+    <datadefinition>
+      <fetchcollection>
+        <fetch mapping="logical" aggregate="true">
+          <entity name="lead">
+            <attribute groupby="true" alias="groupby_column" name="statuscode" />
+            <attribute alias="aggregate_column" name="ownerid" aggregate="count" />
+          </entity>
+        </fetch>
+      </fetchcollection>
+      <categorycollection>
+        <category>
+          <measurecollection>
+            <measure alias="aggregate_column" />
+          </measurecollection>
+        </category>
+      </categorycollection>
+    </datadefinition>
+  </datadescription>
+  <presentationdescription>
+    <Chart Palette="BrightPastel">
+      <Series>
+        <Series _Template_="All" MarkerStyle="Circle" ShadowOffset="1" Color="Orange" BorderColor="64, 64, 64" BorderWidth="2" Font="Tahoma, 6.75pt" IsValueShownAsLabel="true" LabelForeColor="100, 100, 100" ChartType="Line">
+          <SmartLabelStyle Enabled="True" />
+          <Points />
+        </Series>
+      </Series>
+      <ChartAreas>
+        <ChartArea _Template_="All">
+          <AxisY LineColor="LightGray" TitleFont="Tahoma, 8pt, GdiCharSet=0" TitleForeColor="100, 100, 100" LabelAutoFitMaxFontSize="7" LabelAutoFitMinFontSize="7">
+            <MajorTickMark LineColor="Gray" />
+            <LabelStyle Font="Tahoma, 6.75pt" ForeColor="Gray" />
+            <MajorGrid LineColor="LightSteelBlue" LineDashStyle="Dash" />
+          </AxisY>
+          <AxisX LineColor="LightGray" TitleFont="Tahoma, 8pt, GdiCharSet=0" TitleForeColor="100, 100, 100" LabelAutoFitMaxFontSize="7" LabelAutoFitMinFontSize="7">
+            <MajorTickMark LineColor="Gray" />
+            <LabelStyle Font="Tahoma, 6.75pt" ForeColor="Gray" />
+            <MajorGrid LineColor="LightSteelBlue" LineDashStyle="Dash" />
+          </AxisX>
+        </ChartArea>
+      </ChartAreas>
+      <Titles>
+        <Title _Template_="All" Font="Tahoma, 9pt, style=Bold, GdiCharSet=0" ForeColor="100, 100, 100" />
+      </Titles>
+    </Chart>
+  </presentationdescription>
+  <isdefault>0</isdefault>
+  <LocalizedNames>
+    <LocalizedName description="China Leads by Status" languagecode="1033" />
+  </LocalizedNames>
+  <IsCustomizable>1</IsCustomizable>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CanBeDeleted>1</CanBeDeleted>
+</visualization>

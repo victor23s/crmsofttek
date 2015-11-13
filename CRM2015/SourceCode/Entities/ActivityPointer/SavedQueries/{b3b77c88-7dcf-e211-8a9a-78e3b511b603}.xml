@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4200</returnedtypecode>
+  <savedqueryid>{b3b77c88-7dcf-e211-8a9a-78e3b511b603}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="4200" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid" multiobjectidfield="activitytypecode">
+        <cell name="activitytypecode" width="150" />
+        <cell name="subject" width="150" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="actualstart" width="100" />
+        <cell name="actualend" width="100" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="activitypointer">
+        <attribute name="activitytypecode" />
+        <attribute name="regardingobjectid" />
+        <attribute name="ownerid" />
+        <attribute name="scheduledend" />
+        <attribute name="actualstart" />
+        <attribute name="actualend" />
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <filter type="and">
+          <condition attribute="createdon" operator="this-year" />
+          <condition attribute="ownerid" operator="in">
+            <value uiname="Amit Sawhney" uitype="systemuser">{F684F20F-CBC3-E211-88D8-78E3B511B603}</value>
+            <value uiname="Ashton Chanana" uitype="systemuser">{8508ABA7-CBC3-E211-88D8-78E3B511B603}</value>
+            <value uiname="Devanshu Shah" uitype="systemuser">{43C4A6DC-CCC3-E211-88D8-78E3B511B603}</value>
+            <value uiname="Harvey Cooper" uitype="systemuser">{6FA640C6-C477-E211-8B77-78E3B511B603}</value>
+            <value uiname="Mitch Moss" uitype="systemuser">{05EF3D7F-CDC3-E211-88D8-78E3B511B603}</value>
+            <value uiname="Oliver Argente" uitype="systemuser">{C5A35E52-CEC3-E211-88D8-78E3B511B603}</value>
+            <value uiname="Peter Lonsdale" uitype="systemuser">{09C36AE2-227D-E211-8C7F-78E3B5115627}</value>
+            <value uiname="Piyush Bhandari" uitype="systemuser">{0887CE9F-BF77-E211-8B77-78E3B511B603}</value>
+            <value uiname="Rajeev Tyagi" uitype="systemuser">{899A97DB-BB77-E211-8B77-78E3B511B603}</value>
+            <value uiname="Rakesh Mahajan" uitype="systemuser">{83BA9863-BE77-E211-8B77-78E3B511B603}</value>
+            <value uiname="Sam Tyagi" uitype="systemuser">{3B074167-C277-E211-8B77-78E3B511B603}</value>
+            <value uiname="Sharad Varshney" uitype="systemuser">{E5AE2969-D0C3-E211-88D8-78E3B511B603}</value>
+            <value uiname="Brian Bradley" uitype="systemuser">{2FF41A3D-D5E2-E011-8727-1CC1DEE8EA59}</value>
+            <value uiname="Julio Bustos" uitype="systemuser">{6F67586A-2EB1-DD11-9A68-001E0B4616F4}</value>
+            <value uiname="Fabio Brancati de Oliveira" uitype="systemuser">{D25C11E1-F120-DF11-91CB-001F29C839A0}</value>
+          </condition>
+          <condition attribute="activitytypecode" operator="in">
+            <value>4201</value>
+            <value>4401</value>
+            <value>4202</value>
+            <value>4210</value>
+            <value>4251</value>
+            <value>4212</value>
+          </condition>
+        </filter>
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Activities - Systech" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

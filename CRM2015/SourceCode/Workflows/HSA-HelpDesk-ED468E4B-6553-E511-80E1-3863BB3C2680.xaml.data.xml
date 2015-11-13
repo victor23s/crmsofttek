@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{ed468e4b-6553-e511-80e1-3863bb3c2680}" Name="HSA - Help Desk" Description="Click to add description">
+  <XamlFileName>/Workflows/HSA-HelpDesk-ED468E4B-6553-E511-80E1-3863BB3C2680.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>Incident</PrimaryEntity>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{d263f064-6553-e511-80e1-3863bb3c2680}">
+      <controltype>1</controltype>
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekmarket</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{d363f064-6553-e511-80e1-3863bb3c2680}">
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{d463f064-6553-e511-80e1-3863bb3c2680}">
+      <controltype>1</controltype>
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <controlname>new_serviceofferingcase</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{d563f064-6553-e511-80e1-3863bb3c2680}">
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{d663f064-6553-e511-80e1-3863bb3c2680}">
+      <controltype>1</controltype>
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekmarket</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{d763f064-6553-e511-80e1-3863bb3c2680}">
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{d863f064-6553-e511-80e1-3863bb3c2680}">
+      <controltype>1</controltype>
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <controlname>new_serviceofferingcase</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{d963f064-6553-e511-80e1-3863bb3c2680}">
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

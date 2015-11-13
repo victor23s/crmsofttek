@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10020</returnedtypecode>
+  <savedqueryid>{314c2b01-ae8a-425e-b9cc-410bbfa47631}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10020" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_legalsupportrequestid">
+        <cell name="new_requestid" width="100" />
+        <cell name="new_account" width="100" />
+        <cell name="new_name" width="200" />
+        <cell name="new_requesttype" width="100" />
+        <cell name="new_documenttype" width="100" />
+        <cell name="new_duedate" width="100" />
+        <cell name="new_priority" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_assignedteam" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_status" width="100" />
+        <cell name="new_statusreason" width="100" />
+        <cell name="createdon" width="125" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="new_legalsupportrequest">
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <attribute name="new_status" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_requesttype" />
+        <attribute name="new_requestid" />
+        <attribute name="new_priority" />
+        <attribute name="ownerid" />
+        <attribute name="new_documenttype" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedteam" />
+        <attribute name="new_account" />
+        <attribute name="new_duedate" />
+        <order attribute="new_requestid" descending="false" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="new_requesttype" operator="like" value="{0}" />
+          <condition attribute="new_requestid" operator="like" value="{0}" />
+          <condition attribute="new_quote" operator="like" value="{0}" />
+          <condition attribute="new_opportunity" operator="like" value="{0}" />
+          <condition attribute="new_name" operator="like" value="{0}" />
+          <condition attribute="new_lsid" operator="like" value="{0}" />
+          <condition attribute="new_documenttype" operator="like" value="{0}" />
+          <condition attribute="new_description" operator="like" value="{0}" />
+          <condition attribute="new_assignedto" operator="like" value="{0}" />
+          <condition attribute="new_account" operator="like" value="{0}" />
+        </filter>
+        <attribute name="new_statusreason" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="createdby" />
+        <attribute name="new_legalsupportrequestid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find Active Legal Support Request" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,60 @@
+<html><head><title>Resolve Case</title>
+<meta http-equiv="Content-Type" content="text/html; CHARSET=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8"><link href="new_AccountTestCss.css" rel="stylesheet" type="text/css">
+<script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+
+<script src="new_AccountTestJs.js" type="text/javascript"></script>
+<script src="new_XrmServiceToolkit" type="text/javascript"></script>
+
+</head><body>
+<script>
+    window.onload = function () {
+         XrmSolutions.CloseAccount.OnLoad();
+    };
+
+    function limitText(limitField, limitNum) {
+	if (limitField.value.length > limitNum) {
+		limitField.value = limitField.value.substring(0, limitNum);
+	} 
+    };
+</script>
+<table style="width: 100%; height: 100%;" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="ms-crm-Dialog-Header" id="td1">
+<div class="ms-crm-Dialog-Header-Title">Confirm Account Deactivation</div>
+<div class="ms-crm-Dialog-Header-Desc">You have selected 1 Account to deactivate.</div></td></tr>
+<tr>
+<td>
+<p>&nbsp;&nbsp;&nbsp;This action will set the Account as inactive. There may be records in the system 
+<dir></dir>
+<p></p>
+<p>&nbsp;&nbsp;&nbsp;that continue to reference these inactive records. 
+<dir></dir>
+<p></p>
+<p>&nbsp;&nbsp;&nbsp;If you want to continue, click OK. 
+<dir></dir>
+<p></p>
+<p>&nbsp;&nbsp;&nbsp;If you don't want to deactive this Account, click Cancel. 
+<dir></dir>
+<p></p></td></tr>
+<tr>
+<td style="height: 100%;">
+<div class="ms-crm-Dialog-Main">
+<table width="100%" cellspacing="3" cellpadding="0">
+<tbody>
+<tr>
+<td nowrap=""><label for="selResolution">Status Reason</label><label style="color: rgb(255, 0, 0);"> *</label></td>
+<td width="100%"><select name="selResolution" class="ms-crm-SelectBox" id="selResolution"></select> </td></tr>
+<tr>
+<td style="padding-top: 20px;" colspan="2"><label for="description">Inactive Reason</label><label style="color: rgb(255, 0, 0);"> *</label></td></tr>
+<tr>
+<td colspan="2"><textarea id="description" style="width: 100%; height: 190px;" onkeydown="limitText(document.getElementById('description'),2000);" onkeyup="limitText(document.getElementById('description'),2000);"></textarea> </td></tr></tbody></table></div></td></tr>
+<tr>
+<td class="ms-crm-Dialog-Footer">
+<table cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td width="100%"></td>
+<td><button class="ms-crm-Button" id="BUTTON1" onclick="XrmSolutions.CloseAccount.CloseAccount()" type="submit">Ok</button> </td>
+<td width="200"><button class="ms-crm-Button" id="BUTTON2" onclick="window.close()" type="submit">Cancel</button> </td></tr></tbody></table></td></tr></tbody></table></body></html>

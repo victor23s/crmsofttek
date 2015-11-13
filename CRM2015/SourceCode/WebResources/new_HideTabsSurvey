@@ -1,0 +1,89 @@
+/**
+ * @author rolando.pablo
+ */
+function setVisibleTabs() {
+
+    var Survey = Xrm.Page.data.entity.attributes.get("new_language").getSelectedOption();
+    if (Survey != null) {
+        if (Survey.text == "Survey 1") {
+            DisplayTabs("tab_2", true);
+            DisplayTabs("tab_3", false);
+        }
+        if (Survey.text == "Survey 2") {
+            DisplayTabs("tab_3", true);
+            DisplayTabs("tab_2", false);
+        }
+    }
+}
+
+function DisplayTabs(tabName, tabIsVisible) {
+    var tabs = Xrm.Page.ui.tabs.get();
+    for (var i in tabs) {
+        var tab = tabs[i];
+        if (tab.getName() == tabName) {
+            tab.setVisible(tabIsVisible);
+        }
+    }
+}
+
+/* ---------- Joy Yang edited at 9-20-2012 ----------
+Survey Type: new_language(100,000,000|100,000,001)
+Survey1 - Field names:
+new_responsequestion1
+new_responsequestion2
+new_responsequestion3
+new_responsequestion4
+new_responsesaveragesurvey1
+
+Survey2- Field names:
+new_responsequestion1survey2
+new_responsequestion2survey2
+new_responsequestion3survey2
+new_responsequestion4survey2
+new_responsesaveragesurvey2
+*/
+
+function eventHandlerOfField() {
+    Xrm.Page.getAttribute("new_responsequestion1").addOnChange(setResponseAverageOfSurvey);
+    Xrm.Page.getAttribute("new_responsedecimal").addOnChange(setResponseAverageOfSurvey);
+    Xrm.Page.getAttribute("new_responsequestion3").addOnChange(setResponseAverageOfSurvey);
+    Xrm.Page.getAttribute("new_responsequestion4").addOnChange(setResponseAverageOfSurvey);
+    Xrm.Page.getAttribute("new_responsequestion1survey2").addOnChange(setResponseAverageOfSurvey);
+    Xrm.Page.getAttribute("new_responsequestion2survey2").addOnChange(setResponseAverageOfSurvey);
+    Xrm.Page.getAttribute("new_responsequestion3survey2").addOnChange(setResponseAverageOfSurvey);
+    Xrm.Page.getAttribute("new_responsequestion4survey2").addOnChange(setResponseAverageOfSurvey);
+}
+
+function setResponseAverageOfSurvey() {
+    var ObjresponseAverageOfSurvey1 = Xrm.Page.getAttribute("new_responsesaveragesurvey1");
+    var count1 = 4;
+    var valS1Q1 = Xrm.Page.getAttribute("new_responsequestion1").getValue();
+    if (valS1Q1 == 0 || valS1Q1 == null) count1 = count1 - 1;
+    var valS1Q2 = Xrm.Page.getAttribute("new_responsedecimal").getValue();
+    if (valS1Q2 == 0 || valS1Q2 == null) count1 = count1 - 1;
+    var valS1Q3 = Xrm.Page.getAttribute("new_responsequestion3").getValue();
+    if (valS1Q3 == 0 || valS1Q3 == null) count1 = count1 - 1;
+    var valS1Q4 = Xrm.Page.getAttribute("new_responsequestion4").getValue();
+    if (valS1Q4 == 0 || valS1Q4 == null) count1 = count1 - 1;
+    //alert(count1);
+    var ValAvg1 = 0;
+    if (count1 != 0) ValAvg1 = (valS1Q1 + valS1Q2 + valS1Q3 + valS1Q4) / count1;
+    ObjresponseAverageOfSurvey1.setValue(ValAvg1);
+    ObjresponseAverageOfSurvey1.setSubmitMode("always");
+
+    var ObjresponseAverageOfSurvey2 = Xrm.Page.getAttribute("new_responsesaveragesurvey2");
+    var count2 = 4;
+    var valS2Q1 = Xrm.Page.getAttribute("new_responsequestion1survey2").getValue();
+    if (valS2Q1 == 0 || valS2Q1 == null) count2 = count2 - 1;
+    var valS2Q2 = Xrm.Page.getAttribute("new_responsequestion2survey2").getValue();
+    if (valS2Q2 == 0 || valS2Q2 == null) count2 = count2 - 1;
+    var valS2Q3 = Xrm.Page.getAttribute("new_responsequestion3survey2").getValue();
+    if (valS2Q3 == 0 || valS2Q3 == null) count2 = count2 - 1;
+    var valS2Q4 = Xrm.Page.getAttribute("new_responsequestion4survey2").getValue();
+    if (valS2Q4 == 0 || valS2Q4 == null) count2 = count2 - 1;
+    //alert(count2);	
+    var ValAvg2 = 0;
+    if (count2 != 0) ValAvg2 = (valS2Q1 + valS2Q2 + valS2Q3 + valS2Q4) / count2;
+    ObjresponseAverageOfSurvey2.setValue(ValAvg2);
+    ObjresponseAverageOfSurvey2.setSubmitMode("always");
+}

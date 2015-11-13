@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10004</returnedtypecode>
+  <savedqueryid>{b2ad6232-8541-4940-a723-2f40bcc98fe8}</savedqueryid>
+  <layoutxml>
+    <grid name="msa_goals" object="10004" jump="msa_name" select="1" icon="1" preview="1">
+      <row name="msa_goal" id="msa_goalid">
+        <cell name="msa_name" width="200" />
+        <cell name="ownerid" width="100" />
+        <cell name="msa_timeperiod" width="75" />
+        <cell name="msa_startdate" width="75" />
+        <cell name="msa_minimumlevel" width="75" />
+        <cell name="msa_meetlevel" width="75" />
+        <cell name="msa_exceedlevel" width="75" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="msa_goal">
+        <attribute name="msa_timeperiod" />
+        <attribute name="msa_name" />
+        <attribute name="msa_meetlevel" />
+        <attribute name="msa_minimumlevel" />
+        <attribute name="ownerid" />
+        <attribute name="msa_exceedlevel" />
+        <attribute name="msa_startdate" />
+        <attribute name="msa_goalid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <order attribute="msa_startdate" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Goal Associated View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

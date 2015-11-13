@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4210</returnedtypecode>
+  <savedqueryid>{04f1599c-09e1-40d5-a493-b25165f2c3c3}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4210" jump="subject" select="1" icon="1" preview="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="to" width="100" disableSorting="1" />
+        <cell name="phonenumber" width="100" />
+        <cell name="directioncode" width="100" />
+        <cell name="new_calltype" width="100" />
+        <cell name="leftvoicemail" width="100" />
+        <cell name="description" width="100" disableSorting="1" />
+        <cell name="ownerid" width="100" />
+        <cell name="scheduledstart" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="phonecall">
+        <attribute name="subject" />
+        <attribute name="statecode" />
+        <attribute name="prioritycode" />
+        <attribute name="scheduledend" />
+        <attribute name="createdby" />
+        <order attribute="subject" descending="false" />
+        <attribute name="regardingobjectid" />
+        <attribute name="phonenumber" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="leftvoicemail" />
+        <attribute name="directioncode" />
+        <attribute name="description" />
+        <attribute name="createdon" />
+        <attribute name="to" />
+        <attribute name="scheduledstart" />
+        <attribute name="new_calltype" />
+        <attribute name="ownerid" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Phone Call Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada a la llamada de teléfono" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

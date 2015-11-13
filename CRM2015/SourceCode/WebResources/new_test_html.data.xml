@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{671e3d13-f2c2-e211-afc7-78e7d1622fed}</WebResourceId>
+  <Name>new_test_html</Name>
+  <DisplayName>test_html</DisplayName>
+  <Description>Pruebas de concepto para revisar la creacion de un web page</Description>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_test_html671E3D13-F2C2-E211-AFC7-78E7D1622FED</FileName>
+</WebResource>

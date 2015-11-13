@@ -1,0 +1,18 @@
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../Utility/DynamicForm.js" />
+function loadLogic() {
+    var $dynamicFormWRUrl = "../WebResources/new_softtek_scripts_util_dynamicform";
+    var $xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+    $xmlHttp.open("GET", $dynamicFormWRUrl, false);
+    $xmlHttp.send();
+    eval($xmlHttp.responseText);
+
+    STK.Forms.User = {
+        __initialize: function () {},
+        onLoad: function () {
+            this.__initialize();
+        }
+    };
+
+    STK.Forms.User.onLoad();
+}

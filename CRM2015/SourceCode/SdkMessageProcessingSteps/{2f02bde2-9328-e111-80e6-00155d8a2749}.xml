@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.PreConfigurationValidator: Create of msdyn_postconfig with Post Stage in Stage 40 and Rank 2" SdkMessageProcessingStepId="{2f02bde2-9328-e111-80e6-00155d8a2749}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.PreConfigurationValidator, ActivityFeeds.Filtering.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_postconfig</PrimaryEntity>
+</SdkMessageProcessingStep>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Business Unit" OriginalName="Business Unit">BusinessUnit</Name>
+  <ObjectTypeCode>10</ObjectTypeCode>
+  <FormXml />
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

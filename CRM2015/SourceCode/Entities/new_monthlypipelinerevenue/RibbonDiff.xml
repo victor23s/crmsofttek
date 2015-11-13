@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="Mscrm.new_monthlypipelinerevenue.form.Calculate.CustomAction" Location="Mscrm.Form.new_monthlypipelinerevenue.MainTab.Actions.Controls._children" Sequence="1">
+      <CommandUIDefinition>
+        <Button Id="Mscrm.new_monthlypipelinerevenue.form.Calculate.Button" Command="Mscrm.new_monthlypipelinerevenue.form.Calculate.Command" LabelText="Calculate" ToolTipTitle="Calculate" ToolTipDescription="Calculate" TemplateAlias="o1" Image16by16="/_imgs/SFA/ActivateQuote_16.png" Image32by32="/_imgs/SFA/ActivateQuote_32.png" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.new_monthlypipelinerevenue.form.Calculate.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.new_monthlypipelinerevenue.form.New.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.new_monthlypipelinerevenue.form.New.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction Library="$webresource:new_MPR_main_library" FunctionName="retrievedata_onclick" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.new_monthlypipelinerevenue.form.New.DisplayRule">
+        <FormStateRule State="Create" InvertResult="false" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.new_monthlypipelinerevenue.form.New.EnableRule">
+        <ValueRule Field="new_estimatedrevenue" Value="null" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

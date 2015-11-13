@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualization>
+  <savedqueryvisualizationid>{EDF35649-5293-DE11-97D4-00155DA3B01E}</savedqueryvisualizationid>
+  <datadescription>
+    <datadefinition>
+      <fetchcollection>
+        <fetch mapping="logical" aggregate="true">
+          <entity name="activitypointer">
+            <attribute groupby="true" alias="groupby_column" name="scheduledend" dategrouping="month" />
+            <attribute alias="aggregate_column" name="subject" aggregate="count" />
+          </entity>
+        </fetch>
+      </fetchcollection>
+      <categorycollection>
+        <category>
+          <measurecollection>
+            <measure alias="aggregate_column" />
+          </measurecollection>
+        </category>
+      </categorycollection>
+    </datadefinition>
+  </datadescription>
+  <presentationdescription>
+    <Chart>
+      <Series>
+        <Series IsValueShownAsLabel="True" BorderWidth="3" ChartType="Line" Color="91, 151, 213" MarkerStyle="Square" MarkerSize="9" MarkerColor="37, 128, 153"></Series>
+      </Series>
+      <ChartAreas>
+        <ChartArea BorderColor="White">
+          <AxisY LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid LineColor="239, 242, 230" />
+            <MajorTickMark LineColor="165, 172, 181" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisY>
+          <AxisX LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid Enabled="False" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisX>
+        </ChartArea>
+      </ChartAreas>
+      <Titles>
+        <Title Name="Chart Title" DockingOffset="-3" Font="{0}, 13px" ForeColor="59, 59, 59" Alignment="TopLeft"></Title>
+      </Titles>
+    </Chart>
+  </presentationdescription>
+  <isdefault>0</isdefault>
+  <LocalizedNames>
+    <LocalizedName description="Activities by Month Due" languagecode="1033" />
+    <LocalizedName description="Actividades por mes de vencimiento" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the total number of activities by month due." languagecode="1033" />
+    <Description description="Muestra el número total de actividades por mes de vencimiento." languagecode="3082" />
+  </Descriptions>
+  <IntroducedVersion>1.0</IntroducedVersion>
+</visualization>

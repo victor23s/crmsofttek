@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4202</returnedtypecode>
+  <savedqueryid>{fbb9eb64-31d8-4d03-b580-0f22d5a72482}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4202" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="from" disableSorting="1" width="250" />
+        <cell name="to" width="100" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="prioritycode" width="140" />
+        <cell name="modifiedon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="email">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="to" />
+        <attribute name="regardingobjectid" />
+        <attribute name="activityid" />
+        <attribute name="prioritycode" />
+        <attribute name="from" />
+        <attribute name="modifiedon" />
+        <link-entity name="activityparty" from="activityid" to="activityid" alias="a_a47d7c2f94f34704917b314b6c9f768f">
+          <filter type="and">
+            <filter type="or">
+              <condition attribute="participationtypemask" operator="eq" value="2" />
+              <condition attribute="participationtypemask" operator="eq" value="3" />
+              <condition attribute="participationtypemask" operator="eq" value="4" />
+            </filter>
+            <condition attribute="partyid" operator="eq-userid" />
+          </filter>
+        </link-entity>
+        <link-entity name="activityparty" from="activityid" to="activityid" alias="a_6f7e1e5934684c8db8640b0255fc6843">
+          <filter type="and">
+            <condition attribute="participationtypemask" operator="eq" value="1" />
+            <condition attribute="partyid" operator="null" />
+          </filter>
+        </link-entity>
+        <filter type="and">
+          <condition attribute="statuscode" operator="eq" value="4" />
+          <condition attribute="statecode" operator="eq" value="1" />
+          <condition attribute="directioncode" operator="eq" value="0" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Received E-mails with Unresolved Senders" languagecode="1033" />
+    <LocalizedName description="Mis correos electrónicos recibidos con remitentes sin resolver" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

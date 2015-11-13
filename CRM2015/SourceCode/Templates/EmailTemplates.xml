@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EmailTemplates>
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{17bdc1a3-87d5-e011-8a63-1cc1dee8aa5f}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>8</templatetypecode>
+    <body></body>
+    <title>ABM Cuentas</title>
+    <description>ABM Nominación de Cuentas</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{64a0dcd7-86d5-e011-8a63-1cc1dee8aa5f}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>1</templatetypecode>
+    <body></body>
+    <title>ABM de Cuentas SHH</title>
+    <description>Mail automático cuando se produce una creación y/o reasignación de una cuenta.</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{b6c38bb9-2423-1033-8b38-e3b99ed80e7a}" name="Account Reconnect" description="Use this template to reopen the lines of communication with a customer you have not been in contact with for a while." unmodified="1" />
+  <emailtemplate id="{2d04f79d-7946-3082-9061-25ad38f36fbc}" name="Agradecimiento de pedido" description="Use esta plantilla cuando desee agradecer a un cliente que haya realizado un pedido." unmodified="1" />
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{8f57a574-8a0a-e311-8be4-78e3b511b603}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>4214</templatetypecode>
+    <body></body>
+    <title>Attachments2</title>
+    <description>---</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{719edb17-8a0a-e311-8be4-78e3b511b603}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>8</templatetypecode>
+    <body></body>
+    <title>Attachments</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{e99e102a-7f0a-e311-8ab3-78e3b5115627}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>4</templatetypecode>
+    <body></body>
+    <title>BPO eCommerce Title</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <templateid>{9a3aa696-2a23-4460-a87c-10ae475e3231}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <mimetype></mimetype>
+    <templatetypecode>4700</templatetypecode>
+    <body></body>
+    <title>Bulk Deletion Task Completed With Failure Template</title>
+    <description>Use this e-mail template for sending notification to system users on completion of bulk deletion task with some failures.</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>3</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <templateid>{5351049b-c2a4-4335-8789-e4fa8b8b319e}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <mimetype></mimetype>
+    <templatetypecode>4700</templatetypecode>
+    <body></body>
+    <title>Bulk Deletion Task Completion Template</title>
+    <description>Use this e-mail template for sending notification to system users on successful completion of bulk deletion task.</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>2</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <templateid>{df7251b7-038b-41fc-9b0a-bb9f79011712}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <mimetype></mimetype>
+    <templatetypecode>4700</templatetypecode>
+    <body></body>
+    <title>Bulk Deletion Task Failed Template</title>
+    <description>Use this e-mail template for sending notification to system users when of bulk deletion task failed to complete.</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>4</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{dfd4fdf0-902e-450b-a4d6-71feb7bd0b41}" name="Case Auto Response" description="Use this template to send an autoresponse to customer when a case is created." unmodified="1" />
+  <emailtemplate id="{9de6f929-bed5-40d4-a0af-d4d48b6cf29c}" name="Case Escalation" description="Use this template to inform a customer that you have not forgotten about his or her request and that the customer's case has been reassigned to a specialist for resolution." unmodified="1" />
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{14859696-003d-e111-8dd6-1cc1dee8ea69}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>2</templatetypecode>
+    <body></body>
+    <title>Chinese New Year greeting</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{b4bb483d-0612-46de-ab0f-056f7f861972}" name="Closed Case Acknowledgement" description="Use this template to inform customers that their case has been closed and to give them a contact to follow up with." unmodified="1" />
+  <emailtemplate id="{a330c99f-5f9c-3082-89ca-22546601cdd6}" name="Comunicación de marketing de confirmación de cancelación de suscripción" description="Use esta plantilla de mensaje de correo electrónico para enviar a los clientes confirmaciones durante la cancelación automática de suscripciones." unmodified="1" />
+  <emailtemplate id="{340ac51c-ce7c-3082-8ea7-987d7123c825}" name="Confirmación de nuevo caso" description="Use esta plantilla para informar a los clientes de que se ha abierto un caso para tratar su problema y proporcionarles un contacto con quien deben comunicarse en el futuro." unmodified="1" />
+  <emailtemplate id="{039ee1b3-665d-3082-9478-70a8059bcf83}" name="Confirmación de que se ha cerrado el caso" description="Use esta plantilla para informar a los clientes de que se han cerrado sus casos y para proporcionarles el nombre de la persona con la que pueden seguir en contacto." unmodified="1" />
+  <emailtemplate id="{07b94c1d-c85f-1033-b120-f0a743c540e6}" name="Contact Reconnect" description="Use this template to reopen the lines of communication with a customer you have not been in contact with for a while." unmodified="1" />
+  <emailtemplate id="{ca6cb044-60e7-4f73-a957-9ccb4ec2e2fc}" name="Contract Expiration Notification" description="Use this template to notify customers that their contracts will expire soon and how to follow up on renewing one." unmodified="1" />
+  <emailtemplate id="{b6c38bb9-2423-471d-8b38-e3b99ed80e7a}" name="Customer Reconnect : (Version 4.0.0.0)" description="Use this template to reopen the lines of communication with a customer you have not been in contact with for a while." unmodified="1" />
+  <emailtemplate id="{07b94c1d-c85f-492f-b120-f0a743c540e6}" name="Customer Reconnect" description="Use this template to reopen the lines of communication with a customer you have not been in contact with for a while." unmodified="1" />
+  <emailtemplate>
+    <templateid>{25249025-91fa-43c1-8c38-1f6bc14221c3}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <mimetype></mimetype>
+    <templatetypecode>4700</templatetypecode>
+    <body></body>
+    <title>Duplicate Detection Task Completion Template</title>
+    <description>Use this e-mail template for sending notification to system users on successful completion of duplicate detection task.</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>1</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{23d872be-1a25-3082-b48a-6f4052556dfd}" name="Elevación de caso" description="Use esta plantilla para informar a un cliente de que se está trabajando en su solicitud y de que su caso se ha asignado a un especialista para que lo solucione." unmodified="1" />
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{f6c21ddf-03e6-df11-a7e1-001f29c88d40}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>2</templatetypecode>
+    <body></body>
+    <title>E-mail template for China – Latin America Summit</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{9245e3ee-f7c8-4f8e-8a49-e1de50cb1203}" name="Follow-Up to Our Meeting" description="Use this template when you want to thank an opportunity for meeting with you about future business and to reiterate how you will be following up with him or her." unmodified="1" />
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{55609cf9-bc71-e011-8e24-d8d385e6a5ef}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>2</templatetypecode>
+    <body></body>
+    <title>Genworth MI</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{e44b6c27-ffbc-3082-9f7b-d03861e9108a}" name="Gracias por registrarse con nosotros" unmodified="1" />
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{d68e5b4a-664c-df11-a6e4-001f29c839a0}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>2</templatetypecode>
+    <body></body>
+    <title>Greeting letter to IT Showcase 2010</title>
+    <description>Greeting Letter to all the prospect customers</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{5a8b8157-994b-e111-8c38-1cc1de780841}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>4</templatetypecode>
+    <body></body>
+    <title>hjh</title>
+    <description>khkh</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <templateid>{ba699c93-6b75-4318-b129-59e2fe4cf0ca}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <mimetype>text/html</mimetype>
+    <templatetypecode>4700</templatetypecode>
+    <body></body>
+    <title>Import Data Task Completion Template</title>
+    <description>Use this e-mail template for sending notification to system users on successful completion of Import task.</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>5</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <templateid>{85850450-865b-4465-8e86-66ac848df3b9}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <mimetype>text/html</mimetype>
+    <templatetypecode>4700</templatetypecode>
+    <body></body>
+    <title>Import Data Task Failure Template</title>
+    <description>Use this e-mail template for sending notification to system users on failure of Import task.</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>6</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{74cee5f4-1612-e111-8e90-1cc1dee8ea69}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>4</templatetypecode>
+    <body></body>
+    <title>IMTC: Thanks for visiting us at event and survey</title>
+    <description>Follow up on lead email campaign (IMTC 2011 post event follow up)</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{2ca2b0b7-29bc-40a1-b2a5-5ab1fe7543e5}" name="Lead Reply - Trade Show Visit" description="Use this template when you want to thank a lead for coming to your booth at a trade show and to let the lead know who will be responding to his or her request for more information." unmodified="1" />
+  <emailtemplate id="{b5e9616e-f6df-4e9e-8b79-388085602e4a}" name="Lead Reply-Web Site Visit" description="Use this template when you want to thank a lead for visiting your Web site and to let the lead know who will be responding to his or her request for more information." unmodified="1" />
+  <emailtemplate id="{f9a2e605-858b-4225-a1a3-bab79a953cb0}" name="Lost Opportunity Notification (Internal)" description="This template is triggered when you want to provide automatic notifications about an opportunity that was lost." unmodified="1" />
+  <emailtemplate id="{274f51ce-304e-4f1d-a959-ce3b8a39f7dc}" name="Lost Opportunity Response-Customer" description="Use this template when you want to respond to a lost opportunity and let the opportunity know your organization is still open to doing business with him or her." unmodified="1" />
+  <emailtemplate id="{7cdc528e-9c3e-4170-b04f-97a30fb736c9}" name="Marketing communication unsubscribe acknowledgement" description="Use this e-mail template for sending acknowledgement to customers during auto unsubscribe." unmodified="1" />
+  <emailtemplate id="{9bdfd720-030e-1033-a94f-6183b527f84c}" name="Marketing Event Notification : (Version 5.0.0.0)" description="Use this template to notify your customers of an upcoming trade show or event that your organization or business unit will be attending." unmodified="1" />
+  <emailtemplate id="{9bdfd720-030e-4bf7-a94f-6183b527f84c}" name="Marketing Event Notification" description="Use this template to notify your customers of an upcoming trade show or event that your organization or business unit will be attending." unmodified="1" />
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{2acba97c-342d-e111-8dc2-1cc1de780841}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>8</templatetypecode>
+    <body></body>
+    <title>Merry Christmas and Happy New Year!</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{d0b742b5-e945-4073-981c-11c0beb4e2b1}" name="New Case Acknowledgement" description="Use this template to inform customers that their problem has been opened as a case and to give them a contact to follow up with." unmodified="1" />
+  <emailtemplate id="{f62f950a-19ef-4e5d-9ad7-7abb9a75ed3e}" name="New Opportunity Creation Notification (Internal)" description="This template is triggered when you want to provide automatic notifications about potential opportunities, including potential revenue and an estimated close date." unmodified="1" />
+  <emailtemplate id="{72d0d6d0-61d9-3082-b8b9-89642243c13b}" name="Notificación de caducidad de contrato" description="Use esta plantilla para notificar a los clientes que la fecha de caducidad de sus contratos está próxima e indicarles qué hacer para renovarlos." unmodified="1" />
+  <emailtemplate id="{0789abc1-036c-3082-bc2a-160e726ee4dc}" name="Notificación de creación de nueva oportunidad (interna)" description="Esta plantilla aparece cuando desea proporcionar notificaciones automáticas sobre oportunidades potenciales, incluidos los ingresos potenciales y una fecha de cierre estimada." unmodified="1" />
+  <emailtemplate id="{aeef67ba-fa3a-3082-9fcc-f4bdf6ee9abb}" name="Notificación de evento de marketing" description="Use esta plantilla para notificar a los clientes la celebración de una feria comercial o un evento al que va asistir su organización o unidad de negocio." unmodified="1" />
+  <emailtemplate id="{a4091f7f-cccd-3082-bb4d-1c2d83104c83}" name="Notificación de oportunidad lograda (interna)" description="Esta plantilla aparece cuando desea proporcionar notificaciones automáticas sobre una oportunidad lograda." unmodified="1" />
+  <emailtemplate id="{81b48e38-c546-3082-aa8f-540c31fafa04}" name="Notificación de oportunidad perdida (interna)" description="Esta plantilla aparece cuando desea proporcionar notificaciones automáticas sobre una oportunidad perdida." unmodified="1" />
+  <emailtemplate id="{fe0c0f2b-03fd-4c5b-94ca-158c49e0c656}" name="Order Thank You" description="Use this template when you want to thank a customer for placing an order with you." unmodified="1" />
+  <emailtemplate id="{4adeadcc-db6e-3082-8e35-f436cc099d5a}" name="Plantilla de error de tarea de eliminación en masa" description="Use esta plantilla de correo electrónico para enviar una notificación a los usuarios del sistema cuando la tarea de eliminación en masa no se pueda completar." unmodified="1" />
+  <emailtemplate id="{d880c7d0-487e-3082-80f4-ca99e853b58e}" name="Plantilla de error de tarea de importación de datos" description="Use esta plantilla de correo electrónico para enviar una notificación a los usuarios del sistema que indique que no se pudo completar la tarea de importación." unmodified="1" />
+  <emailtemplate id="{71e3364b-0190-3082-a131-5045aab42056}" name="Plantilla de finalización de tarea de detección de duplicados" description="Use esta plantilla de correo electrónico para enviar una notificación a los usuarios del sistema que indique que la tarea de detección de duplicados finalizó correctamente." unmodified="1" />
+  <emailtemplate id="{f348d8a6-c23a-3082-a693-f46aad9ea206}" name="Plantilla de finalización de tarea de eliminación en masa" description="Use esta plantilla de correo electrónico para enviar una notificación a los usuarios del sistema que indique que la tarea de eliminación en masa finalizó correctamente." unmodified="1" />
+  <emailtemplate id="{6399d160-3ae3-3082-8c01-1b21e46c9613}" name="Plantilla de finalización de tarea de importación de datos" description="Use esta plantilla de correo electrónico para enviar una notificación a los usuarios del sistema que indique que la tarea de importación finalizó correctamente." unmodified="1" />
+  <emailtemplate id="{409569dd-90e5-3082-81a7-6bd673bce326}" name="Plantilla de tarea de eliminación en masa completada con errores" description="Use esta plantilla de correo electrónico para enviar una notificación a los usuarios del sistema que indique que se produjeron algunos errores al realizarse la eliminación en masa." unmodified="1" />
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{4003db8e-8b0c-e311-8ab3-78e3b5115627}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>4</templatetypecode>
+    <body></body>
+    <title>Prueba de Datos</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{9d38bcb2-0b9e-3082-a17e-d97161ca7333}" name="Respuesta a cliente potencial - Visita a feria comercial" description="Use esta plantilla cuando desee agradecer a un cliente potencial la visita a su stand de la feria y comunicarle que va a responder a su solicitud de más información." unmodified="1" />
+  <emailtemplate id="{e1461a48-9872-3082-a88e-a54f5c13b510}" name="Respuesta a cliente potencial - Visita a sitio Web" description="Use esta plantilla cuando desee agradecer a un cliente potencial la visita a su sitio Web y comunicarle que va a responder a su solicitud de más información." unmodified="1" />
+  <emailtemplate id="{dfd4fdf0-902e-3082-a4d6-71feb7bd0b41}" name="Respuesta de caso automática" description="Use esta plantilla para enviar una respuesta automática al cliente al crear un caso." unmodified="1" />
+  <emailtemplate id="{a9fe2ea5-e459-3082-8fb3-8c97c863bc27}" name="Respuesta de oportunidad perdida - Cliente" description="Use esta plantilla cuando desee responder a una oportunidad perdida y hacerle saber que la organización sigue dispuesta a tener relaciones comerciales con ella." unmodified="1" />
+  <emailtemplate id="{228b6a09-7e08-3082-a91f-d1d5d0706f94}" name="Restablecer contacto con cliente" description="Use esta plantilla para restablecer la comunicación con un cliente con quien no ha tenido contacto durante un tiempo." unmodified="1" />
+  <emailtemplate id="{18dda1ce-11a4-3082-908f-03ac88fb8950}" name="Seguimiento de nuestra reunión" description="Use esta plantilla cuando desee agradecer la oportunidad de reunirse con usted para hablar de futuras relaciones comerciales y volver a indicar cómo llevará a cabo el seguimiento con el cliente." unmodified="1" />
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{0ad6153a-b846-e111-8dd6-1cc1dee8ea69}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>8</templatetypecode>
+    <body></body>
+    <title>Std</title>
+    <description>Standard</description>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate id="{7816b01c-efa8-4396-8ba5-0b6b72da5c08}" name="Thank you for registering with us" unmodified="1" />
+  <emailtemplate id="{603b836d-8fec-3082-bac6-c66e9e11e0ab}" name="Volver a contactar con cliente" description="Use esta platilla para volver a abrir las líneas de comunicación con un cliente con el que lleva mucho tiempo sin entrar en contacto." unmodified="1" />
+  <emailtemplate id="{07ffe941-8458-4a7a-8493-2863fa7f8cc1}" name="Won Opportunity Notification (Internal)" description="This template is triggered when you want to provide automatic notifications about an opportunity that was won." unmodified="1" />
+</EmailTemplates>

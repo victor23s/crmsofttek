@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>3</returnedtypecode>
+  <savedqueryid>{1a2ed2df-fc42-e111-8dd6-1cc1dee8ea69}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="3" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="opportunityid">
+        <cell name="new_opportunityid" width="100" />
+        <cell name="name" width="150" />
+        <cell name="customerid" width="100" />
+        <cell name="new_opportunitytypeopp" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="transactioncurrencyid" width="100" />
+        <cell name="estimatedvalue" width="100" />
+        <cell name="estimatedclosedate" width="100" />
+        <cell name="actualvalue" width="100" />
+        <cell name="actualclosedate" width="100" />
+        <cell name="salesstagecode" width="100" />
+        <cell name="new_forecaststatus" width="100" />
+        <cell name="new_marketscope_opp" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_softtekcountryopp" width="100" />
+        <cell name="new_softtekvertical1" width="100" />
+        <cell name="new_serviceoffering" width="100" />
+        <cell name="new_deliverymodelopp" width="100" />
+        <cell name="new_technologygroup" width="100" />
+        <cell name="new_opportynitysource" width="100" />
+        <cell name="new_estimatedmonthlyrevenue" width="100" />
+        <cell name="new_estimatedprojectduration" width="100" />
+        <cell name="new_estimatedprojectstartdate" width="100" />
+        <cell name="new_estimatedprojectenddate" width="100" />
+        <cell name="new_multiyearopp" width="100" />
+        <cell name="new_multiyearsale" width="100" />
+        <cell name="new_newcustomerinyear" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="opportunity">
+        <attribute name="statecode" />
+        <attribute name="new_softtekvertical1" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountryopp" />
+        <attribute name="new_serviceoffering" />
+        <attribute name="salesstagecode" />
+        <attribute name="ownerid" />
+        <attribute name="new_newcustomerinyear" />
+        <attribute name="new_multiyearopp" />
+        <attribute name="new_marketscope_opp" />
+        <attribute name="new_forecaststatus" />
+        <attribute name="estimatedvalue" />
+        <attribute name="estimatedclosedate" />
+        <attribute name="transactioncurrencyid" />
+        <attribute name="actualvalue" />
+        <attribute name="customerid" />
+        <attribute name="actualclosedate" />
+        <attribute name="name" />
+        <attribute name="new_opportunitytypeopp" />
+        <attribute name="new_opportynitysource" />
+        <attribute name="new_multiyearsale" />
+        <attribute name="new_estimatedprojectstartdate" />
+        <attribute name="new_estimatedprojectenddate" />
+        <attribute name="new_estimatedprojectduration" />
+        <attribute name="new_estimatedmonthlyrevenue" />
+        <attribute name="new_deliverymodelopp" />
+        <attribute name="new_technologygroup" />
+        <attribute name="new_opportunityid" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="new_softtekmarket" operator="eq" value="100000000" />
+          <condition attribute="statecode" operator="eq" value="1" />
+          <condition attribute="actualclosedate" operator="on-or-after" value="2011-01-01" />
+          <condition attribute="createdby" operator="in">
+            <value uiname="Elena Warburton" uitype="systemuser">{659E065A-82F2-DD11-8961-001E0B4616F4}</value>
+            <value uiname="Eduardo Cano" uitype="systemuser">{1CE51973-D47F-E011-8D09-78E7D1623F15}</value>
+            <value uiname="Mariam Alexanian" uitype="systemuser">{88D998AC-A067-DF11-8B90-001F29C8D3AC}</value>
+          </condition>
+        </filter>
+        <attribute name="opportunityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Won Opps - USA &amp; Canada LG - Last Year" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

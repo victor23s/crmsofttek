@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4201</returnedtypecode>
+  <savedqueryid>{939d9171-7353-4dc7-804e-cbb31a2b2448}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4201" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="requiredattendees" disableSorting="1" width="150" />
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="location" width="100" />
+        <cell name="scheduledstart" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="new_appointmenttype" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+      <entity name="appointment">
+        <attribute name="subject" />
+        <attribute name="scheduledstart" />
+        <attribute name="scheduledend" />
+        <attribute name="regardingobjectid" />
+        <attribute name="location" />
+        <attribute name="requiredattendees" />
+        <order attribute="scheduledstart" descending="true" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="1" />
+        </filter>
+        <link-entity name="activityparty" from="activityid" to="activityid" alias="a_6cbddca194a546ca92d47a724a9b31a9">
+          <filter type="and">
+            <condition attribute="partyid" operator="eq-userid" />
+            <condition attribute="participationtypemask" operator="in">
+              <value>7</value>
+              <value>9</value>
+              <value>5</value>
+              <value>6</value>
+            </condition>
+          </filter>
+        </link-entity>
+        <attribute name="new_appointmenttype" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Completed Appointments" languagecode="1033" />
+    <LocalizedName description="Mis citas completadas" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays completed Appointments the current user owns." languagecode="1033" />
+    <Description description="Muestra las citas completadas que son propiedad del usuario actual." languagecode="3082" />
+  </Descriptions>
+</savedquery>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.WallSavedQuery: SetStateDynamicEntity of msdyn_wallsavedquery" SdkMessageProcessingStepId="{b79c5cdb-6494-4e94-b164-420ea8a0fbe4}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.WallSavedQuery, ActivityFeeds.Filtering.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_wallsavedquery</PrimaryEntity>
+</SdkMessageProcessingStep>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4406</returnedtypecode>
+  <savedqueryid>{ba825777-1a7b-4837-8778-b86904d1115c}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4406" jump="subject" select="1" icon="1" preview="0" iconrenderer="Crm.MiniCampaignsIcon">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="createdrecordtypecode" width="150" />
+        <cell name="targetmemberscount" width="150" />
+        <cell name="successcount" width="150" />
+        <cell name="failurecount" width="150" />
+        <cell name="statuscode" width="150" />
+        <cell name="createdon" width="100" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="bulkoperation">
+        <attribute name="activityid" />
+        <attribute name="subject" />
+        <order attribute="createdon" descending="true" />
+        <attribute name="createdrecordtypecode" />
+        <attribute name="statuscode" />
+        <attribute name="targetmemberscount" />
+        <attribute name="createdon" />
+        <attribute name="ownerid" />
+        <attribute name="successcount" />
+        <attribute name="failurecount" />
+        <filter type="and">
+          <condition attribute="operationtypecode" operator="eq" value="7" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Quick Campaigns" languagecode="1033" />
+    <LocalizedName description="Todas las campa?as exprés" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

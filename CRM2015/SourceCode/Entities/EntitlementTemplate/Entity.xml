@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Entitlement Template" OriginalName="">EntitlementTemplate</Name>
+  <ObjectTypeCode>9702</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

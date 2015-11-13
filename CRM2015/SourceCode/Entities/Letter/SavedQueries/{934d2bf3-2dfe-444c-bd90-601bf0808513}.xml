@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4207</returnedtypecode>
+  <savedqueryid>{934d2bf3-2dfe-444c-bd90-601bf0808513}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4207" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="statecode" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="regardingobjectid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="letter">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="statecode" />
+        <attribute name="prioritycode" />
+        <attribute name="scheduledend" />
+        <attribute name="createdby" />
+        <attribute name="regardingobjectid" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Letter Advanced Find View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda avanzada de cartas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

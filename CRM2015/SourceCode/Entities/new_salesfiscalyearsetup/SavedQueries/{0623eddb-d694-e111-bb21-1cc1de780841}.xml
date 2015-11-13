@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10034</returnedtypecode>
+  <savedqueryid>{0623eddb-d694-e111-bb21-1cc1de780841}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10034" jump="new_name" select="1" preview="1" icon="1">
+      <row name="result" id="new_salesfiscalyearsetupid">
+        <cell name="new_fiscalyear" width="100" />
+        <cell name="new_pipeline" width="100" />
+        <cell name="new_sales" width="100" />
+        <cell name="new_renovations" width="100" />
+        <cell name="new_backlog" width="100" />
+        <cell name="new_revenue" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="new_salesfiscalyearsetup">
+        <order attribute="new_fiscalyear" descending="false" />
+        <attribute name="new_sales" />
+        <attribute name="new_revenue" />
+        <attribute name="new_renovations" />
+        <attribute name="new_pipeline" />
+        <attribute name="new_fiscalyear" />
+        <attribute name="new_backlog" />
+        <attribute name="new_salesfiscalyearsetupid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Sales - Fiscal Year Plan" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

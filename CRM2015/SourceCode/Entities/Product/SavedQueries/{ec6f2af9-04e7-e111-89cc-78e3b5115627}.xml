@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1024</returnedtypecode>
+  <savedqueryid>{ec6f2af9-04e7-e111-89cc-78e3b5115627}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="1024" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="productid">
+        <cell name="name" width="150" />
+        <cell name="createdon" width="100" />
+        <cell name="productnumber" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="product">
+        <attribute name="productnumber" />
+        <attribute name="createdon" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="new_sftktipodeproducto" operator="eq" value="100000002" />
+        </filter>
+        <attribute name="name" />
+        <attribute name="productid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="servicio" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

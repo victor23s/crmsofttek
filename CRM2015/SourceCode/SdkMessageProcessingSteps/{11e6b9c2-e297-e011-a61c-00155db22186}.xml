@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.AnnotationUpdate: Update of wall saved query (No-Op)" SdkMessageProcessingStepId="{11e6b9c2-e297-e011-a61c-00155db22186}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.AnnotationUpdate, ActivityFeeds.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_wallsavedquery</PrimaryEntity>
+</SdkMessageProcessingStep>

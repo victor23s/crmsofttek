@@ -1,0 +1,139 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Assign Test</TITLE>
+<SCRIPT type=text/javascript src="../ClientGlobalContext.js.aspx"></SCRIPT>
+
+<SCRIPT type=text/javascript src="Scripts/SDK.REST.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="Scripts/SDK.SOAPSample.Assign.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="Scripts/json2.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+  var resultsArea = null;
+  var userid;
+  var Opportunityid;
+  var userLookup;
+  var OpportunityLookup;
+  var OpportunitysToShow = 10;
+  var usersToShow = 10;
+  var users = [];
+  var Opportunitys = [];
+
+  document.onreadystatechange = function () {
+   ///<summary>
+   /// Initializes the sample when the document is ready
+   ///</summary>
+   if (document.readyState == "complete") {
+    userid = document.getElementById("userid");
+    Opportunityid = document.getElementById("Opportunityid");
+    resultsArea = document.getElementById("results");
+    userLookup = document.getElementById("userLookup");
+    OpportunityLookup = document.getElementById("OpportunityLookup");
+
+    populateUserLookup();
+    populateOpportunityLookup();
+
+   }
+  }
+
+  function testAssign() {
+   //The field to enter the user id of the person the Opportunity record should be assigned to.
+   userid.value;
+   // The field to enter the Opportunity id of the Opportunity record to assign to the user
+   Opportunityid.value;
+   // Since the response does not include any data to parse, simply display a success message.
+   var successCallback = function () { setText(resultsArea, "Success!"); };
+   // Display the error from the message passed back from the response.
+   var errorCallback = function (error) { setText(resultsArea,"errorCallback error: "+error.message); };
+   // Call the function
+   try {
+    SDK.SOAPSamples.assignRequest(userid.value, Opportunityid.value, "Opportunity", successCallback, errorCallback);
+   }
+   catch (e) {
+   alert ("error");
+    setText(resultsArea, e.message);
+   }
+
+  }
+
+  function populateUserLookup() {
+   SDK.REST.retrieveMultipleRecords("SystemUser",
+   "$top=" + usersToShow + "&$select=FullName,SystemUserId&$filter=FullName ne 'INTEGRATION' and FullName ne 'SYSTEM'",
+   function (results) {
+    for (var i = 0; i < results.length; i++) {
+     users.push(results[i]);
+    }
+   },
+   function (error) {
+    alert(error.message);
+   },
+   function () {
+    for (var i = 0; i < users.length; i++) {
+     var user = users[i];
+     userLookup.options[i] = new Option(user.FullName, user.SystemUserId);
+    }
+    userid.value = userLookup.options[0].value;
+
+    userLookup.onchange = function () {
+     userid.value = userLookup.options[userLookup.selectedIndex].value;
+     clearMessage();
+    };
+
+   });
+  }
+
+  function populateOpportunityLookup() {
+   SDK.REST.retrieveMultipleRecords("Opportunity",
+    "$top=" + OpportunitysToShow + "&$select=OpportunityId,Name,OwnerId",
+   function (results) {
+    for (var i = 0; i < results.length; i++) {
+     Opportunitys.push(results[i]);
+
+    }
+   },
+   function (error) {
+    alert(error.message);
+   },
+   function () {
+    for (var i = 0; i < Opportunitys.length; i++) {
+     var Opportunity = Opportunitys[i];
+     OpportunityLookup.options[i] = new Option(Opportunity.Name + " : " + Opportunity.OwnerId.Name, Opportunity.OpportunityId);
+
+    }
+    Opportunityid.value = OpportunityLookup.options[0].value;
+
+    OpportunityLookup.onchange = function () {
+     Opportunityid.value = OpportunityLookup.options[OpportunityLookup.selectedIndex].value;
+     clearMessage();
+    };
+   });
+  }
+
+  function clearMessage() {
+   setText(resultsArea, "");
+  }
+
+  function setText(element, text) {
+   if (typeof (element.innerText) != "undefined") {
+    element.innerText = text;
+   }
+   else {
+    element.textContent = text;
+   }
+
+  }
+
+ </SCRIPT>
+
+<META charset=utf-8></HEAD>
+<BODY>
+<TABLE>
+<TBODY>
+<TR>
+<TD><LABEL for=userid>SystemUserId:</LABEL> </TD>
+<TD><INPUT style="WIDTH: 270px" id=userid> </TD>
+<TD><SELECT id=userLookup></SELECT> </TD></TR>
+<TR>
+<TD><LABEL for=Opportunityid>Opportunity:</LABEL> </TD>
+<TD><INPUT style="WIDTH: 270px" id=Opportunityid> </TD>
+<TD><SELECT id=OpportunityLookup></SELECT> </TD></TR></TBODY></TABLE><BUTTON id=testAssign title="Click this button to test the testAssign function." onclick=testAssign();>Test Assign</BUTTON> 
+<DIV id=results>&nbsp;</DIV></BODY></HTML>

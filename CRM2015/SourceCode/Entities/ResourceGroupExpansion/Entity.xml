@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Resource Expansion" OriginalName="">ResourceGroupExpansion</Name>
+  <ObjectTypeCode>4010</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

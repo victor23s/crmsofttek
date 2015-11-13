@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4204</returnedtypecode>
+  <savedqueryid>{7d56745b-3e49-4074-bc88-68e2353be6b3}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4204" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="statecode" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="regardingobjectid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="fax">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="statecode" />
+        <attribute name="prioritycode" />
+        <attribute name="scheduledend" />
+        <attribute name="createdby" />
+        <attribute name="regardingobjectid" />
+        <attribute name="activityid" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="subject" operator="like" value="{0}" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All Faxes" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de todos los faxes" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

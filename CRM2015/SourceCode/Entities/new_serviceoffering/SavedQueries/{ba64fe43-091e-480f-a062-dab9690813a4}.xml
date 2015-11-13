@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10036</returnedtypecode>
+  <savedqueryid>{ba64fe43-091e-480f-a062-dab9690813a4}</savedqueryid>
+  <layoutxml>
+    <grid name="" object="10036" jump="new_name" select="1" icon="1" preview="1">
+      <row name="new_serviceoffering" id="new_serviceofferingid">
+        <cell name="new_name" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_serviceoffering">
+        <attribute name="new_serviceofferingid" />
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <order attribute="new_name" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="ServiceOffering Associated View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

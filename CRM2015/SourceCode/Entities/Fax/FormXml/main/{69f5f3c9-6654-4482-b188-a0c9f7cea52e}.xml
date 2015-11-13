@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{69f5f3c9-6654-4482-b188-a0c9f7cea52e}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="tab_recordwall" id="{e94e6ac4-12db-bc8c-ec81-8b20c5987655}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false" labelid="{15bd1b61-6910-4710-b234-cbf4e4a4c484}">
+        <labels>
+          <label description="What's New" languagecode="1033" />
+          <label description="Novedades" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_recordwall_section_1" showlabel="false" showbar="false" locklevel="0" id="{ac0addcc-a626-6c98-40ee-b11edac36204}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{0e222be4-572a-4803-a912-478cea76cfdb}">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{be13b312-b6ac-83d7-34e1-e90dc1ecbec7}" showlabel="false" colspan="1" auto="false" rowspan="15" labelid="{6a9550a8-dab3-471d-bd41-8f35210140ed}">
+                      <labels>
+                        <label description="RecordWall" languagecode="1033" />
+                      </labels>
+                      <control id="WebResource_RecordWall" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                        <parameters>
+                          <Url>msdyn_/RecordWall.htm</Url>
+                          <PassParameters>true</PassParameters>
+                          <Security>false</Security>
+                          <Scrolling>auto</Scrolling>
+                          <Border>true</Border>
+                        </parameters>
+                      </control>
+                      <events>
+                        <event name="onload" application="0">
+                          <dependencies />
+                        </event>
+                      </events>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler functionName="ActivityFeeds.Form.CustomizationUtils.updateRecordWallRenderingState" libraryName="msdyn_/ActivityFeeds.Form.js" handlerUniqueId="{9beb6ce6-2666-8033-a406-3d68d44b9592}" enabled="true" parameters="" passExecutionContext="true" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+      <tab verticallayout="true" id="{e2cadff0-2b21-4241-9812-7fc16a742719}" IsUserDefined="0">
+        <labels>
+          <label description="Fax" languagecode="1033" />
+          <label description="Fax" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" locklevel="0" id="{1d4d16d4-6cdf-4851-8537-a8cd80decf92}" IsUserDefined="0" layout="varwidth" columns="11">
+                <labels>
+                  <label description="General Information" languagecode="1033" />
+                  <label description="Información general" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{d731af9a-1c18-457b-9989-51f4fe855c80}">
+                      <labels>
+                        <label description="From" languagecode="1033" />
+                        <label description="De" languagecode="3082" />
+                      </labels>
+                      <control id="from" classid="{CBFB742C-14E7-4a17-96BB-1A13F7F64AA2}" datafieldname="from" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{56ff726c-6104-4c36-a7e5-140319d14fe4}">
+                      <labels>
+                        <label description="Fax Number" languagecode="1033" />
+                        <label description="Número de fax" languagecode="3082" />
+                      </labels>
+                      <control id="faxnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="faxnumber" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{163b0870-efff-495c-a27e-df80f6d7ccce}">
+                      <labels>
+                        <label description="To" languagecode="1033" />
+                        <label description="Para" languagecode="3082" />
+                      </labels>
+                      <control id="to" classid="{CBFB742C-14E7-4a17-96BB-1A13F7F64AA2}" datafieldname="to" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{734c197d-9369-44de-9c9b-f5cae492b5df}">
+                      <labels>
+                        <label description="Direction" languagecode="1033" />
+                        <label description="Dirección" languagecode="3082" />
+                      </labels>
+                      <control id="directioncode" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="directioncode" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section showlabel="false" showbar="false" locklevel="0" id="{6B755775-B63F-465D-B7CA-56667398B982}" IsUserDefined="0" layout="varwidth" columns="11" height="auto">
+                <labels>
+                  <label description="Description" languagecode="1033" />
+                  <label description="Descripción" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell auto="false" showlabel="false" locklevel="0" rowspan="1" colspan="2" id="{41908831-7551-4311-8b08-27e83e7d426b}">
+                      <labels>
+                        <label description="Subject" languagecode="1033" />
+                        <label description="Asunto" languagecode="3082" />
+                      </labels>
+                      <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell colspan="2" showlabel="false" rowspan="5" auto="true" id="{5bcc6f3c-6b40-44ef-990e-bac7068c19f4}">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" />
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row height="auto" />
+                </rows>
+              </section>
+              <section showlabel="false" showbar="false" locklevel="0" id="{7C5D3607-7381-4e32-A9FE-1F85A57D682B}" IsUserDefined="0" layout="varwidth" columns="11">
+                <labels>
+                  <label description="Fax Details" languagecode="1033" />
+                  <label description="Detalles del fax" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="2" id="{70726536-85bf-4611-badc-59b5b03f09f8}">
+                      <labels>
+                        <label description="Regarding" languagecode="1033" />
+                        <label description="Referente a" languagecode="3082" />
+                      </labels>
+                      <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false">
+                        <parameters>
+                          <AutoResolve>false</AutoResolve>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="2" id="{b5a07112-8b3c-4df1-824b-b79b883e8897}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{1130cf81-87a8-4aa3-85ef-c8d30ac0a507}">
+                      <labels>
+                        <label description="Duration" languagecode="1033" />
+                        <label description="Duración" languagecode="3082" />
+                      </labels>
+                      <control id="actualdurationminutes" classid="{AA987274-CE4E-4271-A803-66164311A958}" datafieldname="actualdurationminutes" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{2ec43484-cef2-4255-afcb-a951d68a3f1d}">
+                      <labels>
+                        <label description="Priority" languagecode="1033" />
+                        <label description="Prioridad" languagecode="3082" />
+                      </labels>
+                      <control id="prioritycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="prioritycode" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{47750378-8654-46c5-8b01-159c132c7c8e}">
+                      <labels>
+                        <label description="Due" languagecode="1033" />
+                        <label description="Vencimiento" languagecode="3082" />
+                      </labels>
+                      <control id="scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{f3da1d9b-b68f-4aa1-adc5-5a7cce14b0e7}">
+                      <labels>
+                        <label description="Cover Page" languagecode="1033" />
+                        <label description="Portada" languagecode="3082" />
+                      </labels>
+                      <control id="coverpagename" classid="{4168A05C-D857-46AF-8457-5BB47EB04EA1}" datafieldname="coverpagename" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{e9fbd1e6-c8be-4526-94e6-5d2a6b54348c}">
+                      <labels>
+                        <label description="Category" languagecode="1033" />
+                        <label description="Categoría" languagecode="3082" />
+                      </labels>
+                      <control id="category" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="category" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{048c03c7-aeb3-4cea-9d4b-7b86a63630ab}">
+                      <labels>
+                        <label description="Sub-Category" languagecode="1033" />
+                        <label description="Subcategoría" languagecode="3082" />
+                      </labels>
+                      <control id="subcategory" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subcategory" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="{e2cadff0-2b21-4241-9812-7fc16a742719}_section_4" showlabel="true" showbar="true" locklevel="0" id="{d79c5375-be2d-4790-aa91-e85357dcebcd}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Financials" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{c92090be-404d-d3c7-6c85-90bd9a3a7a7c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Expenses Amount" languagecode="1033" />
+                      </labels>
+                      <control id="new_expensesamountfax" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_expensesamountfax" disabled="false" />
+                    </cell>
+                    <cell id="{4a6195bb-9d06-5e30-db2b-eb1aa73a1400}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Currency" languagecode="1033" />
+                        <label description="Divisa" languagecode="3082" />
+                      </labels>
+                      <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab id="{E5DC7302-A392-4785-B422-ADBD895A267B}" IsUserDefined="0">
+        <labels>
+          <label description="Notes" languagecode="1033" />
+          <label description="Notas" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" id="{BEC5F18B-5BDF-480b-8DC2-C6634061E95E}" IsUserDefined="0" height="auto">
+                <labels>
+                  <label description="Notes" languagecode="1033" />
+                  <label description="Notas" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell colspan="2" showlabel="false" rowspan="5" auto="true" id="{513ac462-748b-4ad4-b07b-038282b310ad}">
+                      <labels>
+                        <label description="Note Text" languagecode="1033" />
+                        <label description="Texto de la nota" languagecode="3082" />
+                      </labels>
+                      <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" />
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row height="auto" />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <events>
+      <event name="onload" application="false" active="true">
+        <Handlers>
+          <Handler functionName="Form_onload" libraryName="Fax_main_library.js" handlerUniqueId="2e82326a-f2d1-42f1-b253-132b49643c4a" enabled="true">
+            <dependencies />
+          </Handler>
+        </Handlers>
+      </event>
+    </events>
+    <clientresources>
+      <internalresources>
+        <clientincludes>
+          <internaljscriptfile src="/_static/activities/activity.js" />
+          <internaljscriptfile src="/_static/activities/fax.js" />
+          <internaljscriptfile src="$webresource:Fax_main_system_library.js" />
+        </clientincludes>
+      </internalresources>
+    </clientresources>
+    <formLibraries>
+      <Library name="msdyn_/ActivityFeeds.Form.js" libraryUniqueId="{4181da4c-6d13-ba3c-c859-be404e4ee2e3}" />
+      <Library name="Fax_main_library.js" libraryUniqueId="{b23244ab-e58f-473c-89f7-384dd7bba712}" />
+    </formLibraries>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+    <Description description="Formulario para esta entidad." languagecode="3082" />
+  </Descriptions>
+</systemform>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{7105164f-ab4d-e511-80d9-3863bb366078}" Name="WillCall" Description="Click to add description">
+  <XamlFileName>/Workflows/WillCall-7105164F-AB4D-E511-80D9-3863BB366078.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>SalesOrder</PrimaryEntity>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{0d682755-ab4d-e511-80d9-3863bb366078}">
+      <controltype>1</controltype>
+      <formid>{22a3f7f7-2709-4bb4-bbca-754475938d68}</formid>
+      <scope>1</scope>
+      <controlname>statecode</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>SalesOrder</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{0e682755-ab4d-e511-80d9-3863bb366078}">
+      <formid>{22a3f7f7-2709-4bb4-bbca-754475938d68}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>SalesOrder</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

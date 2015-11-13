@@ -1,0 +1,183 @@
+// x.DataAccess Library (Sync Read Only).js
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// x.DataAccess Library (Sync Read Only).js - useful to access CRM data synchronously - Trimmed for eXtreme CRM Berlin 2012
+//
+// Defines the following reusable functions:
+//
+// - RetrieveEntityById(EntityName, EntityId, EntityColumns) : Returns a single record identified by its GUID as an object with a
+//                                                             corresponding property for each column listed in EntityColumns
+//                                                             (comma-seperated names)
+//
+// - RetrieveEntityByFilter(EntityName, searchfield,          : Returns a single record where the searchfield matches the searchvalue, as
+//                          searchvalue, EntityColumns,         an object with a corresponding property for each column requested. If
+//                          ignoreNulls, searchfieldtype)       ignoreNulls is true, no property is created for null atttributes
+//
+// - RetrieveEntitiesByFilter(EntityName, searchfield,        : Returns multiple records where the searchfield matches the searchvalue, as
+//                            searchvalue, EntityColumns,       as an object array - one array entry per record with columns as properties.
+//                            ignoreNulls, searchfieldtype)
+//
+//  Code to convert XML to objects may be useful to you in other contexts.
+//
+// Acknowledgements:
+// - Based on code from http://worldofdynamics.blogspot.com/2011/06/microsoft-dynamics-crm-2011-retrieve.html
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function RetrieveEntityById(EntityName, EntityId, EntityColumns) {
+    var resultXml, errorCount, msg, xmlHttpRequest;
+    var arrayEntityColumns = EntityColumns.split(",");
+    var xmlEntityColumns = '';
+    for (var i = 0; i < arrayEntityColumns.length; i++) {
+        xmlEntityColumns += "<q1:Attribute>" + arrayEntityColumns[i] + "</q1:Attribute>";
+    }
+    var soap = PopulateSoapObject(); // //Prepare the SOAP message.
+    var xml = soap.Header + "<Retrieve xmlns='http://schemas.microsoft.com/crm/2007/WebServices'>" + "<entityName>" + EntityName + "</entityName>" + "<id>" + EntityId + "</id>" + "<columnSet xmlns:q1='http://schemas.microsoft.com/crm/2006/Query' xsi:type='q1:ColumnSet'>" + "<q1:Attributes>" + xmlEntityColumns + "</q1:Attributes>" + "</columnSet>" + "</Retrieve>" + soap.Footer;
+    //call function to create Soap Request to ms crm webservice
+    xmlHttpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+    xmlHttpRequest.Open("POST", "/mscrmservices/2007/CrmService.asmx", false); // false = don't make async call
+    xmlHttpRequest.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/crm/2007/WebServices/Retrieve");
+    xmlHttpRequest.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    xmlHttpRequest.setRequestHeader("Content-Length", xml.length);
+    xmlHttpRequest.send(xml);
+    // debugger;
+    resultXml = xmlHttpRequest.responseXML;
+    return ObjectFromXML(resultXml, arrayEntityColumns, "//RetrieveResult");
+}
+
+RetrieveEntityByFilter = function (EntityName, searchfield, searchvalue, EntityColumns, ignoreNulls, searchfieldtype) {
+    if (!ignoreNulls || ignoreNulls == '') {
+        ignoreNulls = false
+    }
+    var resultXml = RetrieveEntityByFilterHelper(EntityName, searchfield, searchvalue, EntityColumns, searchfieldtype);
+    return ObjectFromXML(resultXml, arrFields, "//BusinessEntity", ignoreNulls);
+}
+RetrieveEntitiesByFilter = function (EntityName, searchfield, searchvalue, EntityColumns, ignoreNulls, searchfieldtype) {
+    if (!ignoreNulls || ignoreNulls == '') {
+        ignoreNulls = false
+    }
+    var resultXml = RetrieveEntityByFilterHelper(EntityName, searchfield, searchvalue, EntityColumns, searchfieldtype);
+    //alert(resultXml.xml);
+    // debugger;
+    return ObjectArrayFromXML(resultXml, arrFields, "//BusinessEntity", ignoreNulls);
+}
+RetrieveEntityByFilterHelper = function (EntityName, searchfield, searchvalue, EntityColumns, ignoreNulls, searchfieldtype) {
+    arrFields = EntityColumns.split(",");
+    if (!searchfieldtype || searchfieldtype == '') {
+        searchfieldtype = 'string';
+    }
+
+    //build attributelist
+    var attribsList = '';
+    for (i = 0; i < arrFields.length; i++) {
+        attribsList += " <q1:Attribute>" + arrFields[i] + "</q1:Attribute>";
+    }
+
+    // 20091125 GP: added option to retrieve attributes for currently logged in user
+    // build conditionXml; if searchvalue = 'currentuserid' then build condition xml using operator to EqualUserId
+    // else build condition xml using searchfields and - values
+    var conditionXml = '';
+    if (searchvalue == 'currentuserid') {
+        conditionXml += " <q1:AttributeName>" + searchfield + "</q1:AttributeName>" + " <q1:Operator>EqualUserId</q1:Operator>"
+    } else {
+        conditionXml += " <q1:AttributeName>" + searchfield + "</q1:AttributeName>" + " <q1:Operator>Equal</q1:Operator>" + " <q1:Values>" + "   <q1:Value xsi:type=\"xsd:" + searchfieldtype + "\">" + searchvalue + "</q1:Value>" + " </q1:Values>"
+    }
+    var soap = PopulateSoapObject(); // //Prepare the SOAP message.
+    var xml = soap.Header + "<RetrieveMultiple xmlns='http://schemas.microsoft.com/crm/2007/WebServices'>" + "<query xmlns:q1='http://schemas.microsoft.com/crm/2006/Query'" + " xsi:type='q1:QueryExpression'>" + " <q1:EntityName>" + EntityName + "</q1:EntityName>" + " <q1:ColumnSet xsi:type=\"q1:ColumnSet\">" + " <q1:Attributes>" + attribsList + " </q1:Attributes>" + " </q1:ColumnSet>" + " <q1:Distinct>false</q1:Distinct>" + " <q1:Criteria>" + " <q1:FilterOperator>And</q1:FilterOperator>" + " <q1:Conditions>" + " <q1:Condition>" + conditionXml + " </q1:Condition>" + " </q1:Conditions>" + " </q1:Criteria>" + "</query>" + "</RetrieveMultiple>" + soap.Footer;
+
+    xmlHttpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+    xmlHttpRequest.Open("POST", "/mscrmservices/2007/CrmService.asmx", false);
+    xmlHttpRequest.setRequestHeader("SOAPAction", 'http://schemas.microsoft.com/crm/2007/WebServices/RetrieveMultiple');
+    xmlHttpRequest.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    xmlHttpRequest.setRequestHeader("Content-Length", xml.length);
+    xmlHttpRequest.send(xml);
+
+    //Capture xml result and return as an object
+    var resultXml = xmlHttpRequest.responseXML;
+    //alert(resultXml.xml);
+    return resultXml;
+}
+
+ObjectFromXML = function (xml, arrFields, prefix, ignoreNulls) {
+    var r = {}; // Return object
+    r.ok = false;
+    //if ($ms.Debug) { alert("Retrieve (Sync):\n\n" + resultXml.xml) }
+    if (xml == null) {
+        r.errorMsg = "No XML Returned by platform!";
+        return r
+    };
+    var errorCount = xml.selectNodes('//error').length;
+    if (errorCount != 0) {
+        r.errorMsg = xml.selectSingleNode('//description').nodeTypedValue;
+        return r;
+    }
+    if (xml == null) {
+        r.errorMsg = "Null XML returned.";
+        return r;
+    }
+    /* var recordCount = 0;
+    $(xml).find(prefix.substr(2)).each(function () {
+    recordCount++;
+    });
+    if (recordCount == 0) {
+    r.errorMsg = "No Records returned.";
+    return r;
+    } */
+    if (prefix != "") {
+        xml = xml.selectSingleNode(prefix)
+    }; // Grab just the first node with the prefix
+    // Everything ok, now format as an object
+    r.ok = true;
+    for (var i = 0; i < arrFields.length; i++) {
+        if (!ignoreNulls) {
+            r[arrFields[i]] = ""
+        }
+        var node = xml.selectSingleNode("q1:" + arrFields[i]);
+        if (node != null) {
+            var lookup = false;
+            if (arrFields[i].indexOf("id") >= 0) {
+                try { // Add try loop as .text fails when atribute not present
+                    var name = node.getAttributeNode("name").text;
+                    var type = node.getAttributeNode("type").text;
+                    if (name != null && type != null) {
+                        lookup = true
+                    }
+                } catch(err) {};
+            }
+            if (lookup) {
+                r[arrFields[i]] = {
+                    name: name,
+                    id: node.text,
+                    entityType: type
+                } // return lookup object
+            } else {
+                r[arrFields[i]] = node.text;
+            }
+        }
+    } // for
+    return r;
+} // ObjectFromXML
+
+ObjectArrayFromXML = function (resultXml, arrFields, prefix, ignoreNulls) {
+    var oa = {}; // object array
+    oa.ok = false;
+    //if ($ms.Debug) { alert("Retrieve (Sync):\n\n" + resultXml.xml) }
+    var recordCount = 0;
+    $(resultXml).find(prefix.substr(2)).each(function () {
+        // debugger;
+        oa[recordCount] = ObjectFromXML(this, arrFields, "", ignoreNulls); // Call without a prefix
+        recordCount++;
+    });
+    oa.recordCount = recordCount;
+    if (oa.recordCount == 0) {
+        oa.errorMsg = "No records returned."
+        return oa;
+    }
+    oa.ok = true;
+    return oa;
+}
+function PopulateSoapObject() {
+    var soap = new Object();
+    soap.Header = "<?xml version='1.0' encoding='utf-8'?>" + "<soap:Envelope xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'" + " xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'" + " xmlns:xsd='http://www.w3.org/2001/XMLSchema'>" + Xrm.Page.context.getAuthenticationHeader() + "<soap:Body>";
+    soap.Footer = "</soap:Body></soap:Envelope>";
+    return soap;
+}

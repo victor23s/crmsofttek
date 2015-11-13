@@ -1,0 +1,4 @@
+﻿<template><text><![CDATA[<p><font size=2 face="Tahoma, Verdana, Arial">Estimado ]]></text><slugs><slug><entity>systemuser</entity><attribute>accessmode/@name</attribute></slug><default></default></slugs><text><![CDATA[;</font></p>
+<p>Se ha modificado la cuenta ]]></text><slugs><slug><entity>systemuser</entity><attribute>mobilephone</attribute></slug><default></default></slugs><text><![CDATA[</p>
+<p> </p>
+<p>ES UNA PRUEBA.</p>]]></text></template>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{9add0bb0-df57-e511-80df-3863bb2ef238}" Name="MEX - AMS - SS" Description="Click to add description">
+  <XamlFileName>/Workflows/MEX-AMS-SS-9ADD0BB0-DF57-E511-80DF-3863BB2EF238.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>Incident</PrimaryEntity>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{aadd0bb0-df57-e511-80df-3863bb2ef238}">
+      <controltype>1</controltype>
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekmarket</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{abdd0bb0-df57-e511-80df-3863bb2ef238}">
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{acdd0bb0-df57-e511-80df-3863bb2ef238}">
+      <controltype>1</controltype>
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <controlname>new_serviceofferingcase</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{addd0bb0-df57-e511-80df-3863bb2ef238}">
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{aedd0bb0-df57-e511-80df-3863bb2ef238}">
+      <controltype>1</controltype>
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <controlname>new_casetypecase</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{afdd0bb0-df57-e511-80df-3863bb2ef238}">
+      <formid>{f4f8d67e-2a18-4542-95c2-c5d54d3d14ef}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>Incident</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

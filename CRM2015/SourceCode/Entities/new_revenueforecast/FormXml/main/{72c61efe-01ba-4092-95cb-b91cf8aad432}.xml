@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{72c61efe-01ba-4092-95cb-b91cf8aad432}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form shownavigationbar="true" showImage="false" maxWidth="1900">
+    <tabs>
+      <tab verticallayout="true" id="{93451c06-b589-44a3-8e9c-8995c04e89c0}" IsUserDefined="1" name="{93451c06-b589-44a3-8e9c-8995c04e89c0}" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{f3e6ba23-4f21-45d6-9b03-7f19d2cea81b}" name="General" columns="111" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{8a16ad9b-d431-4a40-b577-d3f07f90559a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_name" disabled="true" />
+                    </cell>
+                    <cell id="{c1b69dae-22cd-91a8-65ce-e658624d13ee}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_type" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_type" disabled="true" />
+                    </cell>
+                    <cell id="{a4d7be97-98b7-4f3f-b240-9b16b76205a5}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4e564064-4019-dc00-5eba-4e6321a01515}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Opportunity" languagecode="1033" />
+                      </labels>
+                      <control id="new_opportunity" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_opportunity" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{9EB361B4-67AC-4830-8ABF-2D29EFBAEE2C}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell id="{274a5be0-a986-2cd5-bd37-984cdc020626}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Quote" languagecode="1033" />
+                      </labels>
+                      <control id="new_quote" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_quote" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{30969771-F303-4B8E-AE91-1E4F5A7FEEFB}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell id="{8d02e816-a458-b6a3-5ed4-7257a8a0eb9a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Order" languagecode="1033" />
+                      </labels>
+                      <control id="new_order" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_order" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{ABF9E11D-08A5-4F4D-966B-7335A924E9C7}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b78515c1-1753-c637-216a-bd415ae7b750}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Account" languagecode="1033" />
+                      </labels>
+                      <control id="new_account" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_account" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell id="{7c200607-8b98-e3a7-d992-719c0e150435}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Opportunity Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_opportunitytype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_opportunitytype" disabled="true" />
+                    </cell>
+                    <cell id="{62267e83-0d47-5285-051e-4ead07a1d865}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Report Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_reporttype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_reporttype" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{3a856924-0cd9-4214-b837-0c4416aa95aa}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Market Scope" languagecode="1033" />
+                      </labels>
+                      <control id="new_marketscope" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_marketscope" disabled="true" />
+                    </cell>
+                    <cell id="{383e656d-2bad-7ab1-9e16-b00ad7b6b564}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Market" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekmarket" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekmarket" disabled="true" />
+                    </cell>
+                    <cell id="{6a0a7a3b-65e9-1811-92e9-15dc77c7e6a0}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Vertical" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekvertical" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekvertical" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{95954236-962a-d9b8-c14b-b1c28ccb0697}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Service Offering" languagecode="1033" />
+                      </labels>
+                      <control id="new_serviceoffering" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_serviceoffering" disabled="true" />
+                    </cell>
+                    <cell id="{1345c875-8794-e877-c4e1-673dd24a5e87}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Delivery Model" languagecode="1033" />
+                      </labels>
+                      <control id="new_deliverymodel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_deliverymodel" disabled="true" />
+                    </cell>
+                    <cell id="{607746bb-1ca6-c1e4-c6e5-8b96b91eeeeb}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="BDM" languagecode="1033" />
+                      </labels>
+                      <control id="new_bdm" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_bdm" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{302db368-c43a-2231-7a2b-da9039413309}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Project ID" languagecode="1033" />
+                      </labels>
+                      <control id="new_projectid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_projectid" disabled="true" />
+                    </cell>
+                    <cell id="{66774168-8c79-61a7-7273-6c04505c5a53}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Project Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_projectname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_projectname" disabled="true" />
+                    </cell>
+                    <cell id="{6e4cc1d1-c690-225b-34a4-19668d34052d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Delivery Manager" languagecode="1033" />
+                      </labels>
+                      <control id="new_deliverymanager" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_deliverymanager" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{64803c26-d0d0-2133-d487-487a741b1a46}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" />
+                    </cell>
+                    <cell id="{d7620735-c1a6-4c9d-9c0d-c333874c657e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status Reason" languagecode="1033" />
+                        <label description="Razón para el estado" languagecode="3082" />
+                      </labels>
+                      <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
+                    </cell>
+                    <cell id="{deeed615-8bcc-48c8-6cc9-97dc2454e503}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="ADM" languagecode="1033" />
+                      </labels>
+                      <control id="new_adm" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_adm" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="tab_2" id="{0c8e489c-421d-7a43-2617-0d6533aa6c33}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="Detail" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_2_section_1" showlabel="false" showbar="true" locklevel="0" id="{35996e3d-c3c7-68cb-d733-c171498aed6e}" IsUserDefined="0" layout="varwidth" columns="111" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Detail" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{ac13a927-0cee-dada-eb1a-a4692744570e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="January" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev01" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev01" disabled="true" />
+                    </cell>
+                    <cell id="{08761716-8dc5-2c65-c644-44dc9367809b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="July" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_07" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_07" disabled="true" />
+                    </cell>
+                    <cell id="{b4790a45-c89c-0e2c-9e31-83b5823e6b67}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Duration" languagecode="1033" />
+                      </labels>
+                      <control id="new_duration" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="new_duration" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{dd21508d-c528-0de3-2825-71476ac8564e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="February" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev02" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev02" disabled="true" />
+                    </cell>
+                    <cell id="{ddc9d7d6-2031-3b13-c0b1-73e7333e806e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="August" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_08" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_08" disabled="true" />
+                    </cell>
+                    <cell id="{4315ca58-65d0-4646-b51b-e3123aa7ab52}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Year" languagecode="1033" />
+                      </labels>
+                      <control id="new_year" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_year" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{64b6b43a-82da-8c5a-eaa9-b5365d3b8b1c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="March" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_03" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_03" disabled="true" />
+                    </cell>
+                    <cell id="{244646d9-8804-c6da-d7b7-ddcd2c5b3be3}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="September" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_09" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_09" disabled="true" />
+                    </cell>
+                    <cell id="{8255ea3a-15e4-eed8-e052-83d8c6a5b2ac}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Total_Year" languagecode="1033" />
+                      </labels>
+                      <control id="new_total_year" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_total_year" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{2086cc1b-8e98-079b-e595-9d4d66028e95}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="April" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_04" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_04" disabled="true" />
+                    </cell>
+                    <cell id="{a0892989-ea4d-8945-57e2-13aeadcc5bb9}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="October" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_10" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_10" disabled="true" />
+                    </cell>
+                    <cell id="{791a6156-eca3-e906-bcd0-1330e3e7d694}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Currency" languagecode="1033" />
+                        <label description="Divisa" languagecode="3082" />
+                      </labels>
+                      <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{CD5625B0-DDA8-4EE2-B13F-B9331E027C8A}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{a97e8379-01ce-2ee4-c712-b93ba1d18154}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="May" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_05" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_05" disabled="true" />
+                    </cell>
+                    <cell id="{de94848b-d0d7-1a90-ee14-5ea4cda5527d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="November" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_11" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_11" disabled="true" />
+                    </cell>
+                    <cell id="{c7e8c479-254e-7cbd-3a4a-ec2e5adca863}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5299b1ac-7676-a840-7690-b4442b685b50}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="June" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_06" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_06" disabled="true" />
+                    </cell>
+                    <cell id="{701a17e4-25bb-1ebc-31d2-1ee909baae11}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="December" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_12" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_12" disabled="true" />
+                    </cell>
+                    <cell id="{3b8373eb-8d78-9368-01c6-3aeb853bc126}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="tab_3" id="{a0c63972-6d41-9e59-7a73-4ed35ab26a50}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="Admin Info" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_3_section_1" showlabel="false" showbar="true" locklevel="0" id="{82b2538d-4d8a-84e0-e757-32925aeb84bc}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Admin" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{6dc3499a-dee0-e905-9c28-040be49a3757}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Created On" languagecode="1033" />
+                        <label description="Fecha de creación" languagecode="3082" />
+                      </labels>
+                      <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                    </cell>
+                    <cell id="{3aa7a36b-e20b-22de-db22-3e7c11c67b85}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Created By" languagecode="1033" />
+                        <label description="Autor" languagecode="3082" />
+                      </labels>
+                      <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{abc3ba84-ad9a-0a9d-a66c-15731148b1de}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Modified On" languagecode="1033" />
+                        <label description="Fecha de modificación" languagecode="3082" />
+                      </labels>
+                      <control id="modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" />
+                    </cell>
+                    <cell id="{8c354680-b865-d62a-c46a-8c3ae04c8b18}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Modified By" languagecode="1033" />
+                        <label description="Modificado por" languagecode="3082" />
+                      </labels>
+                      <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{841e1ea5-7454-e466-d792-36d9b0eb762d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Date Consolidation" languagecode="1033" />
+                      </labels>
+                      <control id="new_consolidationdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="new_consolidationdate" disabled="true" />
+                    </cell>
+                    <cell id="{dab109bb-d525-0e95-b072-4135e314a130}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Date Completed" languagecode="1033" />
+                      </labels>
+                      <control id="new_datecompleted" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="new_datecompleted" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b4ae6944-a235-3c73-22e6-421a97625e13}" showlabel="false" locklevel="0" visible="false">
+                      <labels>
+                        <label description="closed" languagecode="1033" />
+                      </labels>
+                      <control id="new_closed" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="new_closed" disabled="false" />
+                    </cell>
+                    <cell id="{ab98948e-3d57-e575-b6c5-212a50008273}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <header id="{f7e37f07-9192-443a-930e-9ea9a6cf5e5d}" columns="111">
+      <rows>
+        <row>
+          <cell id="{d2a49c87-56b7-e5b1-bc5d-a72219b27344}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Opportunity" languagecode="1033" />
+            </labels>
+            <control id="header_new_opportunity" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_opportunity" disabled="false" />
+          </cell>
+          <cell id="{72a5a46b-21bd-1d21-c7d9-9e009b0e9227}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Owner" languagecode="1033" />
+              <label description="Propietario" languagecode="3082" />
+            </labels>
+            <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+          </cell>
+          <cell id="{196e4e18-4001-a414-a129-c58226e17eac}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Account" languagecode="1033" />
+            </labels>
+            <control id="header_new_account" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_account" disabled="false" />
+          </cell>
+        </row>
+      </rows>
+    </header>
+    <footer id="{e6a5bfa3-4013-4db5-bd02-b88c9810b175}" columns="111">
+      <rows>
+        <row>
+          <cell id="{1d7dcbe3-a325-1ea9-110b-bc38962959dc}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Status" languagecode="1033" />
+              <label description="Estado" languagecode="3082" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" />
+          </cell>
+          <cell id="{68a67c8b-d998-3c86-a80c-5b6d090d1359}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Status Reason" languagecode="1033" />
+              <label description="Razón para el estado" languagecode="3082" />
+            </labels>
+            <control id="footer_statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="true" />
+          </cell>
+          <cell id="{d1e49aa7-3a8d-bb2b-cab6-2b2e7cd61e1e}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <formLibraries>
+      <Library name="new_softtek_scripts_util_dynamicform" libraryUniqueId="{2abe07bc-06eb-a6e6-65b3-0cecb7a5b8eb}" />
+      <Library name="new_XrmServiceToolkit" libraryUniqueId="{562917ab-6764-ebb9-ed14-115a58ca5583}" />
+      <Library name="new_RevenueForecast_main_library" libraryUniqueId="{30a94064-bb4b-b353-08ac-716e1489a095}" />
+      <Library name="new_ForecastJS" libraryUniqueId="{c7b8a555-01a9-ca2b-4539-3cce72809908}" />
+      <Library name="new_Opp_Ribbon_Functions_2" libraryUniqueId="{57119e02-8640-5616-0c5d-6825ad260101}" />
+      <Library name="new_QuoteSave" libraryUniqueId="{d09305a1-0bea-8b78-d581-e33cbe8256b4}" />
+    </formLibraries>
+    <events>
+      <event name="onload" application="false" active="false">
+        <Handlers>
+          <Handler functionName="Form_onload" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{16864881-614a-d60d-4169-18ea53e9aec7}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onsave" application="false" active="false">
+        <Handlers>
+          <Handler handlerUniqueId="{b3e84813-7404-e85e-c4a1-48c7bb7a98cd}" functionName="Form_onSave" libraryName="new_RevenueForecast_main_library" enabled="true" passExecutionContext="false" parameters="" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_total_year">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{766c80e9-2d1b-992d-53de-e1e394d40c29}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev01">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{6d54baac-a4c3-99a9-025a-21c95a091bcc}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev02">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{57558980-86cb-031d-4d26-9095808cd383}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_03">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{4d5c2512-04cc-309d-496c-1ea983268ead}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_04">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{3d8a32e7-c739-d163-5b4e-5989ad1eebec}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_05">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{77ad7c4a-1b35-36a7-4d49-5c7be32b19a1}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_06">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{bd80372a-b7e5-1a1d-4588-bdc423be30d8}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_07">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{ca3c45b2-45d4-37e3-31a3-9b1de69ddc42}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_08">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{8ac7c484-ca0a-252e-2221-247b35829ebd}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_09">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{c348587b-9682-e84e-8b3c-14d111dd6b25}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_10">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{781e4cdc-65c4-67e3-1cee-11eb516d9c38}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_11">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{bc3cee13-d586-bc20-5cce-1a7d1a4e68d9}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_rev_12">
+        <Handlers>
+          <Handler functionName="SumDetailFields" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{c88a75d9-e623-a8a7-dec7-ad0515375b75}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_projectid">
+        <Handlers>
+          <Handler functionName="ValidateProjectID" libraryName="new_RevenueForecast_main_library" handlerUniqueId="{42b99e19-c5e9-9688-bb32-5edd86d6aab2}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+    </events>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

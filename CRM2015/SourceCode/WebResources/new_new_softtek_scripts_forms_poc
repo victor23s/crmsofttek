@@ -1,0 +1,39 @@
+/// <reference path="../Utility/DynamicForm.js" />
+if (typeof(STK.Forms.POC) == "undefined") {
+    STK.Forms.POC = {
+        __namespace: true
+    };
+}
+STK.Forms.POC = {
+    onLoad: function () {
+        Xrm.Page.Validations.AddTo("new_invaliddescription").When("new_status").EqualsTo("3").Or("new_status").EqualsTo("5").Do().SetRequired();
+        Xrm.Page.Validations.AddTo("new_invaliddescription").When("new_status").DifferentTo("3").And("new_status").DifferentTo("5").Do().SetUnRequired();
+        Xrm.Page.Validations.AddTo("new_invaliddescription").When("new_status").EqualsTo(null).Do().Disabled();
+        Xrm.Page.Validations.AddTo("new_invaliddescription").When("new_status").DifferentTo(null).Do().Enabled();
+        Xrm.Page.Validations.Validate("new_invaliddescription");
+
+        Xrm.Page.Validations.AddTo("new_product").When("new_brand").EqualsTo(null).Or("new_product_type").EqualsTo(null).Do().Disabled();
+
+        Xrm.Page.Validations.AddTo("new_product").When("new_brand").DifferentTo(null).And("new_product_type").DifferentTo(null).Do().Enabled();
+
+        Xrm.Page.Validations.Validate("new_product");
+
+        Xrm.Page.Cascades.AddTo("new_product").When("new_brand").EqualsTo("100000000").And("new_product_type").EqualsTo("100000000").Do().PutOptions(["100000000", "100000001", "100000004", "100000005"]);
+
+        Xrm.Page.Cascades.AddTo("new_product").When("new_brand").EqualsTo("100000000").And("new_product_type").EqualsTo("100000001").Do().PutOptions(["100000002", "100000006"]);
+
+        Xrm.Page.Cascades.Filter("new_product");
+
+    },
+    onStatusChange: function () {
+        Xrm.Page.Validations.Validate("new_invaliddescription");
+    },
+    onBrandChange: function () {
+        Xrm.Page.Validations.Validate("new_product");
+        Xrm.Page.Cascades.Filter("new_product");
+    },
+    onProductTypeChange: function () {
+        Xrm.Page.Validations.Validate("new_product");
+        Xrm.Page.Cascades.Filter("new_product");
+    }
+};

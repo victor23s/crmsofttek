@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{aeb44310-8b08-e411-adb9-6c3be5a8c0e8}</WebResourceId>
+  <Name>new_InvoicePlanning</Name>
+  <DisplayName>InvoicePlanning</DisplayName>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_InvoicePlanningAEB44310-8B08-E411-ADB9-6C3BE5A8C0E8</FileName>
+</WebResource>

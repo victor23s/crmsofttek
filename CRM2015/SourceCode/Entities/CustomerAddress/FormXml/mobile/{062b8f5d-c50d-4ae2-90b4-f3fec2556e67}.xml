@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{062b8f5d-c50d-4ae2-90b4-f3fec2556e67}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{c74b6b13-c0ad-4a47-a664-59d0c3f2e8a6}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{74a92247-d0ed-441d-a680-fb9c04be3a10}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{c803bacc-5486-407e-b60e-911828fd60e8}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                    <cell id="{ae5e072e-24e3-4364-b10f-8d2c96544fc3}">
+                      <labels>
+                        <label description="Street 1" languagecode="1033" />
+                        <label description="Calle 1" languagecode="3082" />
+                      </labels>
+                      <control id="line1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="line1" disabled="false" />
+                    </cell>
+                    <cell id="{86cdc9e3-e335-411f-911f-e697a311097e}">
+                      <labels>
+                        <label description="Address Name" languagecode="1033" />
+                        <label description="Nombre de dirección" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

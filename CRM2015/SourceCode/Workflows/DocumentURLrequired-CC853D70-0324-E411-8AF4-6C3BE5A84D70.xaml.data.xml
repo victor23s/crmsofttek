@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{cc853d70-0324-e411-8af4-6c3be5a84d70}" Name="Document URL required" Description="If Request Type is different from Q&amp;A, the Document URL should be required.">
+  <XamlFileName>/Workflows/DocumentURLrequired-CC853D70-0324-E411-8AF4-6C3BE5A84D70.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>new_legalsupportrequest</PrimaryEntity>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{5209c1a6-3415-e511-80f9-c4346bac2908}">
+      <controltype>1</controltype>
+      <formid>{098027bb-46e2-4590-9945-2eb9fe9cfb17}</formid>
+      <scope>1</scope>
+      <controlname>new_requesttype</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>new_legalsupportrequest</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{5309c1a6-3415-e511-80f9-c4346bac2908}">
+      <formid>{098027bb-46e2-4590-9945-2eb9fe9cfb17}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>new_legalsupportrequest</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

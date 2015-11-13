@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{0d41c96e-b24a-4fef-97d6-ad8698bf085c}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{68337288-e2af-4acb-8faa-373c639aac54}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{e4dc67e2-3974-467b-abff-180cd58b46d1}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{d2991c12-b0c3-4f23-bdb2-0e8d25cb3a65}">
+                      <labels>
+                        <label description="Activity Type" languagecode="1033" />
+                        <label description="Tipo de actividad" languagecode="3082" />
+                      </labels>
+                      <control id="activitytypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="activitytypecode" disabled="false" />
+                    </cell>
+                    <cell id="{e4fe0638-f618-473e-945d-2914ab673d23}">
+                      <labels>
+                        <label description="Activity Status" languagecode="1033" />
+                        <label description="Estado de la actividad" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{427a136e-ae4b-48e2-9233-8b8402985f3c}">
+                      <labels>
+                        <label description="Is Regular Activity" languagecode="1033" />
+                        <label description="Es una actividad regular" languagecode="3082" />
+                      </labels>
+                      <control id="isregularactivity" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="isregularactivity" disabled="false" />
+                    </cell>
+                    <cell id="{97f4df6d-30f9-464f-ae94-a310aa6318f5}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                    <cell id="{3f851de7-a179-432a-b590-b17f9fa51b28}">
+                      <labels>
+                        <label description="Subject" languagecode="1033" />
+                        <label description="Asunto" languagecode="3082" />
+                      </labels>
+                      <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

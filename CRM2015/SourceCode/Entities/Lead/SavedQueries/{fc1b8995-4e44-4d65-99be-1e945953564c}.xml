@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4</returnedtypecode>
+  <savedqueryid>{fc1b8995-4e44-4d65-99be-1e945953564c}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4" jump="fullname" select="1" icon="1" preview="1">
+      <row name="result" id="leadid">
+        <cell name="fullname" width="300" />
+        <cell name="telephone1" width="100" />
+        <cell name="address1_city" width="100" />
+        <cell name="companyname" ishidden="1" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>32</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="lead">
+        <attribute name="fullname" />
+        <attribute name="address1_city" />
+        <order attribute="fullname" descending="false" />
+        <attribute name="telephone1" />
+        <attribute name="leadid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Members" languagecode="1033" />
+    <LocalizedName description="Todos los integrantes" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,1160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{d8523fca-34f4-4745-8afc-b785fcd192ab}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{3440ce46-675c-4c36-9c73-b30b9ba7a653}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{5f7ddc2f-9f63-409c-a013-da69f3901a02}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{36192CA0-B91D-4233-AF05-22D966825FCF}">
+                      <labels>
+                        <label description="Salutation" languagecode="1033" />
+                        <label description="Saludo" languagecode="3082" />
+                      </labels>
+                      <control id="salutation" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="salutation" disabled="false" />
+                    </cell>
+                    <cell id="{1f090dbc-98a9-4f86-adae-fe928908d0a3}">
+                      <labels>
+                        <label description="First Name" languagecode="1033" />
+                        <label description="Nombre de pila" languagecode="3082" />
+                      </labels>
+                      <control id="firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="firstname" disabled="false" />
+                    </cell>
+                    <cell id="{F7808400-22A8-404F-8707-311CAD40C5A2}">
+                      <labels>
+                        <label description="Company Name" languagecode="1033" />
+                        <label description="Nombre de la compañía" languagecode="3082" />
+                      </labels>
+                      <control id="parentcustomerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentcustomerid" disabled="false" />
+                    </cell>
+                    <cell id="{1556f534-d470-44f3-921f-df3aefe300e2}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c2b4d730-ef8e-4658-892a-03863eaa2bea}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{3b3648f9-bc3f-41f2-8ce1-2cbda539fac0}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{d6c8f6a6-e002-4fa3-aace-703bc68fbe6b}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{b0aee9e3-4804-4f72-9ee6-70f7818b2b08}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{f78c52c4-e6b8-46a3-a3ad-6b1ba840d778}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{EFAB0619-A621-4497-9AF5-6CD78E32040F}">
+                      <labels>
+                        <label description="Middle Name" languagecode="1033" />
+                        <label description="Segundo nombre" languagecode="3082" />
+                      </labels>
+                      <control id="middlename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="middlename" disabled="false" />
+                    </cell>
+                    <cell id="{1720c3e6-2a20-43c4-b0a8-9f819d47e8de}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c1bb2529-a4cf-4ac1-a481-d364810dbe64}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{d2694956-e125-4904-8de5-c114f8cc2c9b}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{80d63ebf-8416-46ba-8c6f-b9b1b674fbfd}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{b7d16a54-5732-4c22-8354-fa9140f58f97}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{da38ff23-29bf-4e3a-a60d-fcc0ebbb27a9}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{a125c197-38c0-4493-8ba8-81d5d463ecfb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{9d2c4205-f3cc-411d-bc1a-6d5aa16b9ed5}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5c76e359-c3c9-4bad-bbd4-d6135459cd54}">
+                      <labels>
+                        <label description="Job Title" languagecode="1033" />
+                        <label description="Puesto" languagecode="3082" />
+                      </labels>
+                      <control id="jobtitle" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="jobtitle" disabled="false" />
+                    </cell>
+                    <cell id="{b557f14c-e7b9-4368-a9ea-7bdcc1bfa144}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{e699dd59-3c7a-4831-8fa9-9fa31c49ac7d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{34f504c6-d3db-4b23-bdbe-6c716467b938}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{3ce3139b-7eb5-4f1e-953a-fa7690e4d45f}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{897d416c-03ae-4552-92fb-c86b517289c1}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{11e7c7ef-73e0-4bf7-b8d1-6158dbdb3a1c}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{2d4d531c-4bcf-4f79-be57-675735d3c98a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7a8d2a7a-8c19-471d-958a-092d7f4940bb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{9857fdc7-7772-4e1b-91ef-16e45e4ef8a2}">
+                      <labels>
+                        <label description="Last Name" languagecode="1033" />
+                        <label description="Apellidos" languagecode="3082" />
+                      </labels>
+                      <control id="lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="lastname" disabled="false" />
+                    </cell>
+                    <cell id="{1248bac0-2776-4e40-b547-afb98a2262d1}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{92e6abc3-9564-48a7-9f3e-e0a4a9184b25}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{ee112c65-684d-4536-9c38-bbeaeff0faba}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7d4fd1d4-aec3-49b4-9097-62de687ff5f5}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{0ae3665a-0912-4ce8-aea2-c4ada4f60927}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5e2f5e46-5ab4-404f-ab84-e3f7f77bfe7f}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{f228653e-9694-44e2-a372-0073c6f7f6b7}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{1bc92631-b45e-4a84-8c87-a8517a2197a6}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b2c27348-87cc-499e-9ea5-302cbe54c522}">
+                      <labels>
+                        <label description="Business Phone" languagecode="1033" />
+                        <label description="Teléfono del trabajo" languagecode="3082" />
+                      </labels>
+                      <control id="telephone1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="telephone1" disabled="false" />
+                    </cell>
+                    <cell id="{4334cbf3-1a7e-4c5f-b207-f8c259517371}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{fa0378bb-2511-42d4-b7bb-78ed8cd8e13a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{0fc86a2a-e609-4ff0-9e0c-daa87e203644}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{6cb99118-3ccc-4af4-8a5f-76b1ff36b3ee}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{e2ad5460-36b9-4766-b7a2-40b87babadb0}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5d67e59d-91f8-49bc-aeb1-d65b71ed7414}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{855f8697-679a-453a-9f90-70a9e8c37f06}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{8462fa1e-fce5-4fa4-ada7-5e4e5fde1840}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{3505b2e8-3e84-4ac3-88ec-cfd3476f1131}">
+                      <labels>
+                        <label description="Email" languagecode="1033" />
+                        <label description="Correo electrónico" languagecode="3082" />
+                      </labels>
+                      <control id="emailaddress1" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="emailaddress1" disabled="false" />
+                    </cell>
+                    <cell id="{636260cc-07ce-458f-a33b-f9ef255da4c7}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{9a970aa9-9386-44db-a5f7-e790de201432}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{3d45bb4b-8a5d-4219-a2ae-5e0d92d098c8}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{d0b66679-1495-46c6-9f68-6a9bd4c7625c}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{892edbd3-fc21-4378-b0aa-e58ba2a2e602}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{20ca3515-091d-419c-b850-c6ef52b9916d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{976a2e59-4ade-45b6-863f-f1a178817812}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5a8337b9-f6f6-4305-a546-307f827d4b61}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{BBB5CC4B-F4AC-4889-BB89-EE8BB07D98B0}">
+                      <labels>
+                        <label description="Home Phone" languagecode="1033" />
+                        <label description="Teléfono particular" languagecode="3082" />
+                      </labels>
+                      <control id="telephone2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="telephone2" disabled="false" />
+                    </cell>
+                    <cell id="{d38432da-dbe4-48c8-a872-ad11cd5907b6}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{f673dce5-e597-44e9-a70b-c0f070b51026}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{1f87ff1a-b6cf-4078-b769-2623d4a4d733}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{bf3a48d0-4df7-4a10-93c1-bd96a9bb70cb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{1077a498-9f77-456d-b03f-d6dadefcefdf}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{84562756-ade8-4e4e-a976-b19dd840ce01}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5d4e0818-a05e-448a-a1b4-8d993803655a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{bcffaeb1-d30e-43ab-902e-494f7ef675bb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{04d1c06c-11eb-4ae8-bcdc-1de7a857862a}">
+                      <labels>
+                        <label description="Mobile Phone" languagecode="1033" />
+                        <label description="Teléfono móvil" languagecode="3082" />
+                      </labels>
+                      <control id="mobilephone" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mobilephone" disabled="false" />
+                    </cell>
+                    <cell id="{27b578cb-a7f3-400c-96e8-974d66503eec}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{27a94390-7aac-402f-8ff6-cd08f3ba8446}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{bae47734-d13f-40dc-a07c-2f30a7de2458}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{1c647d63-815a-4425-a4d7-e17ba2ec26be}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{2aa6bae0-e61a-4aef-957a-f4b773e5b7be}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{a270f50a-b3ad-4fab-b33a-8d4a7844a56c}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{fbdbc0e9-02e7-4336-a059-1f2feaad3689}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{45aca6da-4004-4acc-88fa-c62cab09e1f7}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4B4E9375-92B1-4DCC-B3FD-985EEC96B652}">
+                      <labels>
+                        <label description="Company Name" languagecode="1033" />
+                        <label description="Nombre de la compañía" languagecode="3082" />
+                      </labels>
+                      <control id="parentcustomerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentcustomerid" disabled="false" />
+                    </cell>
+                    <cell id="{52c259e5-1f70-47a2-8a6d-9c9965d92c75}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{edc00542-f801-405e-9f59-03292962f440}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{686fac68-676b-40ed-9905-05ef442071ed}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{559ad7f4-b99b-4b7a-833f-3878a3b5a43e}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{8a4ca083-2e11-4954-a758-ff0d2cec7491}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5e81fa90-2da9-42b7-91cd-90b528c82557}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{d1643033-682f-4968-a799-4afac838c42b}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{102d1b47-5820-4276-933a-02734e5a4b3e}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{CD91C784-BBE4-4F6E-BE38-780BB5D9B96B}">
+                      <labels>
+                        <label description="Softtek Market (Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekmarketcontact1" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekmarketcontact1" disabled="false" />
+                    </cell>
+                    <cell id="{7df17b35-94fe-400a-958f-2d330d649a96}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{dcd566b9-f260-47c7-afe1-a9ac777a557c}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{05acbbe4-b90f-4b16-b7b0-032435389faa}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{f7e3c5ef-7e14-478a-a5a4-88aef5cace90}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{22bfd6b1-fe52-4e5e-a971-a674f99c5d73}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{a01768c8-c83e-4d79-a248-dd696ae53148}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{b65049f5-7c56-48c6-91af-0a2ebcf8ccd2}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{e5560af1-cea6-4fbd-943e-2773e10a739e}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{E056BFE0-D306-4E50-AE0A-C8481EC2BBD7}">
+                      <labels>
+                        <label description="Softtek Country (Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekcountry" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekcountry" disabled="false" />
+                    </cell>
+                    <cell id="{cfec4567-621c-4c12-a4fe-c2f1760f5fef}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7bd45f10-6665-4331-b643-91c8311289d4}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5701f33f-f1da-48cc-87ac-18ae94218b9d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{fd9c0746-7075-46c6-b09f-b7740b6b2707}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c4b6f2f6-f62c-4eef-b92e-f65d7829fdc6}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c000a81d-7217-4de5-aeee-9aee9eeff781}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{4221962a-1e00-4a0f-b774-06b3f41af0ab}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{367e361c-8e69-4100-905f-d6167405eb0e}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{63788749-ED22-4632-98D7-789F5F627C98}">
+                      <labels>
+                        <label description="Market Scope (Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="new_marketscopecontact" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_marketscopecontact" disabled="false" />
+                    </cell>
+                    <cell id="{b9e09985-42c4-4022-af61-213f7a20b736}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{44c02851-b4be-49c6-8fdf-a0ce01d86099}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{9332f725-0d27-4484-8115-77e361f64682}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{ca2dd156-aa19-419c-af45-7abefd063078}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{1a653025-9137-4c21-8921-6642a9bb2089}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{17ede130-9728-4962-ad4e-6dc6c9d4606f}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{bce4fff3-0abb-4ef7-9554-6bba4e70f732}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{8521a1d8-c578-44d3-9764-a93064e301af}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7728B78B-69DA-4684-A2E2-6F3E9E9B50CA}">
+                      <labels>
+                        <label description="Originating Lead" languagecode="1033" />
+                        <label description="Cliente potencial original" languagecode="3082" />
+                      </labels>
+                      <control id="originatingleadid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="originatingleadid" disabled="false" />
+                    </cell>
+                    <cell id="{23906f73-ccd0-4dbf-b2c2-97d184282e07}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{cb6b8ff8-bd30-4f96-85ed-6ef23943acd9}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5def6433-8352-44c5-a86d-f5b66a97dc5a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c7f78b73-8b1f-4730-b3db-9904290960c5}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{ee600f86-a3a7-41da-988b-e39f3c1e04b2}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{3c79aa9c-a110-4e59-ab46-5b325d7ec758}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{753b2c8a-9e44-4fc1-bc59-5f2c69db26cd}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{b6f3486d-5464-4ed8-8d89-09f11f0a371b}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{54197C26-B890-481E-85C3-A5BE3BA09101}">
+                      <labels>
+                        <label description="Influence level" languagecode="1033" />
+                      </labels>
+                      <control id="new_influencelevel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_influencelevel" disabled="false" />
+                    </cell>
+                    <cell id="{6230c685-ebe0-4d18-bf05-00d991a1da6f}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{f1088ca9-539e-4ac8-bd11-6bdef478185e}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{e69d125c-4fb5-439e-a333-0556c7a66940}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{1db8e999-cd2c-4424-a119-2a1a53132c04}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{40857d14-dfd9-4de6-af47-5a9c27296524}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{1014d740-5e8a-452a-ad49-c4bdc3775bbf}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{2b6fbf35-aeac-48f0-b561-403c1c4c2d6c}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{bf17923e-33da-4cc4-8d4c-d581178b54b1}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{D34B30B6-F2BF-4CB5-9FD9-077D2D9FBD7C}">
+                      <labels>
+                        <label description="Contact Level" languagecode="1033" />
+                      </labels>
+                      <control id="new_contactlevel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_contactlevel" disabled="false" />
+                    </cell>
+                    <cell id="{9463459e-31ab-4f3e-8f7a-a0ad4d6749ef}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{982c8d2f-aadc-422d-a177-232146d642b3}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{9ee8e24b-fe36-4fe3-9dec-c0acaea8cb07}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{d466131b-28ef-463a-a47c-75487ea03231}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{f0fbc148-b8e2-4d4e-ab0c-1084b2a9f70a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{2fb9f0ce-08e5-4382-bb30-8be978b60239}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5a596c06-a8db-4754-b777-778d354b7364}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{054c3191-ca3e-4972-a0f9-eb0b0d9d2924}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{2B77C658-60F4-4697-8732-D85528CA558F}">
+                      <labels>
+                        <label description="Manager" languagecode="1033" />
+                      </labels>
+                      <control id="new_managercontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_managercontactid" disabled="false" />
+                    </cell>
+                    <cell id="{0d77b051-c2b2-4ba2-9502-e0efe1698e18}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5561034b-c226-4693-b762-0bfe13bc244a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{a1ead87a-8f2d-4d55-a2ee-54a7426695e8}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{f9d06170-74b2-4cec-85e8-e99839dfc7fb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{fc3b00b2-b56b-4a4b-9d21-02f0ab0f9313}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{3768e649-84f8-4d0f-b512-5bed22748844}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7e46975a-7202-4c26-91c7-44509081f299}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{b3661ac2-77b1-4b71-a6a1-d69061e09449}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{A2726610-5ED4-45F8-B95E-DC8B959BA86C}">
+                      <labels>
+                        <label description="Assistant" languagecode="1033" />
+                      </labels>
+                      <control id="new_assistantcontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_assistantcontactid" disabled="false" />
+                    </cell>
+                    <cell id="{7e7eb0fc-5f9c-48fa-b358-40227fffc061}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{f6c7fe96-211b-4fd6-aa1e-beb953ed6b2d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{d4646387-4ad9-425c-9851-7d456859b454}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5e8d4ec7-2d9c-4ba1-ad14-8e20316f52bb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{18e3eab9-684f-42ac-91bd-459a97c04c27}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{6cf1779d-46ac-4d48-a635-fe78bbe6febf}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{2bfbaa28-f03d-47f8-bcaf-e9285ebc0ebb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c7b8b00d-f4c9-4adf-9246-8e3f7a09acc8}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{08A52CCF-C9D0-49D4-B861-EB22F696AC3C}">
+                      <labels>
+                        <label description="Net Promoter" languagecode="1033" />
+                      </labels>
+                      <control id="new_netpromoter" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_netpromoter" disabled="false" />
+                    </cell>
+                    <cell id="{4f40d454-cdff-4647-9db9-1561fc6ca6de}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{11ceacb5-64d2-48f2-9e68-f689d87827c6}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{419a151c-d08f-4ac9-811f-fedbc60459e6}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{03705315-93f4-4d7e-b162-2ad83219c30a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{68670934-55d0-4af5-b5c3-786f56e99efb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{df98a0f5-f933-4495-ba6f-7cfa0a002767}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{fe62f489-f14c-444f-9b26-bef4e0268f14}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{9921f36d-b0ae-4a94-b124-3079b9f5f301}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{05EB1B97-3B35-4A82-9289-63C04AB99A46}">
+                      <labels>
+                        <label description="Budget" languagecode="1033" />
+                      </labels>
+                      <control id="new_budget" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_budget" disabled="false" />
+                    </cell>
+                    <cell id="{6b863ff7-30c2-4c7f-83ea-9db586b5054a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{973220c6-4892-4b1b-b01b-661ae8f3243c}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c53c5832-640e-4db9-97cb-45138da1c8d9}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{0c03b2c0-0946-41cf-89ca-5b84dd936aa0}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7116679c-0931-4883-855b-e48bbe67d9ed}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{37e019de-7611-43b4-afca-670a48be9995}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{1e5c9a32-f699-4656-b236-533d3333563f}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{918356c9-39b3-45ab-9c24-67352e62c21d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{371C7B8C-C46B-4104-83F2-7C1D457DDABF}">
+                      <labels>
+                        <label description="Perception" languagecode="1033" />
+                      </labels>
+                      <control id="new_perception" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_perception" disabled="false" />
+                    </cell>
+                    <cell id="{909e8b00-6bc7-4e74-be1a-4db7462b8998}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{0c844914-f7a0-4fc1-8f62-0ce76f3f755b}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{dfa29863-c4ef-47ff-8efc-e7d403df428f}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{864d6e35-19b7-411d-9051-cf155a8c8450}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{ececa9a2-f833-4d79-bede-a76f19f5d452}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7193cf98-ffcf-439e-a07a-ee6a73e96963}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{43b76319-3f20-4443-9d30-8664dcbdde08}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{36b83b5f-11ea-4496-bba9-3f88d80e573e}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{1E34A8C1-6EF5-4D9C-995C-21E011114C4F}">
+                      <labels>
+                        <label description="Department" languagecode="1033" />
+                        <label description="Departamento" languagecode="3082" />
+                      </labels>
+                      <control id="department" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="department" disabled="false" />
+                    </cell>
+                    <cell id="{65474b14-1152-41d3-a296-bea6b4c6d1e8}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{d4edd79d-e1d3-4cef-bb7b-fe3232e1b299}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{6d246dd8-5d72-4e37-9294-326a15474d7a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{6bcde790-b039-4dc6-8ddb-858199f05e70}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{6ea69190-555f-455f-9138-e5809ddf2841}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{2ffe5d35-312e-44cf-b967-0664d7bc3b57}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{eec79213-4f2b-4fcd-829d-8ccb9a62a63d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{6c4d2a83-d155-46ec-a522-2b1541e945be}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{d7087294-3692-4e3b-b9b7-4b704580f921}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                    <cell id="{ed664565-1201-48e6-aa25-3f51de6b4db7}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{19304db1-ce6c-4b6c-97f2-a9d259c1a84d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{0e71c4c7-4361-41e1-bdea-9ce0befc3c30}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5d3fd1dc-5c36-473e-8b54-f850aa6061cb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{ccdd66b0-6691-417c-b477-6eec8579583b}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{d9bf2eec-eb8e-4555-8800-5918bfaf27d5}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7bf68c07-ecf9-4baa-b3aa-d1f1afc05471}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{0e6a5c4c-377e-4bc0-be3f-473a21e70a83}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{31419584-0d77-41a6-8e46-a6c8654baa42}">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{e3eab449-4a59-432d-b37a-ec431e70bf7c}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{47948e05-f977-47d7-a91b-dc683cb99deb}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7aa49c0c-78aa-4cc4-b546-a4e60c2a3dec}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{158d38a5-ee09-42f6-9833-b8accc96a314}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c8631196-1402-4cf7-8af0-56ffec7e3e54}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5a41d9cd-3277-4137-969a-216d2fcbd87c}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{de8d45e3-bd9a-4153-9309-9c0863ddfe47}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{6dcaed2a-1243-4797-b19d-9211df2ad216}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

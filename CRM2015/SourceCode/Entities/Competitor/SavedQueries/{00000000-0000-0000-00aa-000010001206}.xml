@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>123</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000010001206}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="competitors" object="123" jump="name" select="1" icon="1" preview="1">
+      <row name="competitor" id="competitorid">
+        <cell name="name" width="300" />
+        <cell name="websiteurl" width="230" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="competitor">
+        <attribute name="name" />
+        <attribute name="websiteurl" />
+        <attribute name="competitorid" />
+        <order attribute="name" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Competitor Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de competidores" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about competitors in the detail form of any associated opportunity, product, sales literature, quote, order, or invoice record." languagecode="1033" />
+    <Description description="Muestra información de competidores en el formulario detallado de un registro de oportunidad, producto, documentación de ventas, oferta, pedido o factura asociado." languagecode="3082" />
+  </Descriptions>
+</savedquery>

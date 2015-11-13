@@ -1,0 +1,37 @@
+<HTML><HEAD><TITLE>Resolve Case</TITLE>
+<META content="text/html; CHARSET=utf-8" http-equiv=Content-Type>
+<META content=IE=8 http-equiv=X-UA-Compatible><LINK rel=stylesheet type=text/css href="AccountTestCss.css">
+<SCRIPT type=text/javascript src="ClientGlobalContext.js.aspx"></SCRIPT>
+
+<SCRIPT type=text/javascript src="AccountTestJs.js"></SCRIPT>
+</HEAD>
+<BODY onload=XrmSolutions.CloseIncident.OnLoad()>
+<TABLE style="WIDTH: 100%; HEIGHT: 100%" cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD id=tdDialogHeader class=ms-crm-Dialog-Header>
+<DIV class=ms-crm-Dialog-Header-Title>Resolve Case</DIV>
+<DIV class=ms-crm-Dialog-Header-Desc>Provide information inthe following boxes to resolve this case.</DIV></TD></TR>
+<TR>
+<TD style="HEIGHT: 100%">
+<DIV class=ms-crm-Dialog-Main>
+<TABLE cellSpacing=3 cellPadding=0 width="100%">
+<TBODY>
+<TR>
+<TD noWrap><LABEL for=selResolution>Resolution Type</LABEL> </TD>
+<TD width="100%"><SELECT id=selResolution class=ms-crm-SelectBox name=selResolution></SELECT> </TD></TR>
+<TR>
+<TD noWrap><LABEL for=selResolution>Resolution</LABEL> </TD>
+<TD width="100%"><INPUT id=txtResolution class=ms-crm-Text type=text> </TD></TR>
+<TR>
+<TD style="PADDING-TOP: 20px" colSpan=2><LABEL for=description>Description</LABEL> </TD></TR>
+<TR>
+<TD colSpan=2><TEXTAREA style="WIDTH: 100%; HEIGHT: 190px" id=description></TEXTAREA> </TD></TR></TBODY></TABLE></DIV></TD></TR>
+<TR>
+<TD class=ms-crm-Dialog-Footer>
+<TABLE cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD width="100%"></TD>
+<TD><BUTTON id=btnOk class=ms-crm-Button onclick=XrmSolutions.CloseIncident.CloseIncident() type=submit>Ok</BUTTON> </TD>
+<TD width=200><BUTTON id=btnCancel class=ms-crm-Button onclick=window.close() type=submit>Cancel</BUTTON> </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></BODY></HTML>

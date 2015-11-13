@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{05db67d9-81fd-e211-bba6-78e7d162ce29}</WebResourceId>
+  <Name>new_Close_Opp_Css</Name>
+  <DisplayName>Close_Opp_Css</DisplayName>
+  <WebResourceType>2</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_Close_Opp_Css05DB67D9-81FD-E211-BBA6-78E7D162CE29</FileName>
+</WebResource>

@@ -1,0 +1,3 @@
+function contenido() {
+    alert("hola");
+}

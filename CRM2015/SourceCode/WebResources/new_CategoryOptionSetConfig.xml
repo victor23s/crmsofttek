@@ -1,0 +1,37 @@
+<DependentOptionSetConfig entity="contact">    
+    <ParentField id="new_softtekmarketcontact1" label="Softtek Market">        
+        <DependentField id="new_softtekvertical" label="Softtek Vertical" />
+        <Option value="100000006" label="Cloud SAP Industry Solutions">
+            <ShowOption value="200000001" label="01 Banamex" />
+            <ShowOption value="200000002" label="02 HP" />            
+        </Option>
+        <Option value="100000000" label="USA & Canada">
+            <ShowOption value="200000003" label="03 Walmart" />
+            <ShowOption value="200000000" label="04 GE" />
+        </Option>
+        <Option value="100000001" label="Mexico & Central America">
+            <ShowOption value="100000011" label="05 ABInveb" />
+            <ShowOption value="100000012" label="06 EST Bancomer" />
+        </Option>
+        <Option value="100000003" label="Hispanic South America">
+            <ShowOption value="100000013" label="07 EST IBM Metlife" />
+            <ShowOption value="100000014" label="08 HGM Bimbo" />            
+        </Option>
+        <Option value="100000004" label="China">
+            <ShowOption value="100000045" label="09 BC Retail y Servicios" />
+            <ShowOption value="100000020" label="10 BD Named" />            
+        </Option>
+        <Option value="100000005" label="Europe">
+            <ShowOption value="200000017" label="11 BD-Honeywell" />
+            <ShowOption value="200000010" label="12 ZN-Named" />            
+        </Option>
+        <Option value="100000002" label="Brazil">
+            <ShowOption value="200000016" label="13 ZN-Urbi" />
+            <ShowOption value="200000012" label="14 SAP" />            
+        </Option>
+        <Option value="100000007" label="---------------">
+            <ShowOption value="200000015" label="15 SP" />
+            <ShowOption value="100000053" label="18 Bajío" />            
+        </Option>
+    </ParentField>
+</DependentOptionSetConfig>

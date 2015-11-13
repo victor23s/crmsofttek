@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{570736b4-25f3-4046-aac2-ad56b5d44e38}" Name="Opportunity - New Project">
+  <XamlFileName>/Workflows/Opportunity-NewProject-570736B4-25F3-4046-AAC2-AD56B5D44E38.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
+  <processorder>100</processorder>
+  <processroleassignment>&lt;DisplayConditions&gt;&lt;Role Id="{627090ff-40a3-4053-8790-584edc5be201}" /&gt;&lt;Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" /&gt;&lt;Role Id="{8D737D7F-30C7-41DF-836F-00EA43D38DC0}" /&gt;&lt;Role Id="{9B2FE609-F1C1-482F-ADA0-0950157ED088}" /&gt;&lt;Role Id="{4ED83B50-704D-468E-ABDD-178AE7606D2B}" /&gt;&lt;Role Id="{3C9687A7-14FF-47F6-8C69-21BC3AEDAE0D}" /&gt;&lt;Role Id="{257C094A-2466-4A46-83AD-25480D909900}" /&gt;&lt;Role Id="{1E8F1E62-4C33-465F-9AC8-2D1E32082207}" /&gt;&lt;Role Id="{71EBEEE5-12F8-436B-86F9-46C4A923F0C5}" /&gt;&lt;Role Id="{E40FD390-26CB-46D7-AF94-4841E86A1B96}" /&gt;&lt;Role Id="{F7E68946-B144-4386-A39E-4BFCEA8F6E00}" /&gt;&lt;Role Id="{A206AC6E-DA83-4A62-A5C2-4E9462401B6B}" /&gt;&lt;Role Id="{A8E924BE-FD20-410D-BE81-5953210828F5}" /&gt;&lt;Role Id="{CAEEF65E-4083-4D17-B0BE-6D2B788C6A1D}" /&gt;&lt;Role Id="{33AD7D73-B454-4465-9630-7CF4C7171C27}" /&gt;&lt;Role Id="{5D8FA189-50BB-4475-B0E5-7D5D369D04C5}" /&gt;&lt;Role Id="{990763DE-179C-4359-AF90-81A35E6F6CFD}" /&gt;&lt;Role Id="{2252CD58-F496-4EF7-B9DE-90A7B61E8218}" /&gt;&lt;Role Id="{E379C915-8F08-46B4-B841-95EF85C2C62C}" /&gt;&lt;Role Id="{FA67E6D4-EFC0-43B3-BB5E-96DE036D5F8B}" /&gt;&lt;Role Id="{7EF29D6C-8484-4093-9319-9838AAD7EF10}" /&gt;&lt;Role Id="{E7EE1BE2-C752-4EE9-8311-A2AEDA7B1A71}" /&gt;&lt;Role Id="{EF8603D8-8B9D-41C3-BB63-AAFD55739233}" /&gt;&lt;Role Id="{E953BD35-17D1-459C-9BA2-B7D9147E3FE0}" /&gt;&lt;Role Id="{6B7B7232-792A-41C9-85B8-C348B4D03F27}" /&gt;&lt;Role Id="{EE9F8A0A-A552-432A-BD31-CC216AB093F4}" /&gt;&lt;Role Id="{4462320D-5E1F-430A-977D-DD2B23B37163}" /&gt;&lt;Role Id="{FA03EA18-D101-4624-A10D-E7D2D44D1675}" /&gt;&lt;Role Id="{F04D2242-AF60-4626-9A67-EAB477F588F6}" /&gt;&lt;Role Id="{926009E3-20D4-4EDC-B42A-EB574E9D9783}" /&gt;&lt;Role Id="{AD8F67A9-CCB6-4BA8-8F05-EC2099989115}" /&gt;&lt;Role Id="{DC15CFC8-F8EF-43F0-9802-ECB73C7EA007}" /&gt;&lt;/DisplayConditions&gt;</processroleassignment>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>Opportunity</PrimaryEntity>
+  <labels>
+    <steplabels id="{2cc848a7-9193-477e-ba0c-b16161ebb865}">
+      <label languagecode="1033" description="Suspect" />
+    </steplabels>
+    <steplabels id="{a3407dfc-ffdc-4039-a877-5dd5cd7161ad}">
+      <label languagecode="1033" description="Step 1" />
+    </steplabels>
+    <steplabels id="{260315dd-497a-bc2b-0c0e-267ea26d5c41}">
+      <label languagecode="1033" description="Step 2" />
+    </steplabels>
+    <steplabels id="{82d1ccc7-0ee5-6d34-d811-646a05531a06}">
+      <label languagecode="1033" description="Step 3" />
+    </steplabels>
+    <steplabels id="{ba62c06e-e2d7-3211-1cc1-d87aa6450084}">
+      <label languagecode="1033" description="Confirm Interest" />
+    </steplabels>
+    <steplabels id="{84e4598e-d651-a278-70b8-4d94b732dc42}">
+      <label languagecode="1033" description="Current Situation" />
+    </steplabels>
+    <steplabels id="{ab1a705d-9a9d-864a-4d2d-0529c5453d28}">
+      <label languagecode="1033" description="Prospect" />
+    </steplabels>
+    <steplabels id="{acd84896-d13e-11d9-6e59-7978d950ec4c}">
+      <label languagecode="1033" description="Customer Need" />
+    </steplabels>
+    <steplabels id="{c708c71a-ab84-5078-b6ca-b0d900e2b2da}">
+      <label languagecode="1033" description="Customer Pain Points" />
+    </steplabels>
+  </labels>
+  <ProcessTriggers />
+</Workflow>

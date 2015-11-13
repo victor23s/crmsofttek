@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Quick Campaign" OriginalName="Bulk Operation">BulkOperation</Name>
+  <ObjectTypeCode>4406</ObjectTypeCode>
+  <EntityInfo>
+    <entity Name="BulkOperation">
+      <LocalizedNames>
+        <LocalizedName description="Quick Campaign" languagecode="1033" />
+        <LocalizedName description="Campa?a exprés" languagecode="3082" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Quick Campaigns" languagecode="1033" />
+        <LocalizedCollectionName description="Campa?as exprés" languagecode="3082" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="System operation used to perform lengthy and asynchronous operations on large data sets, such as distributing a campaign activity or quick campaign." languagecode="1033" />
+        <Description description="Operación del sistema usada para realizar operaciones largas y asincrónicas en conjuntos de datos de gran tama?o, como la distribución de una actividad de campa?a o una campa?a exprés." languagecode="3082" />
+      </Descriptions>
+      <attributes>
+        <attribute PhysicalName="CreatedRecordTypeCode">
+          <Type>picklist</Type>
+          <Name>createdrecordtypecode</Name>
+          <LogicalName>createdrecordtypecode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForReadApi>1</ValidForReadApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>1</AppDefaultValue>
+          <optionset Name="bulkoperation_createdrecordtypecode">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Activity Type" languagecode="1033" />
+              <displayname description="Tipo de actividad" languagecode="3082" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Type code of the objects created in the bulk operation." languagecode="1033" />
+              <Description description="Código de tipo de los objetos creados en la operación masiva." languagecode="3082" />
+            </Descriptions>
+            <options>
+              <option value="1">
+                <labels>
+                  <label description="Phone Conversation or Voice Message" languagecode="1033" />
+                  <label description="Llamada de teléfono" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="2">
+                <labels>
+                  <label description="Fax" languagecode="1033" />
+                  <label description="Fax" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="3">
+                <labels>
+                  <label description="Letter" languagecode="1033" />
+                  <label description="Carta" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="4">
+                <labels>
+                  <label description="Email" languagecode="1033" />
+                  <label description="Correo electrónico" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="5">
+                <labels>
+                  <label description="Appointment" languagecode="1033" />
+                  <label description="Cita" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="6">
+                <labels>
+                  <label description="Send Direct Email" languagecode="1033" />
+                  <label description="Enviar correo electrónico directo" languagecode="3082" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Activity Type" languagecode="1033" />
+            <displayname description="Tipo de actividad" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Choose the activity to create that determines how target prospects or customers in this quick campaign are contacted." languagecode="1033" />
+            <Description description="Elija una actividad para crear que determine cómo ponerse en contacto con posibles interesados o clientes de destino en esta campaña exprés." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+      </attributes>
+      <IsDuplicateCheckSupported>0</IsDuplicateCheckSupported>
+      <IsBusinessProcessEnabled>0</IsBusinessProcessEnabled>
+      <IsRequiredOffline>0</IsRequiredOffline>
+      <IsCollaboration>0</IsCollaboration>
+      <AutoRouteToOwnerQueue>0</AutoRouteToOwnerQueue>
+      <IsConnectionsEnabled>0</IsConnectionsEnabled>
+      <IsDocumentManagementEnabled>0</IsDocumentManagementEnabled>
+      <IsOneNoteIntegrationEnabled>0</IsOneNoteIntegrationEnabled>
+      <IsKnowledgeManagementEnabled>0</IsKnowledgeManagementEnabled>
+      <OwnershipTypeMask>UserOwned</OwnershipTypeMask>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <IsActivity>1</IsActivity>
+      <ActivityTypeMask></ActivityTypeMask>
+      <IsActivityParty>1</IsActivityParty>
+      <IsReplicated>1</IsReplicated>
+      <IsReplicationUserFiltered>0</IsReplicationUserFiltered>
+      <IsMailMergeEnabled>0</IsMailMergeEnabled>
+      <IsVisibleInMobile>0</IsVisibleInMobile>
+      <IsVisibleInMobileClient>0</IsVisibleInMobileClient>
+      <IsReadOnlyInMobileClient>0</IsReadOnlyInMobileClient>
+      <IsMapiGridEnabled>1</IsMapiGridEnabled>
+      <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
+      <IsQuickCreateEnabled>0</IsQuickCreateEnabled>
+      <IntroducedVersion>5.0.0.0</IntroducedVersion>
+      <EnforceStateTransitions>0</EnforceStateTransitions>
+      <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
+      <ChangeTrackingEnabled>0</ChangeTrackingEnabled>
+      <HasRelatedActivities>True</HasRelatedActivities>
+    </entity>
+  </EntityInfo>
+  <FormXml />
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

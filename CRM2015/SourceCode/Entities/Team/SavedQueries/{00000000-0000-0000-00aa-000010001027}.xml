@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>9</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000010001027}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="teams" object="9" jump="name" select="1" icon="1" preview="1">
+      <row name="team" id="teamid">
+        <cell name="name" width="300" />
+        <cell name="administratorid" width="100" />
+        <cell name="new_softtekmarketteam" width="100" />
+        <cell name="queueid" width="100" />
+        <cell name="businessunitid" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="team">
+        <attribute name="name" />
+        <attribute name="businessunitid" />
+        <order attribute="name" descending="false" />
+        <link-entity name="teammembership" intersect="true" to="teamid" from="teamid" link-type="inner" alias="teammembership0">
+          <link-entity name="systemuser" from="systemuserid" to="systemuserid" alias="systemuser0">
+            <filter type="and">
+              <condition attribute="systemuserid" operator="eq-userid" />
+            </filter>
+          </link-entity>
+        </link-entity>
+        <attribute name="new_softtekmarketteam" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="queueid" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="administratorid" />
+        <attribute name="teamid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Teams" languagecode="1033" />
+    <LocalizedName description="Mis equipos" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

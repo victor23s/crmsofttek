@@ -1,0 +1,12 @@
+﻿
+if (typeof(SofttekCrm) == "undefined") {
+    SofttekCrm = {
+        __namespace: true
+    };
+}
+SofttekCrm.PurchaseOrder = {
+    onLoad: function () {
+        alert("i'm load!");
+    },
+    __namespace: true
+};

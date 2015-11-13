@@ -1,0 +1,86 @@
+/// <reference path="../../XrmPageTemplate.js" />
+/// <reference path="../../Utility/DynamicForm.js" />
+if (typeof(STK.Forms.Order) == "undefined") {
+    STK.Forms.Order = {
+        __namespace: true
+    };
+}
+if (typeof(STK.Forms.Order.HelpDesk) == "undefined") {
+    STK.Forms.Order.HelpDesk = {
+        __namespace: true
+    };
+}
+
+STK.Forms.Order.HelpDesk = {
+    __initialize: function () {
+        var recordWallTab = Xrm.Page.ui.tabs.get("tab_recordwall");
+        var generalTab = Xrm.Page.ui.tabs.get("general");
+        var addressesTab = Xrm.Page.ui.tabs.get("addresses");
+        var notesTab = Xrm.Page.ui.tabs.get("notes");
+        var detailsTab = Xrm.Page.ui.tabs.get("tab_6");
+        var documentTab = Xrm.Page.ui.tabs.get("tab_5");
+        var shippingTab = Xrm.Page.ui.tabs.get("shipping");
+
+        var recordWallTabSections = recordWallTab.sections.get();
+        for (var i in recordWallTabSections) {
+            var section = recordWallTabSections[i];
+            if (section.hasOwnProperty("controls")) section.controls.forEach(function (control, index) {
+                control.setDisabled(true);
+            });
+
+        }
+        var generalTabSections = generalTab.sections.get();
+        for (var i in generalTabSections) {
+            var section = generalTabSections[i];
+            if (section.hasOwnProperty("controls")) section.controls.forEach(function (control, index) {
+                control.setDisabled(true);
+            });
+        }
+        var addressesTabSections = addressesTab.sections.get();
+        for (var i in addressesTabSections) {
+            var section = addressesTabSections[i];
+            if (section.hasOwnProperty("controls")) section.controls.forEach(function (control, index) {
+                control.setDisabled(true);
+            });
+        }
+        var notesTabSections = notesTab.sections.get();
+        for (var i in notesTabSections) {
+            var section = notesTabSections[i];
+            if (section.hasOwnProperty("controls")) section.controls.forEach(function (control, index) {
+                control.setDisabled(true);
+            });
+        }
+        var detailsTabSections = detailsTab.sections.get();
+        for (var i in detailsTabSections) {
+            var section = detailsTabSections[i];
+            if (section.hasOwnProperty("controls")) section.controls.forEach(function (control, index) {
+                control.setDisabled(true);
+            });
+        }
+        var documentTabSections = documentTab.sections.get();
+        for (var i in documentTabSections) {
+            var section = documentTabSections[i];
+            if (section.hasOwnProperty("controls")) section.controls.forEach(function (control, index) {
+                control.setDisabled(true);
+            });
+        }
+        var shippingTabSections = shippingTab.sections.get();
+        for (var i in shippingTabSections) {
+            var section = shippingTabSections[i];
+            if (section.hasOwnProperty("controls")) section.controls.forEach(function (control, index) {
+                control.setDisabled(true);
+            });
+        }
+
+        recordWallTab.setVisible(false);
+        generalTab.setVisible(false);
+        addressesTab.setVisible(false);
+        notesTab.setVisible(false);
+        detailsTab.setVisible(false);
+        documentTab.setVisible(false);
+        shippingTab.setVisible(false);
+    },
+    onLoad: function () {
+        this.__initialize();
+    }
+};

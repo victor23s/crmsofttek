@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4201</returnedtypecode>
+  <savedqueryid>{02c82773-bcb7-e011-8ee6-78e7d1623f15}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="4201" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="150" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledstart" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="actualstart" width="100" />
+        <cell name="actualend" width="100" />
+        <cell name="new_categorysftk" width="100" />
+        <cell name="new_subcategorysftk" width="100" />
+        <cell name="scheduleddurationminutes" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="activitytypecode" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="appointment">
+        <attribute name="actualstart" />
+        <attribute name="regardingobjectid" />
+        <attribute name="actualend" />
+        <attribute name="scheduleddurationminutes" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="new_categorysftk" />
+        <attribute name="new_subcategorysftk" />
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="1" />
+          <condition attribute="actualend" operator="last-month" />
+        </filter>
+        <attribute name="activitytypecode" />
+        <attribute name="statecode" />
+        <attribute name="prioritycode" />
+        <attribute name="ownerid" />
+        <attribute name="scheduledstart" />
+        <attribute name="scheduledend" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Completed Appointments - Last Month" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

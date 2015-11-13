@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Unit Group" OriginalName="Unit Group">UoMSchedule</Name>
+  <ObjectTypeCode>1056</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

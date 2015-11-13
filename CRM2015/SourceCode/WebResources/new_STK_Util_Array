@@ -1,0 +1,24 @@
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../STK.Namespaces.js" />
+/* Exte objeto se crea en memoria y contiene metodos que extienden las funciones de un arreglo*/
+STK.Util.Array = {
+    /* Indica si un arreglo contiene un valor determinado
+    Parametros :
+    - array :                   Representa el arreglo donde se buscara el valor.
+    - value :                   Representa el valor buscado.
+    Retorno :                     "true" si el valor se encuentra en el arreglo ó "false" en caso contrario.
+    */
+    containtsValue: function (array, value) {
+        // se recorre el arreglo
+        for (var $index in array) {
+            // si el valor actual del arreglo es igual al parametro de entrada "value"
+            if (array[$index] == value)
+            // regresar "true"
+            return true;
+        }
+
+        // regresar "false"
+        return false;
+    },
+    __namespace: true
+};

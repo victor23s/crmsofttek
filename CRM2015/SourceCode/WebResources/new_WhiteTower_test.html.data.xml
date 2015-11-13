@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{10baf1dd-eaed-e411-80e9-fc15b4286d18}</WebResourceId>
+  <Name>new_WhiteTower_test.html</Name>
+  <DisplayName>new_WhiteTower_test.html</DisplayName>
+  <Description>testing crm solution manager</Description>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_WhiteTower_testhtml10BAF1DD-EAED-E411-80E9-FC15B4286D18</FileName>
+</WebResource>

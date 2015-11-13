@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>10035</returnedtypecode>
+  <savedqueryid>{29ae54a9-ab96-43ce-ae50-ef56207c37c7}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10035" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_revenueforecastid">
+        <cell name="new_name" width="300" />
+        <cell name="new_account" width="100" />
+        <cell name="new_opportunity" width="100" />
+        <cell name="new_quote" width="100" />
+        <cell name="new_order" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_bdm" width="100" />
+        <cell name="new_projectid" width="100" />
+        <cell name="new_marketscope" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_softtekvertical" width="100" />
+        <cell name="new_year" width="100" />
+        <cell name="transactioncurrencyid" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="createdon" width="125" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="new_datecompleted" width="100" />
+        <cell name="new_reporttype" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_revenueforecast">
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <order attribute="new_name" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="1" />
+        </filter>
+        <attribute name="new_account" />
+        <attribute name="new_quote" />
+        <attribute name="new_order" />
+        <attribute name="new_opportunity" />
+        <attribute name="ownerid" />
+        <attribute name="new_projectid" />
+        <attribute name="new_bdm" />
+        <attribute name="new_year" />
+        <attribute name="new_softtekvertical" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_marketscope" />
+        <attribute name="statuscode" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="transactioncurrencyid" />
+        <attribute name="createdby" />
+        <attribute name="new_datecompleted" />
+        <attribute name="new_reporttype" />
+        <attribute name="new_revenueforecastid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Inactive Revenue Forecast" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1071</returnedtypecode>
+  <savedqueryid>{03315b35-4585-4447-a4d2-059cf79ca0fd}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="customeraddresses" object="1071" jump="name" select="1" icon="1" preview="1">
+      <row name="customeraddress" id="customeraddressid">
+        <cell name="name" width="150" />
+        <cell name="postalcode" width="100" />
+        <cell name="city" width="100" />
+        <cell name="line1" width="150" />
+        <cell name="telephone1" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="customeraddress">
+        <attribute name="name" />
+        <attribute name="postalcode" />
+        <attribute name="telephone1" />
+        <attribute name="customeraddressid" />
+        <filter type="and">
+          <condition attribute="addressnumber" operator="gt" value="2" />
+        </filter>
+        <order attribute="name" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Customer Address Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de direcciones de cliente" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about additional addresses in the detail form of any associated account or contact record." languagecode="1033" />
+    <Description description="Muestra información de direcciones adicionales en el formulario detallado de un registro de cuenta o contacto asociado." languagecode="3082" />
+  </Descriptions>
+</savedquery>

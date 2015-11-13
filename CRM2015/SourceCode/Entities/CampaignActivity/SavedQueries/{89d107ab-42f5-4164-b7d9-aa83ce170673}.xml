@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4402</returnedtypecode>
+  <savedqueryid>{89d107ab-42f5-4164-b7d9-aa83ce170673}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="campaignactivities" object="4402" jump="subject" select="1" icon="1" preview="1">
+      <row name="campaignactivity" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="ownerid" width="150" />
+        <cell name="partners" width="150" />
+        <cell name="channeltypecode" width="100" />
+        <cell name="statuscode" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="campaignactivity">
+        <attribute name="subject" />
+        <attribute name="ownerid" />
+        <attribute name="partners" />
+        <attribute name="channeltypecode" />
+        <attribute name="statuscode" />
+        <order attribute="subject" descending="true" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Campaign Activity Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de actividades de la campa?a" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

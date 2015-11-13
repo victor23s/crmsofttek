@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4300</returnedtypecode>
+  <savedqueryid>{f500d0fa-a21e-47fb-b0c6-7be373175895}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4300" jump="listname" select="1" preview="0" icon="1">
+      <row name="result" id="listid">
+        <cell name="listname" width="100" />
+        <cell name="type" width="100" />
+        <cell name="purpose" width="150" />
+        <cell name="createdfromcode" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>64</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="list">
+        <attribute name="listname" />
+        <attribute name="purpose" />
+        <attribute name="createdfromcode" />
+        <attribute name="listid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Marketing List Lookup View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda de listas de marketing" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{9c0331d7-afdb-e311-a678-6c3be5a8c0e8}</WebResourceId>
+  <Name>new_closeAsLostJS.js</Name>
+  <DisplayName>new_closeAsLostJS</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_closeAsLostJSjs9C0331D7-AFDB-E311-A678-6C3BE5A8C0E8</FileName>
+</WebResource>

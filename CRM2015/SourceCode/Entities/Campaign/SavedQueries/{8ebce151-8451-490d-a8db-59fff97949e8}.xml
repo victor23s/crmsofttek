@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4400</returnedtypecode>
+  <savedqueryid>{8ebce151-8451-490d-a8db-59fff97949e8}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4400" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="campaignid">
+        <cell name="name" width="300" />
+        <cell name="istemplate" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="createdon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="campaign">
+        <attribute name="name" />
+        <order attribute="name" descending="false" />
+        <attribute name="istemplate" />
+        <attribute name="statuscode" />
+        <attribute name="createdon" />
+        <attribute name="campaignid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Campaigns and Campaign Templates" languagecode="1033" />
+    <LocalizedName description="Todas las campa?as y plantillas de campa?a" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,15 @@
+function EnableSWButton()
+{
+    var statusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+    var status = Xrm.Page.getAttribute("statecode").getValue();
+    var IsDisabledSW = Xrm.Page.getControl("new_submittosw").getDisabled();
+    if(IsDisabledSW != true)
+    {
+        if(statusReason == 100000000)
+            return true;
+        else
+            return false;
+    }
+    else
+        return false;        
+}

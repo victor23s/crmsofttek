@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{9b577659-06cc-489a-a0c8-e415395f805c}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{cb673433-1f28-4f73-8cc3-fd27fc555884}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{a85f567f-5b86-4e3c-8115-0dd8787f5a2a}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{EEEFC413-EAA6-4D1A-AD6C-6DC58FCCEF36}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                        <label description="Nombre" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
+                    </cell>
+                    <cell id="{A5474C28-CEB9-4C70-A796-2BD12F9EF84C}">
+                      <labels>
+                        <label description="Website" languagecode="1033" />
+                        <label description="Sitio web" languagecode="3082" />
+                      </labels>
+                      <control id="websiteurl" classid="{71716B6C-711E-476c-8AB8-5D11542BFB47}" datafieldname="websiteurl" />
+                    </cell>
+                    <cell id="{BC47917C-A10B-4AD0-AEE3-D6150AA80F0D}">
+                      <labels>
+                        <label description="Key Product" languagecode="1033" />
+                        <label description="Producto principal" languagecode="3082" />
+                      </labels>
+                      <control id="keyproduct" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="keyproduct" />
+                    </cell>
+                    <cell id="{16F722A2-2C38-41D2-B29F-5D832FD7A37F}">
+                      <labels>
+                        <label description="Strength" languagecode="1033" />
+                        <label description="Punto fuerte" languagecode="3082" />
+                      </labels>
+                      <control id="strengths" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="strengths" />
+                    </cell>
+                    <cell id="{E5FF380D-B261-4893-81DE-9E5C136BD2E2}">
+                      <labels>
+                        <label description="Weakness" languagecode="1033" />
+                        <label description="Punto débil" languagecode="3082" />
+                      </labels>
+                      <control id="weaknesses" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="weaknesses" />
+                    </cell>
+                    <cell id="{59D4B059-751D-41F5-AA56-150436D0C47B}">
+                      <labels>
+                        <label description="Opportunity" languagecode="1033" />
+                        <label description="Oportunidad" languagecode="3082" />
+                      </labels>
+                      <control id="opportunities" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="opportunities" />
+                    </cell>
+                    <cell id="{2666A107-9DEF-4E50-B23B-1F6F590E62BE}">
+                      <labels>
+                        <label description="Threat" languagecode="1033" />
+                        <label description="Amenaza" languagecode="3082" />
+                      </labels>
+                      <control id="threats" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="threats" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

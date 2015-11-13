@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1024</returnedtypecode>
+  <savedqueryid>{5d234dac-55e6-e111-8b7e-78e3b511b603}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="1024" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="productid">
+        <cell name="name" width="150" />
+        <cell name="new_nombredemercado" width="100" />
+        <cell name="new_sftktipodeproducto" width="100" />
+        <cell name="new_proveedor1" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="product">
+        <order attribute="name" descending="false" />
+        <attribute name="new_sftktipodeproducto" />
+        <attribute name="new_nombredemercado" />
+        <attribute name="name" />
+        <attribute name="new_proveedor1" />
+        <attribute name="productid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Customize Products" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

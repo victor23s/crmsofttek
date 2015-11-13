@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>9106</returnedtypecode>
+  <savedqueryid>{1d14b9c6-f43a-4a0d-8539-ffd988880125}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="9106" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="mailmergetemplateid">
+        <cell name="name" width="200" />
+        <cell name="ispersonal" width="100" />
+        <cell name="templatetypecode" width="100" />
+        <cell name="filename" width="100" />
+        <cell name="filesize" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="mailmergetemplate">
+        <attribute name="mailmergetemplateid" />
+        <attribute name="name" />
+        <attribute name="ispersonal" />
+        <attribute name="templatetypecode" />
+        <attribute name="filename" />
+        <attribute name="filesize" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="ownerid" operator="eq-userid" />
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Active Mail Merge Templates" languagecode="1033" />
+    <LocalizedName description="Mis plantillas de combinación de correspondencia activas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

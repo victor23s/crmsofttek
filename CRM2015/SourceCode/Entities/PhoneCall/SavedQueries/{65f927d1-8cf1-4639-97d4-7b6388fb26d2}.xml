@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4210</returnedtypecode>
+  <savedqueryid>{65f927d1-8cf1-4639-97d4-7b6388fb26d2}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4210" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="to" width="100" />
+        <cell name="phonenumber" width="100" />
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="new_calltype" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+      <entity name="phonecall">
+        <attribute name="subject" />
+        <attribute name="regardingobjectid" />
+        <attribute name="to" />
+        <attribute name="prioritycode" />
+        <attribute name="scheduledend" />
+        <attribute name="prioritycode" />
+        <attribute name="phonenumber" />
+        <order attribute="scheduledend" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <link-entity name="activityparty" from="activityid" to="activityid" alias="a_2eeec60096e741548b7c7315c1e5b19f">
+          <filter type="and">
+            <condition attribute="participationtypemask" operator="in">
+              <value>2</value>
+              <value>1</value>
+              <value>9</value>
+            </condition>
+            <condition attribute="partyid" operator="eq-userid" />
+          </filter>
+        </link-entity>
+        <attribute name="new_calltype" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Phone Calls" languagecode="1033" />
+    <LocalizedName description="Mis llamadas de teléfono" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

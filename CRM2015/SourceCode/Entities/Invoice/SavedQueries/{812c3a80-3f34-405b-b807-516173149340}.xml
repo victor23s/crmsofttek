@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1090</returnedtypecode>
+  <savedqueryid>{812c3a80-3f34-405b-b807-516173149340}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1090" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="invoiceid">
+        <cell name="name" width="300" />
+        <cell name="statuscode" width="100" />
+        <cell name="totalamount" width="100" />
+        <cell name="customerid" width="150" />
+        <cell name="a_defca5040258486592a517f5ce33d65a.emailaddress1" width="150" disableSorting="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="invoice">
+        <attribute name="name" />
+        <order attribute="name" descending="false" />
+        <attribute name="totalamount" />
+        <filter type="and">
+          <condition attribute="statecode" operator="in">
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+          </condition>
+        </filter>
+        <attribute name="customerid" />
+        <link-entity alias="a_defca5040258486592a517f5ce33d65a" name="contact" from="contactid" to="customerid" link-type="outer" visible="false">
+          <attribute name="emailaddress1" />
+        </link-entity>
+        <attribute name="statuscode" />
+        <attribute name="invoiceid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Closed Invoices" languagecode="1033" />
+    <LocalizedName description="Facturas cerradas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

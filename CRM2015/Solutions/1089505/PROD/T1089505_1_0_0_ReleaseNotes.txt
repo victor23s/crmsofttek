@@ -1,0 +1,12 @@
+Release Notes:
+
+- Ticket 1089505
+Description:   Agregar un boton para copiar 1 registro de Sales Plan
+
+- Archivos incluidos en la solucion:
+	- Sales Plan "Entity"
+	- new_SalesPlanJS
+	- new_SalesPlan_Main_Library
+
+- Flujo de migración:
+	QA -> PROD

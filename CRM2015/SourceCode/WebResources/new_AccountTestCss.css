@@ -1,0 +1,109 @@
+body
+{
+    font-family: Segoe UI, Tahoma, Arial;
+    background-color: #e9edf1;
+}
+
+TD
+{
+    font-size: 11px
+}
+
+TD.ms-crm-Dialog-Header
+{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    height:			51px;
+    vertical-align:	top;
+    padding:		5px;
+    border-bottom-color: #a4abb2;
+    background-color:#ffffff
+}
+
+TD.ms-crm-Dialog-Footer
+{
+    background-color: #e9edf1;
+    border-top-color: #ffffff;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    border-top: 1px solid;
+    padding-top: 10px;
+}
+
+DIV.ms-crm-Dialog-Header-Desc
+{
+padding-top:	4px;
+padding-left:	5px;
+}
+
+DIV.ms-crm-Dialog-Desc
+{
+padding-top:	4px;
+padding-left:	6px;
+}
+
+DIV.ms-crm-Dialog-Header-Title
+{
+    color: #000000;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+DIV.ms-crm-Dialog-Header-Desc
+{
+    color: #000000;
+    padding-left: 5px;
+    padding-top: 4px;
+}
+
+DIV.ms-crm-Dialog-Main
+{
+    border-bottom-color: #a4abb2;
+    background-color: #e9edf1;
+    color: #000000;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100%;
+    vertical-align: top;
+    padding-top: 5px;
+    overflow: auto;
+}
+
+select.ms-crm-SelectBox
+{
+    width:100%;
+    color: #000000;
+    font-size:11px;
+}
+
+button
+{
+    border-bottom: 1px solid;
+    text-align: center;
+    border-left: 1px solid;
+    line-height: 18px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-repeat: repeat-x;
+    height: 20px;
+    border-top: 1px solid;
+    cursor: pointer;
+    border-right: 1px solid;
+    border-color: #666666;
+}
+
+input, select, textarea {
+	margin:0px;
+	box-sizing: border-box;
+}
+
+input.ms-crm-Text
+{
+    width: 100%;
+    behaviour: url(/_static/_forms/controls/input.text.htc?ver=1533758661);
+}

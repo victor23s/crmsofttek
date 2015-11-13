@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Case Resolution" OriginalName="Case Resolution">IncidentResolution</Name>
+  <ObjectTypeCode>4206</ObjectTypeCode>
+  <FormXml />
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

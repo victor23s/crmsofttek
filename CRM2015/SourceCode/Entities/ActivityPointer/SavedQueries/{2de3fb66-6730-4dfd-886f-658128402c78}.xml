@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4200</returnedtypecode>
+  <savedqueryid>{2de3fb66-6730-4dfd-886f-658128402c78}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4200" jump="subject" select="1" icon="1" preview="1">
+      <row name="result" id="activityid" multiobjectidfield="activitytypecode">
+        <cell name="activitytypecode" width="110" />
+        <cell name="statecode" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="actualend" width="140" />
+        <cell name="instancetypecode" width="100" ishidden="1" />
+        <cell name="community" width="100" ishidden="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="activitypointer">
+        <attribute name="activitytypecode" />
+        <attribute name="prioritycode" />
+        <attribute name="statecode" />
+        <order attribute="subject" descending="false" />
+        <filter type="and">
+          <condition attribute="isregularactivity" operator="eq" value="1" />
+          <filter type="or">
+            <condition attribute="statecode" operator="eq" value="1" />
+            <condition attribute="statecode" operator="eq" value="2" />
+          </filter>
+        </filter>
+        <attribute name="actualend" />
+        <attribute name="activityid" />
+        <attribute name="instancetypecode" />
+        <attribute name="community" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Closed Activities" languagecode="1033" />
+    <LocalizedName description="Actividades cerradas" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Closed Activities (to be used asynchronously)." languagecode="1033" />
+    <Description description="Actividades cerradas (para usarlas asincrónicamente)." languagecode="3082" />
+  </Descriptions>
+</savedquery>

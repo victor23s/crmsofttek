@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Note" OriginalName="Note">Annotation</Name>
+  <ObjectTypeCode>5</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

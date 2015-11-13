@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{0b6c8734-1048-483b-8e33-b50db9345b7e}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{ef36f9c0-8bc8-41be-b7dd-1fac748f82c4}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{6245b7c5-740a-4291-991d-8ecc2483248e}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{f75e9db7-9c6a-4ff6-85bd-e16fa78db75f}">
+                      <labels>
+                        <label description="Title" languagecode="1033" />
+                        <label description="Título" languagecode="3082" />
+                      </labels>
+                      <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" />
+                    </cell>
+                    <cell id="{b2955de5-e6d1-4527-9981-1109fdda1c63}">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="notetext" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="notetext" />
+                    </cell>
+                    <cell id="{db5188ae-76d1-47e9-a7d2-61b6361636dc}">
+                      <labels>
+                        <label description="Regarding" languagecode="1033" />
+                        <label description="Referente a" languagecode="3082" />
+                      </labels>
+                      <control id="objectid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="objectid" />
+                    </cell>
+                    <cell id="{fb051ea1-fede-4783-8933-80110a4461cc}">
+                      <labels>
+                        <label description="Created By" languagecode="1033" />
+                        <label description="Autor" languagecode="3082" />
+                      </labels>
+                      <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" />
+                    </cell>
+                    <cell id="{61bb3831-880c-413a-9b54-e3feaa8837c3}">
+                      <labels>
+                        <label description="Created On" languagecode="1033" />
+                        <label description="Fecha de creación" languagecode="3082" />
+                      </labels>
+                      <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" />
+                    </cell>
+                    <cell id="{f7ee809e-7899-4f78-bef2-f9a917f457a1}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                    <cell id="{6203f704-6c6c-4da1-a49d-0195bce9ec82}">
+                      <labels>
+                        <label description="Attachment" languagecode="1033" />
+                        <label description="Datos adjuntos" languagecode="3082" />
+                      </labels>
+                      <control id="filename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="filename" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

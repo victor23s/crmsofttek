@@ -1,0 +1,643 @@
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../jquery-1.8.2.js" />
+/// <reference path="../Linq/linq-vsdoc.js" />
+if (typeof(SofttekCrm) == "undefined") {
+    SofttekCrm = {
+        __namespace: true
+    };
+}
+
+SofttekCrm.Lookup = {
+    SofttekMarket: {
+        getSofttekVerticalOptionSet: function (stkVerticalSqlName, stkScopeSqlName, stkMarketSqlName) {
+            if (Xrm.Page.getControl(stkMarketSqlName).getValue() == null || Xrm.Page.getControl(stkGlobalSqlName).getValue() == null) {
+
+                var $stkScopeIndex = null;
+                var $stkMarketIndex = null;
+                var $matrixMatchesResult = new Array();
+                var $values = new Array();
+                var $currentOptionSet = Xrm.Page.getAttribute(stkVerticalSqlName).getOptions();
+                var $stkVerticalControl = Xrm.Page.getControl(stkVerticalSqlName);
+
+                for (var index in this.__stkGlobalOptionSet) {
+                    if (this.__stkGlobalOptionSet[index] != "null") {
+                        if (this.__stkGlobalOptionSet[index].value == Xrm.Page.getControl(stkScopeSqlName).getValue()) {
+                            $stkScopeIndex = this.__stkGlobalOptionSet[index].index;
+                        }
+                    }
+                }
+
+                for (var index in this.__stkMarketOptionSet) {
+                    if (this.__stkMarketOptionSet[index] != "null") {
+                        if (this.__stkMarketOptionSet[index].value == Xrm.Page.getControl(stkMarketSqlName).getValue()) {
+                            $stkMarketIndex = this.__stkMarketOptionSet[index].index;
+                        }
+                    }
+                }
+
+                for (var index in this.__stkVerticalMatrix) {
+                    if (this.__stkVerticalMatrix[index] != "null") {
+                        if ($stkMarketIndex in this.__stkVerticalMatrix[index].market.split() && $stkScopeIndex in this.__stkVerticalMatrix[index].global.split()) {
+                            $matrixMatchesResult.push(this.__stkVerticalMatrix[index].vertical);
+                        }
+                    }
+                }
+
+                if ($matrixMatchesResult.length > 0) {
+                    for (var index in this.__stkVerticalOptionSet) {
+                        if (this.__stkVerticalOptionSet[index] != "null") {
+                            if (this.__stkVerticalOptionSet[index].index in $matrixMatchesResult) {
+                                $values.push(this.__stkVerticalOptionSet[index]);
+                            }
+                        }
+                    }
+                }
+
+                if ($values.length > 0) {
+                    this.__cleanOptionSetControl($stkVerticalControl, false);
+                    for (var index in $values) {
+                        if ($values[index] != "null") {
+                            var $option = new Option();
+                            var $currentOptionSet = Xrm.Page.getAttribute(stkVerticalSqlName).getOptions();
+                            for (var i in $currentOptionSet) {
+                                if ($currentOptionSet[i] != "null") {
+                                    if ($currentOptionSet[i].value == $values[index].value) {
+                                        $option.text = $currentOptionSet[i].text;
+                                        $option.value = $values[index].name;
+                                    }
+                                }
+                            }
+
+                            $stkVerticalControl.addaddOption($option, $values[index].order);
+                        }
+                    }
+                }
+                else {
+                    this.__cleanOptionSetControl($stkVerticalControl, true);
+                }
+            }
+            else {
+                this.__cleanOptionSetControl($stkVerticalControl, true);
+            }
+        },
+        __stkMarketOptionSet: [{
+            "index": 0,
+            "value": "100,000,006",
+            "order": "0",
+            "name": "Cloud SAP Industry Solutions"
+        },
+        {
+            "index": 1,
+            "value": "100,000,000",
+            "order": "1",
+            "name": "USA & Canada"
+        },
+        {
+            "index": 2,
+            "value": "100,000,001",
+            "order": "2",
+            "name": "Mexico & Central America"
+        },
+        {
+            "index": 3,
+            "value": "100,000,003",
+            "order": "3",
+            "name": "Hispanic South America"
+        },
+        {
+            "index": 4,
+            "value": "100,000,004",
+            "order": "4",
+            "name": "China"
+        },
+        {
+            "index": 5,
+            "value": "100,000,005",
+            "order": "5",
+            "name": "Europe"
+        },
+        {
+            "index": 6,
+            "value": "100,000,002",
+            "order": "6",
+            "name": "Brazil"
+        }],
+        __stkGlobalOptionSet: [{
+            "index": 0,
+            "value": "100,000,000",
+            "order": "0",
+            "name": "Global"
+        },
+        {
+            "index": 1,
+            "value": "100,000,001",
+            "order": "1",
+            "name": "Non Global"
+        }],
+        __stkVerticalOptionSet: [{
+            "index": 0,
+            "value": "200,000,001",
+            "order": "0",
+            "isActive": true,
+            "name": "01 Banamex"
+        },
+        {
+            "index": 1,
+            "value": "200,000,002",
+            "order": "1",
+            "isActive": true,
+            "name": "02 HP"
+        },
+        {
+            "index": 2,
+            "value": "200,000,003",
+            "order": "2",
+            "isActive": true,
+            "name": "03 Walmart"
+        },
+        {
+            "index": 3,
+            "value": "200,000,000",
+            "order": "3",
+            "isActive": true,
+            "name": "04 GE"
+        },
+        {
+            "index": 4,
+            "value": "100,000,501",
+            "order": "4",
+            "isActive": true,
+            "name": "05 ABInveb"
+        },
+        {
+            "index": 5,
+            "value": "200,000,004",
+            "order": "5",
+            "isActive": true,
+            "name": "06 EST-Bancomer"
+        },
+        {
+            "index": 6,
+            "value": "200,000,005",
+            "order": "6",
+            "isActive": true,
+            "name": "07 EST-IBM Metlife"
+        },
+        {
+            "index": 7,
+            "value": "200,000,006",
+            "order": "7",
+            "isActive": true,
+            "name": "08 HGM-Bimbo"
+        },
+        {
+            "index": 8,
+            "value": "200,000,011",
+            "order": "8",
+            "isActive": true,
+            "name": "09 HGM-Named"
+        },
+        {
+            "index": 9,
+            "value": "200,000,018",
+            "order": "9",
+            "isActive": true,
+            "name": "10 BD-Named"
+        },
+        {
+            "index": 10,
+            "value": "200,000,014",
+            "order": "10",
+            "isActive": true,
+            "name": "11 BD-Financiero"
+        },
+        {
+            "index": 11,
+            "value": "200,000,017",
+            "order": "11",
+            "isActive": true,
+            "name": "12 BD-Honeywell"
+        },
+        {
+            "index": 12,
+            "value": "200,000,010",
+            "order": "12",
+            "isActive": true,
+            "name": "12 ZN-Named"
+        },
+        {
+            "index": 13,
+            "value": "200,000,016",
+            "order": "13",
+            "isActive": false,
+            "name": "13 ZN-Urbi"
+        },
+        {
+            "index": 14,
+            "value": "100,000,401",
+            "order": "14",
+            "isActive": true,
+            "name": "14 Cloud TS"
+        },
+        {
+            "index": 15,
+            "value": "200,000,012",
+            "order": "15",
+            "isActive": true,
+            "name": "15 SAP"
+        },
+        {
+            "index": 16,
+            "value": "200,000,015",
+            "order": "16",
+            "isActive": true,
+            "name": "16 SP"
+        },
+        {
+            "index": 17,
+            "value": "100,000,701",
+            "order": "17",
+            "isActive": true,
+            "name": "17 Guadalajara"
+        },
+        {
+            "index": 18,
+            "value": "100,000,801",
+            "order": "18",
+            "isActive": true,
+            "name": "18 Costa Rica"
+        },
+        {
+            "index": 19,
+            "value": "200,000,009",
+            "order": "19",
+            "isActive": true,
+            "name": "Business Development"
+        },
+        {
+            "index": 20,
+            "value": "200,000,021",
+            "order": "20",
+            "isActive": true,
+            "name": "ChemQ"
+        },
+        {
+            "index": 21,
+            "value": "100,000,010",
+            "order": "21",
+            "isActive": true,
+            "name": "Communications, Networks & Peripherals"
+        },
+        {
+            "index": 22,
+            "value": "200,000,022",
+            "order": "22",
+            "isActive": true,
+            "name": "eMetal"
+        },
+        {
+            "index": 23,
+            "value": "100,000,000",
+            "order": "23",
+            "isActive": true,
+            "name": "Financial Services & Insurance"
+        },
+        {
+            "index": 24,
+            "value": "100,000,005",
+            "order": "24",
+            "isActive": true,
+            "name": "General"
+        },
+        {
+            "index": 25,
+            "value": "100,000,006",
+            "order": "25",
+            "isActive": true,
+            "name": "Global Account"
+        },
+        {
+            "index": 26,
+            "value": "200,000,019",
+            "order": "26",
+            "isActive": true,
+            "name": "JIT Automotive Solutions"
+        },
+        {
+            "index": 27,
+            "value": "200,000,007",
+            "order": "27",
+            "isActive": true,
+            "name": "Manufactura y BC"
+        },
+        {
+            "index": 28,
+            "value": "100,000,002",
+            "order": "28",
+            "isActive": true,
+            "name": "Manufacturing and Consumer Product"
+        },
+        {
+            "index": 29,
+            "value": "100,000,003",
+            "order": "29",
+            "isActive": true,
+            "name": "Middle Market"
+        },
+        {
+            "index": 30,
+            "value": "100,000,007",
+            "order": "30",
+            "isActive": true,
+            "name": "Other"
+        },
+        {
+            "index": 31,
+            "value": "200,000,023",
+            "order": "31",
+            "isActive": true,
+            "name": "pCare"
+        },
+        {
+            "index": 32,
+            "value": "200,000,020",
+            "order": "32",
+            "isActive": true,
+            "name": "Pharmalab"
+        },
+        {
+            "index": 33,
+            "value": "200,000,013",
+            "order": "33",
+            "isActive": true,
+            "name": "Resto del Mercado"
+        },
+        {
+            "index": 34,
+            "value": "200,000,024",
+            "order": "34",
+            "isActive": true,
+            "name": "SAP Services"
+        },
+        {
+            "index": 35,
+            "value": "100,000,001",
+            "order": "35",
+            "isActive": true,
+            "name": "Software & High Tech"
+        },
+        {
+            "index": 36,
+            "value": "100,000,004",
+            "order": "36",
+            "isActive": true,
+            "name": "Strategic Accounts"
+        },
+        {
+            "index": 37,
+            "value": "100,000,009",
+            "order": "37",
+            "isActive": true,
+            "name": "Technology & Media"
+        },
+        {
+            "index": 38,
+            "value": "200,000,008",
+            "order": "38",
+            "isActive": true,
+            "name": "Telcos"
+        },
+        {
+            "index": 39,
+            "value": "100,000,008",
+            "order": "39",
+            "isActive": true,
+            "name": "Unknown"
+        }],
+        __stkVerticalMatrix: [{
+            "market": "0",
+            "global": "0;1",
+            "vertical": "26"
+        },
+        {
+            "market": "0",
+            "global": "0;1",
+            "vertical": "32"
+        },
+        {
+            "market": "0",
+            "global": "0;1",
+            "vertical": "20"
+        },
+        {
+            "market": "0",
+            "global": "0;1",
+            "vertical": "22"
+        },
+        {
+            "market": "0",
+            "global": "0;1",
+            "vertical": "31"
+        },
+        {
+            "market": "0",
+            "global": "0;1",
+            "vertical": "34"
+        },
+        {
+            "market": "1",
+            "global": "0",
+            "vertical": "23"
+        },
+        {
+            "market": "1",
+            "global": "0",
+            "vertical": "25"
+        },
+        {
+            "market": "1",
+            "global": "1",
+            "vertical": "23"
+        },
+        {
+            "market": "1",
+            "global": "1",
+            "vertical": "28"
+        },
+        {
+            "market": "1",
+            "global": "1",
+            "vertical": "29"
+        },
+        {
+            "market": "1",
+            "global": "1",
+            "vertical": "36"
+        },
+        {
+            "market": "1",
+            "global": "1",
+            "vertical": "37"
+        },
+        {
+            "market": "1",
+            "global": "1",
+            "vertical": "21"
+        },
+        {
+            "market": "1",
+            "global": "1",
+            "vertical": "24"
+        },
+        {
+            "market": "1",
+            "global": "1",
+            "vertical": "30"
+        },
+        {
+            "market": "1",
+            "global": "1",
+            "vertical": "39"
+        },
+        {
+            "market": "2",
+            "global": "0",
+            "vertical": "0"
+        },
+        {
+            "market": "2",
+            "global": "0",
+            "vertical": "1"
+        },
+        {
+            "market": "2",
+            "global": "0",
+            "vertical": "2"
+        },
+        {
+            "market": "2",
+            "global": "0",
+            "vertical": "3"
+        },
+        {
+            "market": "2",
+            "global": "0",
+            "vertical": "4"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "5"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "6"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "7"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "8"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "9"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "10"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "11"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "12"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "13"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "14"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "15"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "16"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "17"
+        },
+        {
+            "market": "2",
+            "global": "1",
+            "vertical": "18"
+        },
+        {
+            "market": "3;4;5;6",
+            "global": "0;1",
+            "vertical": "24"
+        }],
+        __cleanOptionSetControl: function (control, disabled) {
+            var $options = $control.getOptions();
+            for (var index in $options) {
+                if ($options[index] != "null") {
+                    $control.removeOption($options[index]);
+                }
+            }
+
+            $control.setValue(null);
+            $control.setDisabled(disabled);
+        },
+        __orderBy: function (array, property) {
+
+},
+        resolve: function (matrixItem, marketIndex, globalIndex) {
+            var $itemMarketIndexes = new Array();
+            var $itemGlobalIndexes = new Array();
+
+            if (matrixItem.market.indexOf(';') == -1) {
+                $itemMarketIndexes.push(matrixItem.market);
+            }
+            else {
+                for (var index in matrixItem.market.split(";")) {
+                    $itemMarketIndexes.push(index);
+                }
+            }
+
+            if (matrixItem.global.indexOf(';') == -1) {
+                $itemGlobalIndexes.push(matrixItem.global);
+            }
+            else {
+                for (var index in matrixItem.global.split(";")) {
+                    $itemGlobalIndexes.push(index);
+                }
+            }
+
+            return marketIndex in $itemMarketIndexes && globalIndex in $itemMarketIndexes;
+        },
+        __namespace: true
+    },
+    __namespace: true
+};

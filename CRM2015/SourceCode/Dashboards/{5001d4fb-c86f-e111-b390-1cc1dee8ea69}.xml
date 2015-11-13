@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <LocalizedNames>
+    <LocalizedName description="C.1 - Goals and Activities" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{5001d4fb-c86f-e111-b390-1cc1dee8ea69}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{f0e6f19e-1611-4746-ba3e-bf2775006329}">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="111" id="{466b23dc-6198-42ec-b713-dcaab1ed8edc}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="1" rowspan="15" showlabel="false" id="{25ba1d9f-6992-4db0-b370-23ea284cf87e}" auto="false">
+                          <labels>
+                            <label description="Goal" languagecode="1033" />
+                            <label description="Objetivos" languagecode="3082" />
+                          </labels>
+                          <control id="Componenta7b4987" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                            <parameters>
+                              <TargetEntityType>goal</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>15</RecordsPerPage>
+                              <ViewId>{361E641E-4B27-DF11-893C-00155D26C21D}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds></ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{D4A48620-E50A-E111-8935-1CC1DE780841}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName></RelationshipName>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="15" showlabel="false" id="{8d6f7b78-ab1f-49c5-bbfe-12bfdf8e32bb}" auto="false">
+                          <labels>
+                            <label description="Goals" languagecode="1033" />
+                            <label description="Objetivos" languagecode="3082" />
+                          </labels>
+                          <control id="Component49e85e4" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                            <parameters>
+                              <TargetEntityType>goal</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>15</RecordsPerPage>
+                              <ViewId>{361E641E-4B27-DF11-893C-00155D26C21D}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds></ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{107D391A-C96F-E111-B390-1CC1DEE8EA69}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName></RelationshipName>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{94916224-66d7-7c22-9d1b-e1bae02e43da}" showlabel="false" colspan="1" auto="false" rowspan="15">
+                          <labels>
+                            <label description="Appointment" languagecode="1033" />
+                            <label description="Citas" languagecode="3082" />
+                          </labels>
+                          <control id="Component7102914" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                            <parameters>
+                              <ViewId>{68A6EDA7-9E0F-E111-8E23-1CC1DE780841}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName></RelationshipName>
+                              <TargetEntityType>appointment</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds></ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{40AD9841-F215-E111-8D3D-1CC1DE780841}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>15</RecordsPerPage>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row />
+                      <row></row>
+                      <row></row>
+                      <row>
+                        <cell id="{64c08a92-6935-b36a-17c8-7a4586c7c1ba}" showlabel="false" colspan="2" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Appointment" languagecode="1033" />
+                            <label description="Citas" languagecode="3082" />
+                          </labels>
+                          <control id="Component3430075" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                            <parameters>
+                              <ViewId>{68A6EDA7-9E0F-E111-8E23-1CC1DE780841}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName></RelationshipName>
+                              <TargetEntityType>appointment</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds></ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{55B59BA3-CC6F-E111-B390-1CC1DEE8EA69}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{59dcd012-249d-7d5d-5285-3ebb2370c062}" showlabel="false" colspan="1" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Appointment" languagecode="1033" />
+                            <label description="Citas" languagecode="3082" />
+                          </labels>
+                          <control id="Component8614843" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                            <parameters>
+                              <ViewId>{68A6EDA7-9E0F-E111-8E23-1CC1DE780841}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName></RelationshipName>
+                              <TargetEntityType>appointment</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds></ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{1C6E3C8A-CD6F-E111-B390-1CC1DEE8EA69}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row></row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

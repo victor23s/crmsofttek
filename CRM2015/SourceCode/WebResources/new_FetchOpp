@@ -1,0 +1,76 @@
+<html><head>
+    <title>Fetch 2011 JavaScript Example</title>
+    <link href="/_common/styles/theme.css.aspx" rel="stylesheet" type="text/css">
+    <link href="/_common/styles/global.css.aspx" rel="stylesheet" type="text/css">
+    <link href="/_common/styles/fonts.css.aspx" rel="stylesheet" type="text/css">
+    <link href="/_common/styles/Dialogs.css.aspx" rel="stylesheet" type="text/css">
+
+    <script src="ClientGlobalContext.js.aspx"></script>
+    <script src="https://softtek.crm.dynamics.com//WebResources/new_FetchOppJS"></script>
+
+    <script type="text/javascript">
+
+        var _oService;
+        var _sOrgName = "";
+        var _sServerUrl = GetGlobalContext().getClientUrl();
+
+        function executeFetchCommand() {
+
+            var sFetch = document.getElementById('txtFetch').value;
+            _oService = new FetchUtil(_sOrgName, _sServerUrl);
+            var oEntity = _oService.Fetch(sFetch, myCallBack);
+        }
+
+
+        function myCallBack(results) {
+            var sOut = "";
+            sOut += "<table><tr><th>Account ID</th><th>Account Name</th><th>Customer Type</th><th>Transaction Currency</th></tr>";
+
+            for (var i = 0; i < results.length; i++) {
+                sOut += "<tr>" +
+                        "<td>" + results[i].attributes["name"].value + "</td>" +
+                        "<td>" + results[i].attributes["customerid"].value + "</td>" +
+
+                        "</tr>";
+            }
+            sOut += "</table>";
+            document.getElementById('dvData').innerHTML = sOut;
+        }
+
+    </script>
+
+
+<meta charset="utf-8"></head><body>
+    <table style="width: 100%; height: 100%;" border="0" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+            <td class="ms-crm-Dialog-Header" id="tdDialogHeader">
+                <div class="ms-crm-Dialog-Header-Title" id="divTitle">Executing Fetch from JavaScript in CRM 2011</div>
+                <div class="ms-crm-Dialog-Header-Desc" id="divInstructions">Enter some FetchXML to be executed against your CRM environment</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 100%;">
+                <div class="ms-crm-Dialog-Main" style="padding: 14px;">
+                    <label>Fetch Command</label><br>
+                    <textarea id="txtFetch" rows="8" cols="100" width="100%"></textarea><br>
+                    <input style="width: 100px; height: 24px;" onclick="javascript: executeFetchCommand();" type="Submit" value="Fetch">
+                    <div id="dvData" style="width: 100%; height: 100%;"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="ms-crm-Dialog-Footer" id="tdDialogFooter">
+                <table cellspacing="0" cellpadding="0">
+                    <tbody><tr>
+                        <td width="100%"></td>
+                        <td>&nbsp;
+                            <button class="ms-crm-Button" onclick="window.close();">Done</button></td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody></table>
+
+
+
+</body></html>

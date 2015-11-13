@@ -1,0 +1,1450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="new.account.DeactivateForm.CustomAction" Location="Mscrm.Form.account.MainTab.Save.Controls._children" Sequence="55">
+      <CommandUIDefinition>
+        <Button Command="new.account.DeactivateForm" Id="new.account.DeactivateForm" Image32by32="$webresource:new_deactivate_32.png" Image16by16="$webresource:new_deactivate16.png" LabelText="$LocLabels:new.account.DeactivateForm.LabelText" Sequence="55" TemplateAlias="o2" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.account.DeactivateHomepage.CustomAction" Location="Mscrm.HomepageGrid.account.MainTab.Management.Controls._children" Sequence="35">
+      <CommandUIDefinition>
+        <Button Command="new.account.DeactivateHomePage" Id="new.account.DeactivateHomepage" Image32by32="$webresource:new_deactivate_32.png" Image16by16="$webresource:new_deactivate16.png" LabelText="$LocLabels:new.account.DeactivateHomepage.LabelText" Sequence="35" TemplateAlias="o2" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.Form.account.Activate.CustomAction" Location="Mscrm.Form.account.MainTab.Save.Controls._children" Sequence="50">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Command="Mscrm.Form.Activate" Id="Mscrm.Form.account.Activate" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Sequence="50" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Activate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.Form.account.Deactivate.Hide" Location="Mscrm.Form.account.Deactivate" />
+    <CustomAction Id="new.Mscrm.HomepageGrid.account.Activate.CustomAction" Location="Mscrm.HomepageGrid.account.MainTab.Management.Controls._children" Sequence="30">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Command="Mscrm.HomepageGrid.Activate" Id="Mscrm.HomepageGrid.account.Activate" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Sequence="30" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Activate" ModernImage="Activate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.account.Deactivate.Hide" Location="Mscrm.HomepageGrid.account.Deactivate" />
+    <CustomAction Id="new.Mscrm.Isv.account.Form.CustomAction" Location="Mscrm.Tabs._children" Sequence="1010">
+      <CommandUIDefinition>
+        <Tab Command="Mscrm.Isv.account.Form" Description="ISV Account Form" Id="Mscrm.Isv.account.Form" Sequence="1010" Title="$LocLabels:Mscrm.Isv.account.Form.Title">
+          <Scaling Id="Mscrm.Isv.account.Form.Scaling">
+            <MaxSize GroupId="Mscrm.Isv.account.Form.Group0" Id="Mscrm.Isv.account.Form.Group0.MaxSize" Sequence="10" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.Form.Group1" Id="Mscrm.Isv.account.Form.Group1.MaxSize" Sequence="20" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.Form.Group2" Id="Mscrm.Isv.account.Form.Group2.MaxSize" Sequence="30" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.Form.Group3" Id="Mscrm.Isv.account.Form.Group3.MaxSize" Sequence="40" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.Form.Group4" Id="Mscrm.Isv.account.Form.Group4.MaxSize" Sequence="50" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.Form.Group5" Id="Mscrm.Isv.account.Form.Group5.MaxSize" Sequence="60" Size="Large" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group0" Id="Mscrm.Isv.account.Form.Group0.Scale.Medium" Sequence="70" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group1" Id="Mscrm.Isv.account.Form.Group1.Scale.Medium" Sequence="80" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group2" Id="Mscrm.Isv.account.Form.Group2.Scale.Medium" Sequence="90" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group3" Id="Mscrm.Isv.account.Form.Group3.Scale.Medium" Sequence="100" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group4" Id="Mscrm.Isv.account.Form.Group4.Scale.Medium" Sequence="110" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group5" Id="Mscrm.Isv.account.Form.Group5.Scale.Medium" Sequence="120" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group0" Id="Mscrm.Isv.account.Form.Group0.Scale.Small" Sequence="130" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group1" Id="Mscrm.Isv.account.Form.Group1.Scale.Small" Sequence="140" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group2" Id="Mscrm.Isv.account.Form.Group2.Scale.Small" Sequence="150" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group3" Id="Mscrm.Isv.account.Form.Group3.Scale.Small" Sequence="160" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group4" Id="Mscrm.Isv.account.Form.Group4.Scale.Small" Sequence="170" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group5" Id="Mscrm.Isv.account.Form.Group5.Scale.Small" Sequence="180" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group0" Id="Mscrm.Isv.account.Form.Group0.Scale.Popup" Sequence="190" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group1" Id="Mscrm.Isv.account.Form.Group1.Scale.Popup" Sequence="200" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group2" Id="Mscrm.Isv.account.Form.Group2.Scale.Popup" Sequence="210" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group3" Id="Mscrm.Isv.account.Form.Group3.Scale.Popup" Sequence="220" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group4" Id="Mscrm.Isv.account.Form.Group4.Scale.Popup" Sequence="230" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.Form.Group5" Id="Mscrm.Isv.account.Form.Group5.Scale.Popup" Sequence="240" Size="Popup" />
+          </Scaling>
+          <Groups Id="Mscrm.Isv.account.Form.Groups">
+            <Group Command="Mscrm.Isv.account.Form.Group0" Description="$LocLabels:Mscrm.Isv.account.Form.Group0.Title" Id="Mscrm.Isv.account.Form.Group0" Sequence="10" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.Form.Group0.Title">
+              <Controls Id="Mscrm.Isv.account.Form.Group0.Controls">
+                <Button Command="Mscrm.Isv.account.Form.Group0.Control0" Id="Mscrm.Isv.account.Form.Group0.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group0.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group0.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group0.Control0.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.Form.Group1" Description="$LocLabels:Mscrm.Isv.account.Form.Group1.Title" Id="Mscrm.Isv.account.Form.Group1" Sequence="20" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.Form.Group1.Title">
+              <Controls Id="Mscrm.Isv.account.Form.Group1.Controls">
+                <FlyoutAnchor Alt="$LocLabels:Mscrm.Isv.account.Form.Group1.Control0.Alt" Command="Mscrm.Enabled" Id="Mscrm.Isv.account.Form.Group1.Control0" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group1.Control0.LabelText" Sequence="10" TemplateAlias="o1">
+                  <Menu Id="Mscrm.Isv.account.Form.Group1.Control0.Menu">
+                    <MenuSection Id="Mscrm.Isv.account.Form.Group1.Control0.Group0" Sequence="10">
+                      <Controls Id="Mscrm.Isv.account.Form.Group1.Control0.Group0.Controls">
+                        <Button Command="Mscrm.Isv.account.Form.Group1.Control0.Group0.Control0" Id="Mscrm.Isv.account.Form.Group1.Control0.Group0.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group1.Control0.Group0.Control0.LabelText" Sequence="10" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group1.Control0.Group0.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group1.Control0.Group0.Control0.ToolTipDescription" />
+                      </Controls>
+                    </MenuSection>
+                    <MenuSection Id="Mscrm.Isv.account.Form.Group1.Control0.Group1" Sequence="20">
+                      <Controls Id="Mscrm.Isv.account.Form.Group1.Control0.Group1.Controls">
+                        <Button Command="Mscrm.Isv.account.Form.Group1.Control0.Group1.Control0" Id="Mscrm.Isv.account.Form.Group1.Control0.Group1.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group1.Control0.Group1.Control0.LabelText" Sequence="10" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group1.Control0.Group1.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group1.Control0.Group1.Control0.ToolTipDescription" />
+                      </Controls>
+                    </MenuSection>
+                  </Menu>
+                </FlyoutAnchor>
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.Form.Group2" Description="$LocLabels:Mscrm.Isv.account.Form.Group2.Title" Id="Mscrm.Isv.account.Form.Group2" Sequence="30" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.Form.Group2.Title">
+              <Controls Id="Mscrm.Isv.account.Form.Group2.Controls">
+                <Button Command="Mscrm.Isv.account.Form.Group2.Control0" Id="Mscrm.Isv.account.Form.Group2.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group2.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group2.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group2.Control0.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.Form.Group2.Control1" Id="Mscrm.Isv.account.Form.Group2.Control1" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group2.Control1.LabelText" Sequence="20" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group2.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group2.Control1.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.Form.Group2.Control2" Id="Mscrm.Isv.account.Form.Group2.Control2" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group2.Control2.LabelText" Sequence="30" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group2.Control2.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group2.Control2.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.Form.Group3" Description="$LocLabels:Mscrm.Isv.account.Form.Group3.Title" Id="Mscrm.Isv.account.Form.Group3" Sequence="40" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.Form.Group3.Title">
+              <Controls Id="Mscrm.Isv.account.Form.Group3.Controls">
+                <Button Command="Mscrm.Isv.account.Form.Group3.Control0" Id="Mscrm.Isv.account.Form.Group3.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group3.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group3.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group3.Control0.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.Form.Group3.Control1" Id="Mscrm.Isv.account.Form.Group3.Control1" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group3.Control1.LabelText" Sequence="20" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group3.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group3.Control1.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.Form.Group4" Description="$LocLabels:Mscrm.Isv.account.Form.Group4.Title" Id="Mscrm.Isv.account.Form.Group4" Sequence="50" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.Form.Group4.Title">
+              <Controls Id="Mscrm.Isv.account.Form.Group4.Controls">
+                <Button Command="Mscrm.Isv.account.Form.Group4.Control0" Id="Mscrm.Isv.account.Form.Group4.Control0" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group4.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group4.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group4.Control0.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.Form.Group5" Description="$LocLabels:Mscrm.Isv.account.Form.Group5.Title" Id="Mscrm.Isv.account.Form.Group5" Sequence="60" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.Form.Group5.Title">
+              <Controls Id="Mscrm.Isv.account.Form.Group5.Controls">
+                <Button Command="Mscrm.Isv.account.Form.Group5.Control0" Id="Mscrm.Isv.account.Form.Group5.Control0" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group5.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group5.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group5.Control0.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.Form.Group5.Control1" Id="Mscrm.Isv.account.Form.Group5.Control1" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group5.Control1.LabelText" Sequence="20" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group5.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group5.Control1.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.Form.Group5.Control2" Id="Mscrm.Isv.account.Form.Group5.Control2" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.Form.Group5.Control2.LabelText" Sequence="30" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.Form.Group5.Control2.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.Form.Group5.Control2.ToolTipDescription" />
+              </Controls>
+            </Group>
+          </Groups>
+        </Tab>
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.Isv.account.HomepageGrid.CustomAction" Location="Mscrm.Tabs._children" Sequence="1020">
+      <CommandUIDefinition>
+        <Tab Command="Mscrm.Isv.account.HomepageGrid" Description="ISV Account Grid" Id="Mscrm.Isv.account.HomepageGrid" Sequence="1020" Title="$LocLabels:Mscrm.Isv.account.HomepageGrid.Title">
+          <Scaling Id="Mscrm.Isv.account.HomepageGrid.Scaling">
+            <MaxSize GroupId="Mscrm.Isv.account.HomepageGrid.Group0" Id="Mscrm.Isv.account.HomepageGrid.Group0.MaxSize" Sequence="10" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.HomepageGrid.Group1" Id="Mscrm.Isv.account.HomepageGrid.Group1.MaxSize" Sequence="20" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.HomepageGrid.Group2" Id="Mscrm.Isv.account.HomepageGrid.Group2.MaxSize" Sequence="30" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.HomepageGrid.Group3" Id="Mscrm.Isv.account.HomepageGrid.Group3.MaxSize" Sequence="40" Size="Large" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group0" Id="Mscrm.Isv.account.HomepageGrid.Group0.Scale.Medium" Sequence="50" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group1" Id="Mscrm.Isv.account.HomepageGrid.Group1.Scale.Medium" Sequence="60" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group2" Id="Mscrm.Isv.account.HomepageGrid.Group2.Scale.Medium" Sequence="70" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group3" Id="Mscrm.Isv.account.HomepageGrid.Group3.Scale.Medium" Sequence="80" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group0" Id="Mscrm.Isv.account.HomepageGrid.Group0.Scale.Small" Sequence="90" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group1" Id="Mscrm.Isv.account.HomepageGrid.Group1.Scale.Small" Sequence="100" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group2" Id="Mscrm.Isv.account.HomepageGrid.Group2.Scale.Small" Sequence="110" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group3" Id="Mscrm.Isv.account.HomepageGrid.Group3.Scale.Small" Sequence="120" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group0" Id="Mscrm.Isv.account.HomepageGrid.Group0.Scale.Popup" Sequence="130" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group1" Id="Mscrm.Isv.account.HomepageGrid.Group1.Scale.Popup" Sequence="140" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group2" Id="Mscrm.Isv.account.HomepageGrid.Group2.Scale.Popup" Sequence="150" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.HomepageGrid.Group3" Id="Mscrm.Isv.account.HomepageGrid.Group3.Scale.Popup" Sequence="160" Size="Popup" />
+          </Scaling>
+          <Groups Id="Mscrm.Isv.account.HomepageGrid.Groups">
+            <Group Command="Mscrm.Isv.account.HomepageGrid.Group0" Description="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group0.Title" Id="Mscrm.Isv.account.HomepageGrid.Group0" Sequence="10" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group0.Title">
+              <Controls Id="Mscrm.Isv.account.HomepageGrid.Group0.Controls">
+                <Button Command="Mscrm.Isv.account.HomepageGrid.Group0.Control0" Id="Mscrm.Isv.account.HomepageGrid.Group0.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group0.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group0.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group0.Control0.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.HomepageGrid.Group1" Description="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Title" Id="Mscrm.Isv.account.HomepageGrid.Group1" Sequence="20" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Title">
+              <Controls Id="Mscrm.Isv.account.HomepageGrid.Group1.Controls">
+                <FlyoutAnchor Alt="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Alt" Command="Mscrm.Enabled" Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.LabelText" Sequence="10" TemplateAlias="o1">
+                  <Menu Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Menu">
+                    <MenuSection Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0" Sequence="10">
+                      <Controls Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Controls">
+                        <Button Command="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Control0" Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Control0.LabelText" Sequence="10" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Control0.ToolTipDescription" />
+                      </Controls>
+                    </MenuSection>
+                    <MenuSection Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1" Sequence="20">
+                      <Controls Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Controls">
+                        <Button Command="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control0" Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control0.LabelText" Sequence="10" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control0.ToolTipDescription" />
+                        <Button Command="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1" Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1.LabelText" Sequence="20" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1.ToolTipDescription" />
+                        <Button Command="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2" Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2.LabelText" Sequence="30" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2.ToolTipDescription" />
+                      </Controls>
+                    </MenuSection>
+                  </Menu>
+                </FlyoutAnchor>
+                <Button Command="Mscrm.Isv.account.HomepageGrid.Group1.Control1" Id="Mscrm.Isv.account.HomepageGrid.Group1.Control1" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control1.LabelText" Sequence="20" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control1.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.HomepageGrid.Group1.Control2" Id="Mscrm.Isv.account.HomepageGrid.Group1.Control2" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control2.LabelText" Sequence="30" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control2.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group1.Control2.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.HomepageGrid.Group2" Description="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group2.Title" Id="Mscrm.Isv.account.HomepageGrid.Group2" Sequence="30" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group2.Title">
+              <Controls Id="Mscrm.Isv.account.HomepageGrid.Group2.Controls">
+                <Button Command="Mscrm.Isv.account.HomepageGrid.Group2.Control0" Id="Mscrm.Isv.account.HomepageGrid.Group2.Control0" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group2.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group2.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group2.Control0.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.HomepageGrid.Group3" Description="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Title" Id="Mscrm.Isv.account.HomepageGrid.Group3" Sequence="40" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Title">
+              <Controls Id="Mscrm.Isv.account.HomepageGrid.Group3.Controls">
+                <Button Command="Mscrm.Isv.account.HomepageGrid.Group3.Control0" Id="Mscrm.Isv.account.HomepageGrid.Group3.Control0" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Control0.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.HomepageGrid.Group3.Control1" Id="Mscrm.Isv.account.HomepageGrid.Group3.Control1" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Control1.LabelText" Sequence="20" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Control1.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.HomepageGrid.Group3.Control2" Id="Mscrm.Isv.account.HomepageGrid.Group3.Control2" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Control2.LabelText" Sequence="30" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Control2.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.HomepageGrid.Group3.Control2.ToolTipDescription" />
+              </Controls>
+            </Group>
+          </Groups>
+        </Tab>
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.Isv.account.SubGrid.CustomAction" Location="Mscrm.SubGrid.account.ContextualTabs._children" Sequence="1030">
+      <CommandUIDefinition>
+        <Tab Command="Mscrm.Isv.account.SubGrid" Description="ISV Account Grid" Id="Mscrm.Isv.account.SubGrid" Sequence="1030" Title="$LocLabels:Mscrm.Isv.account.SubGrid.Title">
+          <Scaling Id="Mscrm.Isv.account.SubGrid.Scaling">
+            <MaxSize GroupId="Mscrm.Isv.account.SubGrid.Group0" Id="Mscrm.Isv.account.SubGrid.Group0.MaxSize" Sequence="10" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.SubGrid.Group1" Id="Mscrm.Isv.account.SubGrid.Group1.MaxSize" Sequence="20" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.SubGrid.Group2" Id="Mscrm.Isv.account.SubGrid.Group2.MaxSize" Sequence="30" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.account.SubGrid.Group3" Id="Mscrm.Isv.account.SubGrid.Group3.MaxSize" Sequence="40" Size="Large" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group0" Id="Mscrm.Isv.account.SubGrid.Group0.Scale.Medium" Sequence="50" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group1" Id="Mscrm.Isv.account.SubGrid.Group1.Scale.Medium" Sequence="60" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group2" Id="Mscrm.Isv.account.SubGrid.Group2.Scale.Medium" Sequence="70" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group3" Id="Mscrm.Isv.account.SubGrid.Group3.Scale.Medium" Sequence="80" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group0" Id="Mscrm.Isv.account.SubGrid.Group0.Scale.Small" Sequence="90" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group1" Id="Mscrm.Isv.account.SubGrid.Group1.Scale.Small" Sequence="100" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group2" Id="Mscrm.Isv.account.SubGrid.Group2.Scale.Small" Sequence="110" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group3" Id="Mscrm.Isv.account.SubGrid.Group3.Scale.Small" Sequence="120" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group0" Id="Mscrm.Isv.account.SubGrid.Group0.Scale.Popup" Sequence="130" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group1" Id="Mscrm.Isv.account.SubGrid.Group1.Scale.Popup" Sequence="140" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group2" Id="Mscrm.Isv.account.SubGrid.Group2.Scale.Popup" Sequence="150" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.account.SubGrid.Group3" Id="Mscrm.Isv.account.SubGrid.Group3.Scale.Popup" Sequence="160" Size="Popup" />
+          </Scaling>
+          <Groups Id="Mscrm.Isv.account.SubGrid.Groups">
+            <Group Command="Mscrm.Isv.account.SubGrid.Group0" Description="$LocLabels:Mscrm.Isv.account.SubGrid.Group0.Title" Id="Mscrm.Isv.account.SubGrid.Group0" Sequence="10" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.SubGrid.Group0.Title">
+              <Controls Id="Mscrm.Isv.account.SubGrid.Group0.Controls">
+                <Button Command="Mscrm.Isv.account.SubGrid.Group0.Control0" Id="Mscrm.Isv.account.SubGrid.Group0.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group0.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group0.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group0.Control0.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.SubGrid.Group1" Description="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Title" Id="Mscrm.Isv.account.SubGrid.Group1" Sequence="20" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Title">
+              <Controls Id="Mscrm.Isv.account.SubGrid.Group1.Controls">
+                <FlyoutAnchor Alt="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Alt" Command="Mscrm.Enabled" Id="Mscrm.Isv.account.SubGrid.Group1.Control0" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.LabelText" Sequence="10" TemplateAlias="o1">
+                  <Menu Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Menu">
+                    <MenuSection Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group0" Sequence="10">
+                      <Controls Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Controls">
+                        <Button Command="Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Control0" Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Control0.LabelText" Sequence="10" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Control0.ToolTipDescription" />
+                      </Controls>
+                    </MenuSection>
+                    <MenuSection Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1" Sequence="20">
+                      <Controls Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Controls">
+                        <Button Command="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control0" Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control0.LabelText" Sequence="10" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control0.ToolTipDescription" />
+                        <Button Command="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1" Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1.LabelText" Sequence="20" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1.ToolTipDescription" />
+                        <Button Command="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2" Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2.LabelText" Sequence="30" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2.ToolTipDescription" />
+                      </Controls>
+                    </MenuSection>
+                  </Menu>
+                </FlyoutAnchor>
+                <Button Command="Mscrm.Isv.account.SubGrid.Group1.Control1" Id="Mscrm.Isv.account.SubGrid.Group1.Control1" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control1.LabelText" Sequence="20" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control1.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.SubGrid.Group1.Control2" Id="Mscrm.Isv.account.SubGrid.Group1.Control2" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control2.LabelText" Sequence="30" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control2.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group1.Control2.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.SubGrid.Group2" Description="$LocLabels:Mscrm.Isv.account.SubGrid.Group2.Title" Id="Mscrm.Isv.account.SubGrid.Group2" Sequence="30" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.SubGrid.Group2.Title">
+              <Controls Id="Mscrm.Isv.account.SubGrid.Group2.Controls">
+                <Button Command="Mscrm.Isv.account.SubGrid.Group2.Control0" Id="Mscrm.Isv.account.SubGrid.Group2.Control0" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group2.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group2.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group2.Control0.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.account.SubGrid.Group3" Description="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Title" Id="Mscrm.Isv.account.SubGrid.Group3" Sequence="40" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Title">
+              <Controls Id="Mscrm.Isv.account.SubGrid.Group3.Controls">
+                <Button Command="Mscrm.Isv.account.SubGrid.Group3.Control0" Id="Mscrm.Isv.account.SubGrid.Group3.Control0" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Control0.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.SubGrid.Group3.Control1" Id="Mscrm.Isv.account.SubGrid.Group3.Control1" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Control1.LabelText" Sequence="20" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Control1.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.account.SubGrid.Group3.Control2" Id="Mscrm.Isv.account.SubGrid.Group3.Control2" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Control2.LabelText" Sequence="30" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Control2.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.account.SubGrid.Group3.Control2.ToolTipDescription" />
+              </Controls>
+            </Group>
+          </Groups>
+        </Tab>
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.Form.Activate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CanWritePrimary" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.PrimaryIsInactive" />
+        <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode" />
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="changeState" Library="/_static/_forms/form.js">
+          <StringParameter Value="activate" />
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+          <StringParameter Value="6" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.HomepageGrid.Activate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="new.account.DeactivateInactiveAcc.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWriteSelected" />
+        <DisplayRule Id="Mscrm.SelectedEntityHasStatecode" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridRibbonActions.activate" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.Form" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group0.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="1" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group1">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group1.Control0.Group0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group1.Control0.Group0.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="0" PassParams="true" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group1.Control0.Group1">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group1.Control0.Group1.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group2">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group2.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="0" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group2.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.Form.Group2.Control1" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group2.Control2">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.Form.Group2.Control2" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group3">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group3.Control0">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.Form.Group3.Control0" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group3.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.Form.Group3.Control1" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group4">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.Form.Group4" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group4.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="0" PassParams="true" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group5">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.Form.Group5" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group5.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="1" PassParams="true" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group5.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.Form.Group5.Control1" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_account_Form_Group5_Control1_1" Library="$Webresource:account_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.Form.Group5.Control2">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.Form.Group5.Control2" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_account_Form_Group5_Control2_2" Library="$Webresource:account_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.HomepageGrid" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group0.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="1" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group1">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="0" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group1.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group1.Control1" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group1.Control2">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group1.Control2" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group2">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group2.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="2" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group3">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group3.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="1" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group3.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group3.Control1" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_account_HomepageGrid_Group3_Control1_3" Library="$Webresource:account_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.HomepageGrid.Group3.Control2">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group3.Control2" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_account_HomepageGrid_Group3_Control2_4" Library="$Webresource:account_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.SubGrid" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group0.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="1" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group1">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="0" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group1.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group1.Control1" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group1.Control2">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group1.Control2" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group2">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group2.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="2" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group3">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group3.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="1" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group3.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group3.Control1" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_account_SubGrid_Group3_Control1_5" Library="$Webresource:account_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.account.SubGrid.Group3.Control2">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group3.Control2" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_account_SubGrid_Group3_Control2_6" Library="$Webresource:account_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.account.DeactivateForm">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CanWritePrimary" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.PrimaryIsActive" />
+        <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode" />
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="openDialogTest" Library="$webresource:new_AccountTestJs.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.account.DeactivateHomePage">
+      <EnableRules>
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openDialogTest" Library="$webresource:new_AccountTestJs.js">
+          <CrmParameter Value="FirstSelectedItemId" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules>
+      <TabDisplayRule TabCommand="Mscrm.Isv.account.Form">
+        <EntityRule Context="Form" />
+      </TabDisplayRule>
+      <TabDisplayRule TabCommand="Mscrm.Isv.account.HomepageGrid">
+        <EntityRule Context="HomePageGrid" />
+      </TabDisplayRule>
+      <TabDisplayRule TabCommand="Mscrm.Isv.account.SubGrid">
+        <EntityRule Context="SubGridStandard" />
+        <EntityRule Context="SubGridAssociated" />
+      </TabDisplayRule>
+    </TabDisplayRules>
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.CanWritePrimary">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWriteSelected">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.Form">
+        <MiscellaneousPrivilegeRule PrivilegeName="ISVExtensions" />
+        <CrmClientTypeRule Type="Outlook" />
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.Form.Group2.Control1">
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.Form.Group2.Control2">
+        <CrmClientTypeRule Type="Outlook" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.Form.Group3.Control0">
+        <FormStateRule State="Create" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.Form.Group3.Control1">
+        <FormStateRule State="Existing" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.Form.Group4">
+        <FormStateRule State="Create" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.Form.Group5">
+        <FormStateRule State="Create" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.Form.Group5.Control1">
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.Form.Group5.Control2">
+        <CrmClientTypeRule Type="Outlook" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.HomepageGrid">
+        <MiscellaneousPrivilegeRule PrivilegeName="ISVExtensions" />
+        <CrmClientTypeRule Type="Outlook" />
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1">
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2">
+        <CrmClientTypeRule Type="Outlook" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group1.Control1">
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group1.Control2">
+        <CrmClientTypeRule Type="Outlook" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group3.Control1">
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.HomepageGrid.Group3.Control2">
+        <CrmClientTypeRule Type="Outlook" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.SubGrid">
+        <MiscellaneousPrivilegeRule PrivilegeName="ISVExtensions" />
+        <CrmClientTypeRule Type="Outlook" />
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1">
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2">
+        <CrmClientTypeRule Type="Outlook" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group1.Control1">
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group1.Control2">
+        <CrmClientTypeRule Type="Outlook" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group3.Control1">
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.account.SubGrid.Group3.Control2">
+        <CrmClientTypeRule Type="Outlook" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="HasStateCode" PropertyValue="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsActive">
+        <FormStateRule State="Existing" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsInactive">
+        <FormStateRule State="Disabled" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsNotActivity">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SelectedEntityHasStatecode">
+        <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="HasStateCode" PropertyValue="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SelectedIsActive">
+        <FormStateRule State="Existing" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SelectedIsNotActivity">
+        <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsActivity" PropertyValue="false" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.CanWritePrimary">
+        <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.CanWriteSelected">
+        <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.SelectionCountAtLeastOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <CustomRule FunctionName="Mscrm.RibbonActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="new.account.DeactivateInactiveAcc.EnableRule">
+        <ValueRule Field="statecode" Value="Inactive" InvertResult="true" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group0.Control0.LabelText">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group0.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group0.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group0.Title">
+      <Titles>
+        <Title description="ISV Account Form 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group1.Control0.Alt">
+      <Titles>
+        <Title description="Sub Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group1.Control0.Group0.Control0.LabelText">
+      <Titles>
+        <Title description="Test Sub 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group1.Control0.Group0.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Test Sub 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group1.Control0.Group0.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test Sub 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group1.Control0.Group1.Control0.LabelText">
+      <Titles>
+        <Title description="Test Sub 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group1.Control0.Group1.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Test Sub 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group1.Control0.Group1.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test Sub 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group1.Control0.LabelText">
+      <Titles>
+        <Title description="Sub Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group1.Title">
+      <Titles>
+        <Title description="ISV Account Form 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Control0.LabelText">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Control1.LabelText">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Control2.LabelText">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Control2.ToolTipDescription">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Control2.ToolTipTitle">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group2.Title">
+      <Titles>
+        <Title description="ISV Account Form 3" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group3.Control0.LabelText">
+      <Titles>
+        <Title description="Valid For Update Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group3.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Valid For Update Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group3.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Valid For Update Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group3.Control1.LabelText">
+      <Titles>
+        <Title description="Valid For Create Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group3.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Valid For Create Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group3.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Valid For Create Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group3.Title">
+      <Titles>
+        <Title description="ISV Account Form 4" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group4.Control0.LabelText">
+      <Titles>
+        <Title description="asdf" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group4.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Info on Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group4.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="asdf" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group4.Title">
+      <Titles>
+        <Title description="ISV Account Form 5" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Control0.LabelText">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Info on Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Control1.LabelText">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Web client only. This will not show up in any outlook pages." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Control2.LabelText">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Control2.ToolTipDescription">
+      <Titles>
+        <Title description="Outlook Only - This is available offline also." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Control2.ToolTipTitle">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Group5.Title">
+      <Titles>
+        <Title description="ISV Account Form 6" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.Form.Title">
+      <Titles>
+        <Title description="ISV Account Form" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group0.Control0.LabelText">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group0.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group0.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group0.Title">
+      <Titles>
+        <Title description="ISV Account Grid 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Alt">
+      <Titles>
+        <Title description="Sub Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Control0.LabelText">
+      <Titles>
+        <Title description="Test Sub 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Test Sub 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group0.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test Sub 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control0.LabelText">
+      <Titles>
+        <Title description="Test Sub 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Test Sub 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test Sub 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1.LabelText">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2.LabelText">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2.ToolTipDescription">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.Group1.Control2.ToolTipTitle">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control0.LabelText">
+      <Titles>
+        <Title description="Sub Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control1.LabelText">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control2.LabelText">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control2.ToolTipDescription">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Control2.ToolTipTitle">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group1.Title">
+      <Titles>
+        <Title description="ISV Account Grid 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group2.Control0.LabelText">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group2.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Info on Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group2.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group2.Title">
+      <Titles>
+        <Title description="ISV Account Grid 3" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Control0.LabelText">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Info on Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Control1.LabelText">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Web client only. This will not show up in any outlook pages." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Control2.LabelText">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Control2.ToolTipDescription">
+      <Titles>
+        <Title description="Outlook Only - This is available offline also." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Control2.ToolTipTitle">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Group3.Title">
+      <Titles>
+        <Title description="ISV Account Grid 4" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.HomepageGrid.Title">
+      <Titles>
+        <Title description="ISV Account Grid" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group0.Control0.LabelText">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group0.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group0.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Coming Soon..." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group0.Title">
+      <Titles>
+        <Title description="ISV Account Grid 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Alt">
+      <Titles>
+        <Title description="Sub Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Control0.LabelText">
+      <Titles>
+        <Title description="Test Sub 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Test Sub 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group0.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test Sub 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control0.LabelText">
+      <Titles>
+        <Title description="Test Sub 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Test Sub 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test Sub 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1.LabelText">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2.LabelText">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2.ToolTipDescription">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.Group1.Control2.ToolTipTitle">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control0.LabelText">
+      <Titles>
+        <Title description="Sub Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control1.LabelText">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control2.LabelText">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control2.ToolTipDescription">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Control2.ToolTipTitle">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group1.Title">
+      <Titles>
+        <Title description="ISV Account Grid 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group2.Control0.LabelText">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group2.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Info on Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group2.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group2.Title">
+      <Titles>
+        <Title description="ISV Account Grid 3" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Control0.LabelText">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Info on Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Control1.LabelText">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Web client only. This will not show up in any outlook pages." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Control2.LabelText">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Control2.ToolTipDescription">
+      <Titles>
+        <Title description="Outlook Only - This is available offline also." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Control2.ToolTipTitle">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Group3.Title">
+      <Titles>
+        <Title description="ISV Account Grid 4" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.account.SubGrid.Title">
+      <Titles>
+        <Title description="ISV Account Grid" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.account.DeactivateForm.LabelText">
+      <Titles>
+        <Title description="Deactivate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.account.DeactivateHomepage.LabelText">
+      <Titles>
+        <Title description="Deactivate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

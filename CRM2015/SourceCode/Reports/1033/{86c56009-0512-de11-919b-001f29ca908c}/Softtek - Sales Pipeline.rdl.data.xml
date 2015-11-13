@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report>
+  <name>Softtek - Sales Pipeline</name>
+  <defaultfilter>
+    <ReportFilter>
+      <ReportEntity paramname="CRM_FilteredOpportunity" donotconvert="1">
+        <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+          <entity name="opportunity">
+            <all-attributes />
+            <filter type="and">
+              <filter type="or">
+                <condition attribute="closeprobability" operator="lt" value="50" />
+                <filter type="and">
+                  <condition attribute="closeprobability" operator="ge" value="50" />
+                  <condition attribute="closeprobability" operator="le" value="70" />
+                </filter>
+                <condition attribute="closeprobability" operator="gt" value="70" />
+                <condition attribute="closeprobability" operator="null" />
+              </filter>
+            </filter>
+          </entity>
+        </fetch>
+      </ReportEntity>
+    </ReportFilter>
+  </defaultfilter>
+  <iscustomreport>1</iscustomreport>
+  <description></description>
+  <filename>Softtek - Sales Pipeline.rdl</filename>
+  <languagecode>1033</languagecode>
+  <reportid>{86c56009-0512-de11-919b-001f29ca908c}</reportid>
+  <reporttypecode>1</reporttypecode>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <iscustomizable>1</iscustomizable>
+  <ExportedFileName>/Reports/Softtek-SalesPipelinerdl86c56009-0512-de11-919b-001f29ca908c.wdl</ExportedFileName>
+  <ReportCategories />
+  <ReportVisibilities>
+    <ReportVisbility>2</ReportVisbility>
+    <ReportVisbility>3</ReportVisbility>
+    <ReportVisbility>1</ReportVisbility>
+  </ReportVisibilities>
+  <ReportEntities>
+    <ReportEntity>opportunity</ReportEntity>
+  </ReportEntities>
+</Report>

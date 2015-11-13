@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{e472a1c3-1c90-e311-a9c7-6c3be5a8d440}" Name="EUR-A&amp;V">
+  <XamlFileName>/Workflows/EUR-AV-E472A1C3-1C90-E311-A9C7-6C3BE5A8D440.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>new_purchaseorder</PrimaryEntity>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{62981de4-b634-e411-96a4-6c3be5a84d70}">
+      <formid>{19a8d756-ab9c-4c11-a0e7-b71795521c90}</formid>
+      <scope>1</scope>
+      <event>load</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>new_purchaseorder</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{63981de4-b634-e411-96a4-6c3be5a84d70}">
+      <controltype>1</controltype>
+      <formid>{19a8d756-ab9c-4c11-a0e7-b71795521c90}</formid>
+      <scope>1</scope>
+      <controlname>new_softtekmarketpo</controlname>
+      <event>change</event>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>new_purchaseorder</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

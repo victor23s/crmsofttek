@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{48f848ec-71b3-e211-bb0b-78e7d1622fed}</WebResourceId>
+  <Name>new_softtek_scripts_forms_account</Name>
+  <DisplayName>Softtek Scripts [Lead]</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <FileName>/WebResources/new_softtek_scripts_forms_account48F848EC-71B3-E211-BB0B-78E7D1622FED</FileName>
+</WebResource>

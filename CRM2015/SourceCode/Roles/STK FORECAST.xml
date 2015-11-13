@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{4b7acbbc-1874-e411-bd93-6c3be5a88248}" name="STK FORECAST">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppendnew_revenueplanning" level="Basic" />
+    <RolePrivilege name="prvAppendnew_salesplan" level="Basic" />
+    <RolePrivilege name="prvAppendTonew_revenueplanning" level="Basic" />
+    <RolePrivilege name="prvAppendTonew_salesplan" level="Basic" />
+    <RolePrivilege name="prvAssignnew_revenueplanning" level="Basic" />
+    <RolePrivilege name="prvAssignnew_salesplan" level="Basic" />
+    <RolePrivilege name="prvCreatenew_revenueforecast" level="Basic" />
+    <RolePrivilege name="prvCreatenew_revenueplanning" level="Basic" />
+    <RolePrivilege name="prvCreatenew_salesplan" level="Basic" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvDeletenew_revenueplanning" level="Basic" />
+    <RolePrivilege name="prvDeletenew_salesplan" level="Basic" />
+    <RolePrivilege name="prvReadnew_revenueforecast" level="Local" />
+    <RolePrivilege name="prvReadnew_revenueplanning" level="Basic" />
+    <RolePrivilege name="prvReadnew_salesplan" level="Basic" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvSharenew_revenueplanning" level="Basic" />
+    <RolePrivilege name="prvSharenew_salesplan" level="Basic" />
+    <RolePrivilege name="prvWritenew_revenueplanning" level="Basic" />
+    <RolePrivilege name="prvWritenew_salesplan" level="Basic" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+  </RolePrivileges>
+</Role>

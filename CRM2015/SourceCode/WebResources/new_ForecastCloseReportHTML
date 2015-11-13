@@ -1,0 +1,90 @@
+<html><head><title>Revenue Forecast</title>
+<meta http-equiv="Content-Type" content="text/html; CHARSET=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8"><link href="new_closeAsLostCSS" rel="stylesheet" type="text/css">
+<script src="new_jquery" type="text/javascript"></script>
+
+<script src="new_json2" type="text/javascript"></script>
+
+<script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+<link href="/_common/styles/global.css.aspx" rel="stylesheet" type="text/css">
+<script src="new_jqueryBlockUI" type="text/javascript"></script>
+
+<script src="new_jqueryUI_min" type="text/javascript"></script>
+
+<script src="new_ForecastJS" type="text/javascript"></script>
+
+<script src="new_XrmServiceToolkit" type="text/javascript"></script>
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> -->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link href="/resources/demos/style.css" rel="stylesheet">
+<script src="new_autonumeric" type="text/javascript"></script>
+
+<script id="/_static/_forms/datetime.js?ver=266908479" src="/_static/_forms/datetime.js?ver=266908479" type="text/javascript"></script>
+<link href="https://softtek.crm.dynamics.com//WebResources/new_jquery_ui_custom" rel="stylesheet" type="text/css">
+<style type="text/css">
+        .ui-datepicker {
+            font-size: 7pt !important;
+        }
+    </style>
+
+<script>
+        window.onload = function () {
+           XrmSolutions.CloseRevenueForecast.OnLoad();
+        };
+
+        function limitText(limitField, limitNum) {
+            if (limitField.value.length > limitNum) {
+                limitField.value = limitField.value.substring(0, limitNum);
+            }
+        };
+
+        function onchange_selectMarket(value)
+         {
+               XrmSolutions.FillNameForecastDropDown.OnChange();
+			
+         };
+		 $(function() {
+             $( "#DateInput" ).datepicker();
+              });
+
+                var x = jQuery(this).find("img");
+    </script>
+
+<meta><meta><meta></head>
+<body style="-ms-word-wrap: break-word;" hola-ext-player="1">
+<h2>CloseReport</h2>
+<div style="padding: 0px; width: 200px;">
+<table>
+<tbody>
+<tr><!--<td id="td1" style="margin-bottom: 15px;">
+                       <div class="ms-crm-RefreshDialog-Header-Title formTitle">Details</div>
+                        <div class="ms-crm-Dialog-Header-Desc" style="width: 370px; color: rgb(115, 115, 115); margin-bottom: 15px;"></div>
+                    </td>--></tr>
+<tr>
+<td>
+<table>
+<tbody>
+<tr>
+<td class="txt" style="width: 150px;"></td></tr>
+<tr id="Tr1">
+<td><a id="space"></a></td></tr>
+<tr id="Tr2">
+<td style="width: 150px;"><label>Softtek Market </label><label class="required">*</label></td>
+<td style="width: 240px;"><select name="Softtek Market" class="ms-crm-SelectBox" id="selMarket" onchange="onchange_selectMarket(this.value)"></select></td></tr>
+<tr id="Tr3">
+<td><a id="space1"></a></td></tr>
+<tr id="Tr4">
+<td style="width: 150px;"><label>Name </label><label class="required">*</label></td>
+<td style="width: 240px;"><select name="Name" class="ms-crm-SelectBox" id="selName"></select> </td></tr>
+<tr id="Tr6">
+<td style="width: 150px;"><label>Date Completed </label><label class="required">*</label></td>
+<td style="width: 240px;"><input tabindex="0" title="" class="ms-crm-Input ms-crm-DateTime-Container-Input" id="DateInput" type="text"> </td></tr>
+<tr id="Tr7">
+<td><a id="space2"></a></td></tr>
+<tr id="Tr8">
+<td><a id="space3"></a></td></tr>
+<tr>
+<td><button class="ms-crm-Button" id="btnClose" onclick="" type="submit">Close</button> </td>
+<td><button class="ms-crm-Button" id="btnCancel" onclick="window.close()" type="submit">Cancel</button> </td></tr></tbody></table></td></tr></tbody></table></div></body></html>

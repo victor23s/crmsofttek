@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{3fc4414a-3db2-e411-81b1-6c3be5a88248}</WebResourceId>
+  <Name>new_ForecastReport32</Name>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_ForecastReport323FC4414A-3DB2-E411-81B1-6C3BE5A88248</FileName>
+</WebResource>

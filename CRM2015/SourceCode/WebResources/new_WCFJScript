@@ -1,0 +1,45 @@
+function CallCustomWebService(FunctionName, ParameterNameList, ParameterValueList, ProxyURL) { //FunctionName-Nameof the function to call
+    //ParameterNameList-Array of Parameter names in your proxy function
+    //ParameterValueList-Array of Parameter value
+    //ProxyURL-URL of your proxy
+    var CallingFunctionURL = "http://tempuri.org/IService1/" + FunctionName;
+    var xml = "<?xml version='1.0' encoding='utf-8'?>" + "<soap:Envelope xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'" + " xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'" + " xmlns:xsd='http://www.w3.org/2001/XMLSchema'>" + "<soap:Body>" + "<" + FunctionName + " xmlns=\'http://tempuri.org/\'>";
+    for (i = 0; i < ParameterNameList.length; i++) {
+        xml = xml + "<" + ParameterNameList[i] + ">" + ParameterValueList[i] + "</" + ParameterNameList[i] + ">";
+    }
+    xml = xml + "</" + FunctionName + ">";
+    xml = xml + "</soap:Body></soap:Envelope>";
+    xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+    xmlHttp.open("POST", ProxyURL, false);
+    xmlHttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    xmlHttp.setRequestHeader("Content-Length", xml.length);
+    xmlHttp.setRequestHeader("SOAPAction", CallingFunctionURL);
+    xmlHttp.onreadystatechange = function () {
+        ParseResult(xmlHttp);
+    };
+    xmlHttp.send(xml);
+}
+function ParseResult(XmlRequest) {
+    if (XmlRequest.readyState == 4) {
+        if (XmlRequest.status == 200) {
+            alert(XmlRequest.responseXML.text);
+        }
+        else {
+            alert("Request Failed ");
+        }
+    }
+}
+}
+
+function Llamar() {
+    var FunctionName = "GetData";
+    //var ParameterNameList = "FirstName";
+    var ParameterNameList = new Array();
+    ParameterNameList[0] = "FirstName";
+    //var ParameterValueList = Xrm.Page.getAttribute("new_value").getValue();
+    var ParameterValueList = new Array();
+    ParameterValueList[0] = "Victor Sandoval";
+    var ProxyURL = "http://www.ensenada.net:6381/Service1.svc";
+
+    CallCustomWebService(FunctionName, ParameterNameList, ParameterValueList, ProxyURL)
+}

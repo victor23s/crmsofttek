@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Competitor Address" OriginalName="Competitor Address">CompetitorAddress</Name>
+  <ObjectTypeCode>1004</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

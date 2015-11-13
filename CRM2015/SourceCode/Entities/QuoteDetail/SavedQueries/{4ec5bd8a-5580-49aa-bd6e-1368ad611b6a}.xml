@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1085</returnedtypecode>
+  <savedqueryid>{4ec5bd8a-5580-49aa-bd6e-1368ad611b6a}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="quotedetails" object="1085" jump="" select="1" icon="1" preview="1">
+      <row name="quotedetail" id="quotedetailid">
+        <cell name="productid" width="200" />
+        <cell name="productdescription" width="200" />
+        <cell name="priceperunit" width="100" />
+        <cell name="quantity" width="100" />
+        <cell name="extendedamount" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="quotedetail">
+        <attribute name="productid" />
+        <attribute name="priceperunit" />
+        <attribute name="quantity" />
+        <attribute name="extendedamount" />
+        <attribute name="quotedetailid" />
+        <filter type="and">
+          <condition attribute="isproductoverridden" operator="eq" value="0" />
+        </filter>
+        <order attribute="productid" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quote Product Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de productos de oferta" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about the products included in a quote in the detail form of the associated quote record. This view is in the Products side tab." languagecode="1033" />
+    <Description description="Muestra información de los productos incluidos en una oferta en el formulario detallado del registro de oferta asociado. Esta vista está en la ficha lateral Productos." languagecode="3082" />
+  </Descriptions>
+</savedquery>

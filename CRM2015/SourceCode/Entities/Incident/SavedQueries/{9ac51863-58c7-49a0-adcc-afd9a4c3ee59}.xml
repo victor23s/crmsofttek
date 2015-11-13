@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>112</returnedtypecode>
+  <savedqueryid>{9ac51863-58c7-49a0-adcc-afd9a4c3ee59}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="112" jump="title" select="1" preview="0" icon="1">
+      <row name="result" id="incidentid">
+        <cell name="title" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_serviceofferingcase" width="100" />
+        <cell name="new_casetypecase" width="100" />
+        <cell name="new_assignedqueue" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_duedatecase" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="customerid" width="150" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>64</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="incident">
+        <attribute name="title" />
+        <attribute name="customerid" />
+        <attribute name="incidentid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="ne" value="2" />
+        </filter>
+        <order attribute="title" descending="false" />
+        <attribute name="statuscode" />
+        <attribute name="statecode" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_serviceofferingcase" />
+        <attribute name="prioritycode" />
+        <attribute name="ownerid" />
+        <attribute name="new_duedatecase" />
+        <attribute name="new_casetypecase" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedqueue" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Case Lookup View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda de casos" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

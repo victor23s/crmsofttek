@@ -1,0 +1,154 @@
+/// <reference path="XrmPageTemplate.js" />
+/// <reference path="new_softtek_scripts_util_dynamicform.js" />
+/// <reference path="new_XrmServiceToolkit" />
+
+function Form_onload() {
+    DisabledField(false);
+    var canCreate = userCanModifyForecast();
+	var status = Xrm.Page.getAttribute("statecode").getValue();
+	if (canCreate == true && status == 0) CanCreateForecast(false);
+}
+
+function userCanModifyForecast() {
+    var allowed = false;
+   if (UsrHasRole("System Administrator") || UsrHasRole("SFTK PIC")|| UsrHasRole("STK Forecast Admin")) {//|| UsrHasRole("STK FORECAST")
+        allowed = true;
+    }
+    return allowed;
+}
+
+function getName() {
+    var date = new Date();
+    var month = date.getMonth() + 1;
+    if (month < 10) month = '0' + month;
+    var day = date.getDate();
+    return 'RF-' + month + day + date.getFullYear();
+}
+
+function getUser() {
+    var userId = Xrm.Page.context.getUserId();
+    userId = userId.replace("{", "");
+    userId = userId.replace("}", "");
+    return userId;
+}
+function isAdjustment() {
+    var _isAdjustment = Xrm.Page.getAttribute("new_type").getValue();
+    var _result = true;
+    if (_isAdjustment == '100000002') {
+        _result = false;
+    }
+    return _result;
+}
+function CanCreateForecast(_status) {
+    Xrm.Page.getControl("new_name").setDisabled(_status);
+    Xrm.Page.getControl("new_type").setDisabled(_status);
+    Xrm.Page.getControl("new_opportunity").setDisabled(_status);
+    Xrm.Page.getControl("new_quote").setDisabled(_status);
+    Xrm.Page.getControl("new_order").setDisabled(_status);
+    Xrm.Page.getControl("new_account").setDisabled(_status);
+    Xrm.Page.getControl("new_opportunitytype").setDisabled(_status);
+    Xrm.Page.getControl("new_marketscope").setDisabled(_status);
+    Xrm.Page.getControl("new_softtekmarket").setDisabled(_status);
+    Xrm.Page.getControl("new_softtekvertical").setDisabled(_status);
+    Xrm.Page.getControl("new_serviceoffering").setDisabled(_status);
+    Xrm.Page.getControl("new_deliverymodel").setDisabled(_status);
+    Xrm.Page.getControl("new_bdm").setDisabled(_status);
+    //Xrm.Page.getControl("new_datecompleted").setDisabled(_status);
+    Xrm.Page.getControl("new_reporttype").setDisabled(_status);
+    Xrm.Page.getControl("new_consolidationdate").setDisabled(_status);
+    Xrm.Page.getControl("new_projectid").setDisabled(_status);
+    Xrm.Page.getControl("new_projectname").setDisabled(_status);
+    Xrm.Page.getControl("new_deliverymanager").setDisabled(_status);
+    Xrm.Page.getControl("new_duration").setDisabled(_status);
+    Xrm.Page.getControl("new_year").setDisabled(_status);
+    Xrm.Page.getControl("new_total_year").setDisabled(_status);
+    Xrm.Page.getControl("new_rev01").setDisabled(_status);
+    Xrm.Page.getControl("new_rev02").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_03").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_04").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_05").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_06").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_07").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_08").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_09").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_10").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_11").setDisabled(_status);
+    Xrm.Page.getControl("new_rev_12").setDisabled(_status);
+    Xrm.Page.getControl("transactioncurrencyid").setDisabled(_status);
+}
+function DisabledField(_status) {
+    var _isAdjustment = Xrm.Page.getAttribute("new_type").getValue();
+    if (_isAdjustment == '100000002') {
+
+        Xrm.Page.getControl("new_rev01").setDisabled(_status);
+        Xrm.Page.getControl("new_rev02").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_03").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_04").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_05").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_06").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_07").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_08").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_09").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_10").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_11").setDisabled(_status);
+        Xrm.Page.getControl("new_rev_12").setDisabled(_status);
+
+    }
+}
+
+function SumDetailFields() {
+    Validations();
+    var sum = Xrm.Page.getAttribute("new_rev01").getValue() + Xrm.Page.getAttribute("new_rev02").getValue() + Xrm.Page.getAttribute("new_rev_03").getValue() + Xrm.Page.getAttribute("new_rev_04").getValue() + Xrm.Page.getAttribute("new_rev_05").getValue() + Xrm.Page.getAttribute("new_rev_06").getValue() + Xrm.Page.getAttribute("new_rev_07").getValue() + Xrm.Page.getAttribute("new_rev_08").getValue() + Xrm.Page.getAttribute("new_rev_09").getValue() + Xrm.Page.getAttribute("new_rev_10").getValue() + Xrm.Page.getAttribute("new_rev_11").getValue() + Xrm.Page.getAttribute("new_rev_12").getValue();
+    Xrm.Page.getAttribute("new_total_year").setValue(sum);
+
+}
+
+function Validations() {
+
+    if (Xrm.Page.getAttribute("new_rev01").getValue() == null) Xrm.Page.getAttribute("new_rev01").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev02").getValue() == null) Xrm.Page.getAttribute("new_rev02").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_03").getValue() == null) Xrm.Page.getAttribute("new_rev_03").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_04").getValue() == null) Xrm.Page.getAttribute("new_rev_04").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_05").getValue() == null) Xrm.Page.getAttribute("new_rev_05").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_06").getValue() == null) Xrm.Page.getAttribute("new_rev_06").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_07").getValue() == null) Xrm.Page.getAttribute("new_rev_07").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_08").getValue() == null) Xrm.Page.getAttribute("new_rev_08").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_09").getValue() == null) Xrm.Page.getAttribute("new_rev_09").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_10").getValue() == null) Xrm.Page.getAttribute("new_rev_10").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_11").getValue() == null) Xrm.Page.getAttribute("new_rev_11").setValue(0);
+    if (Xrm.Page.getAttribute("new_rev_12").getValue() == null) Xrm.Page.getAttribute("new_rev_12").setValue(0);
+
+}
+function Form_onSave() {
+
+    Xrm.Page.getControl("new_total_year").setDisabled(false);
+
+}
+
+function ValidateProjectID() {
+    var selectedSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket").getSelectedOption();
+    var projectID = Xrm.Page.getAttribute("new_projectid").getValue();
+
+    /* Validate 1-0000000000 or 2-0000000000 for USA, MEX & Cloud (using SAP) and ABCDE99 for the rest (using Intrasoft) */
+    //validation to Europe is included here as a 1-0000000005
+	if (selectedSofttekMarket!=null &&(projectID!=null ||projectID !='') ){
+    if (selectedSofttekMarket.value == "100000000" || selectedSofttekMarket.value == "100000001" || selectedSofttekMarket.value == "100000006" || selectedSofttekMarket.value == "100000005") {
+        if (projectID.match(/\b[1-2]-\d{10}\b/g) == null) {
+            var message = "The Format of Project ID is not correct! Valid Format: 1-0000000000";
+            alert(message);
+			 Xrm.Page.getAttribute("new_projectid").setValue(null);
+        }
+    }
+    else {
+        if (projectID.match(/\b[A-Z]{5}\d{2}\b/g) == null) {
+            var message = "The Format of Project ID is not correct! Valid Format: ABCDE99";
+            alert(message);
+			Xrm.Page.getAttribute("new_projectid").setValue(null);
+        }
+      }  
+	}
+	else{
+		Xrm.Page.getAttribute("new_projectid").setValue(null);
+		alert("You cannot set the ProjectId without SofttekMarket");
+	}
+}

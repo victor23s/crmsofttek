@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10007</returnedtypecode>
+  <savedqueryid>{53256fcc-a2da-4aef-bd9d-45c0e491dc33}</savedqueryid>
+  <layoutxml>
+    <grid name="new_eventattendances" object="10007" jump="new_eventname" select="1" icon="1" preview="1">
+      <row name="new_eventattendance" id="new_eventattendanceid">
+        <cell name="new_eventname" width="300" />
+        <cell name="new_dateofattendance" width="125" />
+        <cell name="new_description" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="new_eventattendance">
+        <attribute name="new_dateofattendance" />
+        <attribute name="new_eventname" />
+        <attribute name="createdon" />
+        <attribute name="new_description" />
+        <attribute name="new_eventattendanceid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <order attribute="new_eventname" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Event Attendance Associated View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

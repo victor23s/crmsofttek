@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{0a758f02-6334-4ebb-8e36-590e4837a4ae}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form shownavigationbar="true" showImage="false" maxWidth="1900">
+    <tabs>
+      <tab verticallayout="true" id="{c4b34063-6911-4418-bc84-87944fc6591b}" IsUserDefined="1" name="{c4b34063-6911-4418-bc84-87944fc6591b}" locklevel="0" expanded="true" showlabel="true">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{896ee71d-8a8f-4d1d-be65-ff4bf5f35ae5}" name="{896ee71d-8a8f-4d1d-be65-ff4bf5f35ae5}" columns="11" locklevel="0" labelwidth="200" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{68ce6c1e-18c3-44ef-b11d-22a6c1a4de54}" showlabel="false" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_name" disabled="false" />
+                    </cell>
+                    <cell id="{c23640b0-95c5-75e9-9292-56a6ab5ad377}" showlabel="false" locklevel="1" visible="false">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{45a537e1-4c5c-1b6a-13b0-214c966d878e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Contact" languagecode="1033" />
+                      </labels>
+                      <control id="new_contact" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_contact" disabled="false" />
+                    </cell>
+                    <cell id="{46a35e78-c55e-45ca-abb9-3bb7e50a663d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Account" languagecode="1033" />
+                      </labels>
+                      <control id="new_account" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_account" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{07012524-6490-a833-87e0-4c501944a253}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Market" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekmarket" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekmarket" disabled="false" />
+                    </cell>
+                    <cell id="{81ced604-5858-0a88-c874-2c2a214eb203}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Country" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekcountry" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekcountry" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{d98dd484-7e9c-8b62-5d83-01885bc552ce}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Market Scope" languagecode="1033" />
+                      </labels>
+                      <control id="new_marketscope" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_marketscope" disabled="false" />
+                    </cell>
+                    <cell id="{76e358d7-32cc-a9b9-b403-213b2ac4b26c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Vertical" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekvertical" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekvertical" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{6a9639a4-1e80-c277-0c27-27559121915d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Service Offering" languagecode="1033" />
+                      </labels>
+                      <control id="new_serviceoffering" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_serviceoffering" disabled="false" />
+                    </cell>
+                    <cell id="{e8bbc266-595d-d118-d2c7-0754e4cb2049}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control id="new_owner" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_owner" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{441c8d1b-7c7d-b0ad-18c0-0e5a45c7b76b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Survey Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_surveytype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_surveytype" disabled="false" />
+                    </cell>
+                    <cell id="{de1b861b-7a08-bbc7-e379-a27d34dd201e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Period" languagecode="1033" />
+                      </labels>
+                      <control id="new_period" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_period" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="{c4b34063-6911-4418-bc84-87944fc6591b}_section_2" showlabel="false" showbar="false" locklevel="0" id="{243571b5-cd90-4507-11ac-23d4955b7e16}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" height="auto">
+                <labels>
+                  <label description="Detail" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{3980ac23-57e2-6d79-1e65-5329985eda08}" showlabel="true" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="NPS Score" languagecode="1033" />
+                      </labels>
+                      <control id="new_npsscoreint" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="new_npsscoreint" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{6cc51579-a1cc-2ab0-8410-d9221b06e428}" showlabel="true" locklevel="0" colspan="2" rowspan="4">
+                      <labels>
+                        <label description="NPS Question 1" languagecode="1033" />
+                      </labels>
+                      <control id="new_npsquestion1" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_npsquestion1" disabled="false" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{d6156822-9c1d-55e8-c5d1-6c2c10b2bbd6}" showlabel="true" locklevel="0" rowspan="4" colspan="2">
+                      <labels>
+                        <label description="NPS Question 2" languagecode="1033" />
+                      </labels>
+                      <control id="new_npsquestion2" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_npsquestion2" disabled="false" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{59bba889-e3a6-4589-bd29-e52ce64ba42b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Score 1" languagecode="1033" />
+                      </labels>
+                      <control id="new_score1" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="new_score1" disabled="false" />
+                    </cell>
+                    <cell id="{b4e1205c-894c-b1a8-5bbd-e7a9b4177e79}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Score 2" languagecode="1033" />
+                      </labels>
+                      <control id="new_score2" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="new_score2" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bd58d988-5c1d-9a85-02a5-6c3a3da10073}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Score 3" languagecode="1033" />
+                      </labels>
+                      <control id="new_score3" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="new_score3" disabled="false" />
+                    </cell>
+                    <cell id="{0e2827e2-aec5-04b3-8967-916670c2de41}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Score 4" languagecode="1033" />
+                      </labels>
+                      <control id="new_score4" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="new_score4" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ea932a58-63ab-984e-1486-3e8bc1c90473}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Score 5" languagecode="1033" />
+                      </labels>
+                      <control id="new_score5" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="new_score5" disabled="false" />
+                    </cell>
+                    <cell id="{c64e5654-70ca-5ddb-081c-0397179c67b3}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{25d70556-a855-40e5-7413-07ce401c9515}" showlabel="true" locklevel="0" colspan="2" auto="true" rowspan="4">
+                      <labels>
+                        <label description="Additional Comments" languagecode="1033" />
+                      </labels>
+                      <control id="new_additionalcomments" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_additionalcomments" disabled="false" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row height="auto"></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <footer id="{90addc60-bb0f-4f27-a7c5-c9b41add96d2}" columns="111">
+      <rows>
+        <row>
+          <cell id="{d3274b73-b8d5-b065-411e-964ce57e0108}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Status" languagecode="1033" />
+              <label description="Estado" languagecode="3082" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" />
+          </cell>
+          <cell id="{15324cb1-2678-d9e2-de9e-9993ddd11545}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Status Reason" languagecode="1033" />
+              <label description="Razón para el estado" languagecode="3082" />
+            </labels>
+            <control id="footer_statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="true" />
+          </cell>
+          <cell id="{e20cc765-f85e-40c8-bb76-597b75fce5f9}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <formLibraries>
+      <Library name="new_SurveyInfo_main_library" libraryUniqueId="{7b2417d0-e5aa-e928-081d-a764c1559053}" />
+      <Library name="new_softtek_scripts_util_dynamicform" libraryUniqueId="{3d11d8d5-b74d-249b-4285-d45a40049307}" />
+    </formLibraries>
+    <events>
+      <event name="onload" application="false" active="false">
+        <Handlers>
+          <Handler functionName="OnLoad" libraryName="new_SurveyInfo_main_library" handlerUniqueId="{1a4415e5-c8b9-0c56-8998-3be6aa09e41d}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_softtekmarket">
+        <Handlers>
+          <Handler functionName="onChangeSofttekMarket" libraryName="new_SurveyInfo_main_library" handlerUniqueId="{aac243d2-4483-279c-7661-318b7d6db968}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_marketscope">
+        <Handlers>
+          <Handler functionName="onChangeMarketScope" libraryName="new_SurveyInfo_main_library" handlerUniqueId="{9993d948-b59d-6894-696a-069211cbdec3}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+    </events>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

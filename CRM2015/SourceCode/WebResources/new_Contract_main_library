@@ -1,0 +1,37 @@
+/**
+ * @author jesse.zhang
+ */
+// Get the field that fired the event.
+var oField = event.srcElement;
+// Validate the field information.
+if (typeof(oField) != "undefined" && oField.getValue() != null) {
+
+    // Prepare variables for an opportunity to retrieve.
+    var opportunityid = oField.getValue()[0].id;
+    var authenticationHeader = Xrm.Page.context.getAuthenticationHeader();
+
+    // Prepare the SOAP message.
+    var xml = "<?xml version='1.0' encoding='utf-8'?>" + "<soap:Envelope xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'" + " xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'" + " xmlns:xsd='http://www.w3.org/2001/XMLSchema'>" + authenticationHeader + "<soap:Body>" + "<Retrieve xmlns='http://schemas.microsoft.com/crm/2007/WebServices'>" + "<entityName>opportunity</entityName>" + "<id>" + opportunityid + "</id>" + "<columnSet xmlns:q1='http://schemas.microsoft.com/crm/2006/Query' xsi:type='q1:ColumnSet'>" + "<q1:Attributes>" + "<q1:Attribute>ownerid</q1:Attribute>" + "<q1:Attribute>new_projectid</q1:Attribute>" + "</q1:Attributes>" + "</columnSet>" + "</Retrieve>" + "</soap:Body>" + "</soap:Envelope>";
+    // Prepare the xmlHttpObject and send the request.
+    var xHReq = new ActiveXObject("Msxml2.XMLHTTP");
+    xHReq.Open("POST", "/mscrmservices/2007/CrmService.asmx", false);
+    xHReq.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/crm/2007/WebServices/Retrieve");
+    xHReq.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    xHReq.setRequestHeader("Content-Length", xml.length);
+    xHReq.send(xml);
+    // Capture the result.
+    var resultXml = xHReq.responseXML;
+    // Check for errors.
+    var errorCount = resultXml.selectNodes('//error').length;
+    if (errorCount != 0) {
+        var msg = resultXml.selectSingleNode('//description').nodeTypedValue;
+        alert(msg);
+    }
+    // Display the retrieved value.
+    else {
+        alert(resultXml.selectSingleNode("//q1:new_projectid").nodeTypedValue);
+        alert(resultXml.selectSingleNode("//q1:ownerid").nodeTypedValue);
+        //Xrm.Page.getAttribute("new_projectid").setValue(resultXml.selectSingleNode("//q1:new_projectid").nodeTypedValue);
+        //Xrm.Page.getAttribute("new_brmid").setValue(resultXml.selectSingleNode("//q1:ownerid").nodeTypedValue);
+    }
+}

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships>
+  <EntityRelationship Name="activity_campaignresponse">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>CampaignResponse</ReferencingEntityName>
+    <ReferencedEntityName>ActivityPointer</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>Cascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>OriginatingActivityId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Choose the phone call, email, fax, letter, or appointment activity that led the prospect or customer to respond to the campaign." languagecode="1033" />
+        <Description description="Elija la llamada de teléfono, correo electrónico, fax, carta o actividad de cita que llevó al cliente o posible interesado a responder a la campaña." languagecode="3082" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="originatingactivityid" requiredlevel="none" imemode="auto" lookupstyle="single" lookupbrowse="0" format="" lookuptypes="4204, 4210, 4202, 4207, 4201">
+      <IsSecured>0</IsSecured>
+      <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Originating Activity" languagecode="1033" />
+        <displayname description="Actividad de origen" languagecode="3082" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+  <EntityRelationship Name="activitypointer_activity_parties">
+    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <IsHierarchical>0</IsHierarchical>
+    <ReferencingEntityName>ActivityParty</ReferencingEntityName>
+    <ReferencedEntityName>ActivityPointer</ReferencedEntityName>
+    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeDelete>Cascade</CascadeDelete>
+    <CascadeReparent>NoCascade</CascadeReparent>
+    <CascadeShare>NoCascade</CascadeShare>
+    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <ReferencingAttributeName>ActivityId</ReferencingAttributeName>
+    <RelationshipDescription>
+      <Descriptions>
+        <Description description="Unique identifier of the activity associated with the activity party. (A &quot;party&quot; is any person who is associated with an activity.)" languagecode="1033" />
+        <Description description="Identificador único de la actividad asociada con el grupo de actividad. Un &quot;grupo&quot; es cualquier persona asociada con una actividad." languagecode="3082" />
+      </Descriptions>
+    </RelationshipDescription>
+    <field name="activityid" requiredlevel="systemrequired" imemode="auto" lookupstyle="single" lookupbrowse="0" format="" lookuptypes="4200">
+      <IsSecured>0</IsSecured>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <displaynames>
+        <displayname description="Activity" languagecode="1033" />
+        <displayname description="Actividad" languagecode="3082" />
+      </displaynames>
+    </field>
+  </EntityRelationship>
+</EntityRelationships>

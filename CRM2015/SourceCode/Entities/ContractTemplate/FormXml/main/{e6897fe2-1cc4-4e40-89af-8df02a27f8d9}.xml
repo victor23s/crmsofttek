@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{e6897fe2-1cc4-4e40-89af-8df02a27f8d9}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{98264918-7e65-4008-aff3-2d80690c590a}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="contract type information" showlabel="false" showbar="false" id="{d9258942-0711-46a6-a933-ad21b0ff54a2}" IsUserDefined="0">
+                <labels>
+                  <label description="Contract Type Information" languagecode="1033" />
+                  <label description="Información del tipo de contrato" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{40c83160-7e40-4de1-ab13-d60085da1bfd}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                        <label description="Nombre" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
+                    </cell>
+                    <cell id="{01d07c88-00c7-4905-9da3-e5defee0bfa9}">
+                      <labels>
+                        <label description="Abbreviation" languagecode="1033" />
+                        <label description="Abreviatura" languagecode="3082" />
+                      </labels>
+                      <control id="abbreviation" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="abbreviation" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell colspan="2" id="{5d073bc6-40ca-4601-9133-17ad6ec89124}">
+                      <labels>
+                        <label description="Allotment Type" languagecode="1033" />
+                        <label description="Tipo de cobertura" languagecode="3082" />
+                      </labels>
+                      <control id="allotmenttypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="allotmenttypecode" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+    <Description description="Formulario para esta entidad." languagecode="3082" />
+  </Descriptions>
+</systemform>

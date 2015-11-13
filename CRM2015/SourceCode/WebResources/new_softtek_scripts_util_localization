@@ -1,0 +1,30 @@
+﻿ /// <reference path="../STK.Namespaces.js" />
+/// <reference path="STK.Util.Array.js" />
+/// <reference path="STK.Util.Strings.js" />
+
+STK.Util.Localization = {
+    __resources: new Array(),
+    __culture: "EN_USA",
+    setCulture: function (culture) {
+        this.__culture = culture.toUpperCase();
+    },
+    addResource: function (key, culture, text) {
+        this.__resources.push({
+            key: key.toUpperCase(),
+            culture: culture.toUpperCase(),
+            text: text
+        });
+    },
+    getLocalizadedText: function (key) {
+        var $text = String.empty;
+        var $culture = this.__culture;
+        var $query = this.__resources.where(function (r) {
+            return r.key == key.toUpperCase() && r.culture == $culture;
+        });
+
+        if ($query.length > 0) $text = $query.first().text;
+
+        return $text;
+    },
+    __namespace: true
+};

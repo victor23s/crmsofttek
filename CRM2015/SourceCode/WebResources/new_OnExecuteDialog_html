@@ -1,0 +1,19 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title></title>
+    <script src="../WebResources/new_OnExecuteDialog" type="text/javascript"></script>
+
+<meta charset="utf-8"></head><body onload="STK.Dialogs.POC.onLoad('new_poc_os');">
+    <table>
+        <tbody><tr>
+            <td>Name : 
+            </td>
+            <td>
+                <script type="text/javascript">
+                    $DynamicDialog.TextBox({ attribute: "new_name", name: "txtName", onchange: function () { } });
+                </script>
+            </td>
+        </tr>
+    </tbody></table>
+
+
+</body></html>

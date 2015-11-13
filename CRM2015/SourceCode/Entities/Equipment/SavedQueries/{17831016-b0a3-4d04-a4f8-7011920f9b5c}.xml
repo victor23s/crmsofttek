@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4000</returnedtypecode>
+  <savedqueryid>{17831016-b0a3-4d04-a4f8-7011920f9b5c}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4000" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="equipmentid">
+        <cell name="name" width="300" />
+        <cell name="businessunitid" width="200" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="equipment">
+        <link-entity name="systemuser" to="businessunitid" from="businessunitid">
+          <filter type="and">
+            <condition attribute="systemuserid" operator="eq-userid" />
+          </filter>
+        </link-entity>
+        <attribute name="name" />
+        <order attribute="name" descending="false" />
+        <attribute name="businessunitid" />
+        <attribute name="equipmentid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Local Facilities/Equipment" languagecode="1033" />
+    <LocalizedName description="Instalaciones/equipamiento locales" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

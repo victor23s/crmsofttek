@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>112</returnedtypecode>
+  <savedqueryid>{429bd987-ac6f-df11-986c-00155d2e3002}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="112" jump="title" select="1" icon="1" preview="1">
+      <row name="result" id="incidentid">
+        <cell name="ticketnumber" width="150" />
+        <cell name="title" width="200" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_serviceofferingcase" width="100" />
+        <cell name="new_casetypecase" width="100" />
+        <cell name="new_assignedqueue" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_duedatecase" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="customerid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="new_leadcase" width="100" />
+        <cell name="new_opportunitycase" width="100" />
+        <cell name="new_quotecase" width="100" />
+        <cell name="new_ordercase" width="100" />
+        <cell name="new_softtekcountrycase" width="100" />
+        <cell name="new_softtekverticalcase" width="100" />
+        <cell name="new_technologygroupcase" width="100" />
+        <cell name="createdon" width="150" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="incident">
+        <attribute name="prioritycode" />
+        <attribute name="ticketnumber" />
+        <attribute name="title" />
+        <attribute name="createdon" />
+        <order attribute="title" descending="false" />
+        <filter type="and">
+          <condition attribute="createdon" operator="last-seven-days" />
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="ownerid" />
+        <attribute name="new_technologygroupcase" />
+        <attribute name="new_softtekverticalcase" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountrycase" />
+        <attribute name="new_serviceofferingcase" />
+        <attribute name="new_quotecase" />
+        <attribute name="new_ordercase" />
+        <attribute name="new_opportunitycase" />
+        <attribute name="new_leadcase" />
+        <attribute name="new_duedatecase" />
+        <attribute name="customerid" />
+        <attribute name="new_casetypecase" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedqueue" />
+        <attribute name="statuscode" />
+        <attribute name="statecode" />
+        <attribute name="incidentid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Active Cases Opened in the Last 7 days" languagecode="1033" />
+    <LocalizedName description="Casos activos abiertos en los últimos 7 días" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the cases that were created in the last 7 days and are still active." languagecode="1033" />
+    <Description description="Muestra los casos que se crearon en los últimos 7 días y que aún están activos." languagecode="3082" />
+  </Descriptions>
+</savedquery>

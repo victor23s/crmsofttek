@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="new_softtekvertical" localizedName="Softtek Vertical">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <displaynames>
+    <displayname description="Softtek Vertical" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="200000001">
+      <labels>
+        <label description="01 Banamex" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000002">
+      <labels>
+        <label description="02 HP" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000003">
+      <labels>
+        <label description="03 Walmart" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000000">
+      <labels>
+        <label description="04 GE" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000011">
+      <labels>
+        <label description="05 ABInbev" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000004">
+      <labels>
+        <label description="05 EST-Bancomer" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000012">
+      <labels>
+        <label description="06 EST Bancomer" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000005">
+      <labels>
+        <label description="06 EST-IBM Metlife" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000013">
+      <labels>
+        <label description="07 EST IBM Metlife" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000006">
+      <labels>
+        <label description="07 HGM-Bimbo" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000014">
+      <labels>
+        <label description="08 HGM Bimbo" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000011">
+      <labels>
+        <label description="08 HGM-Named" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000045">
+      <labels>
+        <label description="09 BC Retail y Servicios" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000018">
+      <labels>
+        <label description="09 BD-Named" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000015">
+      <labels>
+        <label description="09 HGM Named" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000020">
+      <labels>
+        <label description="10 BD Named" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000014">
+      <labels>
+        <label description="10 BD-Financiero" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000017">
+      <labels>
+        <label description="11 BD Financiero" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000017">
+      <labels>
+        <label description="11 BD-Honeywell" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000019">
+      <labels>
+        <label description="12 BD Honeywell" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000010">
+      <labels>
+        <label description="12 ZN-Named" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000025">
+      <labels>
+        <label description="13 ZN Named" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000041">
+      <labels>
+        <label description="13 ZN Named Occidente" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000016">
+      <labels>
+        <label description="13 ZN-Urbi" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000021">
+      <labels>
+        <label description="14 Cloud TS" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000042">
+      <labels>
+        <label description="14 Manufactura y Quimica" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000012">
+      <labels>
+        <label description="14 SAP" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000016">
+      <labels>
+        <label description="15 SAP" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000015">
+      <labels>
+        <label description="15 SP" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000018">
+      <labels>
+        <label description="16 SP" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000022">
+      <labels>
+        <label description="17 Guadalajara" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000053">
+      <labels>
+        <label description="18 Bajío" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000023">
+      <labels>
+        <label description="18 Costa Rica" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000054">
+      <labels>
+        <label description="19 Consultoría Servicios" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000024">
+      <labels>
+        <label description="19 PayRoll As a Service" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000055">
+      <labels>
+        <label description="20 Energía y Telcos" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000030">
+      <labels>
+        <label description="ABInbev" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000009">
+      <labels>
+        <label description="Business Development" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000021">
+      <labels>
+        <label description="ChemQ" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000031">
+      <labels>
+        <label description="Citi" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000010">
+      <labels>
+        <label description="Comm, Media &amp; Tech" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000043">
+      <labels>
+        <label description="Conglomerates" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000046">
+      <labels>
+        <label description="Cuentas Estrategicas A" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000047">
+      <labels>
+        <label description="Cuentas Estrategicas B" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000048">
+      <labels>
+        <label description="Cuentas Estrategicas C" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000049">
+      <labels>
+        <label description="Cuentas Estrategicas D" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000050">
+      <labels>
+        <label description="Cuentas Estrategicas E" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000022">
+      <labels>
+        <label description="eMetal" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000000">
+      <labels>
+        <label description="Financial Svcs &amp; Ins" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000026">
+      <labels>
+        <label description="GE Capital" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000027">
+      <labels>
+        <label description="GE Corporate" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000028">
+      <labels>
+        <label description="GE Energy" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000029">
+      <labels>
+        <label description="GE Manufacturing" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000005">
+      <labels>
+        <label description="General" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000006">
+      <labels>
+        <label description="Global Account" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000044">
+      <labels>
+        <label description="Healthcare" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000033">
+      <labels>
+        <label description="HP" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000034">
+      <labels>
+        <label description="Internacional" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000019">
+      <labels>
+        <label description="JIT Automotive Solutions" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000052">
+      <labels>
+        <label description="Licencias" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000007">
+      <labels>
+        <label description="Manufactura y BC" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000002">
+      <labels>
+        <label description="Manufacturing and Consumer Product" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000003">
+      <labels>
+        <label description="Middle Market" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000037">
+      <labels>
+        <label description="Nacional Galicia" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000036">
+      <labels>
+        <label description="Nacional Madrid" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000035">
+      <labels>
+        <label description="Nacional NovaGaliciaBanco" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000038">
+      <labels>
+        <label description="Nacional Otros" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000007">
+      <labels>
+        <label description="Other" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000023">
+      <labels>
+        <label description="pCare" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000020">
+      <labels>
+        <label description="Pharmalab" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000013">
+      <labels>
+        <label description="Resto del Mercado" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000040">
+      <labels>
+        <label description="Retail &amp; CPG" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000039">
+      <labels>
+        <label description="SAP" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000024">
+      <labels>
+        <label description="SAP Services" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000001">
+      <labels>
+        <label description="Software &amp; High Tech" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000004">
+      <labels>
+        <label description="Strategic Accounts" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000009">
+      <labels>
+        <label description="Technology &amp; Media" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="200000008">
+      <labels>
+        <label description="Telcos" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000051">
+      <labels>
+        <label description="Territorias" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000008">
+      <labels>
+        <label description="Unknown" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Non Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000032">
+      <labels>
+        <label description="Walmart" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="Global" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{e5d01b13-2f24-4549-9012-1e696f2bb750}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{ca8b57d3-1958-45a3-ba5f-dacf0387e13a}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{d4d0e304-173c-465e-bdb1-9ae8ee2392f8}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{b14ee6f2-5f43-4143-8b84-d121f506f43c}">
+                      <labels>
+                        <label description="Is Regular Activity" languagecode="1033" />
+                        <label description="Es una actividad regular" languagecode="3082" />
+                      </labels>
+                      <control id="isregularactivity" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="isregularactivity" disabled="false" />
+                    </cell>
+                    <cell id="{f2e0f148-222b-4e3d-bc9f-abef616d3918}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                    <cell id="{72839311-f506-461c-8975-f1495093113b}">
+                      <labels>
+                        <label description="Subject" languagecode="1033" />
+                        <label description="Asunto" languagecode="3082" />
+                      </labels>
+                      <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
+                    </cell>
+                    <cell id="{d0a6e633-3656-4d5d-b7ed-481ebe6ba2a1}">
+                      <labels>
+                        <label description="Parent Campaign" languagecode="1033" />
+                        <label description="Campa?a primaria" languagecode="3082" />
+                      </labels>
+                      <control id="regardingobjectid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="regardingobjectid" disabled="false" />
+                    </cell>
+                    <cell id="{7072ffd0-a110-45aa-808c-c6000b15f1d4}">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{b92751fa-58f3-45ee-ad9a-b1e83091e8d6}">
+                      <labels>
+                        <label description="Activity Type" languagecode="1033" />
+                        <label description="Tipo de actividad" languagecode="3082" />
+                      </labels>
+                      <control id="activitytypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="activitytypecode" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

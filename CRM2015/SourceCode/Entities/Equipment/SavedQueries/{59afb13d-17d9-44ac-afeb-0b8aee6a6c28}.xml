@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4000</returnedtypecode>
+  <savedqueryid>{59afb13d-17d9-44ac-afeb-0b8aee6a6c28}</savedqueryid>
+  <queryapi>AUTO</queryapi>
+  <layoutxml>
+    <grid name="equipments" object="4000" jump="name" select="1" icon="1" preview="1">
+      <row name="equipment" id="equipmentid">
+        <cell name="name" width="300" />
+      </row>
+    </grid>
+  </layoutxml>
+  <columnsetxml>
+    <columnset version="3.0">
+      <column>name</column>
+      <column>equipmentid</column>
+      <ascend>name</ascend>
+    </columnset>
+  </columnsetxml>
+  <querytype>2</querytype>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Equipment Associated View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

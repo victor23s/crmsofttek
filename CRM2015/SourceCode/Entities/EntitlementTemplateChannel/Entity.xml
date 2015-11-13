@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Entitlement Template Channel" OriginalName="">EntitlementTemplateChannel</Name>
+  <ObjectTypeCode>9703</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

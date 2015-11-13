@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4201</returnedtypecode>
+  <savedqueryid>{d0479533-05a4-4bd3-affc-5767379a344d}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4201" jump="subject" select="1" icon="1" preview="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="statecode" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="createdby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="appointment">
+        <attribute name="subject" />
+        <attribute name="statecode" />
+        <attribute name="prioritycode" />
+        <attribute name="scheduledend" />
+        <attribute name="createdby" />
+        <order attribute="subject" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Appointment Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada a la cita" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

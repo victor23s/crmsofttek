@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{98521c22-5168-4b86-a526-0aed78a431e9}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form shownavigationbar="true">
+    <tabs>
+      <tab verticallayout="true" id="{211e2b74-6870-4a18-bd77-e1874312be9c}" IsUserDefined="1" locklevel="0" expanded="true" showlabel="true">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="true" showbar="false" IsUserDefined="0" id="{26254da2-2ce9-4f77-b3dc-7ca71571b426}" name="{26254da2-2ce9-4f77-b3dc-7ca71571b426}" columns="11" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{97d0b803-3067-49d0-b036-cc32e66a2127}">
+                      <labels>
+                        <label description="Entity Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_name" />
+                    </cell>
+                    <cell id="{574d135f-5079-47f2-b67d-ff1b01346751}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="{211e2b74-6870-4a18-bd77-e1874312be9c}_section_2" showlabel="true" showbar="true" locklevel="0" id="{7b8d5064-d2b7-2348-d1ab-7a1a361a3586}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Auto Number Property" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{c4d88482-2bde-3509-c8ab-927e7087d0be}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Prefix" languagecode="1033" />
+                      </labels>
+                      <control id="new_prefix" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_prefix" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{134055e4-b8e0-12e6-6b41-320d3d1b18bc}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Number" languagecode="1033" />
+                      </labels>
+                      <control id="new_id" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="new_id" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c9cb2b31-690c-509e-1d27-150dd3b17247}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Suffix Length" languagecode="1033" />
+                      </labels>
+                      <control id="new_suffixlength" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_suffixlength" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab id="{9dbc12b0-5e3e-4718-abc6-03a0f14db9bf}" IsUserDefined="0" expanded="false">
+        <labels>
+          <label description="Notes" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" id="{6bae841f-6cdc-4cbe-9d4b-dd4c09071040}" IsUserDefined="0" height="auto">
+                <labels>
+                  <label description="Notes" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell colspan="2" showlabel="false" rowspan="5" auto="true" id="{2b2209f4-cb1b-4284-8211-b2cb62685dc6}">
+                      <labels>
+                        <label description="Note Text" languagecode="1033" />
+                      </labels>
+                      <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row height="auto"></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <footer id="{d1973c83-6dde-4352-8947-ebf1cf17c6e9}">
+      <rows>
+        <row>
+          <cell id="{85569030-eeeb-4034-b3de-3ce7b37a9910}">
+            <labels>
+              <label description="Status" languagecode="1033" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <formLibraries>
+      <Library name="new_AutoNumber_main_library" libraryUniqueId="{15c010a6-c953-0247-77bb-4d53308acce5}" />
+    </formLibraries>
+    <events>
+      <event name="onload" application="false" active="false">
+        <Handlers>
+          <Handler functionName="form_onload" libraryName="new_AutoNumber_main_library" handlerUniqueId="{cb42d88c-2bc9-bdd2-d53d-da0781c1d495}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onsave" application="false" active="false">
+        <Handlers>
+          <Handler functionName="Form_onsave" libraryName="new_AutoNumber_main_library" handlerUniqueId="{76d3605c-c4e9-b2a3-19ee-535649e8043b}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+    </events>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

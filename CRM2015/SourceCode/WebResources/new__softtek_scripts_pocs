@@ -1,0 +1,115 @@
+/// <reference path="../../Common/XrmPageTemplate.js" />
+/// <reference path="../../Common/new_softtek_scripts_util_dynamicform.js" />
+/// <reference path="../../Common/new_CRM.Utils.js" />
+if (typeof(STK.Forms.POC) == "undefined") {
+    STK.Forms.POC = {
+        __namespace: true
+    };
+}
+
+STK.Forms.POC = {
+    __initializeForm: function () {
+        //Validacion de una marca
+        //Si el campo esta vacio desplegar
+        // 100000000 - Hardware
+        // 100000001 - Software
+        Xrm.Page.Cascades.AddTo("new_product_type").When("new_brand").EqualsTo(null).Do().PutOptions(["100000000", "100000001"]);
+
+        //Apple
+        // 100000000 - Hardware
+        // 100000001 - Software
+        Xrm.Page.Cascades.AddTo("new_product_type").When("new_brand").EqualsTo("100000000").Do().PutOptions(["100000000", "100000001"]);
+
+        //Samsung
+        //100000000 - Hardware
+        Xrm.Page.Cascades.AddTo("new_product_type").When("new_brand").EqualsTo("100000001").Do().PutOptions(["100000000"]);
+
+        //Nokia
+        // 100000000 - Hardware
+        Xrm.Page.Cascades.AddTo("new_product_type").When("new_brand").EqualsTo("100000002").Do().PutOptions(["100000000"]);
+
+        //Microsoft
+        // 100000001 - Software
+        Xrm.Page.Cascades.AddTo("new_product_type").When("new_brand").EqualsTo("100000003").Do().PutOptions(["100000001"]);
+
+        //LG
+        // 100000000 - Hardware
+        Xrm.Page.Cascades.AddTo("new_product_type").When("new_brand").EqualsTo("100000004").Do().PutOptions(["100000000"]);
+
+        Xrm.Page.Cascades.AddTo("new_product").When("new_brand").EqualsTo(null).And("new_product_type").EqualsTo(null).Do().PutOptions(["100000000", "100000001", "100000002", "100000003", "100000004", "100000005", "100000006", "100000007"]);
+
+        // Apple & Hardware
+        // 100000000 - Personal Computer
+        // 100000001 - Smartphone
+        // 100000004 - Tablet
+        // 100000005 - Laptop
+        // 100000007 - Item
+        Xrm.Page.Cascades.AddTo("new_product").When("new_brand").EqualsTo("100000000").And("new_product_type").EqualsTo("100000000").Do().PutOptions(["100000000", "100000001", "100000004", "100000005", "100000007"]);
+
+        ////Apple & Software
+        //// 100000002 - Operative System
+        //// 100000003 - Office Application
+        //// 100000006 - Mobil Application
+        Xrm.Page.Cascades.AddTo("new_product").When("new_brand").EqualsTo("100000000").And("new_product_type").EqualsTo("100000001").Do().PutOptions(["100000002", "100000003", "100000006"]);
+
+        //Samsung & Hardware
+        // 100000000 - Personal Computer
+        // 100000001 - Smartphone
+        // 100000004 - Tablet
+        // 100000005 - Laptop
+        // 100000007 - Item
+        Xrm.Page.Cascades.AddTo("new_product").When("new_brand").EqualsTo("100000001").And("new_product_type").EqualsTo("100000000").Do().PutOptions(["100000000", "100000001", "100000004", "100000005", "100000007"]);
+
+        //Nokia & Hardware
+        // 100000001 - Smartphone
+        // 100000004 - Tablet
+        // 100000005 - Laptop
+        Xrm.Page.Cascades.AddTo("new_product").When("new_brand").EqualsTo("100000002").And("new_product_type").EqualsTo("100000000").Do().PutOptions(["100000001", "100000004", "100000005"]);
+
+        //Microsoft & Software
+        // 100000002 - Operative System
+        // 100000003 - Office Application
+        // 100000006 - Mobil Application
+        Xrm.Page.Cascades.AddTo("new_product").When("new_brand").EqualsTo("100000003").And("new_product_type").EqualsTo("100000001").Do().PutOptions(["100000002", "100000003", "100000006"]);
+
+        //LG & Hardware
+        // 100000001 - Smartphone
+        // 100000004 - Tablet
+        // 100000005 - Laptop
+        Xrm.Page.Cascades.AddTo("new_product").When("new_brand").EqualsTo("100000004").And("new_product_type").EqualsTo("100000000").Do().PutOptions(["100000001", "100000004", "100000005"]);
+    },
+    findTeams: function () {
+        var $outputcolumns = [new CRMField("teamid"), new CRMField("name")];
+        var $filters = [new FilterBy("businessunitid", LogicalOperator.Equal, "{97B2ABD7-73DD-DF11-9BB9-02BF0A064B97}")];
+        var $results = RetrieveRecords("team", $outputcolumns, $filters);
+    },
+    onLoad: function () {
+        this.__initializeForm();
+        Xrm.Page.Cascades.Filter("new_brand");
+        Xrm.Page.Validations.Validate("new_product_type");
+        Xrm.Page.Cascades.Filter("new_product_type");
+        Xrm.Page.Validations.Validate("new_product");
+        Xrm.Page.Cascades.Filter("new_product");
+        this.findTeams();
+    },
+    onBrandChange: function () {
+        Xrm.Page.Validations.Validate("new_product_type");
+        Xrm.Page.Cascades.Filter("new_product_type");
+    },
+    onProductTypeChange: function () {
+        Xrm.Page.Validations.Validate("new_product");
+        Xrm.Page.Cascades.Filter("new_product");
+    },
+    onNameChange: function () {
+        var $name = Xrm.Page.getAttribute("new_name").getValue();
+        var $entityName = "new_poc_os";
+        var $outPutColumns = [
+        new CRMField("new_name")];
+        var $filters = [new FilterBy("new_name", LogicalOperator.Like, $name)];
+        var $items = RetrieveRecords($entityName, $outPutColumns, $filters);
+        if ($items.Rows.length > 0) {
+            alert("Este nombre ya existe");
+        }
+
+    }
+};

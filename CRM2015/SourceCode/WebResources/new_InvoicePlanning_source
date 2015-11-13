@@ -1,0 +1,19 @@
+//EEGS 06/30/2014 Ticket 333319
+function TotAmount(ExecutionObj) {
+    var EstRevenue = Xrm.Page.getAttribute("new_estrevenue").getValue();
+    var grid = document.getElementById('InvoicingDetail');
+    var ids = grid.control.get_allRecordIds();
+    var sum = 0.00;
+    var cellValue;
+    for (i = 0; i < ids.length; i++) {
+        var cellValue = grid.control.getCellValue('new_amounttoinvoice', ids[i]);
+        var number = Number(cellValue.replace(/[^0-9\.]+/g, ""));
+        sum = sum + number;
+    }
+    if (EstRevenue != sum) {
+        ExecutionObj.getEventArgs().preventDefault();
+        alert("The sum of the amount to invoice, must be the same to the field Est. Revenue");
+    } else {
+        Xrm.Page.data.entity.save();
+    }
+}

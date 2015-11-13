@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4000</returnedtypecode>
+  <savedqueryid>{7a14ab95-887a-4f48-8c04-260247dfb91e}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="equipments" object="4000" jump="name" select="1" icon="1" preview="1">
+      <row name="equipment" id="equipmentid">
+        <cell name="name" width="300" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="equipment">
+        <attribute name="name" />
+        <attribute name="equipmentid" />
+        <order attribute="name" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Facility/Equipment Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de instalaciones/equipamiento" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

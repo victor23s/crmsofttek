@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>10032</returnedtypecode>
+  <savedqueryid>{2743bdec-419c-e411-87a5-6c3be5a88248}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10032" jump="new_name" select="1" preview="1" icon="1">
+      <row name="result" id="new_surveyinfoid">
+        <cell name="new_contact" width="100" />
+        <cell name="new_account" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_softtekcountry" width="100" />
+        <cell name="new_marketscope" width="100" />
+        <cell name="new_softtekvertical" width="100" />
+        <cell name="new_serviceoffering" width="100" />
+        <cell name="new_owner" width="100" />
+        <cell name="new_surveytype" width="100" />
+        <cell name="new_npsquestion1" width="100" disableSorting="1" />
+        <cell name="new_npsquestion2" width="100" disableSorting="1" />
+        <cell name="new_score1" width="100" />
+        <cell name="new_score2" width="100" />
+        <cell name="new_score3" width="100" />
+        <cell name="new_score4" width="100" />
+        <cell name="new_score5" width="100" />
+        <cell name="new_additionalcomments" width="100" disableSorting="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="new_surveyinfo">
+        <order attribute="new_contact" descending="false" />
+        <attribute name="new_surveytype" />
+        <attribute name="new_softtekvertical" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountry" />
+        <attribute name="new_score5" />
+        <attribute name="new_score4" />
+        <attribute name="new_score3" />
+        <attribute name="new_score2" />
+        <attribute name="new_score1" />
+        <attribute name="new_owner" />
+        <attribute name="new_npsquestion2" />
+        <attribute name="new_npsquestion1" />
+        <attribute name="new_marketscope" />
+        <attribute name="new_contact" />
+        <attribute name="new_account" />
+        <attribute name="new_additionalcomments" />
+        <attribute name="new_serviceoffering" />
+        <attribute name="new_surveyinfoid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick View" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Quick View Form" languagecode="1033" />
+  </Descriptions>
+</savedquery>

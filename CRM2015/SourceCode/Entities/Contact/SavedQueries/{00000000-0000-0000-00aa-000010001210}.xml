@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>2</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000010001210}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="contacts" object="2" jump="lastname" select="1" icon="1" preview="1">
+      <row name="contact" id="contactid">
+        <cell name="fullname" width="300" />
+        <cell name="telephone1" width="125" />
+        <cell name="new_contacttype" width="100" />
+        <cell name="emailaddress1" width="100" />
+        <cell name="emailaddress2" width="100" />
+        <cell name="emailaddress3" width="100" />
+        <cell name="jobtitle" width="100" />
+        <cell name="mobilephone" width="100" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="contact">
+        <attribute name="new_contacttype" />
+        <attribute name="jobtitle" />
+        <attribute name="mobilephone" />
+        <attribute name="fullname" />
+        <attribute name="ownerid" />
+        <attribute name="telephone1" />
+        <attribute name="emailaddress3" />
+        <attribute name="emailaddress2" />
+        <attribute name="emailaddress1" />
+        <attribute name="contactid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <order attribute="fullname" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Contact Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de contactos" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays contact information in the detail form of any associated account, opportunity, quote, order, or invoice record. This view is in Contacts and Other Contacts side tabs." languagecode="1033" />
+    <Description description="Muestra información de contacto en el formulario detallado de un registro de cuenta, oportunidad, oferta, pedido o factura asociado. Esta vista está en las fichas Contactos y Otros contactos." languagecode="3082" />
+  </Descriptions>
+</savedquery>

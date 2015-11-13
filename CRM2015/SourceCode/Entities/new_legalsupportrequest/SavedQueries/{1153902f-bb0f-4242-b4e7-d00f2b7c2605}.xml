@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>10020</returnedtypecode>
+  <savedqueryid>{1153902f-bb0f-4242-b4e7-d00f2b7c2605}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10020" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_legalsupportrequestid">
+        <cell name="new_requestid" width="100" />
+        <cell name="new_account" width="100" />
+        <cell name="new_name" width="200" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_requesttype" width="100" />
+        <cell name="new_documenttype" width="100" />
+        <cell name="new_priority" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_assignedteam" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_status" width="100" />
+        <cell name="new_statusreason" width="100" />
+        <cell name="new_eststartdate" width="100" />
+        <cell name="new_estenddate" width="100" />
+        <cell name="new_esteffort" width="100" />
+        <cell name="new_actstartdate" width="100" />
+        <cell name="new_actenddate" width="100" />
+        <cell name="new_acteffort" width="100" />
+        <cell name="new_signer" width="100" />
+        <cell name="new_signersteam" width="100" />
+        <cell name="new_ftr" width="100" />
+        <cell name="new_sla" width="100" />
+        <cell name="new_otd" width="100" />
+        <cell name="createdon" width="125" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="new_legalsupportrequest">
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <attribute name="new_account" />
+        <attribute name="new_requestid" />
+        <attribute name="new_statusreason" />
+        <attribute name="new_status" />
+        <attribute name="new_requesttype" />
+        <attribute name="ownerid" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="createdby" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedteam" />
+        <attribute name="new_documenttype" />
+        <attribute name="new_priority" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_signersteam" />
+        <attribute name="new_signer" />
+        <attribute name="new_eststartdate" />
+        <attribute name="new_estenddate" />
+        <attribute name="new_esteffort" />
+        <attribute name="new_actstartdate" />
+        <attribute name="new_actenddate" />
+        <attribute name="new_acteffort" />
+        <attribute name="new_sla" />
+        <attribute name="new_otd" />
+        <attribute name="new_ftr" />
+        <order attribute="new_requestid" descending="false" />
+        <filter type="and">
+          <condition attribute="new_status" operator="in">
+            <value>100000002</value>
+            <value>100000001</value>
+          </condition>
+        </filter>
+        <attribute name="new_legalsupportrequestid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Closed Legal Support Requests" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

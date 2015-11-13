@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MailMergeTemplates>
+  <mailmergetemplate id="{134212ac-d749-dc11-a46c-0019b9204ed3}" name="Follow-up to a Meeting" description="Use this template to thank contacts for meeting with you and to let them know you’ll be sending them a proposal." unmodified="1" />
+  <mailmergetemplate id="{53c8b6b4-d749-dc11-a46c-0019b9204ed3}" name="Happy Birthday Note - Gift Certificate" description="Use this template to acknowledge a customer’s birthday and offer them a gift certificate for a product or service." unmodified="1" />
+  <mailmergetemplate id="{955882bc-d749-dc11-a46c-0019b9204ed3}" name="Lead Reply - Tradeshow Visit" description="Use this template to thank leads for visiting your booth at a trade show and to let them know you’ll be responding to their requests for more information." unmodified="1" />
+  <mailmergetemplate id="{c3b1f8cd-d749-dc11-a46c-0019b9204ed3}" name="Marketing Event Notification" description="Use this template to notify leads of an upcoming event or promotion." unmodified="1" />
+  <mailmergetemplate id="{4bcf8211-d849-dc11-a46c-0019b9204ed3}" name="Product Catalog Cover Letter" description="Use this template to create a cover letter for a product catalog." unmodified="1" />
+  <mailmergetemplate id="{a1d1fb17-d849-dc11-a46c-0019b9204ed3}" name="Proposal Cover Letter" description="Use this template to create a cover letter for a proposal." unmodified="1" />
+  <mailmergetemplate id="{93a7382c-d849-dc11-a46c-0019b9204ed3}" name="Quote For Customer" description="Use this template to create a quote with data from Microsoft Dynamics CRM." unmodified="1" />
+  <mailmergetemplate id="{d349fe11-d749-dc11-a46c-0019b9204ed3}" name="Reconnect with Accounts" description="Use this template to reconnect with accounts that you have not communicated with recently." unmodified="1" />
+  <mailmergetemplate id="{1133f868-d749-dc11-a46c-0019b9204ed3}" name="Reconnect with Contacts - Gift Certificate" description="Use this template to reconnect with contacts that you have not communicated with recently and to offer them a gift certificate for a product or service." unmodified="1" />
+  <mailmergetemplate id="{3165677a-d749-dc11-a46c-0019b9204ed3}" name="Reconnect with Contacts" description="Use this template to reconnect with contacts that you have not communicated with recently." unmodified="1" />
+</MailMergeTemplates>

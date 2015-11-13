@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>9606</returnedtypecode>
+  <savedqueryid>{82e645bc-5e55-e411-973b-6c3be5a88248}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="9606" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="mailboxid">
+        <cell name="name" width="150" />
+        <cell name="emailaddress" width="100" />
+        <cell name="emailserverprofile" width="100" />
+        <cell name="incomingemaildeliverymethod" width="100" />
+        <cell name="outgoingemaildeliverymethod" width="100" />
+        <cell name="actdeliverymethod" width="100" />
+        <cell name="incomingemailstatus" width="100" />
+        <cell name="outgoingemailstatus" width="100" />
+        <cell name="testmailboxaccesscompletedon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="mailbox">
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <filter type="or">
+            <condition attribute="incomingemaildeliverymethod" operator="eq" value="1" />
+            <condition attribute="outgoingemaildeliverymethod" operator="eq" value="1" />
+          </filter>
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="outgoingemaildeliverymethod" />
+        <attribute name="incomingemaildeliverymethod" />
+        <attribute name="emailaddress" />
+        <attribute name="actdeliverymethod" />
+        <attribute name="emailserverprofile" />
+        <attribute name="outgoingemailstatus" />
+        <attribute name="testmailboxaccesscompletedon" />
+        <attribute name="incomingemailstatus" />
+        <attribute name="mailboxid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Active Mailboxes Using Outlook Add In" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

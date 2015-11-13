@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{4a11b0a8-d250-e511-80df-3863bb366078}</WebResourceId>
+  <Name>new_SalesPlan_Main_Library</Name>
+  <DisplayName>Softtek Scripts [Sales Plan]</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_SalesPlan_Main_Library4A11B0A8-D250-E511-80DF-3863BB366078</FileName>
+</WebResource>

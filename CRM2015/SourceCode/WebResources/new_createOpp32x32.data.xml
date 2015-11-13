@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{8d7414c8-c345-e411-9fa1-6c3be5a8b060}</WebResourceId>
+  <Name>new_createOpp32x32</Name>
+  <DisplayName>Create Opp 32x32</DisplayName>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_createOpp32x328D7414C8-C345-E411-9FA1-6C3BE5A8B060</FileName>
+</WebResource>

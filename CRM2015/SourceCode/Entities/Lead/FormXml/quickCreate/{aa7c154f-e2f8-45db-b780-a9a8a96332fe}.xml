@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{aa7c154f-e2f8-45db-b780-a9a8a96332fe}</formid>
+  <IntroducedVersion>6.0.0.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form maxWidth="1900">
+    <tabs>
+      <tab id="{642ad7f5-35a7-441c-bce2-c5f7a959bd1c}" name="tab_1" showlabel="false" IsUserDefined="0">
+        <labels>
+          <label description="Tab" languagecode="1033" />
+          <label description="Pestaña" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="33%">
+            <sections>
+              <section id="{0668e070-46f8-4f45-9081-ac7495ece432}" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Details" languagecode="1033" />
+                  <label description="Detalles" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{22b4d4ee-1185-6540-b030-d2441461a65d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Topic" languagecode="1033" />
+                        <label description="Tema" languagecode="3082" />
+                      </labels>
+                      <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{69e19c8c-8e7c-c305-1500-258a75bd2e87}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Lead Source" languagecode="1033" />
+                      </labels>
+                      <control id="new_leadsource" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_leadsource" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7aed1b32-0a72-92e0-5aa2-b141912de834}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Lead Channel" languagecode="1033" />
+                      </labels>
+                      <control id="new_leadchannel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_leadchannel" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7ebab019-c794-c608-26cc-0216a1e0a92e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Market (Lead)" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekmarketlead" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekmarketlead" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{cb1acb3d-d951-bd26-15ab-07572eaea12b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Market Scope(Lead)" languagecode="1033" />
+                      </labels>
+                      <control id="new_marketscopelead" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_marketscopelead" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{607e358b-604a-3482-160a-e66caa4ab53e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Country (Lead)" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekcountry" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekcountry" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b8de06c5-cac9-31c3-bd7b-4bc44969c916}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Vertical" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekvertical1" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekvertical1" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="33%">
+            <sections>
+              <section id="{b2d567b1-095d-4836-ba59-338015565ae7}" name="tab_1_column_2_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Personal Information" languagecode="1033" />
+                  <label description="Información personal" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{bac9be72-111a-e10e-4110-be829bc95920}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="First Name" languagecode="1033" />
+                        <label description="Nombre de pila" languagecode="3082" />
+                      </labels>
+                      <control id="firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="firstname" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{374c49c9-b9b6-28de-3e6d-47e2c2b03aed}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Last Name" languagecode="1033" />
+                        <label description="Apellidos" languagecode="3082" />
+                      </labels>
+                      <control id="lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="lastname" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{864a783c-3918-171e-7083-747bce6a5a50}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Job Title" languagecode="1033" />
+                        <label description="Puesto" languagecode="3082" />
+                      </labels>
+                      <control id="jobtitle" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="jobtitle" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ae1aac41-0396-5895-db0a-76d10a3b2b0c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="New or Existing account" languagecode="1033" />
+                      </labels>
+                      <control id="new_neworextacct" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="new_neworextacct" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{98cc5527-c277-63bb-2465-86ebb86a6952}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Account (Lead)" languagecode="1033" />
+                        <label description="Nombre de la compa?ía" languagecode="3082" />
+                      </labels>
+                      <control id="companyname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="companyname" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8d968253-0857-db0d-93e0-1e9997b60a0e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Existing Account" languagecode="1033" />
+                      </labels>
+                      <control id="new_existingaccount" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_existingaccount" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="33%">
+            <sections>
+              <section id="{180cd545-7976-4271-aa97-ef1588f31a58}" name="tab_1_column_3_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Contact Details" languagecode="1033" />
+                  <label description="Detalles del contacto" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{48ea5756-3e76-083b-b75a-10d1e4410c7c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Email" languagecode="1033" />
+                        <label description="Correo electrónico" languagecode="3082" />
+                      </labels>
+                      <control id="emailaddress1" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="emailaddress1" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8801d590-d8e8-cde5-5016-75430cb7c1ea}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Mobile Phone" languagecode="1033" />
+                        <label description="Teléfono móvil" languagecode="3082" />
+                      </labels>
+                      <control id="mobilephone" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mobilephone" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{17b2796d-5aec-c6dd-22d2-54833b65650c}" showlabel="true" locklevel="0" rowspan="2">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" />
+                    </cell>
+                  </row>
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <DisplayConditions FallbackForm="true" Order="2">
+      <Everyone />
+    </DisplayConditions>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Lead Quick Create" languagecode="1033" />
+    <LocalizedName description="Creación rápida de cliente potencial" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Default quick create form for Lead" languagecode="1033" />
+    <Description description="Formulario de creación rápida predeterminado para cliente potencial" languagecode="3082" />
+  </Descriptions>
+</systemform>

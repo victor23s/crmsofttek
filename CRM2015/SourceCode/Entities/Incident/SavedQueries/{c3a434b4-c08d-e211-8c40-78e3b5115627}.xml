@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>112</returnedtypecode>
+  <savedqueryid>{c3a434b4-c08d-e211-8c40-78e3b5115627}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="112" jump="title" select="1" icon="1" preview="1">
+      <row name="result" id="incidentid">
+        <cell name="ticketnumber" width="150" />
+        <cell name="title" width="200" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_serviceofferingcase" width="100" />
+        <cell name="new_casetypecase" width="100" />
+        <cell name="new_assignedqueue" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_duedatecase" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="customerid" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="new_leadcase" width="100" />
+        <cell name="new_opportunitycase" width="100" />
+        <cell name="new_quotecase" width="100" />
+        <cell name="new_ordercase" width="100" />
+        <cell name="new_softtekcountrycase" width="100" />
+        <cell name="new_softtekverticalcase" width="100" />
+        <cell name="new_technologygroupcase" width="100" />
+        <cell name="createdon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="incident">
+        <attribute name="prioritycode" />
+        <attribute name="ticketnumber" />
+        <attribute name="title" />
+        <attribute name="createdon" />
+        <attribute name="new_technologygroupcase" />
+        <attribute name="statuscode" />
+        <attribute name="statecode" />
+        <attribute name="new_softtekverticalcase" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountrycase" />
+        <attribute name="new_serviceofferingcase" />
+        <attribute name="new_quotecase" />
+        <attribute name="ownerid" />
+        <attribute name="new_ordercase" />
+        <attribute name="new_opportunitycase" />
+        <attribute name="new_leadcase" />
+        <attribute name="new_duedatecase" />
+        <attribute name="customerid" />
+        <attribute name="new_casetypecase" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedqueue" />
+        <order attribute="title" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="1" />
+          <condition attribute="new_casetypecase" operator="in">
+            <value>100000015</value>
+            <value>100000014</value>
+            <value>100000013</value>
+            <value>100000012</value>
+          </condition>
+          <condition attribute="new_assignedqueue" operator="in">
+            <value uiname="US &amp; MX - Legal - MSA" uitype="queue">{730437A1-2062-E111-AC45-1CC1DEE8EA69}</value>
+            <value uiname="US &amp; MX - Legal - NDA" uitype="queue">{92BE4958-FE4C-E111-8B8A-1CC1DE780841}</value>
+            <value uiname="US &amp; MX - Legal - Q&amp;A" uitype="queue">{81C25F68-FE4C-E111-8B8A-1CC1DE780841}</value>
+            <value uiname="US &amp; MX - Legal - SOW" uitype="queue">{06844237-2062-E111-AC45-1CC1DEE8EA69}</value>
+            <value uiname="US - Legal" uitype="queue">{938AB780-788A-E211-8C40-78E3B5115627}</value>
+          </condition>
+        </filter>
+        <attribute name="incidentid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Resolved Cases - Legal - USA &amp; Canada" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

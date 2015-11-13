@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>10029</returnedtypecode>
+  <savedqueryid>{40b404ba-1ad7-4d28-b538-86e238385ee9}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10029" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_revenueplanningid">
+        <cell name="new_oppid" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_year" width="100" />
+        <cell name="new_rev_01" width="100" />
+        <cell name="new_rev_02" width="100" />
+        <cell name="new_rev_03" width="100" />
+        <cell name="new_rev_04" width="100" />
+        <cell name="new_rev_05" width="100" />
+        <cell name="new_rev_06" width="100" />
+        <cell name="new_rev_07" width="100" />
+        <cell name="new_rev_08" width="100" />
+        <cell name="new_rev_09" width="100" />
+        <cell name="new_rev_10" width="100" />
+        <cell name="new_rev_11" width="100" />
+        <cell name="new_rev_12" width="100" />
+        <cell name="new_tot_year" width="100" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_revenueplanning">
+        <attribute name="createdon" />
+        <order attribute="new_oppid" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="1" />
+        </filter>
+        <attribute name="new_year" />
+        <attribute name="new_tot_year" />
+        <attribute name="new_rev_12" />
+        <attribute name="new_rev_11" />
+        <attribute name="new_rev_10" />
+        <attribute name="new_rev_09" />
+        <attribute name="new_rev_08" />
+        <attribute name="new_rev_07" />
+        <attribute name="new_rev_06" />
+        <attribute name="new_rev_05" />
+        <attribute name="new_rev_04" />
+        <attribute name="new_rev_03" />
+        <attribute name="new_rev_02" />
+        <attribute name="new_rev_01" />
+        <attribute name="ownerid" />
+        <attribute name="new_oppid" />
+        <attribute name="new_revenueplanningid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Inactive Revenue Plannings" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

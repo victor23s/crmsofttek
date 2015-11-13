@@ -1,0 +1,15 @@
+function AssignTeam() {
+
+    var varnew_softtekmarket = Xrm.Page.getAttribute("new_softtekmarket").getValue();
+
+    alert(varnew_softtekmarket);
+
+}
+
+function DisableControls() {
+
+    var Control = Xrm.Page.ui.controls.get("ownerid");
+
+    Control.setDisabled(true);
+
+}

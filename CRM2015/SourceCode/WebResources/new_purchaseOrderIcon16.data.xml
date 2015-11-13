@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{25110d2b-7091-e211-b511-78e7d1622fed}</WebResourceId>
+  <Name>new_purchaseOrderIcon16</Name>
+  <DisplayName>Purchase Order Icon 16px</DisplayName>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_purchaseOrderIcon1625110D2B-7091-E211-B511-78E7D1622FED</FileName>
+</WebResource>

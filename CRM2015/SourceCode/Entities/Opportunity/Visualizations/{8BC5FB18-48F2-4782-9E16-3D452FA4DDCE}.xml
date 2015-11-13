@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualization>
+  <savedqueryvisualizationid>{8BC5FB18-48F2-4782-9E16-3D452FA4DDCE}</savedqueryvisualizationid>
+  <datadescription>
+    <datadefinition>
+      <fetchcollection>
+        <fetch mapping="logical" count="10" aggregate="true">
+          <entity name="opportunity">
+            <attribute name="estimatedvalue" aggregate="sum" alias="sum_estimatedvalue" />
+            <attribute name="customerid" groupby="true" alias="customerid" />
+            <order alias="sum_estimatedvalue" descending="true" />
+          </entity>
+        </fetch>
+      </fetchcollection>
+      <categorycollection>
+        <category>
+          <measurecollection>
+            <measure alias="sum_estimatedvalue" />
+          </measurecollection>
+        </category>
+      </categorycollection>
+    </datadefinition>
+  </datadescription>
+  <presentationdescription>
+    <Chart>
+      <Series>
+        <Series ChartType="Bar" IsValueShownAsLabel="False" Color="91, 151, 213" BackSecondaryColor="112, 142, 50" Font="{0}, 9.5px" LabelForeColor="59, 59, 59" CustomProperties="PointWidth=0.75, MaxPixelPointWidth=40">
+          <SmartLabelStyle Enabled="True" />
+        </Series>
+      </Series>
+      <ChartAreas>
+        <ChartArea BorderColor="White" BorderDashStyle="Solid">
+          <AxisY LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181" IsReversed="False">
+            <MajorGrid LineColor="239, 242, 246" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisY>
+          <AxisX LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181" IsReversed="False">
+            <MajorGrid Enabled="False" />
+            <MajorTickMark Enabled="False" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisX>
+        </ChartArea>
+      </ChartAreas>
+      <Titles>
+        <Title DockingOffset="-3" Font="{0}, 13px" ForeColor="59, 59, 59" Alignment="TopLeft"></Title>
+      </Titles>
+    </Chart>
+  </presentationdescription>
+  <isdefault>1</isdefault>
+  <LocalizedNames>
+    <LocalizedName description="Top Customers" languagecode="1033" />
+    <LocalizedName description="Clientes principales" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the sum of estimated opportunity revenue by customer name." languagecode="1033" />
+    <Description description="Muestra la suma de los ingresos estimados de oportunidad por nombre de cliente." languagecode="3082" />
+  </Descriptions>
+  <IntroducedVersion>1.0</IntroducedVersion>
+</visualization>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="new.incident.Button1.Button.CustomAction" Location="Mscrm.Form.incident.MainTab.Save.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.incident.Button1.Button.Alt" Command="new.incident.SaveCase.Command" Description="Save" Id="new.incident.Button1.Button" Image32by32="$webresource:new_Save32x" Image16by16="$webresource:new_Save16x" LabelText="$LocLabels:new.incident.Button1.Button.LabelText" Sequence="15" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.incident.Button1.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.incident.Button1.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.Form.incident.Save.Hide" Location="Mscrm.Form.incident.Save" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="new.incident.SaveCase.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="new.incident.EnableRecord.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SaveCases" Library="$webresource:new_QuoteSave" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="new.incident.EnableRecord.DisplayRule">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="new.incident.Button1.Button.Alt">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.incident.Button1.Button.LabelText">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.incident.Button1.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Save and Refresh" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.incident.Button1.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

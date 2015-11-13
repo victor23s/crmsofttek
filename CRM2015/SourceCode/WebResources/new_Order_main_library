@@ -1,0 +1,469 @@
+//Order_main_library
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../STK.Namespaces.js" />
+/// <reference path="../Utility/DynamicForm.js" />
+/// <reference path="../XrmServiceToolkit.js" />
+/// <reference path="../Utility/CRMUtils.js" />
+var StatusReason;
+var BCOptions;
+
+function initializeForm() {
+     //***************************************************************************************************************
+      Xrm.Page.getAttribute("willcall").setValue(1);
+    //When SofttekMarket = Hispanic South America
+    Xrm.Page.Cascades.AddTo("new_benefitscenter").When("new_softtekmarketorders").EqualsTo("100000003").Do().PutOptions(["100000057", "100000058", "100000059", "100000060", "100000061", "100000062", "100000063", "100000064", "100000065", "100000066", "100000067", "100000041", "100000042", "100000043", "100000044"]);
+    /* Cascade SofttekMarket = USA & CA, BenefitsCenter = 
+            Financial Serv & Insurance-Non Global,  Telecomm-Non Global, Mid Market-Non Global, Technology & Media-Non Global, Conglomerates-Non Global, NSS - USA, GE Capital-Global, GE Corporate-Global, HP-Global, Citi-Global, Walmart-Global, ABI-Global, Intelligroup GE Corporate-Global, Espa?a, Global US Investment Projects, Market US Investment Projects
+            GE Energy, GE Manufacturing, Votorantim, Intelligroup GE Infrastructure, Intelligroup GE Energy-Global, Retail-Non Global, Healthcare-Non Global
+
+     */
+    Xrm.Page.Cascades.AddTo("new_benefitscenter").When("new_softtekmarketorders").EqualsTo("100000000").Do().PutOptions(["100000019","100000033","100000014","100000015","100000016","100000017","100000018","100000055","100000056","100000020","100000036","100000022","100000023","100000024","100000025","100000026","100000037","100000034","100000035","100000038","100000040","100000032","100000039"]);
+
+    //When SofttekMarket = Cloud, Mexico & CA
+    Xrm.Page.Cascades.AddTo("new_benefitscenter").When("new_softtekmarketorders").EqualsTo("100000006").Or("new_softtekmarketorders").EqualsTo("100000001").Do().PutOptions(["100000013","100000096","100000097","100000095","100000000","100000068","100000069","100000001","100000002","100000070","100000071","100000072","100000073","100000074","100000094","100000088","100000101","100000084","100000085","100000087","100000086","100000008","100000010","100000093","100000078","100000076","100000079","100000080","100000081","100000082","100000089","100000083","100000098","100000099"]);
+    /* Cascade SofttekMarket = Europe, BenefitsCenter = 
+                   Global - GE Capital  Global - GE Corporate   Global - GE Energy  Global - GE Infrastructure  Global - ABInveb    Global - Citi   Global - Walmart    Global - HP No Global - Internacional   No Global - Nacional NovaGaliciaBanco   No Global - Nacional Madrid No Global - Nacional Galicia    No Global - Nacional Otros  No Global - SAP
+*/
+    Xrm.Page.Cascades.AddTo("new_benefitscenter").When("new_softtekmarketorders").EqualsTo("100000005").Do().PutOptions(["100000045","100000046","100000041","100000042","100000043","100000044","100000048","100000047","100000049","100000052","100000051","100000050","100000053","100000054"]);
+
+    //****************************************************************************************************************************************************************
+    Xrm.Page.Cascades.AddTo("new_profitcenter").When("new_softtekmarketorders").EqualsTo("100000006").Or("new_softtekmarketorders").EqualsTo("100000001").Do().PutOptions(["100000013", "100000014"]);
+
+    /* Cascade Status = Active, StatusReason = 
+                     in progress
+*/
+    Xrm.Page.Cascades.AddTo("new_statusreason").When("statecode").EqualsTo("0").Do().PutOptions(["100000000"]);
+
+    /* Cascade Status = Submitted, StatusReason = 
+                    
+*/
+    Xrm.Page.Cascades.AddTo("new_statusreason").When("statecode").EqualsTo("1").Do().PutOptions(["100000001", "100000002", "100000003", "100000004", "100000005", "100000006", "100000007", "100000008", "100000009"]);
+
+    /* Cascade SofttekMarket = Europe, InvoicingCompany =
+                GDC STK, S.L.   Softtek UK, Ltd.*/
+    Xrm.Page.Cascades.AddTo("new_profitcenter").When("new_softtekmarketorders").EqualsTo("100000005").Do().PutOptions(["100000009", "100000010"]);
+    /* Cascade Softtek !=Europe, InvoicingCompany =  GDC STK, S.L.  Softtek UK, Ltd.  */
+    Xrm.Page.Cascades.AddTo("new_profitcenter").When("new_softtekmarketorders").DifferentTo("100000005").Do().PutOptions(["100000000", "100000001", "100000002", "100000003", "100000004", "100000005", "100000006", "100000007", "100000008"]);
+
+    //**************************************************************
+    /* Cascade SofttekMarket = HSA, InvoicingCompany =
+                 Consultoría en Tecnología de Información S.A., Nearshore Argentina S.A.*/
+    Xrm.Page.Cascades.AddTo("new_profitcenter").When("new_softtekmarketorders").EqualsTo("100000003").Do().PutOptions(["100000011", "100000012"]);
+
+    /* Cascade SofttekMarket = Mexico & CA, Cloud, InvoicingCompany =
+                1012 Softtek Tec. Inf. S.A. de C.V, 1013 Softtek Serv. Tec. S.A. de C.V */
+    Xrm.Page.Cascades.AddTo("new_profitcenter").When("new_softtekmarketorders").EqualsTo("100000001").Or("new_softtekmarketorders").EqualsTo("100000006").Do().PutOptions(["100000013", "100000014"]);
+
+    //**************************************************************
+    /* Validation Enable ProjectId field when  SofttekMarket = Cloud, Europe, Mexico USA, Opportunity Type = New Project,  statusReason = "05 - Validating to Release"  */
+    Xrm.Page.Validations.AddTo("new_projectidorders").When("new_softtekmarketorders").EqualsTo("100000005").Or("new_softtekmarketorders").EqualsTo("100000006").Or("new_softtekmarketorders").EqualsTo("100000000").Or("new_softtekmarketorders").EqualsTo("100000001").And("new_opportunitytypeorders").EqualsTo("100000000").Do().Enabled();
+
+    /* Validation Required ProjectId field when  SofttekMarket = Cloud, Europe, Mexico USA, Opportunity Type = New Project,  statusReason = "05 - Validating to Release"  */
+    Xrm.Page.Validations.AddTo("new_projectidorders").When("new_softtekmarketorders").EqualsTo("100000005").Or("new_softtekmarketorders").EqualsTo("100000006").Or("new_softtekmarketorders").EqualsTo("100000000").Or("new_softtekmarketorders").EqualsTo("100000001").And("new_opportunitytypeorders").EqualsTo("100000000").Do().SetRequired();
+}
+function Form_onload() {
+    initializeForm();
+    Xrm.Page.getControl("submitdate").setDisabled(true);
+    Enabled_sw_checkbox();
+    var objActEndDate = Xrm.Page.getAttribute("new_actenddate");
+    var objDateFulfilled = Xrm.Page.getAttribute("datefulfilled");
+    if (objDateFulfilled.getValue() != null && objActEndDate.getValue() == null) {
+        objActEndDate.setValue(objDateFulfilled.getValue());
+        objActEndDate.setSubmitMode("always");
+    }
+
+    //Update for Delivery Model
+    var optDeliveryModel = Xrm.Page.getAttribute("new_deliverymodelorders").getSelectedOption();
+    if ((optDeliveryModel == null) || (optDeliveryModel != null && optDeliveryModel.value != 100000000 && optDeliveryModel.value != 100000001 && optDeliveryModel.value != 100000002 && optDeliveryModel.value != 100000003)) {
+        Xrm.Page.getControl("new_deliverymodelorders").removeOption(100000000);
+        Xrm.Page.getControl("new_deliverymodelorders").removeOption(100000001);
+        Xrm.Page.getControl("new_deliverymodelorders").removeOption(100000002);
+        Xrm.Page.getControl("new_deliverymodelorders").removeOption(100000003);
+    }
+    // Xrm.Page.Cascades.Filter("new_benefitscenterorders");
+    Xrm.Page.Validations.Validate("new_statusreason");
+    Xrm.Page.Cascades.Filter("new_statusreason");
+
+    SingleWindowPhase1();
+
+    CalculateRevenue();
+
+    var optStatusReason = Xrm.Page.getAttribute("new_statusreason").getSelectedOption();
+    if (optStatusReason != null) {
+        StatusReason = optStatusReason.text;
+    }
+
+    StatusReason_onchange();
+
+    BCOptions = Xrm.Page.getAttribute("new_benefitscenterorders").getOptions();
+    Xrm.Page.Validations.Validate("new_benefitscenter")
+    Xrm.Page.Cascades.Filter("new_benefitscenter");
+    Xrm.Page.Validations.Validate("new_profitcenter");
+    Xrm.Page.Cascades.Filter("new_profitcenter");
+    NewClient_onchange();
+
+    InvoicesDeliveryMode_onchange();
+
+    AssignPMOTeam();
+    Xrm.Page.Cascades.Filter("new_benefitscenterorders");
+    Xrm.Page.Cascades.Filter("new_benefitscenter");
+
+}
+
+function setActProjDates_onchange() {
+
+    var oProjectEndDate = Xrm.Page.getAttribute("new_actprojenddate");
+    var dtProjectStartDate = new Date(Xrm.Page.getAttribute("new_actprojstartdate").getValue());
+    var dtProjectEndDate = new Date(Xrm.Page.getAttribute("new_actprojstartdate").getValue());
+    var intProjectDuration = Xrm.Page.getAttribute("new_estprojectdurationorders").getValue();
+    if (intProjectDuration != null && Xrm.Page.getAttribute("new_actprojstartdate").getValue() != null) {
+
+        dtProjectEndDate.setMonth(dtProjectStartDate.getMonth() + intProjectDuration);
+        dtProjectEndDate.setDate(dtProjectStartDate.getDate() - 1);
+        oProjectEndDate.setValue(dtProjectEndDate);
+
+    }
+    else {
+        oProjectEndDate.setValue(null);
+    }
+    oProjectEndDate.setSubmitMode("always");
+}
+
+function ValidateProjectID() {
+    var selectedSofttekMarket = Xrm.Page.getAttribute("new_softtekmarketorders").getValue();//getSelectedOption();
+    var projectID = Xrm.Page.getAttribute("new_projectidorders").getValue();
+    var message = "";
+
+    /* Validate 1-0000000000 or 2-0000000000 for USA, MEX, Cloud  & Europe (MKTs using SAP) and ABCDE99 for the rest (MKTs using Intrasoft) */
+
+    /*if (selectedSofttekMarket.value == "100000000" || selectedSofttekMarket.value == "100000001" || selectedSofttekMarket.value == "100000006" || selectedSofttekMarket.value == "100000005") { */
+    if (typeof (projectID) != 'undefined' ||projectID!=null ||projectID !=''){
+        if (selectedSofttekMarket == 100000000 || selectedSofttekMarket == 100000001 || selectedSofttekMarket == 100000006 || selectedSofttekMarket == 100000005) {
+            if (projectID.match(/\b[1-2]-\d{10}\b/g) == null) {
+                message = "The Format of Project ID is not correct! Valid Format: 1-0000000000";
+                alert(message);
+                Xrm.Page.getAttribute("new_projectidorders").setValue(null);
+            }
+        }
+        else {
+            if (projectID.match(/\b[A-Z]{5}\d{2}\b/g) == null) {
+                message = "The Format of Project ID is not correct! Valid Format: ABCDE99";
+                alert(message);
+                Xrm.Page.getAttribute("new_projectidorders").setValue(null);
+            }
+        }
+    }
+}
+
+function SingleWindowPhase1() {
+    var userid = XrmServiceToolkit.Soap.GetCurrentUserId();
+
+    if (Xrm.Page.getAttribute("new_submittosw").getValue() == true) {
+        Xrm.Page.getControl("new_submittosw").setDisabled(true);
+        //----------------------------have sent to SW-------start----------
+        if (Xrm.Page.getAttribute("new_assignedto").getValue() == null) {
+            //-------------------haven't set assigned user-------start----------
+            //only team members can set assigned to user    
+            if (Xrm.Page.getAttribute("new_responsibleteam").getValue() != null) {
+                Xrm.Page.getAttribute("new_assignedto").setRequiredLevel("required")
+                Xrm.Page.getControl("new_pmouser").setDisabled(true);
+                Xrm.Page.getControl("new_eststartdate").setDisabled(true)
+                Xrm.Page.getControl("new_estenddate").setDisabled(true)
+                Xrm.Page.getControl("new_esteffort").setDisabled(true)
+                Xrm.Page.getControl("new_acteffort").setDisabled(true)
+                Xrm.Page.getControl("new_statusreason").setDisabled(true)
+            }
+        } //-------------------haven't set assigned user-------end----------
+        else {
+            if (Xrm.Page.getAttribute("new_assignedto").getValue()[0].id.replace("{", "").replace("}", "") != userid.toUpperCase()) {
+                if (Xrm.Page.getAttribute("new_pmouser").getValue() == null || Xrm.Page.getAttribute("new_pmouser").getValue()[0].id.replace("{", "").replace("}", "") != userid.toUpperCase()) {
+                    // disableFormFields();
+                    Xrm.Page.getControl("new_assignedto").setDisabled(true);
+                    Xrm.Page.getControl("new_pmouser").setDisabled(true);
+                    Xrm.Page.getControl("new_eststartdate").setDisabled(true)
+                    Xrm.Page.getControl("new_estenddate").setDisabled(true)
+                    Xrm.Page.getControl("new_esteffort").setDisabled(true)
+                    Xrm.Page.getControl("new_acteffort").setDisabled(true)
+                    Xrm.Page.getControl("new_statusreason").setDisabled(true)
+                }
+                else {
+                    Xrm.Page.getControl("new_pmouser").setDisabled(true);
+                    Xrm.Page.getControl("new_assignedto").setDisabled(true);
+                    Xrm.Page.getControl("new_submittosw").setDisabled(true);
+                }
+                Xrm.Page.getAttribute("new_canfulfill").setValue(false);
+            }
+            else {
+                Xrm.Page.getControl("new_assignedto").setDisabled(true);
+                Xrm.Page.getControl("new_submittosw").setDisabled(true);
+                Xrm.Page.getAttribute("new_canfulfill").setValue(true);
+            }
+            Xrm.Page.ui.refreshRibbon();
+        }
+    } //----------------------------have sent to SW-------end----------
+    else {
+        Xrm.Page.getControl("new_assignedto").setDisabled(true);
+        Xrm.Page.getControl("new_pmouser").setDisabled(true);
+        Xrm.Page.getControl("new_eststartdate").setDisabled(true)
+        Xrm.Page.getControl("new_estenddate").setDisabled(true)
+        Xrm.Page.getControl("new_esteffort").setDisabled(true)
+        Xrm.Page.getControl("new_acteffort").setDisabled(true)
+        Xrm.Page.getControl("new_statusreason").setDisabled(true)
+    }
+}
+
+function InvoicesDeliveryMode_onchange() {
+    var optInvoicesDeliveryMode = Xrm.Page.getAttribute("new_invoicesdeliverymode").getSelectedOption();
+    if (optInvoicesDeliveryMode != null && (optInvoicesDeliveryMode.text == "Email" || optInvoicesDeliveryMode.text == "Both")) {
+        Xrm.Page.getAttribute("new_billtoemail").setRequiredLevel("required");
+    }
+    else {
+        Xrm.Page.getAttribute("new_billtoemail").setRequiredLevel("none");
+    }
+}
+function NewClient_onchange() {
+    var ifNewClient = Xrm.Page.getAttribute("new_newclient").getValue();
+    if (ifNewClient) {
+        Xrm.Page.getAttribute("new_taxpayerid").setRequiredLevel("required");
+    }
+    else {
+        Xrm.Page.getAttribute("new_taxpayerid").setRequiredLevel("none");
+    }
+}
+
+function Enabled_sw_checkbox() {
+    var benefits = Xrm.Page.getAttribute("new_benefitscenter").getValue();
+    var profit = Xrm.Page.getAttribute("new_profitcenter").getValue();
+    var billName = Xrm.Page.getAttribute("billto_name").getValue();
+    var invoicing = Xrm.Page.getAttribute("new_invoicingtype").getValue();
+    var delivery = Xrm.Page.getAttribute("new_invoicesdeliverymode").getValue();
+    var newclinet = Xrm.Page.getAttribute("new_newclient").getValue();
+    var contact = Xrm.Page.getAttribute("billto_contactname").getValue();
+    var same = Xrm.Page.getAttribute("new_sameasbillto").getValue();
+    var ship = Xrm.Page.getAttribute("shipto_contactname").getValue();
+
+    if (benefits == null || profit == null || billName == null || invoicing == null || delivery == null || newclinet == null || contact == null || same == null || ship == null) {
+        Xrm.Page.getControl("new_submittosw").setDisabled(true);
+    }
+    else {
+        Xrm.Page.getControl("new_submittosw").setDisabled(false);
+    }
+}
+
+
+function StatusReason_onchange() {
+    var reviewingOpt = 100000002;
+    var waitandvalidOpt = 100000003;
+    var updateSapOpt = 100000004;
+    var valtoreleaseOpt = 100000005;
+    var completedOpt = 100000006;
+    var newprojectOpt = 100000000;
+    var RateCardOpt = 100000004;
+    var rejectionOpt = 100000009;
+    var cancelledOpt = 100000013;
+    var objActProjStartDate = Xrm.Page.getAttribute("new_actprojstartdate");
+    var statusreasonName = "new_statusreason";
+    var optStatusReason = Xrm.Page.getAttribute(statusreasonName).getValue();
+    var optOppType = Xrm.Page.getAttribute("new_opportunitytypeorders").getValue();
+    var selectedSofttekMarket = Xrm.Page.getAttribute("new_softtekmarketorders").getSelectedOption();
+
+    if (optStatusReason != null) {
+        var objEstStartDate = Xrm.Page.getAttribute("new_eststartdate");
+        var objEstEndDate = Xrm.Page.getAttribute("new_estenddate");
+        var objEstEffort = Xrm.Page.getAttribute("new_esteffort");
+        var objActStartDate = Xrm.Page.getAttribute("new_actstartdate");
+        var objActEndDate = Xrm.Page.getAttribute("new_actenddate");
+        var objActEffort = Xrm.Page.getAttribute("new_acteffort");
+        var objProjectId = Xrm.Page.getAttribute("new_projectidorders");
+
+        objEstStartDate.setRequiredLevel("none");
+        objEstEndDate.setRequiredLevel("none");
+        objEstEffort.setRequiredLevel("none");
+        objActEffort.setRequiredLevel("none");
+        objActProjStartDate.setRequiredLevel("none");
+        Xrm.Page.getControl("new_actprojstartdate").setDisabled(true);
+        objProjectId.setRequiredLevel("none");
+        Xrm.Page.getControl("new_projectidorders").setDisabled(true);
+        
+        Xrm.Page.getAttribute("new_pmouser").setRequiredLevel("none");
+                
+        // 100000002 = "02 - Reviewing" - 100000003 = "03 - Waiting and Validating Documents" - 100000004 = "04 - Updating in SAP"
+        if (optStatusReason == reviewingOpt || optStatusReason == waitandvalidOpt || optStatusReason == updateSapOpt) {
+            objEstStartDate.setRequiredLevel("required");
+            objEstEndDate.setRequiredLevel("required");
+            objEstEffort.setRequiredLevel("required");
+            Xrm.Page.getAttribute("new_pmouser").setRequiredLevel("none");
+            HideField("new_pmouser");
+            HideField("new_pmoteam");
+            setSimpleLookupValue("new_pmouser", "systemuser", "", "");
+                        
+        }
+        //Make DocumentURL required when status reason = 05 - validating to release or 06 - completed
+        if (optStatusReason == valtoreleaseOpt || optStatusReason == completedOpt) {
+            Xrm.Page.getAttribute("new_documenturl").setRequiredLevel("required");
+        }
+        //100000009 - Rejection
+        if (optStatusReason == rejectionOpt || optStatusReason == cancelledOpt) {
+            //objEstStartDate.setRequiredLevel("required");
+            //objEstEndDate.setRequiredLevel("required");
+            //objEstEffort.setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_pmouser").setRequiredLevel("none");
+            //HideField("new_pmouser");
+            //HideField("new_pmoteam");
+            //setSimpleLookupValue("new_pmouser", "systemuser", "", "");
+
+
+            //var optStatus = Xrm.Page.getAttribute("new_statusreason").getSelectedOption();
+            
+            Xrm.Page.getControl("new_rejectionreasonorder").setDisabled(false);        
+            Xrm.Page.getAttribute("new_rejectionreasonorder").setRequiredLevel("required");                         
+        }
+        else
+        {
+            Xrm.Page.getControl("new_rejectionreasonorder").setDisabled(true);
+            Xrm.Page.getAttribute("new_rejectionreasonorder").setRequiredLevel("none");
+        }
+
+
+        //100000005="05 - Validating to Release", 100000006 = "06 - Completed"
+        if (optStatusReason == valtoreleaseOpt || optStatusReason == completedOpt) {
+            ShowField("new_pmouser");
+            ShowField("new_pmoteam");
+
+            Xrm.Page.getAttribute("new_pmouser").setRequiredLevel("required");
+
+            if (objEstStartDate.getValue() == null || objEstEndDate.getValue() == null || objEstEffort.getValue() == null) {
+                objEstStartDate.setRequiredLevel("required");
+                objEstEndDate.setRequiredLevel("required");
+                objEstEffort.setRequiredLevel("required");
+            }
+            else {
+                Xrm.Page.getControl("new_eststartdate").setDisabled(true);
+                Xrm.Page.getControl("new_estenddate").setDisabled(true);
+                Xrm.Page.getControl("new_esteffort").setDisabled(true);
+            }
+
+            objActEffort.setRequiredLevel("required");
+
+            if (optOppType != RateCardOpt) {
+                objActProjStartDate.setRequiredLevel("required");
+                Xrm.Page.getControl("new_actprojstartdate").setDisabled(false);
+            }
+
+            if (optOppType == newprojectOpt) {
+                objProjectId.setRequiredLevel("required");
+                Xrm.Page.getControl("new_projectidorders").setDisabled(false);
+            }
+        }
+    }
+}
+
+function Form_onsave() {
+    var Startdate = Xrm.Page.getAttribute("new_eststartdate").getValue();
+    var Enddate = Xrm.Page.getAttribute("new_estenddate").getValue();
+    var optStatusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+    if ((Startdate != null && Enddate != null) && (Enddate < Startdate)) {
+            alert("The 'Est End Date' cannot be before the 'Est Start Date'. Please verify");
+            Startdate = Xrm.Page.getAttribute("new_eststartdate").setValue(null);
+            Enddate = Xrm.Page.getAttribute("new_estenddate").setValue(null);
+        } else {
+            SetActualDate();
+        }
+	if (optStatusReason == 100000009)
+	{		
+	   Xrm.Page.getAttribute("new_assignedto").setValue(null);
+       Xrm.Page.getAttribute("new_submittosw").setValue(false);
+       Xrm.Page.getAttribute("new_submittosw").setSubmitMode("always");
+       Xrm.Page.getAttribute("new_assignedto").setSubmitMode("always");
+	}
+		
+}
+
+function SetActualDate() {
+
+    var reviewingOpt = 100000002;
+    var waitandvalidOpt = 100000003;
+    var updateSapOpt = 100000004;
+    var valtoreleaseOpt = 100000005;
+    var completedOpt = 100000006;
+    var optStatusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+    var objActStartDate = Xrm.Page.getAttribute("new_actstartdate");
+    var objActEndDate = Xrm.Page.getAttribute("new_actenddate");
+    var objActEffort = Xrm.Page.getAttribute("new_acteffort");
+    var objDateFulfilled = Xrm.Page.getAttribute("datefulfilled");
+    var today = new Date();
+
+    if (optStatusReason != null) {
+        if ((optStatusReason == reviewingOpt || optStatusReason == waitandvalidOpt || optStatusReason == updateSapOpt || optStatusReason == valtoreleaseOpt) && objActStartDate.getValue() == null) {
+            objActStartDate.setValue(today);
+            objActStartDate.setSubmitMode("always");
+        }
+
+        if (optStatusReason == completedOpt) {
+            objActEndDate.setValue(today);
+            objActEndDate.setSubmitMode("always");
+        }
+    }
+
+}
+function CalculateRevenue() {
+    var discount = Xrm.Page.getAttribute("discountpercentage").getValue();
+    var estRevenue = Xrm.Page.getAttribute("new_estrevenueorders").getValue();
+    if (discount != null && estRevenue != null) {
+        var discountAmount = estRevenue * discount / 100;
+        Xrm.Page.getAttribute("discountamount").setValue(discountAmount);
+        Xrm.Page.getAttribute("new_totalrevenueorders").setValue(estRevenue - discountAmount);
+    }
+    else {
+        Xrm.Page.getAttribute("discountamount").setValue(null);
+        Xrm.Page.getAttribute("new_totalrevenueorders").setValue(null);
+    }
+}
+function AssignPMOTeam() {
+    var ObjMarket = Xrm.Page.getAttribute("new_softtekmarketorders").getValue();
+    if (ObjMarket != null) {
+        var items = null;
+
+        XrmServiceToolkit.Rest.RetrieveMultiple("TeamSet", "$filter= new_SofttekMarketTeam/Value eq " + ObjMarket + " and new_AreaTeam/Value eq 100000002 ", //+ ObjMarket + "' ",//&$filter= new_AreaTeam/Value eq 100000001 ", //"$select = * ",
+        function (results) {
+            items = results;
+        },
+        // ReSharper disable once UnusedParameter
+        function (error) {},
+        function onComplete() {},
+        false);
+
+        if (items.length > 0) {
+            var teamID = items[0]["TeamId"];
+            var teamName = items[0]["Name"];
+            if (teamID != null) {
+                setSimpleLookupValue("new_pmoteam", "team", teamID, teamName);
+            }
+        }
+        else {
+            Xrm.Page.getAttribute("new_pmoteam").setValue(null);
+            Xrm.Page.getAttribute("new_pmoteam").setSubmitMode("always");
+        }
+    }
+}
+
+function SubmitSW()
+{
+    Xrm.Page.getAttribute("new_submittosw").setValue(true);        
+    
+    if (Xrm.Page.getAttribute("new_documenturl").getValue() != null) {
+
+        Xrm.Page.getAttribute("new_documenturl").setRequiredLevel("required");
+        Xrm.Page.data.entity.save();
+
+        setTimeout(function () {         
+            Xrm.Utility.openEntityForm(Xrm.Page.data.entity.getEntityName(), Xrm.Page.data.entity.getId()); 
+        }, 3000);
+    }    
+    else
+    {
+        Xrm.Page.getAttribute("new_documenturl").setRequiredLevel("required");
+        Xrm.Page.getControl("new_documenturl").setFocus();
+        alert("The URL field cannot be empty");
+    }  
+}

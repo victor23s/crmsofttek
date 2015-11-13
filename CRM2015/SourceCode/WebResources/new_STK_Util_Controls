@@ -1,0 +1,81 @@
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../STK.Namespaces.js" />
+STK.Util.Controls = {
+    disabledSection: function (sectionName) {
+        Xrm.Page.ui.controls.forEach(function ($control, $index) {
+            var $controlType = $control.getControlType();
+            if ($controlType != STK.Util.Enum.ControlTypes.iframe && $controlType != STK.Util.Enum.ControlTypes.webResource && $controlType != STK.Util.Enum.ControlTypes.subGrid) {
+                var $label = $control.getParent().getParent().getLabel();
+                if ($label == sectionName) {
+                    $control.setDisabled(bool);
+                }
+            }
+        });
+    },
+    setDisabledTab: function (tabIndex, disabled) {
+        if (Xrm.Page.ui.tabs.get()[tabIndex].sections != null) {
+            Xrm.Page.ui.tabs.get()[tabIndex].sections.forEach(function ($section, $index) {
+                if ($section.controls != null) {
+                    $section.controls.forEach(function ($control, $index) {
+                        var $controlType = $control.getControlType();
+                        if ($controlType != STK.Util.Enum.ControlTypes.iframe && $controlType != STK.Util.Enum.ControlTypes.webResource && $controlType != STK.Util.Enum.ControlTypes.subGrid) {
+                            $control.setDisabled(disabled);
+                        }
+                    });
+                }
+            });
+        }
+
+    },
+    setDisabledTabs: function (options) {
+        for (var $i = 0; $i < options.length; $i++) {
+            this.setDisabledTab(options[$i].tabIndex, options[$i].isDisabled);
+        }
+    },
+    setOptionSetByOptionText: function (optionSetAttribute, optionText) {
+        var options = Xrm.Page.getAttribute(optionSetAttribute).getOptions();
+        for (i = 0; i < options.length; i++) {
+            if (options[i].text == optionText) Xrm.Page.getAttribute(optionSetAttribute).setValue(options[i].value);
+        }
+    },
+    detectDependecyAttribute: function (attribute, message) {
+        if (Xrm.Page.getAttribute(attribute).getValue() == null) {
+            alert(message);
+            Xrm.Page.ui.close();
+        }
+    },
+    __namespace: true
+};
+
+/// this object provide acces to different enumerations
+STK.Util.Enum = {
+    controlTypes: function () {
+        return STK.Util.Enum.ControlTypes;
+    },
+    entityTypes: function () {
+        return STK.Util.Enum.EntityTypes;
+    },
+    __namespace: true
+};
+
+/// this object provide an enumeration for control types
+STK.Util.Enum.ControlTypes = {
+    iframe: function () {
+        return "iframe";
+    },
+    webResource: function () {
+        return "webresource";
+    },
+    subGrid: function () {
+        return "subgrid";
+    },
+    __namespace: true
+};
+
+/// this objcet provide an enumeration for entity types
+STK.Util.Enum.EntityTypes = {
+    systemUser: function () {
+        return "systemuser";
+    },
+    __namespace: true
+};

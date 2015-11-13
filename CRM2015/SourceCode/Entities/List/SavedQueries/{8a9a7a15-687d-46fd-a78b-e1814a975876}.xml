@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4300</returnedtypecode>
+  <savedqueryid>{8a9a7a15-687d-46fd-a78b-e1814a975876}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4300" jump="listname" select="1" icon="1" preview="1">
+      <row name="result" id="listid">
+        <cell name="listname" width="300" />
+        <cell name="type" width="100" />
+        <cell name="createdfromcode" width="100" />
+        <cell name="lastusedon" width="100" />
+        <cell name="purpose" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="list">
+        <attribute name="listname" />
+        <order attribute="listname" descending="false" />
+        <attribute name="lastusedon" />
+        <attribute name="type" />
+        <attribute name="purpose" />
+        <attribute name="createdfromcode" />
+        <attribute name="listid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="1" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Inactive Marketing Lists" languagecode="1033" />
+    <LocalizedName description="Listas de marketing inactivas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

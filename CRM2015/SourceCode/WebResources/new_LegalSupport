@@ -1,0 +1,1594 @@
+/// <reference path="XrmPageTemplate.js" />
+/// <reference path="new_softtek_scripts_util_dynamicform.js" />
+/// <reference path="XrmServiceToolkit.js" />
+//if (typeof (SofttekCrm) == "undefined") { SofttekCrm = { __namespace: true }; }
+var estStartDate; //new_eststartdate
+var estEndDate; //new_estenddate
+var estEffort; //new_esteffort
+var estPriority; // new_priority
+var optMgmtApproverL;
+var optSecurityApproverL;
+var optSalesApproverL;
+var optOperationsApproverL;
+var optFinanceApproverL;
+var optAdminApproverL;
+var optHRApproverL;
+var optSourcingApproverL;
+var optInsuranceApproverL;
+var optStatusReasonL;
+
+function __initializeForm() {
+    /* Cascade StatusReason = Submitted*/
+    Xrm.Page.Cascades.AddTo("new_statusreason").When("new_status").EqualsTo("100000000").Do().PutOptions(["100000000", "100000001", "100000002", "100000003", "100000004", "100000023", "100000005", "100000006", "100000007", "100000008", "100000009", "100000010", "100000011", "100000012", "100000013", "100000014", "100000015", "100000016"]);
+    /* Cascade StatusReason = Closed*/
+    Xrm.Page.Cascades.AddTo("new_statusreason").When("new_status").EqualsTo("100000001").Do().PutOptions(["100000022"]);
+    /* Cascade StatusReason =  Canceled*/
+    Xrm.Page.Cascades.AddTo("new_statusreason").When("new_status").EqualsTo("100000002").Do().PutOptions(["100000017", "100000018", "100000019", "100000020", "100000021"]);
+    /* Cascade StatusReason = Active*/
+    Xrm.Page.Cascades.AddTo("new_statusreason").When("new_status").EqualsTo("100000003").Do().PutOptions(["100000000", "100000002"]);
+}
+
+function onLoad() {
+    //Verify if the Request source is from Account
+    var lead = Xrm.Page.getAttribute("new_lead").getValue();
+    var account = Xrm.Page.getAttribute("new_account").getValue();
+    var opportunity = Xrm.Page.getAttribute("new_opportunity").getValue();
+    var quote = Xrm.Page.getAttribute("new_quote").getValue();
+    var sw = Xrm.Page.getAttribute("new_sw").getValue();
+
+    if (lead == null && account == null && opportunity == null && quote == null) {
+        alert("A Legal Request can only be created from a Lead, Opportunity, Quote or Account. \n Please create it from any of these entities.");
+        Xrm.Page.ui.close();
+    }
+
+    var buttonID = "Mscrm.Form.new_legalsupportrequest.Deactivate"; //Id of the markcomplete button
+    var btn = window.top.document.getElementById(buttonID);
+    if (btn != null) btn.style.display = "none";
+
+    // var estStartDate =
+    //var estEndDate = ;
+    //var estEffort = ;
+    //var estPriority = ;
+    window.estStartDate = Xrm.Page.getAttribute("new_eststartdate").getValue(); //new_eststartdate
+    window.estEndDate = Xrm.Page.getAttribute("new_estenddate").getValue(); //new_estenddate
+    window.estEffort = Xrm.Page.getAttribute("new_esteffort").getValue(); //new_esteffort
+    window.estPriority = Xrm.Page.getAttribute("new_priority").getValue(); // new_priority
+    //StatusReason
+    window.optStatusReasonL = Xrm.Page.getAttribute("new_statusreason").getValue();
+
+    //Management Approver
+    window.optMgmtApproverL = Xrm.Page.getAttribute("new_approverstatusmgmt").getValue();
+
+    //Security Approver
+    window.optSecurityApproverL = Xrm.Page.getAttribute("new_approverstatussecurity").getValue();
+
+    //Sales Approver
+    window.optSalesApproverL = Xrm.Page.getAttribute("new_approverstatussales").getValue();
+
+    //Operations Approver
+    window.optOperationsApproverL = Xrm.Page.getAttribute("new_approverstatusoperations").getValue();
+
+    //Finance Approver
+    window.optFinanceApproverL = Xrm.Page.getAttribute("new_approverstatusfinance").getValue();
+
+    //Admin Approver
+    window.optAdminApproverL = Xrm.Page.getAttribute("new_approverstatusadmin").getValue();
+
+    //HR Approver
+    window.optHRApproverL = Xrm.Page.getAttribute("new_approverstatushr").getValue();
+
+    //Sourcing Approver
+    window.optSourcingApproverL = Xrm.Page.getAttribute("new_approverstatussourcing").getValue();
+
+    //Insurance Approver
+    window.optInsuranceApproverL = Xrm.Page.getAttribute("new_approverstatusinsurance").getValue();
+
+    if (sw == true && window.optStatusReasonL != "100000011") Xrm.Page.getAttribute("new_assignedto").setRequiredLevel("required");
+
+    var _status = Xrm.Page.getAttribute("new_status").getValue();
+
+    // if Status = Active or Submitted
+    if (_status == 100000000 || _status == 100000003) {
+        this.__initializeForm();
+        //Display the sections allowed for the user
+        this.__singleWindow();
+        //Display the required fields based on the Status Reason
+        this.__fieldsRequired();
+        //Valida si hay valor en Lookup de Approver el campo de Clauses es obligatorio
+        this.__approverStatus();
+        //Make Rejection reason Field when validation status = rejected
+        this.__rejected();
+        Xrm.Page.Cascades.Filter("new_statusreason");
+    }
+
+    this.__OTD();
+}
+
+function onChangeStatusReason() {
+    //debugger;
+    this.__fieldsRequired();
+    this.__UPS();
+    this.__rejected();
+    this.__changesNeeded();
+    //Make ClausesApprover fields required
+    this.__SubmitToApprovers();
+}
+
+function onchangeRequestType() {
+    // onchangeRequestType
+    this.__assignedteam();
+    this.__assignSLA();
+}
+
+function onchangeApproveStatus() {
+    //Make required  Response field if ApproverStatus = Rejected or Needchanges
+    this.__changeApproverStatus();
+}
+
+function onchangeUPS() {
+    this.__UPS();
+}
+
+function onChangeStatus() {
+    Xrm.Page.Cascades.Filter("new_statusreason");
+}
+
+function onChangeExternalFirm() {
+    var externalSupport = Xrm.Page.getAttribute("new_externalsupport").getValue();
+    if (externalSupport == true)
+
+        Xrm.Page.getAttribute("new_externalfirm").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_externalfirm").setRequiredLevel("none");
+}
+
+function __GetUserName() {
+    //Get CurrentIdUser
+    var userid = XrmServiceToolkit.Soap.GetCurrentUserId();
+    //------------------------------------------------------------------
+    //-------------------haven't set assigned user-------start----------
+    //Only team members can set assigned to user
+    var _User = null;
+    XrmServiceToolkit.Rest.RetrieveMultiple("SystemUserSet", "$filter= SystemUserId eq guid'" + userid + "'", function(results) {
+            _User = results;
+        },
+        // ReSharper disable once UnusedParameter
+        function(error) {},
+        function onComplete() {},
+        false);
+
+    var name = _User[0]["FullName"];
+    return name;
+}
+
+//Only AssignedTo can modify the record
+function __singleWindow() {
+    //alert("Form Type = " + Xrm.Page.ui.getFormType());
+    // if the form type is "create" add 01 New  to StatusLog field
+    if (Xrm.Page.ui.getFormType() == 1) {
+        //Set Log
+        this.__statusLog();
+        // disabled  all "assignment" section
+        this.__DisabledFieldsSections23456(true);
+    } else {
+        //Set reload = true
+        Xrm.Page.getAttribute("new_reload").setValue(true);
+
+        //CurrentUser
+        var $userID = XrmServiceToolkit.Soap.GetCurrentUserId();
+
+        // if the legal Support was not sent to single window
+        if (Xrm.Page.getAttribute("new_sw").getValue() == false) {
+            // disabled all controls in "assignment tab"
+            this.__DisabledFieldsSections23456(true);
+            this.__DisabledFields();
+        } else {
+            // if the Legal Support has an assigned team
+            if (Xrm.Page.getAttribute("new_assignedteam").getValue() != null) {
+                // if the Legal Support does not have an assigned user
+                if (Xrm.Page.getAttribute("new_assignedto").getValue() == null) {
+                    // disabled all tabs in the form
+                    this.__DisabledFieldsSections0123456(true);
+                    Xrm.Page.getControl("new_assignedto").setDisabled(false);
+                } else {
+                    this.__changeApprover();
+                }
+            } else {
+                this.__DisabledFieldsSections0123456(true);
+            }
+        }
+    }
+}
+
+//When Status Approver field change, date = currentdate and  the status Log field should be updated
+function __changeStatusApproverDate() {
+    var date = new Date();
+    var dateFmt = date.Format("mm/dd/yyyy, hh:MM ");
+    var strHistory = (Xrm.Page.getAttribute("new_statuslog").getValue() == null) ? "" : Xrm.Page.getAttribute("new_statuslog").getValue() + "\n";
+    var optModifiedBy = this.__GetUserName();
+
+    //alert("Modified By ChgSAD1 = " + optModifiedBy);
+    //---Management Approver
+    var optMgmtApprover = Xrm.Page.getAttribute("new_approverstatusmgmt").getValue();
+    var MgmtApprover = Xrm.Page.getAttribute("new_approverstatusmgmt").getSelectedOption();
+
+    if (MgmtApprover != null && optMgmtApprover != 100000000 && optMgmtApprover != window.optMgmtApproverL) {
+        Xrm.Page.getAttribute("new_dateapproverstatusmgmt").setValue(date);
+        Xrm.Page.getAttribute("new_dateapproverstatusmgmt").setSubmitMode("always");
+
+        //-------------------StatusLog----------------------------------------------
+        if (optModifiedBy != null) {
+            //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+            strHistory += "Mgmt Approval ------ " + MgmtApprover.text + " ------ " + dateFmt + " ------ " + optModifiedBy + "\n";
+            Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+        }
+    }
+
+    //---Security Approver
+    var optSecurityApprover = Xrm.Page.getAttribute("new_approverstatussecurity").getValue();
+    var SecurityApprover = Xrm.Page.getAttribute("new_approverstatussecurity").getSelectedOption();
+
+    if (SecurityApprover != null && optSecurityApprover != 100000000 && optSecurityApprover != window.optSecurityApproverL) {
+        Xrm.Page.getAttribute("new_dateapproverstatussecurity").setValue(date);
+        Xrm.Page.getAttribute("new_dateapproverstatussecurity").setSubmitMode("always");
+
+        //-------------------StatusLog----------------------------------------------
+        if (optModifiedBy != null) {
+            //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+            strHistory += "Security Approval ------ " + SecurityApprover.text + " ------ " + dateFmt + " ------ " + optModifiedBy + "\n";
+            Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+        }
+    }
+
+    //Sales Approver
+    var optSalesApprover = Xrm.Page.getAttribute("new_approverstatussales").getValue();
+    var SalesApprover = Xrm.Page.getAttribute("new_approverstatussales").getSelectedOption();
+
+    if (SalesApprover != null && optSalesApprover != 100000000 && optSalesApprover != window.optSalesApproverL) {
+        Xrm.Page.getAttribute("new_dateapproverstatussales").setValue(date);
+        Xrm.Page.getAttribute("new_dateapproverstatussales").setSubmitMode("always");
+
+        //-------------------StatusLog----------------------------------------------
+        if (optModifiedBy != null) {
+            //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+            strHistory += "Sales Approval ------ " + SalesApprover.text + " ------ " + dateFmt + " ------ " + optModifiedBy + "\n";
+            Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+        }
+    }
+
+    //Operations Approver
+    var optOperationsApprover = Xrm.Page.getAttribute("new_approverstatusoperations").getValue();
+    var OperationsApprover = Xrm.Page.getAttribute("new_approverstatusoperations").getSelectedOption();
+
+    if (OperationsApprover != null && optOperationsApprover != 100000000 && optOperationsApprover != window.optOperationsApproverL) {
+        Xrm.Page.getAttribute("new_dateapproverstatusoperations").setValue(date);
+        Xrm.Page.getAttribute("new_dateapproverstatusoperations").setSubmitMode("always");
+
+        //-------------------StatusLog----------------------------------------------
+        if (optModifiedBy != null) {
+            //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+            strHistory += "Operations Approval ------ " + OperationsApprover.text + " ------ " + dateFmt + " ------ " + optModifiedBy + "\n";
+            Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+        }
+
+    }
+
+    //Finance Approver
+    var optFinanceApprover = Xrm.Page.getAttribute("new_approverstatusfinance").getValue();
+    var FinanceApprover = Xrm.Page.getAttribute("new_approverstatusfinance").getSelectedOption();
+
+    if (FinanceApprover != null && optFinanceApprover != 100000000 && optFinanceApprover != window.optFinanceApproverL) {
+        Xrm.Page.getAttribute("new_dateapproverstatusfinance").setValue(date);
+        Xrm.Page.getAttribute("new_dateapproverstatusfinance").setSubmitMode("always");
+
+        //-------------------StatusLog----------------------------------------------
+        if (optModifiedBy != null) {
+            //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+            strHistory += "Finance Approval ------ " + FinanceApprover.text + " ------ " + dateFmt + " ------ " + optModifiedBy + "\n";
+            Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+        }
+    }
+
+    //Admin Approver
+    var optAdminApprover = Xrm.Page.getAttribute("new_approverstatusadmin").getValue();
+    var AdminApprover = Xrm.Page.getAttribute("new_approverstatusadmin").getSelectedOption();
+
+    if (AdminApprover != null && optAdminApprover != 100000000 && optAdminApprover != window.optAdminApproverL) {
+        Xrm.Page.getAttribute("new_dateapproverstatusadmin").setValue(date);
+        Xrm.Page.getAttribute("new_dateapproverstatusadmin").setSubmitMode("always");
+
+        //-------------------StatusLog----------------------------------------------
+        if (optModifiedBy != null) {
+            //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+            strHistory += "Admin Approval ------ " + AdminApprover.text + " ------ " + dateFmt + " ------ " + optModifiedBy + "\n";
+            Xrm.Page.getAttribute("new_statuslog").setValue(strHistory)
+        }
+    }
+
+    //HR Approver
+    var optHRApprover = Xrm.Page.getAttribute("new_approverstatushr").getValue();
+    var HRApprover = Xrm.Page.getAttribute("new_approverstatushr").getSelectedOption();
+
+    if (HRApprover != null && optHRApprover != 100000000 && optHRApprover != window.optHRApproverL) {
+        Xrm.Page.getAttribute("new_dateapproverstatushr").setValue(date);
+        Xrm.Page.getAttribute("new_dateapproverstatushr").setSubmitMode("always");
+
+        //-------------------StatusLog----------------------------------------------
+        if (HRApprover != null && optModifiedBy != null) {
+            //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+            strHistory += "HR Approval ------ " + HRApprover.text + " ------ " + dateFmt + " ------ " + optModifiedBy + "\n";
+            Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+        }
+    }
+
+    //Sourcing Approver
+    var optSourcingApprover = Xrm.Page.getAttribute("new_approverstatussourcing").getValue();
+    var SourcingApprover = Xrm.Page.getAttribute("new_approverstatussourcing").getSelectedOption();
+
+    if (SourcingApprover != null && optSourcingApprover != 100000000 && optSourcingApprover != window.optSourcingApproverL) {
+        Xrm.Page.getAttribute("new_dateapproverstatussourcing").setValue(date);
+        Xrm.Page.getAttribute("new_dateapproverstatussourcing").setSubmitMode("always");
+
+        //-------------------StatusLog----------------------------------------------
+        if (SourcingApprover != null && optModifiedBy != null) {
+            //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+            strHistory += "Sourcing Approval ------ " + SourcingApprover.text + " ------ " + dateFmt + " ------ " + optModifiedBy + "\n";
+            Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+        }
+    }
+
+    //Insurance Approver
+    var optInsuranceApprover = Xrm.Page.getAttribute("new_approverstatusinsurance").getValue();
+    var InsuranceApprover = Xrm.Page.getAttribute("new_approverstatusinsurance").getSelectedOption();
+
+    if (InsuranceApprover != null && optInsuranceApprover != 100000000 && optInsuranceApprover != window.optInsuranceApproverL) {
+        Xrm.Page.getAttribute("new_dateapproverstatusinsurance").setValue(date);
+        Xrm.Page.getAttribute("new_dateapproverstatusinsurance").setSubmitMode("always");
+
+        //-------------------StatusLog----------------------------------------------
+        if (InsuranceApprover != null && optModifiedBy != null) {
+            //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+            strHistory += "Insurance Approval ------ " + InsuranceApprover.text + " ------ " + dateFmt + " ------ " + optModifiedBy + "\n";
+            Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+        }
+    }
+
+    Xrm.Page.getAttribute("new_statuslog").setSubmitMode("always");
+
+}
+
+function __clearFields() {
+    Xrm.Page.getAttribute("new_assignedteam").setValue(null);
+    Xrm.Page.getAttribute("new_assignedteam").setSubmitMode("always");
+    Xrm.Page.getAttribute("new_signer").setValue(null);
+    Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+    Xrm.Page.getAttribute("new_signersteam").setValue(null);
+    Xrm.Page.getAttribute("new_signersteam").setSubmitMode("always");
+}
+
+function __assignSLA() {
+    var optRequestType = Xrm.Page.getAttribute("new_requesttype").getSelectedOption();
+
+    if (optRequestType != null) switch (optRequestType.value) {
+        //NDA
+        case 100000000:
+            Xrm.Page.getAttribute("new_sla").setValue(1);
+            Xrm.Page.getAttribute("new_sla").setSubmitMode("always");
+            break;
+            // MSA
+        case 100000001:
+            Xrm.Page.getAttribute("new_sla").setValue(5);
+            Xrm.Page.getAttribute("new_sla").setSubmitMode("always");
+            break;
+            // SOW
+        case 100000002:
+            Xrm.Page.getAttribute("new_sla").setValue(1);
+            Xrm.Page.getAttribute("new_sla").setSubmitMode("always");
+            break;
+            // Amendment
+        case 100000003:
+            Xrm.Page.getAttribute("new_sla").setValue(2);
+            Xrm.Page.getAttribute("new_sla").setSubmitMode("always");
+            break;
+            // Renewal
+        case 100000004:
+            Xrm.Page.getAttribute("new_sla").setValue(1);
+            Xrm.Page.getAttribute("new_sla").setSubmitMode("always");
+            break;
+            // Agreement
+        case 100000005:
+            Xrm.Page.getAttribute("new_sla").setValue(3);
+            Xrm.Page.getAttribute("new_sla").setSubmitMode("always");
+            break;
+            // Other
+        case 100000006:
+            Xrm.Page.getAttribute("new_sla").setValue(5);
+            Xrm.Page.getAttribute("new_sla").setSubmitMode("always");
+            break;
+            // Q&A
+        case 100000007:
+            Xrm.Page.getAttribute("new_sla").setValue(1);
+            Xrm.Page.getAttribute("new_sla").setSubmitMode("always");
+            break;
+        case null:
+            Xrm.Page.getAttribute("new_sla").setValue(null);
+            Xrm.Page.getAttribute("new_sla").setSubmitMode("always");
+            break;
+    }
+}
+
+function __clearSigner() {
+    var optRequestType = Xrm.Page.getAttribute("new_requesttype").getSelectedOption();
+
+    // IF Req Type = Q&A
+    if (optRequestType.value == 100000007) {
+        //setSimpleLookupValue("new_assignedteam", "team", assignedTeamID, assignedTeamName);
+        Xrm.Page.getAttribute("new_signersteam").setValue(null);
+        Xrm.Page.getAttribute("new_signersteam").setSubmitMode("always");
+        Xrm.Page.getAttribute("new_signer").setValue(null);
+        Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+    }
+}
+
+function __assignedteam() {
+    //this.__clearFields();
+    var optRequestType = Xrm.Page.getAttribute("new_requesttype").getSelectedOption();
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket").getSelectedOption();
+
+    if (optSofttekMarket != null && optRequestType != null) switch (optSofttekMarket.value) {
+        // Mkt = USA
+        case 100000000:
+            this.__clearSigner();
+            // Req Type = NDA, SOW or Renewal
+            if (optRequestType.value == 100000000 || optRequestType.value == 100000002 || optRequestType.value == 100000004) {
+                var userID = "{3d6ed4d9-2db1-dd11-9a68-001e0b4616f4}";
+                var userName = "Jorge Best";
+                //setSimpleLookupValue("new_signer", "systemuser", userID, userName);
+            } else {
+                Xrm.Page.getAttribute("new_signer").setValue(null);
+                Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+            }
+
+            break;
+            //Mexico
+        case 100000001:
+            this.__clearSigner();
+            Xrm.Page.getAttribute("new_signer").setValue(null);
+            Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+            break;
+            //Brazil
+        case 100000002:
+            this.__clearSigner();
+            Xrm.Page.getAttribute("new_signer").setValue(null);
+            Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+            break;
+            //HSA
+        case 100000003:
+            this.__clearSigner();
+            Xrm.Page.getAttribute("new_signer").setValue(null);
+            Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+            break;
+            // China
+        case 100000004:
+            this.__clearSigner();
+            Xrm.Page.getAttribute("new_signer").setValue(null);
+            Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+            break;
+            //Europa
+        case 100000005:
+            this.__clearSigner();
+            Xrm.Page.getAttribute("new_signer").setValue(null);
+            Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+            break;
+            //Cloud
+        case 100000006:
+            this.__clearSigner();
+            Xrm.Page.getAttribute("new_signer").setValue(null);
+            Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+            break;
+            //-----------
+        case 100000007:
+            this.__clearSigner();
+            Xrm.Page.getAttribute("new_signer").setValue(null);
+            Xrm.Page.getAttribute("new_signer").setSubmitMode("always");
+            break;
+        case null:
+            this.__clearFields();
+            break;
+    }
+}
+
+function __OTD() {
+    var statusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+    var estEnd = Xrm.Page.getAttribute("new_estenddate").getValue();
+    var actEnd = Xrm.Page.getAttribute("new_actenddate").getValue();
+
+    if (estEnd != null && actEnd != null) {
+        estEnd = estEnd.Format("mm/dd/yyyy");
+        actEnd = actEnd.Format("mm/dd/yyyy");
+
+        if (statusReason == "100000022" && (estEnd != null && actEnd != null))
+            if (actEnd <= estEnd) Xrm.Page.getAttribute("new_otd").setValue(true);
+            else Xrm.Page.getAttribute("new_otd").setValue(false);
+    }
+
+    Xrm.Page.getAttribute("new_otd").setSubmitMode("always");
+}
+
+function __UPS() {
+    var documentType = Xrm.Page.getAttribute("new_documenttype").getValue();
+    var statusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+
+    // Doc Type = Physical And StatusReason = 11 - Sent by Courier
+    if (documentType == "100000000" && statusReason == "100000009") Xrm.Page.getAttribute("new_upstrackingid").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_upstrackingid").setRequiredLevel("none");
+}
+
+// Metodo que hace requerido el campo de rejection  cuando el status reason es:
+//Rejected, Redirecting, OnHold, Need More Info, Document Missing, Waiting For Document
+function __rejected() {
+    var statusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+
+    if (statusReason == "100000010" || statusReason == "100000011" || statusReason == "100000013" || statusReason == "100000014" || statusReason == "100000015" || statusReason == "100000016") Xrm.Page.getAttribute("new_rejectionredirectionreason").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_rejectionredirectionreason").setRequiredLevel("none");
+}
+
+function __Dates() {
+    var statusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+    var dateredline = Xrm.Page.getAttribute("new_dateredline").getValue();
+    var date = new Date();
+
+    // IF Status Reason = 04 - Redline Ready
+    if (statusReason == "100000003") Xrm.Page.getAttribute("new_dateredline").setValue(date);
+
+    // IF Status Reason = 05 - Submit to Approvers
+    if (statusReason == "100000004" && (dateredline == null || dateredline == "")) Xrm.Page.getAttribute("new_dateredline").setValue(date);
+
+    // IF Status Reason = 09 - Waiting for Signature
+    if (statusReason == "100000007") Xrm.Page.getAttribute("new_datesignature").setValue(date);
+
+    Xrm.Page.getAttribute("new_dateredline").setSubmitMode("always");
+    Xrm.Page.getAttribute("new_datesignature").setSubmitMode("always");
+}
+
+function __changesNeeded() {
+    var statusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+
+    // If Status Reason = 07 - Need Changes
+    if (statusReason == "100000005") Xrm.Page.getAttribute("new_changesneeded").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_changesneeded").setRequiredLevel("none");
+}
+
+function __statusLog() {
+    var optStatusReason = Xrm.Page.getAttribute("new_statusreason").getSelectedOption();
+    var optModifiedBy = this.__GetUserName();
+
+    //alert("Modified By SL1 " + optModifiedBy);
+    if (optStatusReason != null && optModifiedBy != null) {
+        var date = new Date();
+        date = date.Format("mm/dd/yyyy, hh:MM ");
+        var strHistory = (Xrm.Page.getAttribute("new_statuslog").getValue() == null) ? "" : Xrm.Page.getAttribute("new_statuslog").getValue() + "\n";
+        //Set Approval History
+        //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+        strHistory += optStatusReason.text + " ------ " + date + " ------ " + optModifiedBy + "\n";
+        Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+    }
+
+    Xrm.Page.getAttribute("new_statuslog").setSubmitMode("always");
+}
+
+//If Approver != null make  Clauses fields mandatory
+function __approverStatus() {
+    var _statusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+    if (_statusReason == 100000004) {
+        //Mgmt Approver
+        var optMgmtApprover = Xrm.Page.getAttribute("new_mgmtapprover").getValue();
+        if (optMgmtApprover != null) {
+
+            Xrm.Page.getAttribute("new_clausestocheckmgmt").setRequiredLevel("required");
+
+        }
+        //Security Approver
+        var optSecurityApprover = Xrm.Page.getAttribute("new_securityapprover").getValue();
+        if (optSecurityApprover != null) {
+
+            Xrm.Page.getAttribute("new_clausestochecksecurity").setRequiredLevel("required");
+        }
+        //Sales Approver
+        var optSalesApprover = Xrm.Page.getAttribute("new_salesapprover").getValue();
+        if (optSalesApprover != null) {
+
+            Xrm.Page.getAttribute("new_clausestochecksales").setRequiredLevel("required");
+        }
+        //Operations Approver
+        var optOperationsApprover = Xrm.Page.getAttribute("new_operationsapprover").getValue();
+        if (optOperationsApprover != null) {
+
+            Xrm.Page.getAttribute("new_clausestocheckoperations").setRequiredLevel("required");
+        }
+        //Finance Approver
+        var optFinanceApprover = Xrm.Page.getAttribute("new_financeapprover").getValue();
+        if (optFinanceApprover != null) {
+
+            Xrm.Page.getAttribute("new_clausestocheckfinance").setRequiredLevel("required");
+        }
+        //Admin Approver
+        var optAdminApprover = Xrm.Page.getAttribute("new_adminapprover").getValue();
+        if (optAdminApprover != null) {
+
+            Xrm.Page.getAttribute("new_clausestocheckadmin").setRequiredLevel("required");
+        }
+        //HR Approver
+        var optHRApprover = Xrm.Page.getAttribute("new_hrapprover").getValue();
+        if (optHRApprover != null) {
+
+            Xrm.Page.getAttribute("new_clausestocheckhr").setRequiredLevel("required");
+        }
+        //Sourcing Approver
+        var optSourcingApprover = Xrm.Page.getAttribute("new_sourcingapprover").getValue();
+        if (optSourcingApprover != null) {
+
+            Xrm.Page.getAttribute("new_clausestochecksourcing").setRequiredLevel("required");
+        }
+
+        //Insurance Approver
+        var optInsuranceApprover = Xrm.Page.getAttribute("new_insuranceapprover").getValue();
+        if (optInsuranceApprover != null) {
+
+            Xrm.Page.getAttribute("new_clausestocheckinsurance").setRequiredLevel("required");
+        }
+    }
+
+}
+
+//Make required  Response field if ApproverStatus = Rejected or Need Changes
+function __changeApproverStatus() {
+    //debugger;
+    var optstatusreason = Xrm.Page.getAttribute("new_statusreason").getValue();
+
+    // ********************Mgmt Approver*****************************************
+    // -- 12/03/2013--------------------
+    var ApproverMgmt = Xrm.Page.getAttribute("new_mgmtapprover").getValue();
+    var approverStatusMgmt = Xrm.Page.getAttribute("new_approverstatusmgmt");
+
+    // id de los cambios de status en approvers
+    var waitingForApproval = 100000001;
+    var changeRequired = 100000002;
+    var ChangeComplete = 100000003;
+    var approved = 100000004;
+    var rejected = 100000005;
+
+    if (ApproverMgmt != null && optstatusreason == 100000004) {
+        Xrm.Page.getAttribute("new_clausestocheckmgmt").setRequiredLevel("required");
+        //Xrm.Page.getAttribute("new_approverstatusmgmt").setValue(100000001); //removed Ticket#675250
+        Xrm.Page.getAttribute("new_approverstatusmgmt").setSubmitMode("always");
+        //Ticket#675250 Check the approverstatus
+        //if (parseInt(approverStatusMgmt.getValue()) <= 100000001 && parseInt(approverStatusMgmt.getValue()) >= 100000005)
+        if (approverStatusMgmt.getValue() <= waitingForApproval) {
+
+            Xrm.Page.getAttribute("new_approverstatusmgmt").setValue(100000001);
+
+        }
+
+        // alert(parseInt(approverStatusMgmt.getValue()));
+    } else if (ApproverMgmt == null) {
+        Xrm.Page.getAttribute("new_clausestocheckmgmt").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_approverstatusmgmt").setValue(100000000);
+        Xrm.Page.getAttribute("new_approverstatusmgmt").setSubmitMode("always");
+    }
+    //-----------------------------------
+    var optMgmtApprover = Xrm.Page.getAttribute("new_approverstatusmgmt").getValue();
+    if (optMgmtApprover != null && optMgmtApprover == 100000002 || optMgmtApprover == 100000005) Xrm.Page.getAttribute("new_approverresponsemgmt").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_approverresponsemgmt").setRequiredLevel("none");
+
+    // *********************Security Approver************************************************
+    // -- 12/03/2013----------------------
+    var SecurityApprover = Xrm.Page.getAttribute("new_securityapprover").getValue();
+    var approverStatusSecurity = Xrm.Page.getAttribute("new_approverstatussecurity");
+
+    if (SecurityApprover != null && optstatusreason == 100000004) {
+        Xrm.Page.getAttribute("new_clausestochecksecurity").setRequiredLevel("required");
+        // Xrm.Page.getAttribute("new_approverstatussecurity").setValue(100000001);//removed Ticket#675250
+        Xrm.Page.getAttribute("new_approverstatussecurity").setSubmitMode("always");
+
+        //Ticket#675250 Check the approverstatus
+        if (approverStatusSecurity.getValue() <= waitingForApproval) {
+
+            Xrm.Page.getAttribute("new_approverstatussecurity").setValue(100000001);
+
+        }
+
+    } else if (SecurityApprover == null) {
+        Xrm.Page.getAttribute("new_clausestochecksecurity").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_approverstatussecurity").setValue(100000000);
+        Xrm.Page.getAttribute("new_approverstatussecurity").setSubmitMode("always");
+    }
+    // -------------------------------
+    var optSecurityApprover = Xrm.Page.getAttribute("new_approverstatussecurity").getValue();
+
+    if (SecurityApprover != null && optSecurityApprover != null && optSecurityApprover == 100000002 || optSecurityApprover == 100000005) Xrm.Page.getAttribute("new_approverresponsesecurity").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_approverresponsesecurity").setRequiredLevel("none");
+
+    // *********************Sales Approver****************************************************
+    // -- 12/03/2013----------------
+    var SalesApprover = Xrm.Page.getAttribute("new_salesapprover").getValue();
+    var approverStatusSales = Xrm.Page.getAttribute("new_approverstatussales");
+    if (SalesApprover != null && optstatusreason == 100000004) {
+        Xrm.Page.getAttribute("new_clausestochecksales").setRequiredLevel("required");
+        // Xrm.Page.getAttribute("new_approverstatussales").setValue(100000001);//removed Ticket#675250
+        Xrm.Page.getAttribute("new_approverstatussales").setSubmitMode("always");
+
+        //Ticket#675250 Check the approverstatus
+        if (approverStatusSales.getValue() <= waitingForApproval) {
+
+            Xrm.Page.getAttribute("new_approverstatussales").setValue(100000001);
+
+        }
+
+    } else if (SalesApprover == null) {
+        Xrm.Page.getAttribute("new_clausestochecksales").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_approverstatussales").setValue(100000000);
+        Xrm.Page.getAttribute("new_approverstatussales").setSubmitMode("always");
+    }
+    // --------------------------------
+    var optSalesApprover = Xrm.Page.getAttribute("new_approverstatussales").getValue();
+    if (optSalesApprover != null && optSalesApprover == 100000002 || optSalesApprover == 100000005) Xrm.Page.getAttribute("new_approverresponsesales").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_approverresponsesales").setRequiredLevel("none");
+
+    // *************************Operations Approver********************************************
+    // -- 12/03/2013----------------
+    var OperationsApprover = Xrm.Page.getAttribute("new_operationsapprover").getValue();
+    var approverStatusOperations = Xrm.Page.getAttribute("new_approverstatusoperations");
+    if (OperationsApprover != null && optstatusreason == 100000004) {
+        Xrm.Page.getAttribute("new_clausestocheckoperations").setRequiredLevel("required");
+        // Xrm.Page.getAttribute("new_approverstatusoperations").setValue(100000001);//removed Ticket#675250
+        Xrm.Page.getAttribute("new_approverstatusoperations").setSubmitMode("always");
+
+        //Ticket#675250 Check the approverstatus
+        if (approverStatusOperations.getValue() <= waitingForApproval) {
+
+            Xrm.Page.getAttribute("new_approverstatusoperations").setValue(100000001);
+
+        }
+
+    } else if (OperationsApprover == null) {
+        Xrm.Page.getAttribute("new_clausestocheckoperations").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_approverstatusoperations").setValue(100000000);
+        Xrm.Page.getAttribute("new_approverstatusoperations").setSubmitMode("always");
+    }
+    // --------------------------------
+    var optOperationsApprover = Xrm.Page.getAttribute("new_approverstatusoperations").getValue();
+    if (optOperationsApprover != null && optOperationsApprover == 100000002 || optOperationsApprover == 100000005) Xrm.Page.getAttribute("new_approverresponseoperations").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_approverresponseoperations").setRequiredLevel("none");
+
+    // ***************************Finance Approver*************************************************
+    // -- 12/03/2013----------------
+    var FinanceApprover = Xrm.Page.getAttribute("new_financeapprover").getValue();
+    var approverStatusFinance = Xrm.Page.getAttribute("new_approverstatusfinance");
+    if (FinanceApprover != null && optstatusreason == 100000004) {
+        Xrm.Page.getAttribute("new_clausestocheckfinance").setRequiredLevel("required");
+        // Xrm.Page.getAttribute("new_approverstatusfinance").setValue(100000001);//removed Ticket#675250
+        Xrm.Page.getAttribute("new_approverstatusfinance").setSubmitMode("always");
+
+        //Ticket#675250 Check the approverstatus
+        if (approverStatusFinance.getValue() <= waitingForApproval) {
+
+            Xrm.Page.getAttribute("new_approverstatusfinance").setValue(100000001);
+
+        }
+    } else if (FinanceApprover == null) {
+        Xrm.Page.getAttribute("new_clausestocheckfinance").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_approverstatusfinance").setValue(100000000);
+        Xrm.Page.getAttribute("new_approverstatusfinance").setSubmitMode("always");
+    }
+    // --------------------------------
+    var optFinanceApprover = Xrm.Page.getAttribute("new_approverstatusfinance").getValue();
+    if (optFinanceApprover != null && optFinanceApprover == 100000002 || optFinanceApprover == 100000005) Xrm.Page.getAttribute("new_approverresponsefinance").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_approverresponsefinance").setRequiredLevel("none");
+
+    // ****************************Admin Approver**************************************************
+    // -- 12/03/2013----------------
+    var AdminApprover = Xrm.Page.getAttribute("new_adminapprover").getValue();
+    var approverStatusAdmin = Xrm.Page.getAttribute("new_approverstatusadmin");
+    if (AdminApprover != null && optstatusreason == 100000004) {
+        Xrm.Page.getAttribute("new_clausestocheckadmin").setRequiredLevel("required");
+        //Xrm.Page.getAttribute("new_approverstatusadmin").setValue(100000001);//removed Ticket#675250
+        Xrm.Page.getAttribute("new_approverstatusadmin").setSubmitMode("always");
+
+        //Ticket#675250 Check the approverstatus
+        if (approverStatusAdmin.getValue() <= waitingForApproval) {
+
+            Xrm.Page.getAttribute("new_approverstatusadmin").setValue(100000001);
+
+        }
+    } else if (AdminApprover == null) {
+        Xrm.Page.getAttribute("new_clausestocheckadmin").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_approverstatusadmin").setValue(100000000);
+        Xrm.Page.getAttribute("new_approverstatusadmin").setSubmitMode("always");
+    }
+    // --------------------------------
+    var optAdminApprover = Xrm.Page.getAttribute("new_approverstatusadmin").getValue();
+    if (optAdminApprover != null && optAdminApprover == 100000002 || optAdminApprover == 100000005) Xrm.Page.getAttribute("new_approverresponseadmin").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_approverresponseadmin").setRequiredLevel("none");
+
+    // ********************************HR Approver*************************************************
+    // -- 12/03/2013----------------
+    var HRApprover = Xrm.Page.getAttribute("new_hrapprover").getValue();
+    var approverStatusHR = Xrm.Page.getAttribute("new_approverstatushr");
+    if (HRApprover != null && optstatusreason == 100000004) {
+        Xrm.Page.getAttribute("new_clausestocheckhr").setRequiredLevel("required");
+        //Xrm.Page.getAttribute("new_approverstatushr").setValue(100000001);//removed Ticket#675250
+        Xrm.Page.getAttribute("new_approverstatushr").setSubmitMode("always");
+
+        //Ticket#675250 Check the approverstatus
+        if (approverStatusHR.getValue() <= waitingForApproval) {
+
+            Xrm.Page.getAttribute("new_approverstatushr").setValue(100000001);
+
+        }
+    } else if (HRApprover == null) {
+        Xrm.Page.getAttribute("new_clausestocheckhr").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_approverstatushr").setValue(100000000);
+        Xrm.Page.getAttribute("new_approverstatushr").setSubmitMode("always");
+    }
+    // --------------------------------
+    var optHRApprover = Xrm.Page.getAttribute("new_approverstatushr").getValue();
+    if (optHRApprover != null && optHRApprover == 100000002 || optHRApprover == 100000005) Xrm.Page.getAttribute("new_approverresponsehr").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_approverresponsehr").setRequiredLevel("none");
+
+    // *********************************Sourcing Approver********************************************
+    // -- 12/03/2013----------------
+    var SourcingApprover = Xrm.Page.getAttribute("new_sourcingapprover").getValue();
+    var approverStatusSourcing = Xrm.Page.getAttribute("new_approverstatussourcing");
+    if (SourcingApprover != null && optstatusreason == 100000004) {
+        Xrm.Page.getAttribute("new_clausestochecksourcing").setRequiredLevel("required");
+        //Xrm.Page.getAttribute("new_approverstatussourcing").setValue(100000001);//removed Ticket#675250
+        Xrm.Page.getAttribute("new_approverstatussourcing").setSubmitMode("always");
+
+        //Ticket#675250 Check the approverstatus
+        if (approverStatusSourcing.getValue() <= waitingForApproval) {
+
+            Xrm.Page.getAttribute("new_approverstatussourcing").setValue(100000001);
+
+        }
+    } else if (SourcingApprover == null) {
+        Xrm.Page.getAttribute("new_clausestochecksourcing").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_approverstatussourcing").setValue(100000000);
+        Xrm.Page.getAttribute("new_approverstatussourcing").setSubmitMode("always");
+    }
+    // --------------------------------
+    var optSourcingApprover = Xrm.Page.getAttribute("new_approverstatussourcing").getValue();
+    if (optSourcingApprover != null && optSourcingApprover == 100000002 || optSourcingApprover == 100000005) Xrm.Page.getAttribute("new_approverresponsesourcing").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_approverresponsesourcing").setRequiredLevel("none");
+
+    // *********************************Insurance Approver***********************************************
+    // -- 12/03/2013----------------
+    var InsuranceApprover = Xrm.Page.getAttribute("new_insuranceapprover").getValue();
+    var approverStatusInsurance = Xrm.Page.getAttribute("new_approverstatusinsurance");
+    if (InsuranceApprover != null && optstatusreason == 100000004) {
+        Xrm.Page.getAttribute("new_clausestocheckinsurance").setRequiredLevel("required");
+        //Xrm.Page.getAttribute("new_approverstatusinsurance").setValue(100000001);//removed Ticket#675250
+        Xrm.Page.getAttribute("new_approverstatusinsurance").setSubmitMode("always");
+
+        //Ticket#675250 Check the approverstatus
+        if (approverStatusInsurance.getValue() <= waitingForApproval) {
+
+            Xrm.Page.getAttribute("new_approverstatusinsurance").setValue(100000001);
+
+        }
+    } else if (InsuranceApprover == null) {
+        Xrm.Page.getAttribute("new_clausestocheckinsurance").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_approverstatusinsurance").setValue(100000000);
+        Xrm.Page.getAttribute("new_approverstatusinsurance").setSubmitMode("always");
+    }
+    // --------------------------------
+    var optInsuranceApprover = Xrm.Page.getAttribute("new_approverstatusinsurance").getValue();
+    if (optInsuranceApprover != null && optInsuranceApprover == 100000002 || optInsuranceApprover == 100000005) Xrm.Page.getAttribute("new_approverresponseinsurance").setRequiredLevel("required");
+    else Xrm.Page.getAttribute("new_approverresponseinsurance").setRequiredLevel("none");
+}
+
+function __changeApprover() {
+    // Function to Enable or Disable Fields depending on the User Role
+    var userid = XrmServiceToolkit.Soap.GetCurrentUserId();
+    var optAssignedTo = Xrm.Page.getAttribute("new_assignedto").getValue();
+    var optSigner = Xrm.Page.getAttribute("new_signer").getValue();
+    var optOwner = Xrm.Page.getAttribute("ownerid").getValue();
+    var optMgmtApprover = Xrm.Page.getAttribute("new_mgmtapprover").getValue();
+    var optSecurityApprover = Xrm.Page.getAttribute("new_securityapprover").getValue();
+    var optSalesApprover = Xrm.Page.getAttribute("new_salesapprover").getValue();
+    var optOperationsApprover = Xrm.Page.getAttribute("new_operationsapprover").getValue();
+    var optFinanceApprover = Xrm.Page.getAttribute("new_financeapprover").getValue();
+    var optAdminApprover = Xrm.Page.getAttribute("new_adminapprover").getValue();
+    var optHRApprover = Xrm.Page.getAttribute("new_hrapprover").getValue();
+    var optSourcingApprover = Xrm.Page.getAttribute("new_sourcingapprover").getValue();
+    var optInsuranceApprover = Xrm.Page.getAttribute("new_insuranceapprover").getValue();
+
+    var assignedTo = 0;
+    var signer = 0;
+    var owner = 0;
+    var mgmtApprover = 0;
+    var secApprover = 0;
+    var salesApprover = 0;
+    var opsApprover = 0;
+    var finApprover = 0;
+    var adminApprover = 0;
+    var hrApprover = 0;
+    var srcApprover = 0;
+    var insApprover = 0;
+
+    //AssignedTo
+    if (optAssignedTo != null) {
+        optAssignedTo = optAssignedTo[0].id.replace("{", "").replace("}", "");
+
+        if (optAssignedTo.toUpperCase() == userid.toUpperCase()) assignedTo = 1;
+    }
+
+    //Signer
+    if (optSigner != null) {
+        optSigner = optSigner[0].id.replace("{", "").replace("}", "");
+
+        if (optSigner.toUpperCase() == userid.toUpperCase()) signer = 1;
+    }
+
+    //Owner
+    if (optOwner != null) {
+        optOwner = optOwner[0].id.replace("{", "").replace("}", "");
+
+        if (optOwner.toUpperCase() == userid.toUpperCase()) owner = 1;
+    }
+
+    if (assignedTo == 1) {
+        this.__DisabledFieldsSections0123456(false);
+        this.__DisabledFields();
+    } else {
+        this.__DisabledFieldsSections0123456(true);
+
+        if (signer == 1 || owner == 1) {
+            Xrm.Page.getControl("new_statusreason").setDisabled(false);
+            Xrm.Page.getControl("new_eststartdate").setDisabled(false);
+            Xrm.Page.getControl("new_estenddate").setDisabled(false);
+            Xrm.Page.getControl("new_esteffort").setDisabled(false);
+            Xrm.Page.getControl("new_priority").setDisabled(false);
+            Xrm.Page.getControl("new_acteffort").setDisabled(false);
+        }
+    }
+
+    //Mgmt Approver
+    if (optMgmtApprover != null) {
+        optMgmtApprover = optMgmtApprover[0].id.replace("{", "").replace("}", "");
+
+        if (optMgmtApprover.toUpperCase() == userid.toUpperCase()) mgmtApprover = 1;
+    }
+
+    if (mgmtApprover == 1) {
+        Xrm.Page.getControl("new_approverstatusmgmt").setDisabled(false);
+        Xrm.Page.getControl("new_approverresponsemgmt").setDisabled(false);
+    }
+
+    //Security Approver
+    if (optSecurityApprover != null) {
+        optSecurityApprover = optSecurityApprover[0].id.replace("{", "").replace("}", "");
+
+        if (optSecurityApprover.toUpperCase() == userid.toUpperCase()) secApprover = 1;
+    }
+
+    if (secApprover == 1) {
+        Xrm.Page.getControl("new_approverstatussecurity").setDisabled(false);
+        Xrm.Page.getControl("new_approverresponsesecurity").setDisabled(false);
+    }
+
+    //Sales Approver
+    if (optSalesApprover != null) {
+        optSalesApprover = optSalesApprover[0].id.replace("{", "").replace("}", "");
+
+        if (optSalesApprover.toUpperCase() == userid.toUpperCase()) salesApprover = 1;
+    }
+
+    if (salesApprover == 1) {
+        Xrm.Page.getControl("new_approverstatussales").setDisabled(false);
+        Xrm.Page.getControl("new_approverresponsesales").setDisabled(false);
+    }
+
+    //Operations Approver
+    if (optOperationsApprover != null) {
+        optOperationsApprover = optOperationsApprover[0].id.replace("{", "").replace("}", "");
+
+        if (optOperationsApprover.toUpperCase() == userid.toUpperCase()) opsApprover = 1;
+    }
+
+    if (opsApprover == 1) {
+        Xrm.Page.getControl("new_approverstatusoperations").setDisabled(false);
+        Xrm.Page.getControl("new_approverresponseoperations").setDisabled(false);
+    }
+
+    //Finance Approver
+    if (optFinanceApprover != null) {
+        optFinanceApprover = optFinanceApprover[0].id.replace("{", "").replace("}", "");
+
+        if (optFinanceApprover.toUpperCase() == userid.toUpperCase()) finApprover = 1;
+    }
+
+    if (finApprover == 1) {
+        Xrm.Page.getControl("new_approverstatusfinance").setDisabled(false);
+        Xrm.Page.getControl("new_approverresponsefinance").setDisabled(false);
+    }
+
+    //Admin Approver
+    if (optAdminApprover != null) {
+        optAdminApprover = optAdminApprover[0].id.replace("{", "").replace("}", "");
+
+        if (optAdminApprover.toUpperCase() == userid.toUpperCase()) adminApprover = 1;
+    }
+
+    if (adminApprover == 1) {
+        Xrm.Page.getControl("new_approverstatusadmin").setDisabled(false);
+        Xrm.Page.getControl("new_approverresponseadmin").setDisabled(false);
+    }
+
+    //HR Approver
+    if (optHRApprover != null) {
+        optHRApprover = optHRApprover[0].id.replace("{", "").replace("}", "");
+
+        if (optHRApprover.toUpperCase() == userid.toUpperCase()) hrApprover = 1;
+    }
+
+    if (hrApprover == 1) {
+        Xrm.Page.getControl("new_approverstatushr").setDisabled(false);
+        Xrm.Page.getControl("new_approverresponsehr").setDisabled(false);
+    }
+
+    //Sourcing Approver
+    if (optSourcingApprover != null) {
+        optSourcingApprover = optSourcingApprover[0].id.replace("{", "").replace("}", "");
+
+        if (optSourcingApprover.toUpperCase() == userid.toUpperCase()) srcApprover = 1;
+    }
+
+    if (srcApprover == 1 && assignedTo == 0) {
+        Xrm.Page.getControl("new_approverstatussourcing").setDisabled(false);
+        Xrm.Page.getControl("new_approverresponsesourcing").setDisabled(false);
+    }
+
+    //Insurance Approver
+    if (optInsuranceApprover != null) {
+        optInsuranceApprover = optInsuranceApprover[0].id.replace("{", "").replace("}", "");
+
+        if (optInsuranceApprover.toUpperCase() == userid.toUpperCase()) insApprover = 1;
+    }
+
+    if (insApprover == 1) {
+        Xrm.Page.getControl("new_approverstatusinsurance").setDisabled(false);
+        Xrm.Page.getControl("new_approverresponseinsurance").setDisabled(false);
+    }
+
+}
+
+function __fieldsRequired() {
+    var selectedStatusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+    // var estStartDate = Xrm.Page.getAttribute("new_eststartdate").getValue();
+    //var estEndDate = Xrm.Page.getAttribute("new_estenddate").getValue();
+    //var estEffort = Xrm.Page.getAttribute("new_esteffort").getValue();
+    //var estPriority = Xrm.Page.getAttribute("new_priority").getValue();
+    var dateActStartDate = Xrm.Page.getAttribute("new_actstartdate").getValue();
+    var dateToday = new Date();
+
+    if (selectedStatusReason == "100000002" || selectedStatusReason == "100000003 " || selectedStatusReason == "100000004 " || selectedStatusReason == "100000005" || selectedStatusReason == "100000006" || selectedStatusReason == "100000007" || selectedStatusReason == "100000008" || selectedStatusReason == "100000009" || selectedStatusReason == "100000023") {
+        if (estStartDate == null && estEndDate == null && estEffort == null && estPriority == null) {
+            Xrm.Page.getAttribute("new_eststartdate").setRequiredLevel("required");
+            Xrm.Page.getAttribute("new_estenddate").setRequiredLevel("required");
+            Xrm.Page.getAttribute("new_esteffort").setRequiredLevel("required");
+            Xrm.Page.getAttribute("new_priority").setRequiredLevel("required");
+        } else {
+
+            Xrm.Page.getControl("new_eststartdate").setDisabled(true);
+            Xrm.Page.getControl("new_estenddate").setDisabled(true);
+            Xrm.Page.getControl("new_esteffort").setDisabled(true);
+            Xrm.Page.getControl("new_priority").setDisabled(true);
+        }
+
+        if (dateActStartDate == null) Xrm.Page.getAttribute("new_actstartdate").setValue(dateToday);
+
+        if (selectedStatusReason == "100000007") Xrm.Page.getAttribute("new_signer").setRequiredLevel("required");
+
+        if (selectedStatusReason == "100000008" || selectedStatusReason == "100000009") {
+            Xrm.Page.getAttribute("new_actenddate").setValue(dateToday);
+            Xrm.Page.getAttribute("new_datecompleted").setValue(dateToday);
+            Xrm.Page.getAttribute("new_acteffort").setRequiredLevel("required");
+        }
+
+        //  if (selectedStatusReason == "100000009") {
+        //  Xrm.Page.getAttribute("new_upstrackingid").setRequiredLevel("required");
+        // }
+
+    } else {
+        Xrm.Page.getAttribute("new_eststartdate").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_estenddate").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_esteffort").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_priority").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_acteffort").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_signer").setRequiredLevel("none");
+    }
+
+    Xrm.Page.getAttribute("new_actstartdate").setSubmitMode("always");
+    Xrm.Page.getAttribute("new_actenddate").setSubmitMode("always");
+    Xrm.Page.getAttribute("new_datecompleted").setSubmitMode("always");
+}
+
+function __SubmitToApprovers() {
+    var selectedStatusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+    var approver = 0;
+    var date = new Date();
+    var waitingForApproval = 100000001;
+
+    if (selectedStatusReason == 100000004) {
+        //Mgmt Approver
+        var optMgmtApprover = Xrm.Page.getAttribute("new_mgmtapprover").getValue();
+        var date = new Date();
+        if (optMgmtApprover != null) {
+            Xrm.Page.getAttribute("new_clausestocheckmgmt").setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_approverstatusmgmt").setValue(100000001);
+            Xrm.Page.getAttribute("new_dateapproverstatusmgmt").setValue(date);
+            Xrm.Page.getAttribute("new_approverstatusmgmt").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_dateapproverstatusmgmt").setSubmitMode("always");
+
+            if (Xrm.Page.getAttribute("new_approverstatusmgmt").getValue() <= waitingForApproval) {
+
+                Xrm.Page.getAttribute("new_approverstatusmgmt").setValue(100000001);
+
+            }
+            this.__fieldsRequired();
+            approver = 1;
+        }
+        //Security Approver
+        var optSecurityApprover = Xrm.Page.getAttribute("new_securityapprover").getValue();
+        if (optSecurityApprover != null) {
+            Xrm.Page.getAttribute("new_clausestochecksecurity").setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_approverstatussecurity").setValue(100000001);
+            Xrm.Page.getAttribute("new_dateapproverstatussecurity").setValue(date);
+            Xrm.Page.getAttribute("new_approverstatussecurity").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_dateapproverstatussecurity").setSubmitMode("always");
+
+            if (Xrm.Page.getAttribute("new_approverstatussecurity").getValue() <= waitingForApproval) {
+
+                Xrm.Page.getAttribute("new_approverstatussecurity").setValue(100000001);
+
+            }
+
+            this.__fieldsRequired();
+            approver = 1;
+        }
+        //Sales Approver
+        var optSalesApprover = Xrm.Page.getAttribute("new_salesapprover").getValue();
+        if (optSalesApprover != null) {
+            Xrm.Page.getAttribute("new_clausestochecksales").setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_approverstatussales").setValue(100000001);
+            Xrm.Page.getAttribute("new_dateapproverstatussales").setValue(date);
+            Xrm.Page.getAttribute("new_approverstatussales").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_dateapproverstatussales").setSubmitMode("always");
+
+            if (Xrm.Page.getAttribute("new_approverstatussales").getValue() <= waitingForApproval) {
+
+                Xrm.Page.getAttribute("new_approverstatussales").setValue(100000001);
+
+            }
+            this.__fieldsRequired();
+            approver = 1;
+        }
+        //Operations Approver
+        var optOperationsApprover = Xrm.Page.getAttribute("new_operationsapprover").getValue();
+        if (optOperationsApprover != null) {
+            Xrm.Page.getAttribute("new_clausestocheckoperations").setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_approverstatusoperations").setValue(100000001);
+            Xrm.Page.getAttribute("new_dateapproverstatusoperations").setValue(date);
+            Xrm.Page.getAttribute("new_approverstatusoperations").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_dateapproverstatusoperations").setSubmitMode("always");
+
+            if (Xrm.Page.getAttribute("new_approverstatusoperations").getValue() <= waitingForApproval) {
+
+                Xrm.Page.getAttribute("new_approverstatusoperations").setValue(100000001);
+
+            }
+            this.__fieldsRequired();
+            approver = 1;
+        }
+        //Finance Approver
+        var optFinanceApprover = Xrm.Page.getAttribute("new_financeapprover").getValue();
+        if (optFinanceApprover != null) {
+            Xrm.Page.getAttribute("new_clausestocheckfinance").setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_approverstatusfinance").setValue(100000001);
+            Xrm.Page.getAttribute("new_dateapproverstatusfinance").setValue(date);
+            Xrm.Page.getAttribute("new_approverstatusfinance").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_dateapproverstatusfinance").setSubmitMode("always");
+
+            if (Xrm.Page.getAttribute("new_approverstatusfinance").getValue() <= waitingForApproval) {
+
+                Xrm.Page.getAttribute("new_approverstatusfinance").setValue(100000001);
+
+            }
+            this.__fieldsRequired();
+            approver = 1;
+        }
+        //Admin Approver
+        var optAdminApprover = Xrm.Page.getAttribute("new_adminapprover").getValue();
+        if (optAdminApprover != null) {
+            Xrm.Page.getAttribute("new_clausestocheckadmin").setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_approverstatusadmin").setValue(100000001);
+            Xrm.Page.getAttribute("new_dateapproverstatusadmin").setValue(date);
+            Xrm.Page.getAttribute("new_approverstatusadmin").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_dateapproverstatusadmin").setSubmitMode("always");
+
+            if (Xrm.Page.getAttribute("new_approverstatusadmin").getValue() <= waitingForApproval) {
+
+                Xrm.Page.getAttribute("new_approverstatusadmin").setValue(100000001);
+
+            }
+            this.__fieldsRequired();
+            approver = 1;
+        }
+        //HR Approver
+        var optHRApprover = Xrm.Page.getAttribute("new_hrapprover").getValue();
+        if (optHRApprover != null) {
+            Xrm.Page.getAttribute("new_clausestocheckhr").setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_approverstatushr").setValue(100000001);
+            Xrm.Page.getAttribute("new_dateapproverstatushr").setValue(date);
+            Xrm.Page.getAttribute("new_approverstatushr").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_dateapproverstatushr").setSubmitMode("always");
+
+            if (Xrm.Page.getAttribute("new_approverstatushr").getValue() <= waitingForApproval) {
+
+                Xrm.Page.getAttribute("new_approverstatushr").setValue(100000001);
+
+            }
+
+            this.__fieldsRequired();
+            approver = 1;
+        }
+        //Sourcing Approver
+        var optSourcingApprover = Xrm.Page.getAttribute("new_sourcingapprover").getValue();
+        if (optSourcingApprover != null) {
+            Xrm.Page.getAttribute("new_clausestochecksourcing").setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_approverstatussourcing").setValue(100000001);
+            Xrm.Page.getAttribute("new_dateapproverstatussourcing").setValue(date);
+            Xrm.Page.getAttribute("new_approverstatussourcing").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_dateapproverstatussourcing").setSubmitMode("always");
+
+            if (Xrm.Page.getAttribute("new_approverstatussourcing").getValue() <= waitingForApproval) {
+
+                Xrm.Page.getAttribute("new_approverstatussourcing").setValue(100000001);
+
+            }
+
+            this.__fieldsRequired();
+            approver = 1;
+        }
+        //Insurance Approver
+        var optInsuranceApprover = Xrm.Page.getAttribute("new_insuranceapprover").getValue();
+        if (optInsuranceApprover != null) {
+            Xrm.Page.getAttribute("new_clausestocheckinsurance").setRequiredLevel("required");
+            //Xrm.Page.getAttribute("new_approverstatusinsurance").setValue(100000001);
+            Xrm.Page.getAttribute("new_dateapproverstatusinsurance").setValue(date);
+            Xrm.Page.getAttribute("new_approverstatusinsurance").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_dateapproverstatusinsurance").setSubmitMode("always");
+
+            if (Xrm.Page.getAttribute("new_approverstatusinsurance").getValue() <= waitingForApproval) {
+
+                Xrm.Page.getAttribute("new_approverstatusinsurance").setValue(100000001);
+
+            }
+
+            this.__fieldsRequired();
+            approver = 1;
+        }
+        if (approver == 0) {
+            alert("Please fill at least one approver before changing the Status Reason to '05 - Waiting for Approvals'");
+            Xrm.Page.getAttribute("new_statusreason").setValue(optStatusReasonL);
+            Xrm.Page.getAttribute("new_statusreason").setSubmitMode("always");
+            return false;
+        }
+    }
+}
+
+function __DisabledFieldsSections0123456(status) {
+    //alert("Disabling ALL = " + status);
+    //---------------------- OVERVIEW -----------------------------
+    Xrm.Page.getControl("new_requesttype").setDisabled(status);
+    Xrm.Page.getControl("new_name").setDisabled(status);
+    Xrm.Page.getControl("new_duedate").setDisabled(status);
+    Xrm.Page.getControl("new_urgency").setDisabled(status);
+    Xrm.Page.getControl("new_documenttype").setDisabled(status);
+    Xrm.Page.getControl("ownerid").setDisabled(status);
+    Xrm.Page.getControl("new_lead").setDisabled(status);
+    Xrm.Page.getControl("new_account").setDisabled(status);
+    Xrm.Page.getControl("new_opportunity").setDisabled(status);
+    Xrm.Page.getControl("new_quote").setDisabled(status);
+    Xrm.Page.getControl("new_opportunitytype").setDisabled(status);
+    //---------------------- DETAILS -----------------------------
+    Xrm.Page.getControl("new_description").setDisabled(status);
+    Xrm.Page.getControl("new_documenturl").setDisabled(status);
+    //---------------------- ASSIGNMENT -----------------------------
+    Xrm.Page.getControl("new_assignedteam").setDisabled(status);
+    Xrm.Page.getControl("new_assignedto").setDisabled(status);
+    Xrm.Page.getControl("new_signersteam").setDisabled(status);
+    Xrm.Page.getControl("new_signer").setDisabled(status);
+    Xrm.Page.getControl("new_statusreason").setDisabled(status);
+    Xrm.Page.getControl("new_eststartdate").setDisabled(status);
+    Xrm.Page.getControl("new_estenddate").setDisabled(status);
+    Xrm.Page.getControl("new_esteffort").setDisabled(status);
+    Xrm.Page.getControl("new_acteffort").setDisabled(status);
+    Xrm.Page.getControl("new_priority").setDisabled(status);
+    Xrm.Page.getControl("new_externalsupport").setDisabled(status);
+    Xrm.Page.getControl("new_cost").setDisabled(status);
+    Xrm.Page.getControl("transactioncurrencyid").setDisabled(status);
+    Xrm.Page.getControl("new_externalfirm").setDisabled(status);
+    Xrm.Page.getControl("new_upstrackingid").setDisabled(status);
+    Xrm.Page.getControl("new_changesneeded").setDisabled(status);
+    //---------------------- APPROVALS -----------------------------
+    Xrm.Page.getControl("new_rejectionredirectionreason").setDisabled(status);
+    Xrm.Page.getControl("new_mgmtapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckmgmt").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusmgmt").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsemgmt").setDisabled(status);
+    Xrm.Page.getControl("new_securityapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestochecksecurity").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatussecurity").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsesecurity").setDisabled(status);
+    Xrm.Page.getControl("new_salesapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestochecksales").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatussales").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsesales").setDisabled(status);
+    Xrm.Page.getControl("new_operationsapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckoperations").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusoperations").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponseoperations").setDisabled(status);
+    Xrm.Page.getControl("new_financeapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckfinance").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusfinance").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsefinance").setDisabled(status);
+    Xrm.Page.getControl("new_adminapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckadmin").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusadmin").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponseadmin").setDisabled(status);
+    Xrm.Page.getControl("new_hrapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckhr").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatushr").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsehr").setDisabled(status);
+    Xrm.Page.getControl("new_sourcingapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestochecksourcing").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatussourcing").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsesourcing").setDisabled(status);
+    Xrm.Page.getControl("new_insuranceapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckinsurance").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusinsurance").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponseinsurance").setDisabled(status);
+}
+
+function __DisabledFieldsSections23456(status) {
+
+    //alert("Disabling Assignment and Approvals = " + status);
+    //---------------------- ASSIGNMENT -----------------------------
+    Xrm.Page.getControl("new_assignedteam").setDisabled(status);
+    Xrm.Page.getControl("new_assignedto").setDisabled(status);
+    Xrm.Page.getControl("new_signersteam").setDisabled(status);
+    Xrm.Page.getControl("new_signer").setDisabled(status);
+    Xrm.Page.getControl("new_statusreason").setDisabled(status);
+    Xrm.Page.getControl("new_eststartdate").setDisabled(status);
+    Xrm.Page.getControl("new_estenddate").setDisabled(status);
+    Xrm.Page.getControl("new_esteffort").setDisabled(status);
+    Xrm.Page.getControl("new_acteffort").setDisabled(status);
+    Xrm.Page.getControl("new_priority").setDisabled(status);
+    Xrm.Page.getControl("new_externalsupport").setDisabled(status);
+    Xrm.Page.getControl("new_cost").setDisabled(status);
+    Xrm.Page.getControl("transactioncurrencyid").setDisabled(status);
+    Xrm.Page.getControl("new_externalfirm").setDisabled(status);
+    Xrm.Page.getControl("new_upstrackingid").setDisabled(status);
+    Xrm.Page.getControl("new_changesneeded").setDisabled(status);
+    Xrm.Page.getControl("new_rejectionredirectionreason").setDisabled(status);
+
+    //---------------------- APPROVALS -----------------------------
+    Xrm.Page.getControl("new_mgmtapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckmgmt").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusmgmt").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsemgmt").setDisabled(status);
+    Xrm.Page.getControl("new_securityapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestochecksecurity").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatussecurity").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsesecurity").setDisabled(status);
+    Xrm.Page.getControl("new_salesapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestochecksales").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatussales").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsesales").setDisabled(status);
+    Xrm.Page.getControl("new_operationsapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckoperations").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusoperations").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponseoperations").setDisabled(status);
+    Xrm.Page.getControl("new_financeapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckfinance").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusfinance").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsefinance").setDisabled(status);
+    Xrm.Page.getControl("new_adminapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckadmin").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusadmin").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponseadmin").setDisabled(status);
+    Xrm.Page.getControl("new_hrapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckhr").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatushr").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsehr").setDisabled(status);
+    Xrm.Page.getControl("new_sourcingapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestochecksourcing").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatussourcing").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponsesourcing").setDisabled(status);
+    Xrm.Page.getControl("new_insuranceapprover").setDisabled(status);
+    Xrm.Page.getControl("new_clausestocheckinsurance").setDisabled(status);
+    Xrm.Page.getControl("new_approverstatusinsurance").setDisabled(status);
+    Xrm.Page.getControl("new_approverresponseinsurance").setDisabled(status);
+}
+
+function __DisabledFields() {
+    Xrm.Page.getControl("new_requestid").setDisabled(true);
+    Xrm.Page.getControl("new_softtekmarket").setDisabled(true);
+    Xrm.Page.getControl("new_marketscope").setDisabled(true);
+    Xrm.Page.getControl("new_deliverymodel").setDisabled(true);
+    Xrm.Page.getControl("new_softtekcountry").setDisabled(true);
+    Xrm.Page.getControl("new_serviceoffering").setDisabled(true);
+    Xrm.Page.getControl("new_status").setDisabled(true);
+    Xrm.Page.getControl("new_actstartdate").setDisabled(true);
+    Xrm.Page.getControl("new_statuslog").setDisabled(true);
+    Xrm.Page.getControl("new_actenddate").setDisabled(true);
+    Xrm.Page.getControl("new_dateapproverstatusmgmt").setDisabled(true);
+    Xrm.Page.getControl("new_dateapproverstatussecurity").setDisabled(true);
+    Xrm.Page.getControl("new_dateapproverstatussales").setDisabled(true);
+    Xrm.Page.getControl("new_dateapproverstatusoperations").setDisabled(true);
+    Xrm.Page.getControl("new_dateapproverstatusfinance").setDisabled(true);
+    Xrm.Page.getControl("new_dateapproverstatusadmin").setDisabled(true);
+    Xrm.Page.getControl("new_dateapproverstatushr").setDisabled(true);
+    Xrm.Page.getControl("new_dateapproverstatussourcing").setDisabled(true);
+    Xrm.Page.getControl("new_dateapproverstatusinsurance").setDisabled(true);
+    Xrm.Page.getControl("new_dateredline").setDisabled(true);
+    Xrm.Page.getControl("new_datecompleted").setDisabled(true);
+    Xrm.Page.getControl("new_datesignature").setDisabled(true);
+    Xrm.Page.getControl("new_ftr").setDisabled(true);
+    Xrm.Page.getControl("new_otd").setDisabled(true);
+    Xrm.Page.getControl("new_sla").setDisabled(true);
+    Xrm.Page.getControl("createdon").setDisabled(true);
+    Xrm.Page.getControl("createdby").setDisabled(true);
+    Xrm.Page.getControl("modifiedon").setDisabled(true);
+    Xrm.Page.getControl("modifiedby").setDisabled(true);
+}
+
+function onSave() {
+    var Startdate = Xrm.Page.getAttribute("new_eststartdate").getValue();
+    var Enddate = Xrm.Page.getAttribute("new_estenddate").getValue();
+    if (Startdate != null && Enddate != null && Enddate < Startdate) {
+        alert("The 'Est End Date' cannot be before the 'Est Start Date'. Please verify");
+		Xrm.Page.getAttribute("new_eststartdate").setValue(null);
+		 Xrm.Page.getAttribute("new_estenddate").setValue(null);
+    } else {
+        var selectedStatusReason = Xrm.Page.getAttribute("new_statusreason").getValue();
+
+        if (selectedStatusReason == "100000010" || selectedStatusReason == "100000011") {
+            var counter = Xrm.Page.getAttribute("new_ftr").getValue();
+
+            if (counter != null) {
+                var countert = counter + 1;
+                Xrm.Page.getAttribute("new_ftr").setValue(countert);
+            } else {
+                Xrm.Page.getAttribute("new_ftr").setValue(1);
+            }
+
+            Xrm.Page.getAttribute("new_ftr").setSubmitMode("always");
+        }
+
+        if (selectedStatusReason == "100000011") {
+            Xrm.Page.getAttribute("new_redirected").setValue(true);
+            Xrm.Page.getAttribute("new_redirected").setSubmitMode("always");
+        }
+
+        if (selectedStatusReason != window.optStatusReasonL) this.__statusLog();
+
+        if (selectedStatusReason == "100000004") {
+            //Make required clauses field when status reason = Submit to approvers
+            var approver = 0;
+            var date = new Date();
+
+            //Mgmt Approver
+            var optMgmtApprover = Xrm.Page.getAttribute("new_mgmtapprover").getValue();
+
+            if (optMgmtApprover != null) {
+                Xrm.Page.getAttribute("new_clausestocheckmgmt").setRequiredLevel("required");
+                approver = 1;
+            }
+
+            //Security Approver
+            var optSecurityApprover = Xrm.Page.getAttribute("new_securityapprover").getValue();
+
+            if (optSecurityApprover != null) {
+                Xrm.Page.getAttribute("new_clausestochecksecurity").setRequiredLevel("required");
+                approver = 1;
+            }
+
+            //Sales Approver
+            var optSalesApprover = Xrm.Page.getAttribute("new_salesapprover").getValue();
+
+            if (optSalesApprover != null) {
+                Xrm.Page.getAttribute("new_clausestochecksales").setRequiredLevel("required");
+                approver = 1;
+            }
+
+            //Operations Approver
+            var optOperationsApprover = Xrm.Page.getAttribute("new_operationsapprover").getValue();
+
+            if (optOperationsApprover != null) {
+                Xrm.Page.getAttribute("new_clausestocheckoperations").setRequiredLevel("required");
+                approver = 1;
+            }
+
+            //Finance Approver
+            var optFinanceApprover = Xrm.Page.getAttribute("new_financeapprover").getValue();
+
+            if (optFinanceApprover != null) {
+                Xrm.Page.getAttribute("new_clausestocheckfinance").setRequiredLevel("required");
+                approver = 1;
+            }
+
+            //Admin Approver
+            var optAdminApprover = Xrm.Page.getAttribute("new_adminapprover").getValue();
+
+            if (optAdminApprover != null) {
+                Xrm.Page.getAttribute("new_clausestocheckadmin").setRequiredLevel("required");
+                approver = 1;
+            }
+
+            //HR Approver
+            var optHRApprover = Xrm.Page.getAttribute("new_hrapprover").getValue();
+
+            if (optHRApprover != null) {
+                Xrm.Page.getAttribute("new_clausestocheckhr").setRequiredLevel("required");
+                approver = 1;
+            }
+
+            //Sourcing Approver
+            var optSourcingApprover = Xrm.Page.getAttribute("new_sourcingapprover").getValue();
+
+            if (optSourcingApprover != null) {
+                Xrm.Page.getAttribute("new_clausestochecksourcing").setRequiredLevel("required");
+                approver = 1;
+            }
+
+            //Insurance Approver
+            var optInsuranceApprover = Xrm.Page.getAttribute("new_insuranceapprover").getValue();
+
+            if (optInsuranceApprover != null) {
+                Xrm.Page.getAttribute("new_clausestocheckinsurance").setRequiredLevel("required");
+                approver = 1;
+            }
+
+            this.__fieldsRequired();
+
+            if (approver == 0) {
+                alert("Please fill at least one approver before changing the Status Reason to '05 - Waiting for Approvals'");
+                Xrm.Page.getAttribute("new_statusreason").setValue(optStatusReasonL);
+                Xrm.Page.getAttribute("new_statusreason").setSubmitMode("always");
+            }
+
+            var optModifiedBy = this.__GetUserName();
+
+            if (optModifiedBy != null) {
+                var date = new Date();
+                date = date.Format("mm/dd/yyyy, hh:MM ");
+                var strHistory = (Xrm.Page.getAttribute("new_statuslog").getValue() == null) ? "" : Xrm.Page.getAttribute("new_statuslog").getValue() + "\n";
+
+                //Set Approval History
+                //StatusLog:  Status  Reason ----- Status Date ----- Modified By		
+                strHistory += "06 - Pending Approval" + " ------ " + date + " ------ " + optModifiedBy + "\n";
+                Xrm.Page.getAttribute("new_statuslog").setValue(strHistory);
+            }
+
+            Xrm.Page.getAttribute("new_statuslog").setSubmitMode("always");
+        }
+
+        this.__assignSLA();
+        this.__changeStatusApproverDate();
+        this.__Dates();
+        this.__OTD();
+        this.__UPS();
+    }
+}

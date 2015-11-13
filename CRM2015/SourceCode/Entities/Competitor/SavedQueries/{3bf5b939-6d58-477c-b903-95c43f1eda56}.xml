@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>123</returnedtypecode>
+  <savedqueryid>{3bf5b939-6d58-477c-b903-95c43f1eda56}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="123" jump="name" select="1" preview="0" icon="1">
+      <row name="result" id="competitorid">
+        <cell name="name" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>64</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="competitor">
+        <attribute name="name" />
+        <attribute name="competitorid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Competitor Lookup View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda de competidores" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

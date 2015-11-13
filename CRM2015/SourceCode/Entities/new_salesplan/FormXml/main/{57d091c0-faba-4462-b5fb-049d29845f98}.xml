@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{57d091c0-faba-4462-b5fb-049d29845f98}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form shownavigationbar="true" showImage="false" maxWidth="1900">
+    <tabs>
+      <tab verticallayout="true" id="{2d0e45c4-cb7a-442b-a85c-d22445a9c1cf}" IsUserDefined="1" name="{2d0e45c4-cb7a-442b-a85c-d22445a9c1cf}" locklevel="0" expanded="true" showlabel="false">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="true" showbar="false" IsUserDefined="0" id="{677d40b4-96d2-4b78-9fcf-7b4a19cc30f4}" name="{677d40b4-96d2-4b78-9fcf-7b4a19cc30f4}" columns="111" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{9cfbe492-4f98-4578-b8c7-1df4a365dd21}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_name" disabled="true" />
+                    </cell>
+                    <cell id="{b5222a31-bc45-3ced-e1ee-89a9b2ab4a92}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Date Consolidation" languagecode="1033" />
+                      </labels>
+                      <control id="new_dateconsolidation" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="new_dateconsolidation" disabled="true" />
+                    </cell>
+                    <cell id="{a921148c-7a74-4eee-c6a5-d40e9d5b7399}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Report Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_reporttype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_reporttype" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{1a01aabd-b135-c371-b261-c30aa13b9d58}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Record Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_recordtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_recordtype" disabled="false" />
+                    </cell>
+                    <cell id="{f3723f43-6335-499e-882a-958f5b565276}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                    <cell id="{d6d897eb-eca3-3be9-1ad6-e30dda1d1675}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Group 1" languagecode="1033" />
+                      </labels>
+                      <control id="new_group1" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_group1" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b5cec9d6-266b-0ab2-a879-2b13987da6b5}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Account" languagecode="1033" />
+                      </labels>
+                      <control id="new_account" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_account" disabled="false" />
+                    </cell>
+                    <cell id="{13d93e1e-9aa9-ac3c-535a-6a34058e15ec}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Account Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_accounttype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_accounttype" disabled="false" />
+                    </cell>
+                    <cell id="{bc83d197-5402-2adc-5cbd-0dcee033e7b2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Group 2" languagecode="1033" />
+                      </labels>
+                      <control id="new_group2" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_group2" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c5e0de9e-5569-7ade-aa09-5069636d4134}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Opportunity ID" languagecode="1033" />
+                      </labels>
+                      <control id="new_opportunityid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_opportunityid" disabled="false" />
+                    </cell>
+                    <cell id="{27c5e3a0-3abe-4819-e3db-611b9b6edb8d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Opportunity" languagecode="1033" />
+                      </labels>
+                      <control id="new_opportunity" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_opportunity" disabled="false" />
+                    </cell>
+                    <cell id="{5d284960-58e9-3be6-bd66-b51b732d467c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Opportunity Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_opportunitytype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_opportunitytype" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{d2743230-be99-8c12-a200-d61688505233}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Quote" languagecode="1033" />
+                      </labels>
+                      <control id="new_quote" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_quote" disabled="false" />
+                    </cell>
+                    <cell id="{be085906-691d-9998-4755-8e6bcc087252}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Order" languagecode="1033" />
+                      </labels>
+                      <control id="new_order" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_order" disabled="false" />
+                    </cell>
+                    <cell id="{58284261-d84b-a661-eb97-0e4469d3daad}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4b21a6ca-a457-90c0-3a2b-7a83dd4db959}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Market Scope" languagecode="1033" />
+                      </labels>
+                      <control id="new_marketscope" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_marketscope" disabled="false" />
+                    </cell>
+                    <cell id="{de9d8e9d-81a6-4087-b7b8-642d4e07caa2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Market" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekmarket" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekmarket" disabled="false" />
+                    </cell>
+                    <cell id="{652b693c-0684-6a0e-321c-8398a1e1742a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Vertical" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekvertical" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekvertical" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{526de7e4-1044-768a-a983-0d4e00867ca6}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Country" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekcountry" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekcountry" disabled="false" />
+                    </cell>
+                    <cell id="{ea426986-9a2d-a9d2-5e21-908057e81e10}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{83d53011-7385-7be1-89c0-0cab5ca7765e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Technology Group" languagecode="1033" />
+                      </labels>
+                      <control id="new_technologygroup" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_technologygroup" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8b10220a-a878-367a-5268-bd7792d5a37b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Service Offering" languagecode="1033" />
+                      </labels>
+                      <control id="new_serviceoffering" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_serviceoffering" disabled="false" />
+                    </cell>
+                    <cell id="{761cc31c-1626-e4a4-e097-b231bd22446b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Service Offering Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_serviceofferingtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_serviceofferingtype" disabled="false" />
+                    </cell>
+                    <cell id="{589c81ea-ee33-643e-c285-0b26edae31d4}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="New Softtek Vertical" languagecode="1033" />
+                      </labels>
+                      <control id="new_newsofttekvertical" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_newsofttekvertical" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{db62d323-d41e-32e3-524b-4e99ea410a0d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Delivery Model" languagecode="1033" />
+                      </labels>
+                      <control id="new_deliverymodel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_deliverymodel" disabled="false" />
+                    </cell>
+                    <cell id="{2e307694-21a2-1e25-13d2-14b6c036da21}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Delivery Manager" languagecode="1033" />
+                      </labels>
+                      <control id="new_deliverymanager" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_deliverymanager" disabled="false" />
+                    </cell>
+                    <cell id="{a857bb90-83a1-d8e9-c143-ea6b108c4c6d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="ADM" languagecode="1033" />
+                      </labels>
+                      <control id="new_adm" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_adm" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8bd73970-3828-a6b6-55c2-b445417128cd}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="BDM" languagecode="1033" />
+                      </labels>
+                      <control id="new_bdm" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_bdm" disabled="false" />
+                    </cell>
+                    <cell id="{b45ee416-6bd6-57dd-6d55-ecdbbba056e5}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PxMgr" languagecode="1033" />
+                      </labels>
+                      <control id="new_pxmgr" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_pxmgr" disabled="false" />
+                    </cell>
+                    <cell id="{2dc873ce-21a3-19b4-d193-63246c2bcc94}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Practice Leader" languagecode="1033" />
+                      </labels>
+                      <control id="new_practiceleader" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_practiceleader" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{963db17d-23ba-c289-0346-0e9444910e08}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Project ID" languagecode="1033" />
+                      </labels>
+                      <control id="new_projectid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_projectid" disabled="false" />
+                    </cell>
+                    <cell id="{e66aaa8b-4deb-d513-3edd-05a41ad94224}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Project Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_projectname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_projectname" disabled="false" />
+                    </cell>
+                    <cell id="{01d6c143-4c45-d922-0610-a04963d46c18}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Run Rate" languagecode="1033" />
+                      </labels>
+                      <control id="new_runrate" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_runrate" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{10eeeb7a-b950-7820-7ac0-606366358ec5}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Est. Close Date" languagecode="1033" />
+                      </labels>
+                      <control id="new_estclosedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="new_estclosedate" disabled="false" />
+                    </cell>
+                    <cell id="{8bb892b0-4772-1258-27dc-3c4367d6dc3b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Total Contract Value" languagecode="1033" />
+                      </labels>
+                      <control id="new_totalcontractvalue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_totalcontractvalue" disabled="false" />
+                    </cell>
+                    <cell id="{3bbce6e1-5047-3c59-e2d9-1c59e72666cd}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{36a7bea4-97c0-0a17-ab4d-9ed84b276a5c}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{d0add457-e760-b738-2e24-4878ece14de7}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7b8e4b91-83ba-edab-5655-e5b06d7595be}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5a3eadd9-87bd-c343-9492-8b16484abe03}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{5955ba7e-328d-60bc-68c9-03c749732397}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status Reason" languagecode="1033" />
+                        <label description="Razón para el estado" languagecode="3082" />
+                      </labels>
+                      <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
+                    </cell>
+                    <cell id="{8eebc947-780c-7a9e-8c04-5c46d27d935b}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="{2d0e45c4-cb7a-442b-a85c-d22445a9c1cf}_section_2" showlabel="true" showbar="false" locklevel="0" id="{9d3941e4-3d1d-c9e7-0e92-e653c387e5d8}" IsUserDefined="0" layout="varwidth" columns="111" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Detail" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{2377072a-91b5-25c2-299d-a0a28265c259}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="January" languagecode="1033" />
+                      </labels>
+                      <control id="new_january" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_january" disabled="false" />
+                    </cell>
+                    <cell id="{8c9584c2-e16c-c640-b965-c90b5361a078}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="July" languagecode="1033" />
+                      </labels>
+                      <control id="new_july" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_july" disabled="false" />
+                    </cell>
+                    <cell id="{d59d1a34-c372-aa76-a549-20aecde023a7}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Duration" languagecode="1033" />
+                      </labels>
+                      <control id="new_duration" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_duration" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{6bb1491c-8262-b841-300a-bc0259708357}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="February" languagecode="1033" />
+                      </labels>
+                      <control id="new_february" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_february" disabled="false" />
+                    </cell>
+                    <cell id="{d361c819-bad6-85da-d173-5618728221b3}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="August" languagecode="1033" />
+                      </labels>
+                      <control id="new_august" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_august" disabled="false" />
+                    </cell>
+                    <cell id="{2d49562b-d52d-c275-2767-0ea441ac4991}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Year" languagecode="1033" />
+                      </labels>
+                      <control id="new_year" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_year" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{9e8e181d-645d-4bab-9dc9-7c8ed04cd100}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="March" languagecode="1033" />
+                      </labels>
+                      <control id="new_march" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_march" disabled="false" />
+                    </cell>
+                    <cell id="{ee581da6-67ad-c9ba-637b-20b439e96ee2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="September" languagecode="1033" />
+                      </labels>
+                      <control id="new_september" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_september" disabled="false" />
+                    </cell>
+                    <cell id="{a3005a91-395c-6a3e-5c22-5edbb12a57ce}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Total Year" languagecode="1033" />
+                      </labels>
+                      <control id="new_totalyear" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_totalyear" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{2bc60cb0-3624-16c3-2ded-766bb0e2d077}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="April" languagecode="1033" />
+                      </labels>
+                      <control id="new_april" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_april" disabled="false" />
+                    </cell>
+                    <cell id="{bced60b9-a104-67b9-3db0-83c9215edb49}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="October" languagecode="1033" />
+                      </labels>
+                      <control id="new_october" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_october" disabled="false" />
+                    </cell>
+                    <cell id="{1c600301-1412-dc66-266b-555788488503}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Currency" languagecode="1033" />
+                        <label description="Divisa" languagecode="3082" />
+                      </labels>
+                      <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bd9a2633-1d61-50d2-1625-223035e0a918}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="May" languagecode="1033" />
+                      </labels>
+                      <control id="new_may" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_may" disabled="false" />
+                    </cell>
+                    <cell id="{6d5657ec-173c-5d30-538e-b14c5e7b05e5}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="November" languagecode="1033" />
+                      </labels>
+                      <control id="new_november" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_november" disabled="false" />
+                    </cell>
+                    <cell id="{27c74d63-da06-0d46-d92b-7c59d52e8b16}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{3b97796e-39c9-814b-d888-4d5476ed741c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="June" languagecode="1033" />
+                      </labels>
+                      <control id="new_june" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_june" disabled="false" />
+                    </cell>
+                    <cell id="{ca93a8b3-d943-98a1-315a-38e775578375}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="December" languagecode="1033" />
+                      </labels>
+                      <control id="new_december" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_december" disabled="false" />
+                    </cell>
+                    <cell id="{41b776c1-0396-a4cb-49e1-49d8474b96b1}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ed7cc739-1cdb-c5d4-0a72-dba476aa4704}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Q1 Revenue" languagecode="1033" />
+                      </labels>
+                      <control id="new_q1revenue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_q1revenue" disabled="false" />
+                    </cell>
+                    <cell id="{08252603-db8b-a782-1526-9b39d7c1931b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Q3 Revenue" languagecode="1033" />
+                      </labels>
+                      <control id="new_q3revenue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_q3revenue" disabled="false" />
+                    </cell>
+                    <cell id="{e9ee8c43-180a-9bac-6569-73742592c0b9}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{e6019e49-753c-222d-eda6-cb3ceace8636}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Q2 Revenue" languagecode="1033" />
+                      </labels>
+                      <control id="new_q2revenue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_q2revenue" disabled="false" />
+                    </cell>
+                    <cell id="{36618297-8c26-d411-e8c5-17c3b6bc4757}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Q4 Revenue" languagecode="1033" />
+                      </labels>
+                      <control id="new_q4revenue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_q4revenue" disabled="false" />
+                    </cell>
+                    <cell id="{ede07847-b742-226d-caaa-6354794a1527}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="{2d0e45c4-cb7a-442b-a85c-d22445a9c1cf}_section_3" showlabel="true" showbar="false" locklevel="0" id="{e91a24e8-4882-5840-9656-391e92c806a0}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Admin Info" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{791b07ad-a963-5e4e-5edd-414d30511a56}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Created On" languagecode="1033" />
+                        <label description="Fecha de creación" languagecode="3082" />
+                      </labels>
+                      <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                    </cell>
+                    <cell id="{210c0cb3-7232-a4e7-020c-874ec88b225e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Created By" languagecode="1033" />
+                        <label description="Autor" languagecode="3082" />
+                      </labels>
+                      <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{894b3042-1de2-9e93-3a7c-bcadbc1e4c70}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Modified On" languagecode="1033" />
+                        <label description="Fecha de modificación" languagecode="3082" />
+                      </labels>
+                      <control id="modifiedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" />
+                    </cell>
+                    <cell id="{7e39bda9-8339-35bc-3234-235a2d833ec6}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Modified By" languagecode="1033" />
+                        <label description="Modificado por" languagecode="3082" />
+                      </labels>
+                      <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{34b767a0-50d3-edea-79d8-c4d116e76ea5}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Date Completed" languagecode="1033" />
+                      </labels>
+                      <control id="new_datecompleted" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="new_datecompleted" disabled="false" />
+                    </cell>
+                    <cell id="{d08214dc-e931-abb7-0b3a-42a0d0de2b80}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <formLibraries>
+      <Library name="new_XrmServiceToolkit" libraryUniqueId="{39190476-1407-1363-7db6-4aa221011633}" />
+      <Library name="new_CRM.Utils" libraryUniqueId="{3e7ad344-28ae-e9eb-81d8-1684bb84a033}" />
+      <Library name="new_softtek_scripts_util_dynamicform" libraryUniqueId="{0d70c71d-2593-3411-56e9-774b111be625}" />
+      <Library name="new_SalesPlan_Main_Library" libraryUniqueId="{c1db4001-b1e8-5402-2a9c-4d7114b87087}" />
+      <Library name="new_SalesPlanJS" libraryUniqueId="{63de5bde-2534-8b11-70c1-7bd24ae5226b}" />
+      <Library name="new_Opp_Ribbon_Functions_2" libraryUniqueId="{55239632-e5e0-ad0e-0c2e-4d13c37ccce2}" />
+    </formLibraries>
+    <events>
+      <event name="onload" application="false" active="false">
+        <Handlers>
+          <Handler functionName="onLoad" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{82686dd1-5304-c784-c861-4e638551a66e}" enabled="true" parameters="" passExecutionContext="false" />
+          <Handler handlerUniqueId="{2780a50a-2429-16e6-7b2e-e7458cb26889}" functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" enabled="true" passExecutionContext="false" parameters="" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_softtekmarket">
+        <Handlers>
+          <Handler functionName="onChangeSofttekMarket" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{18753673-85cb-7291-0563-e290711aceb6}" enabled="true" parameters="" passExecutionContext="false" />
+          <Handler functionName="ValidateProjectID" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{ede50191-4b2c-ea89-59c5-6c9beb33e266}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_marketscope">
+        <Handlers>
+          <Handler functionName="onChangeMarketScope" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{583819d4-d016-300a-a53c-210c06016e7a}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_january">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{b63d21ad-edd6-e99a-401b-214c24b2779d}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_february">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{8786cc66-19d7-b6a9-b199-4346939c1772}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_march">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{b78baa00-56ce-eab0-e3e7-967069a8a093}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_april">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{caee4e01-05ac-8b8d-13d3-63e8a80760d0}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_may">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{195c932d-2995-d2bc-d0d0-c58998553466}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_june">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{36de9759-b2b6-19d2-1858-0664949e07ec}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_july">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_XrmServiceToolkit" handlerUniqueId="{ce4b590e-677e-a28a-6472-7ecd8d269912}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_august">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{05ecc618-6b19-7258-c34a-71d07e45a5c8}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_september">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{092caba5-b100-2092-c86c-acab13a818ed}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_october">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{c7a559a6-ca32-adba-a948-c47a057c77a6}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_november">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{eb1a46a4-bc1b-762d-6434-ec31a8977397}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_december">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{adc82e08-26aa-0eec-c300-5a507a6322c4}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onsave" application="false" active="false">
+        <Handlers>
+          <Handler functionName="SumMonthlyFields" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{3653d44a-dee1-975b-ee1b-e5ed8a508375}" enabled="true" parameters="" passExecutionContext="false" />
+          <Handler handlerUniqueId="{55dae897-6eba-6517-4955-190ae1014372}" functionName="validateYear" libraryName="new_SalesPlan_Main_Library" enabled="true" passExecutionContext="false" parameters="" />
+          <Handler functionName="ValidateOpportunityId" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{62a54a3c-28d0-4908-e199-ad6e147c8b87}" enabled="true" parameters="" passExecutionContext="false" />
+          <Handler functionName="ValidateDuration" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{05d9b26c-b447-d23c-d89a-4e4d9e5c386a}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_serviceoffering">
+        <Handlers>
+          <Handler functionName="onChangeServiceOffering" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{51434b62-8872-8b12-ebea-598805a784eb}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_projectid">
+        <Handlers>
+          <Handler functionName="ValidateProjectID" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{4ca4c9c9-b5a9-a997-3dcd-e5b36c60341e}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_year">
+        <Handlers>
+          <Handler handlerUniqueId="{5a147ca7-0034-3a30-d608-a269c456d592}" functionName="validateYear" libraryName="new_SalesPlan_Main_Library" enabled="true" passExecutionContext="false" parameters="" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_opportunityid">
+        <Handlers>
+          <Handler functionName="ValidateOpportunityId" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{2b48a8b2-dad8-ce0c-6a17-560d938a77ac}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_duration">
+        <Handlers>
+          <Handler functionName="ValidateDuration" libraryName="new_SalesPlan_Main_Library" handlerUniqueId="{5868a1a7-a9e1-3483-2db9-33d332e86135}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+    </events>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

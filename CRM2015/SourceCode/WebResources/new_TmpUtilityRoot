@@ -1,0 +1,11 @@
+if (typeof(SofttekCrm) == "undefined") {
+    SofttekCrm = {
+        __namespace: true
+    };
+};
+SofttekCrm.Utility = {
+    __namespace: true
+};
+SofttekCrm.Forms = {
+    __namespace: true
+};

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1011</returnedtypecode>
+  <savedqueryid>{2922b6fe-7578-4002-b4e1-b5189c28a37a}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="contractdetails" object="1011" jump="title" select="1" icon="1" preview="1">
+      <row name="contractdetail" id="contractdetailid">
+        <cell name="title" width="300" />
+        <cell name="productid" width="100" />
+        <cell name="allotmentsremaining" width="150" />
+        <cell name="net" width="75" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="contractdetail">
+        <attribute name="title" />
+        <attribute name="productid" />
+        <attribute name="allotmentsremaining" />
+        <attribute name="net" />
+        <attribute name="contractdetailid" />
+        <order attribute="title" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Related Contract Lines" languagecode="1033" />
+    <LocalizedName description="Líneas de contrato relacionadas" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about the contract line items in the detail form of the associated contract record. This view is in the Contract Lines side tab." languagecode="1033" />
+    <Description description="Muestra información de elementos de línea de contrato en el formulario detallado del registro de contrato asociado. Esta vista está en la ficha lateral Líneas de contrato." languagecode="3082" />
+  </Descriptions>
+</savedquery>

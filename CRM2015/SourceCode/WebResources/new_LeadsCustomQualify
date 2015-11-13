@@ -1,0 +1,1205 @@
+// new_LeadsCustomQualify
+// JavaScript source code
+
+var UQLUnqualifiedStatus = 100000011;
+var UnqualifiedAcct = false;
+var OpportunityId = "";
+var CreatedAccount = "";
+var CreatedContact = "";
+var CreatedOpportunity = "";
+var CAccountFG = "";
+var CContactFG = "";
+var COpportunityFG = "";
+var Alead = {};
+var closeDate;
+
+function CustomQualify() {
+    Xrm.Page.data.save();
+
+    var leadExistingAccountLookup = Xrm.Page.getAttribute("new_existingaccount").getValue();
+    var leadNewAccount = Xrm.Page.getAttribute("companyname").getValue();
+    var leadContact = Xrm.Page.getAttribute("fullname").getValue();
+
+    var LeadId = Xrm.Page.data.entity.getId();
+    LeadId = LeadId.replace("{", "").replace("}", "");
+    if (Xrm.Page.getAttribute("statuscode").getValue() == UQLUnqualifiedStatus) {
+        MQLRequiredFields();
+        SQLRequiredFields();
+    }
+
+    var cansave = MandatoryPopulated();
+
+    if (cansave == true) {
+        if (leadContact != null) {
+            if (leadNewAccount != null) {
+                CreateAccount();
+            }
+            else {
+                if (leadExistingAccountLookup != null) {
+                    var leadExistingAccount = leadExistingAccountLookup[0].name;
+                    var leadExistingAccountId = leadExistingAccountLookup[0].id;
+
+                    CreateContact(leadExistingAccountId);
+                    var item = null;
+                    var flag = false;
+
+                    while (!flag) {
+                        XrmServiceToolkit.Rest.RetrieveMultiple("LeadSet", "$filter= LeadId eq guid'" + LeadId + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+                        function (results) {
+                            item = results;
+                        },
+                        // // ReSharper disable once UnuentityIdsedParameter
+                        function (error) {
+                            alert("Error = " + error);
+                        },
+                        function onComplete() { },
+                        false);
+
+                        if (item[0].StateCode.Value == 1) {
+                            flag = true;
+                            location.reload();
+                        }
+                    }
+                }
+                else {
+                    alert("Is necessary to specify an Account");
+                }
+            }
+        }
+        else {
+            alert("You must provide a Value for a Contact");
+        }
+    }
+    else {
+        Xrm.Page.data.entity.save("save");
+    }
+}
+
+function MandatoryPopulated() {
+    populated = true;
+
+    Xrm.Page.getAttribute(function (attribute, index) {
+        if (attribute.getRequiredLevel() == "required") {
+            if (getFreshValue(attribute.getName().toString()) === "") {
+                populated = false;
+                return populated;
+            }
+        }
+    });
+
+    return populated;
+}
+
+function getFreshValue(fieldName) {
+    var id = fieldName + '_i';
+    var inputElement = document.getElementById(id);
+    if (inputElement !== null) { //At the moment when you focus the field first, the input element get generated.(at least on CRM 2013)
+        return inputElement.value;
+    }
+    else {
+        if (Xrm.Page.getAttribute(fieldName).getValue() == null) {
+            return "";
+        }
+        return Xrm.Page.getAttribute(fieldName).getValue(); //The value is not modified if the input element doesn't exist.
+    }
+}
+
+function SQLRequiredFields() {
+    Xrm.Page.getAttribute("fullname").setRequiredLevel("required");
+    Xrm.Page.getAttribute("firstname").setRequiredLevel("required");
+    Xrm.Page.getAttribute("lastname").setRequiredLevel("required");
+    Xrm.Page.getAttribute("emailaddress1").setRequiredLevel("required");
+    Xrm.Page.getAttribute("jobtitle").setRequiredLevel("required");
+    Xrm.Page.getAttribute("address2_city").setRequiredLevel("required");
+    Xrm.Page.getAttribute("address2_stateorprovince").setRequiredLevel("required");
+    Xrm.Page.getAttribute("address2_country").setRequiredLevel("required");
+}
+
+function MQLRequiredFields() {
+    if (Xrm.Page.getAttribute("new_neworextacct").getValue() == UnqualifiedAcct) {
+        Xrm.Page.getAttribute("telephone1").setRequiredLevel("required");
+        Xrm.Page.getAttribute("address1_line1").setRequiredLevel("required");
+        Xrm.Page.getAttribute("address1_city").setRequiredLevel("required");
+        Xrm.Page.getAttribute("address1_stateorprovince").setRequiredLevel("required");
+        Xrm.Page.getAttribute("address1_country").setRequiredLevel("required");
+        Xrm.Page.getAttribute("new_noofemployeerange").setRequiredLevel("required");
+        Xrm.Page.getAttribute("new_annualrevenuerange").setRequiredLevel("required");
+    }
+}
+
+function UpdateAccount(AccountId) {
+    AccountId = AccountId.replace("{", "").replace("}", "");
+    var LeadId = Xrm.Page.data.entity.getId();
+    LeadId = LeadId.replace("{", "").replace("}", "");
+    var Owner = Xrm.Page.getAttribute("ownerid").getValue();
+    var OwnerId = Owner[0].id;
+    OwnerId = OwnerId.replace("{", "").replace("}", "");
+    var entityType = Owner[0].entityType;
+    var AnnualRevenueR = Xrm.Page.getAttribute("new_annualrevenuerange").getValue();
+    var NoEmployeesR = Xrm.Page.getAttribute("new_noofemployeerange").getValue();
+    var SofttekMarket = Xrm.Page.getAttribute("new_softtekmarketlead").getValue();
+    var MarketScope = Xrm.Page.getAttribute("new_marketscopelead").getValue();
+    var SofttekCountry = Xrm.Page.getAttribute("new_softtekcountry").getValue();
+    var SofttekVertical = Xrm.Page.getAttribute("new_softtekvertical1").getValue();
+    var IndustrySofttek = Xrm.Page.getAttribute("new_industrysofttek").getValue();
+    var account = {};
+
+    account.Telephone1 = Xrm.Page.getAttribute("telephone1").getValue();
+    account.Address1_Line1 = Xrm.Page.getAttribute("address1_line1").getValue();
+    account.Address1_Line2 = Xrm.Page.getAttribute("address1_line2").getValue();
+    account.Address1_City = Xrm.Page.getAttribute("address1_city").getValue();
+    account.Address1_StateOrProvince = Xrm.Page.getAttribute("address1_stateorprovince").getValue();
+    account.Address1_Country = Xrm.Page.getAttribute("address1_stateorprovince").getValue();
+    account.Address1_PostalCode = Xrm.Page.getAttribute("address1_postalcode").getValue();
+    account.OriginatingLeadId = {
+        Id: LeadId,
+        LogicalName: "lead"
+    };
+    account.OwnerId = {
+        Id: OwnerId,
+        LogicalName: entityType
+    };
+    account.new_Annualrevenuerange = {
+        Value: AnnualRevenueR
+    };
+    account.new_Noofemployeerange = {
+        Value: NoEmployeesR
+    };
+    account.new_SofttekMarket1 = {
+        Value: SofttekMarket
+    };
+    account.new_MarketScope = {
+        Value: MarketScope
+    };
+    account.new_SofttekCountry1 = {
+        Value: SofttekCountry
+    };
+    account.new_SofttekVertical1 = {
+        Value: SofttekVertical
+    };
+    account.new_Industrysofttek = {
+        Value: IndustrySofttek
+    };
+
+    XrmServiceToolkit.Rest.Update(
+    AccountId, account, "AccountSet", function () {
+    },
+    function (error) {
+    },
+    false);
+}
+
+function CreateAccount() {
+    var LeadId = Xrm.Page.data.entity.getId();
+    LeadId = LeadId.replace("{", "").replace("}", "");
+    var Owner = Xrm.Page.getAttribute("ownerid").getValue();
+    var OwnerId = Owner[0].id;
+    OwnerId = OwnerId.replace("{", "").replace("}", "");
+    var entityType = Owner[0].entityType;
+    var AnnualRevenueR = Xrm.Page.getAttribute("new_annualrevenuerange").getValue();
+    var NoEmployeesR = Xrm.Page.getAttribute("new_noofemployeerange").getValue();
+    var SofttekMarket = Xrm.Page.getAttribute("new_softtekmarketlead").getValue();
+    var MarketScope = Xrm.Page.getAttribute("new_marketscopelead").getValue();
+    var SofttekCountry = Xrm.Page.getAttribute("new_softtekcountry").getValue();
+    var SofttekVertical = Xrm.Page.getAttribute("new_softtekvertical1").getValue();
+    var IndustrySofttek = Xrm.Page.getAttribute("new_industrysofttek").getValue();
+    var AccountName = Xrm.Page.getAttribute("companyname").getValue();
+    AccountName = AccountName.replace("&", "%26");
+    var Campaign = Xrm.Page.getAttribute("campaignid").getValue();
+    var SendSalesMaterial = Xrm.Page.getAttribute("new_sendsalesmaterials").getValue();
+    if (Campaign != null) {
+        var CampaignId = Campaign[0].id;
+        CampaignId = CampaignId.replace("{", "").replace("}", "");
+    }
+
+    var Systech = Xrm.Page.getAttribute("new_systechlead").getValue();
+    var ServiceOffering = Xrm.Page.getAttribute("new_serviceoffering1").getValue();
+    var AccountId = "";
+
+    var item = null;
+
+    XrmServiceToolkit.Rest.RetrieveMultiple("AccountSet", "$filter= Name eq '" + AccountName + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+    function (results) {
+        item = results;
+    },
+    // ReSharper disable once UnuentityIdsedParameter
+    function (error) { },
+    function onComplete() { },
+    false);
+
+    if (item.length > 0) {
+        AccountId = item[0]["AccountId"];
+    } else {
+        var account = {};
+        account.Name = Xrm.Page.getAttribute("companyname").getValue();
+        account.Telephone1 = Xrm.Page.getAttribute("telephone1").getValue();
+        account.Address1_Line1 = Xrm.Page.getAttribute("address1_line1").getValue();
+        account.Address1_Line2 = Xrm.Page.getAttribute("address1_line2").getValue();
+        account.Address1_City = Xrm.Page.getAttribute("address1_city").getValue();
+        account.Address1_StateOrProvince = Xrm.Page.getAttribute("address1_stateorprovince").getValue();
+        account.Address1_Country = Xrm.Page.getAttribute("address1_country").getValue();
+        account.Address1_PostalCode = Xrm.Page.getAttribute("address1_postalcode").getValue();
+        account.OriginatingLeadId = {
+            Id: LeadId,
+            LogicalName: "lead"
+        };
+        account.OwnerId = {
+            Id: OwnerId,
+            LogicalName: entityType
+        };
+        account.new_Annualrevenuerange = {
+            Value: AnnualRevenueR
+        };
+        account.new_Noofemployeerange = {
+            Value: NoEmployeesR
+        };
+        account.new_SofttekMarket1 = {
+            Value: SofttekMarket
+        };
+        account.new_MarketScopeaccount = {
+            Value: MarketScope
+        };
+        account.new_SofttekCountry1 = {
+            Value: SofttekCountry
+        };
+        account.new_SofttekVertical1 = {
+            Value: SofttekVertical
+        };
+        account.new_Industrysofttek = {
+            Value: IndustrySofttek
+        };
+        account.EMailAddress1 = Xrm.Page.getAttribute("emailaddress1").getValue();
+
+        if (Campaign != null) {
+            account.new_SourceCampaign = {
+                Id: CampaignId,
+                LogicalName: "campaign"
+            };
+        }
+        account.new_SendSalesMaterials = {
+            Value: SendSalesMaterial
+        };
+        account.new_Serviceoffering = {
+            Value: ServiceOffering
+        };
+        account.new_SystechAccount = Systech;
+        account.Telephone2 = Xrm.Page.getAttribute("telephone3").getValue();
+        account.WebSiteURL = Xrm.Page.getAttribute("websiteurl").getValue();
+
+        XrmServiceToolkit.Rest.Create(
+        account, "AccountSet", function (result) {
+            AccountId = result.AccountId;
+            CreatedAccount = "The Account was successfully created. \n";
+        },
+        function (error) {
+            CreatedAccount = "";
+        },
+        false);
+    }
+
+    if (AccountId != "") {
+        CreateContact(AccountId);
+    }
+}
+
+function CreateContact(AccountId) {
+    var FullName = Xrm.Page.getAttribute("fullname").getValue();
+    var LeadId = Xrm.Page.data.entity.getId();
+    LeadId = LeadId.replace("{", "").replace("}", "");
+    var Owner = Xrm.Page.getAttribute("ownerid").getValue();
+    var OwnerId = Owner[0].id;
+    OwnerId = OwnerId.replace("{", "").replace("}", "");
+    var entityType = Owner[0].entityType;
+    var ContactId = "";
+    var item = null;
+
+    XrmServiceToolkit.Rest.RetrieveMultiple("ContactSet", "$filter= FullName eq '" + FullName + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+    function (results) {
+        item = results;
+    },
+    // ReSharper disable once UnuentityIdsedParameter
+    function (error) { },
+    function onComplete() { },
+    false);
+
+    if (item.length > 0) {
+        ContactId = item[0]["ContactId"];
+        var SendSalesMaterial = Xrm.Page.getAttribute("new_sendsalesmaterials").getValue();
+        var contact = {};
+        contact.new_SendSalesMaterials = {
+            Value: SendSalesMaterial
+        };
+        XrmServiceToolkit.Rest.Update(ContactId, contact, "ContactSet", function () { },
+        function (error) { },
+        false);
+    }
+    else {
+        AccountId = AccountId.replace("{", "").replace("}", "");
+        var SendSalesMaterial = Xrm.Page.getAttribute("new_sendsalesmaterials").getValue();
+        var SofttekMarket = Xrm.Page.getAttribute("new_softtekmarketlead").getValue();
+        var MarketScope = Xrm.Page.getAttribute("new_marketscopelead").getValue();
+        var SofttekCountry = Xrm.Page.getAttribute("new_softtekcountry").getValue();
+        var SofttekVertical = Xrm.Page.getAttribute("new_softtekvertical1").getValue();
+        var ContactLevel = Xrm.Page.getAttribute("new_contactlevel").getValue();
+        var Priority = Xrm.Page.getAttribute("prioritycode").getValue();
+        var Rating = Xrm.Page.getAttribute("leadqualitycode").getValue();
+        var InfluenceLevel = Xrm.Page.getAttribute("new_influencelevel").getValue();
+        var Campaign = Xrm.Page.getAttribute("campaignid").getValue();
+
+        if (Campaign != null) {
+            var CampaignId = Campaign[0].id;
+            CampaignId = CampaignId.replace("{", "").replace("}", "");
+        }
+
+        var Systech = Xrm.Page.getAttribute("new_systechlead").getValue();
+        var AudienceType = Xrm.Page.getAttribute("new_audiencetype").getValue();
+        var contact = {};
+        contact.FirstName = Xrm.Page.getAttribute("firstname").getValue();
+        contact.LastName = Xrm.Page.getAttribute("lastname").getValue();
+        contact.EMailAddress1 = Xrm.Page.getAttribute("emailaddress1").getValue();
+        contact.Description = Xrm.Page.getAttribute("description").getValue();
+        contact.OriginatingLeadId = {
+            Id: LeadId,
+            LogicalName: "lead"
+        };
+        contact.OwnerId = {
+            Id: OwnerId,
+            LogicalName: entityType
+        };
+        contact.ParentCustomerId = {
+            Id: AccountId,
+            LogicalName: "account"
+        };
+        contact.new_SofttekMarketContact1 = {
+            Value: SofttekMarket
+        };
+        contact.new_MarketScopecontact = {
+            Value: MarketScope
+        };
+        contact.new_SofttekCountry = {
+            Value: SofttekCountry
+        };
+        contact.new_SofttekVertical = {
+            Value: SofttekVertical
+        };
+        contact.JobTitle = Xrm.Page.getAttribute("jobtitle").getValue();
+        contact.new_ContactLevel = {
+            Value: ContactLevel
+        };
+        contact.New_Priority = {
+            Value: Priority
+        };
+        contact.new_Rating = {
+            Value: Rating
+        };
+        contact.New_Influencelevel = {
+            Value: InfluenceLevel
+        };
+        contact.new_LinkedInURL = Xrm.Page.getAttribute("new_linkedin").getValue();
+        contact.new_HubspotURL = Xrm.Page.getAttribute("new_hubspoturl").getValue();
+        contact.Address1_Line1 = Xrm.Page.getAttribute("address2_line1").getValue();
+        contact.Address1_Line2 = Xrm.Page.getAttribute("address2_line2").getValue();
+        contact.Address1_City = Xrm.Page.getAttribute("address2_city").getValue();
+        contact.Address1_StateOrProvince = Xrm.Page.getAttribute("address2_stateorprovince").getValue();
+        contact.Address1_PostalCode = Xrm.Page.getAttribute("address2_postalcode").getValue();
+        contact.Address1_Country = Xrm.Page.getAttribute("address2_country").getValue();
+        contact.EMailAddress2 = Xrm.Page.getAttribute("emailaddress2").getValue();
+        contact.Address2_Telephone1 = Xrm.Page.getAttribute("address2_telephone1").getValue();
+        contact.MobilePhone = Xrm.Page.getAttribute("mobilephone").getValue();
+        if (Campaign != null) {
+            contact.new_SourceCampaign = {
+                Id: CampaignId,
+                LogicalName: "campaign"
+            };
+        }
+        contact.new_SendSalesMaterials = {
+            Value: SendSalesMaterial
+        };
+        contact.new_Systech = Systech
+        contact.new_AudienceType = {
+            Value: AudienceType
+        };
+
+        XrmServiceToolkit.Rest.Create(
+        contact, "ContactSet", function (result) {
+            ContactId = result.ContactId;
+            CreatedContact = "The Contact was successfully created. \n";
+        },
+        function (error) {
+            CreatedContact = "";
+        },
+        false);
+    }
+
+    if (ContactId != "") {
+        CreateOpp(AccountId, ContactId);
+    }
+}
+
+function CreateOpp(AccountId, ContactId) {
+    AccountId = AccountId.replace("{", "").replace("}", "");
+    ContactId = ContactId.replace("{", "").replace("}", "");
+
+    var LeadId = Xrm.Page.data.entity.getId();
+    LeadId = LeadId.replace("{", "").replace("}", "");
+    var Owner = Xrm.Page.getAttribute("ownerid").getValue();
+    var OwnerId = Owner[0].id;
+    OwnerId = OwnerId.replace("{", "").replace("}", "");
+    var entityType = Owner[0].entityType;
+    var Campaign = Xrm.Page.getAttribute("campaignid").getValue();
+
+    if (Campaign != null) {
+        var CampaignId = Campaign[0].id;
+        CampaignId = CampaignId.replace("{", "").replace("}", "");
+    }
+
+    var SofttekMarket = Xrm.Page.getAttribute("new_softtekmarketlead").getValue();
+    var MarketScope = Xrm.Page.getAttribute("new_marketscopelead").getValue();
+    var SofttekCountry = Xrm.Page.getAttribute("new_softtekcountry").getValue();
+    var SofttekVertical = Xrm.Page.getAttribute("new_softtekvertical1").getValue();
+    var ServiceOffering = Xrm.Page.getAttribute("new_serviceoffering1").getValue();
+    var Systech = Xrm.Page.getAttribute("new_systechlead").getValue();
+
+    if (Xrm.Page.getAttribute("new_brmbdm").getValue() != null) {
+        var BRMBDM = Xrm.Page.getAttribute("new_brmbdm").getValue()[0].id;
+    }
+    var Opportunity = {};
+
+    Opportunity.Name = Xrm.Page.getAttribute("subject").getValue();
+    Opportunity.CustomerId = {
+        Id: AccountId,
+        LogicalName: "account"
+    };
+    Opportunity.new_customerservicerequestorid = {
+        Id: ContactId,
+        LogicalName: "contact"
+    };
+    Opportunity.Description = Xrm.Page.getAttribute("description").getValue();
+    Opportunity.OriginatingLeadId = {
+        Id: LeadId,
+        LogicalName: "lead"
+    };
+    Opportunity.new_ServiceOffering = {
+        Value: ServiceOffering
+    };
+    Opportunity.new_SofttekMarket = {
+        Value: SofttekMarket
+    };
+    Opportunity.new_MarketScope_opp = {
+        Value: MarketScope
+    };
+    Opportunity.new_SofttekCountryOpp = {
+        Value: SofttekCountry
+    };
+    Opportunity.new_SofttekVertical1 = {
+        Value: SofttekVertical
+    };
+
+    if (BRMBDM != null) {
+        Opportunity.New_SalesPracticeOwnerId = {
+            Id: BRMBDM,
+            LogicalName: "systemuser"
+        };
+    }
+
+    if (Campaign != null) {
+        Opportunity.CampaignId = {
+            Id: CampaignId,
+            LogicalName: "campaign"
+        };
+    }
+
+    Opportunity.new_Systech = Systech;
+
+    XrmServiceToolkit.Rest.Create(
+    Opportunity, "OpportunitySet", function (result) {
+        OpportunityId = result.OpportunityId;
+        CreatedOpportunity = "The Opportunity was successfully created. ";
+    },
+    function (error) {
+        CreatedOpportunity = "";
+    },
+    false);
+
+    alert(CreatedAccount + CreatedContact + CreatedOpportunity);
+
+    if (OpportunityId != "") {
+
+        QualifyLeadSTK(LeadId);
+
+        var item = null;
+        var flag = false;
+
+        while (!flag) {
+            XrmServiceToolkit.Rest.RetrieveMultiple("LeadSet", "$filter= LeadId eq guid'" + LeadId + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+            function (results) {
+                item = results;
+            },
+            // // ReSharper disable once UnuentityIdsedParameter
+            function (error) {
+                alert("Error = " + error);
+            },
+            function onComplete() { },
+            false);
+
+            if (item[0].StateCode.Value == 1) {
+                flag = true;
+                location.reload();
+            }
+        }
+        OpenRecords(OpportunityId, "opportunity");
+    }
+}
+
+function QualifyFromGrid(LeadId) {
+    LeadId = LeadId.replace("{", "").replace("}", "");
+    var itemLead = null;
+
+    XrmServiceToolkit.Rest.RetrieveMultiple("LeadSet", "$filter= LeadId eq guid'" + LeadId + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+    function (results) {
+        itemLead = results;
+    },
+    // ReSharper disable once UnuentityIdsedParameter
+    function (error) { },
+    function onComplete() { },
+    false);
+
+    if (itemLead.length > 0) {
+        if (itemLead[0]["StateCode"].Value != 1) {
+            var leadExistingAccountLookup = itemLead[0]["new_ExistingAccount"];
+            var leadNewAccount = itemLead[0]["CompanyName"];
+            var leadContact = itemLead[0]["FullName"];
+            var neworexistacc = itemLead[0]["new_neworextacct"];
+            var EMailAddress1 = itemLead[0]["EMailAddress1"];
+            var JobTitle = itemLead[0]["JobTitle"];
+            var City2 = itemLead[0]["Address2_City"];
+            var StateOrProvince2 = itemLead[0]["Address2_StateOrProvince"];
+            var Country2 = itemLead[0]["Address2_Country"];
+            var Telephone1 = itemLead[0]["Telephone1"];
+            var Address1_Line1 = itemLead[0]["Address1_Line1"];
+            var City1 = itemLead[0]["Address1_City"];
+            var StateOrProvince1 = itemLead[0]["Address1_StateOrProvince"];
+            var Country1 = itemLead[0]["Address1_Country"];
+            var new_Noofemployeerange = itemLead[0]["new_Noofemployeerange"].Value;
+            var new_Annualrevenuerange = itemLead[0]["new_Annualrevenuerange"].Value;
+            var cansave;
+
+            if (neworexistacc == UnqualifiedAcct) {
+                if (Telephone1 == null || Address1_Line1 == null || City1 == null || StateOrProvince1 == null || Country1 == null || new_Noofemployeerange == null || new_Annualrevenuerange == null || EMailAddress1 == null || JobTitle == null || City2 == null || StateOrProvince2 == null || Country2 == null) {
+                    cansave = false;
+                }
+                else {
+                    cansave = true;
+                }
+            }
+            else {
+                if (EMailAddress1 == null || JobTitle == null || City2 == null || StateOrProvince2 == null || Country2 == null) {
+                    cansave = false;
+                }
+                else {
+                    cansave = true;
+                }
+            }
+            if (cansave == true) {
+                if (leadContact != null) {
+                    if (leadNewAccount != null) {
+                        CreateAccFromGrid(LeadId);
+                    }
+                    else {
+                        if (leadExistingAccountLookup.Id != null) {
+                            var leadExistingAccount = leadExistingAccountLookup.Id;
+
+                            CreateCtctFromGrid(LeadId, leadExistingAccount);
+                        }
+                        else {
+                            alert("Is necessary to specify an Account");
+                        }
+                    }
+                }
+                else {
+                    alert("You must provide a Value for a Contact");
+                }
+            }
+            else {
+                alert("Some required fields are empty, please make sure to fill them before Qualifying the record.");
+            }
+        }
+        else {
+            alert("The Lead was closed as Qualified");
+        }
+    }
+}
+
+function UpdateAccFromGrid(LeadId, AccountId) {
+    AccountId = AccountId.replace("{", "").replace("}", "");
+    LeadId = LeadId.replace("{", "").replace("}", "");
+
+    var itemLead = null;
+    XrmServiceToolkit.Rest.RetrieveMultiple("LeadSet", "$filter= LeadId eq guid'" + LeadId + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+    function (results) {
+        itemLead = results;
+    },
+    // ReSharper disable once UnuentityIdsedParameter
+    function (error) { },
+    function onComplete() { },
+    false);
+
+    if (itemLead.length > 0) {
+        var AnnualRevenueR = itemLead[0]["new_Annualrevenuerange"].Value;
+        var NoEmployeesR = itemLead[0]["new_Noofemployeerange"].Value;
+        var SofttekMarket = itemLead[0]["new_SofttekMarketLead"].Value;
+        var MarketScope = itemLead[0]["new_MarketScopeLead"].Value;
+        var SofttekCountry = itemLead[0]["new_SofttekCountry"].Value;
+        var SofttekVertical = itemLead[0]["new_SofttekVertical1"].Value;
+        var IndustrySofttek = itemLead[0]["new_Industrysofttek"].Value;
+        var AccountName = itemLead[0]["new_SofttekMarketLead"].Value;
+        var ServiceOffering = itemLead[0]["new_serviceoffering1"].Value;
+        var SourceCampaignId = itemLead[0].CampaignId.Id;
+
+        if (SourceCampaignId != null) {
+            SourceCampaignId = SourceCampaignId.replace("{", "").replace("}", "");
+        }
+
+        var Systech = itemLead[0]["new_SystechLead"];
+        var account = {};
+
+        account.Telephone1 = itemLead[0]["Telephone1"];
+        account.Address1_Line1 = itemLead[0]["Address1_Line1"];
+        account.Address1_Line2 = itemLead[0]["Address1_Line2"];
+        account.Address1_City = itemLead[0]["Address1_City"];
+        account.Address1_StateOrProvince = itemLead[0]["Address1_StateOrProvince"];
+        account.Address1_Country = itemLead[0]["Address1_Country"];
+        account.Address1_PostalCode = itemLead[0]["Address1_PostalCode"];
+        account.OriginatingLeadId = {
+            Id: LeadId,
+            LogicalName: "lead"
+        };
+        account.new_Annualrevenuerange = {
+            Value: AnnualRevenueR
+        };
+        account.new_Noofemployeerange = {
+            Value: NoEmployeesR
+        };
+        account.new_SofttekMarket1 = {
+            Value: SofttekMarket
+        };
+        account.new_MarketScopeaccount = {
+            Value: MarketScope
+        };
+        account.new_SofttekCountry1 = {
+            Value: SofttekCountry
+        };
+        account.new_SofttekVertical1 = {
+            Value: SofttekVertical
+        };
+        account.new_Industrysofttek = {
+            Value: IndustrySofttek
+        };
+        account.EMailAddress1 = itemLead[0]["EMailAddress1"];
+        account.new_Serviceoffering = {
+            Value: ServiceOffering
+        };
+        account.Telephone2 = itemLead[0]["Telephone3"];
+        account.WebSiteURL = itemLead[0]["WebSiteUrl"];
+
+        if (SourceCampaignId != null) {
+            account.new_SourceCampaign = {
+                Id: SourceCampaignId,
+                LogicalName: "campaign"
+            };
+        }
+
+        account.new_SystechAccount = Systech;
+
+        XrmServiceToolkit.Rest.Update(
+        AccountId, account, "AccountSet", function () {
+        },
+        function (error) {
+        },
+        false);
+    }
+}
+
+function CreateAccFromGrid(LeadId) {
+    LeadId = LeadId.replace("{", "").replace("}", "");
+    var itemLead = null;
+
+    XrmServiceToolkit.Rest.RetrieveMultiple("LeadSet", "$filter= LeadId eq guid'" + LeadId + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+    function (results) {
+        itemLead = results;
+    },
+    // ReSharper disable once UnuentityIdsedParameter
+    function (error) { },
+    function onComplete() { },
+    false);
+
+    if (itemLead.length > 0) {
+        var AccName = itemLead[0]["CompanyName"];
+        AccName = AccName.replace("&", "%26");
+        var FullName = itemLead[0]["FullName"];
+        var AccountId = "";
+        var itemAccount = null;
+
+        XrmServiceToolkit.Rest.RetrieveMultiple("AccountSet", "$filter= Name eq '" + AccName + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+        function (results) {
+            itemAccount = results;
+        },
+        // ReSharper disable once UnuentityIdsedParameter
+        function (error) { },
+        function onComplete() { },
+        false);
+
+        if (itemAccount.length > 0) {
+            AccountId = itemAccount[0]["AccountId"];
+        }
+        else {
+            var AnnualRevenueR = itemLead[0]["new_Annualrevenuerange"].Value;
+            var NoEmployeesR = itemLead[0]["new_Noofemployeerange"].Value;
+            var SofttekMarket = itemLead[0]["new_SofttekMarketLead"].Value;
+            var MarketScope = itemLead[0]["new_MarketScopeLead"].Value;
+            var SofttekCountry = itemLead[0]["new_SofttekCountry"].Value;
+            var SofttekVertical = itemLead[0]["new_SofttekVertical1"].Value;
+            var IndustrySofttek = itemLead[0]["new_Industrysofttek"].Value;
+            var AccountName = itemLead[0]["new_SofttekMarketLead"].Value;
+            var ServiceOffering = itemLead[0]["new_serviceoffering1"].Value;
+            var SourceCampaignId = itemLead[0].CampaignId.Id;
+            var SendSalesMaterial = itemLead[0]["new_SendSalesMaterials"].Value;
+            if (SourceCampaignId != null) {
+                SourceCampaignId = SourceCampaignId.replace("{", "").replace("}", "");
+            }
+
+            var Systech = itemLead[0]["new_SystechLead"];
+            var account = {};
+            account.new_SendSalesMaterials = {
+                Value: SendSalesMaterial
+            };
+            account.Name = AccName
+            account.Telephone1 = itemLead[0]["Telephone1"];
+            account.Address1_Line1 = itemLead[0]["Address1_Line1"];
+            account.Address1_Line2 = itemLead[0]["Address1_Line2"];
+            account.Address1_City = itemLead[0]["Address1_City"];
+            account.Address1_StateOrProvince = itemLead[0]["Address1_StateOrProvince"];
+            account.Address1_Country = itemLead[0]["Address1_Country"];
+            account.Address1_PostalCode = itemLead[0]["Address1_PostalCode"];
+            account.OriginatingLeadId = {
+                Id: LeadId,
+                LogicalName: "lead"
+            };
+ 
+            account.new_Annualrevenuerange = {
+                Value: AnnualRevenueR
+            };
+            account.new_Noofemployeerange = {
+                Value: NoEmployeesR
+            };
+            account.new_SofttekMarket1 = {
+                Value: SofttekMarket
+            };
+            account.new_MarketScopeaccount = {
+                Value: MarketScope
+            };
+            account.new_SofttekCountry1 = {
+                Value: SofttekCountry
+            };
+            account.new_SofttekVertical1 = {
+                Value: SofttekVertical
+            };
+            account.new_Industrysofttek = {
+                Value: IndustrySofttek
+            };
+            account.EMailAddress1 = itemLead[0]["EMailAddress1"];
+            account.new_Serviceoffering = {
+                Value: ServiceOffering
+            };
+            account.Telephone2 = itemLead[0]["Telephone3"];
+            account.WebSiteURL = itemLead[0]["WebSiteUrl"];
+            if (SourceCampaignId != null) {
+                account.new_SourceCampaign = {
+                    Id: SourceCampaignId,
+                    LogicalName: "campaign"
+                };
+            }
+
+            account.new_SystechAccount = Systech;
+
+            XrmServiceToolkit.Rest.Create(
+            account, "AccountSet", function (result) {
+                AccountId = result.AccountId;
+                CAccountFG = "The Account was successfully created. \n";
+            },
+            function (error) {
+                CAccountFG = "";
+            },
+            false);
+        }
+
+        if (AccountId != "") {
+            CreateCtctFromGrid(LeadId, AccountId);
+        }
+    }
+    else {
+        alert("Lead not found from CreateAccFromGrid");
+    }
+}
+
+function CreateCtctFromGrid(LeadId, AccountId) {
+    LeadId = LeadId.replace("{", "").replace("}", "");
+    var itemLead = null;
+    XrmServiceToolkit.Rest.RetrieveMultiple("LeadSet", "$filter= LeadId eq guid'" + LeadId + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+    function (results) {
+        itemLead = results;
+    },
+    // ReSharper disable once UnuentityIdsedParameter
+    function (error) { },
+    function onComplete() { },
+    false);
+
+    if (itemLead.length > 0) {
+        var FullName = itemLead[0]["FullName"]
+        var ContactId = "";
+        var itemContact = null;
+
+        XrmServiceToolkit.Rest.RetrieveMultiple("ContactSet", "$filter= FullName eq '" + FullName + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+        function (results) {
+            itemContact = results;
+        },
+        // ReSharper disable once UnuentityIdsedParameter
+        function (error) { },
+        function onComplete() { },
+        false);
+
+        if (itemContact.length > 0) {
+            ContactId = itemContact[0]["ContactId"];
+            var SendSalesMaterial = itemLead[0]["new_SendSalesMaterials"].Value;
+            var contact = {};
+            contact.new_SendSalesMaterials = {
+                Value: SendSalesMaterial
+            };
+            XrmServiceToolkit.Rest.Update(ContactId, contact, "ContactSet", function () { },
+            function (error) { },
+            false);
+        }
+        else {
+            AccountId = AccountId.replace("{", "").replace("}", "");
+
+            var SofttekMarket = itemLead[0]["new_SofttekMarketLead"].Value;
+            var MarketScope = itemLead[0]["new_MarketScopeLead"].Value;
+            var SofttekCountry = itemLead[0]["new_SofttekCountry"].Value;
+            var SofttekVertical = itemLead[0]["new_SofttekVertical1"].Value;
+            var ContactLevel = itemLead[0]["new_ContactLevel"].Value;
+            var Priority = itemLead[0]["PriorityCode"].Value;
+            var Rating = itemLead[0]["LeadQualityCode"].Value;
+            var InfluenceLevel = itemLead[0]["new_InfluenceLevel"].Value;
+            var Desc = itemLead[0]["Description"];
+            var SourceCampaignId = itemLead[0].CampaignId.Id;
+            var SendSalesMaterial = itemLead[0]["new_SendSalesMaterials"].Value;
+            if (SourceCampaignId != null) {
+                SourceCampaignId = SourceCampaignId.replace("{", "").replace("}", "");
+            }
+
+            var Systech = itemLead[0]["new_SystechLead"];
+            var AudienceType = itemLead[0]["new_AudienceType"].Value;
+
+            var contact = {};
+            contact.FirstName = itemLead[0]["FirstName"];
+            contact.LastName = itemLead[0]["LastName"];
+            contact.EMailAddress1 = itemLead[0]["EMailAddress1"];
+            contact.Description = itemLead[0]["Description"];
+            contact.OriginatingLeadId = {
+                Id: LeadId,
+                LogicalName: "lead"
+            };
+            contact.ParentCustomerId = {
+                Id: AccountId,
+                LogicalName: "account"
+            };
+            contact.new_SofttekMarketContact1 = {
+                Value: SofttekMarket
+            };
+            contact.new_MarketScopecontact = {
+                Value: MarketScope
+            };
+            contact.new_SofttekCountry = {
+                Value: SofttekCountry
+            };
+            contact.new_SofttekVertical = {
+                Value: SofttekVertical
+            };
+            contact.JobTitle = itemLead[0]["JobTitle"];
+            contact.new_ContactLevel = {
+                Value: ContactLevel
+            };
+            contact.New_Priority = {
+                Value: Priority
+            };
+            contact.new_Rating = {
+                Value: Rating
+            };
+            contact.New_Influencelevel = {
+                Value: InfluenceLevel
+            };
+            contact.new_LinkedInURL = itemLead[0]["new_LinkedIN"];
+            contact.new_HubspotURL = itemLead[0]["new_HubspotURL"];
+            contact.Address1_Line1 = itemLead[0]["Address2_Line1"];
+            contact.Address1_Line2 = itemLead[0]["Address2_Line2"];
+            contact.Address1_City = itemLead[0]["Address2_City"];
+            contact.Address1_StateOrProvince = itemLead[0]["Address2_StateOrProvince"];
+            contact.Address1_PostalCode = itemLead[0]["Address2_PostalCode"];
+            contact.Address1_Country = itemLead[0]["Address2_Country"];
+            contact.EMailAddress2 = itemLead[0]["EMailAddress2"];
+            contact.Address2_Telephone1 = itemLead[0]["Address2_Telephone1"];
+            contact.MobilePhone = itemLead[0]["MobilePhone"];
+            contact.new_SendSalesMaterials = {
+                Value: SendSalesMaterial
+            };
+            if (SourceCampaignId != null) {
+                contact.new_SourceCampaign = {
+                    Id: SourceCampaignId,
+                    LogicalName: "campaign"
+                };
+            }
+
+            contact.new_Systech = Systech
+
+            if (AudienceType != null) {
+                contact.new_AudienceType = {
+                    Value: AudienceType
+                };
+            }
+
+            XrmServiceToolkit.Rest.Create(
+            contact, "ContactSet", function (result) {
+                ContactId = result.ContactId;
+                CContactFG = "The Contact was successfully created. \n";
+            },
+            function (error) {
+                CContactFG = "";
+            },
+            false);
+        }
+        if (ContactId != "") {
+            CreateOppFromGrid(LeadId, AccountId, ContactId);
+        }
+    }
+}
+
+function CreateOppFromGrid(LeadId, AccountId, ContactId) {
+    AccountId = AccountId.replace("{", "").replace("}", "");
+    ContactId = ContactId.replace("{", "").replace("}", "");
+
+    LeadId = LeadId.replace("{", "").replace("}", "");
+
+    var itemLead = null;
+
+    XrmServiceToolkit.Rest.RetrieveMultiple("LeadSet", "$filter= LeadId eq guid'" + LeadId + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+    function (results) {
+        itemLead = results;
+    },
+    // ReSharper disable once UnuentityIdsedParameter
+    function (error) { },
+    function onComplete() { },
+    false);
+
+    if (itemLead.length > 0) {
+        var SofttekMarket = itemLead[0]["new_SofttekMarketLead"].Value;
+        var MarketScope = itemLead[0]["new_MarketScopeLead"].Value;
+        var SofttekCountry = itemLead[0]["new_SofttekCountry"].Value;
+        var SofttekVertical = itemLead[0]["new_SofttekVertical1"].Value;
+        var ServiceOffering = itemLead[0]["new_serviceoffering1"].Value;
+        var Systech = itemLead[0]["new_SystechLead"];
+        var SourceCampaignId = itemLead[0].CampaignId.Id;
+
+        if (itemLead[0]["new_BRMBDM"].Id != null) {
+            var BRMBDM = itemLead[0]["new_BRMBDM"].Id;
+        }
+
+        if (SourceCampaignId != null) {
+            SourceCampaignId = SourceCampaignId.replace("{", "").replace("}", "");
+        }
+
+        var Opportunity = {};
+
+        Opportunity.Name = itemLead[0]["Subject"];
+        Opportunity.CustomerId = {
+            Id: AccountId,
+            LogicalName: "account"
+        };
+        Opportunity.new_customerservicerequestorid = {
+            Id: ContactId,
+            LogicalName: "contact"
+        };
+        Opportunity.Description = itemLead[0]["Description"];
+        Opportunity.OriginatingLeadId = {
+            Id: LeadId,
+            LogicalName: "lead"
+        };
+        Opportunity.new_ServiceOffering = {
+            Value: ServiceOffering
+        };
+        Opportunity.new_SofttekMarket = {
+            Value: SofttekMarket
+        };
+        Opportunity.new_MarketScope_opp = {
+            Value: MarketScope
+        };
+        Opportunity.new_SofttekCountryOpp = {
+            Value: SofttekCountry
+        };
+        Opportunity.new_SofttekVertical1 = {
+            Value: SofttekVertical
+        };
+
+        if (BRMBDM != null) {
+            Opportunity.New_SalesPracticeOwnerId = {
+                Id: BRMBDM,
+                LogicalName: "systemuser"
+            };
+        }
+
+        if (SourceCampaignId != null) {
+            Opportunity.CampaignId = {
+                Id: SourceCampaignId,
+                LogicalName: "campaign"
+            };
+        }
+
+        Opportunity.new_Systech = Systech;
+
+        var OpportunityId = "";
+
+        XrmServiceToolkit.Rest.Create(
+        Opportunity, "OpportunitySet", function (result) {
+            OpportunityId = result.OpportunityId;
+            COpportunityFG = "The Opportunity was successfully created. ";
+        },
+        function (error) {
+            COpportunityFG = "";
+        },
+        false);
+        if (OpportunityId != "") {
+            QualifyLeadSTK(LeadId);
+            alert(CAccountFG + CContactFG + COpportunityFG);
+            OpenRecords(OpportunityId, "opportunity");
+        }
+    }
+}
+
+function QualifyLeadSTK(RecordId) {
+    /* StateCode 0 - Open; StateCode 1 - Qualified; StateCode 2 -Disqualified */
+    var stateCode = 1;
+    /*StatusCode 100000007 - OPP-Turned to Opportunity*/
+    var statusCode = 100000007;
+    UpdateCloseDate(RecordId);
+
+    changeLeadStatus(RecordId, stateCode, statusCode);
+}
+
+function changeLeadStatus(RecordId, stateCode, statusCode) {
+    var EntityName = "lead";
+    var txtResp = "";
+    var serverUrl = getServerUrl();
+    // create the SetState request
+    var request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">";
+    request += "<s:Body>";
+    request += "<Execute xmlns=\"http://schemas.microsoft.com/xrm/2011/Contracts/Services\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\">";
+    request += "<request i:type=\"b:SetStateRequest\" xmlns:a=\"http://schemas.microsoft.com/xrm/2011/Contracts\" xmlns:b=\"http://schemas.microsoft.com/crm/2011/Contracts\">";
+    request += "<a:Parameters xmlns:c=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">";
+    request += "<a:KeyValuePairOfstringanyType>";
+    request += "<c:key>EntityMoniker</c:key>";
+    request += "<c:value i:type=\"a:EntityReference\">";
+    request += "<a:Id>" + RecordId + "</a:Id>";
+    request += "<a:LogicalName>" + EntityName + "</a:LogicalName>";
+    request += "<a:Name i:nil=\"true\" />";
+    request += "</c:value>";
+    request += "</a:KeyValuePairOfstringanyType>";
+    request += "<a:KeyValuePairOfstringanyType>";
+    request += "<c:key>State</c:key>";
+    request += "<c:value i:type=\"a:OptionSetValue\">";
+    request += "<a:Value>" + stateCode + "</a:Value>";
+    request += "</c:value>";
+    request += "</a:KeyValuePairOfstringanyType>";
+    request += "<a:KeyValuePairOfstringanyType>";
+    request += "<c:key>Status</c:key>";
+    request += "<c:value i:type=\"a:OptionSetValue\">";
+    request += "<a:Value>" + statusCode + "</a:Value>";
+    request += "</c:value>";
+    request += "</a:KeyValuePairOfstringanyType>";
+    request += "</a:Parameters>";
+    request += "<a:RequestId i:nil=\"true\" />";
+    request += "<a:RequestName>SetState</a:RequestName>";
+    request += "</request>";
+    request += "</Execute>";
+    request += "</s:Body>";
+    request += "</s:Envelope>";
+    //send set state request
+    var req = new XMLHttpRequest();
+
+    url = serverUrl;
+    req.open("POST", url, false)
+    // Responses will return XML. It isn't possible to return JSON.
+    req.setRequestHeader("Accept", "application/xml, text/xml, */*");
+    req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
+
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            req.onreadystatechange = null; //Addresses potential memory leak issue with IE
+            if (req.status == 200) {
+                //Success				
+                txtResp = req.responseText;
+                LoadScript('https://onesofttekdev.crm.dynamics.com//WebResources/new_XrmServiceToolkit');
+            }
+            else {
+                alert(_getError(req.responseText));
+            }
+        }
+    };
+    req.send(request);
+    return txtResp;
+}
+
+function UpdateCloseDate(RecordId) {
+    closeDate = new Date();
+    Alead.new_ClosedDate = closeDate;
+    XrmServiceToolkit.Rest.Update(
+    RecordId, Alead, "LeadSet", function () {
+    },
+    function (error) {
+        alert("Error = " + error);
+    },
+    false);
+}
+
+function openNewWindow(url) {
+    var name = "newWindow";
+    var width = 800;
+    var height = 600;
+    var newWindowFeatures = "status=1";
+    var oldWindowFeatures = "width=800,height=600,status=1";
+    openStdWin(url, name, width, height, newWindowFeatures);
+}
+
+function OpenRecords(Record_Id, Logical_Name_Of_Entity) {
+    var reletivePath = "/main.aspx?etn=" + Logical_Name_Of_Entity;
+    reletivePath = reletivePath + "&pagetype=entityrecord&id=";
+
+    var height = 1300; // Height of the Record Page.
+    var width = 900; // Width of the Record Page.
+    var windowName = "_blank";
+    var serverUrl = Xrm.Page.context.getClientUrl();
+    var nAgt = navigator.userAgent;
+
+    if (serverUrl != null && serverUrl != "" && Record_Id.replace("{", "").replace("}", "") != null) {
+        serverUrl = serverUrl + reletivePath;
+        serverUrl = serverUrl + Record_Id.replace("{", "").replace("}", "");
+
+        if (nAgt.indexOf("Safari") != -1 || nAgt.indexOf("Firefox") != -1) {
+            window.open(serverUrl);
+
+        } else {
+            window.showModalDialog(serverUrl, "", "dialogWidth: 3400px; dialogHeight: 950px; resizable: 1; status: 1; scroll: 1;");
+            window.location.reload(true);
+
+        }
+    }
+}

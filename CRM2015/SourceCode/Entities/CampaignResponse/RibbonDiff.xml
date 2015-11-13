@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <HideCustomAction Location="Mscrm.Form.campaignresponse.Close" HideActionId="Sample.Form.campaignresponse.Close.HideAction" />
+    <HideCustomAction Location="Mscrm.Form.campaignresponse.ConvertResponse" HideActionId="Sample.Form.campaignresponse.ConvertResponse.HideAction" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions />
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

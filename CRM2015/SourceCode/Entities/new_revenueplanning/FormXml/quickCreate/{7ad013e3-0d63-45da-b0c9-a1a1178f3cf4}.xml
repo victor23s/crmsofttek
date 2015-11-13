@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{7ad013e3-0d63-45da-b0c9-a1a1178f3cf4}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab id="{e5bcd95f-0080-42fe-b515-111f7536ae8f}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="33%">
+            <sections>
+              <section id="{abadd8f3-9fbd-498f-b0f7-6a261bc2bfb5}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                <labels>
+                  <label description="section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{c404dcd0-3890-4e4d-a6d7-e407991dd7d3}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="January" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_01" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_01" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bd7d3c78-ce7e-73c3-0481-2540c5c427d5}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="February" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_02" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_02" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{251015a9-ee1a-a1e4-c110-571c85960168}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="March" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_03" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_03" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{82982112-11d3-b842-4591-6e1bd8727edc}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="April" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_04" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_04" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5a2c1c06-4a87-0209-18b0-ebb29ee7938c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="May" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_05" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_05" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{70609ac9-5bb0-320a-1a24-a70ea3b6a949}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="June" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_06" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_06" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="33%">
+            <sections>
+              <section id="{bed74454-b5f3-4be4-a8fc-8922b1295be3}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                <labels>
+                  <label description="section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{41c63488-2035-9b67-7baa-0bb5de4bd999}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="July" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_07" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_07" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ca6e5c31-a76e-033d-8264-063c2857ba0c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="August" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_08" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_08" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{2a0dadd3-6902-959b-442c-5ea6617c78e2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="September" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_09" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_09" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4d34a972-3ae3-5334-9099-516606e146b2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="October" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_10" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_10" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ce0a3498-66a3-2868-a7ed-a90bbd767db5}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="November" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_11" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_11" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8394d097-8453-0231-8c72-66b85a008dec}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="December" languagecode="1033" />
+                      </labels>
+                      <control id="new_rev_12" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_rev_12" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="33%">
+            <sections>
+              <section id="{b50d92de-8c53-4189-a9fc-f467733079ff}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                <labels>
+                  <label description="section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{59cb013d-9d1b-ba06-86a4-791a1ee0c8ac}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Opportunity" languagecode="1033" />
+                      </labels>
+                      <control id="new_oppid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_oppid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8a2457a3-b82e-a79d-c34d-d16e022a7ecd}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Year" languagecode="1033" />
+                      </labels>
+                      <control id="new_year" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_year" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{821be572-89a4-5ced-6009-17eac9c8e177}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Tot_Year" languagecode="1033" />
+                      </labels>
+                      <control id="new_tot_year" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="new_tot_year" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <DisplayConditions Order="1">
+      <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+      <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="New Form" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

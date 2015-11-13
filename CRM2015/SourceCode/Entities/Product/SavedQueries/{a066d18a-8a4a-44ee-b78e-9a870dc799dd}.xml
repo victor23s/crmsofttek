@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1024</returnedtypecode>
+  <savedqueryid>{a066d18a-8a4a-44ee-b78e-9a870dc799dd}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1024" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="productid">
+        <cell name="name" width="200" />
+        <cell name="productnumber" width="100" />
+        <cell name="hierarchypath" width="300" />
+        <cell name="validfromdate" width="100" />
+        <cell name="validtodate" width="100" />
+        <cell name="statecode" width="0" ishidden="1" />
+        <cell name="productstructure" width="110" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="product">
+        <attribute name="name" />
+        <order attribute="hierarchypath" descending="false" />
+        <filter type="and">
+          <filter type="or">
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="statecode" operator="eq" value="3" />
+          </filter>
+        </filter>
+        <attribute name="parentproductid" />
+        <attribute name="hierarchypath" />
+        <attribute name="validfromdate" />
+        <attribute name="validtodate" />
+        <attribute name="productstructure" />
+        <attribute name="iskit" />
+        <attribute name="productnumber" />
+        <attribute name="statecode" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Active Products" languagecode="1033" />
+    <LocalizedName description="Productos, familias y agrupaciones activos" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{1a7b4549-76e7-e311-a1c8-6c3be5a8c0e8}</WebResourceId>
+  <Name>new_Quote_Ribbon_Functions</Name>
+  <DisplayName>Quote Ribbon Functions</DisplayName>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>2.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_Quote_Ribbon_Functions1A7B4549-76E7-E311-A1C8-6C3BE5A8C0E8</FileName>
+</WebResource>

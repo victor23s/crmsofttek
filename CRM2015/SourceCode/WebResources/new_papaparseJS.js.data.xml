@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{acb9b320-a2c9-e411-a7d0-6c3be5a88248}</WebResourceId>
+  <Name>new_papaparseJS.js</Name>
+  <DisplayName>papaparse.js</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_papaparseJSjsACB9B320-A2C9-E411-A7D0-6C3BE5A88248</FileName>
+</WebResource>

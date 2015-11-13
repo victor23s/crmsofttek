@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{45eb6cef-4a49-e211-bb30-78e7d162ce29}</WebResourceId>
+  <Name>new_silverlightApp4</Name>
+  <DisplayName>silverlightApp4</DisplayName>
+  <SilverlightVersion>4.0</SilverlightVersion>
+  <WebResourceType>8</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_silverlightApp445EB6CEF-4A49-E211-BB30-78E7D162CE29</FileName>
+</WebResource>

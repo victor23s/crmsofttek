@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{de883931-bdb8-e211-b48f-78e7d162ce29}</WebResourceId>
+  <Name>new_softtek_scripts_forms_campaignresponse</Name>
+  <DisplayName>Softtek Scripts [Campaign Response]</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_softtek_scripts_forms_campaignresponseDE883931-BDB8-E211-B48F-78E7D162CE29</FileName>
+</WebResource>

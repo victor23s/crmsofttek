@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1084</returnedtypecode>
+  <savedqueryid>{30969771-f303-4b8e-ae91-1e4f5a7feefb}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1084" jump="name" select="1" preview="0" icon="1">
+      <row name="result" id="quoteid">
+        <cell name="name" width="200" />
+        <cell name="quotenumber" width="100" />
+        <cell name="revisionnumber" width="100" />
+        <cell name="customerid" width="150" />
+        <cell name="opportunityid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="new_assignedteam" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_totalrevenuequote" width="100" />
+        <cell name="transactioncurrencyid" width="100" />
+        <cell name="createdon" width="150" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>64</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="quote">
+        <attribute name="name" />
+        <attribute name="customerid" />
+        <attribute name="quoteid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="ne" value="3" />
+        </filter>
+        <order attribute="quotenumber" descending="false" />
+        <order attribute="revisionnumber" descending="false" />
+        <attribute name="revisionnumber" />
+        <attribute name="quotenumber" />
+        <attribute name="new_totalrevenuequote" />
+        <attribute name="statuscode" />
+        <attribute name="statecode" />
+        <attribute name="ownerid" />
+        <attribute name="opportunityid" />
+        <attribute name="transactioncurrencyid" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedteam" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quote Lookup View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda de ofertas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

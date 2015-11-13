@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10020</returnedtypecode>
+  <savedqueryid>{1c9bdf3c-9c9a-47dc-aceb-48e650e268db}</savedqueryid>
+  <layoutxml>
+    <grid name="" object="10020" jump="new_name" select="1" icon="1" preview="1">
+      <row name="new_legalsupportrequest" id="new_legalsupportrequestid">
+        <cell name="new_requestid" width="100" />
+        <cell name="new_name" width="200" />
+        <cell name="new_account" width="100" />
+        <cell name="new_requesttype" width="100" />
+        <cell name="new_status" width="100" />
+        <cell name="new_statusreason" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_assignedteam" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="createdon" width="125" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_legalsupportrequest">
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <order attribute="new_requestid" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="new_statusreason" />
+        <attribute name="new_status" />
+        <attribute name="new_requesttype" />
+        <attribute name="new_requestid" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="createdby" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedteam" />
+        <attribute name="new_account" />
+        <attribute name="ownerid" />
+        <attribute name="new_legalsupportrequestid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Legal Support Request Associated View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

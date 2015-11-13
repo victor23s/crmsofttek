@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4</returnedtypecode>
+  <savedqueryid>{f7a692d0-b747-e111-8d1f-1cc1de780841}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="4" jump="fullname" select="1" icon="1" preview="1">
+      <row name="result" id="leadid">
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="subject" width="150" />
+        <cell name="fullname" width="125" />
+        <cell name="jobtitle" width="100" />
+        <cell name="telephone1" width="100" />
+        <cell name="emailaddress1" width="100" />
+        <cell name="new_contactlevel" width="100" />
+        <cell name="new_influencelevel" width="100" />
+        <cell name="new_neworextacct" width="100" />
+        <cell name="companyname" width="100" />
+        <cell name="new_existingaccount" width="100" />
+        <cell name="new_noofemployeerange" width="100" />
+        <cell name="new_annualrevenuerange" width="100" />
+        <cell name="new_leadsource" width="100" />
+        <cell name="new_leadchannel" width="100" />
+        <cell name="campaignid" width="100" />
+        <cell name="new_industrysofttek" width="100" />
+        <cell name="new_softtekmarketlead" width="100" />
+        <cell name="new_softtekcountry" width="100" />
+        <cell name="new_softtekvertical1" width="100" />
+        <cell name="new_marketscopelead" width="100" />
+        <cell name="new_serviceoffering1" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="createdon" width="125" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="lead">
+        <attribute name="fullname" />
+        <attribute name="createdon" />
+        <attribute name="statecode" />
+        <attribute name="subject" />
+        <attribute name="createdby" />
+        <attribute name="statuscode" />
+        <attribute name="campaignid" />
+        <attribute name="new_softtekvertical1" />
+        <attribute name="new_softtekmarketlead" />
+        <attribute name="new_softtekcountry" />
+        <attribute name="new_serviceoffering1" />
+        <attribute name="ownerid" />
+        <attribute name="new_neworextacct" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="new_marketscopelead" />
+        <attribute name="new_leadchannel" />
+        <attribute name="jobtitle" />
+        <attribute name="new_influencelevel" />
+        <attribute name="new_industrysofttek" />
+        <attribute name="new_existingaccount" />
+        <attribute name="emailaddress1" />
+        <attribute name="new_contactlevel" />
+        <attribute name="companyname" />
+        <attribute name="telephone1" />
+        <attribute name="new_noofemployeerange" />
+        <attribute name="new_annualrevenuerange" />
+        <order attribute="createdon" descending="true" />
+        <filter type="and">
+          <filter type="or">
+            <condition attribute="statecode" operator="eq" value="2" />
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <condition attribute="ownerid" operator="eq-userid" />
+        </filter>
+        <attribute name="new_leadsource" />
+        <attribute name="leadid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Closed Leads" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

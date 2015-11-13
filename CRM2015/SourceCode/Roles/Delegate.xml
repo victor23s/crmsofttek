@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{d892cc0b-28c7-4e88-bd92-72f2c366baed}" name="Delegate">
+  <RolePrivileges>
+    <RolePrivilege name="prvActOnBehalfOfAnotherUser" level="Global" />
+    <RolePrivilege name="prvAppendConvertRule" level="Global" />
+    <RolePrivilege name="prvAppendEntitlement" level="Global" />
+    <RolePrivilege name="prvAppendEntitlementTemplate" level="Global" />
+    <RolePrivilege name="prvAppendRoutingRule" level="Global" />
+    <RolePrivilege name="prvAppendSLA" level="Global" />
+    <RolePrivilege name="prvAppendSLAKPIInstance" level="Global" />
+    <RolePrivilege name="prvAppendToConvertRule" level="Global" />
+    <RolePrivilege name="prvAppendToEntitlement" level="Global" />
+    <RolePrivilege name="prvAppendToEntitlementTemplate" level="Global" />
+    <RolePrivilege name="prvAppendToRoutingRule" level="Global" />
+    <RolePrivilege name="prvAppendToSLA" level="Global" />
+    <RolePrivilege name="prvAppendToSLAKPIInstance" level="Global" />
+    <RolePrivilege name="prvAssignConvertRule" level="Basic" />
+    <RolePrivilege name="prvAssignEntitlement" level="Basic" />
+    <RolePrivilege name="prvAssignRoutingRule" level="Basic" />
+    <RolePrivilege name="prvAssignSLA" level="Basic" />
+    <RolePrivilege name="prvAssignSLAKPIInstance" level="Basic" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvReadConvertRule" level="Global" />
+    <RolePrivilege name="prvReadEntitlement" level="Global" />
+    <RolePrivilege name="prvReadEntitlementTemplate" level="Global" />
+    <RolePrivilege name="prvReadRoutingRule" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvReadSLA" level="Global" />
+    <RolePrivilege name="prvReadSLAKPIInstance" level="Global" />
+    <RolePrivilege name="prvShareConvertRule" level="Basic" />
+    <RolePrivilege name="prvShareEntitlement" level="Basic" />
+    <RolePrivilege name="prvShareRoutingRule" level="Basic" />
+    <RolePrivilege name="prvShareSLA" level="Basic" />
+    <RolePrivilege name="prvShareSLAKPIInstance" level="Basic" />
+    <RolePrivilege name="prvUseInternetMarketing" level="Global" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+  </RolePrivileges>
+</Role>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4202</returnedtypecode>
+  <savedqueryid>{6e8b4b8c-30f7-44ef-a958-be72baabc349}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4202" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="to" width="150" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledend" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="email">
+        <attribute name="to" />
+        <attribute name="subject" />
+        <attribute name="regardingobjectid" />
+        <attribute name="prioritycode" />
+        <attribute name="modifiedon" />
+        <attribute name="scheduledend" />
+        <attribute name="activityid" />
+        <order attribute="modifiedon" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+          <condition attribute="statuscode" operator="neq" value="8" />
+          <condition attribute="ownerid" operator="eq-userid" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Draft E-mails" languagecode="1033" />
+    <LocalizedName description="Mis borradores de correo electrónico" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

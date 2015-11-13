@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Document Location" OriginalName="">SharePointDocumentLocation</Name>
+  <ObjectTypeCode>9508</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

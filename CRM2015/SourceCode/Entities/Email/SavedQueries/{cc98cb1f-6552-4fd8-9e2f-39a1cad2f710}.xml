@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4202</returnedtypecode>
+  <savedqueryid>{cc98cb1f-6552-4fd8-9e2f-39a1cad2f710}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4202" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="from" disableSorting="1" width="150" />
+        <cell name="to" disableSorting="1" width="150" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="prioritycode" width="140" />
+        <cell name="statuscode" width="100" />
+        <cell name="modifiedon" width="140" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="email">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="regardingobjectid" />
+        <attribute name="from" />
+        <attribute name="to" />
+        <attribute name="prioritycode" />
+        <attribute name="statuscode" />
+        <attribute name="modifiedon" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All E-mails" languagecode="1033" />
+    <LocalizedName description="Todos los mensajes de correo electrónico" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

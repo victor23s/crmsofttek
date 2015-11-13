@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{2bf3a087-ba70-4c28-ae40-5c37199603b2}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form shownavigationbar="true" showImage="false" maxWidth="1900">
+    <tabs>
+      <tab verticallayout="true" id="{55069726-77e2-4e8b-a23e-f59f62363272}" IsUserDefined="1">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{cb3cd875-3d01-4a6e-a472-de9049163118}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="2" id="{a675a35b-c092-45a2-8397-44e0b0d6a1e7}">
+                      <labels>
+                        <label description="Parent Goal" languagecode="1033" />
+                      </labels>
+                      <control id="msa_parentgoalid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msa_parentgoalid" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7598a3ee-92db-4017-82ab-fce6ca28dc1e}" showlabel="true" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="msa_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="msa_name" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{f8ab6b12-c703-44d6-952c-bee6f621e121}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{de746614-f544-4b67-8fae-bb44baefdeef}">
+                      <labels>
+                        <label description="Currency" languagecode="1033" />
+                      </labels>
+                      <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{a8116dc1-d3c6-48f7-aba9-6260ce8b11b9}">
+                      <labels>
+                        <label description="Salesperson Sign-Off" languagecode="1033" />
+                      </labels>
+                      <control id="msa_salespersonsignoff" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="msa_salespersonsignoff" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{8e4965fe-35b9-45b7-9820-0c371d3f11a3}">
+                      <labels>
+                        <label description="Salesperson Signoff Date" languagecode="1033" />
+                      </labels>
+                      <control id="msa_salespersonsignoffdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="msa_salespersonsignoffdate" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{0bd27675-0d2a-469a-a43b-a726035dc961}">
+                      <labels>
+                        <label description="Goal Set By" languagecode="1033" />
+                      </labels>
+                      <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{f4b1f0ee-a783-4f60-ba0a-1a1bd3b847a0}">
+                      <labels>
+                        <label description="Goal Set Date" languagecode="1033" />
+                      </labels>
+                      <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section showlabel="true" showbar="true" locklevel="0" id="{b03d66db-4737-dd11-81d3-0003ff1b83ae}" IsUserDefined="1" layout="varheight" columns="111" labelwidth="115">
+                <labels>
+                  <label description="Time Period" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell auto="false" showlabel="false" locklevel="0" rowspan="1" colspan="1" id="{cc6a3ecb-c6e0-4089-965c-6369ebe048d2}">
+                      <labels>
+                        <label description="Time Period" languagecode="1033" />
+                      </labels>
+                      <control id="msa_timeperiod" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="msa_timeperiod" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{5337037f-8942-404b-99d8-32dc6897ace6}">
+                      <labels>
+                        <label description="Start Date" languagecode="1033" />
+                      </labels>
+                      <control id="msa_startdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="msa_startdate" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{9385d8fb-df3f-4e30-a204-3e73be9b61eb}">
+                      <labels>
+                        <label description="End Date" languagecode="1033" />
+                      </labels>
+                      <control id="msa_enddate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="msa_enddate" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section showlabel="true" showbar="true" locklevel="0" id="{e021e2a8-4737-dd11-81d3-0003ff1b83ae}" IsUserDefined="1" layout="varheight" columns="111" labelwidth="115">
+                <labels>
+                  <label description="Period Targets" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{6932d7a1-0937-41eb-9778-c456617fd72c}">
+                      <labels>
+                        <label description="Minimum" languagecode="1033" />
+                      </labels>
+                      <control id="msa_minimumlevel" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="msa_minimumlevel" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{9101c782-1c0c-4eb1-a91f-89b25fe3816e}">
+                      <labels>
+                        <label description="Meet" languagecode="1033" />
+                      </labels>
+                      <control id="msa_meetlevel" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="msa_meetlevel" disabled="false" />
+                    </cell>
+                    <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{17b1aeab-7271-4dbf-9ee7-d40c5b506fb4}">
+                      <labels>
+                        <label description="Exceed" languagecode="1033" />
+                      </labels>
+                      <control id="msa_exceedlevel" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="msa_exceedlevel" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section showlabel="true" showbar="true" locklevel="0" id="{f036733b-5942-dd11-92af-0003ff1a83ae}" IsUserDefined="1" layout="varwidth" columns="11" labelwidth="115">
+                <labels>
+                  <label description="Comment" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell auto="false" showlabel="false" locklevel="0" rowspan="4" colspan="2" id="{a11652fa-5f88-4cb0-9628-2ab1e3fe09ef}">
+                      <labels>
+                        <label description="Comment" languagecode="1033" />
+                      </labels>
+                      <control id="msa_comment" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="msa_comment" disabled="false" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab id="{0f5559d3-c4da-4484-a457-4637bf1547d4}" IsUserDefined="0" expanded="false">
+        <labels>
+          <label description="Notes" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" id="{62d3c73a-f3c7-450e-a860-1a567972c645}" IsUserDefined="0" height="auto">
+                <labels>
+                  <label description="Notes" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell colspan="2" showlabel="false" rowspan="5" auto="true" id="{173c1045-5216-42a9-923b-6e44e0d8ecef}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                      <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row height="auto"></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <footer id="{f1160e4f-8914-401c-8020-a98d3a37c95f}">
+      <rows>
+        <row>
+          <cell id="{def6189a-8a6c-46ff-8809-ea819ff366a5}">
+            <labels>
+              <label description="Status" languagecode="1033" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <events>
+      <event name="onload" application="false" active="true">
+        <Handlers>
+          <Handler functionName="Form_onload" libraryName="MSA_goal_main_library.js" handlerUniqueId="c4ab888a-024f-4e48-8509-c8e338657f0e" enabled="true">
+            <dependencies />
+          </Handler>
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="true" attribute="ownerid">
+        <Handlers>
+          <Handler functionName="ownerid_onchange" libraryName="MSA_goal_main_library.js" handlerUniqueId="6efa48ad-d788-4f51-b235-5ca0b1169fdc" enabled="true">
+            <dependencies />
+          </Handler>
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="true" attribute="msa_timeperiod">
+        <Handlers>
+          <Handler functionName="msa_timeperiod_onchange" libraryName="MSA_goal_main_library.js" handlerUniqueId="de3bf50c-ac88-4b91-bed1-12d9943733dc" enabled="true">
+            <dependencies />
+          </Handler>
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="true" attribute="msa_startdate">
+        <Handlers>
+          <Handler functionName="msa_startdate_onchange" libraryName="MSA_goal_main_library.js" handlerUniqueId="0a3c8513-f429-46fa-bdbf-239d7e7bd940" enabled="true">
+            <dependencies />
+          </Handler>
+        </Handlers>
+      </event>
+    </events>
+    <formLibraries>
+      <Library name="MSA_goal_main_library.js" libraryUniqueId="{83ba5385-ca9f-4990-88fb-2aaf7fee28b0}" />
+    </formLibraries>
+    <Navigation>
+      <NavBar>
+        <NavBarByRelationshipItem RelationshipName="msa_msa_goal_msa_goal" Sequence="10000" Area="Info" Id="nav_msa_msa_goal_msa_goal" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Sub-Goals" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="msa_msa_goal_opportunity" Area="Info" Id="nav_msa_msa_goal_opportunity" Show="false" Sequence="10001">
+          <Titles>
+            <Title LCID="1033" Text="Opportunities" />
+          </Titles>
+        </NavBarByRelationshipItem>
+      </NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

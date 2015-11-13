@@ -1,0 +1,539 @@
+/// <reference path="../../Common/XrmPageTemplate.js" />
+/// <reference path="../../Common/new_softtek_scripts_util_dynamicform.js" />
+/// <reference path="JQuery.js" />
+/// <reference path="Json2.js" />
+/// <reference path="XrmServiceToolkit.js" />
+function __initializeForm() {
+    //  Softtek market = China ` Brazil  ` Hispanic
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket1").getSelectedOption();
+    if (optSofttekMarket != null) if (optSofttekMarket.value == 100000003 || optSofttekMarket.value == 100000004 || optSofttekMarket.value == 100000002 || optSofttekMarket.value == 100000007) {}
+
+    // Softtek market =  ` Europa
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket1").getSelectedOption();
+    if (optSofttekMarket != null) if (optSofttekMarket.value == 100000005) {}
+
+    // Softtek market = USA
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket1").getSelectedOption();
+    if (optSofttekMarket != null) if (optSofttekMarket.value == 100000000) {
+        var teamID = "{A0080041-375E-E111-B408-1CC1DEF177B7}";
+        //items.Rows[0].GetValue("teamid");
+        // var teamName = "USA";
+        //items.Rows[0].GetValue("name");
+        if (teamID != null) {
+            // setSimpleLookupValue("new_avteam", "team", teamID, teamName);
+        }
+        else {
+            //Xrm.Page.getAttribute("new_analyst").setValue(null);
+            //Xrm.Page.getAttribute("new_analyst").setSubmitMode("always");
+        }
+    }
+
+    // Softtek market = Cloud ` Mexico
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket1").getSelectedOption();
+    if (optSofttekMarket != null) if (optSofttekMarket.value == 100000006 || optSofttekMarket.value == 100000001) {
+
+}
+    // Softtek market = null
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket1").getSelectedOption();
+    if (optSofttekMarket == null) {
+        //Xrm.Page.getAttribute("new_analyst").setValue(null);
+        //Xrm.Page.getAttribute("new_analyst").setSubmitMode("always");
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var status = Xrm.Page.getAttribute("statecode").getValue();
+    Xrm.Page.Validations.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo(null).Or("new_marketscopeaccount").EqualsTo(null).Do().Disabled();
+    if (status == 0) {
+        Xrm.Page.Validations.AddTo("new_softtekvertical1").When("new_softtekmarket1").DifferentTo(null).And("new_marketscopeaccount").DifferentTo(null).Do().Enabled();
+    }
+
+    /* Cascade SofttekMarket = Cloud SAP Industry Solutions, any MarketScope, SofttekVertical = 
+                            JIT Automotive Solutions, Pharmalab, ChemQ, eMetal, pCare, SAP Serivces*/
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000006").Do().PutOptions(["200000019", "200000020", "200000021", "200000022", "200000023", "200000024"]);
+    /* Cascade SofttekMarket = USA & Canada & MarketScope = Global, SofttekVertical =
+                            GE Capital,  GE Corporate, GE Energy, GE Manufacturing, ABInveb, Citi, Walmart, HP */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000000").And("new_marketscopeaccount").EqualsTo("100000000").Do().PutOptions(["100000026", "100000027", "100000028", "100000029", "100000030", "100000031", "100000033", "100000032"]);
+
+    /* Cascade SofttekMarket =  USA & Canada & MarketScope = Non Global, SofttekVertical = 
+                       Conglomerates, Healthcare, Financial Svcs & Ins, Middle Market, Retail&CPG, Strategic Accounts,
+                       Comm, Media & Tech, General, Other, Unknown */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000000").And("new_marketscopeaccount").EqualsTo("100000001").Do().PutOptions(["100000043", "100000044", "100000000", "100000003", "100000040", "100000004", "100000010", "100000005", "100000007", "100000008"]);
+    /* Cascade SofttekMarket = Mexico & Central America & MarketScope = Global, SofttekVertical = 
+                            01 Banamex, 02 HP, 03 Walmart, 04 GE, 05 ABInveb */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000001").And("new_marketscopeaccount").EqualsTo("100000000").Do().PutOptions(["200000001", "200000002", "200000003", "200000000", "100000011"]);
+    /* Cascade SofttekMarket = Mexico & Central America & MarketScope = Non Global, SofttekVertical =
+                          06 EST Bancomer, 
+                          08 HGM Bimbo, 
+                          09 BC Retail y Servicios, 
+                          11 BD Financiero,
+                          12 BD Honeywell ,
+                          13 ZN Named Occidente, 
+                          14 Manufactura y Quimica, 
+                          15 SAP, 
+                          16 SP, 
+                          18 Bajío
+						  19 Consultoría Servicios
+                          20 Energía y Telcos*/
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000001").And("new_marketscopeaccount").EqualsTo("100000001").Do().PutOptions(["100000012", "100000014", "100000045", "100000017", "100000019", "100000041", "100000042", "100000016", "100000018", "100000053", "100000054", "100000055"]);
+
+    //***********************************************************
+    /* Cascade SofttekMarket = HSA & MarketScope = Global, SofttekVertical =
+                            GE Capital,  GE Corporate */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000003").And("new_marketscopeaccount").EqualsTo("100000000").Do().PutOptions(["100000026", "100000027", "100000028", "100000029", "100000030", "100000031", "100000032", "100000033"]);
+    /* Cascade SofttekMarket = HSA & MarketScope = Global, SofttekVertical = Communications, Networks & Peripherals, USA & Canada & MarketScope = Non Global, SofttekVertical = 
+                            Financial Services & Insurance, Manufacturing and Consumer Product, Middle Market, Retail, Strategic Accounts,
+                            Technology & Media, General, Other, Unknown */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000003").And("new_marketscopeaccount").EqualsTo("100000001").Do().PutOptions(["100000046", "100000047", "100000048", "100000049", "100000050", "100000051", "100000052"]);
+
+    /* Cascade SofttekMarket != Mexico & Central America, USA & Canada, Cloud SAP Industry Solutions,Hispanic South America, Softtek Vertical =
+                            General */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").DifferentTo("100000006").And("new_softtekmarket1").DifferentTo("100000000").And("new_softtekmarket1").DifferentTo("100000003").And("new_softtekmarket1").DifferentTo("100000001").Do().PutOptions(["100000005"]);
+
+    //************************************************************
+    /* Cascade SofttekMarket = Europe, MarketScope = Global, SofttekVertical =
+                            GE Capital,	GE Corporate,	GE Energy,	GE Infrastructure,	ABInveb,	 Citi,	Walmart,	HP */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000005").And("new_marketscopeaccount").EqualsTo("100000000").Do().PutOptions(["100000026", "100000027", "100000028", "100000029", "100000030", "100000031", "100000032", "100000033"]);
+
+    /* Cascade SofttekMarket = Europe, MarketScope = Non Global, SofttekVertical =
+                    Internacional,	Nacional NovaGaliciaBanco,	Nacional Madrid,	Nacional Galicia,	Nacional Otros,	SAP*/
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000005").And("new_marketscopeaccount").EqualsTo("100000001").Do().PutOptions(["100000034", "100000035", "100000036", "100000037", "100000038", "100000039"]);
+
+
+
+    /*Cascade SofttekMarket = Brazil and Market Scope = Global, Softtek Vertical = 
+    GE Capital
+    GE Corporate
+    GE Energy
+    GE Manufacturing
+    ABInveb
+    Citi
+    Walmart
+    HP
+    */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000002").And("new_marketscopeaccount").EqualsTo("100000000").Do().PutOptions(["100000026","100000027","100000028","100000029","100000030","100000031","100000032","100000033"]);
+
+    /*Cascade SofttekMarket = China and Market Scope = Global, Softtek Vertical = 
+    GE Capital
+    GE Corporate
+    GE Energy
+    GE Manufacturing
+    ABInveb
+    Citi
+    Walmart
+    HP
+    */
+    Xrm.Page.Cascades.AddTo("new_softtekvertical1").When("new_softtekmarket1").EqualsTo("100000004").And("new_marketscopeaccount").EqualsTo("100000000").Do().PutOptions(["100000026","100000027","100000028","100000029","100000030","100000031","100000032","100000033"]);
+
+
+
+    /* Deprecate from Softtek Vertical :
+                            05 EST-Bancomer [Deprecado], 06 EST-IBM Metlife [Deprecado], 07 HGM-Bimbo [Deprecado], 08 HGM-Named [Deprecado], 09 BD-Named [Deprecado],
+                            10 BD-Financiero [Deprecado], 11 BD-Honeywell [Deprecado], 13 ZN-Urbi [Deprecado], 14 SAP [Deprecado], 15 SP [Deprecado] */
+    Xrm.Page.Cascades.Deprecate("new_softtekvertical1", ["200000004", "200000005", "200000006", "200000011", "200000018", "200000014", "200000017", "200000016", "200000012", "200000015"]);
+
+    if (Xrm.Page.getAttribute("new_softtekvertical1").getOptions()[0].text == "") {
+        Xrm.Page.getAttribute("new_softtekvertical1").getOptions().shift();
+    }
+    /* Deprecate from Relationship Type :
+            Advisors, Analysts, Acct we?ve presented to, Competitor, CompetITor, Consultant, Existing Customer, Influencer, Internal, Investor, Partner, Press, Prospect, Reseller, Supplier, Vendor, Other, Customer
+    */
+    Xrm.Page.Cascades.Deprecate("customertypecode", ["200001", "200002", "200013", "200003", "200004", "200005", "200006", "200007", "200008", "200009", "200010", "200011", "8", "200012", "200014", "200015", "200016", "3"]);
+    /* Deprecate from Category :
+            Transactional Supplier, Preferred Customer, Strategic Partner, Standard (Invalide Option), Preferred Vendor (Invalide Option)
+    */
+    Xrm.Page.Cascades.Deprecate("accountcategorycode", ["100000000", "1", "100000002", "2", "100000001"]);
+    /* Deprecate from Account Scope :
+            Potential, Active, Inactive, Forbidden
+    */
+    Xrm.Page.Cascades.Deprecate("new_accountscope", ["100000000", "100000001", "100000002", "100000003"]);
+
+    /* Deprecate from Status Reason :
+           Inactive
+    */
+    Xrm.Page.Cascades.Deprecate("statuscode", ["2"]);
+
+    /* Hacer requerido el campo de Channel Name, cuando en el campo de Type se seleccionan las opciones de: Channel Partner y Customer thru Channel
+    
+    */
+    Xrm.Page.Validations.AddTo("new_channelname").When("new_type").EqualsTo("100000001").Or("new_type").EqualsTo("100000002").Do().SetRequired();
+    Xrm.Page.Validations.AddTo("new_channelname").When("new_type").DifferentTo("100000001").And("new_type").DifferentTo("100000002").Do().SetUnRequired();
+
+    /* Hacer requerido el campo de Other Channel Name, cuando en el campo de Channel Name se selecciona la opcion de: OtherChannel 
+    
+    */
+    Xrm.Page.Validations.AddTo("new_otherchannelname").When("new_channelname").EqualsTo("100000009").Do().SetRequired();
+    Xrm.Page.Validations.AddTo("new_otherchannelname").When("new_channelname").DifferentTo("100000009").Do().SetUnRequired();
+
+    /* Hacer requeridos los campos la seccion de Credit & payment Information, cuando en el Status Reason es diferente de Qualified 
+    
+    */
+
+    Xrm.Page.Validations.AddTo("new_paymentterms").When("new_validationstatus").EqualsTo("100000000").Or("new_validationstatus").EqualsTo("100000001").Or("new_validationstatus").EqualsTo("100000002").Do().SetUnRequired();
+    Xrm.Page.Validations.AddTo("new_paymentterms").When("new_validationstatus").DifferentTo("100000000").Or("new_validationstatus").DifferentTo("100000001").Or("new_validationstatus").DifferentTo("100000002").Do().SetRequired();
+
+    Xrm.Page.getAttribute("creditlimit").setRequiredLevel("none");
+    Xrm.Page.Validations.AddTo("creditonhold").When("new_validationstatus").DifferentTo("100000000").Or("new_validationstatus").DifferentTo("100000001").Or("new_validationstatus").DifferentTo("100000002").Do().SetRequired();
+    Xrm.Page.getAttribute("new_federaltaxpayerid").setRequiredLevel("none");
+    /* Hacer requerido el campo de Inactive Reason, cuando en el campo de Status Reason se seleccionan las opciones de: Channel Partner y Customer thru Channel
+    
+    */
+    Xrm.Page.Validations.AddTo("new_inactivereason").When("statuscode").EqualsTo("100000004").Or("statuscode").EqualsTo("100000005").Or("statuscode").EqualsTo("100000006").Or("statuscode").EqualsTo("100000007").Or("statuscode").EqualsTo("100000008").Or("statuscode").EqualsTo("100000009").Or("statuscode").EqualsTo("100000010").Do().SetRequired();
+    Xrm.Page.Validations.AddTo("new_inactivereason").When("statuscode").DifferentTo("100000004").And("statuscode").DifferentTo("100000005").And("statuscode").DifferentTo("100000006").And("statuscode").DifferentTo("100000007").And("statuscode").DifferentTo("100000008").And("statuscode").DifferentTo("100000009").And("statuscode").DifferentTo("100000010").Do().SetUnRequired();
+
+    Xrm.Page.getControl("new_liquidityratio2").setDisabled(true);
+    Xrm.Page.getAttribute("new_liquidityratio2").setSubmitMode("always");
+
+    Xrm.Page.getControl("new_coverageratio2").setDisabled(true);
+    Xrm.Page.getAttribute("new_coverageratio2").setSubmitMode("always");
+
+    Xrm.Page.getControl("new_leverageratio2").setDisabled(true);
+    Xrm.Page.getAttribute("new_leverageratio2").setSubmitMode("always");
+
+    var formType = Xrm.Page.ui.getFormType();
+    if (formType == 1 || formType == 2) Xrm.Page.getControl("originatingleadid").setDisabled(false);
+}
+
+function onLoad() {
+    // debugger;
+    __initializeForm();
+    Assignment();
+    Xrm.Page.getControl("new_validatedon").setDisabled(true);
+    var selectedSofttekVertical = Xrm.Page.getAttribute("new_softtekvertical1").getSelectedOption();
+    var selectedStatusReason = Xrm.Page.getAttribute("new_validationstatus").getValue();
+    Xrm.Page.Validations.Validate("new_softtekvertical1");
+    Xrm.Page.Cascades.Filter("new_softtekvertical1");
+    if (selectedSofttekVertical != null) Xrm.Page.getAttribute("new_softtekvertical1").setValue(selectedSofttekVertical.value);
+    if (selectedStatusReason == "100000003" || selectedStatusReason == "100000004") {
+        Xrm.Page.getAttribute("new_paymentterms").setRequiredLevel("required");
+        Xrm.Page.getAttribute("creditonhold").setRequiredLevel("required");
+        Xrm.Page.getAttribute("new_analysis").setRequiredLevel("required");
+        //Xrm.Page.getControl("new_validatedon").setDisabled(false);
+        var t = new Date();
+        Xrm.Page.getAttribute("new_validatedon").setValue(t);
+        // Xrm.Page.getControl("new_validatedon").setDisabled(true);
+    }
+    if (selectedStatusReason == "100000000" || selectedStatusReason == "100000001" || selectedStatusReason == "100000002" || selectedStatusReason == "100000005") {
+        Xrm.Page.getAttribute("new_paymentterms").setRequiredLevel("none");
+        Xrm.Page.getAttribute("creditonhold").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_analysis").setRequiredLevel("none");
+    }
+    if (selectedStatusReason == "100000002" || selectedStatusReason == "100000005") {
+        Xrm.Page.getAttribute("new_rejectionreason").setRequiredLevel("required");
+    }
+
+    Xrm.Page.Cascades.Filter("customertypecode");
+    Xrm.Page.Cascades.Filter("accountcategorycode");
+    Xrm.Page.Cascades.Filter("new_accountscope");
+    Xrm.Page.Cascades.Filter("statuscode");
+    // Ticket
+    Xrm.Page.Validations.Validate("new_inactivereason");
+    var customerinyear = Xrm.Page.getAttribute("new_newcustomerinyear2").getValue();
+    var createdOn = Xrm.Page.getAttribute("createdon").getValue();
+
+    if (customerinyear == null && createdOn == null) {
+        var t = new Date();
+        var yyyy = t.getFullYear();
+        var opctions = Xrm.Page.getAttribute("new_newcustomerinyear2").getOptions();
+        var id = null;
+        opctions.forEach(function (option) {
+            if (option.text == yyyy) id = option.value;
+
+        });
+    }
+    else {
+        var yyyy = createdOn.getFullYear();
+        var opctions = Xrm.Page.getAttribute("new_newcustomerinyear2").getOptions();
+        var id = null;
+        opctions.forEach(function (option) {
+            if (option.text == yyyy) id = option.value;
+
+        });
+        if (yyyy < 2010) id = 100000003;
+    }
+
+    Xrm.Page.getAttribute("new_newcustomerinyear2").setValue(id);
+    Xrm.Page.getAttribute("new_newcustomerinyear2").setSubmitMode("always");
+    /*var customerinyear = Xrm.Page.getAttribute("new_newcustomerinyear2").getValue();
+    var createdOn = Xrm.Page.getAttribute("createdon").getValue();
+    if (customerinyear == null && createdOn == null) {
+        var t = new Date();
+        var yyyy = t.getFullYear();
+        var opctions = Xrm.Page.getAttribute("new_newcustomerinyear2").getOptions();
+        var id = null;
+        opctions.forEach(function (option) {
+            if (option.text == yyyy)
+                id = option.value;
+
+        });
+    }
+    else {
+        var yyyy = createdOn.getFullYear();
+        var opctions = Xrm.Page.getAttribute("new_newcustomerinyear2").getOptions();
+        var id = null;
+        opctions.forEach(function (option) {
+            if (option.text == yyyy)
+                id = option.value;
+
+        });
+    }
+    Xrm.Page.getAttribute("new_newcustomerinyear2").setValue(id);
+    Xrm.Page.getAttribute("new_newcustomerinyear2").setSubmitMode("always");*/
+
+    __analystNoMandatory();
+    __analyst();
+
+}
+function onChangeSofttekMarket() {
+
+    Xrm.Page.getAttribute("new_softtekvertical1").setValue(null);
+    Xrm.Page.Validations.Validate("new_softtekvertical1");
+    Xrm.Page.Cascades.Filter("new_softtekvertical1");
+
+}
+function onChangeMarketScope() {
+    Xrm.Page.getAttribute("new_softtekvertical1").setValue(null);
+    Xrm.Page.Validations.Validate("new_softtekvertical1");
+    Xrm.Page.Cascades.Filter("new_softtekvertical1");
+}
+function onTypeChange() {
+    Xrm.Page.Validations.Validate("new_channelname");
+}
+function onChangeChannelName() {
+    Xrm.Page.Validations.Validate("new_otherchannelname");
+}
+
+function onChangeStatusReason() {
+
+    var selectedStatusReason = Xrm.Page.getAttribute("new_validationstatus").getValue();
+    var AccApproved = 100000001;
+    if (selectedStatusReason == "100000003" || selectedStatusReason == "100000004") {
+        Xrm.Page.getAttribute("new_paymentterms").setRequiredLevel("required");
+        Xrm.Page.getAttribute("creditonhold").setRequiredLevel("required");
+        Xrm.Page.getAttribute("new_analysis").setRequiredLevel("required");
+        Xrm.Page.getAttribute("new_rejectionreason").setRequiredLevel("none");
+        Xrm.Page.getAttribute("statuscode").setValue(AccApproved);
+
+        var t = new Date();
+        Xrm.Page.getAttribute("new_validatedon").setValue(t);
+        // Xrm.Page.getControl("new_validatedon").setDisabled(true);
+    }
+    if (selectedStatusReason == "100000000" || selectedStatusReason == "100000001" || selectedStatusReason == "100000002" || selectedStatusReason == "100000005") {
+        Xrm.Page.getAttribute("new_paymentterms").setRequiredLevel("none");
+        Xrm.Page.getAttribute("creditonhold").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_analysis").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_rejectionreason").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_validatedon").setValue(null);
+    }
+    if (selectedStatusReason == "100000002" || selectedStatusReason == "100000005") {
+        Xrm.Page.getAttribute("new_rejectionreason").setRequiredLevel("required");
+    }
+    __analystNoMandatory();
+    __analyst();
+}
+function onChangeLiquidassets() {
+    __calculateLiquidRadio();
+}
+function onChangeShorTerm() {
+    __calculateLiquidRadio();
+}
+function onChangeOutStanding() {
+    __calculateCoverageRatio();
+}
+function onChangeDebit() {
+    __calculateCoverageRatio();
+}
+function onChangeOutStandingLeverage() {
+    __calculateLeverageRatio();
+}
+function onChangeEquity() {
+    __calculateLeverageRatio();
+}
+function onChangeAccountStrategy() {
+    __updateAccountStrategy();
+}
+function onChangeAVteam() {
+    __assignedteam();
+}
+function __analystNoMandatory() {
+    var selectedStatusReason = Xrm.Page.getAttribute("new_validationstatus").getValue();
+
+    //alert("Status Reason = " + selectedStatusReason);
+    if (selectedStatusReason == "100000000" || selectedStatusReason == null) Xrm.Page.getAttribute("new_analyst").setRequiredLevel("none");
+    else Xrm.Page.getAttribute("new_analyst").setRequiredLevel("required");
+
+}
+
+function __calculateLiquidRadio() {
+    var $liquidAssest = Xrm.Page.getAttribute("new_liquidassets").getValue();
+    var $shortTermLiab = Xrm.Page.getAttribute("new_shorttermliabilities").getValue();
+    if ($liquidAssest == null || $shortTermLiab == null || $shortTermLiab == 0) {
+        var $result = 0.00;
+    }
+    else var $result = $liquidAssest / $shortTermLiab;
+    Xrm.Page.getAttribute("new_liquidityratio2").setValue($result);
+}
+function __calculateCoverageRatio() {
+    var $oustanding = Xrm.Page.getAttribute("new_outstandingdebt").getValue();
+    var $ebit = Xrm.Page.getAttribute("new_ebit").getValue();
+    if ($oustanding == null || $ebit == null || $ebit == 0) {
+        var $result2 = 0.00;
+    }
+    else var $result2 = $oustanding / $ebit;
+    Xrm.Page.getAttribute("new_coverageratio2").setValue($result2);
+}
+function __calculateLeverageRatio() {
+    var $oustanding2 = Xrm.Page.getAttribute("new_totalliabilities").getValue();
+    var $equity = Xrm.Page.getAttribute("new_equity").getValue();
+    if ($oustanding2 == null || $equity == null || $equity == 0) {
+        var $result3 = 0.00;
+    }
+    else var $result3 = $oustanding2 / $equity;
+    Xrm.Page.getAttribute("new_leverageratio2").setValue($result3);
+}
+
+function __updateAccountStrategy() {
+    Xrm.Page.getAttribute("new_lastdateaccountstrategy").setSubmitMode("always");
+    Xrm.Page.getAttribute("new_lastdateaccountstrategy").setValue(new Date());
+}
+
+function __assignedteam() {
+    // Cuando softtek market = USA
+    var optStatusReason = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket1").getValue();
+    if (optSofttekMarket != null) if (optSofttekMarket == 100000000) {
+        /*
+            var userID = "{6C872EC8-97B9-E111-B402-1CC1DEE8EA69}";
+            var userName = "Sara Elena Sias Carmona";
+            setSimpleLookupValue("new_analyst", "systemuser", userID, userName);
+           */
+    }
+
+    // When softtek market = null
+
+    if (optSofttekMarket == null) {
+        Xrm.Page.getAttribute("new_avteam").setValue(null);
+        Xrm.Page.getAttribute("new_avteam").setSubmitMode("always");
+        Xrm.Page.getAttribute("new_analyst").setValue(null);
+        Xrm.Page.getAttribute("new_analyst").setSubmitMode("always");
+    }
+    else if (optSofttekMarket != "100000000") {
+
+        Xrm.Page.getAttribute("new_analyst").setValue(null);
+        Xrm.Page.getAttribute("new_analyst").setSubmitMode("always");
+    }
+
+}
+function __analyst() {
+
+    //Get CurrentIdUser
+    var userid = XrmServiceToolkit.Soap.GetCurrentUserId();
+    //------------------------------------------------------------------
+    //-------------------haven't set assigned user-------start----------
+    //Only team members can set assigned to user	
+    if (Xrm.Page.getAttribute("new_avteam").getValue() != null) {
+        var analyst = 0;
+        var TeamToCheck = Xrm.Page.getAttribute("new_avteam").getValue()[0].id.replace("{", "").replace("}", "").toUpperCase();
+
+        var _UserTeam = null;
+        XrmServiceToolkit.Rest.RetrieveMultiple("TeamMembershipSet", "$filter= SystemUserId eq guid'" + userid + "'", function (results) {
+            _UserTeam = results;
+        },
+        // ReSharper disable once UnusedParameter
+        function (error) {},
+        function onComplete() {},
+        false);
+
+        for (var i = 0; i < _UserTeam.length; i++) {
+            if (_UserTeam[i]["TeamId"].toUpperCase() == TeamToCheck) analyst = 1;
+            else if (analyst == 0) analyst = 0;
+        }
+        //
+        if (analyst == 1) {
+            Xrm.Page.getControl("new_analyst").setDisabled(false);
+            // Xrm.Page.getControl("new_softtekmarket1").setDisabled(true);
+            Xrm.Page.getControl("new_validationstatus").setDisabled(false);
+            Xrm.Page.getControl("new_totalliabilities").setDisabled(false);
+            Xrm.Page.getControl("new_validatedon").setDisabled(false);
+            Xrm.Page.getControl("new_shorttermliabilities").setDisabled(false);
+            Xrm.Page.getControl("new_liquidassets").setDisabled(false);
+            Xrm.Page.getControl("new_outstandingdebt").setDisabled(false);
+            Xrm.Page.getControl("new_ebit").setDisabled(false);
+            Xrm.Page.getControl("new_equity").setDisabled(false);
+            Xrm.Page.getControl("new_creditscore").setDisabled(false);
+            Xrm.Page.getControl("new_riskindex").setDisabled(false);
+            Xrm.Page.getControl("new_analysis").setDisabled(false);
+            Xrm.Page.getControl("creditlimit").setDisabled(false);
+            Xrm.Page.getControl("new_daytoinvoice").setDisabled(false);
+            Xrm.Page.getControl("new_paymentterms").setDisabled(false);
+            Xrm.Page.getControl("new_estatetaxid").setDisabled(false);
+            Xrm.Page.getControl("creditonhold").setDisabled(false);
+            Xrm.Page.getControl("new_federaltaxpayerid").setDisabled(false);
+        }
+        else if (analyst == 0) {
+            // Xrm.Page.getControl("new_softtekmarket1").setDisabled(true);
+            Xrm.Page.getControl("new_validationstatus").setDisabled(true);
+            Xrm.Page.getControl("new_totalliabilities").setDisabled(true);
+            Xrm.Page.getControl("new_analyst").setDisabled(true);
+            Xrm.Page.getControl("new_validatedon").setDisabled(true);
+            Xrm.Page.getControl("new_shorttermliabilities").setDisabled(true);
+            Xrm.Page.getControl("new_liquidassets").setDisabled(true);
+            Xrm.Page.getControl("new_outstandingdebt").setDisabled(true);
+            Xrm.Page.getControl("new_ebit").setDisabled(true);
+            Xrm.Page.getControl("new_equity").setDisabled(true);
+            Xrm.Page.getControl("new_creditscore").setDisabled(true);
+            Xrm.Page.getControl("new_riskindex").setDisabled(true);
+            Xrm.Page.getControl("new_analysis").setDisabled(true);
+            Xrm.Page.getControl("creditlimit").setDisabled(true);
+            Xrm.Page.getControl("new_daytoinvoice").setDisabled(true);
+            Xrm.Page.getControl("new_paymentterms").setDisabled(true);
+            Xrm.Page.getControl("new_estatetaxid").setDisabled(true);
+            Xrm.Page.getControl("creditonhold").setDisabled(true);
+            Xrm.Page.getControl("new_federaltaxpayerid").setDisabled(true);
+        }
+    }
+
+}
+function Assignment() {
+    if (Xrm.Page.getAttribute("originatingleadid").getValue() != null) {
+        _OriginatingLead = Xrm.Page.getAttribute("originatingleadid").getValue()[0].id;
+        _Contact = Xrm.Page.getAttribute("primarycontactid").getValue();
+
+        if (_OriginatingLead != null) {
+            XrmServiceToolkit.Rest.RetrieveMultiple("LeadSet", "$filter= LeadId eq guid'" + _OriginatingLead + "'",
+
+            function (results) {
+                TblLead = results;
+            },
+            // ReSharper disable once UnusedParameter
+            function (error) {
+                alert("Error = " + error);
+            },
+            function onComplete() {},
+            false);
+            if (TblLead.length > 0 && TblLead != null && _Contact == null) {
+                var _Contact = TblLead[0]["FullName"];
+                AssignContact(_Contact);
+            }
+        }
+    }
+}
+function AssignContact(contact) {
+    var _Contact = contact;
+    var item = null;
+    XrmServiceToolkit.Rest.RetrieveMultiple("ContactSet", "$filter= FullName eq '" + _Contact + "'", function (results) {
+        item = results;
+    },
+    // ReSharper disable once UnuentityIdsedParameter
+    function (error) {},
+    function onComplete() {},
+    false);
+    if (item.length > 0) {
+        var _id = item[0]["ContactId"];
+        var _name = item[0]["FullName"];
+        var lookupValue = new Array();
+        lookupValue[0] = new Object();
+        lookupValue[0].id = _id;
+        lookupValue[0].name = _name;
+        lookupValue[0].entityType = "Contact";
+        Xrm.Page.getAttribute("primarycontactid").setValue(lookupValue);
+    }
+}

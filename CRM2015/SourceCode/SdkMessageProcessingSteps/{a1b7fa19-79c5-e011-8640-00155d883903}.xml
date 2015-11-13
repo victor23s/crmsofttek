@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.EntityConfiguratorForViews: SetStateDynamicEntity of msdyn_postconfig" SdkMessageProcessingStepId="{a1b7fa19-79c5-e011-8640-00155d883903}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.EntityConfiguratorForViews, ActivityFeeds.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_postconfig</PrimaryEntity>
+</SdkMessageProcessingStep>

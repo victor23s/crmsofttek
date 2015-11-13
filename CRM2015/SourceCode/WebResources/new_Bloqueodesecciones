@@ -1,0 +1,232 @@
+/// <reference path="../Utility/DynamicForm.js" />
+/**
+
+* @author jesse.zhang
+* Function "SetRequiredLevel" added by rolando.pablo
+*/
+
+var SVoptions;
+var FORM_TYPE_CREATE = 1;
+var FORM_TYPE_UPDATE = 2;
+var formType;
+
+function Filter_SofttekVertical() {
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarketlead").getSelectedOption();
+    var optMarketScope = Xrm.Page.getAttribute("new_marketscopelead").getSelectedOption();
+    var optSofttekVertical = Xrm.Page.getAttribute("new_softtekvertical1").getSelectedOption();
+    var oSofttekVertical = Xrm.Page.getControl("new_softtekvertical1");
+    for (i = 0; i < SVoptions.length; i++) {
+        //Modificado por caro getText();
+        if (SVoptions[i].text == "JIT Automotive Solutions") {
+            var JIT = i;
+        }
+        if (SVoptions[i].text == "Pharmalab") {
+            var Pha = i;
+        }
+        if (SVoptions[i].text == "ChemQ") {
+            var Che = i;
+        }
+        if (SVoptions[i].text == "eMetal") {
+            var eMe = i;
+        }
+        if (SVoptions[i].text == "pCare") {
+            var pCa = i;
+        }
+        if (SVoptions[i].text == "SAP Services") {
+            var SAP = i;
+        }
+    }
+    if (optSofttekMarket != null) {
+        switch (optSofttekMarket.text) {
+            case "Cloud SAP Industry Solutions":
+                oSofttekVertical.setDisabled(false);
+                oSofttekVertical.clearOptions();
+                oSofttekVertical.addOption(SVoptions[JIT]); // JIT Automotive Solutions
+                oSofttekVertical.addOption(SVoptions[Pha]); // Pharmalab
+                oSofttekVertical.addOption(SVoptions[Che]); // ChemQ
+                oSofttekVertical.addOption(SVoptions[eMe]); // eMetal
+                oSofttekVertical.addOption(SVoptions[pCa]); // pCare
+                oSofttekVertical.addOption(SVoptions[SAP]); // SAP Services    	    	
+                if (optSofttekVertical != null) {
+                    Xrm.Page.getAttribute("new_softtekvertical1").setValue(optSofttekVertical.value);
+                }
+                break;
+            default:
+                //Modificado por caro getText();
+                if (optMarketScope != null) {
+                    if ((optSofttekVertical == null) || (optSofttekVertical != null && optSofttekVertical.text != "Manufactura y BC" && optSofttekVertical.text != "Telcos" && optSofttekVertical.text != "Business Development" && optSofttekVertical.text != "Resto del Mercado" && optSofttekVertical.text != "Software & High Tech")) {
+                        //Manufactura y BC, Telcos, Business Development, Resto del Mercado, Software & High Tech are removed
+                        oSofttekVertical.setDisabled(false);
+                        //Modificado por caro getText();
+                        var strSofttekMarket = optSofttekMarket.text;
+                        //Modificado por caro getText();
+                        var strMarketScope = optMarketScope.text;
+                        oSofttekVertical.clearOptions();
+                        if (strSofttekMarket == "USA & Canada") {
+                            if (strMarketScope == "Global") {
+                                oSofttekVertical.addOption(SVoptions[0]);
+                                oSofttekVertical.addOption(SVoptions[6]);
+                            }
+                            else {
+                                for (var i = 0; i <= 4; i++) {
+                                    oSofttekVertical.addOption(SVoptions[i]);
+                                }
+                                oSofttekVertical.addOption(SVoptions[9]);
+                                oSofttekVertical.addOption(SVoptions[10]);
+                                oSofttekVertical.addOption(SVoptions[5]);
+                                oSofttekVertical.addOption(SVoptions[7]);
+                                oSofttekVertical.addOption(SVoptions[8]);
+                                oSofttekVertical.removeOption(SVoptions[1].value);
+                            }
+                        }
+                        else if (strSofttekMarket == "Mexico & Central America") {
+                            if (strMarketScope == "Global") {
+                                for (var i = 12; i <= 14; i++)
+                                    oSofttekVertical.addOption(SVoptions[i]);
+                                oSofttekVertical.addOption(SVoptions[11]);
+                            }
+                            else {
+                                oSofttekVertical.addOption(SVoptions[15]);
+                                oSofttekVertical.addOption(SVoptions[16]);
+                                oSofttekVertical.addOption(SVoptions[17]);
+                                oSofttekVertical.addOption(SVoptions[22]);
+                                oSofttekVertical.addOption(SVoptions[29]);
+                                oSofttekVertical.addOption(SVoptions[25]);
+                                oSofttekVertical.addOption(SVoptions[28]);
+                                oSofttekVertical.addOption(SVoptions[21]);
+                                oSofttekVertical.addOption(SVoptions[27]);
+                                oSofttekVertical.addOption(SVoptions[23]);
+                                oSofttekVertical.addOption(SVoptions[26]);
+                                oSofttekVertical.addOption(SVoptions[8]);
+                            }
+                        }
+                        else {
+                            oSofttekVertical.addOption(SVoptions[5]);
+                        }
+                        if (optSofttekVertical != null) {
+                            Xrm.Page.getAttribute("new_softtekvertical1").setValue(optSofttekVertical.value);
+                        }
+                    }
+                }
+                else {
+                    Xrm.Page.getAttribute("new_softtekvertical1").setValue(null);
+                    oSofttekVertical.setDisabled(true);
+                }
+                break;
+        }
+    }
+    else {
+        Xrm.Page.getAttribute("new_softtekvertical1").setValue(null);
+        oSofttekVertical.setDisabled(true);
+    }
+}
+function Form_onload() {
+    formType = Xrm.Page.ui.getFormType();
+
+    if (Xrm.Page.getAttribute("new_neworextacct").getValue() == false) {
+        Xrm.Page.getControl("new_existingaccount").getParent().setVisible(false);
+        Xrm.Page.getControl("companyname").getParent().setVisible(true);
+    }
+    else {
+        Xrm.Page.getControl("new_existingaccount").getParent().setVisible(true);
+        Xrm.Page.getControl("companyname").getParent().setVisible(false);
+    }
+
+    SVoptions = Xrm.Page.getAttribute("new_softtekvertical1").getOptions();
+
+    if (SVoptions[0].text == "") {
+        SVoptions.shift();
+    }
+    Filter_SofttekVertical();
+
+    HideSomeOptionsofStatusReason();
+
+    Xrm.Page.Cascades.Deprecate("new_serviceoffering1", ["100000008"]);
+
+    //Xrm.Page.Cascades.Filter("new_serviceoffering1");
+}
+
+function changeAgainstNeworextacct() {
+    if (formType == FORM_TYPE_UPDATE && (Xrm.Page.getAttribute("new_existingaccount").getValue() != null || Xrm.Page.getAttribute("companyname").getValue() != null || Xrm.Page.getAttribute("new_lead_contopp").getValue() == true)) {
+        if (confirm("You are changing Unqualified (New) or Qualified (Existing) account Selection. All related information will be removed")) {
+            Xrm.Page.getAttribute("new_existingaccount").setValue(null);
+            Xrm.Page.getAttribute("companyname").setValue(null);
+            Xrm.Page.getAttribute("new_lead_contopp").setValue(false);
+        }
+        else {
+            Xrm.Page.getAttribute("new_neworextacct").setValue(!Xrm.Page.getAttribute("new_neworextacct").getValue());
+            return;
+        }
+    }
+    if (Xrm.Page.getAttribute("new_neworextacct").getValue() == false) {
+        Xrm.Page.getControl("new_existingaccount").getParent().setVisible(false);
+        Xrm.Page.getControl("companyname").getParent().setVisible(true);
+    }
+    else {
+        Xrm.Page.getControl("new_existingaccount").getParent().setVisible(true);
+        Xrm.Page.getControl("companyname").getParent().setVisible(false);
+    }
+}
+
+function Form_onsave() {
+    OnSaveAgainstNeworextacct();
+    OnSaveToCheckOption();
+}
+
+function OnSaveAgainstNeworextacct() {
+    if (Xrm.Page.getAttribute("new_neworextacct").getValue() == false) {
+        Xrm.Page.getAttribute("new_existingaccount").setValue(null);
+        Xrm.Page.getAttribute("new_lead_contopp").setValue(false);
+    }
+    else {
+        Xrm.Page.getAttribute("companyname").setValue(null);
+    }
+    Xrm.Page.getAttribute("companyname").setSubmitMode("always");
+    Xrm.Page.getAttribute("new_existingaccount").setSubmitMode("always");
+    Xrm.Page.getAttribute("new_lead_contopp").setSubmitMode("always");
+}
+
+function OnSaveToCheckOption() {
+    if (Xrm.Page.getAttribute("new_lead_contopp").getValue() == true) {
+        var DialogResult = confirm("Do you want to convert Lead in Contact & Opportunity?");
+        if (DialogResult == false) {
+            Xrm.Page.getAttribute("new_lead_contopp").setValue(false);
+        }
+    }
+}
+
+function HideSomeOptionsofStatusReason() {
+    var controlStatusReason = Xrm.Page.getControl("statuscode");
+    if (controlStatusReason != null || controlStatusReason != "undefined") {
+        var options = controlStatusReason.getAttribute().getOptions();
+        for (var i in options) {
+            if (options[i].value == "200005" || options[i].value == "200006") // hide option "Turned into an Opportunity" and "Qualified" of Open status lead.
+            {
+
+                var optionValue = options[i].value;
+                controlStatusReason.removeOption(optionValue);
+            }
+        }
+    }
+}
+
+function SofttekMarket_onchange() {
+    Xrm.Page.getAttribute("new_softtekvertical1").setValue(null);
+    Filter_SofttekVertical();
+}
+
+function MarketScope_onchange() {
+    Xrm.Page.getAttribute("new_softtekvertical1").setValue(null);
+    Filter_SofttekVertical();
+}
+/* ------------------Added by rolando.pablo------------------*/
+function SetRequiredLevel() {
+    if (Xrm.Page.getAttribute("new_neworextacct").getValue() == false) {
+        Xrm.Page.getAttribute("companyname").setRequiredLevel("required");
+        Xrm.Page.getAttribute("new_existingaccount").setRequiredLevel("none");
+    }
+    else {
+        Xrm.Page.getAttribute("companyname").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_existingaccount").setRequiredLevel("required");
+    }
+}

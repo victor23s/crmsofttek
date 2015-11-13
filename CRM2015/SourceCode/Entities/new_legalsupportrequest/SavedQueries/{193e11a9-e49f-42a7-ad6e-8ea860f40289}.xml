@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10020</returnedtypecode>
+  <savedqueryid>{193e11a9-e49f-42a7-ad6e-8ea860f40289}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10020" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_legalsupportrequestid">
+        <cell name="new_requestid" width="100" />
+        <cell name="new_account" width="100" />
+        <cell name="new_name" width="200" />
+        <cell name="new_requesttype" width="100" />
+        <cell name="new_documenttype" width="100" />
+        <cell name="new_marketscope" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_softtekcountry" width="100" />
+        <cell name="new_status" width="100" />
+        <cell name="new_statusreason" width="100" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_legalsupportrequest">
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <order attribute="new_requestid" descending="false" />
+        <attribute name="new_requestid" />
+        <attribute name="new_account" />
+        <attribute name="new_requesttype" />
+        <attribute name="new_documenttype" />
+        <attribute name="new_statusreason" />
+        <attribute name="new_status" />
+        <attribute name="new_marketscope" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountry" />
+        <attribute name="new_legalsupportrequestid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Legal Support Request Advanced Find View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

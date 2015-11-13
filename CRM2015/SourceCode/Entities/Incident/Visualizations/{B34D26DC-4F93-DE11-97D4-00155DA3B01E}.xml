@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualization>
+  <savedqueryvisualizationid>{B34D26DC-4F93-DE11-97D4-00155DA3B01E}</savedqueryvisualizationid>
+  <datadescription>
+    <datadefinition>
+      <fetchcollection>
+        <fetch mapping="logical" aggregate="true">
+          <entity name="incident">
+            <attribute groupby="true" alias="groupby_column" name="caseorigincode" />
+            <attribute alias="aggregate_column" name="title" aggregate="count" />
+          </entity>
+        </fetch>
+      </fetchcollection>
+      <categorycollection>
+        <category>
+          <measurecollection>
+            <measure alias="aggregate_column" />
+          </measurecollection>
+        </category>
+      </categorycollection>
+    </datadefinition>
+  </datadescription>
+  <presentationdescription>
+    <Chart Palette="BrightPastel">
+      <Series>
+        <Series _Template_="All" ShadowOffset="2" BorderColor="64, 64, 64" BorderDashStyle="Solid" BorderWidth="1" IsValueShownAsLabel="true" Font="Tahoma, 6.75pt, GdiCharSet=0" LabelForeColor="100, 100, 100" CustomProperties="DoughnutRadius=60, PieLabelStyle=Inside, PieDrawingStyle=SoftEdge" ChartType="pie">
+          <SmartLabelStyle Enabled="True" />
+          <Points />
+        </Series>
+      </Series>
+      <ChartAreas>
+        <ChartArea _Template_="All" BackColor="Transparent" BorderColor="Transparent" BorderDashStyle="Solid"></ChartArea>
+      </ChartAreas>
+      <Legends>
+        <Legend _Template_="All" Alignment="Center" LegendStyle="Table" Docking="Bottom" IsEquallySpacedItems="True" BackColor="White" BorderColor="228, 228, 228" BorderWidth="0" Font="Tahoma, 8pt, GdiCharSet=0" ShadowColor="0, 0, 0, 0" ForeColor="100, 100, 100" />
+      </Legends>
+      <Titles>
+        <Title _Template_="All" Font="Tahoma, 9pt, style=Bold, GdiCharSet=0" ForeColor="102, 102, 102" />
+      </Titles>
+      <BorderSkin PageColor="Control" BackColor="CornflowerBlue" BackSecondaryColor="CornflowerBlue" />
+    </Chart>
+  </presentationdescription>
+  <isdefault>0</isdefault>
+  <LocalizedNames>
+    <LocalizedName description="My Case Workload (by Origin)" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the total number of cases assigned to you and where they came from." languagecode="1033" />
+  </Descriptions>
+  <IntroducedVersion>1.0</IntroducedVersion>
+</visualization>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{c4f902d9-475f-e211-bb30-78e7d162ce29}</WebResourceId>
+  <Name>new_softtek_crm_utility</Name>
+  <DisplayName>Softtek CRM Utility Methods</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_softtek_crm_utilityC4F902D9-475F-E211-BB30-78E7D162CE29</FileName>
+</WebResource>

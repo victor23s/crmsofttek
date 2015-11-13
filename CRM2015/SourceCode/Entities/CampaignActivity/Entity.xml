@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Campaign Activity" OriginalName="Campaign Activity">CampaignActivity</Name>
+  <ObjectTypeCode>4402</ObjectTypeCode>
+  <EntityInfo>
+    <entity Name="CampaignActivity">
+      <LocalizedNames>
+        <LocalizedName description="Campaign Activity" languagecode="1033" />
+        <LocalizedName description="Actividad de la campa?a" languagecode="3082" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Campaign Activities" languagecode="1033" />
+        <LocalizedCollectionName description="Actividades de campa?a" languagecode="3082" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="Task performed, or to be performed, by a user for planning or running a campaign." languagecode="1033" />
+        <Description description="Tarea realizada o que va a realizar un usuario para planear o ejecutar una campa?a." languagecode="3082" />
+      </Descriptions>
+      <attributes>
+        <attribute PhysicalName="ChannelTypeCode">
+          <Type>picklist</Type>
+          <Name>channeltypecode</Name>
+          <LogicalName>channeltypecode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <optionset Name="campaignactivity_channeltypecode">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Channel" languagecode="1033" />
+              <displayname description="Canal" languagecode="3082" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Channel type code for the campaign activity." languagecode="1033" />
+              <Description description="Código de tipo de canal de la actividad de campa?a." languagecode="3082" />
+            </Descriptions>
+            <options>
+              <option value="1">
+                <labels>
+                  <label description="Phone" languagecode="1033" />
+                  <label description="Teléfono" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="2">
+                <labels>
+                  <label description="Appointment" languagecode="1033" />
+                  <label description="Cita" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="3">
+                <labels>
+                  <label description="Letter" languagecode="1033" />
+                  <label description="Carta" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="4">
+                <labels>
+                  <label description="Letter via Mail Merge" languagecode="1033" />
+                  <label description="Carta mediante combinación de correspondencia" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="5">
+                <labels>
+                  <label description="Fax" languagecode="1033" />
+                  <label description="Fax" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="6">
+                <labels>
+                  <label description="Fax via Mail Merge" languagecode="1033" />
+                  <label description="Fax mediante combinación de correspondencia" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="7">
+                <labels>
+                  <label description="Email" languagecode="1033" />
+                  <label description="Correo electrónico" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="8">
+                <labels>
+                  <label description="Email via Mail Merge" languagecode="1033" />
+                  <label description="Correo electrónico mediante combinación de correspondencia" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="9">
+                <labels>
+                  <label description="Other" languagecode="1033" />
+                  <label description="Otros" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="50">
+                <labels>
+                  <label description="Internet Advertising" languagecode="1033" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Channel" languagecode="1033" />
+            <displayname description="Canal" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Select how communications for this activity will be sent, such as phone, letter, fax, or email." languagecode="1033" />
+            <Description description="Código de tipo de canal de la actividad de campa?a." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="new_ActivityID">
+          <Type>nvarchar</Type>
+          <Name>new_activityid</Name>
+          <LogicalName>new_activityid</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Activity ID" languagecode="1033" />
+          </displaynames>
+        </attribute>
+        <attribute PhysicalName="TypeCode">
+          <Type>picklist</Type>
+          <Name>typecode</Name>
+          <LogicalName>typecode</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <AppDefaultValue>1</AppDefaultValue>
+          <optionset Name="campaignactivity_typecode">
+            <OptionSetType>picklist</OptionSetType>
+            <IntroducedVersion>5.0.0.0</IntroducedVersion>
+            <displaynames>
+              <displayname description="Type" languagecode="1033" />
+              <displayname description="Tipo" languagecode="3082" />
+            </displaynames>
+            <Descriptions>
+              <Description description="Type of the campaign activity." languagecode="1033" />
+              <Description description="Tipo de la actividad de campa?a." languagecode="3082" />
+            </Descriptions>
+            <options>
+              <option value="1">
+                <labels>
+                  <label description="Research" languagecode="1033" />
+                  <label description="Investigación" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="2">
+                <labels>
+                  <label description="Content Preparation" languagecode="1033" />
+                  <label description="Preparación del contenido" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="3">
+                <labels>
+                  <label description="Target Marketing List Creation" languagecode="1033" />
+                  <label description="Creación de lista de marketing de destino" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="4">
+                <labels>
+                  <label description="Lead Qualification" languagecode="1033" />
+                  <label description="Calificación de cliente potencial" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="5">
+                <labels>
+                  <label description="Content Distribution" languagecode="1033" />
+                  <label description="Distribución del contenido" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="6">
+                <labels>
+                  <label description="Direct Initial Contact" languagecode="1033" />
+                  <label description="Contacto inicial directo" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="7">
+                <labels>
+                  <label description="Direct Follow-Up Contact" languagecode="1033" />
+                  <label description="Contacto de seguimiento directo" languagecode="3082" />
+                </labels>
+              </option>
+              <option value="8">
+                <labels>
+                  <label description="Reminder Distribution" languagecode="1033" />
+                  <label description="Distribución de avisos" languagecode="3082" />
+                </labels>
+              </option>
+            </options>
+          </optionset>
+          <displaynames>
+            <displayname description="Type" languagecode="1033" />
+            <displayname description="Tipo" languagecode="3082" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Select the type of campaign activity to indicate the purpose of the activity." languagecode="1033" />
+            <Description description="Tipo de la actividad de campa?a." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+      </attributes>
+      <IsDuplicateCheckSupported>0</IsDuplicateCheckSupported>
+      <IsBusinessProcessEnabled>1</IsBusinessProcessEnabled>
+      <IsRequiredOffline>0</IsRequiredOffline>
+      <IsCollaboration>1</IsCollaboration>
+      <AutoRouteToOwnerQueue>1</AutoRouteToOwnerQueue>
+      <IsConnectionsEnabled>1</IsConnectionsEnabled>
+      <IsDocumentManagementEnabled>0</IsDocumentManagementEnabled>
+      <IsOneNoteIntegrationEnabled>0</IsOneNoteIntegrationEnabled>
+      <IsKnowledgeManagementEnabled>0</IsKnowledgeManagementEnabled>
+      <OwnershipTypeMask>UserOwned</OwnershipTypeMask>
+      <EntityMask>ActivityPointer</EntityMask>
+      <IsAuditEnabled>1</IsAuditEnabled>
+      <IsActivity>1</IsActivity>
+      <ActivityTypeMask>CommunicationActivity</ActivityTypeMask>
+      <IsActivityParty>1</IsActivityParty>
+      <IsReplicated>1</IsReplicated>
+      <IsReplicationUserFiltered>1</IsReplicationUserFiltered>
+      <IsMailMergeEnabled>0</IsMailMergeEnabled>
+      <IsVisibleInMobile>1</IsVisibleInMobile>
+      <IsVisibleInMobileClient>0</IsVisibleInMobileClient>
+      <IsReadOnlyInMobileClient>0</IsReadOnlyInMobileClient>
+      <IsMapiGridEnabled>0</IsMapiGridEnabled>
+      <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
+      <IsQuickCreateEnabled>0</IsQuickCreateEnabled>
+      <IntroducedVersion>5.0.0.0</IntroducedVersion>
+      <EnforceStateTransitions>0</EnforceStateTransitions>
+      <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
+      <ChangeTrackingEnabled>0</ChangeTrackingEnabled>
+      <HasRelatedNotes>True</HasRelatedNotes>
+      <HasRelatedActivities>True</HasRelatedActivities>
+    </entity>
+  </EntityInfo>
+  <FormXml />
+  <SavedQueries />
+  <Visualizations />
+  <RibbonDiffXml />
+</Entity>

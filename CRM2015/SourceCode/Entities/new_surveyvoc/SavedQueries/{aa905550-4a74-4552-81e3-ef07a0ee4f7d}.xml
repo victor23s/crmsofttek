@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10015</returnedtypecode>
+  <savedqueryid>{aa905550-4a74-4552-81e3-ef07a0ee4f7d}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10015" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_surveyvocid">
+        <cell name="new_name" width="150" />
+        <cell name="new_caseid" width="200" />
+        <cell name="new_accountcase" width="100" />
+        <cell name="new_opportunityvoc" width="100" />
+        <cell name="new_language" width="75" />
+        <cell name="new_responsequestion1" width="100" />
+        <cell name="new_responsedecimal" width="100" />
+        <cell name="new_responsequestion3" width="100" />
+        <cell name="new_responsequestion4" width="100" />
+        <cell name="new_responsesaveragesurvey1" width="100" />
+        <cell name="new_responsequestion1survey2" width="100" />
+        <cell name="new_responsequestion2survey2" width="100" />
+        <cell name="new_responsequestion3survey2" width="100" />
+        <cell name="new_responsequestion4survey2" width="100" />
+        <cell name="new_responsesaveragesurvey2" width="100" />
+        <cell name="new_softtekmarketsurveyvoc" width="100" />
+        <cell name="new_softtekcountrysurveyvoc" width="100" />
+        <cell name="new_respondent" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="createdon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_surveyvoc">
+        <attribute name="new_name" />
+        <order attribute="new_caseid" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="new_language" />
+        <attribute name="new_caseid" />
+        <attribute name="new_softtekmarketsurveyvoc" />
+        <attribute name="new_softtekcountrysurveyvoc" />
+        <attribute name="new_responsesaveragesurvey2" />
+        <attribute name="new_responsesaveragesurvey1" />
+        <attribute name="new_responsequestion4survey2" />
+        <attribute name="new_responsequestion4" />
+        <attribute name="new_responsequestion3survey2" />
+        <attribute name="new_responsequestion3" />
+        <attribute name="new_responsequestion2survey2" />
+        <attribute name="new_responsedecimal" />
+        <attribute name="new_responsequestion1survey2" />
+        <attribute name="new_responsequestion1" />
+        <attribute name="new_opportunityvoc" />
+        <attribute name="ownerid" />
+        <attribute name="new_respondent" />
+        <attribute name="createdon" />
+        <attribute name="new_accountcase" />
+        <attribute name="new_surveyvocid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Active Survey VoC" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

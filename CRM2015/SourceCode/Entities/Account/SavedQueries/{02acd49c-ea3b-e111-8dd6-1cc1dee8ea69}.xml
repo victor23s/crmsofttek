@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1</returnedtypecode>
+  <savedqueryid>{02acd49c-ea3b-e111-8dd6-1cc1dee8ea69}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="1" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="accountid">
+        <cell name="name" width="150" />
+        <cell name="parentaccountid" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="primarycontactid" width="100" />
+        <cell name="originatingleadid" width="100" />
+        <cell name="accountcategorycode" width="100" />
+        <cell name="customertypecode" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="new_marketscopeaccount" width="100" />
+        <cell name="new_softtekmarket1" width="100" />
+        <cell name="new_softtekcountry1" width="100" />
+        <cell name="new_softtekvertical1" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="account">
+        <attribute name="primarycontactid" />
+        <attribute name="ownerid" />
+        <attribute name="statecode" />
+        <attribute name="originatingleadid" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="new_softtekvertical1" />
+        <attribute name="new_softtekmarket1" />
+        <attribute name="new_softtekcountry1" />
+        <attribute name="new_marketscopeaccount" />
+        <attribute name="accountcategorycode" />
+        <attribute name="customertypecode" />
+        <attribute name="name" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <filter type="or">
+            <condition attribute="name" operator="like" value="WalMart%" />
+            <condition attribute="name" operator="like" value="Wal-Mart%" />
+          </filter>
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="parentaccountid" />
+        <attribute name="accountid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Account List - WalMart" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

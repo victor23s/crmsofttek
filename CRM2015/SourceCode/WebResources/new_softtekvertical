@@ -1,0 +1,49 @@
+var VerticalOptions;
+function Form_onload() {
+    VerticalOptions = Xrm.Page.ui.controls.get("new_softtekvertical1").getAttribute().getOptions();
+    filter();
+}
+function filter() {
+    var Market = Xrm.Page.data.entity.attributes.get("new_softtekmarket").getSelectedOption();
+    var Scope = Xrm.Page.data.entity.attributes.get("new_marketscope_opp").getSelectedOption();
+    var Vertical = Xrm.Page.data.entity.attributes.get("new_softtekvertical1").getSelectedOption();
+    var a = Xrm.Page.ui.controls.get("new_softtekvertical1");
+
+    if (Market != null && Scope != null) {
+        a.setDisabled(false);
+        var x = Market.text;
+        var y = Scope.text;
+        a.clearOptions();
+
+        if (x == "USA & Canada") {
+            if (y == "Non Global") {
+                alert(VerticalOptions(100000008));
+            }
+            else {
+                a.addOption(VerticalOptions[6]);
+            }
+        }
+        if (x == "Mexico & Central America") {
+            if (y == "Non Global") {
+                for (var i = 12; i <= 22; i++) {
+                    a.addOption(VerticalOptions[i]);
+                }
+                a.addOption(VerticalOptions[8]);
+            }
+            else {
+                for (var i = 9; i <= 11; i++) {
+                    a.addOption(VerticalOptions[i]);
+                }
+            }
+
+        }
+        if (x != "Mexico & Central America" && x != "USA & Canada") {
+            Xrm.Page.data.entity.attributes.get("new_softtekvertical1").setValue(null);
+            a.addOption(VerticalOptions[5]);
+        }
+    }
+    else {
+        Xrm.Page.data.entity.attributes.get("new_softtekvertical1").setValue(null);
+        a.setDisabled(true);
+    }
+}

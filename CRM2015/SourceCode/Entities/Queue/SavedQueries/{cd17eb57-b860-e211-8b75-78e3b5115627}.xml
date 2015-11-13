@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>2020</returnedtypecode>
+  <savedqueryid>{cd17eb57-b860-e211-8b75-78e3b5115627}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="2020" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="queueid">
+        <cell name="name" width="150" />
+        <cell name="emailaddress" width="100" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="queue">
+        <attribute name="ownerid" />
+        <attribute name="emailaddress" />
+        <attribute name="name" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <filter type="or">
+            <condition attribute="name" operator="like" value="US%" />
+            <condition attribute="name" operator="like" value="MX%" />
+            <condition attribute="name" operator="like" value="HSA%" />
+            <condition attribute="name" operator="like" value="Help%" />
+          </filter>
+        </filter>
+        <attribute name="queueid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Cases Queues" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

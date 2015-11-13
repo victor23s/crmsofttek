@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualization>
+  <savedqueryvisualizationid>{9DC7ADF6-B76F-DF11-986C-00155D2E3002}</savedqueryvisualizationid>
+  <datadescription>
+    <datadefinition>
+      <fetchcollection>
+        <fetch mapping="logical" count="10">
+          <entity name="goal">
+            <attribute name="percentage"></attribute>
+            <attribute name="computedtargetasoftodaypercentageachieved" />
+            <order attribute="percentage" descending="true" />
+          </entity>
+        </fetch>
+      </fetchcollection>
+      <categorycollection>
+        <category>
+          <measurecollection>
+            <measure alias="percentage" />
+          </measurecollection>
+          <measurecollection>
+            <measure alias="computedtargetasoftodaypercentageachieved" />
+          </measurecollection>
+        </category>
+      </categorycollection>
+    </datadefinition>
+  </datadescription>
+  <presentationdescription>
+    <Chart>
+      <Series>
+        <Series Color="91, 151, 213" IsValueShownAsLabel="False" CustomProperties="MaxPixelPointWidth=30" BackSecondaryColor="112, 142, 50" Font="{0}, 9.5px" LabelForeColor="59, 59, 59">
+          <SmartLabelStyle Enabled="True" />
+        </Series>
+        <Series BorderWidth="1" IsValueShownAsLabel="True" ChartType="Line" Color="0, 0, 0" MarkerStyle="Triangle" MarkerSize="9" MarkerColor="0, 0, 0" BorderDashStyle="Dot">
+          <SmartLabelStyle Enabled="True" />
+        </Series>
+      </Series>
+      <ChartAreas>
+        <ChartArea BorderColor="White" BorderDashStyle="Solid">
+          <AxisY LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid LineColor="239, 242, 246" />
+            <MajorTickMark LineColor="165, 172, 181" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisY>
+          <AxisX LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid Enabled="False" />
+            <MajorTickMark Enabled="False" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisX>
+        </ChartArea>
+      </ChartAreas>
+      <Legends>
+        <Legend Alignment="Center" LegendStyle="Table" Docking="Bottom" Font="{0}, 11px" ForeColor="59, 59, 59"></Legend>
+      </Legends>
+      <Titles>
+        <Title Alignment="TopLeft" DockingOffset="-3" Font="{0}, 13px" ForeColor="59, 59, 59"></Title>
+      </Titles>
+    </Chart>
+  </presentationdescription>
+  <isdefault>1</isdefault>
+  <LocalizedNames>
+    <LocalizedName description="Percentage Achieved" languagecode="1033" />
+    <LocalizedName description="Porcentaje alcanzado" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows percentage achieved against the goals with linear projections." languagecode="1033" />
+    <Description description="Muestra el porcentaje alcanzado en comparación con los objetivos con proyecciones lineales." languagecode="3082" />
+  </Descriptions>
+  <IntroducedVersion>5.0.0.0</IntroducedVersion>
+</visualization>

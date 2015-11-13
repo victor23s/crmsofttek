@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1088</returnedtypecode>
+  <savedqueryid>{d26e6749-e832-426b-b4cb-222ab902ce7c}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1088" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="salesorderid">
+        <cell name="ordernumber" width="100" />
+        <cell name="name" width="200" />
+        <cell name="customerid" width="150" />
+        <cell name="opportunityid" width="100" />
+        <cell name="quoteid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="new_statusreason" width="100" />
+        <cell name="new_responsibleteam" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_marketscopeorders" width="100" />
+        <cell name="new_softtekmarketorders" width="100" />
+        <cell name="new_softtekcountryorders" width="100" />
+        <cell name="new_serviceofferingorders" width="100" />
+        <cell name="new_opportunitytypeorders" width="100" />
+        <cell name="new_totalrevenueorders" width="100" />
+        <cell name="transactioncurrencyid" width="100" />
+        <cell name="new_estprojectdurationorders" width="100" />
+        <cell name="new_grossmarginorders" width="100" />
+        <cell name="new_penaltyorders" width="100" />
+        <cell name="new_subcontractors" width="100" />
+        <cell name="new_profitcenter" width="100" />
+        <cell name="new_invoicingtype" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="salesorder">
+        <attribute name="name" />
+        <order attribute="ordernumber" descending="false" />
+        <attribute name="customerid" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="new_statusreason" operator="like" value="{0}" />
+          <condition attribute="new_softtekmarketorders" operator="like" value="{0}" />
+          <condition attribute="new_softtekcountryorders" operator="like" value="{0}" />
+          <condition attribute="new_serviceofferingorders" operator="like" value="{0}" />
+          <condition attribute="new_responsibleteam" operator="like" value="{0}" />
+          <condition attribute="quoteid" operator="like" value="{0}" />
+          <condition attribute="ownerid" operator="like" value="{0}" />
+          <condition attribute="ordernumber" operator="like" value="{0}" />
+          <condition attribute="new_opportunitytypeorders" operator="like" value="{0}" />
+          <condition attribute="opportunityid" operator="like" value="{0}" />
+          <condition attribute="name" operator="like" value="{0}" />
+          <condition attribute="new_benefitscenter" operator="like" value="{0}" />
+          <condition attribute="new_assignedto" operator="like" value="{0}" />
+          <condition attribute="customerid" operator="like" value="{0}" />
+        </filter>
+        <attribute name="ordernumber" />
+        <attribute name="new_responsibleteam" />
+        <attribute name="quoteid" />
+        <attribute name="ownerid" />
+        <attribute name="opportunityid" />
+        <attribute name="new_assignedto" />
+        <attribute name="statecode" />
+        <attribute name="new_totalrevenueorders" />
+        <attribute name="new_softtekmarketorders" />
+        <attribute name="new_softtekcountryorders" />
+        <attribute name="new_serviceofferingorders" />
+        <attribute name="new_opportunitytypeorders" />
+        <attribute name="new_marketscopeorders" />
+        <attribute name="new_subcontractors" />
+        <attribute name="new_profitcenter" />
+        <attribute name="new_penaltyorders" />
+        <attribute name="new_invoicingtype" />
+        <attribute name="new_grossmarginorders" />
+        <attribute name="new_estprojectdurationorders" />
+        <attribute name="transactioncurrencyid" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="new_statusreason" />
+        <attribute name="salesorderid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All Orders" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de todos los pedidos" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

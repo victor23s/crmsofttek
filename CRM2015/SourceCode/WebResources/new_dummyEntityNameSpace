@@ -1,0 +1,20 @@
+/// <reference path="../XrmPageTemplate.js" />
+if (typeof(SofttekCrm) == "undefined") {
+    SofttekCrm = {
+        __namespace: true
+    };
+}
+
+SofttekCrm.DummyEntity = {
+    save: function () {
+        alert("on save");
+    },
+    close: function () {
+        alert("on close");
+    },
+    load: function (fieldsDictionary) {
+        this.fields = fieldsDictionary;
+        alert(this.fields["test"]);
+    },
+    fields: new Object()
+};

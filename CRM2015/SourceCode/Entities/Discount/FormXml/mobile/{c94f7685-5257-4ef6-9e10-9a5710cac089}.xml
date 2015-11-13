@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{c94f7685-5257-4ef6-9e10-9a5710cac089}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{b7fc5b9d-d66c-493c-84dc-614b0eee073b}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{21c2f7ac-d510-4164-b196-cb7e3f078f21}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{deee09fc-f6d8-469a-b564-71ea83786d77}">
+                      <labels>
+                        <label description="Amount" languagecode="1033" />
+                        <label description="Importe" languagecode="3082" />
+                      </labels>
+                      <control id="amount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="amount" />
+                    </cell>
+                    <cell id="{05322e29-96ba-4164-b7ed-611cf15ef3e3}">
+                      <labels>
+                        <label description="Amount Type" languagecode="1033" />
+                        <label description="Tipo de importe" languagecode="3082" />
+                      </labels>
+                      <control id="isamounttype" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="isamounttype" />
+                    </cell>
+                    <cell id="{10149307-ef85-43c2-ac73-fd604918c9d1}">
+                      <labels>
+                        <label description="Begin Quantity" languagecode="1033" />
+                        <label description="Cantidad inicial" languagecode="3082" />
+                      </labels>
+                      <control id="lowquantity" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="lowquantity" />
+                    </cell>
+                    <cell id="{699b15f0-4fc1-42f1-b5f2-57fd78bb713d}">
+                      <labels>
+                        <label description="Discount Type" languagecode="1033" />
+                        <label description="Tipo de descuento" languagecode="3082" />
+                      </labels>
+                      <control id="discounttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="discounttypeid" />
+                    </cell>
+                    <cell id="{ec529d18-ae0e-4afa-a05d-1739683485d3}">
+                      <labels>
+                        <label description="End Quantity" languagecode="1033" />
+                        <label description="Cantidad final" languagecode="3082" />
+                      </labels>
+                      <control id="highquantity" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="highquantity" />
+                    </cell>
+                    <cell id="{ded76e33-da9d-49b0-ad72-b7206487627e}">
+                      <labels>
+                        <label description="Percentage" languagecode="1033" />
+                        <label description="Porcentaje" languagecode="3082" />
+                      </labels>
+                      <control id="percentage" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="percentage" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

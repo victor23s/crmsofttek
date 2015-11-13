@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{7f942c96-617b-401f-80cc-92acac7dbe04}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{2bfb9524-e211-4dc6-acc0-9ca012fa6275}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{37a5b7af-92fd-455f-8729-9acab4d8ba65}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{aec7867d-88a7-428c-becf-a203aefe41ce}">
+                      <labels>
+                        <label description="Opportunity" languagecode="1033" />
+                        <label description="Oportunidad" languagecode="3082" />
+                      </labels>
+                      <control id="opportunityid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opportunityid" disabled="false" />
+                    </cell>
+                    <cell id="{efcdc033-94e5-4f14-9124-9a02e7b43b62}">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{4a5e2bae-72c2-40ce-89f0-14b18f0b131f}">
+                      <labels>
+                        <label description="Activity Type" languagecode="1033" />
+                        <label description="Tipo de actividad" languagecode="3082" />
+                      </labels>
+                      <control id="activitytypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="activitytypecode" disabled="false" />
+                    </cell>
+                    <cell id="{817ad21d-ce0e-45fa-949e-5aa6e6fe5cf0}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                    <cell id="{fc47e18a-5d9d-4f95-886d-f8c4f5c261ff}">
+                      <labels>
+                        <label description="Is Regular Activity" languagecode="1033" />
+                        <label description="Es una actividad regular" languagecode="3082" />
+                      </labels>
+                      <control id="isregularactivity" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="isregularactivity" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

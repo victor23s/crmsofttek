@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.RuleConfiguration: SetStateDynamicEntity of msdyn_postruleconfig" SdkMessageProcessingStepId="{12f04a77-bf76-e011-93e7-00155d8a2747}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.RuleConfiguration, ActivityFeeds.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_postruleconfig</PrimaryEntity>
+</SdkMessageProcessingStep>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.RuleConfiguration: Update of msdyn_postruleconfig" SdkMessageProcessingStepId="{c57c4211-4635-e211-ad0f-00155db6575d}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.RuleConfiguration, ActivityFeeds.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_postruleconfig</PrimaryEntity>
+</SdkMessageProcessingStep>

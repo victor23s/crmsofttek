@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="new.Mscrm.Form.salesorder.CancelOrder.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.Form.salesorder.MainTab.Actions.salesorder.Cancel" Command="Mscrm.Form.salesorder.CancelOrder.Command" Id="Mscrm.Form.salesorder.CancelOrder" Image32by32="/_imgs/SFA/CancelOrder_32.png" Image16by16="/_imgs/SFA/CancelOrder_16.png" LabelText="$Resources:Ribbon.Form.salesorder.MainTab.Actions.salesorder.Cancel" Sequence="0" TemplateAlias="o2" ToolTipTitle="$Resources:Mscrm_Form_salesorder_MainTab_Actions_CancelOrder_ToolTipTitle" ToolTipDescription="$Resources:Mscrm_Form_salesorder_MainTab_Actions_CancelOrder_ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.Form.salesorder.FulfillOrder.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.Form.salesorder.MainTab.Actions.salesorder.FulfillOrder" Command="Mscrm.Form.salesorder.FulfillOrder.Command" Id="Mscrm.Form.salesorder.FulfillOrder" Image32by32="/_imgs/SFA/FulfillOrder_32.png" Image16by16="/_imgs/SFA/FulfillOrder_16.png" LabelText="$Resources:Ribbon.Form.salesorder.MainTab.Actions.salesorder.FulfillOrder" Sequence="0" TemplateAlias="o2" ToolTipTitle="$Resources:Mscrm_Form_salesorder_MainTab_Actions_FulfillOrder_ToolTipTitle" ToolTipDescription="$Resources:Mscrm_Form_salesorder_MainTab_Actions_FulfillOrder_ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.Form.salesorder.Save.Hide" Location="Mscrm.Form.salesorder.Save" />
+    <CustomAction Id="new.salesorder.Button2.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.salesorder.Button2.Button.Alt" Command="new.salesorder.RevenuePlanning.Command" Description="Revenue Planning" Id="new.salesorder.Button2.Button" Image32by32="$webresource:new_invoiceplan_32px" Image16by16="$webresource:new_invoiceplan_16px" LabelText="$LocLabels:new.salesorder.Button2.Button.LabelText" Sequence="0" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.salesorder.Button2.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.salesorder.Button2.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.salesorder.Button6.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Save.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.salesorder.Button6.Button.Alt" Command="new.salesorder.Save.Command" Description="Save" Id="new.salesorder.Button6.Button" Image32by32="$webresource:new_Save32x" Image16by16="$webresource:new_Save16x" LabelText="$LocLabels:new.salesorder.Button6.Button.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.salesorder.Button6.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.salesorder.Button6.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.salesorder.Button7.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.salesorder.Button7.Button.Alt" Command="new.salesorder.SubmitSW.Command" Id="new.salesorder.Button7.Button" Image32by32="$webresource:new_check32" Image16by16="$webresource:new_check16" LabelText="$LocLabels:new.salesorder.Button7.Button.LabelText" Sequence="0" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.salesorder.Button7.Button.ToolTipTitle" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="Ventan.Mscrm.Form.salesorder.CreateInvoice.HideAction" Location="Mscrm.Form.salesorder.CreateInvoice" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.Form.salesorder.GetProducts.HideAction" Location="Mscrm.Form.salesorder.GetProducts" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.Form.salesorder.LookupAddress.HideAction" Location="Mscrm.Form.salesorder.LookupAddress" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.Form.salesorder.Recalculate.HideAction" Location="Mscrm.Form.salesorder.Recalculate" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.Form.salesorder.UseCurrentPricing.HideAction" Location="Mscrm.Form.salesorder.UseCurrentPricing" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.HomepageGrid.salesorder.NewRecord.HideAction" Location="Mscrm.HomepageGrid.salesorder.NewRecord" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.SubGrid.salesorder.AddNewStandard.HideAction" Location="Mscrm.SubGrid.salesorder.AddNewStandard" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.Form.salesorder.CancelOrder.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="closeOrder" Library="/_static/sfa/salesorder/salesorder.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.salesorder.FulfillOrder.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateExisting" />
+        <EnableRule Id="Ventan.Mscrm.Form.salesorder.CanFulfill" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.IsBackOfficeNotInstalled" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="fulfillOrder" Library="/_static/sfa/salesorder/salesorder.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.salesorder.RevenuePlanning.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openDialogInvoice" Library="$webresource:new_InvoicePlanningJS">
+          <CrmParameter Value="PrimaryItemIds" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.salesorder.Save.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="SaveRefreshOrders" Library="$webresource:new_QuoteSave" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.salesorder.SubmitSW.Command">
+      <EnableRules>
+        <EnableRule Id="new.salesorder.EnableButtonSW.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="new.salesorder.DisplaySubmitButton.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SubmitSW" Library="$webresource:new_Order_main_library" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="new.salesorder.DisplayRule3.DisplayRule">
+        <FormStateRule State="Existing" />
+      </DisplayRule>
+      <DisplayRule Id="new.salesorder.DisplaySubmitButton.DisplayRule">
+        <EntityPrivilegeRule PrivilegeType="Read" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" EntityName="salesorder" InvertResult="false" />
+      </DisplayRule>
+      <DisplayRule Id="new.salesorder.EnableRecord.DisplayRule">
+        <FormStateRule State="Existing" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="new.salesorder.EnableButtonSW.EnableRule">
+        <CustomRule FunctionName="EnableSWButton" Library="$webresource:new_Order_Ribbon" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="Ventan.Mscrm.Form.salesorder.CanFulfill">
+        <ValueRule Field="new_canfulfill" Value="true" Default="false" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="new.salesorder.Button2.Button.Alt">
+      <Titles>
+        <Title description="Revenue Planning" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button2.Button.LabelText">
+      <Titles>
+        <Title description="Revenue Planning" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button2.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Revenue Planning" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button2.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Revenue Planning" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button6.Button.Alt">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button6.Button.LabelText">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button6.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button6.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button7.Button.Alt">
+      <Titles>
+        <Title description="Submit to SW" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button7.Button.LabelText">
+      <Titles>
+        <Title description="Submit to SW" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.salesorder.Button7.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Submit to SW" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

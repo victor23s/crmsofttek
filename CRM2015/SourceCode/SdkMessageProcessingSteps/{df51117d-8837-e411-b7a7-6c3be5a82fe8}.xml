@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="PostAccountDelete" SdkMessageProcessingStepId="{df51117d-8837-e411-b7a7-6c3be5a82fe8}">
+  <PluginTypeName>DeleteAccRevegyPrd.PluginDeleteAccRevegyPrd.PostAccountDelete, DeleteAccRevegyPrd.PluginDeleteAccRevegyPrd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c5c8866b41c828f0</PluginTypeName>
+  <PrimaryEntity>account</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Configuration>&lt;Settings&gt;
+ &lt;setting&gt;
+      &lt;uri&gt;https://rv1.revegy.com:443/RevegyServer/RevegyAPI&lt;/uri&gt;
+      &lt;organization&gt;4f6a013e1df02e3e011e2ba21cbd1cf2&lt;/organization&gt;
+      &lt;user&gt;crmadminwf@softtek.com&lt;/user&gt;
+      &lt;pass&gt;stkcrmawf01&lt;/pass&gt;
+ &lt;/setting&gt;
+&lt;/Settings&gt;</Configuration>
+  <Description>Post-Operation of Account Delete</Description>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <SdkMessageId>{a1bdbb1b-ea3e-db11-86a7-000a3a5473e8}</SdkMessageId>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="">
+      <SdkMessageProcessingStepImageId>{e251117d-8837-e411-b7a7-6c3be5a82fe8}</SdkMessageProcessingStepImageId>
+      <Attributes>name</Attributes>
+      <EntityAlias>PreImage</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>

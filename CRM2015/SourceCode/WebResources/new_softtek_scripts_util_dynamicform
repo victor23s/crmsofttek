@@ -1,0 +1,712 @@
+/// <reference path="XrmPageTemplate.js" />
+if (typeof(STK) == "undefined") {
+    STK = {
+        __namespace: true
+    };
+}
+if (typeof(STK.Forms) == "undefined") {
+    STK.Forms = {
+        __namespace: true
+    };
+}
+
+STK.Forms = {
+    FormType: {
+        Undefined: 0,
+        Create: 1,
+        Update: 2,
+        ReadOnly: 3,
+        Disabled: 4,
+        QuickCreate: 5,
+        BulkEdit: 6,
+        ReadOptimazed: 11
+    }
+};
+/* METHODS TO EXTEND ARRAY FUNCITONALITY ******************
+**********************************************************/
+Array.prototype.where = function (delegate) {
+    var $results = new Array();
+    for (var $index in this) {
+        if (delegate(this[$index])) $results.push(this[$index]);
+
+    }
+    return $results;
+};
+Array.prototype.single = function (delegate) {
+    var $result = new Object();
+    for (var $index in this) {
+        if (delegate(this[$index])) return this[$index];
+
+    }
+    return $result;
+};
+Array.prototype.forEach = function (delegate) {
+    for (var $index in this) {
+        delegate(this[$index]);
+    }
+};
+Array.prototype.first = function () {
+    return this[0];
+};
+Array.prototype.containts = function (value) {
+    for (var $index in this) {
+        if (this[$index] == value) return true;
+
+    }
+    return false;
+};
+Array.prototype.remove = function (item) {
+    var $index = this.indexOf(item, 0);
+    this.splice($index, 1);
+};
+Array.prototype.removeDuplicates = function () {
+    var $singleValues = new Array();
+    for (var $index in this) {
+        if (!$singleValues.containts(this[$index])) $singleValues.push(this[$index]);
+
+    }
+    return $singleValues;
+};
+Array.prototype.addRange = function (array) {
+    for (var $index in array) {
+        this.push(array[$index]);
+    }
+};
+/* METHODS TO EXTEND STRING FUNCITONALITY ******************
+**********************************************************/
+String.prototype.startsWith = function (str) {
+    return this.indexOf(str) == 0;
+};
+String.prototype.endsWith = function (str) {
+    return this.indexOf(str, this.length - str.length) !== -1;
+};
+String.prototype.containts = function (str) {
+    return this.indexOf(str) != -1;
+};
+String.empty = "";
+/* METHODS TO EXTEND DATE FUNCITONALITY ******************
+**********************************************************/
+Date.prototype.Format = function (format) {
+    var d = this;
+    var f = "";
+
+    try {
+
+        f = f + format.replace(/dd|mm|yyyy|MM|hh|ss|ms|APM|\s|\/|\-|,|\./ig, function match() {
+            switch (arguments[0]) {
+            case "dd":
+                var dd = d.getDate();
+                return (dd < 10) ? "0" + dd : dd;
+            case "mm":
+                var mm = d.getMonth() + 1;
+                return (mm < 10) ? "0" + mm : mm;
+            case "yyyy":
+                return d.getFullYear();
+            case "hh":
+                var hh = d.getHours();
+                return (hh < 10) ? "0" + hh : hh;
+            case "MM":
+                var MM = d.getMinutes();
+                return (MM < 10) ? "0" + MM : MM;
+            case "ss":
+                var ss = d.getSeconds();
+                return (ss < 10) ? "0" + ss : ss;
+            case "ms":
+                return d.getMilliseconds();
+            case "APM":
+                var apm = d.getHours();
+                return (apm < 12) ? "AM" : "PM";
+            default:
+                return arguments[0];
+
+            }
+        });
+
+
+    }
+    catch(err) {}
+
+    return f;
+}
+Date.prototype.toCRMFormat = function () {
+    var d = this;
+    if (d.getTimezoneOffset() > 0) {
+        var f = d.Format("yyyy-mm-ddThh:MM:ss" + (-d.getTimezoneOffset() / 60) + ":00");
+    }
+    else {
+        var f = d.Format("yyyy-mm-ddThh:MM:ss+" + (-d.getTimezoneOffset() / 60) + ":00");
+    }
+    return f;
+}
+/* METHODS TO EXTEND FORM FUNCITONALITY ******************
+**********************************************************/
+if (typeof(Xrm.Page.Util) == "undefined") {
+    Xrm.Page.Util = {
+        __namespace: true
+    };
+}
+Xrm.Page.Util = {
+    __getRequestObject: function () {
+        if (window.XMLHttpRequest) {
+            return new window.XMLHttpRequest;
+        }
+        else {
+            try {
+                return new ActiveXObject("MSXML2.XMLHTTP.3.0");
+            }
+            catch(exception) {
+
+                return new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }
+    },
+    __guidsAreEqual: function (guid1, guid2) {
+        var $isEqual = false;
+        if (guid1 == null || guid2 == null) $isEqual = false;
+
+
+        else $isEqual = guid1.replace(/[{}]/g, "").toLowerCase() == guid2.replace(/[{}]/g, "").toLowerCase();
+        return $isEqual;
+    },
+    UserHasRole: function (roleName) {
+        var $serverUrl = Xrm.Page.context.getClientUrl();
+        var $oDataEndPointUrl = $serverUrl + "/XRMServices2011/OrganizationData.svc";
+        $oDataEndPointUrl += "RoleSet?$top=1&$filter=Name eq " + roleName + "'";
+        var $service = this.__getRequestObject();
+        if ($service != null) {
+            $service.open("GET", $oDataEndPointUrl, false);
+            $service.setRequestHeader("X-Requested-Width", "XMLHttpRequest");
+            $service.setRequestHeader("Accept", "application/json, text/javascript, */*");
+
+        }
+        return false;
+    },
+    HideARibbonButton: function (nameOfButton) {
+        var $oldElement = window.top.document.getElementById(nameOfButton);
+        if ($oldElement != null) {
+            $oldElement.disabled = true;
+            var $newElement = $oldElement.cloneNode(true);
+            $oldElement.parentNode.replaceChild($newElement, $oldElement);
+        }
+
+    },
+    Key: {
+        __s4: function () {
+            return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+
+
+        },
+        newKey: function () {
+            return "Key__" + this.__s4() + this.__s4() + '_' + this.__s4() + '_' + this.__s4() + '_' + this.__s4() + '_' + this.__s4() + this.__s4() + this.__s4();
+
+        },
+        __namespace: true
+    },
+    ScriptCoditionsBuilder: {
+        getScript: function (query) {
+            var $queryDelegateName = "queryDelegate_" + Xrm.Page.Util.Key.newKey();
+            var $script = "function " + $queryDelegateName + "(){return ";
+            query.conditions.forEach(function (c) {
+                if (c.hasOwnProperty("target")) {
+                    var $targetValue = Xrm.Page.getAttribute(c.target).getValue();
+                    switch (c.operator) {
+                    case XrmLogicalOperator.DifferentTo:
+                        $script += "('" + $targetValue + "' != '" + c.value + "') ";
+
+                        break;
+                    case XrmLogicalOperator.EqualsTo:
+                        $script += "('" + $targetValue + "' == '" + c.value + "') ";
+
+                        break;
+                    case XrmLogicalOperator.RegexMatch:
+                        $script += "('" + c.value + "'.match('" + $targetValue + "') > 0) ";
+
+                        break;
+                    };
+                    if (c.connector != XrmLogicalConnector.End) $script += c.connector == XrmLogicalConnector.And ? "&& " : "|| ";
+
+
+                    else $script += ";} " + $queryDelegateName + "();";
+                }
+            });
+
+            return $script;
+        },
+        __namespace: true
+    },
+    GetProjectIdValidator: function (caller) {
+        if (caller.hasOwnProperty("currentSofttekMarket")) {
+            switch (caller.currentSofttekMarket()) {
+
+            case 100000000:
+                // USA & Canada
+                return function (projectid) {
+                    if (projectid.match(/\b[1-2]-\d{10}\b/g) == null) {
+                        var $message = "The Format of Project ID is not correct! Valid Format: 1-0000000000";
+                        alert($message);
+
+
+
+
+
+
+                        return false;
+                    }
+                    return true;
+                };
+                break;
+            case 100000001:
+                // Mexico & CA
+                return function (projectid) {
+                    if (projectid.match(/\b[1-2]-\d{10}\b/g) == null) {
+                        var $message = "The Format of Project ID is not correct! Valid Format: 1-0000000000";
+                        alert($message);
+
+
+
+
+
+                        return false;
+                    }
+                    return true;
+                };
+                break;
+            case 100000003:
+                // HSA
+                return function (projectid) {
+                    if (projectid.match(/\b[A-Z]{5}\d{2}\b/g) == null) {
+                        var message = "The Format of Project ID is not correct! Valid Format: ABCDE99";
+                        alert(message);
+
+
+
+
+
+                        return false;
+                    }
+                    return true;
+                };
+                break;
+            case 100000006:
+                //Cloud
+                return function (projectid) {
+                    if (projectid.match(/\b[1-2]-\d{10}\b/g) == null) {
+                        var $message = "The Format of Project ID is not correct! Valid Format: 1-0000000000";
+                        alert($message);
+
+
+
+
+
+                        return false;
+                    }
+                    return true;
+                };
+                break;
+            case 100000005:
+                // Europe
+                return function (projectid) {
+                    if (projectid.match(/\b[1-2]-\d{10}\b/g) == null) {
+                        var message = "The Format of Project ID is not correct! Valid Format: 1-0000000000";
+                        alert(message);
+
+
+
+
+
+
+                        return false;
+                    }
+                    return true;
+                };
+                break;
+            default:
+                // All others
+                return function (projectid) {
+
+
+
+                    return true;
+                };
+                break;
+
+            }
+        }
+    }
+};
+var XrmLogicalOperator = {
+    EqualsTo: "equalsto",
+    DifferentTo: "differentTo",
+    RegexMatch: "regexmatch"
+};
+var XrmLogicalConnector = {
+    And: "and",
+    Or: "or",
+    End: "end"
+};
+var XrmDynamicFunctionality = {
+    Validation: "validation",
+    Cascade: "cascade"
+};
+var ConditionBuilder = function (caller, key, target) {
+    this.__caller = caller;
+    this.__key = key;
+    this.__target = target;
+    this.EqualsTo = function (value) {
+
+        var $condition = {
+            target: this.__target,
+            operator: XrmLogicalOperator.EqualsTo,
+            value: value,
+            connector: null
+        };
+        return new ConditionConnector(this.__caller, this.__key, $condition);
+    };
+    this.DifferentTo = function (value) {
+
+        var $condition = {
+            target: this.__target,
+            operator: XrmLogicalOperator.DifferentTo,
+            value: value,
+            connector: null
+        };
+        return new ConditionConnector(this.__caller, this.__key, $condition);
+    };
+    this.RegexMatch = function (regex) {
+
+        var $condition = {
+            target: this.__target,
+            operator: XrmLogicalOperator.RegexMatch,
+            value: regex,
+            connector: null
+        };
+        return new ConditionConnector(this.__caller, this.__key, $condition);
+    };
+};
+var ConditionConnector = function (caller, key, condition) {
+    this.__caller = caller;
+    this.__key = key;
+    this.__condition = condition;
+    this.And = function (target) {
+        this.__condition.connector = XrmLogicalConnector.And;
+        this.__caller.Items[this.__key].conditions.push(this.__condition);
+        return new ConditionBuilder(this.__caller, this.__key, target);
+    };
+    this.Or = function (target) {
+        this.__condition.connector = XrmLogicalConnector.Or;
+        this.__caller.Items[this.__key].conditions.push(this.__condition);
+        return new ConditionBuilder(this.__caller, this.__key, target);
+    };
+    this.Do = function () {
+        this.__condition.connector = XrmLogicalConnector.End;
+        this.__caller.Items[this.__key].conditions.push(this.__condition);
+        switch (this.__caller.Functionality) {
+        case XrmDynamicFunctionality.Cascade:
+            return new CascadeAction(this.__caller, this.__key);
+
+            break;
+        case XrmDynamicFunctionality.Validation:
+            return new ValidationAction(this.__caller, this.__key);
+
+            break;
+        };
+    };
+};
+if (typeof(Xrm.Page.Validations) == "undefined") {
+    Xrm.Page.Validations = {
+        __namespace: true
+    };
+}
+var ValidationBuilder = function (caller, key) {
+    this.__caller = caller;
+    this.__key = key;
+    this.When = function (target) {
+        return new ConditionBuilder(this.__caller, this.__key, target);
+    };
+};
+var ValidationAction = function (caller, key) {
+    this.__caller = caller;
+    this.__key = key;
+    this.SetRequired = function () {
+        this.__caller.Items[this.__key].action = XrmValidationAction.SetRequired;
+        return null;
+    };
+    this.SetUnRequired = function () {
+        this.__caller.Items[this.__key].action = XrmValidationAction.SetUnRequired;
+        return null;
+    };
+    this.Disabled = function () {
+        this.__caller.Items[this.__key].action = XrmValidationAction.SetDisabled;
+        return null;
+    };
+    this.Enabled = function () {
+        this.__caller.Items[this.__key].action = XrmValidationAction.SetEnabled;
+        return null;
+    };
+    this.ExecuteCustomAction = function (delegate) {
+        this.__caller.Items[this.__key].action = XrmValidationAction.ExecuteCustomAction;
+        this.__caller.Items[this.__key].callback = delegate;
+        return null;
+    };
+    this.SetSubmitModeAlways = function () {
+        this.__caller.Items[this.__key].action = XrmValidationAction.SetSubmitModeAlways;
+        return null;
+    };
+    this.SetValue = function (value) {
+        this.__caller.Items[this.__key].action = XrmValidationAction.SetValue;
+        this.__caller.Items[this.__key].value = value;
+    };
+    this.Hide = function () {
+        this.__caller.Items[this.__key].action = XrmValidationAction.Hide;
+        return null;
+    };
+    this.Show = function () {
+        this.__caller.Items[this.__key].action = XrmValidationAction.Show;
+        return null;
+    };
+};
+var XrmValidationAction = {
+    SetRequired: "setrequired",
+    SetUnRequired: "setunrequired",
+    SetDisabled: "setdiabled",
+    SetEnabled: "setenabled",
+    ExecuteCustomAction: "executecustomaction",
+    SetSubmitModeAlways: "setsubmitmodealways",
+    SetValue: "setValue",
+    Hide: "hide",
+    Show: "show"
+};
+Xrm.Page.Validations = {
+    Functionality: XrmDynamicFunctionality.Validation,
+    Items: new Array(),
+    AddTo: function (target) {
+        var $key = Xrm.Page.Util.Key.newKey();
+        this.Items[$key] = {
+
+            target: target,
+            conditions: new Array(),
+            action: null,
+            value: null,
+            callback: null
+        };
+        return new ValidationBuilder(this, $key);
+    },
+    Validate: function (target) {
+        if (this.Items != null) {
+
+            var $items = this.Items.where(function (x) {
+                return x.target == target;
+            });
+
+            if ($items.length > 0) {
+                $items.forEach(function (item) {
+                    if (item.hasOwnProperty("target")) {
+                        var $script = Xrm.Page.Util.ScriptCoditionsBuilder.getScript(item);
+                        if (eval($script)) {
+                            switch (item.action) {
+                            case XrmValidationAction.ExecuteCustomAction:
+
+
+                                item.callback();
+                                break;
+                            case XrmValidationAction.SetDisabled:
+                                Xrm.Page.getControl(item.target).setDisabled(true);
+
+                                break;
+                            case XrmValidationAction.SetEnabled:
+                                Xrm.Page.getControl(item.target).setDisabled(false);
+
+                                break;
+                            case XrmValidationAction.SetRequired:
+                                Xrm.Page.getAttribute(item.target).setRequiredLevel("required");
+
+                                break;
+                            case XrmValidationAction.SetUnRequired:
+                                Xrm.Page.getAttribute(item.target).setRequiredLevel("none");
+
+                                break;
+                            case XrmValidationAction.SetSubmitModeAlways:
+                                Xrm.Page.getAttribute(item.target).setSubmitMode("always");
+
+                                break;
+                            case XrmValidationAction.SetValue:
+                                if (item.value instanceof ReferenceValue) Xrm.Page.getAttribute(item.target).setValue(item.value.getValue());
+
+
+                                else Xrm.Page.getAttribute(item.target).setValue(item.value);
+
+                                break;
+                            case XrmValidationAction.Hide:
+                                Xrm.Page.getControl(item.target).setVisible(false);
+
+                                break;
+                            case XrmValidationAction.Show:
+                                Xrm.Page.getControl(item.target).setVisible(true);
+
+                                break;
+                            };
+                        }
+                    }
+                });
+            };
+        }
+    }
+};
+if (typeof(Xrm.Page.Cascades) == "undefined") {
+    Xrm.Page.Cascades = {
+        __namespace: true
+    };
+}
+var CascadeBuilder = function (caller, key) {
+    this.__caller = caller;
+    this.__key = key;
+    this.When = function (target) {
+        return new ConditionBuilder(this.__caller, this.__key, target);
+    };
+};
+var CascadeAction = function (caller, key) {
+    this.__caller = caller;
+    this.__key = key;
+    this.CutOptions = function (options) {
+        this.__caller.Items[this.__key].action = XrmCascadeAction.CutValues;
+        this.__caller.Items[this.__key].options = options;
+        return null;
+    };
+    this.PutOptions = function (options) {
+        this.__caller.Items[this.__key].action = XrmCascadeAction.PutValues;
+        this.__caller.Items[this.__key].options = options;
+        return null;
+    };
+    this.DeprecateValues = function (options) {
+        this.__caller.Items[this.__key].action = XrmCascadeAction.DeprecateValues;
+        this.__caller.Items[this.__key].options = options;
+    };
+};
+var XrmCascadeAction = {
+    CutValues: "cutvalues",
+    PutValues: "putvalues",
+    Restore: "restore",
+    DeprecateValues: "deprecatevalues"
+};
+Xrm.Page.Cascades = {
+    DeprecatedOptions: new Array(),
+    Functionality: XrmDynamicFunctionality.Cascade,
+    Items: new Array(),
+    AddTo: function (target) {
+        var $key = Xrm.Page.Util.Key.newKey();
+        this.Items[$key] = {
+
+            target: target,
+            conditions: new Array(),
+            action: null,
+            callback: null,
+            options: null
+        };
+        return new CascadeBuilder(this, $key);
+    },
+    Deprecate: function (target, values) {
+        this.AddTo(target).When(target).EqualsTo(null).Or(target).DifferentTo(null).Do().CutOptions(values);
+
+
+
+
+
+        values.forEach(function (item) {
+            Xrm.Page.Cascades.DeprecatedOptions.push({
+
+                target: target,
+                option: item
+            });
+        });
+    },
+    Filter: function (target) {
+        var $items = this.Items.where(function (x) {
+            return x.target == target;
+        });
+		//debugger;
+		try{
+        if ($items.length > 0) {
+            $items.forEach(function (item) {
+                if (item.hasOwnProperty("target")) {
+                    var $script = Xrm.Page.Util.ScriptCoditionsBuilder.getScript(item);
+                    if (eval($script)) {
+                        switch (item.action) {
+                        case XrmCascadeAction.CutValues:						
+							var nAgt = navigator.userAgent;
+							var $targetControl = Xrm.Page.getControl(item.target);
+                            var $originalOptionSet = Xrm.Page.getAttribute(item.target).getOptions();
+							/*Torreblanca 7/23/2015: Fix the Issue for Chrome Explorer, the removeOption function doesn't work on Chrome*/
+							if (nAgt.indexOf('Chrome') == -1){							                          
+								$originalOptionSet.forEach(function (option) {
+									if (item.options.containts(option.value)) {
+										$targetControl.removeOption(option.value);
+									}
+								});
+							}			
+							else{		
+								$targetControl.clearOptions();
+								$originalOptionSet.forEach(function (option) {
+									if (typeof(option.value) != "undefined" && option.text != "" && !item.options.containts(option.value)) {
+										$targetControl.addOption(option);
+									}
+								});
+							}
+                            break;
+                        case XrmCascadeAction.PutValues:
+                            var $target = Xrm.Page.getControl(item.target);
+                            var $originalValue = Xrm.Page.getAttribute(item.target).getSelectedOption();
+                            var $originalOptionSet = Xrm.Page.getAttribute(item.target).getOptions();
+                            $target.clearOptions();
+                            item.options.forEach(function (option) {
+                                $originalOptionSet.forEach(function (item) {
+                                 
+                                    if (option == item.value
+                                  
+                                    ) {
+                                        $target.addOption(item);
+                                    }
+                                });
+                            });
+
+                            if ($originalValue != null) Xrm.Page.getAttribute(item.target).setValue($originalValue.value);
+
+                            break;
+                        case XrmCascadeAction.Restore:
+                            var $target = Xrm.Page.getControl(item.target);
+                            var $originalOptionSet = Xrm.Page.getAttribute(item.target).getOptions();
+                            $target.clearOptions();
+                            $originalOptionSet.forEach(function (option) {
+                                $target.addOption(option);
+
+
+                            });
+                            break;
+                        case XrmCascadeAction.DeprecateValues:
+                            item.options.forEach(function (option) {
+                                Xrm.Page.getControl(item.target).removeOption(option);
+
+
+                            });
+                            break;
+                        };
+                    };
+                };
+            });
+        };
+		}catch(err)
+		{
+			alert("new_softtekutil_dynamicForm.js " + err)
+		}
+    }
+
+};
+
+var ReferenceValue = function (target) {
+    this.target = target;
+    this.GetValue = function () {
+        return Xrm.Page.getAttribute(target).value;
+    };
+};
+
+
+

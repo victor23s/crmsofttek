@@ -1,0 +1,233 @@
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../STK.Namespaces.js" />
+/// <reference path="STK.Util.Array.js" />
+/* Este objeto se crea en memoria y contiene metodos que sirven para interactuar con "OptionSets" */
+STK.Util.OptionSet = {
+    /* Almacena una matriz de objetos que representan valores deprecados para los diferentes "Option Sets" en el CRM.
+    Campos del objeto:
+    - optionSet:                Representa el nombre en CRM del "OptionSet" al que pertenece la lista de valores deprecados.
+    - values:                     Representa los valores deprecados (separados por un punto y coma (;).
+    */
+    __depreacatedItemMatrix: new Array(),
+    /* Almacena una matriz de objetos que representan relaciones permitidas entre los diferentes "Option Sets" en el CRM.
+    Campos del objeto:
+    - optionSetChild :      Representa el nombre en CRM del "Option Set" al que se le describen los posibles valores en base a otro "Option Set".
+    - optionSetParent :    Representa el nombre en CRM del "Option Set" del se toma el valor para hacer posible la relación.
+    - parentValue :          Representa el valor por el que es posible la relación, este tiene que ser un valor existente del "optionSetParent".
+    - values :                   Representa los valores permitidos en la relación (separados por un punto y coma (;)".
+    */
+    __relationShipSmatrix: new Array(),
+    /* Realiza el filtrado de un control del tipo "OptionSet" en funcion del valor seleccionado del otro control del tipo "OptionSet"
+    en base a una matriz
+    Parametros:
+    - parentControlName :        representa el nombre del campo de tipo "optionSet" en la forma de donde se tomara el valor para realizar el filtrado.
+    - parentOptionSetName :    representa el nombre en CRM del option set que despliega el "parent_control", este nombre tiene que hacer "match"  
+    en la matriz de relaciones llamada "__relationShipSmatrix" con el campo "optionSetParent".
+    - childControlName :           representa el nombre del control de tipo "OptionSet" en la forma al que se realizara el filtrado.
+    - childOptionSetName:        representa el nombre del campo de tipo "OptionSet" en la forma al que se le realizara el filtrado, este nombre tiene que hacer "match"
+    en la matriz de relaciones llamada "__relationShipSmatrix" con el campo "optionSetChild".
+    Retorno :                         null.
+    */
+    filter: function (parentControlName, parentOptionSetName, childControlName, childOptionSetName) {
+        // almacena el campo padre
+        var $parentAttribute = Xrm.Page.getAttribute(parentControlName);
+        // almacena el campo hijo
+        var $childAttribute = Xrm.Page.getAttribute(childControlName);
+        // almacena el control padre
+        var $parentControl = Xrm.Page.getControl(parentControlName);
+        // almacena el control hijo
+        var $childControl = Xrm.Page.getControl(childControlName);
+        // almacena la lista de relaciones locales
+        var $relationships = new Array();
+        // almacena el valor seleccionado del campo padre
+        var $parentValue = null;
+        // almacena la lista de valores permitidos para el control hijo
+        var $allowedValues = new Array();
+
+        // Si el campo padre y el campo hijo existen en la forma
+        if ($parentAttribute != null && $childAttribute != null) {
+            // Si el campo padre tiene un valor seleccionado
+            if ($parentAttribute.getSelectedOption() != null) {
+                // Obtener el valor seleccionado
+                $parentValue = $parentAttribute.getSelectedOption().value;
+                // Recorrer el arreglo de relaciones global
+                for (var $index in this.__depreacatedItemMatrix) {
+                    // Agregar al arreglo de relaciones local, las que correspondan
+                    if (this.__relationShipSmatrix[$index].optionSetChild == childOptionSetName && this.__relationShipSmatrix[$index].optionSetParent == parentOptionSetName) {
+                        // Si el parent-value es igual al valor del control padre o a "any"
+                        if (this.__relationShipSmatrix[$index].parentValue == $parentValue || this.__relationShipSmatrix[$index].parentValue == "any") {
+                            $relationships.push(this.__relationShipSmatrix[$index]);
+                        }
+                    }
+                }
+
+                // Si existen relaciones locales
+                if ($relationships.length > 0) {
+                    // activar el control hijo
+                    $childControl.setDisabled(false);
+                    // Recorrer las relaciones locales para obtener los valores permidos para el control hijo, discriminando los valores repetidos
+                    for (var $index in $relationships) {
+                        for (var $valueIndex in $relationships[$index].values.split(";")) {
+                            if (!STK.Util.Array.containtsValue($allowedValues, $relationships[$index].values.split(";")[$valueIndex])) {
+                                // agregar a los valores permitidos
+                                $allowedValues.push($relationships[$index].values.split(";")[$valueIndex]);
+                            }
+                        }
+                    }
+
+                    // eliminar todas las opciones del control hijo
+                    $childControl.clearOptions();
+                    //Recorrer las opciones del campo hijo y verificar que existan en el arreglo de valores permitidos, entonces agregarlos al control hijo
+                    for (var $index in $childAttribute.getOptions()) {
+                        if (STK.Util.Array.containtsValue($allowedValues, $childAttribute.getOptions()[$index].value)) {
+                            $childControl.addOption($childAttribute.getOptions()[$index]);
+                        }
+                    }
+                }
+            }
+            // Si el control padre no no tiene ninguna opcion seleccionada
+            else {
+                // desactivar el control hijo
+                $child_control.setDisabled(true);
+            }
+        }
+    },
+    /* Remueve valores "Deprecados" de un control del tipo "OptionSet" en base a la matriz en memoria "__depreacatedItemMatrix"
+    Parametros:
+    - controlName :                     Representa el nombre del control del tipo "OptionSet" al que le seran removidos los elementos deprecados.
+    - optionSetName :                 Representa el nombre de CRM del "OptionSet" al que le seran removidos los elementos deprecados, 
+    debe hacer match con el valor "OptionSet" de la matriz "__depreacatedItemMatrix".
+    Retorno :                          null.
+    */
+    removeDeprecatedValues: function (controlName, optionSetName) {
+        // almacena el campo
+        var $attribute = Xrm.Page.getAttribute(control);
+        // almacena el control
+        var $control = Xrm.Page.getControl(control);
+        // almacena la lista de valores deprecados
+        var $deprecatedValues = null;
+
+        // Si el campo existe en la forma
+        if ($attribute != null) {
+            // Recorrer el arreglo global de valores
+            for (var $index in this.__depreacatedItemMatrix) {
+                if (this.__depreacatedItemMatrix[$index].optionSet == optionSet) {
+                    $deprecatedValues = this.__depreacatedItemMatrix[$index].values;
+                    break
+                }
+            }
+
+            // Remover los items del control
+            this.removeItems(control, $deprecatedValues);
+        }
+    },
+    /* Remueve un "item" de un control de tipo "Optionset" .
+    Parametros:
+    - controlName :                 Representa el nombre del control del tipo "OptionSet" al que le sera removido el elemento.
+    - value :                    Representa el valor (númerico) del elemento que sera removido del control.
+    Retorno :                      null.
+    */
+    removeItem: function (controlName, value) {
+        // almacena el control
+        var $control = Xrm.Page.getControl(controlName);
+
+        // si el control existe en la forma
+        if ($control != null) {
+            // Remover el elemento
+            $control.removeOption(value);
+        }
+    },
+    /* Remueve "items" de un control de tipo "OptionSet".
+    Parametros:
+    - controlName :                 Representa el nombre del control del tipo "OptionSet" al que le seran removidos los elementos.
+    - values :                  Representa los valores (númericos) separados por punto y coma (;) que seran removidos del control.
+    Retorno :                      null. 
+    */
+    removeItems: function (controlName, values) {
+        // almacena el control
+        var $control = Xrm.Page.getControl(controlName);
+
+        // si el control existe en la forma
+        if ($control != null) {
+            // se recorren los valores transformados en arreglos
+            for (var $index in values.split(";")) {
+                // Remover el elemento
+                $control.removeOption(values.split(";")[$index]);
+            }
+        }
+    },
+    /* Indica si un valor existe en un control del tipo "OptionSet"
+    Parametros :             
+    - controlName :                 Representa el nombre del control del tipo "OptionSet" donde se buscará el valor.
+    - value :                    Representa el valor (númerico) que se buscará en el control.
+    Retorno :                      "true" si el valor existe en las opciones del control ó "false" en caso contrario.
+    */
+    containtsValue: function (controlName, value) {
+        // almacena el control
+        var $control = Xrm.Page.getControl(controlName);
+        // si el control existe en la forma
+        if ($control != null) {
+            // se recorren las opciones del control
+            for (var $index in $control.getOptions()) {
+                // si el parametro de entrada "valor" es igual al valor del elemento actual
+                if ($control.getOptions()[$index].value == value)
+                // regresar "true"
+                return true;
+            }
+        }
+
+        // regresar "false"
+        return false;
+    },
+    /* Regresa el valor del indice donde se encuentra un elemento en un control de tipo "OptionSet"
+    Parametros :
+    - control :                 Representa el control del tipo "OptionSet" donde se buscará el valor.
+    - value :                    Representa el valor por el que se búscara el indice.
+    Retorno :                      Un valor númerico en caso de que el elemento sea encontrado ó "null" en caso contrario.
+    */
+    indexOfValue: function (controlName, value) {
+        // almacena el control
+        var $control = Xrm.Page.getControl(controlName);
+        // si el control existe en la forma
+        if ($control != null) {
+            // recorrer las opciones del control
+            for (var $index in $control.getOptions()) {
+                // si el valor del elemento actual es igual al parametro de entrada "value"
+                if ($control.getOptions()[$index].value == value)
+                // regresar el indice
+                return $index;
+            }
+        }
+    },
+    /* Registra una lista de elementos deprecados para un option set.
+    Parametros:
+    - optionSetName :           Representa el nombre del option set.
+    - values :                  Representa loa valores deprecados (separados por punto y coma ";").
+    */
+    registerDeprecatedItems: function (optionSetName, values) {
+        var $newDeprecatedSet = {
+            optionSet: optionSetName,
+            values: values
+        };
+        this.__depreacatedItemMatrix.push($newDeprecatedSet);
+        ///{ optionSet: "new_tmpcountries", values: "100000002" }
+    },
+    /* Registra una relación entre dos controles del tipo option set
+    Parametros:
+    - childOptionSetName :      Representa el nombre del option set que sera filtrado.
+    - parentOptionSetName :     Representa el nombre del option set de donde se tomara el valor para realizar el filtrado.
+    - parentValue :             Representa el valor que se toma como referencia para realizar el filtrado.
+    - values :                  Representa los valores permitidos para el option set hijo en la relación.
+    */
+    registerRelationShip: function (childOptionSetName, parentOptionSetName, parentValue, values) {
+        this.__relationShipSmatrix.push(new {
+            optionSetChild: childOptionSetName,
+            optionSetParent: parentOptionSetName,
+            parentValue: parentValue,
+            values: values
+        });
+        ///{ optionSetChild: "new_tmpcities", optionSetParent: "new_tmpcountries", parentValue: "100000002", values: "100000007" }
+        ///{ optionSetChild: "new_tmpmanagers", optionSetParent: "new_tmpcities", parentValue: "any", values: "100000001" }
+    },
+    __namespace: true
+};

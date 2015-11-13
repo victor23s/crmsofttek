@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{296a0734-87c6-e411-b492-6c3be5a8b454}</WebResourceId>
+  <Name>new_ForecastBacklogLoadHtml</Name>
+  <DisplayName>ForecastBacklogLoadHtml</DisplayName>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_ForecastBacklogLoadHtml296A0734-87C6-E411-B492-6C3BE5A8B454</FileName>
+</WebResource>

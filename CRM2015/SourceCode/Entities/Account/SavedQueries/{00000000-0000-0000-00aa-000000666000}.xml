@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000000666000}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="accountid">
+        <cell name="name" width="300" />
+        <cell name="primarycontactid" width="150" />
+        <cell name="telephone1" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_marketscopeaccount" width="100" />
+        <cell name="new_softtekmarket1" width="100" />
+        <cell name="new_softtekcountry1" width="100" />
+        <cell name="new_softtekvertical1" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="new_validationstatus" width="100" />
+        <cell name="new_validatedon" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="account">
+        <attribute name="name" />
+        <attribute name="primarycontactid" />
+        <attribute name="telephone1" />
+        <order attribute="name" descending="false" />
+        <attribute name="ownerid" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="new_validationstatus" />
+        <attribute name="new_validatedon" />
+        <attribute name="statuscode" />
+        <attribute name="statecode" />
+        <attribute name="new_softtekvertical1" />
+        <attribute name="new_softtekmarket1" />
+        <attribute name="new_softtekcountry1" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="new_marketscopeaccount" />
+        <attribute name="accountid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Account Advanced Find View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda avanzada de cuentas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

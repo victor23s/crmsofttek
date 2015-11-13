@@ -1,0 +1,34 @@
+/*function Form_onload()
+{
+                         disabled();
+                         enablelvl3();
+}
+function disabled()
+{
+			if (Xrm.Page.data.entity.attributes.get("new_sendtoapprove").getValue() == true)
+                       	 {
+                       	          Xrm.Page.getControl('new_approvalstatus').setDisabled(true);
+                       	 }
+}
+function Form_onsave()
+{
+                          disable();
+}
+
+function disable()
+{
+                          
+                         if (Xrm.Page.data.entity.attributes.get("new_sendtoapprove").getValue() == true)
+                           {
+                                   Xrm.Page.getControl('new_approvalstatus').setDisabled(true);
+                           }
+}
+
+function enablelvl3()
+{
+			if (Xrm.Page.getAttribute("new_approvellevel").getValue() == 100000002)
+			   {
+                                 Xrm.Page.getControl('new_approvalstatus').setDisabled(false);
+                                 Xrm.Page.data.entity.attributes.get("new_sendtoapprove").setValue(false);
+			   }
+}*/

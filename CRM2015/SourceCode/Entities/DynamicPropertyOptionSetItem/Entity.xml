@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Property Option Set Item" OriginalName="">DynamicPropertyOptionSetItem</Name>
+  <ObjectTypeCode>1049</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1084</returnedtypecode>
+  <savedqueryid>{3b0aea8b-990e-e311-8ab3-78e3b5115627}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="1084" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="quoteid">
+        <cell name="quotenumber" width="75" />
+        <cell name="revisionnumber" width="50" />
+        <cell name="name" width="150" />
+        <cell name="customerid" width="125" />
+        <cell name="opportunityid" width="100" />
+        <cell name="statecode" width="75" />
+        <cell name="statuscode" width="125" />
+        <cell name="new_approvalstatus" width="125" />
+        <cell name="new_assignedteam" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_approvellevel" width="100" />
+        <cell name="new_admapprover" width="100" />
+        <cell name="new_cooaprover" width="100" />
+        <cell name="new_finalapprover" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_marketscopequote" width="100" />
+        <cell name="new_softtekmarketquote" width="100" />
+        <cell name="new_softtekcountryquote" width="100" />
+        <cell name="new_serviceoffering" width="100" />
+        <cell name="new_opportunitytypequote" width="100" />
+        <cell name="new_totalrevenuequote" width="100" />
+        <cell name="transactioncurrencyid" width="100" />
+        <cell name="new_estprojdurationquote" width="100" />
+        <cell name="new_grossmargin" width="100" />
+        <cell name="new_penalty" width="100" />
+        <cell name="new_subcontractorsquote" width="100" />
+        <cell name="new_externalprojleader" width="100" />
+        <cell name="new_multipledeliverylocations" width="100" />
+        <cell name="new_paymentterms" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="quote">
+        <attribute name="name" />
+        <attribute name="statecode" />
+        <attribute name="customerid" />
+        <attribute name="revisionnumber" />
+        <attribute name="quotenumber" />
+        <attribute name="ownerid" />
+        <attribute name="new_totalrevenuequote" />
+        <attribute name="transactioncurrencyid" />
+        <attribute name="new_softtekmarketquote" />
+        <attribute name="new_softtekcountryquote" />
+        <attribute name="new_marketscopequote" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="opportunityid" />
+        <attribute name="new_penalty" />
+        <attribute name="new_paymentterms" />
+        <attribute name="new_opportunitytypequote" />
+        <attribute name="new_grossmargin" />
+        <attribute name="new_externalprojleader" />
+        <attribute name="new_estprojdurationquote" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedteam" />
+        <attribute name="new_approvellevel" />
+        <attribute name="new_finalapprover" />
+        <attribute name="new_serviceoffering" />
+        <attribute name="new_subcontractorsquote" />
+        <attribute name="new_multipledeliverylocations" />
+        <attribute name="statuscode" />
+        <attribute name="new_approvalstatus" />
+        <attribute name="new_admapprover" />
+        <attribute name="new_cooaprover" />
+        <order attribute="quotenumber" descending="false" />
+        <order attribute="revisionnumber" descending="false" />
+        <filter type="and">
+          <condition attribute="new_originlead" operator="not-null" />
+          <condition attribute="createdon" operator="this-year" />
+        </filter>
+        <attribute name="quoteid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quotes from Leads - This Year" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4</returnedtypecode>
+  <savedqueryid>{f1a7c4d9-f439-46da-8b69-ecc133214695}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4" jump="fullname" select="1" icon="1" preview="1">
+      <row name="result" id="leadid">
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="subject" width="150" />
+        <cell name="fullname" width="150" />
+        <cell name="jobtitle" width="100" />
+        <cell name="telephone1" width="100" />
+        <cell name="emailaddress1" width="150" />
+        <cell name="new_contactlevel" width="100" />
+        <cell name="new_influencelevel" width="100" />
+        <cell name="new_neworextacct" width="100" />
+        <cell name="companyname" width="100" />
+        <cell name="new_existingaccount" width="100" />
+        <cell name="new_noofemployeerange" width="100" />
+        <cell name="new_leadsource" width="100" />
+        <cell name="new_leadchannel" width="100" />
+        <cell name="campaignid" width="100" />
+        <cell name="new_softtekmarketlead" width="100" />
+        <cell name="new_softtekcountry" width="100" />
+        <cell name="new_softtekvertical1" width="100" />
+        <cell name="new_industrysofttek" width="100" />
+        <cell name="new_serviceoffering1" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedby" width="100" />
+        <cell name="modifiedon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="lead">
+        <attribute name="subject" />
+        <attribute name="fullname" />
+        <attribute name="companyname" />
+        <attribute name="telephone1" />
+        <attribute name="emailaddress1" />
+        <attribute name="createdon" />
+        <attribute name="jobtitle" />
+        <attribute name="new_neworextacct" />
+        <attribute name="new_influencelevel" />
+        <attribute name="new_contactlevel" />
+        <attribute name="new_existingaccount" />
+        <attribute name="new_noofemployeerange" />
+        <attribute name="campaignid" />
+        <attribute name="new_softtekvertical1" />
+        <attribute name="new_softtekmarketlead" />
+        <attribute name="new_softtekcountry" />
+        <attribute name="new_serviceoffering1" />
+        <attribute name="new_industrysofttek" />
+        <attribute name="ownerid" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <order attribute="subject" descending="false" />
+        <attribute name="new_leadsource" />
+        <attribute name="new_leadchannel" />
+        <attribute name="statuscode" />
+        <attribute name="statecode" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="subject" operator="like" value="{0}" />
+          <condition attribute="address1_stateorprovince" operator="like" value="{0}" />
+          <condition attribute="campaignid" operator="like" value="{0}" />
+          <condition attribute="new_softtekvertical1" operator="like" value="{0}" />
+          <condition attribute="new_softtekmarketlead" operator="like" value="{0}" />
+          <condition attribute="new_softtekcountry" operator="like" value="{0}" />
+          <condition attribute="new_serviceoffering1" operator="like" value="{0}" />
+          <condition attribute="leadqualitycode" operator="like" value="{0}" />
+          <condition attribute="ownerid" operator="like" value="{0}" />
+          <condition attribute="fullname" operator="like" value="{0}" />
+          <condition attribute="new_leadtype" operator="like" value="{0}" />
+          <condition attribute="leadsourcecode" operator="like" value="{0}" />
+          <condition attribute="new_leadchannel" operator="like" value="{0}" />
+          <condition attribute="jobtitle" operator="like" value="{0}" />
+          <condition attribute="new_influencelevel" operator="like" value="{0}" />
+          <condition attribute="new_industrysofttek" operator="like" value="{0}" />
+          <condition attribute="new_existingaccount" operator="like" value="{0}" />
+          <condition attribute="emailaddress1" operator="like" value="{0}" />
+          <condition attribute="description" operator="like" value="{0}" />
+          <condition attribute="address1_country" operator="like" value="{0}" />
+          <condition attribute="new_contactlevel" operator="like" value="{0}" />
+          <condition attribute="address1_city" operator="like" value="{0}" />
+          <condition attribute="companyname" operator="like" value="{0}" />
+          <condition attribute="new_accountid" operator="like" value="{0}" />
+        </filter>
+        <attribute name="leadid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All Leads" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de todos los clientes potenciales activos" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

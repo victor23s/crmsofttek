@@ -1,0 +1,50 @@
+/// <reference path="../FallTest/XrmServiceToolkit.js" />
+/// <reference path="new_fetchUtil.js" />
+
+/**
+ * @author jesse.zhang
+ */
+function Form_onload() {
+    if (Xrm.Page.getAttribute("new_estimatedrevenue").getValue() != null) {
+        disableFormFields();
+    }
+    else {
+        CreateButtonCRM4("new_retrievedatabutton", "Retrieve Data", 100, retrievedata_onclick);
+    }
+}
+
+function retrievedata_onclick() {
+    if (Xrm.Page.getAttribute("new_softtekmarket").getValue() != null && Xrm.Page.getAttribute("new_monthlyclosedate").getValue() != null) {
+        var entityName = 'opportunity';
+        var outputColumns = [new CRMField('estimatedvalue_base')];
+        var filters = [new FilterBy('statecode', LogicalOperator.Equal, "Open"), new FilterBy('new_forecaststatus', LogicalOperator.NotEqual, 100000000), new FilterBy('new_softtekmarket', LogicalOperator.Equal, Xrm.Page.getAttribute("new_softtekmarket").getValue())];
+        //var items = RetrieveRecords(entityName, outputColumns, filters);
+        var estRevenue = 0.00;
+        var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket").getValue();
+
+        var sFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0"><entity name="opportunity"><attribute name="name"/><attribute name="customerid"/><attribute name="estimatedvalue"/><attribute name="new_opportunityid"/><attribute name="statecode"/><attribute name="ownerid"/><attribute name="new_opportunitytypeopp"/><attribute name="estimatedclosedate"/><attribute name="actualvalue"/><attribute name="actualclosedate"/><attribute name="salesstagecode"/><attribute name="new_softtekmarket"/><attribute name="new_marketscope_opp"/><attribute name="new_forecaststatus"/><attribute name="new_softtekvertical1"/><attribute name="new_softtekcountryopp"/><attribute name="new_multiyearopp"/><attribute name="new_newcustomerinyear"/><attribute name="new_serviceoffering"/><attribute name="opportunityid"/><attribute name="estimatedvalue_base"/><order descending="false" attribute="name"/>-<filter type="and"><condition attribute="statecode" value="0" operator="eq"/><condition attribute="new_softtekmarket" value="' + optSofttekMarket + '" operator="eq"/><condition attribute="new_forecaststatus" value="100000000" operator="ne"/></filter></entity></fetch>';
+
+        var items = XrmServiceToolkit.Soap.Fetch(sFetch);
+        var estRevenue = 0;
+
+        for (i = 0; i < items.length; i++) {
+            if (items[i].attributes.estimatedvalue_base != null) {
+                //alert("i = " + i + "\nOpp Name = " + items[i].attributes.name.value + "\nEst Rev Base = " + items[i].attributes.estimatedvalue_base.value);
+                if (items[i].attributes.estimatedvalue_base.value != "" && items[i].attributes.estimatedvalue_base.value != null) {
+                    estRevenue += Number(items[i].attributes.estimatedvalue_base.value);
+                }
+            }
+        }
+
+        alert("Completed!");
+        Xrm.Page.getAttribute("new_estimatedrevenue").setValue(estRevenue);
+
+        var market = Xrm.Page.getAttribute("new_softtekmarket").getSelectedOption().text;
+        var date = new Date(Xrm.Page.getAttribute("new_monthlyclosedate").getValue());
+        var name = market + " - " + date.getFullYear() + " - " + (date.getMonth() + 1).toString();
+        Xrm.Page.getAttribute("new_name").setValue(name);
+    }
+    else {
+        alert("Please Fill 'Monthly Close Date' and 'Softtek Market' before retrieving data!")
+    }
+}

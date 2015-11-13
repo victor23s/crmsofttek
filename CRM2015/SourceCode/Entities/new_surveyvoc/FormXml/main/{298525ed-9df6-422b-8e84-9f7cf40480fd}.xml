@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{298525ed-9df6-422b-8e84-9f7cf40480fd}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form shownavigationbar="true">
+    <tabs>
+      <tab verticallayout="true" id="{4f0bbec0-a86b-4ef2-a8ae-27391032ac73}" IsUserDefined="1" labelid="{c8b309bb-d91c-472d-9e9d-ebc198c6b863}">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{68450db3-ac7d-4ae3-83dc-d833799a11b6}" labelid="{6849599c-e7de-41a0-9a9a-9aa72d14d937}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{4e9904bb-e808-4795-9ce6-d7c92dd71c1d}" showlabel="true" locklevel="0" colspan="1" labelid="{95fd3ce8-16a5-4ab1-8928-3fa3e7371d18}">
+                      <labels>
+                        <label description="Case ID" languagecode="1033" />
+                      </labels>
+                      <control id="new_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="new_name" disabled="true" />
+                    </cell>
+                    <cell id="{5182bd6b-834c-b189-7a58-491e6909e7b5}" showlabel="true" locklevel="0" colspan="1" labelid="{7c959551-dd65-4ede-b557-8dd02141bf97}">
+                      <labels>
+                        <label description="Case Name" languagecode="1033" />
+                      </labels>
+                      <control id="new_caseid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_caseid" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{9AC51863-58C7-49A0-ADCC-AFD9A4C3EE59}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ad57ea4d-b74e-1b0c-7594-0ce4978825cb}" showlabel="true" locklevel="0" colspan="2" rowspan="3">
+                      <labels>
+                        <label description="Description (Case)" languagecode="1033" />
+                      </labels>
+                      <control id="new_descriptioncase" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_descriptioncase" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{d0d2d31e-cdb3-dd2d-3875-3c999eecd606}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Account (Case)" languagecode="1033" />
+                      </labels>
+                      <control id="new_accountcase" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_accountcase" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell id="{10875bd5-501d-c777-0534-60b3a5b3319b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Opportunity (Case)" languagecode="1033" />
+                      </labels>
+                      <control id="new_opportunityvoc" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_opportunityvoc" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{9EB361B4-67AC-4830-8ABF-2D29EFBAEE2C}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{08a2cabb-3e8a-ee64-3ec1-eb149249723a}" showlabel="true" locklevel="0" colspan="2" rowspan="3">
+                      <labels>
+                        <label description="Description (Opportunity)" languagecode="1033" />
+                      </labels>
+                      <control id="new_descriptionopportunity" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_descriptionopportunity" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{d8e9c666-732d-bc23-2c1d-625d6031265d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Assigned To (Case)" languagecode="1033" />
+                      </labels>
+                      <control id="new_respondent" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="new_respondent" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell id="{bfbc2e76-c546-4163-8404-80a25cc42cba}" labelid="{c84fdfff-a98b-456f-afcd-76d142c14837}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Owner (Case)" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{034d6eab-a1e4-03cd-b1eb-a091d83b3c27}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Market" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekmarketsurveyvoc" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekmarketsurveyvoc" disabled="true" />
+                    </cell>
+                    <cell id="{4a83b07c-25d6-5d24-ad8c-c1bcee03d2b7}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Softtek Country" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekcountrysurveyvoc" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekcountrysurveyvoc" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b1a4cbb7-72e9-b1d5-414e-ca132896757b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Market Scope" languagecode="1033" />
+                      </labels>
+                      <control id="new_marketscopesurveyvoc" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_marketscopesurveyvoc" disabled="true" />
+                    </cell>
+                    <cell id="{01a08ade-e1d8-5019-7504-55864ca9ae52}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Sofftek Vertical" languagecode="1033" />
+                      </labels>
+                      <control id="new_sofftekverticalsurveyvoc" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_sofftekverticalsurveyvoc" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c77da09d-40e9-d7c2-5449-b963b34d5433}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Service Offering" languagecode="1033" />
+                      </labels>
+                      <control id="new_serviceofferingsurveyvoc" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_serviceofferingsurveyvoc" disabled="true" />
+                    </cell>
+                    <cell id="{595213b8-b6be-88bc-5b4a-877e5c990ce2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Service Offering Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_serviceofferingtypesurveyvoc" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_serviceofferingtypesurveyvoc" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{0b444749-2a14-4702-780c-970a244356cb}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Survey Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_language" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_language" disabled="true" />
+                    </cell>
+                    <cell id="{883372dc-9b41-5028-4e4c-5d16ce532343}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Case Type" languagecode="1033" />
+                      </labels>
+                      <control id="new_casetypesurveyvoc" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_casetypesurveyvoc" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{41eaad0e-1893-3a10-db2a-4a264b609430}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Created On (Case)" languagecode="1033" />
+                      </labels>
+                      <control id="new_createdoncase" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="new_createdoncase" disabled="true" />
+                    </cell>
+                    <cell id="{96e0aeed-7c18-9682-80cc-b8250e321270}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Responded On (Survey)" languagecode="1033" />
+                        <label description="Fecha de creación" languagecode="3082" />
+                      </labels>
+                      <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ca906d59-a49b-4555-868e-9c7a7b526226}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Completed On (Case)" languagecode="1033" />
+                      </labels>
+                      <control id="new_closedoncase" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="new_closedoncase" disabled="true" />
+                    </cell>
+                    <cell id="{a55a268e-2ad6-266d-7eb5-1b9113d20d1c}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="tab_2" id="{acbb9099-2d06-0483-531e-7edcbaa2b17d}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="Survey 1 (Support)" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_2_section_3" showlabel="false" showbar="false" locklevel="0" id="{a6b9b932-4cb2-5520-c5ad-34a8b6ad2b2d}" IsUserDefined="0" layout="varwidth" columns="1111" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{9bde564c-2755-1934-c283-c262b8c59bb0}" showlabel="true" locklevel="0" colspan="1">
+                      <labels>
+                        <label description="Question 1: Subject Matter Expertise" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsequestion1" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsequestion1" disabled="true" />
+                    </cell>
+                    <cell id="{4a3baa63-adc7-07e7-7adc-9600c0d75ab2}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{6d93e9d9-9226-b608-9058-6a2ae5a5adb0}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{38bd08ac-4078-7352-4486-a0d9150b4629}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Responses Average" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsesaveragesurvey1" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsesaveragesurvey1" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4709cd92-3e55-1597-0844-a60ba490e06c}" showlabel="true" locklevel="0" rowspan="3" colspan="4">
+                      <labels>
+                        <label description="Comments" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsecomments" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_responsecomments" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{b4b4b8dd-68d5-800a-81ce-79be8b6dce90}" showlabel="true" locklevel="0" colspan="1">
+                      <labels>
+                        <label description="Question 2: Presentation Skills" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsedecimal" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsedecimal" disabled="true" />
+                    </cell>
+                    <cell id="{ddecc1cb-ee99-846b-09e6-9b2869018b99}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{31d1eee4-8859-559c-bb1a-39c820cc1b08}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{38131a83-cb6a-7e99-a0e2-a371471c5cc9}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8157890b-b110-7740-d520-be4ca278c72b}" showlabel="true" locklevel="0" colspan="4" rowspan="3">
+                      <labels>
+                        <label description="Comments" languagecode="1033" />
+                      </labels>
+                      <control id="new_commentsquestion2" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_commentsquestion2" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{7bc57ae4-71e1-d8e9-35e7-455d80bb162c}" showlabel="true" locklevel="0" colspan="1">
+                      <labels>
+                        <label description="Question 3: Ability to gain Client's Trust" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsequestion3" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsequestion3" disabled="true" />
+                    </cell>
+                    <cell id="{649ea5ae-6be4-4a22-54ee-04e327e5842e}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{b1a009c3-24a5-8983-6109-e3c18cb3eb6e}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c411ae8e-d0e7-58a5-e31e-5682d46ac132}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{75beca45-a429-e62e-b90e-abe360a994e1}" showlabel="true" locklevel="0" colspan="4" rowspan="3">
+                      <labels>
+                        <label description="Comments" languagecode="1033" />
+                      </labels>
+                      <control id="new_commentsquestion3" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_commentsquestion3" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{9504d41a-1aeb-ec26-e074-85d0ca117d24}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Question 4: Overall Value provided to Sales Team" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsequestion4" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsequestion4" disabled="true" />
+                    </cell>
+                    <cell id="{1b00b252-e0cb-8b86-a786-1725099c894b}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{a17548dd-b95e-a41e-3baa-7c2b34607458}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{816e3b49-7162-c354-1742-45723131675b}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{86756014-0c52-c507-8921-15e65e968160}" showlabel="true" locklevel="0" colspan="4" rowspan="3">
+                      <labels>
+                        <label description="Comments" languagecode="1033" />
+                      </labels>
+                      <control id="new_commentsquestion4" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_commentsquestion4" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                </rows>
+              </section>
+              <section name="tab_2_section_6" showlabel="true" showbar="true" locklevel="0" id="{ecaa05ea-43a4-4991-b658-85c57008ea54}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Additional comments or suggestions" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{61ce23d9-8240-80ea-dc4a-8bcb83499a65}" showlabel="false" locklevel="0" rowspan="3">
+                      <labels>
+                        <label description="Aditional Comments (Survey1)" languagecode="1033" />
+                      </labels>
+                      <control id="new_aditionalcomments" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_aditionalcomments" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="tab_3" id="{d8d4e112-e605-d145-378b-9e971bb5c13d}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="Survey 2 (Proposal)" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_3_section_1" showlabel="false" showbar="false" locklevel="0" id="{b2797518-cc93-6569-475d-c011c0323864}" IsUserDefined="0" layout="varwidth" columns="1111" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{409c6dab-06da-d5ae-2db8-200db1589042}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Question 1: Value and Innovation of Solution Provided" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsequestion1survey2" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsequestion1survey2" disabled="true" />
+                    </cell>
+                    <cell id="{369005eb-c210-8a07-a253-579d83591e76}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{296041d6-7e2c-c66d-a407-47a10496ecb7}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{da4aa6eb-9d53-b298-eb13-7760139ac37b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Responses Average" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsesaveragesurvey2" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsesaveragesurvey2" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{6b3ee02c-227b-ea7b-a05b-e4eb74222e89}" showlabel="true" locklevel="0" colspan="4" rowspan="3">
+                      <labels>
+                        <label description="Comments" languagecode="1033" />
+                      </labels>
+                      <control id="new_commentsquestion1survey2" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_commentsquestion1survey2" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{131083ca-6100-3630-7c64-8a118479e8e2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Question 2: Compliance with Client's Technical Reqs" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsequestion2survey2" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsequestion2survey2" disabled="true" />
+                    </cell>
+                    <cell id="{5c163369-c0ae-8c33-c6e8-526ae251be38}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{1a187752-4854-4344-17ec-3c240431281c}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{296d6897-5d55-1262-a3db-eae516a5a1b1}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ba35686c-c5c3-8d86-ebb0-9a3ab3409075}" showlabel="true" locklevel="0" colspan="4" rowspan="3">
+                      <labels>
+                        <label description="Comments" languagecode="1033" />
+                      </labels>
+                      <control id="new_commentsquestion2survey2" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_commentsquestion2survey2" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{5cb48d78-96dc-0474-0106-649b4e2d54d8}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Question 3: Document Quality" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsequestion3survey2" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsequestion3survey2" disabled="true" />
+                    </cell>
+                    <cell id="{79e7cd82-b286-a1a9-ad11-db33c82b75ab}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{e15e9301-8cc2-ed5d-eaba-92d3a8de3376}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{5a49d137-c1de-bde1-b7ed-4c4ce1657a13}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5544061c-ab8b-1b0c-1925-7a8b2cc7e95e}" showlabel="true" locklevel="0" colspan="4" rowspan="3">
+                      <labels>
+                        <label description="Comments" languagecode="1033" />
+                      </labels>
+                      <control id="new_commentsquestion3survey2" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_commentsquestion3survey2" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row>
+                    <cell id="{19ad2680-1e01-6793-4914-3eebe7be359d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Question 4: Meeting Client's Business Needs" languagecode="1033" />
+                      </labels>
+                      <control id="new_responsequestion4survey2" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_responsequestion4survey2" disabled="true" />
+                    </cell>
+                    <cell id="{e4b45ebb-2d62-e09d-a3ce-6c9a668b9c36}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{25d79a4a-81ea-0846-6142-acac69d8b676}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{93877dd7-3c05-499d-a58b-cb1cd6357cc5}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b334bb95-9433-3107-6ec9-ab64894253ba}" showlabel="true" locklevel="0" colspan="4" rowspan="3">
+                      <labels>
+                        <label description="Comments" languagecode="1033" />
+                      </labels>
+                      <control id="new_commentsquestion4survey2" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_commentsquestion4survey2" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                </rows>
+              </section>
+              <section name="tab_3_section_2" showlabel="true" showbar="true" locklevel="0" id="{a4dbb6a7-b768-cc1a-6e31-063b89e54091}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Additional comments or suggestions" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{eb230447-0ae7-5a40-0420-5ab466ae5719}" showlabel="false" locklevel="0" rowspan="3">
+                      <labels>
+                        <label description="Aditional Comments (Survey2)" languagecode="1033" />
+                      </labels>
+                      <control id="new_aditionalcommentssurvey2" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="new_aditionalcommentssurvey2" disabled="true" />
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <header id="{8a442bc7-7a30-4517-b9f1-800da339e77c}" columns="111">
+      <rows>
+        <row>
+          <cell id="{3a594b7e-71ba-6493-9712-83c3b2c64431}" showlabel="true" locklevel="0" labelid="{b8457202-b8de-415a-9d3c-cc9c1915215a}">
+            <labels>
+              <label description="Created On" languagecode="1033" />
+              <label description="Fecha de creación" languagecode="3082" />
+            </labels>
+            <control id="header_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" />
+          </cell>
+          <cell id="{c9d46101-345e-2845-63e0-9799262c3ea0}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Survey Type" languagecode="1033" />
+            </labels>
+            <control id="header_new_language" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_language" disabled="true" />
+          </cell>
+          <cell id="{33bee0e3-3418-4c2e-2c53-9a7481e22c25}" showlabel="true" locklevel="0" labelid="{dffcfc65-f264-4e6c-bbea-efb78997142f}">
+            <labels>
+              <label description="Created By" languagecode="1033" />
+              <label description="Autor" languagecode="3082" />
+            </labels>
+            <control id="header_createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="true" />
+          </cell>
+        </row>
+      </rows>
+    </header>
+    <footer id="{483d0f69-3c2d-4a00-bc53-edc6cabe3326}">
+      <rows>
+        <row>
+          <cell id="{8c6c9fc8-fc06-4cdb-a0c1-934bf2d25d80}" labelid="{1bf29968-19da-49f9-ac0e-733d2ae981eb}">
+            <labels>
+              <label description="Status" languagecode="1033" />
+              <label description="Estado" languagecode="3082" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <formLibraries>
+      <Library name="new_HideTabsSurvey" libraryUniqueId="{9a05998d-18b9-1de1-08e4-92260ac66206}" />
+    </formLibraries>
+    <events>
+      <event name="onload" application="false" active="false">
+        <Handlers>
+          <Handler functionName="setVisibleTabs" libraryName="new_HideTabsSurvey" handlerUniqueId="{a8010a96-805a-c809-206b-30649a12bd9a}" enabled="true" parameters="" passExecutionContext="false" />
+          <Handler handlerUniqueId="{bb05ae25-6b89-58ea-8a94-29031b07cbb8}" functionName="eventHandlerOfField" libraryName="new_HideTabsSurvey" enabled="true" passExecutionContext="false" parameters="" />
+          <Handler functionName="setResponseAverageOfSurvey" libraryName="new_HideTabsSurvey" handlerUniqueId="{a9429eb3-7d2a-9d23-deee-6e94edd3063e}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+      <event name="onchange" application="false" active="false" attribute="new_language">
+        <Handlers>
+          <Handler functionName="setVisibleTabs" libraryName="new_HideTabsSurvey" handlerUniqueId="{55dd5dea-2b82-e598-9d18-c01a6027c05d}" enabled="true" parameters="" passExecutionContext="false" />
+        </Handlers>
+      </event>
+    </events>
+    <DisplayConditions Order="1">
+      <Everyone />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

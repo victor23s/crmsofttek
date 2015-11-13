@@ -1,0 +1,1 @@
+﻿<template><text><![CDATA[<font size=2 face="Tahoma, Verdana, Arial">Estimado ]]></text><slugs><slug><entity>account</entity><attribute>ownerid/@name</attribute></slug><default>a customer service representative</default></slugs><text><![CDATA[, su cuenta ha sufrido una modificación. Por favor verificar la misma.</font>]]></text></template>

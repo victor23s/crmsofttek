@@ -1,0 +1,356 @@
+/// <reference path="XrmPageTemplate.js" />
+/// <reference path="new_softtek_scripts_util_dynamicform.js" />
+/// <reference path="new_XrmServiceToolkit" />
+var SOToptions;
+var SVoptions;
+var BCOptions;
+
+function SaveQuote() {
+    Xrm.Page.data.save().then(
+        function() {
+            alert('The record was saved  successfully');
+
+            location.reload();
+
+        },
+        function() {
+            alert('Save failed!');
+        });
+}
+
+function SaveLegal() {
+    if (Xrm.Page.getAttribute("new_reload").getValue() == false) {
+        SaveAndClose();
+    } else {
+
+        SaveQuote();
+    }
+
+}
+
+function FieldsRequiredCases() {
+    var _title = Xrm.Page.getAttribute("title").getValue();
+    var _casetype = Xrm.Page.getAttribute("new_casetypecase").getValue();
+    var _duedate = Xrm.Page.getAttribute("new_duedatecase").getValue();
+    var _owner = Xrm.Page.getAttribute("ownerid").getValue();
+    var _description = Xrm.Page.getAttribute("description").getValue();
+    //var _title = Xrm.Page.getAttribute("title").getValue();
+    if (_title == null || _casetype == null || _duedate == null || _owner == null || _description == null || _description == "") return false;
+    else return true;
+
+}
+
+function SaveCases() {
+
+    //Xrm.Page.data.entity.save("save");
+    var cansave = FieldsRequiredCases();
+    if (cansave == true) {
+        if (Xrm.Page.ui.getFormType() == 1) {
+            alert('The record was saved  successfully');
+            SaveAndClose();
+        } else {
+
+            SaveQuote();
+        }
+    } else Xrm.Page.data.entity.save("save");
+
+}
+
+function getFreshValue(fieldName) {
+    var id = fieldName + '_i';
+    var inputElement = document.getElementById(id);
+    if (inputElement !== null) { //At the moment when you focus the field first, the input element get generated.(at least on CRM 2013)
+        //if(inputElement.value != "undefined")
+        return inputElement.value;
+    } else {
+        if (Xrm.Page.getAttribute(fieldName).getValue() == null) {
+            return "";
+        }
+        return Xrm.Page.getAttribute(fieldName).getValue(); //The value is not modified if the input element doesn't exist.
+    }
+}
+
+function MandatoryPopulated() {
+    populated = true;
+
+    Xrm.Page.getAttribute(function(attribute, index) {
+        if (attribute.getRequiredLevel() == "required") {
+
+            if (getFreshValue(attribute.getName().toString()) === "") {
+                populated = false;
+                return populated;
+            }
+
+        }
+    });
+
+    return populated;
+}
+
+function SaveRefresh() {
+    var cansave = MandatoryPopulated();
+    if (cansave == true) {
+        if (Xrm.Page.ui.getFormType() == 1) {
+            alert('The record was saved  successfully');
+            SaveAndClose();
+        } else {
+
+            SaveQuote();
+        }
+    } else Xrm.Page.data.entity.save("save");
+}
+
+function SaveRefreshQuote() {
+    var quoteLibrary = '/WebResources/Quote_main_library.js';
+    var url = Xrm.Page.context.getClientUrl() + quoteLibrary;
+    LoadScript(url);
+    var cansave = MandatoryPopulated();
+    if (cansave == true) {
+        if (Xrm.Page.ui.getFormType() == 1) {
+            alert('The record was saved  successfully');
+            SaveAndClose();
+            UpdateOppDate();
+        } else {
+            SaveQuote();
+            UpdateOppDate();
+        }
+    } else Xrm.Page.data.entity.save("save");
+}
+
+function SaveRefreshOrders() {
+    debugger;
+    var Startdate = Xrm.Page.getAttribute("new_eststartdate").getValue();
+    var Enddate = Xrm.Page.getAttribute("new_estenddate").getValue();
+    var cansave = MandatoryPopulated();
+    if (cansave == true) {
+        if ((Startdate != null && Enddate != null) && (Enddate < Startdate)) {
+            alert("The 'Est End Date' cannot be before the 'Est Start Date'. Please verify");
+        } else {
+            if (Xrm.Page.ui.getFormType() == 1) {
+                alert('The record was saved  successfully');
+                SaveAndClose();
+            } else {
+
+                SaveQuote();
+            }
+        }
+    } else Xrm.Page.data.entity.save("save");
+}
+
+function SaveRefreshLS() {
+    var Startdate = Xrm.Page.getAttribute("new_eststartdate").getValue();
+    var Enddate = Xrm.Page.getAttribute("new_estenddate").getValue();
+    var cansave = MandatoryPopulated();
+    if (cansave == true) {
+        if (Startdate != null && Enddate != null && Enddate < Startdate) {
+            alert("The 'Est End Date' cannot be before the 'Est Start Date'. Please verify");
+        } else {
+            if (Xrm.Page.ui.getFormType() == 1) {
+                alert('The record was saved  successfully');
+                SaveAndClose();
+            } else {
+
+                SaveQuote();
+            }
+        }
+    } else Xrm.Page.data.entity.save("save");
+}
+
+function SavePO() {
+    var cansave = MandatoryPopulated();
+    if (cansave == true) {
+        var dateFrom = Xrm.Page.getAttribute("new_frompo").getValue();
+        var dateTo = Xrm.Page.getAttribute("new_topo").getValue();
+        if (dateTo < dateFrom)
+            alert("The 'To' date cannot be before the 'From' date. Please verify");
+        else {
+            if (Xrm.Page.ui.getFormType() == 1) {
+                alert('The record was saved  successfully');
+                SaveAndClose();
+            } else {
+                SaveQuote();
+            }
+        }
+    } else Xrm.Page.data.entity.save("save");
+}
+
+
+function SaveRefreshForecast() {
+    var cansave = MandatoryPopulated();
+    LoadScript("https://onesofttekdev.crm.dynamics.com//WebResources/new_softtek_scripts_util_dynamicform");
+    //LoadScript()
+    //LoadScript()
+    if (cansave == true) {
+        var result = ValidateProjectIDForecast();
+        if (result) {
+            if (Xrm.Page.ui.getFormType() == 1) {
+                alert('The record was saved  successfully');
+                SaveAndClose();
+            } else {
+
+                SaveQuote();
+            }
+        }
+    } else Xrm.Page.data.entity.save("save");
+}
+
+function ValidateProjectIDForecast() {
+    var selectedSofttekMarket = Xrm.Page.getAttribute("new_softtekmarket").getSelectedOption();
+    var projectID = document.getElementById('new_projectid_i').value; //Xrm.Page.getAttribute("new_projectid").getValue();
+    var result = true;
+    if (typeof(projectID) != 'undefined' || projectID != null || projectID != '') {
+        /* Validate 1-0000000000 or 2-0000000000 for USA, MEX & Cloud (using SAP) and ABCDE99 for the rest (using Intrasoft) */
+        //validation to Europe is included here as a 1-0000000005
+        if (selectedSofttekMarket.value == "100000000" || selectedSofttekMarket.value == "100000001" || selectedSofttekMarket.value == "100000006" || selectedSofttekMarket.value == "100000005") {
+            if (projectID.match(/\b[1-2]-\d{10}\b/g) == null) {
+                var message = "The Format of Project ID is not correct! Valid Format: 1-0000000000";
+                alert(message);
+                Xrm.Page.getAttribute("new_projectid").setValue(null);
+                result = false;
+            }
+        } else {
+            if (projectID.match(/\b[A-Z]{5}\d{2}\b/g) == null) {
+                var message = "The Format of Project ID is not correct! Valid Format: ABCDE99";
+                alert(message);
+                Xrm.Page.getAttribute("new_projectid").setValue(null);
+                result = false;
+            }
+        }
+    }
+    return result;
+}
+
+function SetStatus() {
+    Xrm.Page.getAttribute("new_statusreason").setValue(100000014);
+    Xrm.Page.getAttribute("new_statusreason").setSubmitMode("always");
+}
+
+function CancelOrder() {
+    var StatusCode = Xrm.Page.getAttribute("statuscode").getValue();
+    alert(StatusCode);
+    //Xrm.Page.getAttribute("new_statusreason").setSubmitMode("always");
+}
+
+function SaveAndClose() {
+    Xrm.Page.data.entity.save("saveandclose");
+}
+
+function ValDate() {
+    var startDate = Xrm.Page.getAttribute("new_frompo");
+    var endDate = Xrm.Page.getAttribute("new_topo");
+    if (startDate.getValue() > endDate.getValue()) {
+        alert("Start Date is greater than End Date!");
+        endDate.setValue(null);
+    }
+}
+
+function LoadScript(src) {
+    //var src = 'https://softtek.crm.dynamics.com//WebResources/new_XrmServiceToolkit';
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = src;
+    head.appendChild(script);
+}
+
+function SubmitSW() {
+var OpportunityId = Xrm.Page.getAttribute("opportunityid").getValue()[0].id;
+    var submitToSW = Xrm.Page.getAttribute("new_submitsw").getValue();
+    var statusReason = Xrm.Page.getAttribute("statuscode").getValue();
+    var documentUrl = Xrm.Page.getAttribute("new_documenturllink").getValue();  
+    var sFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="new_revenueplanning"><attribute name="new_revenueplanningid"/>' +
+        '<attribute name="new_year"/><attribute name="new_tot_year"/><attribute name="new_revenue"/><attribute name="new_rev_12"/><attribute name="new_rev_11"/>' +
+        '<attribute name="new_rev_10"/><attribute name="new_rev_09"/><attribute name="new_rev_08"/><attribute name="new_rev_07"/><attribute name="new_rev_06"/>' +
+        '<attribute name="new_rev_05"/><attribute name="new_rev_04"/><attribute name="new_rev_03"/><attribute name="new_rev_02"/><attribute name="new_rev_01"/>' +
+        '<attribute name="new_oppid"/><attribute name="new_duration"/><order descending="false" attribute="new_year"/>-<filter type="and">' +
+        '<condition attribute="new_oppid" value="' + OpportunityId + '" uitype="opportunity"  operator="eq"/></filter></entity></fetch>';	
+	var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarketquote").getValue();
+     if (statusReason == 1 && documentUrl == null){
+        Xrm.Page.getAttribute("new_documenturllink").setRequiredLevel("required");
+		Xrm.Page.data.entity.save("save");
+     }
+        
+    else{ 
+	      if ( optSofttekMarket == 100000000 )
+	      {
+	      	  if (detail.length > 0 )
+			  {
+			  	  Xrm.Page.getAttribute("new_submitsw").setValue(true);
+			      SaveAndClose();
+			  }				
+		      else {
+				//checking the condition revenue planning, submit option and assignedto this apply only with usa & canada market 
+				alert("The Quote can´t be submitted to Single Window because Revenue Planning is missing.");
+				Xrm.Page.getAttribute("new_submitsw").setValue(false);
+			  }
+		      //Xrm.Page.data.entity.save("save");
+	      }			  
+		  else
+		  {
+			  Xrm.Page.data.entity.save("save");
+			  Xrm.Page.getAttribute("new_submitsw").setValue(true);
+		  }
+        Xrm.Page.getAttribute("new_documenturllink").setRequiredLevel("none");
+    }
+}
+
+function IsInProgress()
+{
+    var statusReason = Xrm.Page.getAttribute("statuscode").getValue();
+    if(statusReason == 1)
+        return true;
+    else
+        return false;
+}
+
+function IsSubmitted()
+{
+    var statusReason = Xrm.Page.getAttribute("statuscode").getValue();
+    if(statusReason == 100000001) {
+		var salesApprover = Xrm.Page.getAttribute("new_admapprover").getValue();
+		var operationsApprover = Xrm.Page.getAttribute("new_cooaprover").getValue();
+		var financeApprover = Xrm.Page.getAttribute("new_finalapprover").getValue()
+		if(salesApprover != null && operationsApprover != null && financeApprover != null)
+			return true;
+		else
+			return false;
+	}    
+    else
+        return false;
+}
+
+function SendToApprove()
+{
+	var salesApprover = Xrm.Page.getAttribute("new_admapprover").getValue();
+	var operationsApprover = Xrm.Page.getAttribute("new_cooaprover").getValue();
+	var financeApprover = Xrm.Page.getAttribute("new_finalapprover").getValue();
+ 
+    Xrm.Page.getAttribute("new_sendtoapprove").setValue(true);
+	Xrm.Page.getAttribute("new_assignedto").setRequiredLevel("required");
+	if (Xrm.Page.getAttribute("new_assignedto").getValue()!=null) {
+		if (salesApprover == null || operationsApprover == null || financeApprover == null ){
+			var textMessage = 'The Quote cannot be submitted for approval. Please fill the following fields:';
+			if (salesApprover == null)
+				textMessage += '\nSales Approver.';
+			if (operationsApprover == null)
+				textMessage += '\nOperations Approver.';
+			if( financeApprover == null)
+				textMessage += '\nFinance Approver.';
+			alert(textMessage);
+		} else {
+			var setUservalue = [];
+			  setUservalue[0] = {};
+			  setUservalue[0].id = Xrm.Page.context.getUserId().replace("{", "").replace("}", "");
+			  setUservalue[0].entityType = 'systemuser'; 
+			  setUservalue[0].name = Xrm.Page.context.getUserName();
+			Xrm.Page.getAttribute("new_submittedby").setValue(setUservalue)
+			Xrm.Page.getAttribute("new_submittedon").setValue(new Date());
+			Xrm.Page.getAttribute("new_submittedby").setSubmitMode("always");
+			Xrm.Page.getAttribute("new_submittedon").setSubmitMode("always");
+			SaveAndClose();
+		}
+	}
+	else
+		Xrm.Page.data.entity.save("save");
+}

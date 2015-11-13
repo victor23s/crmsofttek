@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4201</returnedtypecode>
+  <savedqueryid>{5b5f75f6-b585-4212-952a-b4cbb64e2627}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4201" jump="subject" select="1" preview="1" icon="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="100" />
+        <cell name="requiredattendees" disableSorting="1" width="150" />
+        <cell name="prioritycode" width="100" />
+        <cell name="scheduledstart" width="100" />
+        <cell name="scheduledend" width="100" />
+        <cell name="location" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="new_appointmenttype" width="100" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="appointment">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="regardingobjectid" />
+        <attribute name="requiredattendees" />
+        <attribute name="prioritycode" />
+        <attribute name="scheduledstart" />
+        <attribute name="scheduledend" />
+        <attribute name="location" />
+        <attribute name="statecode" />
+        <attribute name="ownerid" />
+        <attribute name="new_appointmenttype" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Appointments" languagecode="1033" />
+    <LocalizedName description="Todas las citas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

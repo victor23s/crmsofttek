@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{c4bbcc9e-5d71-e211-bd08-78e7d162ce29}</WebResourceId>
+  <Name>new_lookupUtility</Name>
+  <DisplayName>Lookup Utility</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_lookupUtilityC4BBCC9E-5D71-E211-BD08-78E7D162CE29</FileName>
+</WebResource>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard unmodified="1">
+  <LocalizedNames>
+    <LocalizedName description="Server-Side Synchronization Performance" languagecode="1033" />
+    <LocalizedName description="Rendimiento de la sincronización del lado del servidor" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the overview of server-side synchronization including mailbox status, performance, and health. This information is useful for troubleshooting." languagecode="1033" />
+    <Description description="Muestra información general sobre la sincronización del lado del servidor, incluidos el estado, el rendimiento y la condición del buzón. Esta información es de utilidad a la hora de realizar la solución de problemas." languagecode="3082" />
+  </Descriptions>
+  <FormId>{c378c42a-ed4d-4f60-9d17-f71b8bfb91df}</FormId>
+</Dashboard>

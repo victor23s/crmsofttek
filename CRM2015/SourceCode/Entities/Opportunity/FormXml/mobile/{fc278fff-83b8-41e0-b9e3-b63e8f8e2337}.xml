@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{fc278fff-83b8-41e0-b9e3-b63e8f8e2337}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{21c8951e-4e81-411f-a2a6-fcfffbf58da6}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{190f6e6b-0ddb-453a-8f65-67eb4d4014a9}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{140273ff-ee76-4ea3-b981-8297d2ae5bdd}">
+                      <labels>
+                        <label description="Opportunity Name" languagecode="1033" />
+                        <label description="Tema" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" disabled="false" />
+                    </cell>
+                    <cell id="{8d9f405f-be90-4baa-92f0-c92c61a5acbd}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                    <cell id="{0c8e250e-378f-4c8c-8726-b031a0d14469}">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{DFEE5CE1-157A-4D37-BCC1-A0ADFD4DA07B}">
+                      <labels>
+                        <label description="Est. Revenue" languagecode="1033" />
+                        <label description="Ingresos estimados" languagecode="3082" />
+                      </labels>
+                      <control id="estimatedvalue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="estimatedvalue" disabled="false" />
+                    </cell>
+                    <cell id="{369FF712-C3C6-45FA-A0C0-C29F437962D9}">
+                      <labels>
+                        <label description="Est. Close Date" languagecode="1033" />
+                        <label description="Fecha estimada de cierre" languagecode="3082" />
+                      </labels>
+                      <control id="estimatedclosedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="estimatedclosedate" disabled="false" />
+                    </cell>
+                    <cell id="{D67857BD-FC9B-479F-8CD7-0C4153C147BB}">
+                      <labels>
+                        <label description="Est. Revenue" languagecode="1033" />
+                        <label description="Ingresos estimados" languagecode="3082" />
+                      </labels>
+                      <control id="estimatedvalue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="estimatedvalue" disabled="true" />
+                    </cell>
+                    <cell id="{b060b296-dc85-42eb-91e2-6c75ad26dcd7}">
+                      <labels>
+                        <label description="Currency" languagecode="1033" />
+                        <label description="Divisa" languagecode="3082" />
+                      </labels>
+                      <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false" />
+                    </cell>
+                    <cell id="{134951A9-85D6-4930-AB56-6DBE8C63599F}">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" />
+                    </cell>
+                    <cell id="{8A24A465-8036-429F-B739-3A8C3AC2D833}">
+                      <labels>
+                        <label description="Account" languagecode="1033" />
+                        <label description="Cuenta" languagecode="3082" />
+                      </labels>
+                      <control id="parentaccountid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentaccountid" disabled="false" />
+                    </cell>
+                    <cell id="{F99AED22-6766-421A-8534-0CFD9ED40725}">
+                      <labels>
+                        <label description="Contact" languagecode="1033" />
+                        <label description="Contacto" languagecode="3082" />
+                      </labels>
+                      <control id="parentcontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentcontactid" disabled="false" />
+                    </cell>
+                    <cell id="{AF6589BE-76E9-4D48-924E-A674BBC44DFF}">
+                      <labels>
+                        <label description="Softtek Vertical" languagecode="1033" />
+                      </labels>
+                      <control id="new_softtekvertical1" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_softtekvertical1" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

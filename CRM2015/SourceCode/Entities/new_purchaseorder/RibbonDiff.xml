@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_purchaseorder.Save.Hide" Location="Mscrm.Form.new_purchaseorder.Save" />
+    <CustomAction Id="new.Mscrm.new_purchaseorder.form.CancelPO.Button.CustomAction" Location="Mscrm.Form.new_purchaseorder.MainTab.Actions.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Command="Mscrm.new_purchaseorder.form.CancelPO.Command" Id="Mscrm.new_purchaseorder.form.CancelPO.Button" Image32by32="$webresource:new_poclose32" Image16by16="$webresource:new_poclose16" LabelText="$LocLabels:Mscrm.new_purchaseorder.form.CancelPO.Button.LabelText" Sequence="0" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.new_purchaseorder.form.CancelPO.Button.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.new_purchaseorder.form.CancelPO.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.new_purchaseorder.form.CompletePO.Button.CustomAction" Location="Mscrm.Form.new_purchaseorder.MainTab.Actions.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Command="Mscrm.new_purchaseorder.form.CompletePO.Command" Id="Mscrm.new_purchaseorder.form.CompletePO.Button" Image32by32="/_imgs/SFA/ActivateQuote_32.png" Image16by16="/_imgs/SFA/ActivateQuote_16.png" LabelText="$LocLabels:Mscrm.new_purchaseorder.form.CompletePO.Button.LabelText" Sequence="0" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.new_purchaseorder.form.CompletePO.Button.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.new_purchaseorder.form.CompletePO.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.new_purchaseorder.form.SubmitToSW.Button.CustomAction" Location="Mscrm.Form.new_purchaseorder.MainTab.Actions.Controls._children" Sequence="0">
+      <CommandUIDefinition>
+        <Button Command="Mscrm.new_purchaseorder.form.SubmitToSW.Command" Id="Mscrm.new_purchaseorder.form.SubmitToSW.Button" Image32by32="$webresource:new_check32" Image16by16="$webresource:new_check16" LabelText="$LocLabels:Mscrm.new_purchaseorder.form.SubmitToSW.Button.LabelText" Sequence="0" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.new_purchaseorder.form.SubmitToSW.Button.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.new_purchaseorder.form.SubmitToSW.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_purchaseorder.Button1.Button.CustomAction" Location="Mscrm.Form.new_purchaseorder.MainTab.Save.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_purchaseorder.Button1.Button.Alt" Command="new.new_purchaseorder.SavePO.Command" Description="Save" Id="new.new_purchaseorder.Button1.Button" Image32by32="$webresource:new_Save32x" Image16by16="$webresource:new_Save16x" LabelText="$LocLabels:new.new_purchaseorder.Button1.Button.LabelText" Sequence="15" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.new_purchaseorder.Button1.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_purchaseorder.Button1.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="Ventan.Mscrm.Form.new_purchaseorder.Deactivate.HideAction" Location="Mscrm.Form.new_purchaseorder.Deactivate" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.HomepageGrid.new_purchaseorder.Activate.HideAction" Location="Mscrm.HomepageGrid.new_purchaseorder.Activate" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.HomepageGrid.new_purchaseorder.Deactivate.HideAction" Location="Mscrm.HomepageGrid.new_purchaseorder.Deactivate" />
+    <HideCustomAction HideActionId="Ventan.Mscrm.HomepageGrid.new_purchaseorder.NewRecord.HideAction" Location="Mscrm.HomepageGrid.new_purchaseorder.NewRecord" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.new_purchaseorder.form.CancelPO.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.new_purchaseorder.form.NotSubmitted.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.new_purchaseorder.form.FormStateNotNew.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="CancelPO" Library="$webresource:new_PurchaseOrderJS" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.new_purchaseorder.form.CompletePO.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.new_purchaseorder.form.NotSubmitted.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.new_purchaseorder.form.FormStateNotNew.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="CompletePO" Library="$webresource:new_PurchaseOrderJS" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.new_purchaseorder.form.SubmitToSW.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.new_purchaseorder.form.ValidateSW.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.new_purchaseorder.form.FormStateNotNew.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SubmitSWPO" Library="$webresource:new_PurchaseOrderJS" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_purchaseorder.SavePO.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="SavePO" Library="$webresource:new_QuoteSave" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.new_purchaseorder.form.FormStateNotNew.DisplayRule">
+        <FormStateRule State="Create" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="new.new_purchaseorder.EnableRecord.DisplayRule">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.new_purchaseorder.form.NotSubmitted.EnableRule">
+        <FormStateRule State="Existing" InvertResult="false" />
+        <ValueRule Field="new_submitpo" Value="false" Default="false" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.new_purchaseorder.form.ValidateSW.EnableRule">
+        <ValueRule Field="new_submitpo" Value="true" Default="false" InvertResult="true" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="Mscrm.new_purchaseorder.form.CancelPO.Button.LabelText">
+      <Titles>
+        <Title description="Cancel PO" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.new_purchaseorder.form.CancelPO.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Mark this Purchase Order as Cancelled" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.new_purchaseorder.form.CancelPO.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Cancel PO" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.new_purchaseorder.form.CompletePO.Button.LabelText">
+      <Titles>
+        <Title description="Complete PO" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.new_purchaseorder.form.CompletePO.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Mark this Purchase Order as Completed" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.new_purchaseorder.form.CompletePO.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Complete PO" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.new_purchaseorder.form.SubmitToSW.Button.LabelText">
+      <Titles>
+        <Title description="Submit To SW" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.new_purchaseorder.form.SubmitToSW.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Submit this Purchase Order to Single Window" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.new_purchaseorder.form.SubmitToSW.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Submit To SW" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_purchaseorder.Button1.Button.Alt">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_purchaseorder.Button1.Button.LabelText">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_purchaseorder.Button1.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_purchaseorder.Button1.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

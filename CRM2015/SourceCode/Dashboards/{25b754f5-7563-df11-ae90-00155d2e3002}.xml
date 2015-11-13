@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard unmodified="1">
+  <LocalizedNames>
+    <LocalizedName description="Sales Performance Dashboard" languagecode="1033" />
+    <LocalizedName description="Panel de rendimiento de ventas" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the sales performance of the sales team. Typical users of this dashboard are Sales Managers and Sales VPs." languagecode="1033" />
+    <Description description="Muestra el rendimiento de ventas del equipo de ventas. Los usuarios típicos de este panel son los directores de ventas y los vicepresidentes de ventas." languagecode="3082" />
+  </Descriptions>
+  <FormId>{25b754f5-7563-df11-ae90-00155d2e3002}</FormId>
+</Dashboard>

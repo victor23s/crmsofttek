@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>112</returnedtypecode>
+  <savedqueryid>{6dfba3a1-6df3-4140-831b-b385c7e92b64}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="112" jump="title" select="1" icon="1" preview="1">
+      <row name="result" id="incidentid">
+        <cell name="ticketnumber" width="150" />
+        <cell name="title" width="200" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_serviceofferingcase" width="100" />
+        <cell name="new_casetypecase" width="100" />
+        <cell name="new_assignedqueue" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_duedatecase" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="customerid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="new_leadcase" width="100" />
+        <cell name="new_opportunitycase" width="100" />
+        <cell name="new_quotecase" width="100" />
+        <cell name="new_ordercase" width="100" />
+        <cell name="new_softtekcountrycase" width="100" />
+        <cell name="new_softtekverticalcase" width="100" />
+        <cell name="new_technologygroupcase" width="100" />
+        <cell name="createdon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+      <entity name="incident">
+        <attribute name="prioritycode" />
+        <attribute name="ticketnumber" />
+        <attribute name="title" />
+        <attribute name="createdon" />
+        <filter>
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <link-entity name="connection" from="record2id" to="incidentid" alias="MyConnections">
+          <filter type="and">
+            <condition attribute="record1id" operator="eq-userid" />
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </link-entity>
+        <order attribute="title" descending="false" />
+        <attribute name="new_technologygroupcase" />
+        <attribute name="statuscode" />
+        <attribute name="statecode" />
+        <attribute name="new_softtekverticalcase" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountrycase" />
+        <attribute name="new_serviceofferingcase" />
+        <attribute name="ownerid" />
+        <attribute name="new_ordercase" />
+        <attribute name="new_opportunitycase" />
+        <attribute name="new_leadcase" />
+        <attribute name="new_duedatecase" />
+        <attribute name="customerid" />
+        <attribute name="new_casetypecase" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedqueue" />
+        <attribute name="new_quotecase" />
+        <attribute name="incidentid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Connections" languagecode="1033" />
+    <LocalizedName description="Mis conexiones" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows all active instances of the case that the current user is connected to via an active connection." languagecode="1033" />
+    <Description description="Muestra todas las instancias activas del caso al que el usuario actual está conectado mediante una conexión activa." languagecode="3082" />
+  </Descriptions>
+</savedquery>

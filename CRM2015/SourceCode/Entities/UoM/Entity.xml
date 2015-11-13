@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Unit" OriginalName="Unit">UoM</Name>
+  <ObjectTypeCode>1055</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

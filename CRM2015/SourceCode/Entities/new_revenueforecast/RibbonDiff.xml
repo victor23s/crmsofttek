@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="new.Mscrm.Form.new_revenueforecast.Activate.CustomAction" Location="Mscrm.Form.new_revenueforecast.MainTab.Save.Controls._children" Sequence="50">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Command="Mscrm.Form.Activate" Id="Mscrm.Form.new_revenueforecast.Activate" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Sequence="50" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Activate" ModernImage="Activate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.Form.new_revenueforecast.Deactivate.CustomAction" Location="Mscrm.Form.new_revenueforecast.MainTab.Save.Controls._children" Sequence="60">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:Mscrm.Form.new_revenueforecast.Deactivate.Alt" Command="Mscrm.Form.Deactivate" Description="Deactivate" Id="Mscrm.Form.new_revenueforecast.Deactivate" Image32by32="/_imgs/ribbon/Deactivate_32.png" Image16by16="/_imgs/ribbon/Deactivate_16.png" LabelText="$LocLabels:Mscrm.Form.new_revenueforecast.Deactivate.LabelText" Sequence="60" TemplateAlias="o2" ToolTipTitle="$LocLabels:Mscrm.Form.new_revenueforecast.Deactivate.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Form.new_revenueforecast.Deactivate.ToolTipDescription" ModernImage="DeActivate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_revenueforecast.Save.Hide" Location="Mscrm.Form.new_revenueforecast.Save" />
+    <CustomAction Id="new.Mscrm.HomepageGrid.new_revenueforecast.Activate.CustomAction" Location="Mscrm.HomepageGrid.new_revenueforecast.MainTab.Management.Controls._children" Sequence="30">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Command="Mscrm.HomepageGrid.Activate" Id="Mscrm.HomepageGrid.new_revenueforecast.Activate" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Sequence="30" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Activate" ModernImage="Activate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.new_revenueforecast.Copy.Hide" Location="Mscrm.HomepageGrid.new_revenueforecast.Copy" />
+    <CustomAction Id="new.Mscrm.HomepageGrid.new_revenueforecast.Deactivate.CustomAction" Location="Mscrm.HomepageGrid.new_revenueforecast.MainTab.Management.Controls._children" Sequence="40">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:Mscrm.HomepageGrid.new_revenueforecast.Deactivate.Alt" Command="Mscrm.HomepageGrid.Deactivate" Description="Deactivate" Id="Mscrm.HomepageGrid.new_revenueforecast.Deactivate" Image32by32="/_imgs/ribbon/Deactivate_32.png" Image16by16="/_imgs/ribbon/Deactivate_16.png" LabelText="$LocLabels:Mscrm.HomepageGrid.new_revenueforecast.Deactivate.LabelText" Sequence="40" TemplateAlias="o2" ToolTipTitle="$LocLabels:Mscrm.HomepageGrid.new_revenueforecast.Deactivate.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.HomepageGrid.new_revenueforecast.Deactivate.ToolTipDescription" ModernImage="DeActivate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.new_revenueforecast.Send.Hide" Location="Mscrm.HomepageGrid.new_revenueforecast.Send" />
+    <CustomAction Id="new.new_revenueforecast.Button1.Button.CustomAction" Location="Mscrm.HomepageGrid.new_revenueforecast.MainTab.Management.Controls._children" Sequence="60">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_revenueforecast.Button1.Button.Alt" Command="new.new_revenueforecast.CreateReport.Command" Description="Create Report" Id="new.new_revenueforecast.Button1.Button" Image32by32="$webresource:new_ForecastReport32" Image16by16="$webresource:new_ForecastReport16" LabelText="$LocLabels:new.new_revenueforecast.Button1.Button.LabelText" Sequence="60" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_revenueforecast.Button1.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_revenueforecast.Button1.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_revenueforecast.Button2.Button.CustomAction" Location="Mscrm.Form.new_revenueforecast.MainTab.Save.Controls._children" Sequence="65">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_revenueforecast.Button2.Button.Alt" Command="new.new_revenueforecast.CreateAdjustment.Command" Description="Adjustment" Id="new.new_revenueforecast.Button2.Button" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$LocLabels:new.new_revenueforecast.Button2.Button.LabelText" Sequence="65" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_revenueforecast.Button2.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_revenueforecast.Button2.Button.ToolTipDescription" ModernImage="Activate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_revenueforecast.Button4.Button.CustomAction" Location="Mscrm.HomepageGrid.new_revenueforecast.MainTab.Management.Controls._children" Sequence="45">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_revenueforecast.Button4.Button.Alt" Command="new.new_revenueforecast.GridCreateAdjustment.Command" Description="Adjustment" Id="new.new_revenueforecast.Button4.Button" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$LocLabels:new.new_revenueforecast.Button4.Button.LabelText" Sequence="45" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_revenueforecast.Button4.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_revenueforecast.Button4.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_revenueforecast.Button5.Button.CustomAction" Location="Mscrm.HomepageGrid.new_revenueforecast.MainTab.Management.Controls._children" Sequence="90">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_revenueforecast.Button5.Button.Alt" Command="new.new_revenueforecast.CloseReport.Command" Description="Close Report " Id="new.new_revenueforecast.Button5.Button" Image32by32="$webresource:new_ForecastReport32" Image16by16="$webresource:new_ForecastReport16" LabelText="$LocLabels:new.new_revenueforecast.Button5.Button.LabelText" Sequence="90" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_revenueforecast.Button5.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_revenueforecast.Button5.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_revenueforecast.SAVE.Button.CustomAction" Location="Mscrm.Form.new_revenueforecast.MainTab.Save.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_revenueforecast.SAVE.Button.Alt" Command="new.new_revenueforecast.SAVE.Command" Description="Save" Id="new.new_revenueforecast.SAVE.Button" Image32by32="$webresource:new_Save32x" Image16by16="$webresource:new_Save16x" LabelText="$LocLabels:new.new_revenueforecast.SAVE.Button.LabelText" Sequence="15" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.new_revenueforecast.SAVE.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_revenueforecast.SAVE.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.Form.Activate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CanWritePrimary" />
+        <EnableRule Id="new.new_revenueforecast.IsForecastAccess.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.PrimaryIsInactive" />
+        <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode" />
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.CommandBarActions.activate" Library="/_static/_common/scripts/CommandBarActions.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.Deactivate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CanWritePrimary" />
+        <EnableRule Id="new.new_revenueforecast.IsForecastAccess.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.PrimaryIsActive" />
+        <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode" />
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.CommandBarActions.deactivate" Library="/_static/_common/scripts/CommandBarActions.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.HomepageGrid.Activate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="new.new_revenueforecast.IsForecastAccess.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWriteSelected" />
+        <DisplayRule Id="Mscrm.SelectedEntityHasStatecode" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridCommandActions.activate" Library="/_static/_common/scripts/CommandBarActions.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.HomepageGrid.Deactivate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="new.new_revenueforecast.Disabledform.EnableRule" />
+        <EnableRule Id="new.new_revenueforecast.IsForecastAccess.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWriteSelected" />
+        <DisplayRule Id="Mscrm.SelectedEntityHasStatecode" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridCommandActions.deactivate" Library="/_static/_common/scripts/CommandBarActions.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_revenueforecast.CloseReport.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_revenueforecast.CreateReportButton.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openDialogCloseReport" Library="$webresource:new_ForecastJS" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_revenueforecast.CreateAdjustment.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_revenueforecast.IsForecastAccess.EnableRule" />
+        <EnableRule Id="new.new_revenueforecast.IsAdjustment.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="CreateAdjustment" Library="$webresource:new_ForecastJS" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_revenueforecast.CreateReport.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_revenueforecast.CreateReportButton.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openDialogTest" Library="$webresource:new_ForecastJS" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_revenueforecast.GridCreateAdjustment.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_revenueforecast.OnlyOneRecord.EnableRule" />
+        <EnableRule Id="new.new_revenueforecast.IsForecastAccess.EnableRule" />
+        <EnableRule Id="new.new_revenueforecast.GridShowAdjustment.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="CreateRevForecastFromGrid" Library="$webresource:new_ForecastJS">
+          <CrmParameter Value="FirstSelectedItemId" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_revenueforecast.SAVE.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="new.new_revenueforecast.DisplayRule6.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SaveRefreshForecast" Library="$webresource:new_QuoteSave" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.CanWritePrimary">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWriteSelected">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="HasStateCode" PropertyValue="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsActive">
+        <FormStateRule State="Existing" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsInactive">
+        <FormStateRule State="Disabled" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsNotActivity">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SelectedEntityHasStatecode">
+        <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="HasStateCode" PropertyValue="true" />
+      </DisplayRule>
+      <DisplayRule Id="new.new_revenueforecast.DisplayRule6.DisplayRule">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.CanWritePrimary">
+        <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.SelectionCountAtLeastOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.RibbonActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/RibbonActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="new.new_revenueforecast.CreateReportButton.EnableRule">
+        <CustomRule FunctionName="userIsForecastAdmin" Library="$webresource:new_Opp_Ribbon_Functions_2" Default="false" />
+      </EnableRule>
+      <EnableRule Id="new.new_revenueforecast.Disabledform.EnableRule">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="new.new_revenueforecast.GridShowAdjustment.EnableRule">
+        <CustomRule FunctionName="userAdjustmentAllowed" Library="$webresource:new_Opp_Ribbon_Functions_2" Default="false">
+          <CrmParameter Value="FirstSelectedItemId" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="new.new_revenueforecast.IsAdjustment.EnableRule">
+        <CustomRule FunctionName="isAdjustment" Library="$webresource:new_RevenueForecast_main_library" Default="false" />
+      </EnableRule>
+      <EnableRule Id="new.new_revenueforecast.IsForecastAccess.EnableRule">
+        <CustomRule FunctionName="userIsForecastLead" Library="$webresource:new_Opp_Ribbon_Functions_2" />
+      </EnableRule>
+      <EnableRule Id="new.new_revenueforecast.OnlyOneRecord.EnableRule">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" Maximum="1" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="Mscrm.Form.new_revenueforecast.Deactivate.Alt">
+      <Titles>
+        <Title description="Deactivate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Form.new_revenueforecast.Deactivate.LabelText">
+      <Titles>
+        <Title description="Deactivate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Form.new_revenueforecast.Deactivate.ToolTipDescription">
+      <Titles>
+        <Title description="Deactivate these {0}" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Form.new_revenueforecast.Deactivate.ToolTipTitle">
+      <Titles>
+        <Title description="Deactivate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.new_revenueforecast.Deactivate.Alt">
+      <Titles>
+        <Title description="Deactivate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.new_revenueforecast.Deactivate.LabelText">
+      <Titles>
+        <Title description="Deactivate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.new_revenueforecast.Deactivate.ToolTipDescription">
+      <Titles>
+        <Title description="Deactivate these {0}" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.new_revenueforecast.Deactivate.ToolTipTitle">
+      <Titles>
+        <Title description="Deactivate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button1.Button.Alt">
+      <Titles>
+        <Title description="Create Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button1.Button.LabelText">
+      <Titles>
+        <Title description="Create Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button1.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Create Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button1.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Create Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button2.Button.Alt">
+      <Titles>
+        <Title description="Adjustment" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button2.Button.LabelText">
+      <Titles>
+        <Title description="ADJUSTMENT" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button2.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Adjustment" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button2.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Adjustment" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button4.Button.Alt">
+      <Titles>
+        <Title description="Adjustment" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button4.Button.LabelText">
+      <Titles>
+        <Title description="ADJUSTMENT" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button4.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Adjustment" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button4.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Adjustment" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button5.Button.Alt">
+      <Titles>
+        <Title description="Close Report " languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button5.Button.LabelText">
+      <Titles>
+        <Title description="Close Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button5.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Close Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.Button5.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Close Report" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.SAVE.Button.Alt">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.SAVE.Button.LabelText">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.SAVE.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_revenueforecast.SAVE.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

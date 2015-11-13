@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{ffc6bb1f-a6bd-e211-b70b-78e7d162ce29}</WebResourceId>
+  <Name>new__softtek_scripts_pocs</Name>
+  <DisplayName>Softtek Scripts [Forms.pocs]</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new__softtek_scripts_pocsFFC6BB1F-A6BD-E211-B70B-78E7D162CE29</FileName>
+</WebResource>

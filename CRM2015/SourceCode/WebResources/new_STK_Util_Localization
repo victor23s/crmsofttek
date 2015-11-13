@@ -1,0 +1,83 @@
+/// <reference path="../XrmPageTemplate.js" />
+/// <reference path="../STK.Namespaces.js" />
+/// <reference path="STK.Util.Array.js" />
+/* Este objeto se crea en memoria y contiene metodos que sirven trabajar con recursos localizados */
+STK.Util.Localization = {
+    /* Representa una hoja de recursos
+    Formato : { culture:"", resources: new Array()}
+    Formato de resources: { key:"", value:""}
+    */
+    __resourceSheets: new Array(),
+    /* Representa la cultura con la que se trabajaran los recursos.
+    */
+    __currentCulture: null,
+    /* Establece la cultura para obtener recursos.
+    Parametros:
+    - culture :             Representa la cultura que se va a establecer.
+    */
+    setCulture: function (culture) {
+        this.__currentCulture = culture;
+    },
+    /* Obtiene un recurso del tipo texto
+    Parametros:
+    - resourceKey :         Representa el indice del tipo texto por el que se recuperará un recurso.
+    */
+    getString: function (resourceKey) {
+        // el valor que sera regresado
+        var $text = "";
+        // Si esta establecida una cultura
+        if (this.__currentCulture != null) {
+            for (var $index in this.__resourceSheets) {
+                if (this.__resourceSheets[$index].culture == this.__currentCulture) {
+                    for (var $resourceIndex in this.__resourceSheets[$index].resources) {
+                        if (this.__resourceSheets[$index].resources[$resourceIndex].key == resourceKey) {
+                            $text = this.__resourceSheets[$index].resources[$resourceIndex].value;
+                        }
+                    }
+                }
+            }
+        }
+        // Si no esta establecida una cultura tomar el primer resultado
+        else {
+            if (this.__resourceSheets.length > 0) {
+                if (this.__resourceSheets[0].resources.length > 0) {
+                    for (var $index in this.__resourceSheets[0].resources) {
+                        if (this.__resourceSheets[0].resources[$index].key == resourceKey) {
+                            $text = this.__resourceSheets[0].resources[$index].value;
+                        }
+                    }
+                }
+            }
+        }
+        return $text;
+    },
+    /* Agrega un nuevo recurso*/
+    addResource: function (key, value, culture) {
+        var $resourceSheetExists = false;
+        var $resourceSheetIndex = 0;
+
+        for (var $index in this.__resourceSheets) {
+            if (this.__resourceSheets[$index].culture == culture) {
+                $resourceSheetExists = true;
+                $resourceSheetIndex = $index;
+            }
+        }
+
+        if ($resourceSheetExists) {
+            this.__resourceSheets[$resourceSheetIndex].resources.push(new {
+                key: key,
+                value: value
+            });
+        }
+        else {
+            this.__resourceSheets.push(new {
+                culture: culture,
+                resources: [{
+                    key: key,
+                    value: value
+                }]
+            });
+        }
+    },
+    __namespace: true
+};

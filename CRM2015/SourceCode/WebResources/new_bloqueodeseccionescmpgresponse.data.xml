@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{db12bbc2-97da-e011-8efb-1cc1dee8aa5f}</WebResourceId>
+  <Name>new_bloqueodeseccionescmpgresponse</Name>
+  <DisplayName>New or Existing Account Campaign Response</DisplayName>
+  <Description>Boqueo de secciones New or Existing Account Campaign Response</Description>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_bloqueodeseccionescmpgresponseDB12BBC2-97DA-E011-8EFB-1CC1DEE8AA5F</FileName>
+</WebResource>

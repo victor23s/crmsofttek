@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="new.Mscrm.Isv.Global.CustomAction" Location="Mscrm.Tabs._children" Sequence="1000">
+      <CommandUIDefinition>
+        <Tab Command="Mscrm.Isv.Global" Description="ISV" Id="Mscrm.Isv.Global" Sequence="1000" Title="$LocLabels:Mscrm.Isv.Global.Title">
+          <Scaling Id="Mscrm.Isv.Global.Scaling">
+            <MaxSize GroupId="Mscrm.Isv.Global.Group0" Id="Mscrm.Isv.Global.Group0.MaxSize" Sequence="10" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.Global.Group1" Id="Mscrm.Isv.Global.Group1.MaxSize" Sequence="20" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.Global.Group2" Id="Mscrm.Isv.Global.Group2.MaxSize" Sequence="30" Size="Large" />
+            <MaxSize GroupId="Mscrm.Isv.Global.Group3" Id="Mscrm.Isv.Global.Group3.MaxSize" Sequence="40" Size="Large" />
+            <Scale GroupId="Mscrm.Isv.Global.Group0" Id="Mscrm.Isv.Global.Group0.Scale.Medium" Sequence="50" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.Global.Group1" Id="Mscrm.Isv.Global.Group1.Scale.Medium" Sequence="60" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.Global.Group2" Id="Mscrm.Isv.Global.Group2.Scale.Medium" Sequence="70" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.Global.Group3" Id="Mscrm.Isv.Global.Group3.Scale.Medium" Sequence="80" Size="Medium" />
+            <Scale GroupId="Mscrm.Isv.Global.Group0" Id="Mscrm.Isv.Global.Group0.Scale.Small" Sequence="90" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.Global.Group1" Id="Mscrm.Isv.Global.Group1.Scale.Small" Sequence="100" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.Global.Group2" Id="Mscrm.Isv.Global.Group2.Scale.Small" Sequence="110" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.Global.Group3" Id="Mscrm.Isv.Global.Group3.Scale.Small" Sequence="120" Size="Small" />
+            <Scale GroupId="Mscrm.Isv.Global.Group0" Id="Mscrm.Isv.Global.Group0.Scale.Popup" Sequence="130" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.Global.Group1" Id="Mscrm.Isv.Global.Group1.Scale.Popup" Sequence="140" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.Global.Group2" Id="Mscrm.Isv.Global.Group2.Scale.Popup" Sequence="150" Size="Popup" />
+            <Scale GroupId="Mscrm.Isv.Global.Group3" Id="Mscrm.Isv.Global.Group3.Scale.Popup" Sequence="160" Size="Popup" />
+          </Scaling>
+          <Groups Id="Mscrm.Isv.Global.Groups">
+            <Group Command="Mscrm.Isv.Global.Group0" Description="$LocLabels:Mscrm.Isv.Global.Group0.Title" Id="Mscrm.Isv.Global.Group0" Sequence="10" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.Global.Group0.Title">
+              <Controls Id="Mscrm.Isv.Global.Group0.Controls">
+                <Button Command="Mscrm.Isv.Global.Group0.Control0" Id="Mscrm.Isv.Global.Group0.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.Global.Group0.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.Global.Group0.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.Global.Group0.Control0.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.Global.Group1" Description="$LocLabels:Mscrm.Isv.Global.Group1.Title" Id="Mscrm.Isv.Global.Group1" Sequence="20" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.Global.Group1.Title">
+              <Controls Id="Mscrm.Isv.Global.Group1.Controls">
+                <FlyoutAnchor Alt="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Alt" Command="Mscrm.Enabled" Id="Mscrm.Isv.Global.Group1.Control0" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" LabelText="$LocLabels:Mscrm.Isv.Global.Group1.Control0.LabelText" Sequence="10" TemplateAlias="o1">
+                  <Menu Id="Mscrm.Isv.Global.Group1.Control0.Menu">
+                    <MenuSection Id="Mscrm.Isv.Global.Group1.Control0.Group0" Sequence="10">
+                      <Controls Id="Mscrm.Isv.Global.Group1.Control0.Group0.Controls">
+                        <Button Command="Mscrm.Isv.Global.Group1.Control0.Group0.Control0" Id="Mscrm.Isv.Global.Group1.Control0.Group0.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Group0.Control0.LabelText" Sequence="10" ToolTipTitle="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Group0.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Group0.Control0.ToolTipDescription" />
+                      </Controls>
+                    </MenuSection>
+                    <MenuSection Id="Mscrm.Isv.Global.Group1.Control0.Group1" Sequence="20">
+                      <Controls Id="Mscrm.Isv.Global.Group1.Control0.Group1.Controls">
+                        <Button Command="Mscrm.Isv.Global.Group1.Control0.Group1.Control0" Id="Mscrm.Isv.Global.Group1.Control0.Group1.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Group1.Control0.LabelText" Sequence="10" ToolTipTitle="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Group1.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Group1.Control0.ToolTipDescription" />
+                      </Controls>
+                    </MenuSection>
+                    <MenuSection Id="Mscrm.Isv.Global.Group1.Control0.Group2" Sequence="30">
+                      <Controls Id="Mscrm.Isv.Global.Group1.Control0.Group2.Controls">
+                        <Button Command="Mscrm.Isv.Global.Group1.Control0.Group2.Control0" Id="Mscrm.Isv.Global.Group1.Control0.Group2.Control0" Image32by32="/_imgs/ribbon/customaction32.png" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ribbon/customaction16.png" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Group2.Control0.LabelText" Sequence="10" ToolTipTitle="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Group2.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.Global.Group1.Control0.Group2.Control0.ToolTipDescription" />
+                      </Controls>
+                    </MenuSection>
+                  </Menu>
+                </FlyoutAnchor>
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.Global.Group2" Description="$LocLabels:Mscrm.Isv.Global.Group2.Title" Id="Mscrm.Isv.Global.Group2" Sequence="30" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.Global.Group2.Title">
+              <Controls Id="Mscrm.Isv.Global.Group2.Controls">
+                <Button Command="Mscrm.Isv.Global.Group2.Control0" Id="Mscrm.Isv.Global.Group2.Control0" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.Global.Group2.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.Global.Group2.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.Global.Group2.Control0.ToolTipDescription" />
+              </Controls>
+            </Group>
+            <Group Command="Mscrm.Isv.Global.Group3" Description="$LocLabels:Mscrm.Isv.Global.Group3.Title" Id="Mscrm.Isv.Global.Group3" Sequence="40" Template="Mscrm.Templates.Flexible" Title="$LocLabels:Mscrm.Isv.Global.Group3.Title">
+              <Controls Id="Mscrm.Isv.Global.Group3.Controls">
+                <Button Command="Mscrm.Isv.Global.Group3.Control0" Id="Mscrm.Isv.Global.Group3.Control0" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.Global.Group3.Control0.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.Global.Group3.Control0.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.Global.Group3.Control0.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.Global.Group3.Control1" Id="Mscrm.Isv.Global.Group3.Control1" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.Global.Group3.Control1.LabelText" Sequence="20" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.Global.Group3.Control1.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.Global.Group3.Control1.ToolTipDescription" />
+                <Button Command="Mscrm.Isv.Global.Group3.Control2" Id="Mscrm.Isv.Global.Group3.Control2" Image32by32="/_imgs/ico_18_debug.gif" Image32by32Class="ms-crm-Upgraded-Ribbon-Image32" Image16by16="/_imgs/ico_18_debug.gif" Image16by16Class="ms-crm-Upgraded-Ribbon-Image16" LabelText="$LocLabels:Mscrm.Isv.Global.Group3.Control2.LabelText" Sequence="30" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.Isv.Global.Group3.Control2.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.Isv.Global.Group3.Control2.ToolTipDescription" />
+              </Controls>
+            </Group>
+          </Groups>
+        </Tab>
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.Isv.Global">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.Global" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group0.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="0" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group1">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group1.Control0.Group0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group1.Control0.Group0.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="2" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group1.Control0.Group1">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group1.Control0.Group1.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="http://www.microsoft.com" WinMode="1" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group1.Control0.Group2">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group1.Control0.Group2.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_Global_Group1_Control0_Group2_Control0_1" Library="$Webresource:Application_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group2">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group2.Control0">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_Global_Group2_Control0_2" Library="$Webresource:Application_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group3">
+      <EnableRules />
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group3.Control0">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.Global.Group3.Control0" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_Global_Group3_Control0_3" Library="$Webresource:Application_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group3.Control1">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.Isv.Global.Group3.Control1" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_Global_Group3_Control1_4" Library="$Webresource:Application_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Isv.Global.Group3.Control2">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm_Isv_Global_Group3_Control2_5" Library="$Webresource:Application_ribbon.js" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules>
+      <TabDisplayRule TabCommand="Mscrm.Isv.Global">
+        <PageRule Address="*" />
+      </TabDisplayRule>
+    </TabDisplayRules>
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.Isv.Global">
+        <MiscellaneousPrivilegeRule PrivilegeName="ISVExtensions" />
+        <CrmClientTypeRule Type="Outlook" />
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.Global.Group3.Control0">
+        <CrmClientTypeRule Type="Web" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.Isv.Global.Group3.Control1">
+        <CrmClientTypeRule Type="Outlook" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="Mscrm.Isv.Global.Group0.Control0.LabelText">
+      <Titles>
+        <Title description="New Window" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group0.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="New Window" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group0.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="New Window" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group0.Title">
+      <Titles>
+        <Title description="ISV 1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Alt">
+      <Titles>
+        <Title description="ISV Tests" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Group0.Control0.LabelText">
+      <Titles>
+        <Title description="Modeless Dialog" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Group0.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Modeless Dialog" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Group0.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Modeless Dialog" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Group1.Control0.LabelText">
+      <Titles>
+        <Title description="Modal Dialog" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Group1.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Modal Dialog" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Group1.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Modal Dialog" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Group2.Control0.LabelText">
+      <Titles>
+        <Title description="Custom JavaScript" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Group2.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Custom JavaScript" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.Group2.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Custom JavaScript" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Control0.LabelText">
+      <Titles>
+        <Title description="ISV Tests" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group1.Title">
+      <Titles>
+        <Title description="ISV 2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group2.Control0.LabelText">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group2.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Info on Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group2.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Test" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group2.Title">
+      <Titles>
+        <Title description="ISV 3" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Control0.LabelText">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Control0.ToolTipDescription">
+      <Titles>
+        <Title description="Web client only. This will not show up in any outlook pages." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Control0.ToolTipTitle">
+      <Titles>
+        <Title description="Web Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Control1.LabelText">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Control1.ToolTipDescription">
+      <Titles>
+        <Title description="Outlook Only - This is available offline also." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Control1.ToolTipTitle">
+      <Titles>
+        <Title description="Outlook Only" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Control2.LabelText">
+      <Titles>
+        <Title description="Both" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Control2.ToolTipDescription">
+      <Titles>
+        <Title description="Both Clients - This is available for both Web and Outlook Clients" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Control2.ToolTipTitle">
+      <Titles>
+        <Title description="Both" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Group3.Title">
+      <Titles>
+        <Title description="ISV 4" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.Isv.Global.Title">
+      <Titles>
+        <Title description="ISV" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

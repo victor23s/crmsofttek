@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.WallSavedQueryUserSettings: RetrieveMultiple of WallSavedQueryUserSettings" SdkMessageProcessingStepId="{c768c67a-425c-499b-a3d8-89928d0dd2b5}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.WallSavedQueryUserSettings, ActivityFeeds.Filtering.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_wallsavedqueryusersettings</PrimaryEntity>
+</SdkMessageProcessingStep>

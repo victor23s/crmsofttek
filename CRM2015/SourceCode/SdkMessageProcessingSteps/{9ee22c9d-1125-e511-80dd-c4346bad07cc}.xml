@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.CaseAssign: assign of case" SdkMessageProcessingStepId="{9ee22c9d-1125-e511-80dd-c4346bad07cc}">
+  <PluginTypeName>ActivityFeeds.Plugins.CaseAssign, ActivityFeeds.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>incident</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Configuration>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;ConfigurationParameters xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;LocalizationWebResourceName&gt;msdyn_/Data/PluginErrorStrings.resx&lt;/LocalizationWebResourceName&gt;&lt;PostTemplateId&gt;CaseAssign.Post&lt;/PostTemplateId&gt;&lt;PostToYammer&gt;false&lt;/PostToYammer&gt;&lt;/ConfigurationParameters&gt;</Configuration>
+  <ImpersonatingUserIdName>SYSTEM</ImpersonatingUserIdName>
+  <InvocationSource>0</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <SdkMessageId>{8cbdbb1b-ea3e-db11-86a7-000a3a5473e8}</SdkMessageId>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

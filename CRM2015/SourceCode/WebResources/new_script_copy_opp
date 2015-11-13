@@ -1,0 +1,503 @@
+function ExecuteWorkflowForm() {
+    var WfId = "48BA9B27-89FB-465C-A921-E608BA308931";
+    var url = Xrm.Page.context.getClientUrl();
+    var entityId = Xrm.Page.data.entity.getId();
+
+    var workflowId = WfId;
+    var OrgServicePath = "/XRMServices/2011/Organization.svc/web";
+    url = url + OrgServicePath;
+    var request;
+    request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">" + "<s:Body>" + "<Execute xmlns=\"http://schemas.microsoft.com/xrm/2011/Contracts/Services\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\">" + "<request i:type=\"b:ExecuteWorkflowRequest\" xmlns:a=\"http://schemas.microsoft.com/xrm/2011/Contracts\" xmlns:b=\"http://schemas.microsoft.com/crm/2011/Contracts\">" + "<a:Parameters xmlns:c=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">" + "<a:KeyValuePairOfstringanyType>" + "<c:key>EntityId</c:key>" + "<c:value i:type=\"d:guid\" xmlns:d=\"http://schemas.microsoft.com/2003/10/Serialization/\">" + entityId + "</c:value>" + "</a:KeyValuePairOfstringanyType>" + "<a:KeyValuePairOfstringanyType>" + "<c:key>WorkflowId</c:key>" + "<c:value i:type=\"d:guid\" xmlns:d=\"http://schemas.microsoft.com/2003/10/Serialization/\">" + workflowId + "</c:value>" + "</a:KeyValuePairOfstringanyType>" + "</a:Parameters>" + "<a:RequestId i:nil=\"true\" />" + "<a:RequestName>ExecuteWorkflow</a:RequestName>" + "</request>" + "</Execute>" + "</s:Body>" + "</s:Envelope>";
+
+    var req = new XMLHttpRequest();
+    req.open("POST", url, false) //false - synchronous
+    // Responses will return XML. It isn't possible to return JSON.
+    req.setRequestHeader("Accept", "application/xml, text/xml, */*");
+    req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
+    req.onreadystatechange = function () {
+        assignResponse(req);
+    };
+    req.send(request);
+}
+
+function assignResponse(req) {
+    if (req.readyState == 4) {
+        if (req.status == 200) {
+            alert('The Opportunity has been copied succesfully');
+        }
+    }
+}
+
+function Refresh() {
+    window.location.reload();
+}
+
+function ExecuteWorkflowGrid(OppId) {
+    var WfId = "48BA9B27-89FB-465C-A921-E608BA308931";
+    var url = Xrm.Page.context.getClientUrl();
+    var entityId = OppId;
+    var workflowId = WfId;
+    var OrgServicePath = "/XRMServices/2011/Organization.svc/web";
+    url = url + OrgServicePath;
+    var request;
+    request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">" + "<s:Body>" + "<Execute xmlns=\"http://schemas.microsoft.com/xrm/2011/Contracts/Services\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\">" + "<request i:type=\"b:ExecuteWorkflowRequest\" xmlns:a=\"http://schemas.microsoft.com/xrm/2011/Contracts\" xmlns:b=\"http://schemas.microsoft.com/crm/2011/Contracts\">" + "<a:Parameters xmlns:c=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">" + "<a:KeyValuePairOfstringanyType>" + "<c:key>EntityId</c:key>" + "<c:value i:type=\"d:guid\" xmlns:d=\"http://schemas.microsoft.com/2003/10/Serialization/\">" + entityId + "</c:value>" + "</a:KeyValuePairOfstringanyType>" + "<a:KeyValuePairOfstringanyType>" + "<c:key>WorkflowId</c:key>" + "<c:value i:type=\"d:guid\" xmlns:d=\"http://schemas.microsoft.com/2003/10/Serialization/\">" + workflowId + "</c:value>" + "</a:KeyValuePairOfstringanyType>" + "</a:Parameters>" + "<a:RequestId i:nil=\"true\" />" + "<a:RequestName>ExecuteWorkflow</a:RequestName>" + "</request>" + "</Execute>" + "</s:Body>" + "</s:Envelope>";
+
+    var req = new XMLHttpRequest();
+    req.open("POST", url, false) //false - synchronous
+    // Responses will return XML. It isn't possible to return JSON.
+    req.setRequestHeader("Accept", "application/xml, text/xml, */*");
+    req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
+    req.onreadystatechange = function () {
+        assignResponse(req);
+    };
+    req.send(request);
+}
+
+function CreateOpp() {
+
+    //Creates an Opp copy from the form
+
+    var oppName = Xrm.Page.getAttribute("name").getValue();
+    var account = Xrm.Page.getAttribute("customerid").getValue();
+    var description = Xrm.Page.getAttribute("description").getValue();
+    var marketScope = Xrm.Page.getAttribute("new_marketscope_opp").getValue();
+    var serviceOffering = Xrm.Page.getAttribute("new_serviceoffering").getValue();
+    var BDM = Xrm.Page.getAttribute("new_salespracticeownerid").getValue();
+    var softtekVertical = Xrm.Page.getAttribute("new_softtekvertical1").getValue();
+    var serviceOfferingType = Xrm.Page.getAttribute("new_serviceofferingtype").getValue();
+    var oppSource = Xrm.Page.getAttribute("new_opportynitysource").getValue();
+    var GDCResponsible = Xrm.Page.getAttribute("new_gdcresponsibleopp").getValue();
+    var usRev = Xrm.Page.getAttribute("new_unitedstateeffort").getValue();
+    var mexRev = Xrm.Page.getAttribute("new_mexicoeffort").getValue();
+    var customerBudget = Xrm.Page.getAttribute("new_customerbudget").getValue();
+    var rating = Xrm.Page.getAttribute("opportunityratingcode").getValue();
+    var oppContact = Xrm.Page.getAttribute("new_customerservicerequestorid").getValue();
+    var technologyGroup = Xrm.Page.getAttribute("new_technologygroup").getValue();
+    var oppType = Xrm.Page.getAttribute("new_opportunitytypeopp").getValue();
+    var deliveryModel = Xrm.Page.getAttribute("new_deliverymodelopp").getValue();
+    var projectTechnologies = Xrm.Page.getAttribute("new_projecttechnologies").getValue();
+    var projectID = Xrm.Page.getAttribute("new_projectid").getValue();
+    var newCustomerYear = Xrm.Page.getAttribute("new_newcustomerinyear").getValue();
+    var estProjHours = Xrm.Page.getAttribute("new_positionfteeffort").getValue();
+    var chinaRev = Xrm.Page.getAttribute("new_chinaeffort").getValue();
+    var brazilRev = Xrm.Page.getAttribute("new_brazileffort").getValue();
+    var upsidePotential = Xrm.Page.getAttribute("new_upsidepotential").getValue();
+    var originatingLead = Xrm.Page.getAttribute("originatingleadid").getValue();
+    var softtekMarket = Xrm.Page.getAttribute("new_softtekmarket").getValue();
+    var systech = Xrm.Page.getAttribute("new_systech").getValue();
+    var sourceCampaign = Xrm.Page.getAttribute("campaignid").getValue();
+    var softtekCountry = Xrm.Page.getAttribute("new_softtekcountryopp").getValue();
+    var estRev = Xrm.Page.getAttribute("estimatedvalue").getValue();
+    var currency = Xrm.Page.getAttribute("transactioncurrencyid").getValue();
+    var estProjDuration = Xrm.Page.getAttribute("new_estimatedprojectduration").getValue();
+    var estFTE = Xrm.Page.getAttribute("new_estimatedftes").getValue();
+    var europeRev = Xrm.Page.getAttribute("new_europeeffort").getValue();
+    var SSHRev = Xrm.Page.getAttribute("new_ssheffort").getValue();
+    var estMonthlyRev = Xrm.Page.getAttribute("new_estimatedmonthlyrevenue").getValue();
+    var estProjStart = Xrm.Page.getAttribute("new_estimatedprojectstartdate");
+    var estProjEnd = Xrm.Page.getAttribute("new_estimatedprojectenddate");
+
+    var opportunity = {};
+    //Lookups
+    if (account != null) {
+        opportunity.CustomerId = {
+            Id: account[0].id,
+            LogicalName: account[0].entityType,
+            Name: account[0].name
+        };
+    }
+    if (BDM != null) {
+        opportunity.New_SalesPracticeOwnerId = {
+            Id: BDM[0].id,
+            LogicalName: BDM[0].entityType,
+            Name: BDM[0].name
+        };
+    }
+    if (oppContact != null) {
+        opportunity.new_customerservicerequestorid = {
+            Id: oppContact[0].id,
+            LogicalName: oppContact[0].entityType,
+            Name: oppContact[0].name
+        };
+    }
+    if (originatingLead != null) {
+        opportunity.OriginatingLeadId = {
+            Id: originatingLead[0].id,
+            LogicalName: originatingLead[0].entityType,
+            Name: originatingLead[0].name
+        };
+    }
+    if (sourceCampaign != null) {
+        opportunity.CampaignId = {
+            Id: sourceCampaign[0].id,
+            LogicalName: sourceCampaign[0].entityType,
+            Name: sourceCampaign[0].name
+        };
+    }
+    if (currency != null) {
+        opportunity.TransactionCurrencyId = {
+            Id: currency[0].id,
+            LogicalName: currency[0].entityType,
+            Name: currency[0].name
+        };
+    }
+
+    //Booleans
+    if (systech) {
+        opportunity.new_Systech = true;
+    }
+    else {
+        opportunity.new_Systech = false;
+    }
+
+    //TextFields & Optionsets
+    opportunity.Name = oppName; //--
+    opportunity.Description = description; //--
+    opportunity.new_MarketScope_opp = {
+        Value: marketScope
+    }; //--
+    opportunity.new_ServiceOffering = {
+        Value: serviceOffering
+    }; //--
+    opportunity.new_SofttekVertical1 = {
+        Value: softtekVertical
+    }; //--
+    opportunity.new_ServiceOfferingType = {
+        Value: serviceOfferingType
+    }; //--
+    opportunity.new_OpportynitySource = {
+        Value: oppSource
+    }; //--
+    opportunity.new_GDCResponsibleOpp = {
+        Value: GDCResponsible
+    };
+    opportunity.OpportunityRatingCode = {
+        Value: rating
+    };
+    opportunity.new_TechnologyGroup = {
+        Value: technologyGroup
+    };
+    opportunity.new_OpportunityTypeOpp = {
+        Value: oppType
+    };
+    opportunity.new_DeliveryModelOpp = {
+        Value: deliveryModel
+    };
+    opportunity.new_ProjectTechnologies = projectTechnologies;
+    opportunity.New_ProjectID = projectID;
+    opportunity.new_NewCustomerinYear = {
+        Value: newCustomerYear
+    };
+    opportunity.new_SofttekMarket = {
+        Value: softtekMarket
+    };
+    opportunity.new_SofttekCountryOpp = {
+        Value: softtekCountry
+    };
+    opportunity.EstimatedValue = {
+        Value: parseFloat(estRev).toFixed(2)
+    };
+    opportunity.New_estimatedprojectduration = estProjDuration;
+    opportunity.New_EstimatedMonthlyRevenue = {
+        Value: parseFloat(estMonthlyRev).toFixed(2)
+    };
+    opportunity.New_EstimatedProjectStartDate = estProjStart.getValue();
+    opportunity.New_EstimatedProjectEndDate = estProjEnd.getValue();
+    if (estFTE != null) {
+        opportunity.new_EstimatedFTEs = parseFloat(estFTE).toFixed(2);
+    }
+    if (estProjHours != null) {
+        opportunity.New_PositionFteEffort = parseFloat(estProjHours).toFixed(2);
+    }
+    if (customerBudget != null) {
+        opportunity.new_CustomerBudget = {
+            Value: parseFloat(customerBudget).toFixed(2)
+        };
+    }
+    if (upsidePotential != null) {
+        opportunity.new_UpsidePotential = {
+            Value: parseFloat(upsidePotential).toFixed(2)
+        };
+    }
+    if (usRev != null) {
+        opportunity.New_UnitedStateEffort = parseFloat(usRev).toFixed(2);
+    }
+    if (mexRev != null) {
+        opportunity.new_MexicoEffort = parseFloat(mexRev).toFixed(2);
+    }
+    if (chinaRev != null) {
+        opportunity.New_ChinaEffort = parseFloat(chinaRev).toFixed(2);
+    }
+    if (brazilRev != null) {
+        opportunity.new_BrazilEffort = parseFloat(brazilRev).toFixed(2);
+    }
+    if (europeRev != null) {
+        opportunity.New_EuropeEffort = parseFloat(europeRev).toFixed(2);
+    }
+    if (SSHRev != null) {
+        opportunity.new_SSHEffort = parseFloat(SSHRev).toFixed(2);
+    }
+
+    var OpportunityId = "";
+
+    if (oppName != null && account[0].name != null && description != null && softtekMarket != null && softtekCountry != null && marketScope != null && softtekVertical != null && serviceOfferingType != null && serviceOffering != null && technologyGroup != null && oppType != null && deliveryModel != null && newCustomerYear != null && estRev != null && currency[0].name != null && estProjDuration != null && estMonthlyRev != null && estProjStart.getValue() != null) {
+
+        XrmServiceToolkit.Rest.Create(
+        opportunity, "OpportunitySet", function (result) {
+            OpportunityId = result.OpportunityId;
+            CreatedOpportunity = "The opportunity has been copied succesfully. ";
+            alert(CreatedOpportunity);
+
+        },
+        function (error) {
+
+            alert("error: " + error);
+            alert("Failed to copy Opportunity");
+            CreatedOpportunity = "";
+
+        },
+        false);
+
+        if (OpportunityId != "") {
+            Xrm.Utility.openEntityForm("opportunity", OpportunityId);
+        }
+    }
+    else {
+        alert("Cannot proceed with the copy. You have empty required fields.\nPlease fill them all and try again");
+    }
+}
+
+function CreateOppFromGrid(entityId) {
+    var item = null;
+    if (entityId != null && entityId != "") {
+        entityId = entityId.replace("{", "").replace("}", "");
+
+        XrmServiceToolkit.Rest.RetrieveMultiple("OpportunitySet", "$filter= OpportunityId eq guid'" + entityId + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+        function (results) {
+            item = results;
+        },
+        // ReSharper disable once UnuentityIdsedParameter
+        function (error) {
+            alert("Error = " + error);
+        },
+        function onComplete() {},
+        false);
+    }
+    //Creates an Opp copy from the Grid
+    var account = item[0]["CustomerId"].Id;
+    var accountType = item[0]["CustomerId"].LogicalName;
+    var accountName = item[0]["CustomerId"].Name;
+    var BDM = item[0]["New_SalesPracticeOwnerId"].Id;
+    var BDMType = item[0]["New_SalesPracticeOwnerId"].LogicalName;
+    var BDMName = item[0]["New_SalesPracticeOwnerId"].Name;
+    var oppContact = item[0]["new_customerservicerequestorid"].Id;
+    var oppContactType = item[0]["new_customerservicerequestorid"].LogicalName;
+    var oppContactName = item[0]["new_customerservicerequestorid"].Name;
+    var originatingLead = item[0]["OriginatingLeadId"].Id;
+    var originatingLeadType = item[0]["OriginatingLeadId"].LogicalName;
+    var originatingLeadName = item[0]["OriginatingLeadId"].Name;
+    var sourceCampaign = item[0]["CampaignId"].Id;
+    var sourceCampaignType = item[0]["CampaignId"].LogicalName;
+    var sourceCampaignName = item[0]["CampaignId"].Name;
+    var currency = item[0]["TransactionCurrencyId"].Id;
+    var currencyType = item[0]["TransactionCurrencyId"].LogicalName;
+    var currencyName = item[0]["TransactionCurrencyId"].Name;
+    var oppName = item[0]["Name"];
+    var description = item[0]["Description"];
+    var marketScope = item[0]["new_MarketScope_opp"].Value;
+    var serviceOffering = item[0]["new_ServiceOffering"].Value;
+    var softtekVertical = item[0]["new_SofttekVertical1"].Value;
+    var serviceOfferingType = item[0]["new_ServiceOfferingType"].Value;
+    var oppSource = item[0]["new_OpportynitySource"].Value;
+    var GDCResponsible = item[0]["New_gdcresponsible"].Value;
+    var usRev = item[0]["New_UnitedStateEffort"];
+    var mexRev = item[0]["new_MexicoEffort"];
+    var customerBudget = item[0]["new_CustomerBudget"].Value;
+    var rating = item[0]["OpportunityRatingCode"].Value;
+    var technologyGroup = item[0]["new_TechnologyGroup"].Value;
+    var oppType = item[0]["new_OpportunityTypeOpp"].Value;
+    var deliveryModel = item[0]["new_DeliveryModelOpp"].Value;
+    var projectTechnologies = item[0]["new_ProjectTechnologies"];
+    var projectID = item[0]["New_ProjectID"];
+    var newCustomerYear = item[0]["new_NewCustomerinYear"].Value;
+    var estProjHours = item[0]["New_PositionFteEffort"];
+    var chinaRev = item[0]["New_ChinaEffort"];
+    var brazilRev = item[0]["new_BrazilEffort"];
+    var upsidePotential = item[0]["new_UpsidePotential"].Value;
+    var softtekMarket = item[0]["new_SofttekMarket"].Value;
+    var systech = item[0]["new_Systech"];
+    var softtekCountry = item[0]["new_SofttekCountryOpp"].Value;
+    var estRev = item[0]["EstimatedValue"].Value;
+    var estProjDuration = item[0]["New_estimatedprojectduration"];
+    var estFTE = item[0]["new_EstimatedFTEs"];
+    var europeRev = item[0]["New_EuropeEffort"];
+    var SSHRev = item[0]["new_SSHEffort"];
+    var estMonthlyRev = item[0]["New_EstimatedMonthlyRevenue"].Value;
+    var estProjStart = item[0]["New_EstimatedProjectStartDate"];
+    var estProjEnd = item[0]["New_EstimatedProjectEndDate"];
+
+    var opportunity = {};
+    //Lookups
+    if (account != null) {
+        opportunity.CustomerId = {
+            Id: account,
+            LogicalName: accountType,
+            Name: accountName
+        };
+    }
+    if (BDM != null) {
+        opportunity.New_SalesPracticeOwnerId = {
+            Id: BDM,
+            LogicalName: BDMType,
+            Name: BDMName
+        };
+    }
+    if (oppContact != null) {
+        opportunity.new_customerservicerequestorid = {
+            Id: oppContact,
+            LogicalName: oppContactType,
+            Name: oppContactName
+        };
+    }
+    if (originatingLead != null) {
+        opportunity.OriginatingLeadId = {
+            Id: originatingLead,
+            LogicalName: originatingLeadType,
+            Name: originatingLeadName
+        };
+    }
+    if (sourceCampaign != null) {
+        opportunity.CampaignId = {
+            Id: sourceCampaign,
+            LogicalName: sourceCampaignType,
+            Name: sourceCampaignName
+        };
+    }
+    if (currency != null) {
+        opportunity.TransactionCurrencyId = {
+            Id: currency,
+            LogicalName: currencyType,
+            Name: currencyName
+        };
+    }
+
+    //Booleans
+    if (systech) {
+        opportunity.new_Systech = true;
+    }
+    else {
+        opportunity.new_Systech = false;
+    }
+
+    //TextFields & Optionsets
+    opportunity.Name = oppName; //--
+    opportunity.Description = description; //--
+    opportunity.new_MarketScope_opp = {
+        Value: marketScope
+    }; //--
+    opportunity.new_ServiceOffering = {
+        Value: serviceOffering
+    }; //--
+    opportunity.new_SofttekVertical1 = {
+        Value: softtekVertical
+    }; //--
+    opportunity.new_ServiceOfferingType = {
+        Value: serviceOfferingType
+    }; //--
+    opportunity.new_OpportynitySource = {
+        Value: oppSource
+    }; //--
+    opportunity.new_GDCResponsibleOpp = {
+        Value: GDCResponsible
+    };
+    opportunity.OpportunityRatingCode = {
+        Value: rating
+    };
+    opportunity.new_TechnologyGroup = {
+        Value: technologyGroup
+    };
+    opportunity.new_OpportunityTypeOpp = {
+        Value: oppType
+    };
+    opportunity.new_DeliveryModelOpp = {
+        Value: deliveryModel
+    };
+    opportunity.new_ProjectTechnologies = projectTechnologies;
+    opportunity.New_ProjectID = projectID;
+    opportunity.new_NewCustomerinYear = {
+        Value: newCustomerYear
+    };
+    opportunity.new_SofttekMarket = {
+        Value: softtekMarket
+    };
+    opportunity.new_SofttekCountryOpp = {
+        Value: softtekCountry
+    };
+    opportunity.EstimatedValue = {
+        Value: parseFloat(estRev).toFixed(2)
+    };
+    opportunity.New_estimatedprojectduration = estProjDuration;
+    opportunity.New_EstimatedMonthlyRevenue = {
+        Value: parseFloat(estMonthlyRev).toFixed(2)
+    };
+    opportunity.New_EstimatedProjectStartDate = estProjStart;
+    opportunity.New_EstimatedProjectEndDate = estProjEnd;
+    if (estFTE != null) {
+        opportunity.new_EstimatedFTEs = parseFloat(estFTE).toFixed(2);
+    }
+    if (estProjHours != null) {
+        opportunity.New_PositionFteEffort = parseFloat(estProjHours).toFixed(2);
+    }
+    if (customerBudget != null) {
+        opportunity.new_CustomerBudget = {
+            Value: parseFloat(customerBudget).toFixed(2)
+        };
+    }
+    if (upsidePotential != null) {
+        opportunity.new_UpsidePotential = {
+            Value: parseFloat(upsidePotential).toFixed(2)
+        };
+    }
+    if (usRev != null) {
+        opportunity.New_UnitedStateEffort = parseFloat(usRev).toFixed(2);
+    }
+    if (mexRev != null) {
+        opportunity.new_MexicoEffort = parseFloat(mexRev).toFixed(2);
+    }
+    if (chinaRev != null) {
+        opportunity.New_ChinaEffort = parseFloat(chinaRev).toFixed(2);
+    }
+    if (brazilRev != null) {
+        opportunity.new_BrazilEffort = parseFloat(brazilRev).toFixed(2);
+    }
+    if (europeRev != null) {
+        opportunity.New_EuropeEffort = parseFloat(europeRev).toFixed(2);
+    }
+    if (SSHRev != null) {
+        opportunity.new_SSHEffort = parseFloat(SSHRev).toFixed(2);
+    }
+
+    var OpportunityId = "";
+
+    XrmServiceToolkit.Rest.Create(
+    opportunity, "OpportunitySet", function (result) {
+        OpportunityId = result.OpportunityId;
+        CreatedOpportunity = "The opportunity has been copied succesfully. ";
+        alert(CreatedOpportunity);
+
+    },
+    function (error) {
+
+        alert("error: " + error);
+        alert("Failed to copy Opportunity");
+        CreatedOpportunity = "";
+
+    },
+    false);
+
+    if (OpportunityId != "") {
+        Xrm.Utility.openEntityForm("opportunity", OpportunityId);
+    }
+}

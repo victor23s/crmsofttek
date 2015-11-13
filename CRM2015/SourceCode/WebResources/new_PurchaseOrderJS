@@ -1,0 +1,421 @@
+var SOToptions;
+var SVoptions;
+var BCOptions;
+
+function OnLoad() {
+
+    if (Xrm.Page.getAttribute("new_submitpo").getValue() == false) {}
+
+    if (Xrm.Page.getAttribute("new_discountpercentagepo").getValue() == null) {
+        Xrm.Page.getAttribute("new_discountpercentagepo").setValue(0.00);
+        Xrm.Page.getAttribute("new_discountpercentagepo").setSubmitMode("always");
+    }
+    SOToptions = Xrm.Page.getAttribute("new_serviceofferingtypepo").getOptions();
+    SVoptions = Xrm.Page.getAttribute("new_softtekverticalpo").getOptions();
+    if (SVoptions[0].text == "") {
+        SVoptions.shift();
+    }
+
+    StatusReason();
+    Filter_SofttekVertical();
+    CalculateRevenue();
+    Filter_ServiceOfferingType();
+    ProjecID_requirementlvl();
+}
+
+function OnSave() {
+	var dateFrom = Xrm.Page.getAttribute("new_frompo").getValue();
+    var dateTo = Xrm.Page.getAttribute("new_topo").getValue();
+	if ( dateTo < dateFrom)
+		alert("The 'To' date cannot be before the 'From' date. Please verify");
+	else{
+		AssignTeam();
+		ApprovalStatus_onsave();
+		SetActualDate();
+		var AssignedTo = Xrm.Page.getAttribute("new_assgnedtopo").getValue();
+		var optApprovalStatus = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+		if (optApprovalStatus.text == "Rejected") {
+			var rejections = Xrm.Page.getAttribute("new_ftrcounterpo").getValue();
+			if (rejections != null) {
+				Xrm.Page.getAttribute("new_ftrcounterpo").setValue(rejections + 1);
+			}
+			else {
+				Xrm.Page.getAttribute("new_ftrcounterpo").setValue(1);
+			}
+			Xrm.Page.getAttribute("new_ftrcounterpo").setSubmitMode("always");
+		}
+		if (AssignedTo != null) {
+			setSimpleLookupValue("new_assignedtohiddenpo", "systemuser", Xrm.Page.getAttribute("new_assgnedtopo").getValue()[0].id, Xrm.Page.getAttribute("new_assgnedtopo").getValue()[0].name);
+		}
+	}
+}
+
+function StatusReason() {
+    var options = Xrm.Page.getAttribute("statuscode").getOptions();
+    var StatusReason = Xrm.Page.getControl("statuscode");
+    var Status = Xrm.Page.getAttribute("new_statuspo").getSelectedOption();
+    var SRSelected = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+    if (Status.text == "Active") {
+        StatusReason.clearOptions();
+        StatusReason.addOption(options[1]);
+        Xrm.Page.getAttribute("statuscode").setValue(options[1].value);
+        if (SRSelected != null) {
+            Xrm.Page.getAttribute("statuscode").setValue(SRSelected.value);
+        }
+    }
+    if (Status.text == "Submitted") {
+        StatusReason.clearOptions();
+        StatusReason.addOption(options[0]);
+        StatusReason.addOption(options[1]);
+        StatusReason.addOption(options[2]);
+        StatusReason.addOption(options[3]);
+        StatusReason.addOption(options[4]);
+        if (SRSelected != null) {
+            Xrm.Page.getAttribute("statuscode").setValue(SRSelected.value);
+        }
+    }
+}
+
+function ValidateProjectID() {
+    var projectID = Xrm.Page.getAttribute("new_projectidpo").getValue();
+    if (projectID.match(/\b[1-2]-\d{10}\b/g) == null) {
+        var message = "The Format of Project ID is not correct! Valid Format: 1-0000000000";
+        alert(message);
+        Xrm.Page.getAttribute("new_projectidpo").setValue(null);
+    }
+}
+
+function ValidateDates(){
+	debugger;
+	var dateFrom = Xrm.Page.getAttribute("new_frompo").getValue();
+    var dateTo = Xrm.Page.getAttribute("new_topo").getValue();
+	if ( dateTo < dateFrom)
+		alert("The 'To' date cannot be before the 'From' date. Please verify");
+}
+
+function Filter_ServiceOfferingType() {
+    var optServiceOffering = Xrm.Page.getAttribute("new_serviceofferingpo").getSelectedOption();
+    var optServiceOfferingType = Xrm.Page.getAttribute("new_serviceofferingtypepo").getSelectedOption();
+    var oServiceOfferingType = Xrm.Page.getControl("new_serviceofferingtypepo");
+    if (optServiceOffering != null) {
+        oServiceOfferingType.setDisabled(false);
+        var strServiceOffering = optServiceOffering.text;
+        //alert(strCategory);
+        var code = strServiceOffering.substr(0, strServiceOffering.indexOf("-"));
+        oServiceOfferingType.clearOptions();
+        for (var j = 0; j < SOToptions.length; j++) {
+            //alert(oSubCategory.Options.length);
+            if (code != "") {
+                if (SOToptions[j].text.substr(0, SOToptions[j].text.indexOf("-")) == code) {
+                    oServiceOfferingType.addOption(SOToptions[j]);
+                    //alert(j);
+                }
+            }
+            else if (SOToptions[j].text == strServiceOffering) {
+                oServiceOfferingType.addOption(SOToptions[j]);
+            }
+        }
+        if (optServiceOfferingType != null) {
+            Xrm.Page.getAttribute("new_serviceofferingtypepo").setValue(optServiceOfferingType.value);
+        }
+    }
+    else {
+        Xrm.Page.getAttribute("new_serviceofferingtypepo").setValue(null);
+        oServiceOfferingType.setDisabled(true);
+    }
+}
+
+function ApprovalStatus_onchange() {
+    var optApprovalStatus = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+    if (optApprovalStatus.text == "In Progress") {
+        Xrm.Page.getAttribute("new_eststartdatepo").setRequiredLevel("required");
+        Xrm.Page.getAttribute("new_estenddatepo").setRequiredLevel("required");
+        Xrm.Page.getAttribute("new_esteffortpo").setRequiredLevel("required");
+    }
+    else {
+        Xrm.Page.getAttribute("new_eststartdatepo").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_estenddatepo").setRequiredLevel("none");
+        Xrm.Page.getAttribute("new_esteffortpo").setRequiredLevel("none");
+    }
+    if (optApprovalStatus.text == "Complete") {
+        Xrm.Page.getAttribute("new_acteffortpo").setRequiredLevel("required");
+    }
+    else {
+        Xrm.Page.getAttribute("new_acteffortpo").setRequiredLevel("none");
+    }
+    if (optApprovalStatus.text == "Rejected") {
+        Xrm.Page.getControl("new_rejectionreasonpo").setDisabled(false);
+        Xrm.Page.getAttribute("new_rejectionreasonpo").setRequiredLevel("required");
+    }
+    else {
+        Xrm.Page.getControl("new_rejectionreasonpo").setDisabled(true);
+        Xrm.Page.getAttribute("new_rejectionreasonpo").setRequiredLevel("none");
+    }
+}
+
+function ApprovalStatus_onsave() {
+    var optApprovalStatus = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+    if (optApprovalStatus.text == "Rejected") {
+        Xrm.Page.getAttribute("new_submitpo").setValue(false);
+        Xrm.Page.getAttribute("new_assgnedtopo").setValue(null);
+    }
+}
+
+function AssignTeam() {
+    var ObjAssignedTeam = Xrm.Page.getAttribute("new_assignedteampo").getValue();
+    var ObjMarket = Xrm.Page.getAttribute("new_softtekmarketpo").getValue();
+    if (ObjMarket != null) {
+        var entityName = 'team';
+        var outputColumns = [new CRMField('teamid'), new CRMField('name')];
+        var filters = [new FilterBy('new_softtekmarketteam', LogicalOperator.Equal, ObjMarket), new FilterBy('new_areateam', LogicalOperator.Equal, 100000001)];
+
+        var items = RetrieveRecords(entityName, outputColumns, filters);
+
+        if (items.Rows.length > 0) {
+            var teamID = items.Rows[0].GetValue("teamid");
+            var teamName = items.Rows[0].GetValue("name");
+            if (teamID != null) {
+                setSimpleLookupValue("new_assignedteampo", "team", teamID, teamName);
+            }
+        }
+        else {
+            Xrm.Page.getAttribute("new_assignedteampo").setValue(null);
+            Xrm.Page.getAttribute("new_assignedteampo").setSubmitMode("always");
+        }
+    }
+}
+
+function InvoicesDeliveryMode_onchange() {
+    var optInvoicesDeliveryMode = Xrm.Page.getAttribute("new_invoicesdeliverymodepo").getSelectedOption();
+    if (optInvoicesDeliveryMode != null && (optInvoicesDeliveryMode.text == "Email" || optInvoicesDeliveryMode.text == "Both")) {
+        Xrm.Page.getAttribute("new_contactemailpo").setRequiredLevel("required");
+    }
+    else {
+        Xrm.Page.getAttribute("new_contactemailpo").setRequiredLevel("none");
+    }
+}
+
+function Filter_SofttekVertical() {
+    var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarketpo").getSelectedOption();
+    var optMarketScope = Xrm.Page.getAttribute("new_marketscopepo").getSelectedOption();
+    var optSofttekVertical = Xrm.Page.getAttribute("new_softtekverticalpo").getSelectedOption();
+    var oSofttekVertical = Xrm.Page.getControl("new_softtekverticalpo");
+    for (i = 0; i < SVoptions.length; i++) {
+        if (SVoptions[i].text == "JIT Automotive Solutions") {
+            var JIT = i;
+        }
+        if (SVoptions[i].text == "Pharmalab") {
+            var Pha = i;
+        }
+        if (SVoptions[i].text == "ChemQ") {
+            var Che = i;
+        }
+        if (SVoptions[i].text == "eMetal") {
+            var eMe = i;
+        }
+        if (SVoptions[i].text == "pCare") {
+            var pCa = i;
+        }
+        if (SVoptions[i].text == "SAP Services") {
+            var SAP = i;
+        }
+    }
+    if (optSofttekMarket != null) {
+        switch (optSofttekMarket.text) {
+        case "Cloud SAP Industry Solutions":
+            oSofttekVertical.setDisabled(false);
+            oSofttekVertical.clearOptions();
+            oSofttekVertical.addOption(SVoptions[JIT]); // JIT Automotive Solutions
+            oSofttekVertical.addOption(SVoptions[Pha]); // Pharmalab
+            oSofttekVertical.addOption(SVoptions[Che]); // ChemQ
+            oSofttekVertical.addOption(SVoptions[eMe]); // eMetal
+            oSofttekVertical.addOption(SVoptions[pCa]); // pCare
+            oSofttekVertical.addOption(SVoptions[SAP]); // SAP Services    	
+            if (optSofttekVertical != null) {
+                Xrm.Page.getAttribute("new_softtekverticalpo").setValue(optSofttekVertical.value);
+            }
+            break;
+        default:
+            if (optMarketScope != null) {
+                if ((optSofttekVertical == null) || (optSofttekVertical != null && optSofttekVertical.text != "Manufactura y BC" && optSofttekVertical.text != "Telcos" && optSofttekVertical.text != "Business Development" && optSofttekVertical.text != "Resto del Mercado" && optSofttekVertical.text != "Software & High Tech")) {
+                    //Manufactura y BC, Telcos, Business Development, Resto del Mercado, Software & High Tech are removed
+                    oSofttekVertical.setDisabled(false);
+                    var strSofttekMarket = optSofttekMarket.text;
+                    var strMarketScope = optMarketScope.text;
+                    oSofttekVertical.clearOptions();
+                    if (strSofttekMarket == "USA & Canada") {
+                        if (strMarketScope == "Global") {
+                            oSofttekVertical.addOption(SVoptions[0]);
+                            oSofttekVertical.addOption(SVoptions[6]);
+                        }
+                        else {
+                            for (var i = 0; i <= 4; i++) {
+                                oSofttekVertical.addOption(SVoptions[i]);
+                            }
+                            oSofttekVertical.addOption(SVoptions[9]);
+                            oSofttekVertical.addOption(SVoptions[10]);
+                            oSofttekVertical.addOption(SVoptions[5]);
+                            oSofttekVertical.addOption(SVoptions[7]);
+                            oSofttekVertical.addOption(SVoptions[8]);
+                            oSofttekVertical.removeOption(SVoptions[1].value);
+                        }
+                    }
+                    else if (strSofttekMarket == "Mexico & Central America") {
+                        if (strMarketScope == "Global") {
+                            oSofttekVertical.addOption(SVoptions[12]); //01 Banamex
+                            oSofttekVertical.addOption(SVoptions[13]); //02 HP14
+                            oSofttekVertical.addOption(SVoptions[14]); //03 Walmart15
+                            oSofttekVertical.addOption(SVoptions[11]); //04 GE
+                        }
+                        else {
+                            oSofttekVertical.addOption(SVoptions[15]); //Local	05 EST-Bancomer16
+                            oSofttekVertical.addOption(SVoptions[16]); //Local	06 EST-IBM Metlife17
+                            oSofttekVertical.addOption(SVoptions[17]); //Local	07 HGM-Bimbo18
+                            oSofttekVertical.addOption(SVoptions[22]); //Local	08 HGM-Named23
+                            oSofttekVertical.addOption(SVoptions[29]); //Local	09 BD-Named30
+                            oSofttekVertical.addOption(SVoptions[25]); //Local	10 BD-Financiero26
+                            oSofttekVertical.addOption(SVoptions[28]); //Local	11 BD-Honeywell29
+                            oSofttekVertical.addOption(SVoptions[21]); //Local	12 ZN-Named22
+                            oSofttekVertical.addOption(SVoptions[27]); //Local	13 ZN-Urbi28
+                            oSofttekVertical.addOption(SVoptions[23]); //Local	14 SAP24
+                            oSofttekVertical.addOption(SVoptions[26]); //Local	15 SP27
+                            oSofttekVertical.addOption(SVoptions[8]); //unknown
+                        }
+                    }
+                    else {
+                        oSofttekVertical.addOption(SVoptions[5]);
+                    }
+                    if (optSofttekVertical != null) {
+                        Xrm.Page.getAttribute("new_softtekverticalpo").setValue(optSofttekVertical.value);
+                    }
+                }
+
+            }
+            else {
+                Xrm.Page.getAttribute("new_softtekverticalpo").setValue(null);
+                oSofttekVertical.setDisabled(true);
+            }
+            break;
+        }
+
+    }
+    else {
+        Xrm.Page.getAttribute("new_softtekverticalpo").setValue(null);
+        oSofttekVertical.setDisabled(true);
+    }
+}
+
+function SofttekMarket_onchange() {
+    Xrm.Page.getAttribute("new_softtekverticalpo").setValue(null);
+    Filter_SofttekVertical();
+    ProjecID_requirementlvl();
+}
+
+function MarketScope_onchange() {
+    Xrm.Page.getAttribute("new_softtekverticalpo").setValue(null);
+    Filter_SofttekVertical();
+}
+
+function CalculateRevenue() {
+    // Discount Amount = Est. Revenue * (Discount (%) /100)
+    // Total Revenue = Est. Revenue - Discount Amount
+    var Discount = Xrm.Page.getAttribute("new_discountpercentagepo").getValue();
+    var POAmount = Xrm.Page.getAttribute("new_poamountpo").getValue();
+    if (Discount != null && POAmount != null) {
+        var DiscountAmount = POAmount * Discount / 100;
+        Xrm.Page.getAttribute("new_discountamountpo").setValue(DiscountAmount);
+        Xrm.Page.getAttribute("new_totalamountpo").setValue(POAmount - DiscountAmount);
+    }
+    else {
+        Xrm.Page.getAttribute("new_discountamountpo").setValue(null);
+        Xrm.Page.getAttribute("new_totalamountpo").setValue(null);
+    }
+}
+
+function ProjecID_requirementlvl() {
+    var ObjMarket = Xrm.Page.getAttribute("new_softtekmarketpo").getValue();
+    if (ObjMarket != null) {
+        var optSofttekMarket = Xrm.Page.getAttribute("new_softtekmarketpo").getSelectedOption();
+        if (optSofttekMarket != null) {
+            var strSofttekMarket = optSofttekMarket.text;
+            if ((strSofttekMarket == "USA & Canada") || (strSofttekMarket == "Mexico & Central America")) {
+                Xrm.Page.getAttribute("new_projectidpo").setRequiredLevel("required");
+            }
+            else {
+                Xrm.Page.getAttribute("new_projectidpo").setRequiredLevel("none");
+            }
+        }
+    }
+}
+
+function SetActualDate() {
+    var optStatusReason = Xrm.Page.getAttribute("statuscode").getSelectedOption();
+    var objActStartDate = Xrm.Page.getAttribute("new_actstartdatepo");
+    var objActEndDate = Xrm.Page.getAttribute("new_actenddatepo");
+    var objActEffort = Xrm.Page.getAttribute("new_acteffortpo");
+    if (optStatusReason != null) {
+        if (optStatusReason.text == "In Progress" && objActStartDate.getValue() == null) {
+            var today = new Date();
+            objActStartDate.setValue(today);
+            objActStartDate.setSubmitMode("always");
+        }
+
+        if (optStatusReason.text == "Complete" && objActEndDate.getValue() == null) {
+            var today = new Date();
+            objActEndDate.setValue(today);
+            objActEndDate.setSubmitMode("always");
+        }
+    }
+}
+
+function CompletePO() {
+    var result = confirm("Do you want to close this Purchase Order as Completed?");
+    var StatusPO = Xrm.Page.getAttribute("new_statuspo").getValue();
+    if (StatusPO == 100000001) {
+        if (result) {
+            Xrm.Page.getAttribute("new_statuspo").setValue(100000002);
+            Xrm.Page.getAttribute("new_closepo").setValue(100000001);
+            Xrm.Page.getAttribute("new_closepo").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_statuspo").setSubmitMode("always");
+            SaveAndClose();
+        }
+    }
+}
+
+function CancelPO() {
+    var result = confirm("Do you want to close this Purchase Order as Cancelled?");
+    var StatusPO = Xrm.Page.getAttribute("new_statuspo").getValue();
+    if (StatusPO == 100000001) {
+        if (result) {
+            Xrm.Page.getAttribute("new_statuspo").setValue(100000002);
+            Xrm.Page.getAttribute("new_closepo").setValue(100000000);
+            Xrm.Page.getAttribute("new_closepo").setSubmitMode("always");
+            Xrm.Page.getAttribute("new_statuspo").setSubmitMode("always");
+            SaveAndClose();
+        }
+    }
+}
+
+function SubmitSWPO() {
+    var SubmitToSW = Xrm.Page.getAttribute("new_submitpo");
+    var AssignedTeam = Xrm.Page.getAttribute("new_assignedteampo").getValue();
+    var StatusPo = Xrm.Page.getAttribute("new_statuspo");
+    var StatusReason = Xrm.Page.getAttribute("statuscode");
+
+    if (AssignedTeam != null) {
+        //StatusPO - 100000001 = Submitted
+        StatusPo.setValue(100000001);
+        //StatusReasonPO - 100000000 = New	
+        StatusReason.setValue(100000000);
+        SubmitToSW.setValue(true);
+        SubmitToSW.setSubmitMode("always");
+        StatusPo.setSubmitMode("always");
+        StatusReason.setSubmitMode("always");
+        SaveAndClose();
+    }
+}
+
+function SaveAndClose() {
+	alert("SaveAndClose");
+    Xrm.Page.data.entity.save("saveandclose");
+}

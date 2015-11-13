@@ -1,0 +1,16 @@
+﻿
+if (typeof(STK) == "undefined") {
+    STK = {
+        __namespace: true
+    };
+}
+if (typeof(STK.Util) == "undefined") {
+    STK.Util = {
+        __namespace: true
+    };
+}
+if (typeof(STK.Forms) == "undefined") {
+    STK.Forms = {
+        __namespace: true
+    };
+}

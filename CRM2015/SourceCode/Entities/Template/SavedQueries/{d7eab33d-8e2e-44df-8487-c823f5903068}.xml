@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>2010</returnedtypecode>
+  <savedqueryid>{d7eab33d-8e2e-44df-8487-c823f5903068}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="2010" jump="title" select="1" icon="1" preview="1">
+      <row name="result" id="templateid">
+        <cell name="title" width="300" />
+        <cell name="templatetypecode" width="125" cellType="Crm.EmailTemplateGlobal" />
+        <cell name="ispersonal" width="125" />
+        <cell name="languagecode" width="100" cellType="Crm.LanguageCodeFormat" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="template">
+        <order attribute="title" descending="false" />
+        <attribute name="title" />
+        <attribute name="templatetypecode" />
+        <attribute name="ispersonal" />
+        <attribute name="languagecode" />
+        <attribute name="templateid" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="title" operator="like" value="{0}" />
+        </filter>
+        <filter type="and">
+          <condition attribute="languagecode" operator="eq-userlanguage" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find All E-mail Templates" languagecode="1033" />
+    <LocalizedName description="Búsqueda rápida de plantillas de correo electrónico" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

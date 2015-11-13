@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <HideCustomAction HideActionId="new.Mscrm.Form.new_legalsupportrequest.Save.Hide" Location="Mscrm.Form.new_legalsupportrequest.Save" />
+    <CustomAction Id="new.Mscrm.HomepageGrid.new_legalsupportrequest.Deactivate.CustomAction" Location="Mscrm.HomepageGrid.new_legalsupportrequest.MainTab.Management.Controls._children" Sequence="40">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" Command="Mscrm.HomepageGrid.Deactivate" Id="Mscrm.HomepageGrid.new_legalsupportrequest.Deactivate" Image32by32="/_imgs/ribbon/Deactivate_32.png" Image16by16="/_imgs/ribbon/Deactivate_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" Sequence="40" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Deactivate" ModernImage="DeActivate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_legalsupportrequest.Button1.Button.CustomAction" Location="Mscrm.Form.new_legalsupportrequest.MainTab.Save.Controls._children" Sequence="25">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_legalsupportrequest.Button1.Button.Alt" Command="new.new_legalsupportrequest.Submit.Command" Description="Submit" Id="new.new_legalsupportrequest.Button1.Button" Image32by32="$webresource:new_check32" Image16by16="$webresource:new_check16" LabelText="$LocLabels:new.new_legalsupportrequest.Button1.Button.LabelText" Sequence="25" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_legalsupportrequest.Button1.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_legalsupportrequest.Button1.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_legalsupportrequest.Button2.Button.CustomAction" Location="Mscrm.Form.new_legalsupportrequest.MainTab.Save.Controls._children" Sequence="12">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_legalsupportrequest.Button2.Button.Alt" Command="new.new_legalsupportrequest.Reactive.Command" Description="Reactive Request" Id="new.new_legalsupportrequest.Button2.Button" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$LocLabels:new.new_legalsupportrequest.Button2.Button.LabelText" Sequence="12" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_legalsupportrequest.Button2.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_legalsupportrequest.Button2.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_legalsupportrequest.Button3.Button.CustomAction" Location="Mscrm.Form.new_legalsupportrequest.MainTab.Save.Controls._children" Sequence="37">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_legalsupportrequest.Button3.Button.Alt" Command="new.new_legalsupportrequest.Close.Command" Description="Close Request" Id="new.new_legalsupportrequest.Button3.Button" Image32by32="$webresource:new_deactivate_32.png" Image16by16="$webresource:new_deactivate16.png" LabelText="$LocLabels:new.new_legalsupportrequest.Button3.Button.LabelText" Sequence="37" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_legalsupportrequest.Button3.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_legalsupportrequest.Button3.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_legalsupportrequest.Button4.Button.CustomAction" Location="Mscrm.Form.new_legalsupportrequest.MainTab.Save.Controls._children" Sequence="43">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_legalsupportrequest.Button4.Button.Alt" Command="new.new_legalsupportrequest.Cancel.Command" Description="Cancel Request" Id="new.new_legalsupportrequest.Button4.Button" Image32by32="$webresource:new_poclose32" Image16by16="$webresource:new_poclose16" LabelText="$LocLabels:new.new_legalsupportrequest.Button4.Button.LabelText" Sequence="43" TemplateAlias="o2" ToolTipTitle="$LocLabels:new.new_legalsupportrequest.Button4.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_legalsupportrequest.Button4.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_legalsupportrequest.Button5.Button.CustomAction" Location="Mscrm.Form.new_legalsupportrequest.MainTab.Save.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Command="new.new_legalsupportrequest.Save.Command" Description="Save" Id="new.new_legalsupportrequest.Button5.Button" Image32by32="$webresource:new_Save32x" Image16by16="$webresource:new_Save16x" LabelText="$LocLabels:new.new_legalsupportrequest.Button5.Button.LabelText" Sequence="15" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.new_legalsupportrequest.Button5.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_legalsupportrequest.Button5.Button.ToolTipDescription" ModernImage="" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.new_legalsupportrequest.Button6.Button.CustomAction" Location="Mscrm.HomepageGrid.new_legalsupportrequest.MainTab.Management.Controls._children" Sequence="30">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.new_legalsupportrequest.Button6.Button.Alt" Command="new.legalsupportrequest.CloseRequestGrid.Command" Description="Close Request" Id="new.new_legalsupportrequest.Button6.Button" Image32by32="$webresource:new_deactivate_32.png" Image16by16="$webresource:new_deactivate16.png" LabelText="$LocLabels:new.new_legalsupportrequest.Button6.Button.LabelText" Sequence="30" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.new_legalsupportrequest.Button6.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.new_legalsupportrequest.Button6.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.HomepageGrid.Deactivate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWriteSelected" />
+        <DisplayRule Id="Mscrm.SelectedEntityHasStatecode" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridCommandActions.deactivate" Library="/_static/_common/scripts/CommandBarActions.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.legalsupportrequest.CloseRequestGrid.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="new.new_legalsupportrequest.LoadXml.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="ClosedRequestGrid" Library="$webresource:new_legalSupportRibbon">
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedControlSelectedItemCount" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_legalsupportrequest.Cancel.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_legalsupportrequest.Active.EnableRule" />
+        <EnableRule Id="new.new_legalsupportrequest.AssignedToNotEmpty.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="new.new_legalsupportrequest.DisplayRule0.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="CancelResquest" Library="$webresource:new_legalSupportRibbon" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_legalsupportrequest.Close.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_legalsupportrequest.Active.EnableRule" />
+        <EnableRule Id="new.new_legalsupportrequest.AssignedToNotEmpty.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="new.new_legalsupportrequest.DisplayRule0.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="ClosedRequest" Library="$webresource:new_legalSupportRibbon" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_legalsupportrequest.Reactive.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_legalsupportrequest.Reactive.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="new.new_legalsupportrequest.DisplayRule0.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="ReactiveResquest" Library="$webresource:new_legalSupportRibbon" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_legalsupportrequest.Save.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="new.new_legalsupportrequest.ActiveRecord.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SaveRefreshLS" Library="$webresource:new_QuoteSave" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.new_legalsupportrequest.Submit.Command">
+      <EnableRules>
+        <EnableRule Id="new.new_legalsupportrequest.EnableRule1.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="new.new_legalsupportrequest.DisplayRule0.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SubmitSW" Library="$webresource:new_legalSupportRibbon" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.CanWriteSelected">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SelectedEntityHasStatecode">
+        <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="HasStateCode" PropertyValue="true" />
+      </DisplayRule>
+      <DisplayRule Id="new.new_legalsupportrequest.ActiveRecord.DisplayRule">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="new.new_legalsupportrequest.DisplayRule0.DisplayRule">
+        <FormStateRule State="Create" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.SelectionCountAtLeastOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.GridCommandActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/CommandBarActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="new.new_legalsupportrequest.Active.EnableRule">
+        <FormStateRule State="Existing" InvertResult="false" />
+        <ValueRule Field="new_sw" Value="false" Default="false" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="new.new_legalsupportrequest.AssignedToNotEmpty.EnableRule">
+        <ValueRule Field="new_assignedto" Value="null" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="new.new_legalsupportrequest.EnableRule1.EnableRule">
+        <ValueRule Field="new_sw" Value="true" Default="false" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="new.new_legalsupportrequest.LoadXml.EnableRule">
+        <CustomRule FunctionName="LoadXrmScript" Library="$webresource:new_Opp_Ribbon_Functions_2" Default="false" />
+      </EnableRule>
+      <EnableRule Id="new.new_legalsupportrequest.Reactive.EnableRule">
+        <ValueRule Field="new_formactive" Value="true" Default="false" InvertResult="true" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="new.new_legalsupportrequest.Button1.Button.Alt">
+      <Titles>
+        <Title description="Submit" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button1.Button.LabelText">
+      <Titles>
+        <Title description="Submit" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button1.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Submit" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button1.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Submit" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button2.Button.Alt">
+      <Titles>
+        <Title description="Reactive Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button2.Button.LabelText">
+      <Titles>
+        <Title description="Reactive Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button2.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Reactive Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button2.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Reactive Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button3.Button.Alt">
+      <Titles>
+        <Title description="Close Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button3.Button.LabelText">
+      <Titles>
+        <Title description="Close Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button3.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Close Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button3.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Close Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button4.Button.Alt">
+      <Titles>
+        <Title description="Cancel Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button4.Button.LabelText">
+      <Titles>
+        <Title description="Cancel Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button4.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Cancel Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button4.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Cancel Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button5.Button.LabelText">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button5.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button5.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button6.Button.Alt">
+      <Titles>
+        <Title description="Close Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button6.Button.LabelText">
+      <Titles>
+        <Title description="Close Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button6.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Close Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.new_legalsupportrequest.Button6.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Close Request" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{93187016-a1d3-e211-bb86-78e7d162ce29}</WebResourceId>
+  <Name>new_OnExecuteDialog_html</Name>
+  <DisplayName>OnExecuteDialog (HTML)</DisplayName>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_OnExecuteDialog_html93187016-A1D3-E211-BB86-78E7D162CE29</FileName>
+</WebResource>

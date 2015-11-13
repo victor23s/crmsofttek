@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10037</returnedtypecode>
+  <savedqueryid>{03c7e7d1-65a9-47cd-874a-9c9855d2f956}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10037" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_revenueforecastinsertlogid">
+        <cell name="new_name" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_revenueforecastinsertlog">
+        <attribute name="new_revenueforecastinsertlogid" />
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <order attribute="new_name" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Revenue Forecast Insert Log Advanced Find View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

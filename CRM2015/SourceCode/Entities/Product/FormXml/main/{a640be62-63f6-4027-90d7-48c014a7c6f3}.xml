@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{a640be62-63f6-4027-90d7-48c014a7c6f3}</formid>
+  <IntroducedVersion>6.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form showImage="true" enablerelatedinformation="true">
+    <ancestor id="{A640BE62-63F6-4027-90D7-48C014A7C6F3}" />
+    <hiddencontrols>
+      <data id="iskit" datafieldname="iskit" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      <data id="productstructure" datafieldname="productstructure" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+    </hiddencontrols>
+    <tabs>
+      <tab name="product_details" verticallayout="true" id="{176BD68C-CE4F-42A3-8793-42400D385DC0}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="SUMMARY" languagecode="1033" />
+          <label description="RESUMEN" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="50%">
+            <sections>
+              <section name="product information" showlabel="false" showbar="false" id="{47e8791d-5260-4e72-ae16-9f4f3cd91480}" IsUserDefined="0" columns="11" locklevel="0" celllabelalignment="Left" celllabelposition="Left" height="auto">
+                <labels>
+                  <label description="PRODUCT PROPERTIES" languagecode="1033" />
+                  <label description="PROPIEDADES DE PRODUCTO" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{81b1c9d3-1239-48d6-bd68-596d6d2c6897}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                        <label description="Nombre" languagecode="3082" />
+                      </labels>
+                      <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{222978d1-d56a-42a1-8be4-7d723e91a39f}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Product ID" languagecode="1033" />
+                        <label description="Id. de producto" languagecode="3082" />
+                      </labels>
+                      <control id="productnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="productnumber" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5b273f27-d568-4114-9843-198041ff81f7}" showlabel="true" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Parent" languagecode="1033" />
+                        <label description="Primario" languagecode="3082" />
+                      </labels>
+                      <control id="parentproductid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentproductid" disabled="false">
+                        <parameters>
+                          <DefaultViewId>{19d7f2e0-e427-40fb-85e8-53e7cef2b166}</DefaultViewId>
+                          <IsInlineNewEnabled>false</IsInlineNewEnabled>
+                          <ShowAsBreadcrumbControl>true</ShowAsBreadcrumbControl>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{143cd0c6-e343-4ba8-8322-396b644dfb79}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Valid From" languagecode="1033" />
+                        <label description="Válido desde" languagecode="3082" />
+                      </labels>
+                      <control id="validfromdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="validfromdate" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{f625f521-13a2-44b0-91ab-ea187a765ddb}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Valid To" languagecode="1033" />
+                        <label description="Válido hasta" languagecode="3082" />
+                      </labels>
+                      <control id="validtodate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="validtodate" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell rowspan="2" auto="true" id="{9d410f9c-530e-4355-8fde-f9804fadc363}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" />
+                    </cell>
+                  </row>
+                  <row height="auto" />
+                  <row>
+                    <cell id="{557826b1-4e0c-36a2-452c-1780cd42b70c}" showlabel="true" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Product Type" languagecode="1033" />
+                        <label description="Tipo de producto" languagecode="3082" />
+                      </labels>
+                      <control id="producttypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="producttypecode" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="50%">
+            <sections>
+              <section name="costs" showlabel="false" showbar="false" id="{f0129f52-d4cb-43b2-b88e-309824ce85e5}" IsUserDefined="0" labelwidth="125" columns="11" locklevel="0" celllabelalignment="Left" celllabelposition="Left" height="auto">
+                <labels>
+                  <label description="" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{7b13c17b-9ac7-e257-8dd4-117049798647}" showlabel="true" locklevel="1" colspan="2">
+                      <labels>
+                        <label description="Product Structure" languagecode="1033" />
+                        <label description="Estructura de producto" languagecode="3082" />
+                      </labels>
+                      <control id="productstructure" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="productstructure" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{a83b2393-2a31-44a3-ab42-4d6f60b4baf4}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Unit Group" languagecode="1033" />
+                        <label description="Unidad de venta" languagecode="3082" />
+                      </labels>
+                      <control id="defaultuomscheduleid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defaultuomscheduleid">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <IsInlineNewEnabled>false</IsInlineNewEnabled>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{2D013A3A-07CD-4163-8208-8E8E605492F4}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{59a2a77b-99d3-4475-9256-6de420b20c66}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Default Unit" languagecode="1033" />
+                        <label description="Unidad predeterminada" languagecode="3082" />
+                      </labels>
+                      <events>
+                        <event name="setadditionalparams" application="true" active="true">
+                          <InternalHandlers>
+                            <Handler functionName="Mscrm.defaultuomid_setadditionalparams" libraryName="Product_main_system_library.js" handlerUniqueId="4509435d-d55d-4e42-82ec-6edf62a44f8a" enabled="true" passExecutionContext="true" />
+                          </InternalHandlers>
+                        </event>
+                      </events>
+                      <control id="defaultuomid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defaultuomid">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <IsInlineNewEnabled>false</IsInlineNewEnabled>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{4DA6F46B-3649-4D0E-B5D2-CCB590F4227D}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bf5f0ca9-35a6-45a2-9da5-44ef480af8d4}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Default Price List" languagecode="1033" />
+                        <label description="Lista de precios predeterminada" languagecode="3082" />
+                      </labels>
+                      <events>
+                        <event name="setadditionalparams" application="true" active="true">
+                          <InternalHandlers>
+                            <Handler functionName="Mscrm.pricelevelid_setadditionalparams" libraryName="Product_main_system_library.js" handlerUniqueId="8d9b4067-8129-4668-8534-6436d16b9727" enabled="true" passExecutionContext="true" />
+                          </InternalHandlers>
+                        </event>
+                      </events>
+                      <control id="pricelevelid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="pricelevelid">
+                        <parameters>
+                          <DefaultViewId>{E2AD69C0-F7F1-4513-88CC-E255C188CEFF}</DefaultViewId>
+                          <IsInlineNewEnabled>false</IsInlineNewEnabled>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row height="auto">
+                    <cell auto="true" id="{4b98e3b0-b619-4743-a00a-58578082f0bf}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Decimals Supported" languagecode="1033" />
+                        <label description="Decimales admitidos" languagecode="3082" />
+                      </labels>
+                      <control id="quantitydecimal" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="quantitydecimal" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{38223b51-430d-702a-d95c-095cae9392cb}" showlabel="true" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="List Price" languagecode="1033" />
+                        <label description="Precio listado" languagecode="3082" />
+                      </labels>
+                      <control id="price" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="price" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{050c333d-6625-53b2-0e0a-b43309628402}" showlabel="true" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Current Cost" languagecode="1033" />
+                        <label description="Coste actual" languagecode="3082" />
+                      </labels>
+                      <control id="currentcost" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="currentcost" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{0ebb7363-4484-b2da-c58b-bb60b626325d}" showlabel="true" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Standard Cost" languagecode="1033" />
+                        <label description="Coste estándar" languagecode="3082" />
+                      </labels>
+                      <control id="standardcost" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="standardcost" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{46149e09-a345-4a95-ba38-11254afc82cf}" locklevel="0" colspan="2">
+                      <labels>
+                        <label description="Subject" languagecode="1033" />
+                        <label description="Asunto" languagecode="3082" />
+                      </labels>
+                      <control id="subjectid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="subjectid" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="productassocaition_items" id="{8DB660CF-C5F5-4188-827D-75233475153F}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+        <labels>
+          <label description="BUNDLE PRODUCTS" languagecode="1033" />
+          <label description="PRODUCTOS DE AGRUPACIÓN" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="productassocaition_items_section" showlabel="false" showbar="false" locklevel="0" id="{6118E0A5-EB5F-4367-8237-55052CB438E0}" IsUserDefined="0" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{C71CBDB3-D624-44F2-A0D0-B284A05E1CC8}" showlabel="false" auto="false" rowspan="7" colspan="2">
+                      <labels>
+                        <label description="BUNDLE PRODUCTS" languagecode="1033" />
+                        <label description="PRODUCTOS DE AGRUPACIÓN" languagecode="3082" />
+                      </labels>
+                      <control id="productassocaition_items" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                        <parameters>
+                          <ViewId>{8f4f0419-a73a-4ac5-b59b-38fe04f21336}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>Product_ProductAssociation_Prod</RelationshipName>
+                          <TargetEntityType>productassociation</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds />
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>5</RecordsPerPage>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="DynamicProperties" showlabel="false" showbar="false" locklevel="1" id="{57ec71f4-8950-4533-a3be-5eed0f768346}" IsUserDefined="0" columns="1">
+                <labels>
+                  <label description="" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{3c2fd662-7109-4eea-8002-74d224c4f00d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                      <control id="DynamicPropertiesList_LinkControl" classid="{DFDF1CDE-837B-4AC9-98CF-AC74361FD89D}">
+                        <parameters>
+                          <LinkControlDefinitionId>{9E5EEBFC-5883-43C0-A36C-6FCA2615D5CA}</LinkControlDefinitionId>
+                          <ShowLinkControlLabel>false</ShowLinkControlLabel>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="product_dynamic_properties" id="{6223E6F7-BC9A-4B9E-B61F-725218D62D57}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+        <labels>
+          <label description="PRODUCT PROPERTIES" languagecode="1033" />
+          <label description="PROPIEDADES DE PRODUCTO" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="product_dynamic_properties_section" showlabel="false" showbar="false" locklevel="0" id="{165abcc9-2792-4d2a-9623-c21d6cc10ff8}" IsUserDefined="0" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{1a7e38b5-986d-45ff-9f7d-352b121f927e}" showlabel="false" auto="false" rowspan="7" colspan="2">
+                      <labels>
+                        <label description="PRODUCT PROPERTIES" languagecode="1033" />
+                        <label description="PROPIEDADES DE PRODUCTO" languagecode="3082" />
+                      </labels>
+                      <control id="product_dynamic_properties" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                        <parameters>
+                          <ViewId>{63ABC191-F333-47E1-9F3F-EF1CBF8DF1C0}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>Product_DynamicProperty</RelationshipName>
+                          <TargetEntityType>dynamicproperty</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>5</RecordsPerPage>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="price_list_items" id="{2F0F5E7B-A6F7-478F-803F-20F71275A27E}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+        <labels>
+          <label description="ADDITIONAL DETAILS" languagecode="1033" />
+          <label description="DETALLES ADICIONALES" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="50%">
+            <sections>
+              <section name="price_list_items_section" showlabel="false" showbar="false" locklevel="0" id="{a0b4a40c-c069-3204-325b-50b887e51bcb}" IsUserDefined="0" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{a7b12d5a-c513-2722-0a08-7ac83e4ec82c}" showlabel="true" auto="false" rowspan="7" colspan="2">
+                      <labels>
+                        <label description="PRICE LIST ITEMS" languagecode="1033" />
+                        <label description="ELEMENTOS DE LISTA DE PRECIOS" languagecode="3082" />
+                      </labels>
+                      <control id="Price_List_Items" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                        <parameters>
+                          <ViewId>{19103072-CD05-42C7-B174-F981D33B8BEB}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>product_price_levels</RelationshipName>
+                          <TargetEntityType>productpricelevel</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds />
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>5</RecordsPerPage>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="50%">
+            <sections>
+              <section name="productsubstitute_items_section" showlabel="false" showbar="false" locklevel="0" id="{85dee026-68bd-4a46-8043-2e21d457ecab}" IsUserDefined="0" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{3f1f3f13-a1e7-4977-9a7f-ea678cb49b19}" showlabel="true" auto="false" rowspan="7" colspan="2">
+                      <labels>
+                        <label description="PRODUCT RELATIONSHIPS" languagecode="1033" />
+                        <label description="RELACIONES DE PRODUCTO" languagecode="3082" />
+                      </labels>
+                      <control id="productsubstitute_items" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                        <parameters>
+                          <ViewId>{400c861d-f355-42b2-9899-2b3196cbd71f}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>product_ProductSubstitute_productid</RelationshipName>
+                          <TargetEntityType>productsubstitute</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds />
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>5</RecordsPerPage>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="notes" id="{48cc76dd-135e-4f04-8163-35c6ef05fda8}" IsUserDefined="0" expanded="true" showlabel="false" visible="false">
+        <labels>
+          <label description="Notes" languagecode="1033" />
+          <label description="Notas" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="notes" showlabel="false" showbar="false" id="{4dee4da9-1bba-4fa7-9eaf-4729672792c9}" IsUserDefined="0" height="auto">
+                <labels>
+                  <label description="Notes" languagecode="1033" />
+                  <label description="Notas" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell colspan="2" showlabel="false" rowspan="7" auto="true" id="{48e3189d-a31e-46b2-aada-a7ee44d3eb72}">
+                      <labels>
+                        <label description="Note Text" languagecode="1033" />
+                        <label description="Texto de la nota" languagecode="3082" />
+                      </labels>
+                      <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}">
+                        <parameters>
+                          <DefaultTabId>NotesTab</DefaultTabId>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row height="auto" />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <header id="{1bab7584-c9f7-4542-842f-f061caee103b}" celllabelposition="Top" labelwidth="115">
+      <rows>
+        <row>
+          <cell id="{7fe0d486-f4f5-47af-81b1-e695dd2439c9}" showlabel="true">
+            <labels>
+              <label description="Status" languagecode="1033" />
+              <label description="Estado" languagecode="3082" />
+            </labels>
+            <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" />
+          </cell>
+        </row>
+      </rows>
+    </header>
+    <events>
+      <event name="onload" application="true" active="true">
+        <InternalHandlers>
+          <Handler functionName="Mscrm.Form_onload" libraryName="Product_main_system_library.js" handlerUniqueId="4842ce96-833c-4abc-a6ea-94ff497cc081" enabled="true">
+            <dependencies>
+              <dependency id="quantitydecimal" />
+              <dependency id="defaultuomid" />
+              <dependency id="defaultuomscheduleid" />
+            </dependencies>
+          </Handler>
+        </InternalHandlers>
+      </event>
+      <event name="onchange" application="true" active="true" attribute="defaultuomscheduleid">
+        <InternalHandlers>
+          <Handler functionName="Mscrm.defaultuomscheduleid_onchange" libraryName="Product_main_system_library.js" handlerUniqueId="b12d0ff3-7dad-495f-8b18-b84a06ad4ecb" enabled="true">
+            <dependencies>
+              <dependency id="defaultuomid" />
+            </dependencies>
+          </Handler>
+        </InternalHandlers>
+      </event>
+      <event name="onchange" application="true" active="true" attribute="pricelevelid">
+        <InternalHandlers>
+          <Handler functionName="Mscrm.pricelevelid_onchange" libraryName="Product_main_system_library.js" handlerUniqueId="83a11011-cda3-44af-a04a-838672079780" enabled="true">
+            <dependencies>
+              <dependency id="pricelevelid" />
+            </dependencies>
+          </Handler>
+        </InternalHandlers>
+      </event>
+      <event name="onchange" application="true" active="true" attribute="quantitydecimal">
+        <InternalHandlers>
+          <Handler functionName="Mscrm.quantitydecimal_onchange" libraryName="Product_main_system_library.js" handlerUniqueId="4e2fda21-f6a5-4c71-bb84-c26b187da6c1" enabled="true">
+            <dependencies />
+          </Handler>
+        </InternalHandlers>
+      </event>
+      <event name="onchange" application="true" active="true" attribute="validfromdate">
+        <InternalHandlers>
+          <Handler functionName="Mscrm.validfromdate_onchange" libraryName="Product_main_system_library.js" handlerUniqueId="a4499b50-ab1e-4d64-9854-75079a7cd308" enabled="true">
+            <dependencies>
+              <dependency id="validtodate" />
+            </dependencies>
+          </Handler>
+        </InternalHandlers>
+      </event>
+      <event name="onchange" application="true" active="true" attribute="validtodate">
+        <InternalHandlers>
+          <Handler functionName="Mscrm.validtodate_onchange" libraryName="Product_main_system_library.js" handlerUniqueId="863936bf-b26a-4751-a576-ca57d6b56540" enabled="true">
+            <dependencies>
+              <dependency id="validfromdate" />
+            </dependencies>
+          </Handler>
+        </InternalHandlers>
+      </event>
+      <event name="onsave" application="true" active="true">
+        <InternalHandlers>
+          <Handler functionName="Mscrm.Form_onsave" libraryName="Product_main_system_library.js" handlerUniqueId="ccd4cf33-d2a5-4389-bbe6-e61976057600" enabled="true" passExecutionContext="true">
+            <dependencies>
+              <dependency id="validfromdate" />
+              <dependency id="validtodate" />
+            </dependencies>
+          </Handler>
+        </InternalHandlers>
+      </event>
+    </events>
+    <clientresources>
+      <internalresources>
+        <clientincludes>
+          <internaljscriptfile src="/_static/entities/product.js" />
+          <internaljscriptfile src="$webresource:Product_main_system_library.js" />
+        </clientincludes>
+        <clientvariables>
+          <internaljscriptvariable name="LOCID_ERRORMISSINGPL" resourceid="Web.SFA.product.edit.aspx_91" />
+          <internaljscriptvariable name="LOCID_ERRORMISSINGPLPRE" resourceid="Web.SFA.product.edit.aspx_90" />
+          <internaljscriptvariable name="LOCID_TODATE_LT_FROMDATE" resourceid="Web.products.ValidToEarlierThanValidFromDate" />
+        </clientvariables>
+      </internalresources>
+    </clientresources>
+    <Navigation>
+      <NavBar>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navPrices" Id="navPrices" Show="true" Area="Info" Sequence="1">
+          <Titles>
+            <Title LCID="1033" Text="Price List Items" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navDocument" Sequence="9000" Area="Info" Id="navDocument" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Documents" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navAsyncOperations" Sequence="9500" Area="ProcessCenter" Id="navAsyncOperations" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Workflows" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navProcessSessions" Sequence="9700" Area="ProcessCenter" Id="navProcessSessions" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Dialog Sessions" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navSubs" Area="Info" Id="navSubs" Sequence="2">
+          <Titles>
+            <Title LCID="1033" Text="Relationships" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navProductBundles" Area="Info" Id="navProductBundles" Sequence="3">
+          <Titles>
+            <Title LCID="1033" Text="Product Bundles" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navSalesLit" Area="Sales" Id="navSalesLit" Sequence="4">
+          <Titles>
+            <Title LCID="1033" Text="Sales Literature" />
+          </Titles>
+        </NavBarByRelationshipItem>
+      </NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <DisplayConditions FallbackForm="true" Order="2">
+      <Everyone />
+    </DisplayConditions>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Product" languagecode="1033" />
+    <LocalizedName description="Producto" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this refreshed entity." languagecode="1033" />
+    <Description description="Un formulario para esta entidad actualizada." languagecode="3082" />
+  </Descriptions>
+</systemform>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{1635b3a8-34cf-e211-bc99-78e7d162ce29}</WebResourceId>
+  <Name>new_deactivate_32.png</Name>
+  <DisplayName>deactivate_32.png</DisplayName>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_deactivate_32png1635B3A8-34CF-E211-BC99-78E7D162CE29</FileName>
+</WebResource>

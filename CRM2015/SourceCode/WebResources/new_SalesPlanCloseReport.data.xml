@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{0684db3e-024d-e511-80de-3863bb3c2680}</WebResourceId>
+  <Name>new_SalesPlanCloseReport</Name>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_SalesPlanCloseReport0684DB3E-024D-E511-80DE-3863BB3C2680</FileName>
+</WebResource>

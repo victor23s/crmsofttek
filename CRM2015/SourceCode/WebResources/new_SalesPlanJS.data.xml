@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{3d27ee43-123a-e511-80d8-3863bb2ef238}</WebResourceId>
+  <Name>new_SalesPlanJS</Name>
+  <DisplayName>SalesPlanJS</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_SalesPlanJS3D27EE43-123A-E511-80D8-3863BB2EF238</FileName>
+</WebResource>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{80ce8b85-8fc8-e211-bc99-78e7d162ce29}</WebResourceId>
+  <Name>new_AccountTestJs.js</Name>
+  <DisplayName>AccountTestJs.js</DisplayName>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_AccountTestJsjs80CE8B85-8FC8-E211-BC99-78E7D162CE29</FileName>
+</WebResource>

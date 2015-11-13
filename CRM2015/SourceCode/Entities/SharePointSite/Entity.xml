@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="SharePoint Site" OriginalName="">SharePointSite</Name>
+  <ObjectTypeCode>9502</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

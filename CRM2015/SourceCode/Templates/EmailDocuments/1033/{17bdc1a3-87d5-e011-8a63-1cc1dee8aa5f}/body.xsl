@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" ?><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"><xsl:output method="text" indent="no"/><xsl:template match="/data"><![CDATA[<p><font size=2 face="Tahoma, Verdana, Arial">Estimado ]]><xsl:choose><xsl:when test="systemuser/accessmode/@name"><xsl:value-of select="systemuser/accessmode/@name" /></xsl:when><xsl:otherwise></xsl:otherwise></xsl:choose><![CDATA[;</font></p>
+<p>Se ha modificado la cuenta ]]><xsl:choose><xsl:when test="systemuser/mobilephone"><xsl:value-of select="systemuser/mobilephone" /></xsl:when><xsl:otherwise></xsl:otherwise></xsl:choose><![CDATA[</p>
+<p> </p>
+<p>ES UNA PRUEBA.</p>]]></xsl:template></xsl:stylesheet>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>112</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000010003501}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="incidents" object="112" jump="title" select="1" icon="1" preview="1">
+      <row name="incident" id="incidentid">
+        <cell name="ticketnumber" width="150" />
+        <cell name="title" width="200" />
+        <cell name="statecode" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_serviceofferingcase" width="100" />
+        <cell name="new_casetypecase" width="100" />
+        <cell name="new_assignedqueue" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="new_duedatecase" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="customerid" width="100" />
+        <cell name="createdon" width="150" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="incident">
+        <attribute name="title" />
+        <attribute name="statecode" />
+        <attribute name="ticketnumber" />
+        <attribute name="createdon" />
+        <order attribute="title" descending="false" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_serviceofferingcase" />
+        <attribute name="prioritycode" />
+        <attribute name="ownerid" />
+        <attribute name="new_duedatecase" />
+        <attribute name="customerid" />
+        <attribute name="new_casetypecase" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_assignedqueue" />
+        <attribute name="statuscode" />
+        <attribute name="incidentid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Case Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de casos" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about cases in the detail form of any associated account, contact, product, or contract record. This view is in the Service side tab." languagecode="1033" />
+    <Description description="Muestra información de casos en el formulario detallado de un registro de cuenta, producto o contrato asociado. Esta vista está en la ficha lateral Servicio." languagecode="3082" />
+  </Descriptions>
+</savedquery>

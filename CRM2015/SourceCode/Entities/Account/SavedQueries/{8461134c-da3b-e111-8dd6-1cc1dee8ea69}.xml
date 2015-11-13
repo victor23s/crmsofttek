@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1</returnedtypecode>
+  <savedqueryid>{8461134c-da3b-e111-8dd6-1cc1dee8ea69}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="1" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="accountid">
+        <cell name="name" width="150" />
+        <cell name="parentaccountid" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="primarycontactid" width="100" />
+        <cell name="originatingleadid" width="100" />
+        <cell name="accountcategorycode" width="100" />
+        <cell name="customertypecode" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="new_marketscopeaccount" width="100" />
+        <cell name="new_softtekmarket1" width="100" />
+        <cell name="new_softtekcountry1" width="100" />
+        <cell name="new_softtekvertical1" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="account">
+        <attribute name="primarycontactid" />
+        <attribute name="ownerid" />
+        <attribute name="statecode" />
+        <attribute name="originatingleadid" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="new_softtekvertical1" />
+        <attribute name="new_softtekmarket1" />
+        <attribute name="new_softtekcountry1" />
+        <attribute name="new_marketscopeaccount" />
+        <attribute name="accountcategorycode" />
+        <attribute name="customertypecode" />
+        <attribute name="name" />
+        <attribute name="parentaccountid" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="accountid" operator="in">
+            <value uiname="Citi USA" uitype="account">{198DC47D-18C1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi-CTI" uitype="account">{471C97A8-19C1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi-GWM" uitype="account">{481C97A8-19C1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi-ICG" uitype="account">{4B1C97A8-19C1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi-GCGI" uitype="account">{4C1C97A8-19C1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi-Latam" uitype="account">{4D1C97A8-19C1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi Banamex TCoE" uitype="account">{4E1C97A8-19C1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi-Consumer" uitype="account">{4F1C97A8-19C1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi-Corporate" uitype="account">{501C97A8-19C1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi-GWM-SB" uitype="account">{7B3E6529-1AC1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi-GWM-PB" uitype="account">{7C3E6529-1AC1-DD11-8F54-001CC4C22620}</value>
+            <value uiname="Citi ASPAC" uitype="account">{B2862571-0246-DF11-BB1B-001F29C8D3AC}</value>
+            <value uiname="Citi Global" uitype="account">{4857522B-67C3-E011-8DF9-1CC1DEE8AA5F}</value>
+            <value uiname="Citi EMEA" uitype="account">{578060EE-68C3-E011-8DF9-1CC1DEE8AA5F}</value>
+            <value uiname="Citi BRA" uitype="account">{39A91B4F-69C3-E011-8DF9-1CC1DEE8AA5F}</value>
+            <value uiname="Citi MEX" uitype="account">{FD58289A-8FC3-E011-8DF9-1CC1DEE8AA5F}</value>
+            <value uiname="CITI - BANAMEX" uitype="account">{506800DC-DBB6-E011-8D7A-78E7D1622FC6}</value>
+            <value uiname="Citi ARG-CHI" uitype="account">{635DF1F6-D1B6-E011-8659-78E7D162FEFC}</value>
+            <value uiname="Citi Brazil" uitype="account">{1AF60E88-777E-E111-BB21-1CC1DE780841}</value>
+          </condition>
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="accountid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Account List - Citi" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

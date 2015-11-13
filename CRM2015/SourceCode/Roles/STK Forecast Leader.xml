@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{959a18c6-67dd-e411-b44d-6c3be5a84d70}" name="STK Forecast Leader">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppendnew_revenueforecast" level="Global" />
+    <RolePrivilege name="prvAppendnew_revenueforecastinsertlog" level="Global" />
+    <RolePrivilege name="prvAppendnew_revenueplanning" level="Global" />
+    <RolePrivilege name="prvAppendnew_salesplan" level="Global" />
+    <RolePrivilege name="prvAppendnew_serviceoffering" level="Global" />
+    <RolePrivilege name="prvAppendTonew_revenueforecast" level="Global" />
+    <RolePrivilege name="prvAppendTonew_revenueforecastinsertlog" level="Global" />
+    <RolePrivilege name="prvAppendTonew_revenueplanning" level="Global" />
+    <RolePrivilege name="prvAppendTonew_salesplan" level="Global" />
+    <RolePrivilege name="prvAppendTonew_serviceoffering" level="Global" />
+    <RolePrivilege name="prvAssignnew_revenueforecast" level="Global" />
+    <RolePrivilege name="prvAssignnew_revenueforecastinsertlog" level="Global" />
+    <RolePrivilege name="prvAssignnew_revenueplanning" level="Global" />
+    <RolePrivilege name="prvAssignnew_salesplan" level="Global" />
+    <RolePrivilege name="prvAssignnew_serviceoffering" level="Global" />
+    <RolePrivilege name="prvCreatenew_revenueforecast" level="Global" />
+    <RolePrivilege name="prvCreatenew_revenueforecastinsertlog" level="Global" />
+    <RolePrivilege name="prvCreatenew_revenueplanning" level="Global" />
+    <RolePrivilege name="prvCreatenew_salesplan" level="Global" />
+    <RolePrivilege name="prvCreatenew_serviceoffering" level="Global" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvDeletenew_revenueforecast" level="Global" />
+    <RolePrivilege name="prvDeletenew_revenueforecastinsertlog" level="Global" />
+    <RolePrivilege name="prvDeletenew_revenueplanning" level="Global" />
+    <RolePrivilege name="prvDeletenew_salesplan" level="Global" />
+    <RolePrivilege name="prvDeletenew_serviceoffering" level="Global" />
+    <RolePrivilege name="prvReadnew_revenueforecast" level="Global" />
+    <RolePrivilege name="prvReadnew_revenueforecastinsertlog" level="Global" />
+    <RolePrivilege name="prvReadnew_revenueplanning" level="Global" />
+    <RolePrivilege name="prvReadnew_salesplan" level="Global" />
+    <RolePrivilege name="prvReadnew_serviceoffering" level="Global" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvSharenew_revenueforecast" level="Global" />
+    <RolePrivilege name="prvSharenew_revenueforecastinsertlog" level="Global" />
+    <RolePrivilege name="prvSharenew_revenueplanning" level="Global" />
+    <RolePrivilege name="prvSharenew_serviceoffering" level="Global" />
+    <RolePrivilege name="prvWritenew_revenueforecast" level="Global" />
+    <RolePrivilege name="prvWritenew_revenueforecastinsertlog" level="Global" />
+    <RolePrivilege name="prvWritenew_revenueplanning" level="Global" />
+    <RolePrivilege name="prvWritenew_salesplan" level="Global" />
+    <RolePrivilege name="prvWritenew_serviceoffering" level="Global" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+  </RolePrivileges>
+</Role>

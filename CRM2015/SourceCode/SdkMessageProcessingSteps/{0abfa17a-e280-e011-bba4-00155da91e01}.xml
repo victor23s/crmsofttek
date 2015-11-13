@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.PreValidationFollow: Create of postfollow" SdkMessageProcessingStepId="{0abfa17a-e280-e011-bba4-00155da91e01}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.PreValidationFollow, ActivityFeeds.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>postfollow</PrimaryEntity>
+</SdkMessageProcessingStep>

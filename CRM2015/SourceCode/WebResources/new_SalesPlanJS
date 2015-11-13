@@ -1,0 +1,1300 @@
+/// <reference path="JQuery.js" />
+/// <reference path="Json2.js" />
+/// <reference path="XrmServiceToolkit.js" />
+/// <reference path="new_jqueryBlockUI" />
+/// <reference path="new_jqueryUI_min" />
+
+var EntitieName = "new_softtekmarket";
+var marketScope = "100000001";  //default Non Global
+
+if (typeof XrmSolutions == 'undefined') { XrmSolutions = {}; }
+if (typeof XrmSolutions.CreateRevenueForecast == 'undefined') { XrmSolutions.CreateRevenueForecast = {}; }
+if (typeof XrmSolutions.CloseRevenueForecast == 'undefined') { XrmSolutions.CloseRevenueForecast = {}; }
+if (typeof XrmSolutions.NewSalesPlan == 'undefined') { XrmSolutions.NewSalesPlan = {}; }
+if (typeof XrmSolutions.BacklogRevenueForecast == 'undefined') { XrmSolutions.BacklogRevenueForecast = {}; }
+if (typeof XrmSolutions.FillNameForecastDropDown == 'undefined') { XrmSolutions.FillNameForecastDropDown = {}; }
+if (typeof XrmSolutions.FillNameSalesPlanCloseDropDown == 'undefined') { XrmSolutions.FillNameSalesPlanCloseDropDown = {}; }
+if (typeof XrmSolutions.FillDateSalesPlanDropDown == 'undefined') { XrmSolutions.FillDateSalesPlanDropDown = {}; }
+
+
+if (typeof XrmSolutions.RevenueForecast == 'undefined') { XrmSolutions.RevenueForecast = {}; }
+
+////************************************  Create New Report Functions  **************************************************
+//cambios hecho por omar soto 
+//esta funcion revisa si un popup se ha cerrado es necesaria para safari
+window.onunload = refreshParent =
+    function refreshParent() {
+        var nAgt = navigator.userAgent;
+        if (nAgt.indexOf('Safari') != -1) 
+            window.opener.location.reload(true);
+    }
+
+function openDialogCloseReport() {
+    var nAgt = navigator.userAgent;
+    var dialog2 = "/WebResources/new_SalesPlanCloseReport";
+    var url = Xrm.Page.context.getClientUrl() + dialog2;
+    if (nAgt.indexOf('Safari') != -1) 
+        window.open(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+    else {
+        pi = window.showModalDialog(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+        window.location.reload(true);
+    }
+}
+
+function openDialogTest() {
+    var nAgt = navigator.userAgent;
+    var dialog2 = "/WebResources/new_SalesPlanHtml";
+    var url = Xrm.Page.context.getClientUrl() + dialog2;
+    if (nAgt.indexOf('Safari') != -1) 
+        window.open(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+    else {
+        pi = window.showModalDialog(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+        window.location.reload(true);
+    }
+}
+
+function openDialogNewRecord() {
+    var nAgt = navigator.userAgent;
+    var dialog2 = "/WebResources/new_NewSalesPlanRecordHtml";
+    var url = Xrm.Page.context.getClientUrl() + dialog2;
+    if (nAgt.indexOf('Safari') != -1) 
+        window.open(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+    else {
+        pi = window.showModalDialog(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+        window.location.reload(true);
+    }
+}
+
+function LoadScript(src) {
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = src;
+    head.appendChild(script);
+}
+
+function FillMarketDropDown() {
+    var $selectResolution = document.getElementById("selMarket");
+    /*---Start Function: Added to get values for a dropdown from XML--it works for any explorer*/
+    var strResponse = getXMLEntitiesNodes("new_softtekmarket");
+    var posLabel = strResponse.indexOf("<c:Label>");
+    var strNodes = strResponse.substring(posLabel, strResponse.length);
+    var strlabelNodes = strNodes.split("c:OptionMetadata");
+    var strNodeItem = "";
+    var valueState = "";
+    var posStartLabel = 0; posEndlabel = 0, posStartValue = 0, posEndValue = 0, posStartDesc = 0, posEndDesc = 0;
+    for (var i in strlabelNodes) {
+        posStartDesc = strlabelNodes[i].indexOf("<c:Description>");
+        posEndDesc = strlabelNodes[i].indexOf("</c:Description>");
+        strNodeItem = "";
+        strNodeItem = strlabelNodes[i].substring(posEndDesc, strlabelNodes[i].length);
+        posStartLabel = strNodeItem.indexOf("<a:Label>");
+        posEndlabel = strNodeItem.indexOf("</a:Label>");
+        posStartValue = strNodeItem.indexOf("<c:Value>");
+        posEndValue = strNodeItem.indexOf("</c:Value>");
+        if (posStartLabel >= 1) {
+            var $newOption = document.createElement('option');
+            $newOption.text = strNodeItem.substring(posStartLabel + 9, posEndlabel).replace("&amp;", "&");
+            $newOption.value = strNodeItem.substring(posStartValue + 9, posEndValue);
+            $selectResolution.add($newOption);
+        }
+    }
+    /*--------------End Function-----*/
+}
+
+function getUser() {
+    var userId = Xrm.Page.context.getUserId();
+    userId = userId.replace("{", "");
+    userId = userId.replace("}", "");
+    return userId;
+}
+
+function userCanInsertForecast() {
+    if (UsrHasRole("System Administrator")) //|| UsrHasRole("STK FORECAST")
+        return true;
+    else
+        return false;
+}
+
+function UsrHasRole(roleName) {
+    var currentUserRoles = Xrm.Page.context.getUserRoles();
+    var currentUserName = Xrm.Page.context.getUserName();
+    for (var i = 0; i < currentUserRoles.length; i++) {
+        var userRole = currentUserRoles[i];
+        var items;
+        items = retrieveRecord("Role", userRole);
+        if (items != null)
+            for (var j = 0; j < items.length; j++)
+                if (items[j]["Name"] == roleName)
+                    return true;
+    }
+}
+
+function getXMLEntitiesNodes(EntitieName) {
+    var $context = GetGlobalContext();
+    var $requestXml = "<s:Envelope xmlns:s='http://schemas.xmlsoap.org/soap/envelope/'>" +
+          "<s:Body>" +
+          "  <Execute xmlns='http://schemas.microsoft.com/xrm/2011/Contracts/Services' xmlns:i='http://www.w3.org/2001/XMLSchema-instance'>" +
+          "    <request i:type='a:RetrieveAttributeRequest' xmlns:a='http://schemas.microsoft.com/xrm/2011/Contracts'>" +
+          "      <a:Parameters xmlns:b='http://schemas.datacontract.org/2004/07/System.Collections.Generic'>" +
+          "        <a:KeyValuePairOfstringanyType>" +
+          "          <b:key>MetadataId</b:key>" +
+          "          <b:value i:type='c:guid' xmlns:c='http://schemas.microsoft.com/2003/10/Serialization/'>00000000-0000-0000-0000-000000000000</b:value>" +
+          "        </a:KeyValuePairOfstringanyType>" +
+          "        <a:KeyValuePairOfstringanyType>" +
+          "          <b:key>RetrieveAsIfPublished</b:key>" +
+          "          <b:value i:type='c:boolean' xmlns:c='http://www.w3.org/2001/XMLSchema'>true</b:value>" +
+          "        </a:KeyValuePairOfstringanyType>" +
+          "        <a:KeyValuePairOfstringanyType>" +
+          "          <b:key>EntityLogicalName</b:key>" +
+          "          <b:value i:type='c:string' xmlns:c='http://www.w3.org/2001/XMLSchema'>opportunity</b:value>" +
+          "        </a:KeyValuePairOfstringanyType>" +
+          "        <a:KeyValuePairOfstringanyType>" +
+          "          <b:key>LogicalName</b:key>" +
+          "          <b:value i:type='c:string' xmlns:c='http://www.w3.org/2001/XMLSchema'>" + EntitieName + "</b:value>" +
+          "        </a:KeyValuePairOfstringanyType>" +
+          "      </a:Parameters>" +
+          "      <a:RequestId i:nil='true' />" +
+          "      <a:RequestName>RetrieveAttribute</a:RequestName>" +
+          "    </request>" +
+          "  </Execute>" +
+          "</s:Body>" +
+        "</s:Envelope>";
+    var $req = new XMLHttpRequest();
+    $req.open("POST", $context.prependOrgName("/XRMServices/2011/Organization.svc/web"), false)
+    $req.setRequestHeader("Accept", "application/xml, text/xml, */*");
+    $req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    $req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
+    $req.send($requestXml);
+    return $req.responseText;
+}
+
+XrmSolutions.FillNameSalesPlanCloseDropDown.OnChange = function () {
+    var $selMarket = document.getElementById("selMarket");
+    var $MarketId = $selMarket.options[$selMarket.selectedIndex].value;
+
+    var sFetch =   '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">'+
+				   '<entity name="new_salesplan">'+
+				   '<attribute name="new_salesplanid" /> <attribute name="new_name" />'+
+				   '<attribute name="createdon" /><attribute name="new_softtekmarket" />'+
+				   '<attribute name="new_projectid" /><attribute name="statecode" />'+
+				   '<order attribute="new_name" descending="false" /> '+
+				   '<filter type="and"> <condition attribute="statecode" operator="eq" value="0" />';
+      if ($MarketId != 0) {
+        sFetch +=  ' <condition attribute="new_softtekmarket" operator="eq" value="'+ $MarketId +'" />';
+                  }
+                   sFetch += '</filter></entity></fetch>';
+                
+    var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+    var $selName = document.getElementById("selName");
+
+    //clean object   
+    if ($selName.options.length > 0) {
+        for (i = $selName.options.length - 1; i >= 0; i--) {
+            $selName.remove(i)
+        }
+    }
+    //Insert new items from Fetch    
+    var item = 0;
+    for (var detailCount = 0; detailCount < detail.length; detailCount++) {
+        var $newOption = document.createElement('option');
+        var existValue = false;
+        for (var j = 0; $selName.options.length > 0 && j < $selName.options.length; j++) {
+            if ($selName[j].text == detail[detailCount].attributes['new_name'].value)
+                existValue = true;
+        }
+        if (!existValue) {
+            $newOption.text = detail[detailCount].attributes['new_name'].value;
+            $newOption.value = item;
+            $selName.add($newOption);
+            item++;
+        }
+    }
+};
+
+function getSalesPlanName(consolidationDate) {
+    var month = consolidationDate.getMonth() + 1;
+    if (month < 10)
+        month = '0' + month;
+    var day = consolidationDate.getDate();
+    if (day < 10)
+        day = '0' + day;
+    return 'SP-' + consolidationDate.getFullYear() + month + day;
+}
+
+function DeleteSalesPlan(SofttekMarketId) {
+	var SPFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0"> <entity name="new_salesplan"> <attribute name="new_salesplanid"/> <attribute name="new_name"/> <order descending="false" attribute="new_name"/> <filter type="and"> <condition attribute="new_softtekmarket" value="' + SofttekMarketId + '" operator="eq"/> <condition attribute="new_name" value="' + getSalesPlanName($("#DateInput").datepicker('getDate')) + '" operator="eq"/> <condition attribute="new_recordtype" operator="in"><value>100000000</value><value>100000001</value><value>100000004</value><value>100000003</value><value>100000002</value></condition></filter></entity></fetch>';
+	var SPDetail = XrmServiceToolkit.Soap.Fetch(SPFetch);
+	for (var i = 0; i < SPDetail.length; i++) {
+		var SalesPlanId = SPDetail[i].attributes.new_salesplanid.value;
+		XrmServiceToolkit.Rest.Delete(
+		   SalesPlanId,
+		   "new_salesplanSet",
+		   function () {
+		   },
+		   function (error) {
+			   alert("Error " + error);
+		   }, false);
+	}	
+}
+
+/////////////////////////////////// Sales Plan from Opp functions ///////////////////////////////////////////////
+
+function GetOpportunityData(typeOfOpp, SofttekMarketId) {
+	var oppFetch = '<fetch distinct="true" mapping="logical" output-format="xml-platform" version="1.0"><entity name="opportunity"><attribute name="name"/><attribute name="customerid"/><attribute name="estimatedvalue"/><attribute name="new_opportunityid"/><attribute name="statecode"/><attribute name="ownerid"/><attribute name="new_opportunitytypeopp"/><attribute name="estimatedclosedate"/><attribute name="actualvalue"/><attribute name="actualclosedate"/><attribute name="salesstagecode"/><attribute name="new_softtekmarket"/><attribute name="new_serviceofferingtype"/><attribute name="new_technologygroup"/><attribute name="new_marketscope_opp"/><attribute name="new_forecaststatus"/><attribute name="new_softtekvertical1"/><attribute name="new_softtekcountryopp"/><attribute name="new_multiyearopp"/><attribute name="new_newcustomerinyear"/><attribute name="new_serviceoffering"/><attribute name="opportunityid"/><attribute name="new_salespracticeownerid"/><attribute name="new_deliverymodelopp"/><attribute name="new_projectid"/><attribute name="new_estimatedprojectduration"/><order descending="false" attribute="name"/><filter type="and">'; 
+	if (typeOfOpp == 'won')
+		oppFetch += '<condition attribute="statecode" value="1" operator="eq"/><condition attribute="new_softtekmarket" value="' + SofttekMarketId + '" operator="eq"/></filter><link-entity name="salesorder" alias="ae" to="opportunityid" from="opportunityid"><filter type="and"><condition attribute="statecode" operator="in"><value>0</value><value>1</value></condition><condition attribute="new_statusreason" operator="in"><value>100000001</value><value>100000002</value><value>100000003</value><value>100000004</value><value>100000005</value><value>100000000</value></condition></filter></link-entity></entity></fetch>';
+	else 
+		oppFetch += '<condition attribute="statecode" value="0" operator="eq"/><condition attribute="new_softtekmarket" value="' + SofttekMarketId + '" operator="eq"/></filter></entity></fetch>';
+	var OppDetail = XrmServiceToolkit.Soap.Fetch(oppFetch);
+	return OppDetail;
+}
+
+function GetOrderFromOpportunity(OpoprtunityId) {
+	var sfetchOrder = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="salesorder"><attribute name="name"/><attribute name="customerid"/><attribute name="ordernumber"/><attribute name="quoteid"/><attribute name="opportunityid"/><attribute name="new_statusreason"/><attribute name="salesorderid"/><order attribute="ordernumber" descending="false"/><filter type="and"><condition attribute="opportunityid" operator="eq" uitype="opportunity" value="' + OpoprtunityId + '"/></filter></entity></fetch>';
+	var OrderDetail = XrmServiceToolkit.Soap.Fetch(sfetchOrder);
+	return OrderDetail;
+}
+
+function GetRevPlanningFromOpportunity(OpoprtunityId) {
+	var sfetchPlanning = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="new_revenueplanning"><attribute name="new_year"/><attribute name="new_tot_year"/><attribute name="new_rev_12"/><attribute name="new_rev_11"/><attribute name="new_rev_10"/><attribute name="new_rev_09"/><attribute name="new_rev_08"/><attribute name="new_rev_07"/><attribute name="new_rev_06"/><attribute name="new_rev_05"/><attribute name="new_rev_04"/><attribute name="new_rev_03"/><attribute name="new_rev_02"/><attribute name="new_rev_01"/><attribute name="ownerid"/><attribute name="new_oppid"/><attribute name="new_revenueplanningid"/><attribute name="new_duration"/><order attribute="new_oppid" descending="false"/><filter type="and"><condition attribute="new_oppid" operator="eq"  uitype="opportunity" value="' + OpoprtunityId + '"/></filter><link-entity name="opportunity" from="opportunityid" to="new_oppid" visible="false" link-type="outer" alias="a_0f43f12d4139e411abab6c3be5a8c0e8"><attribute name="new_opportunityid"/></link-entity></entity></fetch>';
+	var PlanningDetail = XrmServiceToolkit.Soap.Fetch(sfetchPlanning);
+	return PlanningDetail;		
+}
+
+function CopyOpportunityData(OppDetail, PlanningDetail, OrderDetail) {
+	var newSalesPlan = {};
+	newSalesPlan.new_name = getSalesPlanName($("#DateInput").datepicker('getDate'));
+	newSalesPlan.new_DateConsolidation = $("#DateInput").datepicker('getDate');
+	newSalesPlan.new_ReportType = { Value: 100000000 };
+	newSalesPlan.OwnerId = { Id: PlanningDetail.attributes["ownerid"].id, LogicalName: "systemuser" };
+	newSalesPlan.new_Group1 = { Value: 100000000 };
+	newSalesPlan.new_Group2 = { Value: 100000000 };
+	newSalesPlan.new_AccountType = { Value: 100000001 }; // Existing
+	if (typeof (OppDetail) != 'undefined') {
+		if (typeof (OppDetail.attributes["customerid"]) != 'undefined')
+			newSalesPlan.new_Account = { Id: OppDetail.attributes["customerid"].id, LogicalName: "account" };
+		newSalesPlan.new_OpportunityID = OppDetail.attributes["new_opportunityid"].value.toString();
+		newSalesPlan.new_Opportunity = { Id: OppDetail.id, LogicalName: "opportunity" };
+		newSalesPlan.new_OpportunityType = { Value: OppDetail.attributes["new_opportunitytypeopp"].value };
+		if (typeof (OppDetail.attributes["new_quoteventanillaunica"]) != 'undefined')
+			newSalesPlan.new_Quote = { Id: OppDetail.attributes["new_quoteventanillaunica"].id, LogicalName: "quote" };
+		newSalesPlan.new_MarketScope = { Value: OppDetail.attributes["new_marketscope_opp"].value };
+		if (typeof (OppDetail.attributes["new_softtekvertical1"]) != 'undefined')
+			newSalesPlan.new_SofttekVertical = { Value: OppDetail.attributes["new_softtekvertical1"].value };
+		newSalesPlan.new_SofttekMarket = { Value: OppDetail.attributes["new_softtekmarket"].value };
+		newSalesPlan.new_SofttekCountry = { Value: OppDetail.attributes["new_softtekcountryopp"].value };
+		newSalesPlan.new_ServiceOffering = { Value: OppDetail.attributes["new_serviceoffering"].value }; 
+		newSalesPlan.new_DeliveryModel = { Value: OppDetail.attributes["new_deliverymodelopp"].value };
+		if (typeof (OppDetail.attributes["new_salespracticeownerid"]) != 'undefined')
+			newSalesPlan.new_BDM = { Id: OppDetail.attributes["new_salespracticeownerid"].id, LogicalName: "systemuser" };
+		if (typeof (OppDetail.attributes["new_projectid"]) != 'undefined') {
+			var strProjectId = OppDetail.attributes["new_projectid"].value;
+			if (strProjectId.length > 12)
+				var ProjectId = strProjectId.slice(0, 12);
+			if (typeof (ProjectId) != 'undefined')
+				newSalesPlan.new_ProjectID = ProjectId.toString();
+		}
+		if (typeof (OppDetail.attributes["estimatedclosedate"]) != 'undefined')
+		newSalesPlan.new_EstCloseDate = OppDetail.attributes["estimatedclosedate"].value;
+		newSalesPlan.new_TotalContractValue = { Value: parseFloat(OppDetail.attributes["estimatedvalue"].value).toFixed(2) };
+		if (typeof (OppDetail.attributes["new_technologygroup"]) != 'undefined')
+		newSalesPlan.new_TechnologyGroup = { Value: OppDetail.attributes["new_technologygroup"].value };
+		if (typeof (OppDetail.attributes["new_serviceofferingtype"]) != 'undefined')
+			newSalesPlan.new_ServiceOfferingType = { Value: OppDetail.attributes["new_serviceofferingtype"].value };
+		newSalesPlan.new_Duration = OppDetail.attributes["new_estimatedprojectduration"].value.toString();
+		
+		if (typeof (OppDetail.attributes.transactioncurrencyid) != 'undefined')
+			newSalesPlan.TransactionCurrencyId = { Id: OppDetail.attributes.transactioncurrencyid.id, LogicalName: "transactioncurrency" };
+		var oppType = OppDetail.attributes["new_opportunitytypeopp"].value;
+		switch(oppType) {
+			case 100000000: // New Project
+				newSalesPlan.new_RecordType = { Value: 100000001 }; // Pipeline - New Project
+			break;
+			case 100000001: // Renewal
+				newSalesPlan.new_RecordType = { Value: 100000004 }; // Pipeline - Renewal 
+			break;
+			case 100000002: // Scope Increase
+				newSalesPlan.new_RecordType = { Value: 100000002 }; // Pipeline - Scope Increase
+			break;
+			case 100000003: // Scope Decrease
+				newSalesPlan.new_RecordType = { Value: 100000003 }; // Pipeline - Scope Decrease
+			break;
+		}
+	}
+		
+	if (typeof (OrderDetail) != 'undefined')
+		newSalesPlan.new_Order = { Id: OrderDetail.id, LogicalName: "salesorder" };
+	
+	newSalesPlan.new_NewSofttekVertical = "";
+	
+	newSalesPlan.new_DeliveryManager = '';
+	newSalesPlan.new_ADM = '';
+	newSalesPlan.new_PxMgr = '';
+	
+	newSalesPlan.new_ProjectName = '';
+	var runRateAvg = 0.00;
+	if (PlanningDetail.attributes['new_rev_10'].value != '') 
+		runRateAvg = runRateAvg + parseFloat(PlanningDetail.attributes['new_rev_10'].value);
+	if (PlanningDetail.attributes['new_rev_11'].value != '') 
+		runRateAvg = runRateAvg + parseFloat(PlanningDetail.attributes['new_rev_11'].value);
+	if (PlanningDetail.attributes['new_rev_12'].value != '') 
+		runRateAvg = runRateAvg + parseFloat(PlanningDetail.attributes['new_rev_12'].value);
+	runRateAvg = runRateAvg / 3;
+	newSalesPlan.new_RunRate = { Value: parseFloat(runRateAvg).toFixed(2) };
+	
+	var q1 = 0.00;
+	if (typeof (PlanningDetail.attributes['new_rev_01']) != 'undefined' && PlanningDetail.attributes['new_rev_01'].value != '') {
+		newSalesPlan.new_January = { Value: parseFloat(PlanningDetail.attributes['new_rev_01'].value).toFixed(2) };
+		q1 += parseFloat(PlanningDetail.attributes['new_rev_01'].value); }
+	else
+		newSalesPlan.new_January = { Value: '0.00' };
+	if (typeof (PlanningDetail.attributes['new_rev_02']) != 'undefined' && PlanningDetail.attributes['new_rev_02'].value != '') {
+		newSalesPlan.new_February = { Value: parseFloat(PlanningDetail.attributes['new_rev_02'].value).toFixed(2) }; 
+		q1 += parseFloat(PlanningDetail.attributes['new_rev_02'].value); }
+	else
+		newSalesPlan.new_February = { Value: '0.00' };	
+	if (typeof (PlanningDetail.attributes['new_rev_03']) != 'undefined' && PlanningDetail.attributes['new_rev_03'].value != '') {
+		newSalesPlan.new_March = { Value: parseFloat(PlanningDetail.attributes['new_rev_03'].value).toFixed(2) }; 
+		q1 += parseFloat(PlanningDetail.attributes['new_rev_03'].value); }
+	else
+		newSalesPlan.new_March = { Value: '0.00' };		
+	var q2 = 0.00;
+	if (typeof (PlanningDetail.attributes['new_rev_04']) != 'undefined' && PlanningDetail.attributes['new_rev_04'].value != '') {
+		newSalesPlan.new_April = { Value: parseFloat(PlanningDetail.attributes['new_rev_04'].value).toFixed(2) };
+		q2 += parseFloat(PlanningDetail.attributes['new_rev_04'].value); }
+	else
+		newSalesPlan.new_April = { Value: '0.00' };		
+	if (typeof (PlanningDetail.attributes['new_rev_05']) != 'undefined' && PlanningDetail.attributes['new_rev_05'].value != '') {
+		newSalesPlan.new_May = { Value: parseFloat(PlanningDetail.attributes['new_rev_05'].value).toFixed(2) };
+		q2 += parseFloat(PlanningDetail.attributes['new_rev_05'].value); }
+	else
+		newSalesPlan.new_May = { Value: '0.00' };		
+	if (typeof (PlanningDetail.attributes['new_rev_06']) != 'undefined' && PlanningDetail.attributes['new_rev_06'].value != '') {
+		newSalesPlan.new_June = { Value: parseFloat(PlanningDetail.attributes['new_rev_06'].value).toFixed(2) };
+		q2 += parseFloat(PlanningDetail.attributes['new_rev_06'].value); }
+	else
+		newSalesPlan.new_June = { Value: '0.00' };		
+	var q3 = 0.00;
+	if (typeof (PlanningDetail.attributes['new_rev_07']) != 'undefined' && PlanningDetail.attributes['new_rev_07'].value != '') {
+		newSalesPlan.new_July = { Value: parseFloat(PlanningDetail.attributes['new_rev_07'].value).toFixed(2) };
+		q3 += parseFloat(PlanningDetail.attributes['new_rev_07'].value); }
+	else
+		newSalesPlan.new_July = { Value: '0.00' };		
+	if (typeof (PlanningDetail.attributes['new_rev_08']) != 'undefined' && PlanningDetail.attributes['new_rev_08'].value != '') {
+		newSalesPlan.new_August = { Value: parseFloat(PlanningDetail.attributes['new_rev_08'].value).toFixed(2) };
+		q3 += parseFloat(PlanningDetail.attributes['new_rev_08'].value); }
+	else
+		newSalesPlan.new_August = { Value: '0.00' };		
+	if (typeof (PlanningDetail.attributes['new_rev_09']) != 'undefined' && PlanningDetail.attributes['new_rev_09'].value != '') {
+		newSalesPlan.new_September = { Value: parseFloat(PlanningDetail.attributes['new_rev_09'].value).toFixed(2) };
+		q3 += parseFloat(PlanningDetail.attributes['new_rev_09'].value); }
+	else
+		newSalesPlan.new_September = { Value: '0.00' };		
+	var q4 = 0.00;
+	if (typeof (PlanningDetail.attributes['new_rev_10']) != 'undefined' && PlanningDetail.attributes['new_rev_10'].value != '') {
+		newSalesPlan.new_October = { Value: parseFloat(PlanningDetail.attributes['new_rev_10'].value).toFixed(2) };
+		q4 += parseFloat(PlanningDetail.attributes['new_rev_10'].value); }
+	else
+		newSalesPlan.new_October = { Value: '0.00' };
+	if (typeof (PlanningDetail.attributes['new_rev_11']) != 'undefined' && PlanningDetail.attributes['new_rev_11'].value != '') {
+		newSalesPlan.new_November = { Value: parseFloat(PlanningDetail.attributes['new_rev_11'].value).toFixed(2) };
+		q4 += parseFloat(PlanningDetail.attributes['new_rev_11'].value); }
+	else
+		newSalesPlan.new_November = { Value: '0.00' };
+	if (typeof (PlanningDetail.attributes['new_rev_12']) != 'undefined' && PlanningDetail.attributes['new_rev_12'].value != '') {
+		newSalesPlan.new_December = { Value: parseFloat(PlanningDetail.attributes['new_rev_12'].value).toFixed(2) };
+		q4 += parseFloat(PlanningDetail.attributes['new_rev_12'].value); }
+	else
+		newSalesPlan.new_December = { Value: '0.00' };
+	newSalesPlan.new_Q1Revenue = { Value: parseFloat(q1).toFixed(2) };
+	newSalesPlan.new_Q2Revenue = { Value: parseFloat(q2).toFixed(2) };
+	newSalesPlan.new_Q3Revenue = { Value: parseFloat(q3).toFixed(2) };
+	newSalesPlan.new_Q4Revenue = { Value: parseFloat(q4).toFixed(2) };
+	newSalesPlan.new_TotalYear = { Value: parseFloat(PlanningDetail.attributes["new_tot_year"].value).toFixed(2) };
+	newSalesPlan.new_Year = PlanningDetail.attributes["new_year"].value;
+	
+	return newSalesPlan;
+}
+
+function CreateSalesPlanFromOpportunity() {
+	var consolidationDate = $("#DateInput").datepicker('getDate');
+	var errorArray = [];
+    var goodRows = 0, badRows = 0;
+	// Get the Opportunities
+	var SofttekMarketId = $('#selMarket').val();
+	var OppWonDetail = GetOpportunityData('won', SofttekMarketId);
+	if (OppWonDetail.length > 0) {
+		for (var oppCount = 0; oppCount < OppWonDetail.length; oppCount++) {
+			var OpoprtunityId = OppWonDetail[oppCount].id;
+			// Get the Orders and Revenue Plannings for the opportunity
+			var Order = GetOrderFromOpportunity(OpoprtunityId);
+			var revenuePlanning = GetRevPlanningFromOpportunity(OpoprtunityId);
+			if (revenuePlanning.length > 0) {
+				// Scroll trough all the Revenue plannings found
+				for (var revPlanCount = 0; revPlanCount < revenuePlanning.length; revPlanCount++) {
+					var newSalesPlan = CopyOpportunityData(OppWonDetail[oppCount], revenuePlanning[revPlanCount], Order[0]);
+					var err = { identifier: '', message: '' };
+					try {
+					XrmServiceToolkit.Rest.Create(newSalesPlan, "new_salesplanSet", 
+											function (result) { goodRows += 1; }, 
+											function (error) { 
+												err.message = error.toString();
+												err.identifier = OppWonDetail[oppCount];
+												errorArray[errorArray.length] = err; 
+												badRows += 1;
+											}, false);
+					} catch (err) { alert('Backlog error!\n' + err.message); }
+				}
+			}
+		}
+	}	
+	var OppOpenDetail = GetOpportunityData('open', SofttekMarketId);								
+	if (OppOpenDetail.length > 0) {
+		for (var oppCount = 0; oppCount < OppOpenDetail.length; oppCount++) {
+			var OpoprtunityId = OppOpenDetail[oppCount].id;
+			// Get the Orders and Revenue Plannings for the opportunity
+			var order = GetOrderFromOpportunity(OpoprtunityId);
+			var revenuePlanning = GetRevPlanningFromOpportunity(OpoprtunityId);
+			if (revenuePlanning.length > 0) {
+				// Scroll trough all the Revenue plannings found
+				for (var revPlanCount = 0; revPlanCount < revenuePlanning.length; revPlanCount++) {
+					var newSalesPlan = CopyOpportunityData(OppOpenDetail[oppCount], revenuePlanning[revPlanCount], Order[0]);
+					var err = { identifier: '', message: '' };
+					try {
+					XrmServiceToolkit.Rest.Create(newSalesPlan, "new_salesplanSet", 
+											function (result) { goodRows += 1; }, 
+											function (error) { 
+												err.message = error.toString();
+												err.identifier = OppOpenDetail[oppCount];
+												errorArray[errorArray.length] = err; 
+												badRows += 1;
+											}, false);
+					} catch (err) { alert('Backlog error!\n' + err.message); }
+				}
+			}
+		}
+	}
+	if (OppOpenDetail.length == 0 && OppWonDetail.length == 0)
+		alert('There were no Planned records to insert.');
+	else
+		CreateSalesPlanInsertLog(errorArray, goodRows, badRows, $("#DateInput").datepicker('getDate'), 2);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// Sales Plan from Backlog functions /////////////////////////////////////////////
+
+function GetBacklogData() {
+	var SofttekMarketId = $('#selMarket').val();
+	var ddBacklogName = $('#selName option:selected').text();
+	var backlogFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">' +
+					   '<entity name="new_revenueforecast">' +
+					   '<attribute name="new_revenueforecastid"/><attribute name="new_name"/><attribute name="createdon"/>' +
+					   '<attribute name="ownerid"/><attribute name="new_account"/><attribute name="new_opportunity"/>' +
+					   '<attribute name="new_opportunitytype"/><attribute name="new_quote"/><attribute name="transactioncurrencyid"/>' +
+					   '<attribute name="new_marketscope"/><attribute name="new_softtekvertical"/><attribute name="new_order"/>' +
+					   '<attribute name="new_softtekmarket"/><attribute name="new_serviceoffering"/><attribute name="new_deliverymodel"/>' +
+					   '<attribute name="new_bdm"/><attribute name="new_adm"/><attribute name="new_projectid"/>' +
+					   '<attribute name="new_projectname"/><attribute name="new_total_year"/><attribute name="new_rev01"/>' +
+					   '<attribute name="new_rev02"/><attribute name="new_rev_03"/><attribute name="new_rev_04"/>' +
+					   '<attribute name="new_rev_05"/><attribute name="new_rev_06"/><attribute name="new_rev_07"/>' +
+					   '<attribute name="new_rev_08"/><attribute name="new_rev_09"/><attribute name="new_rev_10"/>' +
+					   '<attribute name="new_rev_11"/><attribute name="new_rev_12"/><attribute name="new_year"/>' +
+					   '<attribute name="new_duration"/><order descending="false" attribute="new_name"/>' +
+					   '<filter type="and">' +
+					   '<condition attribute="new_type" value="100000001" operator="eq"/>' +
+					   '<condition attribute="statuscode" operator="in">' +
+					      '<value>100000000</value>' +
+						  '<value>100000001</value>' +
+						  '<value>1</value>' +
+					   '</condition>' +
+					   '<condition attribute="new_name" value="'+ ddBacklogName +'" operator="eq"/>' +
+					   '<condition attribute="new_softtekmarket" value="' + SofttekMarketId + '" operator="eq"/> ' +
+					   '</filter></entity></fetch>';
+	return XrmServiceToolkit.Soap.Fetch(backlogFetch);
+}
+
+function CopyBacklogData(backlogDetail) {
+	var newSalesPlan = {};
+	newSalesPlan.new_name = getSalesPlanName($("#DateInput").datepicker('getDate'));
+	newSalesPlan.new_DateConsolidation = $("#DateInput").datepicker('getDate');
+	newSalesPlan.new_ReportType = { Value: 100000000 };
+	newSalesPlan.new_RecordType = { Value: 100000000 };
+	newSalesPlan.OwnerId = { Id: backlogDetail.attributes["ownerid"].id, LogicalName: "systemuser" };
+	newSalesPlan.new_Group1 = { Value: 100000000 };
+	newSalesPlan.new_Group2 = { Value: 100000000 };
+	newSalesPlan.new_AccountType = { Value: 100000001 }; // Existing
+	newSalesPlan.new_Account = { Id: backlogDetail.attributes["new_account"].id, LogicalName: "account" };
+	if (typeof (backlogDetail.attributes["new_opportunity"]) != 'undefined')
+		newSalesPlan.new_Opportunity = { Id: backlogDetail.attributes["new_opportunity"].id, LogicalName: "opportunity" };
+	if (typeof (backlogDetail.attributes["new_opportunitytype"]) != 'undefined')
+		newSalesPlan.new_OpportunityType = { Value: backlogDetail.attributes["new_opportunitytype"].value };
+	if (typeof (backlogDetail.attributes["new_quote"]) != 'undefined')
+		newSalesPlan.new_Quote = { Id: backlogDetail.attributes["new_quote"].id, LogicalName: "quote" };
+	if (typeof (backlogDetail.attributes["new_order"]) != 'undefined')
+		newSalesPlan.new_Order = { Id: backlogDetail.attributes["new_order"].id, LogicalName: "salesorder" };
+	newSalesPlan.new_MarketScope = { Value: backlogDetail.attributes["new_marketscope"].value };
+	if (typeof (backlogDetail.attributes["new_softtekvertical"]) != 'undefined')
+		newSalesPlan.new_SofttekVertical = { Value: backlogDetail.attributes["new_softtekvertical"].value };
+	newSalesPlan.new_SofttekMarket = { Value: backlogDetail.attributes["new_softtekmarket"].value };
+	newSalesPlan.new_NewSofttekVertical = "";
+	var item = null;
+	if (typeof (newSalesPlan.new_Opportunity) != 'undefined') {
+		var _oppID = newSalesPlan.new_Opportunity.Id;
+		_oppID = _oppID.replace("{", "").replace("}", "");
+		XrmServiceToolkit.Rest.RetrieveMultiple("OpportunitySet", "$filter= OpportunityId eq guid'" + _oppID + "'",
+		function (results) { item = results; },
+		function (error) { alert("Error = " + error); },
+		function onComplete() {},
+		false);
+	}
+	if (item != null) {
+		newSalesPlan.new_OpportunityID = item[0].new_OpportunityID.toString();
+		newSalesPlan.new_SofttekCountry = { Value: item[0].new_SofttekCountryOpp.Value };
+		newSalesPlan.new_EstCloseDate = item[0].EstimatedCloseDate;
+	}
+	if (typeof (backlogDetail.attributes["new_serviceoffering"]) != 'undefined')
+		newSalesPlan.new_ServiceOffering = { Value: backlogDetail.attributes["new_serviceoffering"].value }; 
+	if (typeof (backlogDetail.attributes["new_deliverymodel"]) != 'undefined')
+		newSalesPlan.new_DeliveryModel = { Value: backlogDetail.attributes["new_deliverymodel"].value }; 
+	if (typeof (backlogDetail.attributes["new_bdm"]) != 'undefined')
+		newSalesPlan.new_BDM = { Id: backlogDetail.attributes["new_bdm"].id, LogicalName: "systemuser" };
+	newSalesPlan.new_DeliveryManager = '';
+	if (typeof (backlogDetail.attributes["new_adm"]) != 'undefined')
+		newSalesPlan.new_ADM = backlogDetail.attributes["new_adm"].value;
+	newSalesPlan.new_PxMgr = '';
+	if (typeof (backlogDetail.attributes["new_projectid"]) != 'undefined')
+		newSalesPlan.new_ProjectID = backlogDetail.attributes["new_projectid"].value;
+	if (typeof (backlogDetail.attributes["new_projectname"]) != 'undefined')
+		newSalesPlan.new_ProjectName = backlogDetail.attributes["new_projectname"].value;
+	var runRateAvg = 0;
+	if (typeof (backlogDetail.attributes['new_rev_10']) != 'undefined') 
+		runRateAvg += parseFloat(backlogDetail.attributes['new_rev_10'].value);
+	if (typeof (backlogDetail.attributes['new_rev_11']) != 'undefined') 
+		runRateAvg += parseFloat(backlogDetail.attributes['new_rev_11'].value);
+	if (typeof (backlogDetail.attributes['new_rev_12']) != 'undefined') 
+		runRateAvg += parseFloat(backlogDetail.attributes['new_rev_12'].value);
+	runRateAvg = runRateAvg / 3;
+	newSalesPlan.new_RunRate = { Value: parseFloat(runRateAvg).toFixed(2) };
+	newSalesPlan.new_TotalContractValue = { Value: parseFloat(backlogDetail.attributes["new_total_year"].value).toFixed(2) };
+	var q1 = 0.00;
+	if (typeof (backlogDetail.attributes['new_rev01']) != 'undefined' && backlogDetail.attributes['new_rev01'].value != '') {
+		newSalesPlan.new_January = { Value: parseFloat(backlogDetail.attributes['new_rev01'].value).toFixed(2) }; 
+		q1 += backlogDetail.attributes['new_rev01'].value; }			
+	else
+		newSalesPlan.new_January = { Value: '0.00' };
+	if (typeof (backlogDetail.attributes['new_rev02']) != 'undefined' && backlogDetail.attributes['new_rev02'].value != '') { 
+		newSalesPlan.new_February = { Value: parseFloat(backlogDetail.attributes['new_rev02'].value).toFixed(2) }; 
+		q1 += backlogDetail.attributes['new_rev02'].value; }
+	else
+		newSalesPlan.new_February = { Value: '0.00' };
+	if (typeof (backlogDetail.attributes['new_rev_03']) != 'undefined' && backlogDetail.attributes['new_rev_03'].value != '') {
+		newSalesPlan.new_March = { Value: parseFloat(backlogDetail.attributes['new_rev_03'].value).toFixed(2) }; 
+		q1 += backlogDetail.attributes['new_rev_03'].value; }
+	else
+		newSalesPlan.new_March = { Value: '0.00' };
+	var q2 = 0.00;
+	if (typeof (backlogDetail.attributes['new_rev_04']) != 'undefined' && backlogDetail.attributes['new_rev_04'].value != '') {
+		newSalesPlan.new_April = { Value: parseFloat(backlogDetail.attributes['new_rev_04'].value).toFixed(2) };
+		q2 += backlogDetail.attributes['new_rev_04'].value; }
+	else
+		newSalesPlan.new_April = { Value: '0.00'};
+	if (typeof (backlogDetail.attributes['new_rev_05']) != 'undefined' && backlogDetail.attributes['new_rev_05'].value != '') {
+		newSalesPlan.new_May = { Value: parseFloat(backlogDetail.attributes['new_rev_05'].value).toFixed(2) };
+		q2 += backlogDetail.attributes['new_rev_05'].value; }
+	else
+		newSalesPlan.new_May = { Value: '0.00' };
+	if (typeof (backlogDetail.attributes['new_rev_06']) != 'undefined' && backlogDetail.attributes['new_rev_06'].value != '') {
+		newSalesPlan.new_June = { Value: parseFloat(backlogDetail.attributes['new_rev_06'].value).toFixed(2) };
+		q2 += backlogDetail.attributes['new_rev_06'].value; }
+	else
+		newSalesPlan.new_June = { Value: '0.00' };
+	var q3 = 0.00;
+	if (typeof (backlogDetail.attributes['new_rev_07']) != 'undefined' && backlogDetail.attributes['new_rev_07'].value != '') {
+		newSalesPlan.new_July = { Value: parseFloat(backlogDetail.attributes['new_rev_07'].value).toFixed(2) };
+		q3 += backlogDetail.attributes['new_rev_07'].value; }
+	else
+		newSalesPlan.new_July = { Value: '0.00' };
+	if (typeof (backlogDetail.attributes['new_rev_08']) != 'undefined' && backlogDetail.attributes['new_rev_08'].value != '') {
+		newSalesPlan.new_August = { Value: parseFloat(backlogDetail.attributes['new_rev_08'].value).toFixed(2) };
+		q3 += backlogDetail.attributes['new_rev_08'].value; }
+	else
+		newSalesPlan.new_August = { Value: '0.00' };
+	if (typeof (backlogDetail.attributes['new_rev_09']) != 'undefined' && backlogDetail.attributes['new_rev_09'].value != '') {
+		newSalesPlan.new_September = { Value: parseFloat(backlogDetail.attributes['new_rev_09'].value).toFixed(2) };
+		q3 += backlogDetail.attributes['new_rev_09'].value; }
+	else
+		newSalesPlan.new_September = { Value: '0.00' };
+	var q4 = 0.00;
+	if (typeof (backlogDetail.attributes['new_rev_10']) != 'undefined' && backlogDetail.attributes['new_rev_10'].value != '') {
+		newSalesPlan.new_October = { Value: parseFloat(backlogDetail.attributes['new_rev_10'].value).toFixed(2) };
+		q4 += backlogDetail.attributes['new_rev_10'].value; }
+	else
+		newSalesPlan.new_October = { Value: '0.00' };
+	if (typeof (backlogDetail.attributes['new_rev_11']) != 'undefined' && backlogDetail.attributes['new_rev_11'].value != '') {
+		newSalesPlan.new_November = { Value: parseFloat(backlogDetail.attributes['new_rev_11'].value).toFixed(2) };
+		q4 += backlogDetail.attributes['new_rev_11'].value; }
+	else
+		newSalesPlan.new_November = { Value: '0.00' };
+	if (typeof (backlogDetail.attributes['new_rev_12']) != 'undefined' && backlogDetail.attributes['new_rev_12'].value != '') {
+		newSalesPlan.new_December = { Value: parseFloat(backlogDetail.attributes['new_rev_12'].value).toFixed(2) };
+		q4 += backlogDetail.attributes['new_rev_12'].value; }
+	else
+		newSalesPlan.new_December = { Value: '0.00' };
+	newSalesPlan.new_Q1Revenue = { Value: parseFloat(q1).toFixed(2) };
+	newSalesPlan.new_Q2Revenue = { Value: parseFloat(q2).toFixed(2) };
+	newSalesPlan.new_Q3Revenue = { Value: parseFloat(q3).toFixed(2) };
+	newSalesPlan.new_Q4Revenue = { Value: parseFloat(q4).toFixed(2) };
+	if (typeof (backlogDetail.attributes.new_duration) != 'undefined')	
+		newSalesPlan.new_Duration = backlogDetail.attributes['new_duration'].value.toString();
+	newSalesPlan.new_TotalYear = { Value: parseFloat(backlogDetail.attributes["new_total_year"].value).toFixed(2) };
+	newSalesPlan.new_Year = backlogDetail.attributes['new_year'].value;
+	if (typeof (backlogDetail.attributes.transactioncurrencyid) != 'undefined')
+		newSalesPlan.TransactionCurrencyId = { Id: backlogDetail.attributes['transactioncurrencyid'].id, LogicalName: "transactioncurrency" };
+	return newSalesPlan;
+}
+
+function CreateSalesPlanFromBacklog() {
+	var backlogDetail = GetBacklogData();
+	var errorArray = [];
+    var goodRows = 0, badRows = 0;
+	if (backlogDetail.length > 0) {		
+		for (var bklgCount = 0; bklgCount < backlogDetail.length; bklgCount++) {
+			var newSalesPlan = CopyBacklogData(backlogDetail[bklgCount]);
+			var err = { identifier: '', message: '' }
+			try {
+				XrmServiceToolkit.Rest.Create(newSalesPlan, "new_salesplanSet", 
+											 function (result) { 
+												goodRows += 1;
+											 }, 
+											 function (error) { 
+												err.message = error.toString();
+												err.identifier = backlogDetail[bklgCount].attributes['new_name'].value;
+												errorArray[errorArray.length] = err; 
+												badRows += 1;
+											}, false);
+			} catch (err) { alert('Backlog error!\n' + err.message); }
+		}		
+	CreateSalesPlanInsertLog(errorArray, goodRows, badRows, $("#DateInput").datepicker('getDate'), 1);
+	}
+	else
+		alert('There were no Backlog records to process.');
+}
+
+////////////////////////////////////      Log Creation Functions     /////////////////////////////////////////////////
+
+function CreateSalesPlanInsertLog(errorArray, goodRows, badRows, ConsolidationDate, step) {
+	var logName = getSalesPlanName(ConsolidationDate);
+    var fetchInsertLogs = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0"> <entity name="new_salesplaninsertlog"> <attribute name="new_salesplaninsertlogid"/> <attribute name="new_name"/> <attribute name="createdon"/> <order descending="false" attribute="new_name"/> <filter type="and"> <condition attribute="new_name" value="%' + logName + '%" operator="like"/></filter></entity></fetch>';
+    var InsertLogDetail = XrmServiceToolkit.Soap.Fetch(fetchInsertLogs);
+	var totalRows = goodRows + badRows;
+	var createSalesPlanInsertLog = {};
+	createSalesPlanInsertLog.new_errolog = '';
+	
+	if(step == 1) { // if the function invocation comes from backlog forecasts being processed
+		var logNumber = InsertLogDetail.length + 1;
+		createSalesPlanInsertLog.new_name = logName + '-' + logNumber; //new_name => SF-YearMonthDay-n (depends on # times that exists in the fetch)
+		createSalesPlanInsertLog.new_Summary = 'Backlog Copy Results: \n';
+		createSalesPlanInsertLog.new_Summary += 'Records Inserted: ' + goodRows + '\n';
+		createSalesPlanInsertLog.new_Summary += 'Records Rejected: ' + badRows + '\n';
+		createSalesPlanInsertLog.new_Summary += 'Total Backlog records processed: ' + totalRows + '\n';
+		createSalesPlanInsertLog.new_logcomplete = 1;
+		createSalesPlanInsertLog.new_errolog += 'Backlog Copy Error Log: \n';
+		for (i = 0; i < errorArray.length; i++) {
+			createSalesPlanInsertLog.new_errolog += 'The Revenue Forecast "' + err.identifier + '" could not be inserted. \n';
+			createSalesPlanInsertLog.new_errolog += 'Error Message: ' + err.message + '\n';			
+		}
+		XrmServiceToolkit.Rest.Create(createSalesPlanInsertLog, "new_salesplaninsertlogSet", function (result) { }, function (error) { alert("Error " + error); }, false);
+	}
+	else { // else - directly from opportunities/revPlannings
+		var nameToSearch = logName + '-' + InsertLogDetail.length;
+		var item = null;
+		XrmServiceToolkit.Rest.RetrieveMultiple("new_salesplaninsertlogSet", "$filter= new_name eq'" + nameToSearch + "'",
+												function (results) { item = results; },
+												function (error) { alert("Error = " + error); },
+												function onComplete() {},
+												false);
+		if (item.length > 0) {
+			var salesPlanInsertLogId = item[0].new_salesplaninsertlogId
+			createSalesPlanInsertLog.new_Summary = item[0].new_Summary;
+			createSalesPlanInsertLog.new_errolog = item[0].new_errolog;
+			createSalesPlanInsertLog.new_Summary += '\nOpportunity Copy Results: \n';
+			createSalesPlanInsertLog.new_Summary += 'Records Inserted: ' + goodRows + '\n'			
+			createSalesPlanInsertLog.new_Summary += 'Records Rejected: ' + badRows + '\n';
+			createSalesPlanInsertLog.new_Summary += 'Total records from Opportunity processed: ' + totalRows + '\n';
+			createSalesPlanInsertLog.new_logcomplete = 2;
+			createSalesPlanInsertLog.new_errolog += '\n\n Opportunity Copy Error Log: \n';
+			for (i = 0; i < errorArray.length; i++) {
+				createSalesPlanInsertLog.new_errolog += 'The data from the Opportunity "' + err.identifier + '" could not be inserted. \n';
+				createSalesPlanInsertLog.new_errolog += 'Error Message: ' + err.message + '\n';			
+			}	
+			XrmServiceToolkit.Rest.Update(salesPlanInsertLogId, createSalesPlanInsertLog, "new_salesplaninsertlogSet", function () { },	function (error) {	alert("Error = " + error); }, false);
+		}	
+	} 
+}
+
+//////////////////////////////////////////// Load Sales Plan functions ///////////////////////////////////////////////
+
+function LoadSalesPlan() {
+    var SofttekMarketId = $('#selMarket').val();
+    var $consolidationDate = document.getElementById("DateInput").value;
+    if (!Date.parse($consolidationDate)) {
+        alert("The consolidation date format is not valid. Please verify.");
+    }
+    else {
+        var decision = confirm("Do you want to delete and re-create sales plan for the market: \n  " + $('#selMarket option:selected').text());
+        if (decision == true) {
+            // Delete previous sales plan of the specified consolidation date
+            DeleteSalesPlan(SofttekMarketId);
+			CreateSalesPlanFromBacklog();
+            CreateSalesPlanFromOpportunity();
+        }
+    }
+    window.close();
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+XrmSolutions.FillNameForecastDropDown.OnChange = function () {
+    var $selMarket = document.getElementById("selMarket");
+    var $MarketId = $selMarket.options[$selMarket.selectedIndex].value;
+
+    var sFetch = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true"><entity name="new_revenueforecast">' +
+   '<attribute name="new_revenueforecastid"/><attribute name="new_name"/><attribute name="createdon"/><attribute name="new_projectid"/>' +
+   '<attribute name="ownerid"/><attribute name="new_order"/><attribute name="new_opportunitytype"/><attribute name="new_opportunity"/>' +
+   '<attribute name="new_softtekvertical"/><attribute name="new_softtekmarket"/><attribute name="new_serviceoffering"/>' +
+   '<attribute name="new_marketscope"/><attribute name="new_duration"/><order attribute="new_name" descending="false"/>' +
+   '<filter type="and"><condition attribute="new_type" value="100000001" operator="eq"/>';
+
+    if ($MarketId != 0) {
+        sFetch += '<condition attribute="new_softtekmarket" operator="eq" value="' + $MarketId + '"/>';
+    }
+    sFetch += '</filter></entity></fetch>';
+
+// Fetch para traer backlogs, sin importar el estado, unicamente dependiente del Softtek Market que se ingrese...	
+//<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0"><entity name="new_revenueforecast">
+//<attribute name="new_revenueforecastid"/><attribute name="new_name"/><attribute name="createdon"/>
+//<order descending="false" attribute="new_name"/>
+//<filter type="and">
+//<condition attribute="new_softtekmarket" value="100000006" operator="eq"/>
+//<condition attribute="new_type" value="100000001" operator="eq"/>
+//</filter></entity></fetch>
+	
+	
+    var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+    var $selName = document.getElementById("selName");
+
+    //clean object   
+    if ($selName.options.length > 0) {
+        for (i = $selName.options.length - 1; i >= 0; i--) {
+            $selName.remove(i)
+        }
+    }
+
+    //Insert new items from Fetch    
+    var item = 0;
+    for (var detailCount = 0; detailCount < detail.length; detailCount++) {
+        var $newOption = document.createElement('option');
+        var existValue = false;
+
+        for (var j = 0; $selName.options.length > 0 && j < $selName.options.length; j++) {
+            if ($selName[j].text == detail[detailCount].attributes['new_name'].value)
+                existValue = true;
+        }
+
+        if (!existValue) {
+            $newOption.text = detail[detailCount].attributes['new_name'].value;
+            $newOption.value = item;
+            $selName.add($newOption);
+            item++;
+        }
+    }
+};
+
+XrmSolutions.CreateRevenueForecast.OnLoad = function () {
+    var XrmToolkit = "/WebResources/new_XrmServiceToolkit";
+    var url = Xrm.Page.context.getClientUrl() + XrmToolkit;
+    var jqueryBlockUI = "/WebResources/new_jqueryBlockUI";
+    var url1 = Xrm.Page.context.getClientUrl() + jqueryBlockUI;
+    var jqueryUI_min = "/WebResources/new_jqueryUI_min";
+    var url2 = Xrm.Page.context.getClientUrl() + jqueryUI_min;
+    
+    LoadScript(url);
+    LoadScript(url1);
+    LoadScript(url2);
+    FillMarketDropDown();
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    var today = mm + '/' + dd + '/' + yyyy;
+    document.getElementById("DateInput").value = today;
+};
+
+function CloseSalesPlan() {
+	var $selMarket = document.getElementById("selMarket");
+	var $MarketId = $selMarket.options[$selMarket.selectedIndex].value;
+	var $MarketText = $selMarket.options[$selMarket.selectedIndex].text;
+	var $selName = document.getElementById("selName");
+	var $closeDate = document.getElementById("DateInput").value;
+	var $NameText;
+	var salesPlan = {};
+	var flag = false;
+	var result = true;
+	var hasAlert = false;
+	if ($selName.options.length > 0)
+		$NameText = $selName.options[$selName.selectedIndex].text;
+	//if ($MarketId == 0 || $MarketText.search("--") != -1) {
+	if ($MarketId == 0) {
+		alert("Please choose a Softtek Market");
+		hasAlert = true;
+	}
+	if ($selName.options.length == 0) {
+		alert("Please choose a Name");
+		hasAlert = true;
+	}
+	if (!Date.parse($closeDate)) {
+		alert("The Date Completed format is not correct.");
+		hasAlert = true;
+	}
+	if (!hasAlert) {
+		  var sFetch = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">' +
+		  '<entity name="new_salesplan"><attribute name="new_salesplanid" />' +
+		  '<attribute name="new_name" /><attribute name="createdon" /><attribute name="statuscode" />' +
+		  '<attribute name="statecode" /><attribute name="new_dateconsolidation" /><attribute name="new_datecompleted" />' +
+		  '<order attribute="new_name" descending="false" /> <filter type="and">' +
+		  '<condition attribute="statecode" operator="eq" value="0" />'+
+		  '<condition attribute="new_name" operator="eq" value="' + $NameText + '" />' +
+		  '<condition attribute="new_softtekmarket" operator="eq" value="' + $MarketId + '" />' +
+		  '</filter></entity></fetch>';
+		var DateCompleted = new Date($closeDate);
+		var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+		alert(detail.length + " Records Closed for " + $NameText);
+		var RecordID;
+		for (var detailCount = 0; detailCount < detail.length; detailCount++) {
+			RecordID = detail[detailCount].attributes['new_salesplanid'].value;
+			salesPlan.statecode = {Value: 1};
+			salesPlan.statuscode = {Value: 2};
+			salesPlan.new_DateCompleted = DateCompleted;
+		   XrmServiceToolkit.Rest.Update(
+				RecordID,
+				salesPlan,
+				"new_salesplanSet",
+				function () {
+				},
+				function (error) {
+					alert("Error = " + error);
+				},
+				false);
+			flag = true;
+		}
+		window.close();
+	}
+};
+
+XrmSolutions.CloseRevenueForecast.OnLoad = function () {
+    var XrmToolkit = "/WebResources/new_XrmServiceToolkit";
+    var url = Xrm.Page.context.getClientUrl() + XrmToolkit;
+    var jqueryBlockUI = "/WebResources/new_jqueryBlockUI";
+    var url1 = Xrm.Page.context.getClientUrl() + jqueryBlockUI;
+    var jqueryUI_min = "/WebResources/new_jqueryUI_min";
+    var url2 = Xrm.Page.context.getClientUrl() + jqueryUI_min;
+    
+    LoadScript(url);
+    LoadScript(url1);
+    LoadScript(url2);
+    FillMarketDropDown();
+	XrmSolutions.FillNameSalesPlanCloseDropDown.OnChange();
+	
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    var today = mm + '/' + dd + '/' + yyyy;
+    document.getElementById("DateInput").value = today;
+};
+
+/////////////////////////////////////// New Sales Plan Record Functions ///////////////////////////////////////////////
+
+XrmSolutions.NewSalesPlan.OnLoad = function () {
+    var XrmToolkit = "/WebResources/new_XrmServiceToolkit";
+    var url = Xrm.Page.context.getClientUrl() + XrmToolkit;
+    var jqueryBlockUI = "/WebResources/new_jqueryBlockUI";
+    var url1 = Xrm.Page.context.getClientUrl() + jqueryBlockUI;
+    var jqueryUI_min = "/WebResources/new_jqueryUI_min";
+    var url2 = Xrm.Page.context.getClientUrl() + jqueryUI_min;
+    
+    LoadScript(url);
+    LoadScript(url1);
+    LoadScript(url2);
+    FillMarketDropDown();
+	XrmSolutions.FillDateSalesPlanDropDown.OnChange();
+};
+
+XrmSolutions.FillDateSalesPlanDropDown.OnChange = function () {
+    var $selMarket = document.getElementById("selMarket");
+    var $MarketId = $selMarket.options[$selMarket.selectedIndex].value;
+
+	var spFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">'+
+				  '<entity name="new_salesplan">'+
+				  '<attribute name="new_salesplanid"/>'+
+				  '<attribute name="new_name"/>'+
+				  '<attribute name="new_dateconsolidation"/>'+
+				  '<order descending="false" attribute="new_name"/>'+
+				  '<filter type="and">'+
+				  '<condition attribute="statecode" value="0" operator="eq"/>';	  
+	
+    if ($MarketId != 0) {
+        spFetch += '<condition attribute="new_softtekmarket" operator="eq" value="' + $MarketId + '"/>';
+    }
+	
+    spFetch += '</filter></entity></fetch>';
+	
+    var detail = XrmServiceToolkit.Soap.Fetch(spFetch);
+    var $selDate = document.getElementById("selDate");
+
+    //clean object   
+    if ($selDate.options.length > 0) {
+        for (i = $selDate.options.length - 1; i >= 0; i--) {
+            $selDate.remove(i)
+        }
+    }
+    //Insert new items from Fetch    
+    var item = 0;
+    for (var detailCount = 0; detailCount < detail.length; detailCount++) {
+        var $newOption = document.createElement('option');
+        var existValue = false;
+
+        for (var j = 0; $selDate.options.length > 0 && j < $selDate.options.length; j++) {
+            if ($selDate[j].text == detail[detailCount].attributes['new_dateconsolidation'].formattedValue)
+                existValue = true;
+        }
+
+        if (!existValue) {
+            $newOption.text = detail[detailCount].attributes['new_dateconsolidation'].formattedValue;
+            $newOption.value = item;
+            $selDate.add($newOption);
+            item++;
+        }
+    }
+};
+
+function NewSalesPlan() {
+	var $selMarket = document.getElementById("selMarket");
+	var $MarketId = $selMarket.options[$selMarket.selectedIndex].value;
+	var $selDate = document.getElementById("selDate");
+	if($selDate.length == 0)
+		alert('Please select a Market that contains an available Date');
+	else {
+		var $consolidationDate = $selDate.options[$selDate.selectedIndex].text;
+		var _newDate = new Date($consolidationDate);
+		var $name = getSalesPlanName(_newDate);
+		var _newSalesPlan = {};
+		_newSalesPlan.new_name = $name;
+		_newSalesPlan.new_DateConsolidation = _newDate;
+		_newSalesPlan.new_SofttekMarket = { Value: $MarketId };
+		_newSalesPlan.TransactionCurrencyId = { Id: "EFB3EBE9-C795-DD11-941C-001E0B4616F4", LogicalName: "transactioncurrency" };
+		 /* debugger;
+		 var SalesPlanId = null;
+		 var item = null;
+		  var _spID = "SP-20150930-1";
+					   XrmServiceToolkit.Rest.RetrieveMultiple("new_salesplaninsertlogSet", "$filter= new_name eq'" + _spID + "'",
+					   function (results) { item = results; },
+					   function (error) { alert("Error = " + error); },
+					   function onComplete() {},
+					   false);	*/
+		try {
+			XrmServiceToolkit.Rest.Create(_newSalesPlan, "new_salesplanSet", function (result) { SalesPlanId = result.new_salesplanId; }, function (error) { alert("Error: " + error); }, false);
+			OpenRecords(SalesPlanId, "new_salesplan");
+			window.close();
+		} catch (err) { alert(err.message); }	
+	}
+}
+
+function OpenRecords(Record_Id, Logical_Name_Of_Entity) {
+    var reletivePath = "/main.aspx?etn=" + Logical_Name_Of_Entity;
+    reletivePath = reletivePath + "&pagetype=entityrecord&id=";
+
+    var height = 1300; // Height of the Record Page.
+    var width = 900; // Width of the Record Page.
+    var windowName = "_blank";
+    var serverUrl = Xrm.Page.context.getClientUrl();
+    var nAgt = navigator.userAgent;
+
+    if (serverUrl != null && serverUrl != "" && Record_Id.replace("{", "").replace("}", "") != null) {
+        serverUrl = serverUrl + reletivePath;
+        serverUrl = serverUrl + Record_Id.replace("{", "").replace("}", "");
+
+        if (nAgt.indexOf("Safari") != -1 || nAgt.indexOf("Firefox") != -1) {
+            window.open(serverUrl);
+
+        } else {
+            window.showModalDialog(serverUrl, "", "dialogWidth: 3400px; dialogHeight: 950px; resizable: 1; status: 1; scroll: 1;");
+            window.location.reload(true);
+
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////  Copy Sales Plan Functions //////////////////////////////////////////////////////////
+
+function RemoveBraces(stringWithBraces) {
+	var stringWithoutBraces;
+	stringWithoutBraces = stringWithBraces.replace("{", "");
+	stringWithoutBraces = stringWithoutBraces.replace("}", "");
+	return stringWithoutBraces;
+}
+
+function GetValuesfromForm() {
+	var newSalesPlan = {};
+	if (Xrm.Page.getAttribute('new_name').getValue() != null)
+		newSalesPlan.new_name = Xrm.Page.getAttribute('new_name').getValue();
+	if (Xrm.Page.getAttribute('new_dateconsolidation').getValue() != null)
+		newSalesPlan.new_DateConsolidation = Xrm.Page.getAttribute('new_dateconsolidation').getValue();
+	if (Xrm.Page.getAttribute('new_reporttype').getValue() != null)
+		newSalesPlan.new_ReportType = { Value: Xrm.Page.getAttribute('new_reporttype').getValue() };
+	if (Xrm.Page.getAttribute('ownerid').getValue() != null)
+		newSalesPlan.OwnerId = { Id: RemoveBraces(Xrm.Page.getAttribute('ownerid').getValue()[0].id), LogicalName: "systemuser" };
+	if (Xrm.Page.getAttribute('new_group1').getValue() != null)
+		newSalesPlan.new_Group1 = { Value: Xrm.Page.getAttribute('new_group1').getValue() };
+	if (Xrm.Page.getAttribute('new_group2').getValue() != null)
+		newSalesPlan.new_Group2 = { Value: Xrm.Page.getAttribute('new_group2').getValue() };
+	if (Xrm.Page.getAttribute('new_accounttype').getValue() != null)
+		newSalesPlan.new_AccountType = { Value: Xrm.Page.getAttribute('new_accounttype').getValue() }; 
+	if (Xrm.Page.getAttribute('new_account').getValue() != null)
+		newSalesPlan.new_Account = { Id: RemoveBraces(Xrm.Page.getAttribute('new_account').getValue()[0].id), LogicalName: "account" };
+	if (Xrm.Page.getAttribute('new_opportunityid').getValue() != null)
+		newSalesPlan.new_OpportunityID = Xrm.Page.getAttribute('new_opportunityid').getValue();
+	if (Xrm.Page.getAttribute('new_opportunity').getValue() != null)
+		newSalesPlan.new_Opportunity = { Id: RemoveBraces(Xrm.Page.getAttribute('new_opportunity').getValue()[0].id), LogicalName: "opportunity" };
+	if (Xrm.Page.getAttribute('new_opportunitytype').getValue() != null)
+		newSalesPlan.new_OpportunityType = { Value: Xrm.Page.getAttribute('new_opportunitytype').getValue() };
+	if (Xrm.Page.getAttribute('new_quote').getValue() != null)
+		newSalesPlan.new_Quote = { Id: RemoveBraces(Xrm.Page.getAttribute('new_quote').getValue()[0].id), LogicalName: "quote" };
+	if (Xrm.Page.getAttribute('new_marketscope').getValue() != null)
+		newSalesPlan.new_MarketScope = { Value: Xrm.Page.getAttribute('new_marketscope').getValue() };
+	if (Xrm.Page.getAttribute('new_softtekvertical').getValue() != null)
+		newSalesPlan.new_SofttekVertical = { Value: Xrm.Page.getAttribute('new_softtekvertical').getValue() };
+	if (Xrm.Page.getAttribute('new_softtekmarket').getValue() != null)
+		newSalesPlan.new_SofttekMarket = { Value: Xrm.Page.getAttribute('new_softtekmarket').getValue() };
+	if (Xrm.Page.getAttribute('new_softtekcountry').getValue() != null)
+		newSalesPlan.new_SofttekCountry = { Value: Xrm.Page.getAttribute('new_softtekcountry').getValue() };
+	if (Xrm.Page.getAttribute('new_serviceoffering').getValue() != null)
+		newSalesPlan.new_ServiceOffering = { Value: Xrm.Page.getAttribute('new_serviceoffering').getValue() }; 
+	if (Xrm.Page.getAttribute('new_deliverymodel').getValue() != null)
+		newSalesPlan.new_DeliveryModel = { Value: Xrm.Page.getAttribute('new_deliverymodel').getValue() };
+	if (Xrm.Page.getAttribute('new_bdm').getValue() != null)
+		newSalesPlan.new_BDM = { Id: RemoveBraces(Xrm.Page.getAttribute('new_bdm').getValue()[0].id), LogicalName: "systemuser" };
+	if (Xrm.Page.getAttribute('new_projectid').getValue() != null)
+		newSalesPlan.new_ProjectID = Xrm.Page.getAttribute('new_projectid').getValue();
+	if (Xrm.Page.getAttribute('new_estclosedate').getValue() != null)
+		newSalesPlan.new_EstCloseDate = Xrm.Page.getAttribute('new_estclosedate').getValue();
+	if (Xrm.Page.getAttribute('new_totalcontractvalue').getValue() != null)
+		newSalesPlan.new_TotalContractValue = { Value: parseFloat(Xrm.Page.getAttribute('new_totalcontractvalue').getValue()).toFixed(2) };
+	if (Xrm.Page.getAttribute('new_technologygroup').getValue() != null)
+		newSalesPlan.new_TechnologyGroup = { Value: Xrm.Page.getAttribute('new_technologygroup').getValue() };
+	if (Xrm.Page.getAttribute('new_serviceofferingtype').getValue() != null)
+		newSalesPlan.new_ServiceOfferingType = { Value: Xrm.Page.getAttribute('new_serviceofferingtype').getValue() };
+	if (Xrm.Page.getAttribute('new_duration').getValue() != null)
+		newSalesPlan.new_Duration = Xrm.Page.getAttribute('new_duration').getValue();
+	if (Xrm.Page.getAttribute('transactioncurrencyid').getValue() != null)
+		newSalesPlan.TransactionCurrencyId = { Id: RemoveBraces(Xrm.Page.getAttribute('transactioncurrencyid').getValue()[0].id), LogicalName: "transactioncurrency" };
+	if (Xrm.Page.getAttribute('new_recordtype').getValue() != null)
+		newSalesPlan.new_RecordType = { Value: Xrm.Page.getAttribute('new_recordtype').getValue() }; 
+	if (Xrm.Page.getAttribute('new_order').getValue() != null)
+		newSalesPlan.new_Order = { Id: RemoveBraces(Xrm.Page.getAttribute('new_order').getValue()[0].id), LogicalName: "salesorder" };
+	if (Xrm.Page.getAttribute('new_newsofttekvertical').getValue() != null)
+		newSalesPlan.new_NewSofttekVertical = Xrm.Page.getAttribute('new_newsofttekvertical').getValue();
+	if (Xrm.Page.getAttribute('new_deliverymanager').getValue() != null)
+		newSalesPlan.new_DeliveryManager = Xrm.Page.getAttribute('new_deliverymanager').getValue();
+	if (Xrm.Page.getAttribute('new_adm').getValue() != null)
+		newSalesPlan.new_ADM = Xrm.Page.getAttribute('new_adm').getValue();
+	if (Xrm.Page.getAttribute('new_pxmgr').getValue() != null)
+		newSalesPlan.new_PxMgr = Xrm.Page.getAttribute('new_pxmgr').getValue();
+	if (Xrm.Page.getAttribute('new_projectname').getValue() != null)
+		newSalesPlan.new_ProjectName = Xrm.Page.getAttribute('new_projectname').getValue() + ' (Copy)';  // + Copy para indicar que es copia
+	else
+		newSalesPlan.new_ProjectName = '(Copy)';  // + Copy para indicar que es copia
+	if (Xrm.Page.getAttribute('new_year').getValue() != null)
+		newSalesPlan.new_Year = Xrm.Page.getAttribute('new_year').getValue();
+	newSalesPlan.new_RunRate = { Value: '0.00' };
+	newSalesPlan.new_January = { Value: '0.00' };
+	newSalesPlan.new_February = { Value: '0.00' }; 
+	newSalesPlan.new_March = { Value: '0.00' }; 
+	newSalesPlan.new_April = { Value: '0.00' };
+	newSalesPlan.new_May = { Value: '0.00' };
+	newSalesPlan.new_June = { Value: '0.00' };
+	newSalesPlan.new_July = { Value: '0.00' };
+	newSalesPlan.new_August = { Value: '0.00' };
+	newSalesPlan.new_September = { Value: '0.00' };
+	newSalesPlan.new_October = { Value: '0.00' };
+	newSalesPlan.new_November = { Value: '0.00' };
+	newSalesPlan.new_December = { Value: '0.00' };
+	newSalesPlan.new_Q1Revenue = { Value: '0.00' };
+	newSalesPlan.new_Q2Revenue = { Value: '0.00' };
+	newSalesPlan.new_Q3Revenue = { Value: '0.00' };
+	newSalesPlan.new_Q4Revenue = { Value: '0.00' };
+	newSalesPlan.new_TotalYear = { Value: '0.00' };
+	return newSalesPlan;
+}
+
+function CreateCopySalesPlan() {
+	var copySalesPlan = GetValuesfromForm();
+	var salesPlanId = ""; 
+	try {
+    XrmServiceToolkit.Rest.Create(
+        copySalesPlan, "new_salesplanSet", 
+									function (result) {
+										salesPlanId = result.new_salesplanId;
+										alert("The SalesPlan has been copied succesfully. ");
+									},
+									function (error) {
+										alert("Failed to copy Sales Plan record: \n" + error);
+									}, false);
+        if (salesPlanId != "") 
+			Xrm.Utility.openEntityForm("new_salesplan", salesPlanId);
+    } catch (err) { alert('Backlog error!\n' + err.message); }		
+}
+//////////////////////////////////////////// Copy SalesPlan from GRID Functions /////////////////////////////////////////////////////
+function GetSelectedSalesPlan(salesPlanId) {
+	var item = null;
+    if (salesPlanId != null && salesPlanId != "") {
+        //salesPlanId = salesPlanId.replace("{", "").replace("}", "");
+        XrmServiceToolkit.Rest.RetrieveMultiple("new_salesplanSet", "$filter= new_salesplanId eq guid'" + salesPlanId + "'", // "$select=*",//"$filter= SystemUserId eq guid'" + entityId + "'",
+        function (results) {
+            item = results;
+        },
+        // ReSharper disable once UnuentityIdsedParameter
+        function (error) {
+            alert("Error = " + error);
+        },
+        function onComplete() {  },
+        false);
+    } 
+	return item;
+}
+
+function CopyValuesFromSalesPlan(copySalesPlan) {
+	var newSalesPlan = {};
+	if (copySalesPlan[0]['new_name'] != null)
+		newSalesPlan.new_name = copySalesPlan[0]['new_name'];
+	if (copySalesPlan[0]['new_DateConsolidation'] != null)
+		newSalesPlan.new_DateConsolidation = copySalesPlan[0]['new_DateConsolidation'];
+	if (copySalesPlan[0]['new_ReportType'].Value != null)
+		newSalesPlan.new_ReportType = { Value: copySalesPlan[0]['new_ReportType'].Value };
+	if (copySalesPlan[0]['OwnerId'].Id != null)
+		newSalesPlan.OwnerId = { Id: RemoveBraces(copySalesPlan[0]['OwnerId'].Id), LogicalName: "systemuser" };
+	if (copySalesPlan[0]['new_Group1'].Value != null)
+		newSalesPlan.new_Group1 = { Value: copySalesPlan[0]['new_Group1'].Value };
+	if (copySalesPlan[0]['new_Group2'].Value != null)
+		newSalesPlan.new_Group2 = { Value: copySalesPlan[0]['new_Group2'].Value };
+	if (copySalesPlan[0]['new_AccountType'].Value != null)
+		newSalesPlan.new_AccountType = { Value: copySalesPlan[0]['new_AccountType'].Value }; 
+	if (copySalesPlan[0]['new_Account'].Id != null)
+		newSalesPlan.new_Account = { Id: RemoveBraces(copySalesPlan[0]['new_Account'].Id), LogicalName: "account" };
+	if (copySalesPlan[0]['new_OpportunityID'] != null)
+		newSalesPlan.new_OpportunityID = copySalesPlan[0]['new_OpportunityID'];
+	if (copySalesPlan[0]['new_Opportunity'].Id != null)
+		newSalesPlan.new_Opportunity = { Id: RemoveBraces(copySalesPlan[0]['new_Opportunity'].Id), LogicalName: "opportunity" };
+	if (copySalesPlan[0]['new_OpportunityType'].Value != null)
+		newSalesPlan.new_OpportunityType = { Value: copySalesPlan[0]['new_OpportunityType'].Value };
+	if (copySalesPlan[0]['new_Quote'].Id != null)
+		newSalesPlan.new_Quote = { Id: RemoveBraces(copySalesPlan[0]['new_Quote'].Id), LogicalName: "quote" };
+	if (copySalesPlan[0]['new_MarketScope'].Value != null)
+		newSalesPlan.new_MarketScope = { Value: copySalesPlan[0]['new_MarketScope'].Value };
+	if (copySalesPlan[0]['new_SofttekVertical'].Value != null)
+		newSalesPlan.new_SofttekVertical = { Value: copySalesPlan[0]['new_SofttekVertical'].Value };
+	if (copySalesPlan[0]['new_SofttekMarket'].Value != null)
+		newSalesPlan.new_SofttekMarket = { Value: copySalesPlan[0]['new_SofttekMarket'].Value };
+	if (copySalesPlan[0]['new_SofttekCountry'].Value != null)
+		newSalesPlan.new_SofttekCountry = { Value: copySalesPlan[0]['new_SofttekCountry'].Value };
+	if (copySalesPlan[0]['new_ServiceOffering'].Value != null)
+		newSalesPlan.new_ServiceOffering = { Value: copySalesPlan[0]['new_ServiceOffering'].Value }; 
+	if (copySalesPlan[0]['new_DeliveryModel'].Value != null)
+		newSalesPlan.new_DeliveryModel = { Value: copySalesPlan[0]['new_DeliveryModel'].Value };
+	if (copySalesPlan[0]['new_BDM'].Id != null)
+		newSalesPlan.new_BDM = { Id: RemoveBraces(copySalesPlan[0]['new_BDM'].Id), LogicalName: "systemuser" };
+	if (copySalesPlan[0]['new_ProjectID'] != null)
+		newSalesPlan.new_ProjectID = copySalesPlan[0]['new_ProjectID'];
+	if (copySalesPlan[0]['new_EstCloseDate'] != null)
+		newSalesPlan.new_EstCloseDate = copySalesPlan[0]['new_EstCloseDate'];
+	if (copySalesPlan[0]['new_TotalContractValue'].Value != null)
+		newSalesPlan.new_TotalContractValue = { Value: parseFloat(copySalesPlan[0]['new_TotalContractValue'].Value).toFixed(2) };
+	if (copySalesPlan[0]['new_TechnologyGroup'].Value != null)
+		newSalesPlan.new_TechnologyGroup = { Value: copySalesPlan[0]['new_TechnologyGroup'].Value };
+	if (copySalesPlan[0]['new_ServiceOfferingType'].Value != null)
+		newSalesPlan.new_ServiceOfferingType = { Value: copySalesPlan[0]['new_ServiceOfferingType'].Value };
+	if (copySalesPlan[0]['new_Duration'] != null)
+		newSalesPlan.new_Duration = copySalesPlan[0]['new_Duration'];
+	if (copySalesPlan[0]['TransactionCurrencyId'].Id != null)
+		newSalesPlan.TransactionCurrencyId = { Id: RemoveBraces(copySalesPlan[0]['TransactionCurrencyId'].Id), LogicalName: "transactioncurrency" };
+	if (copySalesPlan[0]['new_RecordType'].Value != null)
+		newSalesPlan.new_RecordType = { Value: copySalesPlan[0]['new_RecordType'].Value }; 
+	if (copySalesPlan[0]['new_Order'].Id != null)
+		newSalesPlan.new_Order = { Id: RemoveBraces(copySalesPlan[0]['new_Order'].Id), LogicalName: "salesorder" };
+	if (copySalesPlan[0]['new_NewSofttekVertical'] != null)
+		newSalesPlan.new_NewSofttekVertical = copySalesPlan[0]['new_NewSofttekVertical'];
+	if (copySalesPlan[0]['new_DeliveryManager'] != null)
+		newSalesPlan.new_DeliveryManager = copySalesPlan[0]['new_DeliveryManager'];
+	if (copySalesPlan[0]['new_ADM'] != null)
+		newSalesPlan.new_ADM = copySalesPlan[0]['new_ADM'];
+	if (copySalesPlan[0]['new_PxMgr'] != null)
+		newSalesPlan.new_PxMgr = copySalesPlan[0]['new_PxMgr'];
+	if (copySalesPlan[0]['new_ProjectName'] != null)
+		newSalesPlan.new_ProjectName = copySalesPlan[0]['new_ProjectName'] + ' (Copy)';  // + Copy para indicar que es copia
+	else
+		newSalesPlan.new_ProjectName = '(Copy)';  // + Copy para indicar que es copia
+	if (copySalesPlan[0]['new_Year'] != null)
+		newSalesPlan.new_Year = copySalesPlan[0]['new_Year'];
+	newSalesPlan.new_RunRate = { Value: '0.00' };
+	newSalesPlan.new_January = { Value: '0.00' };
+	newSalesPlan.new_February = { Value: '0.00' }; 
+	newSalesPlan.new_March = { Value: '0.00' }; 
+	newSalesPlan.new_April = { Value: '0.00' };
+	newSalesPlan.new_May = { Value: '0.00' };
+	newSalesPlan.new_June = { Value: '0.00' };
+	newSalesPlan.new_July = { Value: '0.00' };
+	newSalesPlan.new_August = { Value: '0.00' };
+	newSalesPlan.new_September = { Value: '0.00' };
+	newSalesPlan.new_October = { Value: '0.00' };
+	newSalesPlan.new_November = { Value: '0.00' };
+	newSalesPlan.new_December = { Value: '0.00' };
+	newSalesPlan.new_Q1Revenue = { Value: '0.00' };
+	newSalesPlan.new_Q2Revenue = { Value: '0.00' };
+	newSalesPlan.new_Q3Revenue = { Value: '0.00' };
+	newSalesPlan.new_Q4Revenue = { Value: '0.00' };
+	newSalesPlan.new_TotalYear = { Value: '0.00' };
+	return newSalesPlan;
+}
+
+function CreateCopySalesPlanFromGrid(salesPlanId) {
+	var selectedSalesPlan = GetSelectedSalesPlan(salesPlanId);
+	var _copySalesPlan = CopyValuesFromSalesPlan(selectedSalesPlan);
+	var _salesPlanId = ""; 
+	try {
+    XrmServiceToolkit.Rest.Create(
+        _copySalesPlan, "new_salesplanSet", 
+									function (result) {
+										_salesPlanId = result.new_salesplanId;
+										alert("The SalesPlan has been copied succesfully. ");
+									},
+									function (error) {
+										alert("Failed to copy Sales Plan record: \n" + error);
+									}, false);
+        if (_salesPlanId != "") 
+			Xrm.Utility.openEntityForm("new_salesplan", _salesPlanId);
+    } catch (err) { alert('Backlog error!\n' + err.message); }		
+}

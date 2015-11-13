@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4400</returnedtypecode>
+  <savedqueryid>{fa7741d5-0e43-e111-8d1f-1cc1de780841}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="4400" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="campaignid">
+        <cell name="name" width="150" />
+        <cell name="typecode" width="100" />
+        <cell name="expectedrevenue" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="new_softtekmarketcampaign" width="100" />
+        <cell name="new_softtekcountrycampaign" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="campaign">
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="createdon" operator="on-or-after" value="2011-01-01" />
+        </filter>
+        <attribute name="statecode" />
+        <attribute name="new_softtekmarketcampaign" />
+        <attribute name="new_softtekcountrycampaign" />
+        <attribute name="ownerid" />
+        <attribute name="expectedrevenue" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="typecode" />
+        <attribute name="name" />
+        <attribute name="campaignid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Campaigns - Last Year" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

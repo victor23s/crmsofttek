@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.PreConfigurationValidator: SetStateDynamicEntity of msdyn_postconfig" SdkMessageProcessingStepId="{7736985c-556b-4433-833d-2cad6a7bc303}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.PreConfigurationValidator, ActivityFeeds.Filtering.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_postconfig</PrimaryEntity>
+</SdkMessageProcessingStep>

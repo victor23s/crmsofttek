@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1089</returnedtypecode>
+  <savedqueryid>{7ea0fa9a-456c-417d-b886-dd61f94397f1}</savedqueryid>
+  <queryapi>CRMSalesOrderDetail.RetrieveByObject</queryapi>
+  <layoutxml>
+    <grid name="salesorderdetails" object="1089" jump="" select="1" icon="1" preview="1">
+      <row name="salesorderdetail" id="salesorderdetailid">
+        <cell name="productdescription" width="300" />
+        <cell name="priceperunit" width="100" />
+        <cell name="quantity" width="100" />
+        <cell name="extendedamount" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <columnsetxml>
+    <columnset version="3.0">
+      <filter type="and">
+        <condition column="isproductoverridden" value="1" operator="eq" />
+      </filter>
+      <column>productdescription</column>
+      <column>priceperunit</column>
+      <column>quantity</column>
+      <column>extendedamount</column>
+      <column>salesorderdetailid</column>
+      <ascend>productdescription</ascend>
+    </columnset>
+  </columnsetxml>
+  <querytype>2</querytype>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Order Product Associated View (Write In)" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about the products included in an order in the detail form of the associated order record. This view is in the Products side tab." languagecode="1033" />
+  </Descriptions>
+</savedquery>

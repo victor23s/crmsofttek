@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>9105</returnedtypecode>
+  <savedqueryid>{a2420357-be1d-4480-8da8-0ee8c33cd95a}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="9105" jump="currencyname" select="1" icon="1" preview="1">
+      <row name="result" id="transactioncurrencyid">
+        <cell name="currencyname" width="200" />
+        <cell name="isocurrencycode" width="125" />
+        <cell name="currencysymbol" width="100" />
+        <cell name="exchangerate" width="100" />
+        <cell name="currencyprecision" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="transactioncurrency">
+        <attribute name="transactioncurrencyid" />
+        <attribute name="currencyname" />
+        <attribute name="isocurrencycode" />
+        <attribute name="currencysymbol" />
+        <attribute name="exchangerate" />
+        <attribute name="currencyprecision" />
+        <order attribute="currencyname" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="1" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Inactive Currencies" languagecode="1033" />
+    <LocalizedName description="Divisas inactivas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

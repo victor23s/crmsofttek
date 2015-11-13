@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{84856c10-ddf9-41bf-bed2-af719f8038ed}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{61c7d060-f4d9-4efb-8bd4-e8b16715c74c}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{482c40a6-39d8-423a-babb-2487dc741746}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{5f0bf8b4-05fd-4f73-93ea-08407e292a2e}">
+                      <labels>
+                        <label description="Service" languagecode="1033" />
+                        <label description="Servicio" languagecode="3082" />
+                      </labels>
+                      <control id="serviceid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="serviceid" disabled="false" />
+                    </cell>
+                    <cell id="{5cdf4e14-7251-4c44-a3a3-31b045051c47}">
+                      <labels>
+                        <label description="Is Regular Activity" languagecode="1033" />
+                        <label description="Es una actividad regular" languagecode="3082" />
+                      </labels>
+                      <control id="isregularactivity" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="isregularactivity" disabled="false" />
+                    </cell>
+                    <cell id="{41a147c0-852c-427f-a3d6-bb7f5e110283}">
+                      <labels>
+                        <label description="Scheduled End" languagecode="1033" />
+                        <label description="Finalización programada" languagecode="3082" />
+                      </labels>
+                      <control id="scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" disabled="false" />
+                    </cell>
+                    <cell id="{a04ed83a-f621-4430-baf5-1b6848b1fbf1}">
+                      <labels>
+                        <label description="Activity Type" languagecode="1033" />
+                        <label description="Tipo de actividad" languagecode="3082" />
+                      </labels>
+                      <control id="activitytypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="activitytypecode" disabled="false" />
+                    </cell>
+                    <cell id="{f1413d28-e138-45bf-a42a-58293cfac3ad}">
+                      <labels>
+                        <label description="Subject" languagecode="1033" />
+                        <label description="Asunto" languagecode="3082" />
+                      </labels>
+                      <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
+                    </cell>
+                    <cell id="{56719ad9-dc0f-4412-b9dc-3dd98d6cc59e}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                    <cell id="{ea814a93-e3b9-465d-b239-a02660ff297f}">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{19f26cf5-8960-41c9-8b45-9b3db579548c}">
+                      <labels>
+                        <label description="Scheduled Start" languagecode="1033" />
+                        <label description="Inicio programado" languagecode="3082" />
+                      </labels>
+                      <control id="scheduledstart" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledstart" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

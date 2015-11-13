@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1010</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000000666500}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1010" jump="title" select="1" icon="1" preview="1">
+      <row name="result" id="contractid">
+        <cell name="title" width="300" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="contract">
+        <attribute name="title" />
+        <attribute name="contractid" />
+        <order attribute="title" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Contract Advanced Find View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda avanzada de contratos" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

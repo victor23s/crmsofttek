@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4401</returnedtypecode>
+  <savedqueryid>{83300948-d118-4c6d-90b8-89f068290830}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="campaignresponses" object="4401" jump="subject" select="1" icon="1" preview="1">
+      <row name="campaignresponse" id="activityid">
+        <cell name="subject" width="125" />
+        <cell name="regardingobjectid" width="125" />
+        <cell name="receivedon" width="100" />
+        <cell name="responsecode" width="100" />
+        <cell name="channeltypecode" width="100" />
+        <cell name="new_casescampaignresponse" width="150" />
+        <cell name="new_existinglead" width="100" />
+        <cell name="customer" width="150" />
+        <cell name="companyname" width="100" />
+        <cell name="new_existingaccount" width="100" />
+        <cell name="new_noofemployeerangecampaignresponse" width="100" />
+        <cell name="new_existingcontact" width="100" />
+        <cell name="firstname" width="100" />
+        <cell name="lastname" width="100" />
+        <cell name="new_softtekmarket_campaignresponse" width="100" />
+        <cell name="new_softtekcountrycampaignresponse" width="100" />
+        <cell name="new_softtekverticalcampaignresponse" width="100" />
+        <cell name="new_industrysofttek" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="statecode" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="campaignresponse">
+        <attribute name="subject" />
+        <attribute name="responsecode" />
+        <attribute name="receivedon" />
+        <attribute name="customer" />
+        <attribute name="firstname" />
+        <attribute name="lastname" />
+        <order attribute="subject" descending="true" />
+        <attribute name="statecode" />
+        <attribute name="new_softtekverticalcampaignresponse" />
+        <attribute name="new_softtekmarket_campaignresponse" />
+        <attribute name="new_softtekcountrycampaignresponse" />
+        <attribute name="ownerid" />
+        <attribute name="new_noofemployeerangecampaignresponse" />
+        <attribute name="new_industrysofttek" />
+        <attribute name="new_existinglead" />
+        <attribute name="new_existingcontact" />
+        <attribute name="new_existingaccount" />
+        <attribute name="companyname" />
+        <attribute name="channeltypecode" />
+        <attribute name="new_casescampaignresponse" />
+        <attribute name="regardingobjectid" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Campaign Response Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de respuestas de campa?a" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

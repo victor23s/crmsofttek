@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ActivityFeeds.Plugins.WallSavedQueryUserSettings: Update of WallSavedQueryUserSettings" SdkMessageProcessingStepId="{aff24880-818c-43d3-9463-66e54eda441c}" unmodified="1">
+  <PluginTypeName>ActivityFeeds.Plugins.WallSavedQueryUserSettings, ActivityFeeds.Filtering.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</PluginTypeName>
+  <PrimaryEntity>msdyn_wallsavedqueryusersettings</PrimaryEntity>
+</SdkMessageProcessingStep>

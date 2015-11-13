@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10018</returnedtypecode>
+  <savedqueryid>{a41e14ed-0b3f-4348-8229-c7639a88cb91}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10018" jump="new_name" select="1" icon="1" preview="1">
+      <row name="result" id="new_purchaseorderid">
+        <cell name="new_id" width="100" />
+        <cell name="new_name" width="200" />
+        <cell name="new_accountpo" width="100" />
+        <cell name="new_eventtypepo" width="125" />
+        <cell name="new_poamountpo_base" width="100" />
+        <cell name="new_totalamountpo_base" width="100" />
+        <cell name="new_frompo" width="100" />
+        <cell name="new_topo" width="100" />
+        <cell name="new_projectidpo" width="100" />
+        <cell name="new_statuspo" width="100" />
+        <cell name="statuscode" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_assignedteampo" width="100" />
+        <cell name="new_assgnedtopo" width="100" />
+        <cell name="new_marketscopepo" width="100" />
+        <cell name="new_softtekmarketpo" width="100" />
+        <cell name="new_softtekcountrypo" width="100" />
+        <cell name="new_softtekverticalpo" width="100" />
+        <cell name="createdon" width="125" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_purchaseorder">
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <order attribute="new_name" descending="false" />
+        <attribute name="new_totalamountpo_base" />
+        <attribute name="new_topo" />
+        <attribute name="statuscode" />
+        <attribute name="new_statuspo" />
+        <attribute name="new_softtekverticalpo" />
+        <attribute name="new_softtekmarketpo" />
+        <attribute name="new_softtekcountrypo" />
+        <attribute name="new_projectidpo" />
+        <attribute name="ownerid" />
+        <attribute name="new_marketscopepo" />
+        <attribute name="new_id" />
+        <attribute name="new_frompo" />
+        <attribute name="new_eventtypepo" />
+        <attribute name="createdby" />
+        <attribute name="new_assignedteampo" />
+        <attribute name="new_assgnedtopo" />
+        <attribute name="new_accountpo" />
+        <attribute name="new_poamountpo_base" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="new_purchaseorderid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Purchase Order Advanced Find View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

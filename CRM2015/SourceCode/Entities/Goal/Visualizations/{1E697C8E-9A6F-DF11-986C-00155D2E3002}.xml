@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualization>
+  <savedqueryvisualizationid>{1E697C8E-9A6F-DF11-986C-00155D2E3002}</savedqueryvisualizationid>
+  <datadescription>
+    <datadefinition>
+      <fetchcollection>
+        <fetch mapping="logical" aggregate="false">
+          <entity name="goal">
+            <attribute name="actualmoney" />
+            <attribute name="computedtargetasoftodaymoney" />
+          </entity>
+        </fetch>
+      </fetchcollection>
+      <categorycollection>
+        <category>
+          <measurecollection>
+            <measure alias="actualmoney" />
+          </measurecollection>
+          <measurecollection>
+            <measure alias="computedtargetasoftodaymoney" />
+          </measurecollection>
+        </category>
+      </categorycollection>
+    </datadefinition>
+  </datadescription>
+  <presentationdescription>
+    <Chart>
+      <Series>
+        <Series Color="91, 151, 213" BackSecondaryColor="112,142,50" Font="{0}, 9.5px" LabelForeColor="59, 59, 59" CustomProperties="MaxPixelPointWidth=30, MinPixelPointWidth=10">
+          <SmartLabelStyle Enabled="True" />
+          <Points />
+        </Series>
+        <Series MarkerBorderWidth="0" MarkerBorderColor="142,116,178" ChartType="Point" MarkerStyle="triangle" MarkerColor="0,0,0" MarkerSize="8">
+          <SmartLabelStyle Enabled="True" />
+        </Series>
+      </Series>
+      <ChartAreas>
+        <ChartArea BorderColor="White" BorderDashStyle="Solid">
+          <AxisY LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid LineColor="239, 242, 246" />
+            <MajorTickMark LineColor="165, 172, 181" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisY>
+          <AxisX LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181">
+            <MajorGrid Enabled="False" />
+            <MajorTickMark Enabled="False" />
+            <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
+          </AxisX>
+        </ChartArea>
+      </ChartAreas>
+      <Legends>
+        <Legend Alignment="Center" LegendStyle="Table" Docking="Bottom" Font="{0}, 11px" ShadowColor="0, 0, 0, 0" ForeColor="59,59,59"></Legend>
+      </Legends>
+      <Titles>
+        <Title Alignment="TopLeft" DockingOffset="-3" Font="{0}, 13px" ForeColor="59, 59, 59"></Title>
+      </Titles>
+      <BorderSkin PageColor="Control" BackColor="CornflowerBlue" BackSecondaryColor="CornflowerBlue" />
+    </Chart>
+  </presentationdescription>
+  <isdefault>0</isdefault>
+  <LocalizedNames>
+    <LocalizedName description="Today's Target Vs. Actuals (Money)" languagecode="1033" />
+    <LocalizedName description="Destino de hoy y datos reales (dinero)" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the actual against the linearly computed target as of today for revenue goals." languagecode="1033" />
+    <Description description="Muestra los datos reales en comparación con el objetivo calculado de forma lineal al día de hoy para los objetivos de ingresos." languagecode="3082" />
+  </Descriptions>
+  <IntroducedVersion>5.0.0.0</IntroducedVersion>
+</visualization>

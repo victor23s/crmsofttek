@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{f6c29a05-f2ab-e411-b846-6c3be5a8b454}</WebResourceId>
+  <Name>new_SurveyInfo_main_library</Name>
+  <DisplayName>SurveyInfo_main_library</DisplayName>
+  <Description>Codigo principal de la entidad Survey Info</Description>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_SurveyInfo_main_libraryF6C29A05-F2AB-E411-B846-6C3BE5A8B454</FileName>
+</WebResource>

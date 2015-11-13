@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1038</returnedtypecode>
+  <savedqueryid>{00000000-0000-0000-00aa-000010003100}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="1038" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="salesliteratureid">
+        <cell name="name" width="300" />
+        <cell name="subjectid" width="150" />
+        <cell name="literaturetypecode" width="125" />
+        <cell name="iscustomerviewable" width="100" />
+        <cell name="expirationdate" width="100" />
+        <cell name="keywords" width="100" disableSorting="1" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="salesliterature">
+        <attribute name="name" />
+        <order attribute="name" descending="false" />
+        <attribute name="subjectid" />
+        <attribute name="literaturetypecode" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="keywords" />
+        <attribute name="expirationdate" />
+        <attribute name="iscustomerviewable" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="salesliteratureid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All Sales Literature" languagecode="1033" />
+    <LocalizedName description="Toda la documentación de ventas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

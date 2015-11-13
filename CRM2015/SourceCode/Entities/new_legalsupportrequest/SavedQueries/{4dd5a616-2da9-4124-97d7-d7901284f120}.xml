@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10020</returnedtypecode>
+  <savedqueryid>{4dd5a616-2da9-4124-97d7-d7901284f120}</savedqueryid>
+  <layoutxml>
+    <grid name="" object="10020" jump="new_name" select="1" icon="1" preview="0">
+      <row name="new_legalsupportrequest" id="new_legalsupportrequestid">
+        <cell name="new_name" width="200" />
+        <cell name="new_requestid" width="100" />
+        <cell name="new_account" width="100" />
+        <cell name="new_requesttype" width="100" />
+        <cell name="new_marketscope" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_softtekcountry" width="100" />
+        <cell name="new_status" width="100" />
+        <cell name="new_statusreason" width="100" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>64</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="new_legalsupportrequest">
+        <attribute name="new_legalsupportrequestid" />
+        <attribute name="new_name" />
+        <attribute name="createdon" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <order attribute="new_name" descending="false" />
+        <attribute name="new_requestid" />
+        <attribute name="new_status" />
+        <attribute name="new_marketscope" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountry" />
+        <attribute name="new_requesttype" />
+        <attribute name="new_account" />
+        <attribute name="new_statusreason" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Legal Support Request Lookup View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>3</returnedtypecode>
+  <savedqueryid>{a3d1269f-56c1-e111-8c6b-78e3b511b603}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="3" jump="name" select="1" preview="1" icon="1">
+      <row name="result" id="opportunityid">
+        <cell name="new_opportunityid" width="100" />
+        <cell name="name" width="150" />
+        <cell name="customerid" width="100" />
+        <cell name="new_opportunitytypeopp" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_salespracticeownerid" width="100" />
+        <cell name="transactioncurrencyid" width="100" />
+        <cell name="estimatedvalue" width="100" />
+        <cell name="estimatedclosedate" width="100" />
+        <cell name="actualvalue" width="100" />
+        <cell name="actualclosedate" width="100" />
+        <cell name="salesstagecode" width="100" />
+        <cell name="new_forecaststatus" width="100" />
+        <cell name="new_marketscope_opp" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_softtekcountryopp" width="100" />
+        <cell name="new_softtekvertical1" width="100" />
+        <cell name="new_serviceoffering" width="100" />
+        <cell name="new_deliverymodelopp" width="100" />
+        <cell name="new_estimatedprojectduration" width="100" />
+        <cell name="new_estimatedprojectstartdate" width="100" />
+        <cell name="new_estimatedprojectenddate" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="opportunity">
+        <attribute name="new_softtekvertical1" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountryopp" />
+        <attribute name="new_serviceoffering" />
+        <attribute name="salesstagecode" />
+        <attribute name="ownerid" />
+        <attribute name="new_marketscope_opp" />
+        <attribute name="new_forecaststatus" />
+        <attribute name="estimatedvalue" />
+        <attribute name="estimatedclosedate" />
+        <attribute name="transactioncurrencyid" />
+        <attribute name="customerid" />
+        <attribute name="name" />
+        <attribute name="new_opportunityid" />
+        <attribute name="new_opportunitytypeopp" />
+        <attribute name="new_salespracticeownerid" />
+        <attribute name="actualvalue" />
+        <attribute name="actualclosedate" />
+        <attribute name="new_estimatedprojectstartdate" />
+        <attribute name="new_estimatedprojectenddate" />
+        <attribute name="new_estimatedprojectduration" />
+        <attribute name="new_deliverymodelopp" />
+        <order attribute="name" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="2" />
+          <filter type="or">
+            <condition attribute="ownerid" operator="in">
+              <value uiname="Fabio Brancati de Oliveira" uitype="systemuser">{D25C11E1-F120-DF11-91CB-001F29C839A0}</value>
+              <value uiname="Jesus Sanchez" uitype="systemuser">{9B3BCD04-2DB1-DD11-9A68-001E0B4616F4}</value>
+              <value uiname="Raul Morales" uitype="systemuser">{BF567BFA-32B1-DD11-9A68-001E0B4616F4}</value>
+              <value uiname="Sanjoy Gupta" uitype="systemuser">{22B082BD-D18A-DE11-BEA8-001F29C88D14}</value>
+            </condition>
+            <condition attribute="new_salespracticeownerid" operator="in">
+              <value uiname="Fabio Brancati de Oliveira" uitype="systemuser">{D25C11E1-F120-DF11-91CB-001F29C839A0}</value>
+              <value uiname="Jesus Sanchez" uitype="systemuser">{9B3BCD04-2DB1-DD11-9A68-001E0B4616F4}</value>
+              <value uiname="Raul Morales" uitype="systemuser">{BF567BFA-32B1-DD11-9A68-001E0B4616F4}</value>
+              <value uiname="Sanjoy Gupta" uitype="systemuser">{22B082BD-D18A-DE11-BEA8-001F29C88D14}</value>
+            </condition>
+          </filter>
+          <condition attribute="actualclosedate" operator="this-year" />
+        </filter>
+        <attribute name="opportunityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Lost Opps - Biz Development - This Year" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

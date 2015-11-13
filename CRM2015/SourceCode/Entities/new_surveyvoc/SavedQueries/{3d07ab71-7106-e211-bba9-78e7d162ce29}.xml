@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>10015</returnedtypecode>
+  <savedqueryid>{3d07ab71-7106-e211-bba9-78e7d162ce29}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="10015" jump="new_name" select="1" preview="1" icon="1">
+      <row name="result" id="new_surveyvocid">
+        <cell name="new_serviceofferingsurveyvoc" width="150" />
+        <cell name="new_serviceofferingtypesurveyvoc" width="150" />
+        <cell name="new_caseid" width="100" />
+        <cell name="new_casetypesurveyvoc" width="100" />
+        <cell name="new_accountcase" width="100" />
+        <cell name="new_opportunityvoc" width="100" />
+        <cell name="new_softtekmarketsurveyvoc" width="100" />
+        <cell name="new_softtekcountrysurveyvoc" width="100" />
+        <cell name="new_marketscopesurveyvoc" width="100" />
+        <cell name="new_language" width="100" />
+        <cell name="new_responsequestion1" width="100" />
+        <cell name="new_responsedecimal" width="100" />
+        <cell name="new_responsequestion3" width="100" />
+        <cell name="new_responsequestion4" width="100" />
+        <cell name="new_responsesaveragesurvey1" width="100" />
+        <cell name="new_respondent" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="createdon" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="new_surveyvoc">
+        <attribute name="new_language" />
+        <attribute name="new_softtekmarketsurveyvoc" />
+        <attribute name="new_softtekcountrysurveyvoc" />
+        <attribute name="new_responsesaveragesurvey1" />
+        <attribute name="new_responsequestion4" />
+        <attribute name="new_responsequestion3" />
+        <attribute name="new_responsedecimal" />
+        <attribute name="new_responsequestion1" />
+        <attribute name="new_opportunityvoc" />
+        <attribute name="new_marketscopesurveyvoc" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="new_casetypesurveyvoc" />
+        <attribute name="new_caseid" />
+        <attribute name="new_respondent" />
+        <order attribute="new_serviceofferingsurveyvoc" descending="false" />
+        <attribute name="new_serviceofferingsurveyvoc" />
+        <attribute name="new_serviceofferingtypesurveyvoc" />
+        <attribute name="new_accountcase" />
+        <attribute name="new_surveyvocid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Service Offering" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

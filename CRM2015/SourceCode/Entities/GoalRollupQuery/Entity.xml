@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Rollup Query" OriginalName="">GoalRollupQuery</Name>
+  <ObjectTypeCode>9602</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

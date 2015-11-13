@@ -1,0 +1,1161 @@
+/// <reference path="JQuery.js" />
+/// <reference path="Json2.js" />
+/// <reference path="XrmServiceToolkit.js" />
+/// <reference path="new_jqueryBlockUI" />
+/// <reference path="new_jqueryUI_min" />
+
+var EntitieName = "new_softtekmarket";
+var marketScope = "100000001";  //default Non Global
+
+if (typeof XrmSolutions == 'undefined') { XrmSolutions = {}; }
+if (typeof XrmSolutions.CreateRevenueForecast == 'undefined') { XrmSolutions.CreateRevenueForecast = {}; }
+if (typeof XrmSolutions.CloseRevenueForecast == 'undefined') { XrmSolutions.CloseRevenueForecast = {}; }
+if (typeof XrmSolutions.BacklogRevenueForecast == 'undefined') { XrmSolutions.BacklogRevenueForecast = {}; }
+if (typeof XrmSolutions.FillNameForecastDropDown == 'undefined') { XrmSolutions.FillNameForecastDropDown = {}; }
+
+if (typeof XrmSolutions.RevenueForecast == 'undefined') { XrmSolutions.RevenueForecast = {}; }
+
+////************************************  Create New Report Functions  **************************************************
+//cambios hecho por omar soto 
+//esta funcion revisa si un popup se ha cerrado es necesaria para safari
+window.onunload = refreshParent =
+    function refreshParent() {
+        var nAgt = navigator.userAgent;
+        if (nAgt.indexOf('Safari') != -1) 
+            window.opener.location.reload(true);
+    }
+
+function openDialogCloseReport() {
+    var nAgt = navigator.userAgent;
+    var dialog2 = "/WebResources/new_ForecastCloseReportHTML";
+    var url = Xrm.Page.context.getClientUrl() + dialog2;
+    if (nAgt.indexOf('Safari') != -1) 
+        window.open(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+    else {
+        pi = window.showModalDialog(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+        window.location.reload(true);
+    }
+}
+
+function openDialogTest() {
+    var nAgt = navigator.userAgent;
+    var dialog2 = "/WebResources/new_ForecastHtml";
+    var url = Xrm.Page.context.getClientUrl() + dialog2;
+    if (nAgt.indexOf('Safari') != -1) 
+        window.open(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+    else {
+        pi = window.showModalDialog(url, "", "dialogWidth: 400px; dialogHeight: 250px; resizable: 1; status: 1; scroll: 1;");
+        window.location.reload(true);
+    }
+}
+
+function LoadScript(src) {
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = src;
+    head.appendChild(script);
+}
+
+function FillMarketDropDown() {
+    var $selectResolution = document.getElementById("selMarket");
+    /*---Start Function: Added to get values for a dropdown from XML--it works for any explorer*/
+    var strResponse = getXMLEntitiesNodes("new_softtekmarket");
+    var posLabel = strResponse.indexOf("<c:Label>");
+    var strNodes = strResponse.substring(posLabel, strResponse.length);
+    var strlabelNodes = strNodes.split("c:OptionMetadata");
+    var strNodeItem = "";
+    var valueState = "";
+    var posStartLabel = 0; posEndlabel = 0, posStartValue = 0, posEndValue = 0, posStartDesc = 0, posEndDesc = 0;
+    for (var i in strlabelNodes) {
+        posStartDesc = strlabelNodes[i].indexOf("<c:Description>");
+        posEndDesc = strlabelNodes[i].indexOf("</c:Description>");
+        strNodeItem = "";
+        strNodeItem = strlabelNodes[i].substring(posEndDesc, strlabelNodes[i].length);
+        posStartLabel = strNodeItem.indexOf("<a:Label>");
+        posEndlabel = strNodeItem.indexOf("</a:Label>");
+        posStartValue = strNodeItem.indexOf("<c:Value>");
+        posEndValue = strNodeItem.indexOf("</c:Value>");
+        if (posStartLabel >= 1) {
+            var $newOption = document.createElement('option');
+            $newOption.text = strNodeItem.substring(posStartLabel + 9, posEndlabel).replace("&amp;", "&");
+            $newOption.value = strNodeItem.substring(posStartValue + 9, posEndValue);
+            $selectResolution.add($newOption);
+        }
+    }
+    /*--------------End Function-----*/
+}
+
+function getDataSofttekVerticalOriginal() {
+    var strResponse = getXMLEntitiesNodes("new_softtekvertical1");
+    var posLabel = strResponse.indexOf("<c:Label>");
+    var strNodes = strResponse.substring(posLabel, strResponse.length);
+    var strlabelNodes = strNodes.split("c:OptionMetadata");
+    var strNodeItem = "";
+    var valueState = "";
+    var posStartLabel = 0; posEndlabel = 0, posStartValue = 0, posEndValue = 0, posStartDesc = 0, posEndDesc = 0;
+    var rows = 0;
+    var dataValue = new Array(strlabelNodes.length);
+    var dataText = new Array(strlabelNodes.length);
+    for (var i in strlabelNodes) {
+        posStartDesc = strlabelNodes[i].indexOf("<c:Description>");
+        posEndDesc = strlabelNodes[i].indexOf("</c:Description>");
+        strNodeItem = "";
+        strNodeItem = strlabelNodes[i].substring(posEndDesc, strlabelNodes[i].length);
+        posStartLabel = strNodeItem.indexOf("<a:Label>");
+        posEndlabel = strNodeItem.indexOf("</a:Label>");
+        posStartValue = strNodeItem.indexOf("<c:Value>");
+        posEndValue = strNodeItem.indexOf("</c:Value>");
+        if (posStartLabel >= 1 && strNodeItem.substring(posStartValue + 9, posEndValue) != "undefined") {
+            dataText[rows] = strNodeItem.substring(posStartLabel + 9, posEndlabel).replace("&amp;", "&");
+            dataValue[rows] = strNodeItem.substring(posStartValue + 9, posEndValue);
+            rows++;
+        }
+    }
+    var dataSofftekVertical = new Array(rows);
+    for (var element = 0; element < rows; element++) 
+        dataSofftekVertical[element] = new Array(2);
+    for (var r = 0; r < rows; r++) {
+        dataSofftekVertical[r][0] = dataText[r];
+        dataSofftekVertical[r][1] = dataValue[r];
+    }
+    return dataSofftekVertical;
+}
+
+function getUser() {
+    var userId = Xrm.Page.context.getUserId();
+    userId = userId.replace("{", "");
+    userId = userId.replace("}", "");
+    return userId;
+}
+
+function getName(consolidationDate) {
+    var month = consolidationDate.getMonth() + 1;
+    if (month < 10)
+        month = '0' + month;
+    var day = consolidationDate.getDate();
+    if (day < 10)
+        day = '0' + day;
+    return 'RF-' + consolidationDate.getFullYear() + month + day;
+}
+
+function userCanInsertForecast() {
+    if (UsrHasRole("System Administrator")) //|| UsrHasRole("STK FORECAST")
+        return true;
+    else
+        return false;
+}
+
+function UsrHasRole(roleName) {
+    var currentUserRoles = Xrm.Page.context.getUserRoles();
+    var currentUserName = Xrm.Page.context.getUserName();
+    for (var i = 0; i < currentUserRoles.length; i++) {
+        var userRole = currentUserRoles[i];
+        var items;
+        items = retrieveRecord("Role", userRole);
+        if (items != null)
+            for (var j = 0; j < items.length; j++)
+                if (items[j]["Name"] == roleName)
+                    return true;
+    }
+}
+
+function DeleteRevenueForecasts(SofttekMarketId) {
+	// Delete all the previous Revenue Forecast records
+	var RFFetch = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0"> <entity name="new_revenueforecast"> <attribute name="new_revenueforecastid"/> <attribute name="new_name"/> <attribute name="new_softtekvertical"/> <order descending="false" attribute="new_name"/> -<filter type="and"> <condition attribute="new_name" value="' + getName($("#DateInput").datepicker('getDate')) + '" operator="eq"/> <condition attribute="new_softtekmarket" value="' + SofttekMarketId + '" operator="eq"/>  </filter> </entity> </fetch>';
+	var RFDetail = XrmServiceToolkit.Soap.Fetch(RFFetch);
+	for (var i = 0; i < RFDetail.length; i++) {
+		var revenueForecastId = RFDetail[i].attributes.new_revenueforecastid.value;
+		XrmServiceToolkit.Rest.Delete(
+		   revenueForecastId,
+		   "new_revenueforecastSet",
+		   function () {
+		   },
+		   function (error) {
+			   alert("Error " + error);
+		   }, false);
+	}
+}
+
+function CreateRevenueForecast(OppDetail, PlanningDetail, OrderDetail, ConsolidationDate) {
+	debugger;
+    var createRevenueforecastDetail = {};
+    ///******************************************** from Revenue Planning  *************************************************
+    createRevenueforecastDetail.new_rev01 = { Value: parseFloat(PlanningDetail.attributes["new_rev_01"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev02 = { Value: parseFloat(PlanningDetail.attributes["new_rev_02"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_03 = { Value: parseFloat(PlanningDetail.attributes["new_rev_03"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_04 = { Value: parseFloat(PlanningDetail.attributes["new_rev_04"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_05 = { Value: parseFloat(PlanningDetail.attributes["new_rev_05"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_06 = { Value: parseFloat(PlanningDetail.attributes["new_rev_06"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_07 = { Value: parseFloat(PlanningDetail.attributes["new_rev_07"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_08 = { Value: parseFloat(PlanningDetail.attributes["new_rev_08"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_09 = { Value: parseFloat(PlanningDetail.attributes["new_rev_09"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_10 = { Value: parseFloat(PlanningDetail.attributes["new_rev_10"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_11 = { Value: parseFloat(PlanningDetail.attributes["new_rev_11"].value).toFixed(2) };
+    createRevenueforecastDetail.new_rev_12 = { Value: parseFloat(PlanningDetail.attributes["new_rev_12"].value).toFixed(2) };
+    createRevenueforecastDetail.new_Year = PlanningDetail.attributes["new_year"].value;
+    createRevenueforecastDetail.new_total_year = { Value: parseFloat(PlanningDetail.attributes["new_tot_year"].value).toFixed(2) };
+    createRevenueforecastDetail.OwnerId = { Id: PlanningDetail.attributes["ownerid"].id, LogicalName: "systemuser" };
+    ///******************************************** from Opp  ****************************************************
+    createRevenueforecastDetail.new_MarketScope = { Value: OppDetail.attributes["new_marketscope_opp"].value };
+    createRevenueforecastDetail.new_SofttekVertical = { Value: OppDetail.attributes["new_softtekvertical1"].value };
+    createRevenueforecastDetail.new_SofttekMarket = { Value: OppDetail.attributes["new_softtekmarket"].value };
+    createRevenueforecastDetail.new_ServiceOffering = { Value: OppDetail.attributes["new_serviceoffering"].value };
+    createRevenueforecastDetail.new_DeliveryModel = { Value: OppDetail.attributes["new_deliverymodelopp"].value };
+    createRevenueforecastDetail.new_OpportunityType = { Value: OppDetail.attributes["new_opportunitytypeopp"].value };
+    if (typeof (OppDetail.attributes.transactioncurrencyid) != 'undefined')
+        createRevenueforecastDetail.TransactionCurrencyId = { Id: OppDetail.attributes.transactioncurrencyid.id, LogicalName: "transactioncurrency" };
+    createRevenueforecastDetail.new_Opportunity = { Id: OppDetail.id, LogicalName: "opportunity" };
+    createRevenueforecastDetail.new_Account = { Id: OppDetail.attributes["customerid"].id, LogicalName: "account" };
+    if (typeof (OppDetail.attributes["new_estimatedprojectduration"]) != 'undefined')
+        createRevenueforecastDetail.new_Duration = OppDetail.attributes["new_estimatedprojectduration"].value;
+    if (typeof (OppDetail.attributes["new_salespracticeownerid"]) != 'undefined')
+        createRevenueforecastDetail.new_BDM = { Id: OppDetail.attributes["new_salespracticeownerid"].id, LogicalName: "systemuser" };
+    if (typeof (OppDetail.attributes["new_quoteventanillaunica"]) != 'undefined')
+        createRevenueforecastDetail.new_Quote = { Id: OppDetail.attributes["new_quoteventanillaunica"].id, LogicalName: "quote" };
+    if (typeof (OppDetail.attributes["new_projectid"]) != 'undefined')
+	{
+		var strProjectId = OppDetail.attributes["new_projectid"].value;
+		if (strProjectId.length > 12)
+		var ProjectId = strProjectId.slice(0, 12);
+        createRevenueforecastDetail.new_ProjectID = ProjectId;
+	}
+	    ///************************************************* from Order  *************************************************
+    if (typeof (OrderDetail) != 'undefined')
+        createRevenueforecastDetail.new_Order = { Id: OrderDetail.id, LogicalName: "salesorder" };
+    //************************************  Revenue Forecast NEW Information *****************************************
+    createRevenueforecastDetail.new_Type = { Value: 100000000 };
+    createRevenueforecastDetail.new_name = getName(ConsolidationDate);
+    createRevenueforecastDetail.new_ReportType = { Value: $('#selReportType').val() };
+    createRevenueforecastDetail.new_ConsolidationDate = ConsolidationDate;
+    XrmServiceToolkit.Rest.Create(createRevenueforecastDetail, "new_revenueforecastSet", function (result) { }, function (error) { alert("Error " + error); }, false);
+}
+
+function GetMarketScope(softtekMarketId, softtekVertical) {
+    scope = searchDescriptionValue(softtekMarketId, "new_softtekmarket");
+    if (scope == "")
+        scope = searchDescriptionValue(softtekVertical, "new_softtekvertical1");
+    if (scope == "Global")
+        marketScope = "100000000";
+    else if (scope == "Non Global")
+        marketScope = "100000001";
+    return marketScope;
+}
+
+function searchDescriptionValue(strValue, entitieName) {
+    var scope = "";
+    var strResponse = getXMLEntitiesNodes(entitieName);
+    var posLabel = strResponse.indexOf("<a:Label>");
+    var strNodes = strResponse.substring(posLabel, strResponse.length);
+    var strlabelNodes = strNodes.split("c:OptionMetadata");
+    var strvalue = "", strNodeDescription = "", strNodeItem = "";
+    var valueState = "";
+    var cStateStart = 0, cStateEnd = 0, emptyNode = 0;
+    var posStartLabel = 0; posEndlabel = 0, posStartValue = 0, posEndValue = 0, posStartLabelDesc = 0, posEndlabelDesc = 0;
+    var posStartDesc = 0, posEndDesc = 0;
+    for (var i in strlabelNodes) {
+        posStartDesc = strlabelNodes[i].indexOf("<c:Description>");
+        posEndDesc = strlabelNodes[i].indexOf("</c:Description>");
+        strNodeDescription = "";
+        strNodeDescription = strlabelNodes[i].substring(posStartDesc, posEndDesc);
+        strNodeItem = "";
+        strNodeItem = strlabelNodes[i].substring(posEndDesc, strlabelNodes[i].length);
+        posStartLabel = strNodeItem.indexOf("<a:Label>");
+        posEndlabel = strNodeItem.indexOf("</a:Label>");
+        posStartValue = strNodeItem.indexOf("<c:Value>");
+        posEndValue = strNodeItem.indexOf("</c:Value>");
+        if (posStartLabel >= 1 && posStartValue >= 1) {
+            if (strNodeItem.substring(posStartValue + 9, posEndValue) == strValue) {
+                emptyNode = strNodeDescription.indexOf("<a:Label/>")
+                posStartLabelDesc = strNodeDescription.indexOf("<a:Label>");
+                if (posStartLabelDesc >= 1 && emptyNode == -1) {
+                    posStartLabelDesc = strNodeDescription.indexOf("<a:Label>");
+                    posEndlabelDesc = strNodeDescription.indexOf("</a:Label>");
+                    scope = strNodeDescription.substring(posStartLabelDesc + 9, posEndlabelDesc).replace("&amp;", "&");
+                }
+                else if (emptyNode == -1) {
+                    scope = "";
+                }
+                break;
+            }
+        }
+    }
+    return scope;
+}
+
+function getXMLEntitiesNodes(EntitieName) {
+    var $context = GetGlobalContext();
+    var $requestXml = "<s:Envelope xmlns:s='http://schemas.xmlsoap.org/soap/envelope/'>" +
+          "<s:Body>" +
+          "  <Execute xmlns='http://schemas.microsoft.com/xrm/2011/Contracts/Services' xmlns:i='http://www.w3.org/2001/XMLSchema-instance'>" +
+          "    <request i:type='a:RetrieveAttributeRequest' xmlns:a='http://schemas.microsoft.com/xrm/2011/Contracts'>" +
+          "      <a:Parameters xmlns:b='http://schemas.datacontract.org/2004/07/System.Collections.Generic'>" +
+          "        <a:KeyValuePairOfstringanyType>" +
+          "          <b:key>MetadataId</b:key>" +
+          "          <b:value i:type='c:guid' xmlns:c='http://schemas.microsoft.com/2003/10/Serialization/'>00000000-0000-0000-0000-000000000000</b:value>" +
+          "        </a:KeyValuePairOfstringanyType>" +
+          "        <a:KeyValuePairOfstringanyType>" +
+          "          <b:key>RetrieveAsIfPublished</b:key>" +
+          "          <b:value i:type='c:boolean' xmlns:c='http://www.w3.org/2001/XMLSchema'>true</b:value>" +
+          "        </a:KeyValuePairOfstringanyType>" +
+          "        <a:KeyValuePairOfstringanyType>" +
+          "          <b:key>EntityLogicalName</b:key>" +
+          "          <b:value i:type='c:string' xmlns:c='http://www.w3.org/2001/XMLSchema'>opportunity</b:value>" +
+          "        </a:KeyValuePairOfstringanyType>" +
+          "        <a:KeyValuePairOfstringanyType>" +
+          "          <b:key>LogicalName</b:key>" +
+          "          <b:value i:type='c:string' xmlns:c='http://www.w3.org/2001/XMLSchema'>" + EntitieName + "</b:value>" +
+          "        </a:KeyValuePairOfstringanyType>" +
+          "      </a:Parameters>" +
+          "      <a:RequestId i:nil='true' />" +
+          "      <a:RequestName>RetrieveAttribute</a:RequestName>" +
+          "    </request>" +
+          "  </Execute>" +
+          "</s:Body>" +
+        "</s:Envelope>";
+    var $req = new XMLHttpRequest();
+    $req.open("POST", $context.prependOrgName("/XRMServices/2011/Organization.svc/web"), false)
+    $req.setRequestHeader("Accept", "application/xml, text/xml, */*");
+    $req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+    $req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
+    $req.send($requestXml);
+
+
+    return $req.responseText;
+
+}
+
+function getSofttekMarketID (companyCode) {
+	switch(companyCode) {
+		case '1012': // Softtek Tecnología en Inf
+		case '1013': // Softtek Servicios y Tecno
+			return '100000001'; // Mexico & Central America
+		break;
+		case '1017': // Softtek Information Servi
+		case '1019': // Softtek Integration Syste
+		case '1043': // Softtek Integration INC
+		case '1051': // Softtek India Pvt Ltd
+			return '100000000'; // USA & Canada
+		break;
+		case '1023': // GDC SOFTTEK S.L.
+			return '100000005'; // Europe
+		break;
+		case '1026': // Stk Tecn. da Informação
+		case '1048': // Softtek Soluções em Sist
+			return '100000002'; // Brazil
+		break;
+		default:
+			return '';
+		break;
+	}
+}
+
+function CreateRevenueForecastBacklog(file, softtekMarketId, ConsolidationDate) {
+    var errorArray = [];
+    var goodRows = 0, badRows = 0;
+    var stkVerticals = getDataSofttekVerticalOriginal();
+
+    //get the Forecast Roles and their guids
+    var fetchRoles = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0"><entity name="role"><attribute name="name"/><attribute name="businessunitid"/><attribute name="roleid"/><order descending="false" attribute="name"/>-<filter type="and"><condition attribute="name" value="%forecast%" operator="like"/><condition attribute="businessunitid" operator="eq-businessid"/><condition attribute="name" value="%forecasting%" operator="not-like"/></filter></entity></fetch>';
+    var rolesTable = XrmServiceToolkit.Soap.Fetch(fetchRoles);
+
+    //scroll the file and create the revenue forecasts
+    for (var i = 4; i < (file.length) ; i++) {
+        //Validates the row based on the values of ProjectCategory, BRM (Name and IS), and SofttekVertical
+        if ((file[i][10] != '' && typeof (file[i][10]) != 'undefined') && (file[i][11] != '' && typeof (file[i][11]) != 'undefined') && (file[i][12] != '' && typeof (file[i][12]) != 'undefined') && (file[i][17] != '' && typeof (file[i][17]) != 'undefined')) {
+            var createRevenueforecastDetail = {};
+            var err = {
+                Account: false,
+                AccountName: '',
+                BRM: false,
+                BRMName: '',
+                ServiceOffering: false,
+                Row: 0,
+                Owner: '',
+                duration: 1,
+                vertical: ''
+            }
+
+            createRevenueforecastDetail.new_ADM = file[i][15];
+            createRevenueforecastDetail.new_DeliveryManager = file[i][13];
+
+            //Remove extra minus character
+            for (var pos = 18; pos < 31; pos++) {
+                if (file[i][pos] != '')
+                    file[i][pos] = file[i][pos].replace("--", "-");
+            }
+
+            var duration = 0, tempValue;
+
+            if (file[i][19] != '') { tempValue = file[i][19].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev01 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][20] != '') { tempValue = file[i][20].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev02 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][21] != '') { tempValue = file[i][21].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_03 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][22] != '') { tempValue = file[i][22].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_04 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][23] != '') { tempValue = file[i][23].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_05 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][24] != '') { tempValue = file[i][24].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_06 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][25] != '') { tempValue = file[i][25].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_07 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][26] != '') { tempValue = file[i][26].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_08 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][27] != '') { tempValue = file[i][27].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_09 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][28] != '') { tempValue = file[i][28].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_10 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][29] != '') { tempValue = file[i][29].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_11 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+            if (file[i][30] != '') { tempValue = file[i][30].trim().replace(/,/g, ""); createRevenueforecastDetail.new_rev_12 = { Value: parseFloat(tempValue).toFixed(2) }; duration += 1; }
+
+            createRevenueforecastDetail.new_Duration = duration;
+
+            var year = new Date();
+            createRevenueforecastDetail.new_Year = year.getFullYear().toString();
+
+            tempValue = file[i][18].replace(/,/g, "");
+            createRevenueforecastDetail.new_total_year = { Value: parseFloat(tempValue).toFixed(2) };
+			
+			
+			// Changes to get the Softtek Market based on the company code provided in the backlog file - ppm: 982196
+			var companyCode = file[i][4].trim();
+			var globalSofttekMarketId = getSofttekMarketID(companyCode);
+			if (globalSofttekMarketId != '') // The companyCode was found in the function and it was valid...
+				createRevenueforecastDetail.new_SofttekMarket = { Value: parseInt(globalSofttekMarketId) };
+			else // not a valid companyCode, it will use the one specified in the dropdown (NOTE!! Check this with Diana)
+				createRevenueforecastDetail.new_SofttekMarket = { Value: parseInt(softtekMarketId) };
+				
+            var sapID = file[i][0];
+            var acctName = file[i][1];
+            var acctXMLName = acctName.replace("&", "&amp;");
+            var acctXMLName = acctXMLName.replace("'", "&apos;");
+            var acctXMLName = acctXMLName.replace("<", "&lt;");
+            var acctXMLName = acctXMLName.replace(">", "&gt;");
+            var fecthNameAccount = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="account"><attribute name="name"/><attribute name="primarycontactid"/><attribute name="telephone1"/><attribute name="ownerid"/><attribute name="createdon"/><attribute name="createdby"/><attribute name="new_validationstatus"/><attribute name="new_validatedon"/><attribute name="statuscode"/><attribute name="statecode"/><attribute name="new_softtekvertical1"/><attribute name="new_softtekmarket1"/><attribute name="new_softtekcountry1"/><attribute name="modifiedon"/><attribute name="modifiedby"/><attribute name="new_marketscopeaccount"/><attribute name="accountid"/><order descending="false" attribute="name"/>-<filter type="and"><condition attribute="name" value="' + acctXMLName + '" operator="eq"/></filter></entity></fetch>';
+            var fetchSAPIdAccount = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="account"><attribute name="name"/><attribute name="primarycontactid"/><attribute name="telephone1"/><attribute name="ownerid"/><attribute name="createdon"/><attribute name="createdby"/><attribute name="new_validationstatus"/><attribute name="new_validatedon"/><attribute name="statuscode"/><attribute name="statecode"/><attribute name="new_softtekvertical1"/><attribute name="new_softtekmarket1"/><attribute name="new_softtekcountry1"/><attribute name="modifiedon"/><attribute name="modifiedby"/><attribute name="new_marketscopeaccount"/><attribute name="accountid"/><order descending="false" attribute="name"/>-<filter type="and"><condition attribute="accountnumber" value="' + sapID + '" operator="eq"/></filter></entity></fetch>';
+            var AcctDetail = XrmServiceToolkit.Soap.Fetch(fecthNameAccount);
+            if (AcctDetail.length > 0)
+                createRevenueforecastDetail.new_Account = { Id: AcctDetail[0].attributes["accountid"].value, LogicalName: "account" };
+            else {
+                var AcctDetail2 = XrmServiceToolkit.Soap.Fetch(fetchSAPIdAccount);
+                if (AcctDetail2.length > 0)
+                    createRevenueforecastDetail.new_Account = { Id: AcctDetail2[0].attributes["accountid"].value, LogicalName: "account" };
+                else {
+                    err.AccountName = acctName;
+                    err.Account = true;
+                    err.Row = i - 3;
+                }
+            }
+
+            createRevenueforecastDetail.new_Type = { Value: 100000001 };
+            createRevenueforecastDetail.new_ProjectID = file[i][2];
+            createRevenueforecastDetail.new_ProjectName = file[i][3];
+            debugger;
+            // Softtek vertical
+            var softtekVertical = file[i][17].toUpperCase();
+			if (softtekVertical == 'ABINVEB')
+				softtekVertical = 'ABINBEV';
+            for (var x = 0; x < stkVerticals.length; x++) {
+                if (softtekVertical === stkVerticals[x][0].toUpperCase()) {
+                    softtekVertical = stkVerticals[x][1];
+                    x = stkVerticals.length + 1;
+                }
+            }
+            //si la variable aún tiene el mismo valor que el archivo, quiere decir que no lo halló en la lista, osea el vertical No existe, levantar error
+            if (softtekVertical == file[i][17].toUpperCase())
+                err.vertical = softtekVertical;
+
+            createRevenueforecastDetail.new_SofttekVertical = { Value: parseInt(softtekVertical) }; // El valor que se le debe mandar es el resultado de buscar en el arreglo que devuelva la funcion
+
+            var serviceOffering = file[i][10];
+            var XMLserviceOffering = serviceOffering.replace("&", "&amp;");
+            var XMLserviceOffering = XMLserviceOffering.replace("'", "&apos;");
+            var XMLserviceOffering = XMLserviceOffering.replace("<", "&lt;");
+            var XMLserviceOffering = XMLserviceOffering.replace(">", "&gt;");
+            var fetchServiceOffering = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"> <entity name="new_serviceoffering"> <attribute name="new_serviceofferingid" /> <attribute name="new_serviceoffering" /> <attribute name="new_projectcategory" /> <order attribute="new_projectcategory" descending="false" /> <filter type="and">	<condition attribute="new_projectcategory" operator="eq" value="' + XMLserviceOffering + '" /> </filter> </entity>	</fetch>';
+
+            var ServiceOfferingDetail = XrmServiceToolkit.Soap.Fetch(fetchServiceOffering);
+            if (ServiceOfferingDetail.length > 0) {
+                createRevenueforecastDetail.new_ServiceOffering = { Value: ServiceOfferingDetail[0].attributes.new_serviceoffering.value };
+            }
+            else {
+                err.ServiceOffering = true;
+                err.Row = i - 3;
+            }
+
+            //BRM
+            var ownerName = file[i][11];
+            var ownerIS = file[i][12];
+            var userFound = false;
+            var fetchNameOwner = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="systemuser"><attribute name="fullname"/><attribute name="businessunitid"/><attribute name="title"/><attribute name="address1_telephone1"/><attribute name="systemuserid"/><order descending="false" attribute="fullname"/>-<filter type="and"><condition attribute="fullname" value="' + ownerName + '" operator="eq"/></filter></entity></fetch>';
+            var fetchISOwner = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="systemuser"><attribute name="fullname"/><attribute name="businessunitid"/><attribute name="title"/><attribute name="address1_telephone1"/><attribute name="systemuserid"/><order descending="false" attribute="fullname"/>-<filter type="and"><condition attribute="new_is" value="' + ownerIS + '" operator="eq"/></filter></entity></fetch>';
+            var OwnerDetail = XrmServiceToolkit.Soap.Fetch(fetchNameOwner);
+            if (OwnerDetail.length > 0) {
+                createRevenueforecastDetail.OwnerId = { Id: OwnerDetail[0].id, LogicalName: "systemuser" };
+                userFound = true;
+                var fetchUserRolesByName = '<fetch distinct="true" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="role"><attribute name="name"/><attribute name="businessunitid"/><attribute name="roleid"/><order descending="false" attribute="name"/>-<link-entity name="systemuserroles" intersect="true" visible="false" to="roleid" from="roleid">-<link-entity name="systemuser" to="systemuserid" from="systemuserid" alias="ab">-<filter type="and"><condition attribute="fullname" value="' + ownerName + '" operator="eq"/></filter></link-entity></link-entity></entity></fetch>';
+                var userRolesTable = XrmServiceToolkit.Soap.Fetch(fetchUserRolesByName);
+            }
+            else {
+                var OwnerDetail2 = XrmServiceToolkit.Soap.Fetch(fetchISOwner);
+                if (OwnerDetail2.length > 0) {
+                    createRevenueforecastDetail.OwnerId = { Id: OwnerDetail2[0].id, LogicalName: "systemuser" };
+                    userFound = true;
+                    var fetchUserRolesByIS = '<fetch distinct="true" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="role"><attribute name="name"/><attribute name="businessunitid"/><attribute name="roleid"/><order descending="false" attribute="name"/>-<link-entity name="systemuserroles" intersect="true" visible="false" to="roleid" from="roleid">-<link-entity name="systemuser" to="systemuserid" from="systemuserid" alias="ad">-<filter type="and"><condition attribute="new_is" value="' + ownerIS + '" operator="eq"/></filter></link-entity></link-entity></entity></fetch>';
+                    var userRolesTable = XrmServiceToolkit.Soap.Fetch(fetchUserRolesByIS);
+                }
+            }
+
+            if (userFound == false) {
+                err.BRM = true;
+                err.BRMName = ownerName;
+                err.Row = i - 3;
+            }
+            else {
+                //Owner exists, pull the user's Roles
+                for (var k = 0; k < userRolesTable.length; k++)
+                    for (var l = 0; l < rolesTable.length; l++)
+                        if (userRolesTable[k].attributes.name.value == rolesTable[l].attributes.name.value)
+                            err.Owner = 'OK';
+
+                if (err.Owner != 'OK') {
+                    err.Owner = ownerName;
+                    err.Row = i - 3;
+                }
+            }
+
+
+            //Market Scope
+            if (err.vertical == '') {//si el vertical es inválido, ni para que ir a buscar el MarketScope
+				if (globalSofttekMarketId != '') // The companyCode was found in the function and it was valid...
+					createRevenueforecastDetail.new_MarketScope = { Value: GetMarketScope(globalSofttekMarketId, softtekVertical) };
+				else // not a valid companyCode, it will use the one specified in the dropdown (NOTE!! Check this with Diana)		
+					createRevenueforecastDetail.new_MarketScope = { Value: GetMarketScope(softtekMarketId, softtekVertical) };
+            }
+
+            //last minute added items
+            createRevenueforecastDetail.new_ReportType = { Value: $('#selReportType').val() };
+            createRevenueforecastDetail.new_ConsolidationDate = ConsolidationDate;
+
+            createRevenueforecastDetail.new_name = getName(ConsolidationDate);
+
+            if (duration == 0) {
+                err.duration = 0;
+                err.Row = i - 3;
+            }
+
+            if (err.Account == false && err.BRM == false && err.ServiceOffering == false && err.Owner == 'OK' && duration != 0 && err.vertical == '') { // if Nothing failed, go ahead and insert the Forecast
+                try {
+                    XrmServiceToolkit.Rest.Create(createRevenueforecastDetail, "new_revenueforecastSet", function (result) { }, function (error) { alert("Error " + error); }, false);
+                }
+                catch (err) { alert(err.message); goodRows -= 1; badRows += 1; }
+                goodRows += 1;
+            }
+            else // Otherwise, skip the record
+                badRows += 1;
+
+            // add the errors of this records (if any) to the ErrorArray
+            errorArray[errorArray.length] = err;
+        }
+    }
+    //Once all the records were processed, we can now insert the resulting LOG into the system...
+    CreateRevenueForecastInsertLog(errorArray, goodRows, badRows, ConsolidationDate);
+
+}
+
+function CreateRevenueForecastInsertLog(errorArray, goodRows, badRows, ConsolidationDate) {
+    // Get Today's name of the records
+    var logName = getName(ConsolidationDate);
+    var fetchInsertLogs = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"> <entity name="new_revenueforecastinsertlog"> <attribute name="new_revenueforecastinsertlogid" />  <attribute name="new_name" /> <attribute name="createdon" />   <order attribute="new_name" descending="false" /> - <filter type="and">   <condition attribute="new_name" operator="like" value="%' + logName + '%" /> </filter> </entity> </fetch>';
+    //var fetchInsertLogs = '<fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">-<entity name="new_revenueforecastinsertlog">attribute name="new_revenueforecastinsertlogid"/><attribute name="new_name"/><attribute name="createdon"/><attribute name="new_summary"/><attribute name="statuscode"/><attribute name="statecode"/><attribute name="overriddencreatedon"/><attribute name="new_errolog"/><order descending="false" attribute="new_name"/></entity></fetch>';
+    var InsertLogDetail = XrmServiceToolkit.Soap.Fetch(fetchInsertLogs);
+    var logNumber = InsertLogDetail.length + 1;
+    var totalRows = goodRows + badRows;
+
+    var createRevenueForecastInsertLog = {};
+    createRevenueForecastInsertLog.new_name = logName + '-' + logNumber; //new_name => RF-YearMonthDay-n (depends on # times that exists in the fetch)
+    createRevenueForecastInsertLog.new_Summary = 'Records Inserted: ' + goodRows + '\n';
+    createRevenueForecastInsertLog.new_Summary += 'Records Rejected: ' + badRows + '\n';
+    createRevenueForecastInsertLog.new_Summary += 'Total records processed: ' + totalRows + '\n';
+    createRevenueForecastInsertLog.new_ErroLog = '';
+
+    for (i = 0; i < errorArray.length; i++) {
+        if (errorArray[i].Account == true)
+            createRevenueForecastInsertLog.new_ErroLog += 'Row ' + errorArray[i].Row + ': The Account "' + errorArray[i].AccountName + '" was not found in the system. Record Not inserted.\n';
+        if (errorArray[i].BRM == true)
+            createRevenueForecastInsertLog.new_ErroLog += 'Row ' + errorArray[i].Row + ': The BRM "' + errorArray[i].BRMName + '" was not found in the system. Record Not inserted.\n';
+        if (errorArray[i].ServiceOffering == true)
+            createRevenueForecastInsertLog.new_ErroLog += 'Row ' + errorArray[i].Row + ': The ServiceOffering was not found in the system. Record Not inserted.\n';
+        if (errorArray[i].Owner != 'OK' && errorArray[i].Owner != '')
+            createRevenueForecastInsertLog.new_ErroLog += 'Row ' + errorArray[i].Row + ': The Owner "' + errorArray[i].Owner + '" do not have permissions to create Forecasts. Record Not inserted.\n';
+        if (errorArray[i].duration == 0)
+            createRevenueForecastInsertLog.new_ErroLog += 'Row ' + errorArray[i].Row + ': The Revenue amounts cannot be Empty. Record Not inserted.\n';
+        if (errorArray[i].vertical != '')
+            createRevenueForecastInsertLog.new_ErroLog += 'Row ' + errorArray[i].Row + ': The Vertical value ' + errorArray[i].vertical + ' does not exist in the system. Record Not inserted.\n';
+
+    }
+    XrmServiceToolkit.Rest.Create(createRevenueForecastInsertLog, "new_revenueforecastinsertlogSet", function (result) { }, function (error) { alert("Error " + error); }, false);
+
+}
+
+function LoadForecast(fileBacklog) {
+    var SofttekMarketId = $('#selMarket').val();
+    var reportType = $('#selReportType').val();
+
+    var $closeDate = document.getElementById("DateInput").value;
+    if (!Date.parse($closeDate)) {
+        alert("The consolidation date format is not valid. Please verify.");
+    }
+    else {
+        var decision = confirm("Do you want to delete and re-create forecasts for the Market: \n  " + $('#selMarket option:selected').text());
+        if (decision == true) {
+            // Delete previous forecasts of this day
+            DeleteRevenueForecasts(SofttekMarketId, reportType);
+            // Get the Opportunity
+            //var sFetchOpportunity = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="opportunity"><attribute name="name"/><attribute name="customerid"/><attribute name="transactioncurrencyid"/><attribute name="new_opportunityid"/><attribute name="opportunityid"/><attribute name="new_quoteventanillaunica"/><attribute name="new_softtekvertical1"/><attribute name="new_softtekmarket"/><attribute name="new_salespracticeownerid"/><attribute name="new_marketscope_opp"/><attribute name="new_serviceoffering"/><attribute name="new_deliverymodelopp"/><attribute name="new_projectid"/><attribute name="new_opportunitytypeopp"/><attribute name="new_estimatedprojectduration"/><attribute name="new_salespracticeownerid"/><order attribute="name" descending="false"/><filter type="and"><condition attribute="statecode" operator="eq" value="0"/><condition attribute="new_softtekmarket" operator="eq" value="' + SofttekMarketId + '"/><filter type="or"><condition attribute="new_forecaststatus" operator="eq" value="100000002"/><condition attribute="new_forecaststatus" operator="eq" value="100000001"/></filter></filter></entity></fetch>';
+            var fetchOppWon = '<fetch distinct="true" mapping="logical" output-format="xml-platform" version="1.0">' +
+								'<entity name="opportunity">' +
+								'<attribute name="name"/>' +
+								'<attribute name="customerid"/>' +
+								'<attribute name="estimatedvalue"/>' +
+								'<attribute name="new_opportunityid"/>' +
+								'<attribute name="statecode"/>' +
+								'<attribute name="ownerid"/>' +
+								'<attribute name="new_opportunitytypeopp"/>' +
+								'<attribute name="estimatedclosedate"/>' +
+								'<attribute name="actualvalue"/>' +
+								'<attribute name="actualclosedate"/>' +
+								'<attribute name="salesstagecode"/>' +
+								'<attribute name="new_softtekmarket"/>' +
+								'<attribute name="new_marketscope_opp"/>' +
+								'<attribute name="new_forecaststatus"/>' +
+								'<attribute name="new_softtekvertical1"/>' +
+								'<attribute name="new_softtekcountryopp"/>' +
+								'<attribute name="new_multiyearopp"/>' +
+								'<attribute name="new_newcustomerinyear"/>' +
+								'<attribute name="new_serviceoffering"/>' +
+								'<attribute name="opportunityid"/>' +
+								'<attribute name="new_salespracticeownerid"/>' +
+								'<attribute name="new_deliverymodelopp"/>' +
+								'<attribute name="new_projectid"/>' +
+								'<attribute name="new_estimatedprojectduration"/>' +
+								'<order descending="false" attribute="name"/>' +
+								'<filter type="and">' +
+								'<condition attribute="statecode" value="1" operator="eq"/>' +
+								'<condition attribute="new_softtekmarket" value="' + SofttekMarketId + '" operator="eq"/>' +
+								'</filter>' +
+								'<link-entity name="salesorder" alias="ae" to="opportunityid" from="opportunityid">' +
+								'<filter type="and">' +
+								'<condition attribute="statecode" operator="in">' +
+								'<value>0</value>' +
+								'<value>1</value>' +
+								'</condition>' +
+								'<condition attribute="new_statusreason" operator="in">' +
+								'<value>100000001</value>' +
+								'<value>100000002</value>' +
+								'<value>100000003</value>' +
+								'<value>100000004</value>' +
+								'<value>100000005</value>' +
+								'<value>100000000</value>' +
+								'</condition>' +
+								'</filter>' +
+								'</link-entity>' +
+								'</entity>' +
+								'</fetch>';
+
+            var fetchOppOpen = '<fetch distinct="true" mapping="logical" output-format="xml-platform" version="1.0">' +
+								'<entity name="opportunity">' +
+								'<attribute name="name"/>' +
+								'<attribute name="customerid"/>' +
+								'<attribute name="estimatedvalue"/>' +
+								'<attribute name="new_opportunityid"/>' +
+								'<attribute name="statecode"/>' +
+								'<attribute name="ownerid"/>' +
+								'<attribute name="new_opportunitytypeopp"/>' +
+								'<attribute name="estimatedclosedate"/>' +
+								'<attribute name="actualvalue"/>' +
+								'<attribute name="actualclosedate"/>' +
+								'<attribute name="salesstagecode"/>' +
+								'<attribute name="new_softtekmarket"/>' +
+								'<attribute name="new_marketscope_opp"/>' +
+								'<attribute name="new_forecaststatus"/>' +
+								'<attribute name="new_softtekvertical1"/>' +
+								'<attribute name="new_softtekcountryopp"/>' +
+								'<attribute name="new_multiyearopp"/>' +
+								'<attribute name="new_newcustomerinyear"/>' +
+								'<attribute name="new_serviceoffering"/>' +
+								'<attribute name="opportunityid"/>' +
+								'<attribute name="new_salespracticeownerid"/>' +
+								'<attribute name="new_deliverymodelopp"/>' +
+								'<attribute name="new_projectid"/>' +
+								'<attribute name="new_estimatedprojectduration"/>' +
+								'<order descending="false" attribute="name"/>' +
+								'<filter type="and">' +
+								'<condition attribute="statecode" value="0" operator="eq"/>' +
+								'<condition attribute="new_softtekmarket" value="' + SofttekMarketId + '" operator="eq"/>' +
+								'<condition attribute="new_forecaststatus" operator="in">' +
+								'<value>100000002</value>' +
+								'<value>100000001</value>' +
+								'</condition>' +
+								'</filter>' +
+								'</entity>' +
+								'</fetch>';
+
+            var OppWonDetail = XrmServiceToolkit.Soap.Fetch(fetchOppWon);
+            var OppOpenDetail = XrmServiceToolkit.Soap.Fetch(fetchOppOpen);
+            var consolidationDate = $("#DateInput").datepicker('getDate');
+
+            if (OppWonDetail.length > 0) {
+                for (var oppCount = 0; oppCount < OppWonDetail.length; oppCount++) {
+                    var OpoprtunityId = OppWonDetail[oppCount].id;
+                    // Get the Orders and Revenue Plannings for the opportunity
+                    var sfetchOrder = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="salesorder"><attribute name="name"/><attribute name="customerid"/><attribute name="ordernumber"/><attribute name="quoteid"/><attribute name="opportunityid"/><attribute name="new_statusreason"/><attribute name="salesorderid"/><order attribute="ordernumber" descending="false"/><filter type="and"><condition attribute="opportunityid" operator="eq" uitype="opportunity" value="' + OpoprtunityId + '"/></filter></entity></fetch>';
+                    var OrderDetail = XrmServiceToolkit.Soap.Fetch(sfetchOrder);
+                    var sfetchPlanning = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="new_revenueplanning"><attribute name="new_year"/><attribute name="new_tot_year"/><attribute name="new_rev_12"/><attribute name="new_rev_11"/><attribute name="new_rev_10"/><attribute name="new_rev_09"/><attribute name="new_rev_08"/><attribute name="new_rev_07"/><attribute name="new_rev_06"/><attribute name="new_rev_05"/><attribute name="new_rev_04"/><attribute name="new_rev_03"/><attribute name="new_rev_02"/><attribute name="new_rev_01"/><attribute name="ownerid"/><attribute name="new_oppid"/><attribute name="new_revenueplanningid"/><attribute name="new_duration"/><order attribute="new_oppid" descending="false"/><filter type="and"><condition attribute="new_oppid" operator="eq"  uitype="opportunity" value="' + OpoprtunityId + '"/></filter><link-entity name="opportunity" from="opportunityid" to="new_oppid" visible="false" link-type="outer" alias="a_0f43f12d4139e411abab6c3be5a8c0e8"><attribute name="new_opportunityid"/></link-entity></entity></fetch>';
+                    var PlanningDetail = XrmServiceToolkit.Soap.Fetch(sfetchPlanning);
+                    if (PlanningDetail.length > 0) {
+                        // Scroll trough all the Revenue plannings found
+                        for (var revPlanCount = 0; revPlanCount < PlanningDetail.length; revPlanCount++)
+                            var createRevenueForecastDetail = CreateRevenueForecast(OppWonDetail[oppCount], PlanningDetail[revPlanCount], OrderDetail[0], consolidationDate);
+                    }
+                }
+            }
+            if (OppOpenDetail.length > 0) {
+                for (var oppCount = 0; oppCount < OppOpenDetail.length; oppCount++) {
+                    var OpoprtunityId = OppOpenDetail[oppCount].id;
+                    // Get the Orders and Revenue Plannings for the opportunity
+                    var sfetchOrder = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="salesorder"><attribute name="name"/><attribute name="customerid"/><attribute name="ordernumber"/><attribute name="quoteid"/><attribute name="opportunityid"/><attribute name="new_statusreason"/><attribute name="salesorderid"/><order attribute="ordernumber" descending="false"/><filter type="and"><condition attribute="opportunityid" operator="eq" uitype="opportunity" value="' + OpoprtunityId + '"/></filter></entity></fetch>';
+                    var OrderDetail = XrmServiceToolkit.Soap.Fetch(sfetchOrder);
+                    var sfetchPlanning = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="new_revenueplanning"><attribute name="new_year"/><attribute name="new_tot_year"/><attribute name="new_rev_12"/><attribute name="new_rev_11"/><attribute name="new_rev_10"/><attribute name="new_rev_09"/><attribute name="new_rev_08"/><attribute name="new_rev_07"/><attribute name="new_rev_06"/><attribute name="new_rev_05"/><attribute name="new_rev_04"/><attribute name="new_rev_03"/><attribute name="new_rev_02"/><attribute name="new_rev_01"/><attribute name="ownerid"/><attribute name="new_oppid"/><attribute name="new_revenueplanningid"/><attribute name="new_duration"/><order attribute="new_oppid" descending="false"/><filter type="and"><condition attribute="new_oppid" operator="eq"  uitype="opportunity" value="' + OpoprtunityId + '"/></filter><link-entity name="opportunity" from="opportunityid" to="new_oppid" visible="false" link-type="outer" alias="a_0f43f12d4139e411abab6c3be5a8c0e8"><attribute name="new_opportunityid"/></link-entity></entity></fetch>';
+                    var PlanningDetail = XrmServiceToolkit.Soap.Fetch(sfetchPlanning);
+                    if (PlanningDetail.length > 0) {
+                        // Scroll trough all the Revenue plannings found
+                        for (var revPlanCount = 0; revPlanCount < PlanningDetail.length; revPlanCount++)
+                            var createRevenueForecastDetail = CreateRevenueForecast(OppOpenDetail[oppCount], PlanningDetail[revPlanCount], OrderDetail[0], consolidationDate);
+                    }
+                }
+            }
+            if (OppOpenDetail.length == 0 && OppWonDetail.length == 0)
+                alert('There were no Planned records to insert.');
+            // Start the Backlog Processing...     
+            if (fileBacklog != "")
+                CreateRevenueForecastBacklog(fileBacklog, SofttekMarketId, consolidationDate);
+        }
+    }
+    window.close();
+
+}
+
+XrmSolutions.FillNameForecastDropDown.OnChange = function () {
+    var $selMarket = document.getElementById("selMarket");
+    var $MarketId = $selMarket.options[$selMarket.selectedIndex].value;
+
+    var sFetch = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true"><entity name="new_revenueforecast">' +
+   '<attribute name="new_revenueforecastid"/><attribute name="new_name"/><attribute name="createdon"/><attribute name="new_projectid"/>' +
+   '<attribute name="ownerid"/><attribute name="new_order"/><attribute name="new_opportunitytype"/><attribute name="new_opportunity"/>' +
+   '<attribute name="new_softtekvertical"/><attribute name="new_softtekmarket"/><attribute name="new_serviceoffering"/>' +
+   '<attribute name="new_marketscope"/><attribute name="new_duration"/><order attribute="new_name" descending="false"/>' +
+   '<filter type="and"><condition attribute="statecode" operator="eq" value="0"/>';
+
+    if ($MarketId != 0) {
+        sFetch += '<condition attribute="new_softtekmarket" operator="eq" value="' + $MarketId + '"/>';
+    }
+    sFetch += '</filter></entity></fetch>';
+
+    var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+    var $selName = document.getElementById("selName");
+
+    //clean object   
+    if ($selName.options.length > 0) {
+        for (i = $selName.options.length - 1; i >= 0; i--) {
+            $selName.remove(i)
+        }
+    }
+
+    //Insert new items from Fetch    
+    var item = 0;
+    for (var detailCount = 0; detailCount < detail.length; detailCount++) {
+        var $newOption = document.createElement('option');
+        var existValue = false;
+
+        for (var j = 0; $selName.options.length > 0 && j < $selName.options.length; j++) {
+            if ($selName[j].text == detail[detailCount].attributes['new_name'].value)
+                existValue = true;
+        }
+
+        if (!existValue) {
+            $newOption.text = detail[detailCount].attributes['new_name'].value;
+            $newOption.value = item;
+            $selName.add($newOption);
+            item++;
+        }
+    }
+};
+
+XrmSolutions.CreateRevenueForecast.OnLoad = function () {
+
+    var XrmToolkit = "/WebResources/new_XrmServiceToolkit";
+    var url = Xrm.Page.context.getClientUrl() + XrmToolkit;
+    var jqueryBlockUI = "/WebResources/new_jqueryBlockUI";
+    var url1 = Xrm.Page.context.getClientUrl() + jqueryBlockUI;
+    var jqueryUI_min = "/WebResources/new_jqueryUI_min";
+    var url2 = Xrm.Page.context.getClientUrl() + jqueryUI_min;
+    var papaparse = '/WebResources/new_papaparse.js';
+    var url3 = Xrm.Page.context.getClientUrl() + papaparse;
+    var xlsxtojs = '/WebResources/new_xlsx.core.min';
+    var url4 = Xrm.Page.context.getClientUrl() + xlsxtojs;
+
+    LoadScript(url);
+    LoadScript(url1);
+    LoadScript(url2);
+    LoadScript(url3);
+    LoadScript(url4);
+    FillMarketDropDown();
+
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    var today = mm + '/' + dd + '/' + yyyy;
+    document.getElementById("DateInput").value = today;
+
+};
+
+XrmSolutions.CloseRevenueForecast.OnLoad = function () {
+
+    var XrmToolkit = "/WebResources/new_XrmServiceToolkit";
+    var url = Xrm.Page.context.getClientUrl() + XrmToolkit;
+    var jqueryBlockUI = "/WebResources/new_jqueryBlockUI";
+    var url1 = Xrm.Page.context.getClientUrl() + jqueryBlockUI;
+    var jqueryUI_min = "/WebResources/new_jqueryUI_min";
+    var url2 = Xrm.Page.context.getClientUrl() + jqueryUI_min;
+
+    LoadScript(url);
+    LoadScript(url1);
+    LoadScript(url2);
+
+    FillMarketDropDown();
+    XrmSolutions.FillNameForecastDropDown.OnChange();
+
+    $("#btnClose").click(function () {
+
+        var $selMarket = document.getElementById("selMarket");
+        var $MarketId = $selMarket.options[$selMarket.selectedIndex].value;
+        var $MarketText = $selMarket.options[$selMarket.selectedIndex].text;
+        var $selName = document.getElementById("selName");
+        var $closeDate = document.getElementById("DateInput").value;
+        var $NameText;
+        var forecast = {};
+        var flag = false;
+        var result = true;
+        var hasAlert = false;
+        if ($selName.options.length > 0)
+            $NameText = $selName.options[$selName.selectedIndex].text;
+
+        if ($MarketId == 0 /*|| $MarketText.search("--") != -1*/) {
+            alert("Please choose a Softtek Market");
+            hasAlert = true;
+        }
+
+        if ($selName.options.length == 0) {
+            alert("Please choose a Name");
+            hasAlert = true;
+        }
+
+        if (!Date.parse($closeDate)) {
+            alert("The Date Completed format is not correct.");
+            hasAlert = true;
+        }
+
+        if ($closeDate == null || $closeDate == '') {
+
+        }
+
+        if (!hasAlert) {
+                        var sFetch = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="new_revenueforecast">' +
+           '<attribute name="new_revenueforecastid"/><attribute name="new_name"/><attribute name="createdon"/><attribute name="statuscode"/>' +
+           '<attribute name="statecode"/><attribute name="new_opportunitytype"/><attribute name="new_opportunity"/><attribute name="new_duration"/>' +
+           '<attribute name="new_deliverymodel"/><attribute name="new_datecompleted"/><attribute name="new_deliverymanager"/><attribute name="new_account"/>' +
+           '<attribute name="new_softtekmarket"/><order attribute="new_name" descending="false"/><filter type="and">' +
+           '<condition attribute="new_softtekmarket" operator="eq" value="' + $MarketId + '"/>' +
+           '<condition attribute="new_name" operator="eq" value="' + $NameText + '"/>' +
+           '<condition attribute="statecode" operator="eq" value="0"/>' +
+           '</filter></entity></fetch>';
+            /* StateCode 0 - Open; StateCode 1 - Qualified; StateCode 2 -Disqualified */
+            var stateCode = 1;
+            /*StatusCode 2 - closed*/
+            var statusCode = 2;
+            var DateCompleted = new Date($closeDate);
+            var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+            alert(detail.length + " Records Closed for " + $NameText);
+            var RecordID;
+            for (var detailCount = 0; detailCount < detail.length; detailCount++) {
+                RecordID = detail[detailCount].attributes['new_revenueforecastid'].value;
+                forecast.new_closed = result;
+                forecast.new_DateCompleted = DateCompleted;
+                
+                XrmServiceToolkit.Rest.Update(
+                    RecordID,
+                    forecast,
+                    "new_revenueforecastSet",
+                    function () {
+                    },
+                    function (error) {
+                        alert("Error = " + error);
+                    },
+                    false);
+                flag = true;
+            }
+            window.close();
+            $.unblockUI();
+        }
+
+    });
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    var today = mm + '/' + dd + '/' + yyyy;
+    document.getElementById("DateInput").value = today;
+
+
+    // location.reload();
+
+};
+
+function changeRevenueForecastStatus(RecordID, stateCode, statusCode) {
+    try {
+        var EntityName = "new_revenueforecast";
+        var txtResp = "";
+        var serverUrl = Xrm.Page.context.getClientUrl();
+        // create the SetState request
+        var request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">";
+        request += "<s:Body>";
+        request += "<Execute xmlns=\"http://schemas.microsoft.com/xrm/2011/Contracts/Services\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\">";
+        request += "<request i:type=\"b:SetStateRequest\" xmlns:a=\"http://schemas.microsoft.com/xrm/2011/Contracts\" xmlns:b=\"http://schemas.microsoft.com/crm/2011/Contracts\">";
+        request += "<a:Parameters xmlns:c=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">";
+        request += "<a:KeyValuePairOfstringanyType>";
+        request += "<c:key>EntityMoniker</c:key>";
+        request += "<c:value i:type=\"a:EntityReference\">";
+        request += "<a:Id>" + RecordID + "</a:Id>";
+        request += "<a:LogicalName>" + EntityName + "</a:LogicalName>";
+        request += "<a:Name i:nil=\"true\" />";
+        request += "</c:value>";
+        request += "</a:KeyValuePairOfstringanyType>";
+        request += "<a:KeyValuePairOfstringanyType>";
+        request += "<c:key>State</c:key>";
+        request += "<c:value i:type=\"a:OptionSetValue\">";
+        request += "<a:Value>" + stateCode + "</a:Value>";
+        request += "</c:value>";
+        request += "</a:KeyValuePairOfstringanyType>";
+        request += "<a:KeyValuePairOfstringanyType>";
+        request += "<c:key>Status</c:key>";
+        request += "<c:value i:type=\"a:OptionSetValue\">";
+        request += "<a:Value>" + statusCode + "</a:Value>";
+        request += "</c:value>";
+        request += "</a:KeyValuePairOfstringanyType>";
+        request += "</a:Parameters>";
+        request += "<a:RequestId i:nil=\"true\" />";
+        request += "<a:RequestName>SetState</a:RequestName>";
+        request += "</request>";
+        request += "</Execute>";
+        request += "</s:Body>";
+        request += "</s:Envelope>";
+
+        //send set state request
+        var req = new XMLHttpRequest();
+
+        url = serverUrl;
+        req.open("POST", url, false)
+        // Responses will return XML. It isn't possible to return JSON.
+        req.setRequestHeader("Accept", "application/xml, text/xml, */*");
+        req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+        req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
+
+        req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+                req.onreadystatechange = null; //Addresses potential memory leak issue with IE
+
+                if (req.status == 200) {
+                    //Success				
+                    txtResp = req.responseText;
+                    LoadScript('https://onesofttekdev.crm.dynamics.com//WebResources/new_XrmServiceToolkit');
+                }
+                else {
+                    alert(_getError(req.responseText));
+                }
+            }
+        };
+        req.send(request);
+    }
+    catch (err) {
+        alert("changeRevenueForecastStatus " + err.toString());
+    }
+}
+
+/////******************************************** Create Adjustment *************************************************
+
+function assignResponse(req) {
+    if (req.readyState == 4) {
+        if (req.status == 200) {
+            alert('The Opportunity has been copied succesfully');
+        }
+    }
+}
+
+function Refresh() {
+    window.location.reload();
+}
+
+function CreateAdjustment() {
+
+    var RevForecastId;
+    var CreatedRF;
+    //Creates an Revenue Forecast copy from the form  
+    var RFCurrency = Xrm.Page.getAttribute("transactioncurrencyid").getValue()[0].id
+    var RFOwner = Xrm.Page.getAttribute("ownerid").getValue();
+    var RFOpportunity = Xrm.Page.getAttribute("new_opportunity").getValue();
+    var RFQuote = Xrm.Page.getAttribute("new_quote").getValue();
+    var RFOrder = Xrm.Page.getAttribute("new_order").getValue();
+    var RFAccount = Xrm.Page.getAttribute("new_account").getValue();
+    var RFBdm = Xrm.Page.getAttribute("new_bdm").getValue();
+    var RFProjectID = Xrm.Page.getAttribute("new_projectid").getValue();
+    var ReportType = Xrm.Page.getAttribute("new_reporttype").getValue();
+    var DateConsolidation = Xrm.Page.getAttribute("new_consolidationdate").getValue();
+    var RFTotYear = parseFloat(0.00).toFixed(2);
+    var createRevenueforecastDetail = {};
+    //************************** from Revenue Planning  ***********************************    
+    createRevenueforecastDetail.new_rev01 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev02 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_03 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_04 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_05 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_06 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_07 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_08 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_09 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_10 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_11 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_rev_12 = { Value: parseFloat(0.00).toFixed(2) };
+    createRevenueforecastDetail.new_Year = Xrm.Page.getAttribute("new_year").getValue();
+    createRevenueforecastDetail.new_total_year = { Value: RFTotYear };
+    //************************** from Opp  ***********************************
+    createRevenueforecastDetail.new_MarketScope = { Value: Xrm.Page.getAttribute("new_marketscope").getValue() };
+    createRevenueforecastDetail.new_SofttekMarket = { Value: Xrm.Page.getAttribute("new_softtekmarket").getValue() };
+    createRevenueforecastDetail.new_SofttekVertical = { Value: Xrm.Page.getAttribute("new_softtekvertical").getValue() };
+    createRevenueforecastDetail.new_ServiceOffering = { Value: Xrm.Page.getAttribute("new_serviceoffering").getValue() };
+    if (Xrm.Page.getAttribute("new_deliverymodel").getValue() != null)
+        createRevenueforecastDetail.new_DeliveryModel = { Value: Xrm.Page.getAttribute("new_deliverymodel").getValue() };
+    createRevenueforecastDetail.new_Duration = Xrm.Page.getAttribute("new_duration").getValue();
+    if (Xrm.Page.getAttribute("new_opportunitytype").getValue() != null)
+        createRevenueforecastDetail.new_OpportunityType = { Value: Xrm.Page.getAttribute("new_opportunitytype").getValue() };
+    if (RFCurrency != null)
+        createRevenueforecastDetail.TransactionCurrencyId = { Id: RFCurrency, LogicalName: "transactioncurrency" };
+    if (RFOpportunity != null)
+        createRevenueforecastDetail.new_Opportunity = { Id: RFOpportunity[0].id, LogicalName: "opportunity" };
+    createRevenueforecastDetail.new_Account = { Id: RFAccount[0].id, LogicalName: "account" };
+    if (RFBdm != null)
+        createRevenueforecastDetail.new_BDM = { Id: RFBdm[0].id, LogicalName: "systemuser" };
+    if (RFQuote != null)
+        createRevenueforecastDetail.new_Quote = { Id: RFQuote[0].id, LogicalName: "quote" };
+    if (RFProjectID != null)
+        createRevenueforecastDetail.new_ProjectID = RFProjectID;;
+    //************************** from Order  ***********************************
+    if (RFOrder != null)
+        createRevenueforecastDetail.new_Order = { Id: RFOrder[0].id, LogicalName: "salesorder" };
+    //****************  Revenue Forecast NEW Information *****************************
+    createRevenueforecastDetail.OwnerId = { Id: RFOwner[0].id, LogicalName: "systemuser" };
+    createRevenueforecastDetail.new_Type = { Value: 100000002 };
+    createRevenueforecastDetail.new_name = Xrm.Page.getAttribute("new_name").getValue();
+    createRevenueforecastDetail.new_ReportType = { Value: ReportType };
+    createRevenueforecastDetail.new_ConsolidationDate = DateConsolidation;
+
+
+    XrmServiceToolkit.Rest.Create(createRevenueforecastDetail, "new_revenueforecastSet",
+   function (result) {
+       RevForecastId = result.new_revenueforecastId;
+       CreatedRF = "The Revenue Forecast has been copied succesfully. ";
+       alert(CreatedRF);
+   }, function (error) { alert("Error " + error); }, false);
+
+    if (RevForecastId != "") {
+        Xrm.Utility.openEntityForm("new_revenueforecast", RevForecastId);
+    }
+
+}
+
+function CreateRevForecastFromGrid(entityId) {
+    var item = null;
+    if (entityId != null && entityId != "") {
+        entityId = entityId.replace("{", "").replace("}", "");
+        var sFetch = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="new_revenueforecast"><attribute name="new_revenueforecastid"/><attribute name="new_reporttype"/><attribute name="new_consolidationdate"/><attribute name="transactioncurrencyid"/><attribute name="new_name"/><attribute name="createdon"/><attribute name="new_year"/><attribute name="new_type"/><attribute name="new_total_year"/><attribute name="statuscode"/><attribute name="statecode"/><attribute name="new_softtekvertical"/><attribute name="new_softtekmarket"/><attribute name="new_serviceoffering"/><attribute name="new_quote"/><attribute name="new_projectname"/><attribute name="new_projectid"/><attribute name="ownerid"/><attribute name="new_order"/><attribute name="new_opportunitytype"/><attribute name="new_opportunity"/><attribute name="modifiedon"/><attribute name="modifiedby"/><attribute name="new_marketscope"/><attribute name="exchangerate"/><attribute name="new_duration"/><attribute name="new_deliverymodel"/><attribute name="new_deliverymanager"/><attribute name="createdby"/><attribute name="new_bdm"/><attribute name="new_adm"/><attribute name="new_account"/><order attribute="new_name" descending="false"/><filter type="and"><condition attribute="new_revenueforecastid" operator="eq" uiname="RF-0362015" uitype="new_revenueforecast" value="' + entityId + '"/></filter></entity></fetch>';
+        var detail = XrmServiceToolkit.Soap.Fetch(sFetch);
+        var createRevenueforecastDetail = {};
+        ///************************** from Revenue Planning  ***********************************
+        createRevenueforecastDetail.new_rev01 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev02 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_03 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_04 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_05 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_06 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_07 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_08 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_09 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_10 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_11 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_rev_12 = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.new_Year = detail[0].attributes["new_year"].value;
+        createRevenueforecastDetail.new_total_year = { Value: parseFloat(0.00).toFixed(2) };
+        createRevenueforecastDetail.OwnerId = { Id: detail[0].attributes["ownerid"].id, LogicalName: "systemuser" };
+        detail[0].attributes.new_reporttype.value
+        ///************************** from Opp  ***********************************
+        createRevenueforecastDetail.new_MarketScope = { Value: detail[0].attributes["new_marketscope"].value };
+        createRevenueforecastDetail.new_SofttekVertical = { Value: detail[0].attributes["new_softtekvertical"].value };
+        createRevenueforecastDetail.new_SofttekMarket = { Value: detail[0].attributes["new_softtekmarket"].value };
+        if (typeof (detail[0].attributes.transactioncurrencyid) != 'undefined')
+            createRevenueforecastDetail.TransactionCurrencyId = { Id: detail[0].attributes.transactioncurrencyid.id, LogicalName: "transactioncurrency" };
+        createRevenueforecastDetail.new_ServiceOffering = { Value: detail[0].attributes["new_serviceoffering"].value };
+        if (typeof (detail[0].attributes["new_deliverymodel"]) != 'undefined')
+            createRevenueforecastDetail.new_DeliveryModel = { Value: detail[0].attributes["new_deliverymodel"].value };
+        if (typeof (detail[0].attributes["new_opportunitytype"]) != 'undefined')
+            createRevenueforecastDetail.new_OpportunityType = { Value: detail[0].attributes["new_opportunitytype"].value };
+        if (typeof (detail[0].attributes["new_opportunity"]) != 'undefined')
+            createRevenueforecastDetail.new_Opportunity = { Id: detail[0].attributes["new_opportunity"].id, LogicalName: "opportunity" };
+        createRevenueforecastDetail.new_Account = { Id: detail[0].attributes["new_account"].id, LogicalName: "account" };
+        if (typeof (detail[0].attributes["new_duration"]) != 'undefined')
+            createRevenueforecastDetail.new_Duration = detail[0].attributes["new_duration"].value;
+        if (typeof (detail[0].attributes["new_bdm"]) != 'undefined')
+            createRevenueforecastDetail.new_BDM = { Id: detail[0].attributes["new_bdm"].id, LogicalName: "systemuser" };
+        if (typeof (detail[0].attributes["new_quote"]) != 'undefined')
+            createRevenueforecastDetail.new_Quote = { Id: detail[0].attributes["new_quote"].id, LogicalName: "quote" };
+        if (typeof (detail[0].attributes["new_projectid"]) != 'undefined')
+            createRevenueforecastDetail.new_ProjectID = detail[0].attributes["new_projectid"].value;
+        ///************************** from Order  ***********************************
+        if (typeof (detail[0].attributes["new_order"]) != 'undefined')
+            createRevenueforecastDetail.new_Order = { Id: detail[0].attributes["new_order"].id, LogicalName: "salesorder" };
+        //****************  Revenue Forecast NEW Information *****************************
+        if (typeof (detail[0].attributes.new_reporttype) != 'undefined')
+            createRevenueforecastDetail.new_ReportType = { Value: detail[0].attributes.new_reporttype.value };
+        if (typeof (detail[0].attributes.new_consolidationdate) != 'undefined')
+            createRevenueforecastDetail.new_ConsolidationDate = detail[0].attributes.new_consolidationdate.value;
+        createRevenueforecastDetail.new_Type = { Value: 100000002 };
+        createRevenueforecastDetail.new_name = detail[0].attributes["new_name"].value;
+
+
+        XrmServiceToolkit.Rest.Create(createRevenueforecastDetail, "new_revenueforecastSet", function (result) {
+            RevForecastId = result.new_revenueforecastId;
+            CreatedRF = "The Revenue Forecast has been copied succesfully. ";
+            alert(CreatedRF);
+        }, function (error) { alert("Error " + error); }, false);
+    }
+    //Creates an RevenueForecast copy from the Grid
+    if (RevForecastId != "") {
+        Xrm.Utility.openEntityForm("new_revenueforecast", RevForecastId);
+    }
+}

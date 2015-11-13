@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>4206</returnedtypecode>
+  <savedqueryid>{0255fba3-8e5b-4000-8609-7c3f31388cde}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4206" jump="subject" select="1" icon="1" preview="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="300" />
+        <cell name="actualend" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="incidentresolution">
+        <attribute name="subject" />
+        <attribute name="actualend" />
+        <attribute name="activityid" />
+        <order attribute="actualend" descending="true" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Case Resolution Advanced Find View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda avanzada de resolución del caso" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

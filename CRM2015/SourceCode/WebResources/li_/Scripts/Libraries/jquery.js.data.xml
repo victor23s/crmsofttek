@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{df42e94a-4e2b-e111-82cb-5c260afc36d8}</WebResourceId>
+  <Name>li_/Scripts/Libraries/jquery.js</Name>
+  <DisplayName>JS - Library - jquery</DisplayName>
+  <Description>The jQuery v1.7.1 library.</Description>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0.0.5</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <FileName>/WebResources/li_ScriptsLibrariesjqueryjsDF42E94A-4E2B-E111-82CB-5C260AFC36D8</FileName>
+</WebResource>

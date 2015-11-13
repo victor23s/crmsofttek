@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<visualization>
+  <savedqueryvisualizationid>{A16CE766-5693-DE11-97D4-00155DA3B01E}</savedqueryvisualizationid>
+  <datadescription>
+    <datadefinition>
+      <fetchcollection>
+        <fetch mapping="logical" aggregate="true">
+          <entity name="lead">
+            <attribute groupby="true" alias="groupby_column" name="leadqualitycode" />
+            <attribute alias="aggregate_column" name="fullname" aggregate="count" />
+          </entity>
+        </fetch>
+      </fetchcollection>
+      <categorycollection>
+        <category>
+          <measurecollection>
+            <measure alias="aggregate_column" />
+          </measurecollection>
+        </category>
+      </categorycollection>
+    </datadefinition>
+  </datadescription>
+  <presentationdescription>
+    <Chart Palette="BrightPastel">
+      <Series>
+        <Series _Template_="All" Color="153, 204, 255" BorderColor="164, 164, 164" BorderDashStyle="Solid" BorderWidth="1" ShadowColor="128, 128, 128, 128" ShadowOffset="1" IsValueShownAsLabel="true" Font="Tahoma, 6.75pt" BackGradientStyle="TopBottom" BackSecondaryColor="0, 102, 153" LabelForeColor="100, 100, 100" ChartType="Column">
+          <SmartLabelStyle Enabled="True" />
+          <Points />
+        </Series>
+      </Series>
+      <ChartAreas>
+        <ChartArea _Template_="All" BackColor="White" BorderColor="26, 59, 105" BorderWidth="0" BorderDashStyle="Solid">
+          <AxisY LineColor="204, 204, 204" TitleFont="Tahoma, 8pt, GdiCharSet=0" TitleForeColor="100, 100, 100" LabelAutoFitMaxFontSize="7" LabelAutoFitMinFontSize="7">
+            <MajorTickMark LineColor="Gray" />
+            <MajorGrid Enabled="false" />
+            <LabelStyle Font="Tahoma, 6.75pt, GdiCharSet=0" ForeColor="100, 100, 100" />
+          </AxisY>
+          <AxisX LineColor="204, 204, 204" TitleFont="Tahoma, 8pt, GdiCharSet=0" TitleForeColor="100, 100, 100" LabelAutoFitMaxFontSize="7" LabelAutoFitMinFontSize="7">
+            <MajorTickMark LineColor="Gray" />
+            <MajorGrid Enabled="false" />
+            <LabelStyle Font="Tahoma, 6.75pt, GdiCharSet=0" ForeColor="100, 100, 100" />
+          </AxisX>
+        </ChartArea>
+      </ChartAreas>
+      <Titles>
+        <Title _Template_="All" Font="Tahoma, 9pt, style=Bold, GdiCharSet=0" ForeColor="100, 100, 100" />
+      </Titles>
+      <BorderSkin PageColor="Control" BackColor="CornflowerBlue" BackSecondaryColor="CornflowerBlue" />
+    </Chart>
+  </presentationdescription>
+  <isdefault>0</isdefault>
+  <LocalizedNames>
+    <LocalizedName description="My Leads by Rating" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Shows the total number of your individual leads and their importance." languagecode="1033" />
+  </Descriptions>
+  <IntroducedVersion>1.0</IntroducedVersion>
+</visualization>

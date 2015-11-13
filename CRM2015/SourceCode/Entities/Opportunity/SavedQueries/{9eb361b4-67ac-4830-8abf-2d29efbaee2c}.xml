@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>3</returnedtypecode>
+  <savedqueryid>{9eb361b4-67ac-4830-8abf-2d29efbaee2c}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="3" jump="name" select="1" preview="0" icon="1">
+      <row name="result" id="opportunityid">
+        <cell name="name" width="150" />
+        <cell name="new_opportunityid" width="100" />
+        <cell name="customerid" width="100" />
+        <cell name="new_opportunitytypeopp" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="transactioncurrencyid" width="100" />
+        <cell name="estimatedvalue" width="100" />
+        <cell name="estimatedclosedate" width="100" />
+        <cell name="actualvalue" width="100" />
+        <cell name="actualclosedate" width="100" />
+        <cell name="salesstagecode" width="100" />
+        <cell name="new_forecaststatus" width="100" />
+        <cell name="new_marketscope_opp" width="100" />
+        <cell name="new_softtekmarket" width="100" />
+        <cell name="new_softtekcountryopp" width="100" />
+        <cell name="new_softtekvertical1" width="100" />
+        <cell name="new_serviceoffering" width="100" />
+        <cell name="new_multiyearopp" width="100" />
+        <cell name="new_newcustomerinyear" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>64</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="opportunity">
+        <attribute name="name" />
+        <attribute name="customerid" />
+        <attribute name="opportunityid" />
+        <attribute name="ownerid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="ne" value="1" />
+        </filter>
+        <order attribute="new_opportunityid" descending="false" />
+        <attribute name="new_opportunityid" />
+        <attribute name="new_opportunitytypeopp" />
+        <attribute name="statecode" />
+        <attribute name="transactioncurrencyid" />
+        <attribute name="estimatedvalue" />
+        <attribute name="estimatedclosedate" />
+        <attribute name="actualvalue" />
+        <attribute name="actualclosedate" />
+        <attribute name="salesstagecode" />
+        <attribute name="new_forecaststatus" />
+        <attribute name="new_marketscope_opp" />
+        <attribute name="new_softtekmarket" />
+        <attribute name="new_softtekcountryopp" />
+        <attribute name="new_softtekvertical1" />
+        <attribute name="new_serviceoffering" />
+        <attribute name="new_multiyearopp" />
+        <attribute name="new_newcustomerinyear" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Opportunity Lookup View" languagecode="1033" />
+    <LocalizedName description="Vista de búsqueda de oportunidades" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

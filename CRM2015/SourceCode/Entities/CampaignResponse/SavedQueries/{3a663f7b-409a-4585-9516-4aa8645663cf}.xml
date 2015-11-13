@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>4401</returnedtypecode>
+  <savedqueryid>{3a663f7b-409a-4585-9516-4aa8645663cf}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="4401" jump="subject" select="1" icon="1" preview="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="250" />
+        <cell name="regardingobjectid" width="150" />
+        <cell name="responsecode" width="100" />
+        <cell name="prioritycode" width="100" />
+        <cell name="firstname" width="100" />
+        <cell name="lastname" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="campaignresponse">
+        <attribute name="subject" />
+        <order attribute="subject" descending="false" />
+        <attribute name="responsecode" />
+        <attribute name="regardingobjectid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="prioritycode" />
+        <attribute name="lastname" />
+        <attribute name="firstname" />
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Open Campaign Responses" languagecode="1033" />
+    <LocalizedName description="Respuestas de campa?a abiertas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

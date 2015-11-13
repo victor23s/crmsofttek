@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{3e977739-b75d-45a7-99dc-6778020acfde}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{7ce1f0ee-ebe7-4f3a-85f0-34b1cf84332a}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{d83cc6f7-21aa-4509-b1c4-94b2bcb6c2a9}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{0d800959-5147-44f7-8ba4-8fe41ac5e5a6}">
+                      <labels>
+                        <label description="Subject" languagecode="1033" />
+                        <label description="Asunto" languagecode="3082" />
+                      </labels>
+                      <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
+                    </cell>
+                    <cell id="{EC16ECD5-015C-4EFA-83FA-414FC38B3255}">
+                      <labels>
+                        <label description="Optional Attendees" languagecode="1033" />
+                        <label description="Asistentes opcionales" languagecode="3082" />
+                      </labels>
+                      <control id="optionalattendees" classid="{CBFB742C-14E7-4a17-96BB-1A13F7F64AA2}" datafieldname="optionalattendees" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{47ED030D-CE82-4AAC-B91C-7C9659BE3348}">
+                      <labels>
+                        <label description="Required Attendees" languagecode="1033" />
+                        <label description="Participantes requeridos" languagecode="3082" />
+                      </labels>
+                      <control id="requiredattendees" classid="{CBFB742C-14E7-4a17-96BB-1A13F7F64AA2}" datafieldname="requiredattendees" disabled="false" />
+                    </cell>
+                    <cell id="{02ff5121-4085-420a-9278-bc5d963eedee}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8FCC3C9E-1694-4EA3-92BB-17331916A42D}">
+                      <labels>
+                        <label description="Regarding" languagecode="1033" />
+                        <label description="Referente a" languagecode="3082" />
+                      </labels>
+                      <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false" />
+                    </cell>
+                    <cell id="{1346d67a-685b-4d07-a6ef-6b2904e9261d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{920C0EA1-A087-4713-98EF-BD1419FFB010}">
+                      <labels>
+                        <label description="Category SFTK" languagecode="1033" />
+                      </labels>
+                      <control id="new_categorysftk" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_categorysftk" disabled="false" />
+                    </cell>
+                    <cell id="{12644302-af55-44cc-91a1-d3cbb30a508b}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{63455CD5-3C38-4B85-A8FC-9E2D6CC74CAB}">
+                      <labels>
+                        <label description="Sub-Category SFTK" languagecode="1033" />
+                      </labels>
+                      <control id="new_subcategorysftk" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="new_subcategorysftk" disabled="false" />
+                    </cell>
+                    <cell id="{94bd0776-f95a-4e68-9c97-0689b50ce91d}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{68967816-59be-4482-a096-3b4c813e7b6b}">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                        <label description="Estado" languagecode="3082" />
+                      </labels>
+                      <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                    </cell>
+                    <cell id="{316e28ac-542e-4c7b-ba1b-0bcbdaa2dc2a}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{6b44d9bb-7861-4a9e-8ffa-afb5409cb99d}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                        <label description="Propietario" languagecode="3082" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                    <cell id="{2ed987d9-a316-4e05-b804-8d9a60d43f02}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{012DE85F-CBE9-43CB-A2C4-41DCDE8E6BBA}">
+                      <labels>
+                        <label description="Required Attendees" languagecode="1033" />
+                        <label description="Participantes requeridos" languagecode="3082" />
+                      </labels>
+                      <control id="requiredattendees" classid="{CBFB742C-14E7-4a17-96BB-1A13F7F64AA2}" datafieldname="requiredattendees" disabled="false" />
+                    </cell>
+                    <cell id="{8aa14674-7fb6-4cfb-ba83-75be73eb40c7}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ABDB4646-0714-4A8A-B7C9-7D26F2884AE1}">
+                      <labels>
+                        <label description="Optional Attendees" languagecode="1033" />
+                        <label description="Asistentes opcionales" languagecode="3082" />
+                      </labels>
+                      <control id="optionalattendees" classid="{CBFB742C-14E7-4a17-96BB-1A13F7F64AA2}" datafieldname="optionalattendees" disabled="false" />
+                    </cell>
+                    <cell id="{5b94ad19-d67d-45fb-bd53-43b9ad744059}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7EAA5520-CF7D-4711-A2EA-DDA36DB60287}">
+                      <labels>
+                        <label description="Location" languagecode="1033" />
+                        <label description="Ubicación" languagecode="3082" />
+                      </labels>
+                      <control id="location" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="location" disabled="false" />
+                    </cell>
+                    <cell id="{a319341a-a9e1-4215-bea7-ab60090a18be}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{F53F8BE2-07C3-448E-A6EC-D85EF5108C11}">
+                      <labels>
+                        <label description="Location" languagecode="1033" />
+                        <label description="Ubicación" languagecode="3082" />
+                      </labels>
+                      <control id="location" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="location" disabled="false" />
+                    </cell>
+                    <cell id="{4665aca6-55e6-4e6d-9c2f-052cdb31ade7}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{6A7A39D7-6F29-4EDB-A908-32E2C673F8D2}">
+                      <labels>
+                        <label description="Regarding" languagecode="1033" />
+                        <label description="Referente a" languagecode="3082" />
+                      </labels>
+                      <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false" />
+                    </cell>
+                    <cell id="{7769d43e-f464-44c1-9804-d546fc8ac0e1}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{d79b88e0-23ba-40d9-a099-97b787f9a5bf}">
+                      <labels>
+                        <label description="Start Time" languagecode="1033" />
+                        <label description="Hora de inicio" languagecode="3082" />
+                      </labels>
+                      <control id="scheduledstart" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledstart" disabled="false" />
+                    </cell>
+                    <cell id="{6b5bfb11-1423-450d-a33a-b9de9fc92cd4}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{2fb77616-a384-4931-8fee-2b98c64c6ced}">
+                      <labels>
+                        <label description="End Time" languagecode="1033" />
+                        <label description="Hora de finalización" languagecode="3082" />
+                      </labels>
+                      <control id="scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" disabled="false" />
+                    </cell>
+                    <cell id="{a66817bd-f653-4ee0-8edc-86b9c2c37998}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{F2573C34-AF77-4EB9-8042-83FC181EDA43}">
+                      <labels>
+                        <label description="Duration" languagecode="1033" />
+                        <label description="Duración" languagecode="3082" />
+                      </labels>
+                      <control id="scheduleddurationminutes" classid="{AA987274-CE4E-4271-A803-66164311A958}" datafieldname="scheduleddurationminutes" disabled="false" />
+                    </cell>
+                    <cell id="{1c6e5936-9073-41dd-8258-f24c08cf8518}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c0785c6b-e869-4085-99bf-26673e2bf688}">
+                      <labels>
+                        <label description="Appointment Type" languagecode="1033" />
+                        <label description="Tipo de cita" languagecode="3082" />
+                      </labels>
+                      <control id="instancetypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="instancetypecode" disabled="false" />
+                    </cell>
+                    <cell id="{6d37ab7d-508c-42ab-b58d-10c8f4bb9da4}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4D856FBC-9B46-495C-9B2A-74EC9F3E5395}">
+                      <labels>
+                        <label description="Effort" languagecode="1033" />
+                      </labels>
+                      <control id="new_actualeffort" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="new_actualeffort" disabled="false" />
+                    </cell>
+                    <cell id="{dbcbce99-6f34-4fa4-ac97-68d401dbf348}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5853F14C-9496-4A4B-9C5E-3524E599D38D}">
+                      <labels>
+                        <label description="Description" languagecode="1033" />
+                        <label description="Descripción" languagecode="3082" />
+                      </labels>
+                      <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" />
+                    </cell>
+                    <cell id="{a6ee9121-539a-47ad-88c6-222f249a4102}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{14EB1ABC-7DC1-44EE-BFA4-3E038866ABB4}">
+                      <labels>
+                        <label description="Priority" languagecode="1033" />
+                        <label description="Prioridad" languagecode="3082" />
+                      </labels>
+                      <control id="prioritycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="prioritycode" disabled="false" />
+                    </cell>
+                    <cell id="{aa8fa22a-2ea3-4440-b4ce-d2a8b22e8872}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

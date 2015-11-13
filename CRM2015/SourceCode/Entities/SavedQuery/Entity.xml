@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="View" OriginalName="View">SavedQuery</Name>
+  <ObjectTypeCode>1039</ObjectTypeCode>
+  <FormXml />
+  <RibbonDiffXml />
+</Entity>

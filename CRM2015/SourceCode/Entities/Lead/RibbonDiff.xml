@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="new.lead.Button1.Button.CustomAction" Location="Mscrm.Form.lead.MainTab.Save.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.lead.Button1.Button.Alt" Command="new.lead.SaveLead.Command" Description="Save" Id="new.lead.Button1.Button" Image32by32="$webresource:new_Save32x" Image16by16="$webresource:new_Save16x" LabelText="$LocLabels:new.lead.Button1.Button.LabelText" Sequence="15" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.lead.Button1.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.lead.Button1.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.lead.Button5.Button.CustomAction" Location="Mscrm.HomepageGrid.lead.MainTab.Actions.Controls._children" Sequence="3">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.lead.Button5.Button.Alt" Command="new.lead.Command4.Command" Description="Qualify" Id="new.lead.Button5.Button" Image32by32="/_imgs/ribbon/ConvertLead_32.png" Image16by16="/_imgs/ribbon/ConvertLead_16.png" LabelText="$LocLabels:new.lead.Button5.Button.LabelText" Sequence="3" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.lead.Button5.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.lead.Button5.Button.ToolTipDescription" ModernImage="Qualify" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.lead.ButtonCustQualify.Button.CustomAction" Location="Mscrm.Form.lead.MainTab.Actions.Controls._children" Sequence="3">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:new.lead.ButtonCustQualify.Button.Alt" Command="Mscrm.Form.Lead.QualifyFlyout" Id="new.lead.ButtonCustQualify.Button" Image32by32="/_imgs/ribbon/ConvertLead_32.png" Image16by16="/_imgs/ribbon/ConvertLead_16.png" LabelText="$LocLabels:new.lead.ButtonCustQualify.Button.LabelText" Sequence="3" TemplateAlias="o1" ToolTipTitle="$LocLabels:new.lead.ButtonCustQualify.Button.ToolTipTitle" ToolTipDescription="$LocLabels:new.lead.ButtonCustQualify.Button.ToolTipDescription" ModernImage="Qualify" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="new.Mscrm.Form.lead.ConvertLeadAs.CustomAction" Location="Mscrm.Form.lead.MainTab.Actions.Controls._children" Sequence="8">
+      <CommandUIDefinition>
+        <FlyoutAnchor Alt="$Resources:Ribbon.Form.opportunity.MainTab.Actions.Convert" Command="Mscrm.Form.Lead.QualifyFlyout" Id="Mscrm.Form.lead.ConvertLeadAs" Image16by16="/_imgs/ribbon/ConvertLead_16.png" Image32by32="/_imgs/ribbon/ConvertLead_32.png" LabelText="$Resources:Ribbon.Form.opportunity.MainTab.Actions.Convert" PopulateDynamically="true" PopulateQueryCommand="Mscrm.DynamicMenu.Form.QualifyAs" Sequence="8" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.Form.Lead.MainTab.Actions.Convert.ToolTipTitle" ToolTipDescription="$Resources:Ribbon.Tooltip.ConvertLead" ModernImage="Qualify" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.Form.lead.ConvertLeadAs.Hide" Location="Mscrm.Form.lead.ConvertLeadAs" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.lead.ConvertLeadQuick.Hide" Location="Mscrm.Form.lead.ConvertLeadQuick" />
+    <HideCustomAction HideActionId="new.Mscrm.Form.lead.Save.Hide" Location="Mscrm.Form.lead.Save" />
+    <CustomAction Id="new.Mscrm.HomepageGrid.lead.ConvertLeadAs.CustomAction" Location="Mscrm.HomepageGrid.lead.MainTab.Actions.Controls._children" Sequence="7">
+      <CommandUIDefinition>
+        <FlyoutAnchor Alt="$Resources:Ribbon.Form.opportunity.MainTab.Actions.Convert" Command="Mscrm.Lead.QualifyFlyout" Id="Mscrm.HomepageGrid.lead.ConvertLeadAs" Image16by16="/_imgs/ribbon/ConvertLead_16.png" Image32by32="/_imgs/ribbon/ConvertLead_32.png" LabelText="$Resources:Ribbon.Form.opportunity.MainTab.Actions.Convert" PopulateDynamically="true" PopulateQueryCommand="Mscrm.DynamicMenu.Grid.QualifyAs" Sequence="7" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.Form.Lead.MainTab.Actions.Convert.ToolTipTitle" ToolTipDescription="$Resources:Ribbon.Tooltip.ConvertLead" ModernImage="Qualify" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.lead.ConvertLeadAs.Hide" Location="Mscrm.HomepageGrid.lead.ConvertLeadAs" />
+    <HideCustomAction HideActionId="new.Mscrm.HomepageGrid.lead.ConvertLeadQuick.Hide" Location="Mscrm.HomepageGrid.lead.ConvertLeadQuick" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.Form.Lead.QualifyFlyout">
+      <EnableRules>
+        <EnableRule Id="Mscrm.LeadIsOpen" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="CustomQualify" Library="$webresource:new_LeadsCustomQualify" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.HomepageGrid.lead.ConvertQuick">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWriteLead" />
+        <DisplayRule Id="Mscrm.CanCreateAccount" />
+        <DisplayRule Id="Mscrm.CanCreateContact" />
+        <DisplayRule Id="Mscrm.LeadIsOpen" />
+        <DisplayRule Id="Mscrm.DynamicMenu.NewRecord.opportunity" />
+        <DisplayRule Id="Mscrm.SingleQualifyStatusCode" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="new.lead.Command4.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="new.lead.OnlyOneRecord.EnableRule" />
+        <EnableRule Id="new.lead.LoadScript.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="QualifyFromGrid" Library="$webresource:new_LeadsCustomQualify">
+          <CrmParameter Value="FirstSelectedItemId" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.lead.CustQualify.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="new.lead.DisplayRule1.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="CustomQualify" Library="$webresource:new_LeadsCustomQualify" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="new.lead.SaveLead.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="new.lead.DisplayRule1.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="SaveRefresh" Library="$webresource:new_QuoteSave" />
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.CanCreateAccount">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" EntityName="account" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanCreateContact">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" EntityName="contact" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWriteLead">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" EntityName="lead" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.DynamicMenu.NewRecord.opportunity">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" EntityName="opportunity" />
+        <EntityPrivilegeRule PrivilegeType="Append" PrivilegeDepth="Basic" EntityName="opportunity" />
+        <OrRule>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" EntityName="account" />
+          </Or>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" EntityName="contact" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.LeadIsOpen">
+        <FormStateRule State="Existing" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.MultipleQualifyStatusCodes">
+        <OptionSetRule OptionSet="lead_statuscode" StateCode="1" ObjectTypeCode="4" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SingleQualifyStatusCode">
+        <OptionSetRule OptionSet="lead_statuscode" StateCode="1" ObjectTypeCode="4" />
+      </DisplayRule>
+      <DisplayRule Id="new.lead.DisplayRule0.DisplayRule">
+        <FormStateRule State="Create" />
+      </DisplayRule>
+      <DisplayRule Id="new.lead.DisplayRule1.DisplayRule">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.LeadIsOpen">
+        <FormStateRule State="Existing" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.SelectionCountAtLeastOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.RibbonActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/RibbonActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="new.lead.EnableRule0.EnableRule">
+        <FormStateRule State="Create" />
+      </EnableRule>
+      <EnableRule Id="new.lead.LoadScript.EnableRule">
+        <CustomRule FunctionName="LoadXrmServiceToolkitScript" Library="$webresource:new_Opp_Ribbon_Functions_2" />
+      </EnableRule>
+      <EnableRule Id="new.lead.OnlyOneRecord.EnableRule">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" Maximum="1" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="new.lead.Button1.Button.Alt">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.Button1.Button.LabelText">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.Button1.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.Button1.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Save" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.Button5.Button.Alt">
+      <Titles>
+        <Title description="Qualify" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.Button5.Button.LabelText">
+      <Titles>
+        <Title description="Qualify" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.Button5.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Create a new opportunity with an account or a contact using information from this lead. &lt;br&gt;&lt;br&gt;When the lead is converted, it is saved as qualified in the Closed Leads view." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.Button5.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Qualify" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.ButtonCustQualify.Button.Alt">
+      <Titles>
+        <Title description="Qualify" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.ButtonCustQualify.Button.LabelText">
+      <Titles>
+        <Title description="Qualify" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.ButtonCustQualify.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Create a new opportunity with an account or a contact using information from this lead. &lt;br&gt;&lt;br&gt;When the lead is converted, it is saved as qualified in the Closed Leads view." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="new.lead.ButtonCustQualify.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Qualify" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

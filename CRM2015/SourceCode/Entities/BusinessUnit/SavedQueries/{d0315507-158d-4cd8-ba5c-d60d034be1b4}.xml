@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>10</returnedtypecode>
+  <savedqueryid>{d0315507-158d-4cd8-ba5c-d60d034be1b4}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="10" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="businessunitid">
+        <cell name="name" width="300" />
+        <cell name="address1_telephone1" width="150" />
+        <cell name="websiteurl" width="150" />
+        <cell name="parentbusinessunitid" width="300" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="businessunit">
+        <order attribute="name" descending="false" />
+        <attribute name="name" />
+        <attribute name="address1_telephone1" />
+        <attribute name="websiteurl" />
+        <attribute name="parentbusinessunitid" />
+        <attribute name="businessunitid" />
+        <filter type="and">
+          <condition attribute="isdisabled" operator="eq" value="1" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Inactive Business Units" languagecode="1033" />
+    <LocalizedName description="Unidades de negocio inactivas" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

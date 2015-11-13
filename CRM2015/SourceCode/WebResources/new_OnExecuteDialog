@@ -1,0 +1,27 @@
+var $utilityLibrary = "../WebResources/new_DynamicDialog";
+var $xmlHttp = new XMLHttpRequest();
+$xmlHttp.open("GET", $utilityLibrary, false);
+$xmlHttp.send();
+eval($xmlHttp.responseText);
+
+function openDialog() {
+    showModalDialog("https://softtek1.crm.dynamics.com//WebResources/new_OnExecuteDialog_html");
+};
+
+if (typeof(STK) == "undefined") {
+    STK = {
+        __namespace: true
+    };
+}
+if (typeof(STK.Dialogs) == "undefined") {
+    STK.Dialogs = {
+        __namespace: true
+    };
+}
+STK.Dialogs.POC = {
+    onLoad: function (entityName) {},
+    onNameChange: function () {
+        alert("onNameChange");
+    },
+    __namespace: true
+};

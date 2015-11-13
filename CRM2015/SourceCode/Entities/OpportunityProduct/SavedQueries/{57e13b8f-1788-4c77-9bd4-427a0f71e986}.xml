@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>1083</returnedtypecode>
+  <savedqueryid>{57e13b8f-1788-4c77-9bd4-427a0f71e986}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="opportunityproducts" object="1083" jump="" select="1" icon="1" preview="1">
+      <row name="opportunityproduct" id="opportunityproductid">
+        <cell name="productid" width="200" />
+        <cell name="productdescription" width="200" />
+        <cell name="priceperunit" width="100" />
+        <cell name="quantity" width="100" />
+        <cell name="extendedamount" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="opportunityproduct">
+        <attribute name="productid" />
+        <attribute name="priceperunit" />
+        <attribute name="quantity" />
+        <attribute name="extendedamount" />
+        <attribute name="opportunityproductid" />
+        <order attribute="productid" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Opportunity Product Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de productos de oportunidades" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about products included in an opportunity in the detail form of the associated opportunity record. This view is in the Products side tab." languagecode="1033" />
+    <Description description="Muestra información de productos incluidos en una oportunidad en el formulario detallado del registro de oportunidad asociado. Esta vista está en la ficha lateral Productos." languagecode="3082" />
+  </Descriptions>
+</savedquery>

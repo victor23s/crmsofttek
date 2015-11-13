@@ -1,0 +1,93 @@
+﻿<template><text><![CDATA[<p>Dear ]]></text><slugs><slug><entity>lead</entity><attribute>fullname</attribute></slug><default></default></slugs><text><![CDATA[ , </p><p>During the ]]></text><slugs><slug><entity>lead</entity><attribute>campaignid/@name</attribute></slug><default>De Algun lado</default></slugs><text><![CDATA[  Trade Fair, <span style="line-height:115%;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;font-size:11pt">one
+of your colleagues suggested me to address you this message, once this information is
+related to eCommerce.<span>  </span>According to them,
+you are the right person to make contact with.</span></p><span style="line-height:115%;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;font-size:11pt"><p>Softtek offers a trade system (eProcurement and Marketplace),
+which brings corporate governance simultaneously to a global support, either
+for the direct and indirect purschasing so as well as for the sales force
+independently the relationship (own offices, partners, distributors or
+representatives).</p><p><font face="Times New Roman" size=3>
+
+</font>Some benefits provided by this trade service are:</p><p><font face="Times New Roman" size=3>
+</font></p><table class=MsoTableGrid style="margin:auto auto auto 5.4pt;border:currentColor;border-collapse:collapse" border=1 cellspacing=0 cellpadding=0><font face="Times New Roman">
+ </font><tbody><tr><font face="Times New Roman">
+  </font><td width=274 valign=top style="background:rgb(141, 179, 226);padding:0cm 5.4pt;border:1pt solid windowtext;width:205.55pt"><font face="Times New Roman" size=3>
+  </font><p align=center class=MsoNormal style="margin:0cm 0cm 0pt;text-align:center;line-height:normal"><font size=3>Procurement</font></p><font face="Times New Roman" size=3>
+  </font></td><font face="Times New Roman">
+  </font><td width=293 valign=top style="background:rgb(141, 179, 226);border-width:1pt 1pt 1pt 0px;border-style:solid solid solid none;padding:0cm 5.4pt;width:219.9pt"><font face="Times New Roman" size=3>
+  </font><p align=center class=MsoNormal style="margin:0cm 0cm 0pt;text-align:center;line-height:normal"><font size=3>Marketplace</font></p><font face="Times New Roman" size=3>
+  </font></td><font face="Times New Roman">
+ </font></tr><font face="Times New Roman">
+ </font><tr><font face="Times New Roman">
+  </font><td width=274 valign=top style="border-width:0px 1pt 1pt;border-style:none solid solid;border-color:rgb(0, 0, 0) windowtext windowtext;padding:0cm 5.4pt;width:205.55pt;background-color:transparent"><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpFirst style="margin:0cm 0cm 0pt 17.6pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Softtek seeks &amp; negotiates with the local
+  suppliers on your behalf</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 17.6pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Reduce costs &amp; risks of inventories</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 17.6pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Increase quality of raw material</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 17.6pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Optimize operational procedures</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 17.6pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Minimize delivery time</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 17.6pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Avoid mistakes and frauds</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 17.6pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Permanent assessment of supplier support</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 17.6pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Objective information for future negotiations</font></p><font face="Times New Roman" size=3>
+  </font></td><font face="Times New Roman">
+  </font><td width=293 valign=top style="border-width:0px 1pt 1pt 0px;border-style:none solid solid none;padding:0cm 5.4pt;width:219.9pt;background-color:transparent"><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 22.95pt;line-height:normal;text-indent:-18pt"><font size=3><span style="font-family:Symbol"><span>·<span style="font:7pt/normal &quot;Times New Roman&quot;;font-size-adjust:none;font-stretch:normal"><font face=Symbol> </font></span></span></span>Being closer to customer</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 22.95pt;line-height:normal;text-indent:-18pt"><font size=3><span style="font-family:Symbol"><span>·<span style="font:7pt/normal &quot;Times New Roman&quot;;font-size-adjust:none;font-stretch:normal"><font face=Symbol> </font></span></span></span>Reduce time for closing negotiations</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 22.95pt;line-height:normal;text-indent:-18pt"><font size=3><span style="font-family:Symbol"><span>·<span style="font:7pt/normal &quot;Times New Roman&quot;;font-size-adjust:none;font-stretch:normal"><font face=Symbol> </font></span></span></span>Better service to customer</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 22.95pt;line-height:normal;text-indent:-18pt"><font size=3><span style="font-family:Symbol"><span>·<span style="font:7pt/normal &quot;Times New Roman&quot;;font-size-adjust:none;font-stretch:normal"><font face=Symbol> </font></span></span></span>Full control and support for global sales
+  force</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 22.95pt;line-height:normal;text-indent:-18pt"><font size=3><span style="font-family:Symbol"><span>·<span style="font:7pt/normal &quot;Times New Roman&quot;;font-size-adjust:none;font-stretch:normal"><font face=Symbol> </font></span></span></span>Mobile devices support (tablets &amp; smartphones)</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 22.95pt;line-height:normal;text-indent:-18pt"><font size=3><span style="font-family:Symbol"><span>·<span style="font:7pt/normal &quot;Times New Roman&quot;;font-size-adjust:none;font-stretch:normal"><font face=Symbol> </font></span></span></span>Complete &amp; actual catalog info in local
+  currency and language</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpMiddle style="margin:0cm 0cm 0pt 22.95pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Implementation of Marketing campaigns</font></p><font face="Times New Roman" size=3>
+  </font><p class=MsoListParagraphCxSpLast style="margin:0cm 0cm 0pt 22.95pt;line-height:normal;text-indent:-18pt"><span style="font-family:Symbol"><span><font size=3>· </font></span></span><font size=3>Analytic capabilities for markets behaviors
+  and product profitabilities</font></p><font face="Times New Roman" size=3>
+  </font></td><font face="Times New Roman">
+ </font></tr><font face="Times New Roman">
+</font></tbody></table><p><font face="Times New Roman" size=3>
+
+</font></p><p class=MsoNormal style="margin:0cm 0cm 10pt"> </p><p class=MsoNormal style="margin:0cm 0cm 10pt">Please find attached an overview of our services.</p><p class=MsoNormal style="margin:0cm 0cm 10pt">It would be a pleasure for me, to go in-depth explanations
+at your offices in a personal presentation.</p><p><font face="Times New Roman" size=3>
+
+</font>Sincerely yours,</p><p><font face="Times New Roman" size=3>
+
+</font></p></span><p> </p><p class=MsoNormal style="margin:0cm 0cm 0pt"><a name="_MailAutoSig"><b><span style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:10pt">Alejandro
+López-Rodríguez | BRM Business Relationship Manager Germany</span></b></a></p><p class=MsoNormal style="margin:0cm 0cm 0pt"><span><span lang=DE style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:10pt">Softtek GDC EMEA | Wachsbleiche 15| 53111 Bonn, Germany</span></span></p><p class=MsoNormal style="margin:0cm 0cm 0pt"><span><span style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:10pt">M:+49 (0)15 228 60 57 42 |</span></span><span><span style="color:rgb(51, 51, 51);font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:10pt"> </span></span><span></span><a href="http://www.softtek.com/?utm_campaign=emailsignature&amp;utm_source=email&amp;utm_medium=email"><span><span style="color:blue;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:10pt">www.softtek.com</span></span></a><span><u><span style="color:blue;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:10pt"></span></u></span></p><p><font face="Times New Roman" size=3>
+
+</font></p><p class=MsoNormal style="margin:0cm 0cm 0pt"><span><span><font face=Calibri size=3> </font></span></span><a href="http://twitter.com/Softtek"><span><span style="color:blue;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:9pt">twitter.com/Softtek</span></span><span></span></a><span><span style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:9pt"> | </span></span><a href="http://www.linkedin.com/company/Softtek"><span><span style="color:blue;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:9pt">linkedin.com/company/Softtek</span></span><span></span></a><span><span style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:9pt"> | </span></span><a href="http://www.facebook.com/Softtek"><span><span style="color:blue;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:9pt">facebook.com/Softtek</span></span><span></span></a><span><span style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:9pt"> | </span></span><a href="http://feeds.feedburner.com/SofttekBlog"><span><span style="color:blue;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:9pt">feeds.feedburner.com/SofttekBlog</span></span><span></span></a><span><span style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:9pt"> | </span></span><a href="http://www.youtube.com/SofttekTV"><span><span style="color:blue;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:9pt">youtube.com/SofttekTV</span></span><span></span></a><span><span style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:6pt"><br>
+</span></span><span><span style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt">IMPORTANT:
+The documents and files attached to this transmission contain confidential
+information that must be kept secret by law. This information is for the
+exclusive use of the specified recipient whose name appears in this
+transmission. If you have received this message by mistake, please notify us
+immediately by return e-mail and delete the file and its attachments. You are
+hereby notified that any dissemination, copying, distribution or adoption of
+any action arising from the confidential information contained herein is
+strictly prohibited. </span></span><span><span lang=ES style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt">Any violation will be penalized by law.</span></span><span><span lang=ES></span></span></p><p><font face="Times New Roman" size=3>
+
+</font></p><p class=MsoNormal style="margin:0cm 0cm 0pt"><span><span lang=ES style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt">IMPORTANTE: Los documentos y archivos que se acompañan a
+esta transmisión, contienen información confidencial la cual es legalmente
+secreta. Esta información puede ser usada únicamente por el destinatario cuyo
+nombre aparece inserto en esta transmisión. Si usted ha recibido esta
+transmisión por error, notifíquenos inmediatamente por esta misma vía, y borre
+el archivo y sus anexos. Se hace de su conocimiento por medio de esta nota, que
+cualquier divulgación, copia, distribución o toma de cualquier acción derivada
+de la información confiada en esta transmisión, queda estrictamente prohibido.
+El incumplimiento de esto genera responsabilidad legal.<br>
+</span></span><span><span lang=PT-BR style="color:black;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt">IMPORTANTE: Os documentos e arquivos anexados a este
+e-mail contém informações que podem confidenciais. Esta informação é para uso
+exclusivo do destinatário(s) especifico(s) cujo nome(s) aparecer(em) na seção
+de cabeçalho do e-mail. Se você recebeu esta mensagem por engano, por favor,
+notifique o remetente imediatamente pelo retorno da mensagem e delete o arquivo
+e seus anexos. Você está sendo notificado que qualquer divulgação, cópia,
+distribuição ou adoção de qualquer ação decorrente da informação confidencial
+contida neste documento é estritamente proibido. Qualquer violação poderá ser
+processado por lei.</span></span><span><span lang=ES></span></span></p><p><font face="Times New Roman" size=3>
+
+</font></p><p class=MsoNormal style="margin:0cm 0cm 0pt"><a href="http://www.softtek.com/en/privacy-notice?utm_campaign=emailsignature&amp;utm_source=email&amp;utm_medium=email"><span><span lang=PT-BR style="color:blue;line-height:115%;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt">Privacy Notice</span></span><span></span></a><span><span lang=PT-BR style="color:black;line-height:115%;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt"> | </span></span><span></span><a href="http://www.softtek.com/es/aviso-privacidad?utm_campaign=emailsignature&amp;utm_source=email&amp;utm_medium=email"><span><span lang=PT-BR style="color:blue;line-height:115%;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt">Aviso de Privacidad</span></span><span></span></a><span><span lang=PT-BR style="color:black;line-height:115%;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt"> | </span></span><span></span><a href="http://www.softtek.com/pt/aviso-privacidade?utm_campaign=emailsignature&amp;utm_source=email&amp;utm_medium=email"><span><span lang=PT-BR style="color:blue;line-height:115%;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt">Aviso de Privacidade</span></span><span></span></a><span><span lang=ES style="color:black;line-height:115%;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-size:7.5pt"> </span></span><span><span lang=ES></span></span></p><p><font face="Times New Roman" size=3>
+
+<span></span>
+
+
+</font></p><p class=MsoNormal style="margin:0cm 0cm 0pt"><span lang=ES><font face=Calibri size=3> </font></span></p><p><font face="Times New Roman" size=3>
+
+</font></p>]]></text></template>

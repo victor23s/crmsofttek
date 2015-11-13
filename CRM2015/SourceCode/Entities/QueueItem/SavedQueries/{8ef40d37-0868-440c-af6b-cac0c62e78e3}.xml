@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>2029</returnedtypecode>
+  <savedqueryid>{8ef40d37-0868-440c-af6b-cac0c62e78e3}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="queueitems" object="2029" jump="title" select="1" icon="1" preview="1">
+      <row name="queueitem" id="objectid" multiobjectidfield="objecttypecode">
+        <cell name="title" width="200" />
+        <cell name="queueid" width="150" />
+        <cell name="a_cf79ac6ed0e243f8b4514bbf0554999c.new_casetypecase" width="200" disableSorting="1" />
+        <cell name="enteredon" width="140" />
+        <cell name="objecttypecode" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="queueitemid" ishidden="1" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch distinct="false" mapping="logical">
+      <entity name="queueitem">
+        <attribute name="title" />
+        <attribute name="enteredon" />
+        <attribute name="objecttypecode" />
+        <attribute name="queueid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+          <condition attribute="workerid" operator="eq-userid" />
+        </filter>
+        <order attribute="enteredon" descending="true" />
+        <attribute name="statecode" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="queueitemid" />
+        <link-entity alias="a_cf79ac6ed0e243f8b4514bbf0554999c" name="incident" from="incidentid" to="objectid" link-type="outer" visible="false">
+          <attribute name="new_casetypecase" />
+        </link-entity>
+        <attribute name="objectid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Items I am working on" languagecode="1033" />
+    <LocalizedName description="Elementos en los que estoy trabajando" languagecode="3082" />
+  </LocalizedNames>
+</savedquery>

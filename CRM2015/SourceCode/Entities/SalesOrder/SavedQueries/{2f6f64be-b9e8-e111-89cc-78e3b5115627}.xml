@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <returnedtypecode>1088</returnedtypecode>
+  <savedqueryid>{2f6f64be-b9e8-e111-89cc-78e3b5115627}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" object="1088" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="salesorderid">
+        <cell name="ordernumber" width="100" />
+        <cell name="name" width="200" />
+        <cell name="customerid" width="150" />
+        <cell name="opportunityid" width="100" />
+        <cell name="quoteid" width="100" />
+        <cell name="statecode" width="100" />
+        <cell name="new_statusreason" width="100" />
+        <cell name="new_responsibleteam" width="100" />
+        <cell name="new_assignedto" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="new_marketscopeorders" width="100" />
+        <cell name="new_softtekmarketorders" width="100" />
+        <cell name="new_softtekcountryorders" width="100" />
+        <cell name="new_serviceofferingorders" width="100" />
+        <cell name="new_opportunitytypeorders" width="100" />
+        <cell name="new_totalrevenueorders" width="100" />
+        <cell name="transactioncurrencyid" width="100" />
+        <cell name="new_estprojectdurationorders" width="100" />
+        <cell name="new_grossmarginorders" width="100" />
+        <cell name="new_penaltyorders" width="100" />
+        <cell name="new_subcontractors" width="100" />
+        <cell name="new_paymentterms" width="100" />
+        <cell name="new_benefitscenter" width="100" />
+        <cell name="new_profitcenter" width="100" />
+        <cell name="new_invoicingtype" width="100" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="modifiedby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="salesorder">
+        <attribute name="name" />
+        <attribute name="customerid" />
+        <attribute name="ordernumber" />
+        <attribute name="quoteid" />
+        <attribute name="opportunityid" />
+        <attribute name="statecode" />
+        <attribute name="new_responsibleteam" />
+        <attribute name="new_assignedto" />
+        <attribute name="new_totalrevenueorders" />
+        <attribute name="new_softtekmarketorders" />
+        <attribute name="new_softtekcountryorders" />
+        <attribute name="new_serviceofferingorders" />
+        <attribute name="new_opportunitytypeorders" />
+        <attribute name="new_marketscopeorders" />
+        <attribute name="new_subcontractors" />
+        <attribute name="new_penaltyorders" />
+        <attribute name="new_paymentterms" />
+        <attribute name="ownerid" />
+        <attribute name="new_invoicingtype" />
+        <attribute name="new_grossmarginorders" />
+        <attribute name="new_estprojectdurationorders" />
+        <attribute name="transactioncurrencyid" />
+        <attribute name="new_profitcenter" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="new_statusreason" />
+        <order attribute="ordernumber" descending="true" />
+        <filter type="and">
+          <condition attribute="new_statusreason" operator="eq" value="100000015" />
+          <condition attribute="new_softtekmarketorders" operator="eq" value="100000000" />
+        </filter>
+        <attribute name="new_benefitscenter" />
+        <attribute name="salesorderid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Partial Orders - USA &amp; Canada" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

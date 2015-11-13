@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>9106</returnedtypecode>
+  <savedqueryid>{eaed6bc6-d8c2-4d81-b66a-0965a0beddc6}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" object="9106" jump="name" select="1" icon="1" preview="1">
+      <row name="result" id="mailmergetemplateid">
+        <cell name="name" width="300" />
+        <cell name="ispersonal" width="150" />
+        <cell name="templatetypecode" width="100" />
+        <cell name="filename" width="100" />
+        <cell name="filesize" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" no-lock="false" mapping="logical">
+      <entity name="mailmergetemplate">
+        <attribute name="name" />
+        <attribute name="mailmergetemplateid" />
+        <attribute name="ispersonal" />
+        <attribute name="templatetypecode" />
+        <attribute name="filename" />
+        <attribute name="filesize" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <order attribute="name" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Mail Merge Template Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de plantillas de combinación de correspondencia" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about related accounts in the detail form of any associated account record. This view is in the Sub-Accounts side tab." languagecode="1033" />
+    <Description description="Muestra información de cuentas relacionadas en el formulario detallado de un registro de cuenta asociado. Esta vista está en la ficha lateral Subcuentas." languagecode="3082" />
+  </Descriptions>
+</savedquery>

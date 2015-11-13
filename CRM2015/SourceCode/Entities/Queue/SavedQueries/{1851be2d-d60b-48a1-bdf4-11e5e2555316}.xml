@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>2020</returnedtypecode>
+  <savedqueryid>{1851be2d-d60b-48a1-bdf4-11e5e2555316}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="queues" object="2020" jump="name" select="1" icon="1" preview="1">
+      <row name="queue" id="queueid">
+        <cell name="name" width="300" />
+        <cell name="emailaddress" width="200" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch distinct="false" mapping="logical">
+      <entity name="queue">
+        <attribute name="name" />
+        <attribute name="emailaddress" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <order attribute="name" descending="false" />
+        <attribute name="ownerid" />
+        <attribute name="queueid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Queue Associated View" languagecode="1033" />
+    <LocalizedName description="Vista asociada de la cola" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Displays information about related queues in the detail form of any associated entity record." languagecode="1033" />
+    <Description description="Muestra información sobre las colas relacionadas del formulario de detalle de cualquier registro de entidad asociada." languagecode="3082" />
+  </Descriptions>
+</savedquery>

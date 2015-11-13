@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{c3ffe00c-b3ea-4701-8340-120bd58f6376}</formid>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FormPresentation>0</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab name="general" verticallayout="true" id="{ae4d5425-0a17-498a-b143-57d64936d4f1}" IsUserDefined="0">
+        <labels>
+          <label description="General" languagecode="1033" />
+          <label description="General" languagecode="3082" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="account information" showlabel="false" showbar="false" id="{7002315c-d76f-4226-94d1-c0437cec7ccb}" IsUserDefined="0">
+                <labels>
+                  <label description="Information" languagecode="1033" />
+                  <label description="Información" languagecode="3082" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{93457002-4875-410e-93f0-cd6e475c17b4}">
+                      <labels>
+                        <label description="Amount" languagecode="1033" />
+                        <label description="Importe" languagecode="3082" />
+                      </labels>
+                      <control id="amount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="amount" />
+                    </cell>
+                    <cell id="{08cdaf66-aeb5-43db-ae6d-5beb64df1b8c}">
+                      <labels>
+                        <label description="Percentage" languagecode="1033" />
+                        <label description="Porcentaje" languagecode="3082" />
+                      </labels>
+                      <control id="percentage" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="percentage" />
+                    </cell>
+                    <cell id="{ce7be064-06f2-461f-85a9-427a404571d5}">
+                      <labels>
+                        <label description="Price List" languagecode="1033" />
+                        <label description="Lista de precios" languagecode="3082" />
+                      </labels>
+                      <control id="pricelevelid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="pricelevelid" />
+                    </cell>
+                    <cell id="{1190609e-c6d3-455d-acb5-1175ceb41904}">
+                      <labels>
+                        <label description="Pricing Method" languagecode="1033" />
+                        <label description="Método de cálculo de precios" languagecode="3082" />
+                      </labels>
+                      <control id="pricingmethodcode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="pricingmethodcode" />
+                    </cell>
+                    <cell id="{e2903c77-4fd4-4d48-bbe8-d3cc7c12bf32}">
+                      <labels>
+                        <label description="Product" languagecode="1033" />
+                        <label description="Producto" languagecode="3082" />
+                      </labels>
+                      <control id="productid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="productid" />
+                    </cell>
+                    <cell id="{656d8841-76c5-4b41-80b4-a3c49166e834}">
+                      <labels>
+                        <label description="Quantity Selling Option" languagecode="1033" />
+                        <label description="Opción de la unidad de venta" languagecode="3082" />
+                      </labels>
+                      <control id="quantitysellingcode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="quantitysellingcode" />
+                    </cell>
+                    <cell id="{22048aea-9b2a-4911-a26d-e2651dd743c1}">
+                      <labels>
+                        <label description="Rounding Amount" languagecode="1033" />
+                        <label description="Importe de redondeo" languagecode="3082" />
+                      </labels>
+                      <control id="roundingoptionamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="roundingoptionamount" />
+                    </cell>
+                    <cell id="{f34726cc-b861-46f7-8fe6-79998707df9e}">
+                      <labels>
+                        <label description="Rounding Option" languagecode="1033" />
+                        <label description="Opción de redondeo" languagecode="3082" />
+                      </labels>
+                      <control id="roundingoptioncode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="roundingoptioncode" />
+                    </cell>
+                    <cell id="{e98f468c-b828-42f5-b1ce-b47bd9ae5d25}">
+                      <labels>
+                        <label description="Rounding Policy" languagecode="1033" />
+                        <label description="Regla de redondeo" languagecode="3082" />
+                      </labels>
+                      <control id="roundingpolicycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="roundingpolicycode" />
+                    </cell>
+                    <cell id="{28d9883e-f2a3-4f4b-b08c-4c8ead6667b3}">
+                      <labels>
+                        <label description="Unit" languagecode="1033" />
+                        <label description="Unidad" languagecode="3082" />
+                      </labels>
+                      <control id="uomid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="uomid" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+  </form>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+    <LocalizedName description="Información" languagecode="3082" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This is the form that is displayed for the CRM Mobile application." languagecode="1033" />
+    <Description description="Este es el formulario que se muestra para la aplicación CRM Mobile." languagecode="3082" />
+  </Descriptions>
+</systemform>

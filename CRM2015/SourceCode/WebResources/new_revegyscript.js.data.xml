@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{e9331a9b-589c-e211-b76d-78e7d162ce29}</WebResourceId>
+  <Name>new_revegyscript.js</Name>
+  <DisplayName>Revegy Script</DisplayName>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/new_revegyscriptjsE9331A9B-589C-E211-B76D-78E7D162CE29</FileName>
+</WebResource>

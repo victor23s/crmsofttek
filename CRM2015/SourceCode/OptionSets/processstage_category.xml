@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="processstage_category" localizedName="Stage Category" description="Category of the process stage.">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>6.0.0.0</IntroducedVersion>
+  <displaynames>
+    <displayname description="Stage Category" languagecode="1033" />
+    <displayname description="Categoría de fase" languagecode="3082" />
+  </displaynames>
+  <Descriptions>
+    <Description description="Category of the process stage." languagecode="1033" />
+    <Description description="Categoría de la fase de proceso." languagecode="3082" />
+  </Descriptions>
+  <options>
+    <option value="100000000">
+      <labels>
+        <label description="Suspect" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000001">
+      <labels>
+        <label description="Prospect" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000002">
+      <labels>
+        <label description="Proposal" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000003">
+      <labels>
+        <label description="Negotiation" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="100000004">
+      <labels>
+        <label description="Deal" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="0">
+      <labels>
+        <label description="Qualify" languagecode="1033" />
+        <label description="Calificar" languagecode="3082" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="1">
+      <labels>
+        <label description="Develop" languagecode="1033" />
+        <label description="Desarrollar" languagecode="3082" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="2">
+      <labels>
+        <label description="Propose" languagecode="1033" />
+        <label description="Proponer" languagecode="3082" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="3">
+      <labels>
+        <label description="Close" languagecode="1033" />
+        <label description="Cerrar" languagecode="3082" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="4">
+      <labels>
+        <label description="Identify" languagecode="1033" />
+        <label description="Identificar" languagecode="3082" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="5">
+      <labels>
+        <label description="Research" languagecode="1033" />
+        <label description="Investigación" languagecode="3082" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="6">
+      <labels>
+        <label description="Resolve" languagecode="1033" />
+        <label description="Resolver" languagecode="3082" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

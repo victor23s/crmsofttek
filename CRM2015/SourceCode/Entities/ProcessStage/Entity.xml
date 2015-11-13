@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Process Stage" OriginalName="">ProcessStage</Name>
+  <ObjectTypeCode>4724</ObjectTypeCode>
+  <RibbonDiffXml />
+</Entity>

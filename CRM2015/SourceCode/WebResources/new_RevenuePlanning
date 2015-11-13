@@ -1,0 +1,169 @@
+/// <reference path="XrmPageTemplate.js" />
+/// <reference path="new_softtek_scripts_util_dynamicform.js" />
+/// <reference path="new_XrmServiceToolkit" />
+function retrieveRecord(odataSetName, recordId) {
+    var jSonArray = new Array();
+    var context = Xrm.Page.context;
+    var serverUrl = context.getClientUrl();
+    var ODATA_ENDPOINT = "/XRMServices/2011/OrganizationData.svc";
+
+    //odataSetName is required, i.e. "AccountSet"
+    if (!odataSetName) {
+        alert("odataSetName is required.");
+        return;
+    }
+
+    //Build the URI
+    var odataUri = serverUrl + ODATA_ENDPOINT + "/" + odataSetName + "Set(guid'" + recordId + "')";
+
+    //Asynchronous AJAX function to Retrieve CRM records using OData
+    $.ajax({
+        type: "GET",
+        async: false,
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        url: odataUri,
+        beforeSend: function (XMLHttpRequest) {
+            //Specifying this header ensures that the results will be returned as JSON.
+            XMLHttpRequest.setRequestHeader("Accept", "application/json");
+        },
+        success: function (data, textStatus, XmlHttpRequest) {
+            //alert("success");
+            if (data && data.d != null) {
+                jSonArray.push(data.d);
+            }
+
+            //alert(jSonArray[0].Name);
+        },
+        error: function (XmlHttpRequest, textStatus, errorThrown) {
+            alert("Error : " + textStatus + ": " + xmlHttpRequest.statusText);
+        }
+    });
+
+    return jSonArray;
+}
+
+function UsrHasRole(roleName) {
+    //debugger;
+    var currentUserRoles = Xrm.Page.context.getUserRoles();
+    var currentUserName = Xrm.Page.context.getUserName();
+
+    //alert("currentUserName = " + currentUserName);
+    for (var i = 0; i < currentUserRoles.length; i++) {
+        var userRole = currentUserRoles[i];
+        var items;
+
+        items = retrieveRecord("Role", userRole);
+
+        if (items != null) for (var j = 0; j < items.length; j++) {
+            //alert("UsrRole = " + items[j]["Name"]);
+            if (items[j]["Name"] == roleName) {
+                return true;
+            }
+        }
+    }
+}
+
+function UserRevenuePlanningAllowed() {
+    var allowed = false;
+
+    if (UsrHasRole("System Administrator") || UsrHasRole("SFTK CRM HELP DESK") || UsrHasRole("SFTK PIC")) { //|| UsrHasRole("STK FORECAST")
+        allowed = true;
+    }
+
+    //alert("allowed = " + allowed);
+    return allowed;
+}
+
+function Load() {
+    var result = UserRevenuePlanningAllowed();
+    var context = Xrm.Page.context;
+    if (result == true) {
+        Xrm.Page.getControl("new_year").setDisabled(false);
+        Xrm.Page.getControl("new_duration").setDisabled(false);
+        Xrm.Page.getControl("new_tot_year").setDisabled(false);
+        Xrm.Page.getControl("new_rev_01").setDisabled(false);
+        Xrm.Page.getControl("new_rev_02").setDisabled(false);
+        Xrm.Page.getControl("new_rev_03").setDisabled(false);
+        Xrm.Page.getControl("new_rev_04").setDisabled(false);
+        Xrm.Page.getControl("new_rev_05").setDisabled(false);
+        Xrm.Page.getControl("new_rev_06").setDisabled(false);
+        Xrm.Page.getControl("new_rev_07").setDisabled(false);
+        Xrm.Page.getControl("new_rev_08").setDisabled(false);
+        Xrm.Page.getControl("new_rev_09").setDisabled(false);
+        Xrm.Page.getControl("new_rev_10").setDisabled(false);
+        Xrm.Page.getControl("new_rev_11").setDisabled(false);
+        Xrm.Page.getControl("new_rev_12").setDisabled(false);
+        Xrm.Page.getControl("transactioncurrencyid").setDisabled(false);
+        Xrm.Page.getControl("new_oppid").setDisabled(false);
+    }
+}
+function validate() {
+    var total = 0.00;
+    var monto = 0.00;
+    var _year = Xrm.Page.getAttribute("new_year").getValue();
+    var _duration = Xrm.Page.getAttribute("new_duration").getValue();
+    var _totYear = Xrm.Page.getAttribute("new_tot_year").getValue();
+    var _rev1 = Xrm.Page.getAttribute("new_rev_01").getValue();
+    var _rev2 = Xrm.Page.getAttribute("new_rev_02").getValue();
+    var _rev3 = Xrm.Page.getAttribute("new_rev_03").getValue();
+    var _rev4 = Xrm.Page.getAttribute("new_rev_04").getValue();
+    var _rev5 = Xrm.Page.getAttribute("new_rev_05").getValue();
+    var _rev6 = Xrm.Page.getAttribute("new_rev_06").getValue();
+    var _rev7 = Xrm.Page.getAttribute("new_rev_07").getValue();
+    var _rev8 = Xrm.Page.getAttribute("new_rev_08").getValue();
+    var _rev9 = Xrm.Page.getAttribute("new_rev_09").getValue();
+    var _rev10 = Xrm.Page.getAttribute("new_rev_10").getValue();
+    var _rev11 = Xrm.Page.getAttribute("new_rev_11").getValue();
+    var _rev12 = Xrm.Page.getAttribute("new_rev_12").getValue();
+
+    if (_rev1 == null || _rev1 == "") {
+        _rev1 = 0.00;
+        Xrm.Page.getAttribute("new_rev_01").setValue(_rev1);
+    }
+    if (_rev2 == null || _rev2 == "") {
+        _rev2 = 0.00;
+        Xrm.Page.getAttribute("new_rev_02").setValue(_rev2);
+    }
+    if (_rev3 == null || _rev3 == "") {
+        _rev3 = 0.00;
+        Xrm.Page.getAttribute("new_rev_03").setValue(_rev3);
+    }
+    if (_rev4 == null || _rev4 == "") {
+        _rev4 = 0.00;
+        Xrm.Page.getAttribute("new_rev_04").setValue(_rev4);
+    }
+    if (_rev5 == null || _rev5 == "") {
+        _rev5 = 0.00;
+        Xrm.Page.getAttribute("new_rev_05").setValue(_rev5);
+    }
+    if (_rev6 == null || _rev6 == "") {
+        _rev6 = 0.00;
+        Xrm.Page.getAttribute("new_rev_06").setValue(_rev6);
+    }
+    if (_rev7 == null || _rev7 == "") {
+        _rev7 = 0.00;
+        Xrm.Page.getAttribute("new_rev_07").setValue(_rev7);
+    }
+    if (_rev8 == null || _rev8 == "") {
+        _rev8 = 0.00;
+        Xrm.Page.getAttribute("new_rev_08").setValue(_rev8);
+    }
+    if (_rev9 == null || _rev9 == "") {
+        _rev9 = 0.00;
+        Xrm.Page.getAttribute("new_rev_09").setValue(_rev9);
+    }
+    if (_rev10 == null || _rev10 == "") {
+        _rev10 = 0.00;
+        Xrm.Page.getAttribute("new_rev_10").setValue(_rev10);
+    }
+    if (_rev11 == null || _rev11 == "") {
+        _rev11 = 0.00;
+        Xrm.Page.getAttribute("new_rev_11").setValue(_rev11);
+    }
+    if (_rev12 == null || _rev12 == "") {
+        _rev12 = 0.00;
+        Xrm.Page.getAttribute("new_rev_12").setValue(_rev12);
+    }
+
+}
